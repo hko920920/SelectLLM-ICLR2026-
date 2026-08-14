@@ -1,3 +1,5 @@
 PRAA-E frozen sealed-remainder execution trigger
 Date: 2026-08-14 Asia/Seoul
-Protocol and thresholds remain unchanged.
+Attempt: 2
+Authorized technical change: full checkout history only.
+Protocol, data, models, thresholds, seeds, gates, and label boundary remain unchanged.

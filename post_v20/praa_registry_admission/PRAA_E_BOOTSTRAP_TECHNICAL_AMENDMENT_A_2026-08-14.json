@@ -1,0 +1,37 @@
+{
+  "schema": "praa-e.bootstrap.technical_amendment.v1",
+  "date": "2026-08-14",
+  "amendment": "A",
+  "classification": "TECHNICAL_SHALLOW_CHECKOUT_FAILURE_BEFORE_ARTIFACT_OR_DATA_ACCESS",
+  "failed_run": {
+    "run_id": 31808898320,
+    "head_sha": "220cd73ad13a86f4c4bdf371c3b3db2e3ad35514",
+    "failure": "The bootstrap runner invoked git merge-base --is-ancestor against the frozen base commit, but actions/checkout used the default shallow depth and the base commit was not present.",
+    "artifact_id": 9222292192,
+    "artifact_digest": "sha256:b1a5a11368dd743c7ca7015021fb128fb627d274a53fd9173b8afe8d08a874c0"
+  },
+  "information_boundary": {
+    "runtime_bundle_reconstructed": false,
+    "scientific_code_extracted": false,
+    "stage1_public_artifact_downloaded": false,
+    "stage3_artifact_downloaded": false,
+    "any_task_input_read": false,
+    "any_model_loaded": false,
+    "any_model_inference_executed": false,
+    "sealed_label_artifact_downloaded": false,
+    "any_label_read": false,
+    "any_scientific_gate_evaluated": false,
+    "any_outcome_computed": false
+  },
+  "authorized_fix": {
+    "change": "Set actions/checkout fetch-depth to 0 so the already frozen base commit is available for the ancestry check.",
+    "scientific_settings_changed": false,
+    "tasks_changed": false,
+    "data_changed": false,
+    "models_or_endpoints_changed": false,
+    "thresholds_or_gates_changed": false,
+    "seeds_changed": false,
+    "label_boundary_changed": false
+  },
+  "rerun_authorization": "One exact rerun is authorized with full Git history and otherwise identical frozen transport, runtime bundle, task, data, endpoints, thresholds, seeds, gates, and label boundary."
+}
