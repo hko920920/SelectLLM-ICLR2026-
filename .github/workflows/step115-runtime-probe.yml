@@ -48,16 +48,18 @@ jobs:
           cache: pip
           cache-dependency-path: requirements-current.txt
 
-      - name: Install probe dependency
-        run: python -m pip install --disable-pip-version-check huggingface-hub==0.34.5
+      - name: Install probe dependencies
+        run: >-
+          python -m pip install --disable-pip-version-check
+          numpy==1.26.4
+          pypdf
+          huggingface-hub==0.34.5
 
-      - name: Run integrity and outbound-network probe
+      - name: Verify DNS and pinned Hugging Face model access
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p post_v20/step115/runtime_probe
-          python artifact_v20/validate_step105_anonymous_release.py --integrity-only \
-            | tee post_v20/step115/runtime_probe/integrity.log
           python - <<'PY'
           from __future__ import annotations
 
@@ -83,7 +85,7 @@ jobs:
               raise AssertionError({"expected": expected, "observed": digest})
           lfs_path = Path("artifact_v20/step92_models/step92_clean_root_00.safetensors")
           payload = {
-              "verdict": "PASS_STEP115_RUNTIME_PROBE",
+              "verdict": "PASS_STEP115_RUNTIME_NETWORK_AND_LFS_PROBE",
               "dns_host": host,
               "resolved_addresses": resolved,
               "distilbert_model_sha256": digest,
@@ -95,6 +97,13 @@ jobs:
           output.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
           print(json.dumps(payload, indent=2))
           PY
+
+      - name: Run authoritative V20 integrity probe
+        shell: bash
+        run: |
+          set -euo pipefail
+          python artifact_v20/validate_step105_anonymous_release.py --integrity-only \
+            | tee post_v20/step115/runtime_probe/integrity.log
 
       - name: Upload probe receipt
         if: always()
