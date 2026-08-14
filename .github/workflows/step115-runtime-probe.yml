@@ -46,6 +46,7 @@ jobs:
         with:
           python-version: "3.11"
           cache: pip
+          cache-dependency-path: requirements-current.txt
 
       - name: Install probe dependency
         run: python -m pip install --disable-pip-version-check huggingface-hub==0.34.5
