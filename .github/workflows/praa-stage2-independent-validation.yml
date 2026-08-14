@@ -1,0 +1,97 @@
+name: PRAA Stage 2 independent validation
+
+on:
+  push:
+    branches:
+      - research/praa-admission-audit
+    paths:
+      - ".github/workflows/praa-stage2-independent-validation.yml"
+      - "post_v20/praa_registry_admission/stage2_validate_independent.py"
+      - "post_v20/praa_registry_admission/PRAA_STAGE1_ARTIFACT_AND_DATA_SEAL_LOCK_2026-08-14.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: praa-stage2-independent-validation
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      HF_HOME: /tmp/praa-stage2-independent-huggingface
+      HF_HUB_DISABLE_TELEMETRY: "1"
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - name: Checkout validator branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          lfs: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Download Stage-1 public input artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: praa-stage1-public-artifact-and-inputs
+          path: stage1_public
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: 31775680237
+
+      - name: Download all Stage-2 endpoint receipts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: praa-stage2-safety-*
+          path: stage2_predictions
+          merge-multiple: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: 31776356942
+
+      - name: Download Stage-2 authoritative ledger
+        uses: actions/download-artifact@v4
+        with:
+          name: praa-stage2-clean-safety-and-parent-ledger
+          path: stage2_ledger
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: 31776356942
+
+      - name: Install independent reconstruction dependencies
+        run: |
+          python -m pip install --disable-pip-version-check \
+            numpy==1.26.4 \
+            datasets==5.0.1 \
+            pyarrow==25.0.0 \
+            huggingface-hub==0.34.5
+
+      - name: Reconstruct safety labels, accuracies, best sets, and tie rules
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p independent_validation
+          python post_v20/praa_registry_admission/stage2_validate_independent.py \
+            --stage1-public-root stage1_public \
+            --predictions-root stage2_predictions \
+            --ledger stage2_ledger/PRAA_STAGE2_CLEAN_SAFETY_AND_PARENT_LEDGER.json \
+            --output independent_validation/PRAA_STAGE2_INDEPENDENT_VALIDATION.json \
+            | tee independent_validation/execution.log
+
+      - name: Upload independent validation receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: praa-stage2-independent-validation
+          path: independent_validation/
+          if-no-files-found: error
+          retention-days: 90
+          compression-level: 6
