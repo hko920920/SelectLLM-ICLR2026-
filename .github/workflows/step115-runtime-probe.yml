@@ -56,7 +56,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p post_v20/step115/runtime_probe
-          python artifact_v20/validate_step92_anonymous_release.py --integrity-only \
+          python artifact_v20/validate_step105_anonymous_release.py --integrity-only \
             | tee post_v20/step115/runtime_probe/integrity.log
           python - <<'PY'
           from __future__ import annotations
