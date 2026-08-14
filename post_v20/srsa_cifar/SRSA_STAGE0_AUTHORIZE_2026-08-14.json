@@ -1,0 +1,13 @@
+{
+  "schema": "srsa.cifar.stage0.authorization.v1",
+  "date": "2026-08-14",
+  "authorized_preregistration_commit": "a32ffc2c27ad2e94af6055d86ec886d5bb385e4e",
+  "authorized_stage": "public metadata, source, dataset archive, and checkpoint hash binding only",
+  "dataset_archive_extraction_allowed": false,
+  "dataset_row_decode_allowed": false,
+  "label_access_allowed": false,
+  "cifar_model_zero_input_probe_allowed": true,
+  "cifar_dataset_prediction_allowed": false,
+  "selector_execution_allowed": false,
+  "primary_or_deployment_outcome_allowed": false
+}
