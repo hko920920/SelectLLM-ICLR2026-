@@ -1,0 +1,324 @@
+name: PRAA Stage 4 input-only pre-outcome lock
+
+on:
+  push:
+    branches:
+      - research/praa-admission-audit
+    paths:
+      - "post_v20/praa_registry_admission/PRAA_STAGE3_FINAL_LOCK_2026-08-14.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: praa-stage4-input-only-preoutcome
+  cancel-in-progress: false
+
+jobs:
+  metadata:
+    name: bind-stage3
+    runs-on: ubuntu-latest
+    outputs:
+      stage3_run_id: ${{ steps.bind.outputs.stage3_run_id }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          lfs: false
+      - id: bind
+        name: Verify the Stage-3 final lock and expose its run ID
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          from pathlib import Path
+          path = Path('post_v20/praa_registry_admission/PRAA_STAGE3_FINAL_LOCK_2026-08-14.json')
+          data = json.loads(path.read_text(encoding='utf-8'))
+          if data.get('decision') != 'PASS_PRAA_STAGE3_ERROR_HEAD_AND_THRESHOLD':
+              raise SystemExit('Stage-3 final lock is not PASS')
+          if data.get('independent_validation', {}).get('decision') != 'PASS_PRAA_STAGE3_INDEPENDENT_VALIDATION':
+              raise SystemExit('Stage-3 independent validation is not PASS')
+          run_id = int(data['authoritative_execution']['run_id'])
+          print(f'stage3_run_id={run_id}')
+          PY
+
+  clean:
+    name: clean-${{ matrix.root_id }}
+    needs: metadata
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        root_id:
+          - emotion-roberta-dk409
+          - emotion-bert-nateraw
+          - emotion-distilbert-bhadresh
+          - emotion-albert-bhadresh
+          - lid-xlmroberta-papluca
+          - lid-fasttext-facebook
+          - lid-fasttext-glotlid
+          - lid-langid-package
+    env:
+      HF_HOME: /tmp/praa-stage4-clean-huggingface
+      HF_HUB_DISABLE_TELEMETRY: "1"
+      TOKENIZERS_PARALLELISM: "false"
+      OMP_NUM_THREADS: "4"
+      MKL_NUM_THREADS: "4"
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          lfs: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Download Stage-1 public input packages
+        uses: actions/download-artifact@v4
+        with:
+          name: praa-stage1-public-artifact-and-inputs
+          path: stage1_public
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: 31775680237
+
+      - name: Install frozen endpoint runtimes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check \
+            torch==2.6.0 \
+            --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --disable-pip-version-check \
+            numpy==1.26.4 \
+            transformers==4.56.2 \
+            tokenizers==0.22.2 \
+            safetensors==0.8.0 \
+            sentencepiece==0.2.0 \
+            huggingface-hub==0.34.5 \
+            fasttext-wheel==0.9.2
+          mkdir -p /tmp/praa-langid-dist
+          python -m pip download --disable-pip-version-check \
+            --no-deps --no-binary=:all: langid==1.1.6 \
+            -d /tmp/praa-langid-dist
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          path = Path('/tmp/praa-langid-dist/langid-1.1.6.tar.gz')
+          expected = '044bcae1912dab85c33d8e98f2811b8f4ff1213e5e9a9e9510137b84da2cb293'
+          observed = hashlib.sha256(path.read_bytes()).hexdigest()
+          if observed != expected:
+              raise SystemExit({'expected': expected, 'observed': observed})
+          PY
+          python -m pip install --disable-pip-version-check \
+            /tmp/praa-langid-dist/langid-1.1.6.tar.gz
+
+      - name: Execute the frozen clean endpoint without labels
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p stage4_clean
+          python post_v20/praa_registry_admission/stage4_clean_endpoint.py \
+            --root-id "${{ matrix.root_id }}" \
+            --stage1-public-root stage1_public \
+            --output-root stage4_clean \
+            | tee "stage4-clean-${{ matrix.root_id }}.log"
+
+      - name: Upload clean endpoint outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: praa-stage4-clean-${{ matrix.root_id }}
+          path: |
+            stage4_clean/
+            stage4-clean-${{ matrix.root_id }}.log
+          if-no-files-found: error
+          retention-days: 90
+          compression-level: 6
+
+  derived:
+    name: derived-${{ matrix.task }}
+    needs: [metadata, clean]
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        task:
+          - emotion
+          - language_identification
+    env:
+      HF_HOME: /tmp/praa-stage4-derived-huggingface
+      HF_HUB_DISABLE_TELEMETRY: "1"
+      TOKENIZERS_PARALLELISM: "false"
+      OMP_NUM_THREADS: "4"
+      MKL_NUM_THREADS: "4"
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          lfs: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Download Stage-1 public input packages
+        uses: actions/download-artifact@v4
+        with:
+          name: praa-stage1-public-artifact-and-inputs
+          path: stage1_public
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: 31775680237
+
+      - name: Download the independently locked Stage-3 task artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: praa-stage3-*
+          path: stage3_artifacts
+          merge-multiple: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ needs.metadata.outputs.stage3_run_id }}
+
+      - name: Download all clean outputs from this run
+        uses: actions/download-artifact@v4
+        with:
+          pattern: praa-stage4-clean-*
+          path: stage4_clean
+          merge-multiple: true
+
+      - name: Install the frozen selected-parent and head runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check \
+            torch==2.6.0 \
+            --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --disable-pip-version-check \
+            numpy==1.26.4 \
+            transformers==4.56.2 \
+            tokenizers==0.22.2 \
+            safetensors==0.8.0 \
+            sentencepiece==0.2.0 \
+            huggingface-hub==0.34.5
+
+      - name: Execute the four derived endpoints without labels
+        shell: bash
+        run: |
+          set +e
+          mkdir -p stage4_derived
+          python post_v20/praa_registry_admission/stage4_alias_endpoint.py \
+            --task "${{ matrix.task }}" \
+            --stage1-public-root stage1_public \
+            --stage3-root stage3_artifacts \
+            --clean-outputs-root stage4_clean \
+            --output-root stage4_derived \
+            2>&1 | tee "stage4-derived-${{ matrix.task }}.log"
+          status=${PIPESTATUS[0]}
+          printf '%s\n' "${status}" > "stage4-derived-${{ matrix.task }}.status"
+          exit "${status}"
+
+      - name: Upload derived endpoint outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: praa-stage4-derived-${{ matrix.task }}
+          path: |
+            stage4_derived/
+            stage4-derived-${{ matrix.task }}.log
+            stage4-derived-${{ matrix.task }}.status
+          if-no-files-found: error
+          retention-days: 90
+          compression-level: 6
+
+  finalize:
+    name: preoutcome-closure
+    needs: [metadata, clean, derived]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          lfs: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Download Stage-1 public input packages
+        uses: actions/download-artifact@v4
+        with:
+          name: praa-stage1-public-artifact-and-inputs
+          path: stage1_public
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: 31775680237
+
+      - name: Download the independently locked Stage-3 artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: praa-stage3-*
+          path: stage3_artifacts
+          merge-multiple: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ needs.metadata.outputs.stage3_run_id }}
+
+      - name: Download all Stage-4 clean outputs
+        uses: actions/download-artifact@v4
+        with:
+          pattern: praa-stage4-clean-*
+          path: stage4_clean
+          merge-multiple: true
+
+      - name: Download both Stage-4 derived outputs
+        uses: actions/download-artifact@v4
+        with:
+          pattern: praa-stage4-derived-*
+          path: stage4_derived
+          merge-multiple: true
+
+      - name: Install label-free finalizer dependencies
+        run: |
+          python -m pip install --disable-pip-version-check \
+            numpy==1.26.4 \
+            jsonschema==4.25.1
+
+      - name: Validate endpoint manifests, registry snapshots, and trigger certificates
+        shell: bash
+        run: |
+          set +e
+          mkdir -p stage4_closure
+          python post_v20/praa_registry_admission/stage4_finalize_preoutcome.py \
+            --stage1-public-root stage1_public \
+            --clean-outputs-root stage4_clean \
+            --derived-outputs-root stage4_derived \
+            --stage3-root stage3_artifacts \
+            --output-dir stage4_closure \
+            2>&1 | tee stage4_closure/execution.log
+          status=${PIPESTATUS[0]}
+          printf '%s\n' "${status}" > stage4_closure/exit_status.txt
+          exit "${status}"
+
+      - name: Upload Stage-4 pre-outcome closure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: praa-stage4-input-only-preoutcome-closure
+          path: stage4_closure/
+          if-no-files-found: error
+          retention-days: 90
+          compression-level: 6
