@@ -1,0 +1,44 @@
+{
+  "schema": "praa.stage3.technical_amendment.v1",
+  "date": "2026-08-14",
+  "amendment": "A",
+  "classification": "TECHNICAL_IMPORT_FAILURE_BEFORE_DATA_OR_MODEL_EXECUTION",
+  "failed_run": {
+    "run_id": 31778354608,
+    "head_sha": "aafe1b9c2792ee16fd8aa45ebf0247329fe3344e",
+    "emotion_artifact_id": 9210752841,
+    "emotion_artifact_sha256": "b32f199d2d4a2aae33792f35b3e014a7750f104357f36ad5c5d6ad6850bf9ce0",
+    "language_id_artifact_id": 9210753948,
+    "language_id_artifact_sha256": "2e0b6072706be948af31a71bbb5605d43bb700a88186e564ccf6dcfebe2a608b",
+    "identical_task_log_sha256": "8b8b2e0752b4491a2c8bea4142f8bcc6dd173e92620cba9a0f08064dd3e4e550",
+    "traceback": "stage3_build_task.py imported stage3_lid_native_features at process startup; that unused fallback referenced stage2.LID_TARGET_CODES although Stage 2 defines stage2.LID_LABELS. Both frozen selected parents are Transformers, so the fallback was scientifically irrelevant and the process terminated before main()."
+  },
+  "information_boundary": {
+    "stage1_and_stage2_artifacts_downloaded_by_workflow": true,
+    "stage3_program_read_any_task_input": false,
+    "stage3_program_read_any_label": false,
+    "model_materialized_or_loaded": false,
+    "model_inference_executed": false,
+    "error_head_trained": false,
+    "threshold_computed": false,
+    "alias_executed": false,
+    "scientific_gate_evaluated": false,
+    "primary_or_deployment_input_opened": false,
+    "primary_or_deployment_label_opened": false,
+    "selector_executed": false
+  },
+  "authorized_fix": {
+    "commit_sha": "8cbc839757ff834ee0b43ed22877e496467771f9",
+    "file": "stage3_build_task.py",
+    "change": "Move import of the non-Transformer fallback inside the branch that is reached only when the already frozen selected parent is non-Transformer.",
+    "scientific_settings_changed": false,
+    "tasks_changed": false,
+    "parents_changed": false,
+    "features_changed": false,
+    "seeds_changed": false,
+    "training_recipe_changed": false,
+    "threshold_quantile_changed": false,
+    "quality_gates_changed": false
+  },
+  "rerun_authorization": "One exact rerun is authorized under the same Stage-1 inputs, Stage-2 parents, Stage-3 protocol, code paths required by those parents, dependencies, seeds, recipe, quantile, and gates."
+}
