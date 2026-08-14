@@ -15,7 +15,6 @@ from typing import Any
 
 import stage2_clean_safety_endpoint as stage2
 import stage3_build_transformer_task as builder
-import stage3_lid_native_features as native_features
 from stage3_learned_common import canonical_sha256, sha256_file
 
 ROOT = Path(__file__).resolve().parent
@@ -66,6 +65,10 @@ def main() -> None:
             raise builder.Stage3Error(
                 f"non-Transformer parent is not authorized for {args.task}: {parent}"
             )
+        # Import only when the frozen parent actually needs this path. Both
+        # Stage-2 selected parents are Transformers, so the failed first run
+        # must not import an irrelevant fallback module at process startup.
+        import stage3_lid_native_features as native_features
 
         def routed_extract(
             task: str,
