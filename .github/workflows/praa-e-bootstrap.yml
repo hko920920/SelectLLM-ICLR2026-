@@ -1,0 +1,27 @@
+name: PRAA-E frozen execution
+on:
+  push:
+    branches: [research/praa-admission-audit]
+    paths: [post_v20/praa_registry_admission/PRAA_E_BOOTSTRAP_TRIGGER_2026-08-14.txt]
+permissions: {contents: read, actions: read}
+concurrency: {group: praa-e-frozen-bootstrap, cancel-in-progress: false}
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Execute frozen runner
+        env: {GH_TOKEN: "${{ github.token }}", HF_HOME: /tmp/praa-e-hf, HF_HUB_DISABLE_TELEMETRY: "1", TOKENIZERS_PARALLELISM: "false", OMP_NUM_THREADS: "4", MKL_NUM_THREADS: "4", PYTHONUNBUFFERED: "1"}
+        run: |
+          mkdir -p praa_e_execution
+          cat post_v20/praa_registry_admission/praa_e_bootstrap.b64.part* >/tmp/b64
+          test "$(wc -c </tmp/b64)" = 10240
+          base64 -d /tmp/b64 >/tmp/run.sh
+          echo "4379d4aa2095ab083eea406aade5ce35c8d2cde7e5e4c41e98aaa50dca708854  /tmp/run.sh" | sha256sum -c -
+          bash /tmp/run.sh
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: {name: praa-e-frozen-execution, path: praa_e_execution/, if-no-files-found: error, retention-days: 90}

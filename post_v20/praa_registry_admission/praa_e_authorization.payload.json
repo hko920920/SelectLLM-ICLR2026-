@@ -1,0 +1,81 @@
+{
+  "schema": "praa-e.blinded_continuation.authorization.v1",
+  "date": "2026-08-14",
+  "decision": "PASS_PRAA_E_SEALED_REMAINDER_CONTINUATION_AUTHORIZATION",
+  "classification": "PRESPECIFIED_PRIMARY_OUTCOME_BLIND_PROTOCOL_DEVIATION_WITH_EXPOSED_ROWS_EXCLUDED",
+  "original_praa_family": {
+    "decision": "STOP_PRAA_STAGE3_ERROR_HEAD_AND_THRESHOLD",
+    "decision_is_final": true,
+    "run_id": 31778682042,
+    "head_sha": "11987b446339d2ee3522cfd71e65ddb2d1c3520c",
+    "family_closure_artifact_id": 9214524257,
+    "family_closure_artifact_sha256": "8e115a84002d08ff121673f5e72f8e2e949f522be062e8d987bfe43b102efb8d",
+    "family_closure_json_sha256": "f81b2911a90d24a795aed27d2dca6c3e8744485ab5c66b4f3e74b4324e9e2c24",
+    "family_closure_canonical_sha256": "e1acb2b527118d1abe4df4a5d9641f2f0336b58a254043d7aa870a0005be24e8"
+  },
+  "prespecified_primary": {
+    "task": "emotion",
+    "original_primary_status": true,
+    "stage3_decision": "PASS_PRAA_STAGE3_TASK",
+    "selected_parent": "emotion-distilbert-bhadresh",
+    "stage3_artifact_id": 9211091899,
+    "stage3_artifact_sha256": "8dab54757799f83f8a5bb744540f5cc253daa82f624cbe2b674cb7a27894d42a",
+    "stage3_receipt_file_sha256": "dc141e4636a05ad2154134b94cadce194a2435dc24901650368542029b674987",
+    "stage3_receipt_canonical_sha256": "71582d94396bcb4b0ff5da3cb1e684735d7d3139d32a809e975f6c250e967d4b",
+    "stage3_arrays_sha256": "026fc1673ecb939471126d650832193084ba15f1665d55a8e4ede962266f9343"
+  },
+  "excluded_exposed_uids": {
+    "primary_outcome": [
+      "f879d12af4b9ba60ae881d268d15ebf237c551922770a2a55780af8da8fccb14"
+    ],
+    "deployment": [
+      "1e1f9b530eeb4f28bd619e1dea8125c08cb2c2acb37b5d11461a12f8e563ccc4"
+    ]
+  },
+  "eligible_rows": {
+    "primary_outcome": 1499,
+    "deployment": 499
+  },
+  "frozen_settings": {
+    "clean_roots": 4,
+    "derived_entries": 4,
+    "pool_size": 500,
+    "budget": 2,
+    "temperature": 0.05,
+    "paired_runs": 3000,
+    "seed_start": 1320000,
+    "seed_end": 1322999,
+    "bootstrap_replicates": 10000,
+    "signflip_replicates": 100000,
+    "one_sided_p_threshold": 0.025,
+    "terminal_materiality": 0.005,
+    "active_minus_fixed_materiality": 0.005,
+    "minimum_path_change": 0.5,
+    "maximum_alias_accuracy_loss": 0.01,
+    "primary_maximum_triggers_per_alias": 14,
+    "deployment_maximum_triggers_per_alias": 4
+  },
+  "repository_bindings": {
+    "base_commit": "81033edcc1a3be30235da49a7d9dd1842941321c",
+    "primary_protocol_git_blob": "b9e506aa8d20cf69b00433a8a6c517606dc26084",
+    "source_fidelity_amendment_git_blob": "661e06179bcd2d74892e6d1633703b6fca4a0345",
+    "stage3_protocol_git_blob": "b1a709f41bedd4b6511af99e9c257caa682737b9",
+    "stage4_protocol_git_blob": "289e515dcf11b82eeb705c04945ba0e4349d84e1",
+    "attempt_register_git_blob": "7a32cfc2c427a699abbd3c2bdb627224a541b98b"
+  },
+  "new_document_sha256": {
+    "continuation_protocol": "82b8326d54532bfd4a2dd8f8ab691c10f2933c53bf2b9a5e23e4d5baf5f74603",
+    "incident_record": "3916b12c5a4555f54b371d6ce9bb3240076edba9524eb5df6ff20c927f9c2898"
+  },
+  "information_boundary_at_authorization": {
+    "one_primary_label_row_exposed": true,
+    "one_deployment_label_row_exposed": true,
+    "exposed_rows_excluded": true,
+    "any_clean_or_derived_primary_prediction_accessed": false,
+    "any_model_linked_primary_correctness_accessed": false,
+    "any_selector_path_or_regret_accessed": false,
+    "any_aggregate_primary_or_deployment_metric_accessed": false,
+    "remaining_primary_or_deployment_labels_accessed": false
+  },
+  "next_authorized_stage": "Run Emotion-only input-only Stage 4; do not supply labels. Outcome execution is conditionally authorized only after the sealed-remainder pre-outcome closure and independent validation pass."
+}
