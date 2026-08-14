@@ -1,0 +1,96 @@
+{
+  "schema": "praa.stage2.final_lock.v1",
+  "date": "2026-08-14",
+  "decision": "PASS_PRAA_STAGE2_CLEAN_SAFETY_AND_PARENT",
+  "stage1_lock_sha256": "e2c0f46089dcdfb0a43beb34bda2ab97197d572437e300ed06714db14f259ebb",
+  "authoritative_execution": {
+    "run_id": 31776356942,
+    "head_sha": "65eeea51cb5ed3bb0a8e7fcc54213f058b6b961c",
+    "ledger_artifact_id": 9210581881,
+    "ledger_artifact_sha256": "899fcfe0b17795ab9076d7b6c9eeab75d6f13f83f1858ecd734e0de89ca2ba88",
+    "ledger_json_file_sha256": "46a6733c6f4aed396fb3b91d2e79f27af857bf280acbec401453bbb6348f128a",
+    "ledger_canonical_sha256": "bee163bbaa1bef46e1c0c1d6a88a473cf2d27be22361c8975d036b299bb57d86"
+  },
+  "independent_validation": {
+    "decision": "PASS_PRAA_STAGE2_INDEPENDENT_VALIDATION",
+    "run_id": 31778119196,
+    "head_sha": "547a757c47c7956adcb63dcc51febbe5381ac943",
+    "artifact_id": 9210656926,
+    "artifact_sha256": "479ec837fc7976ca67ab860933b1b0b4bfea369f74478cb5afeda152518518fb",
+    "result_json_file_sha256": "5489d599f7fcb16b4ccd8629419e1e204c85fc21b9ec8c9cd0265a194a6e33d1",
+    "result_canonical_sha256": "649d507bbc5ef097c9d45aa017dbbb27b5712d8f30bca143789ce88d709669a9",
+    "checks": [
+      "input_and_uid_binding",
+      "safety_label_seal_reconstructed",
+      "endpoint_arrays_reconstructed",
+      "pairwise_distinctness_reconstructed",
+      "accuracy_reconstructed",
+      "best_set_reconstructed",
+      "parent_tie_break_reconstructed"
+    ]
+  },
+  "tasks": {
+    "emotion": {
+      "safety_rows": 4000,
+      "correct_counts": {
+        "emotion-roberta-dk409": 3865,
+        "emotion-bert-nateraw": 3887,
+        "emotion-distilbert-bhadresh": 3962,
+        "emotion-albert-bhadresh": 3805
+      },
+      "accuracies": {
+        "emotion-roberta-dk409": 0.96625,
+        "emotion-bert-nateraw": 0.97175,
+        "emotion-distilbert-bhadresh": 0.9905,
+        "emotion-albert-bhadresh": 0.95125
+      },
+      "best_root_set": [
+        "emotion-distilbert-bhadresh"
+      ],
+      "selected_parent": "emotion-distilbert-bhadresh",
+      "selected_parent_prediction_sha256": "d7c4f3f57c4004037c414e1447ec82b02e67f308b21219aad45d1eb14bff64bf",
+      "response_vectors_pairwise_distinct": true,
+      "unique_best_required": false
+    },
+    "language_identification": {
+      "safety_rows": 10000,
+      "correct_counts": {
+        "lid-xlmroberta-papluca": 9979,
+        "lid-fasttext-facebook": 9717,
+        "lid-fasttext-glotlid": 9800,
+        "lid-langid-package": 9538
+      },
+      "accuracies": {
+        "lid-xlmroberta-papluca": 0.9979,
+        "lid-fasttext-facebook": 0.9717,
+        "lid-fasttext-glotlid": 0.98,
+        "lid-langid-package": 0.9538
+      },
+      "best_root_set": [
+        "lid-xlmroberta-papluca"
+      ],
+      "selected_parent": "lid-xlmroberta-papluca",
+      "selected_parent_prediction_sha256": "4a5a3e154a7b5be03b471e61b0d55d9ce70645441e858f034dbeba25132f0dfa",
+      "response_vectors_pairwise_distinct": true,
+      "unique_best_required": false
+    }
+  },
+  "information_boundary": {
+    "safety_labels_opened": true,
+    "non_safety_labels_opened": false,
+    "aliases_executed": false,
+    "error_heads_trained": false,
+    "selector_executed": false,
+    "primary_inputs_opened": false,
+    "primary_labels_opened": false,
+    "deployment_inputs_opened": false,
+    "deployment_labels_opened": false
+  },
+  "scientific_settings_frozen_before_stage2_results": [
+    "PRAA_STAGE3_ERROR_HEAD_AND_THRESHOLD_PROTOCOL_2026-08-14.md",
+    "PRAA_PRIMARY_AND_DEPLOYMENT_DECISION_PROTOCOL_2026-08-14.md",
+    "PRAA_ROOT_AWARE_ADMISSION_POLICY_V1.md",
+    "PRAA_PROSPECTIVE_ATTEMPT_REGISTER_2026-08-14.md"
+  ],
+  "next_authorized_stage": "Execute Stage 3 on error_head_train, safety, and label-free target_threshold only under the already frozen recipe. Primary and deployment inputs and labels remain prohibited."
+}
