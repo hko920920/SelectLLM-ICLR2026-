@@ -1,0 +1,143 @@
+{
+  "schema": "srsa.cifar.frozen_config.v1",
+  "date": "2026-08-14",
+  "status": "PREREGISTERED_BEFORE_CIFAR_EXECUTION",
+  "family_id": "SRSA_CIFAR_V1",
+  "prior_family": {
+    "name": "PRAA",
+    "literal_decision": "STOP_PRAA_STAGE3_ERROR_HEAD_AND_THRESHOLD",
+    "primary_or_deployment_outcome_opened": false,
+    "reused_as_confirmatory_evidence": false
+  },
+  "development_disclosure": {
+    "data_family": "previously opened NLP safety blocks only",
+    "variant_rates_examined": [0.01, 0.05],
+    "selected_variant_rate": 0.05,
+    "primary_or_deployment_outcome_accessed": false,
+    "cifar_predictions_or_labels_accessed": false
+  },
+  "sources": {
+    "torchvision": {
+      "version": "0.21.0",
+      "dataset_source_path": "torchvision/datasets/cifar.py"
+    },
+    "model_repository": {
+      "repo": "chenyaofo/pytorch-cifar-models",
+      "commit": "786c16252c0fc58ee9adac063f8337cc4a7a497a"
+    },
+    "normalization_repository": {
+      "repo": "chenyaofo/image-classification-codebase",
+      "commit": "610e6523ab462351700aaf629e6c739a9a30e903"
+    }
+  },
+  "tasks": {
+    "cifar100": {
+      "role": "primary",
+      "dataset_url": "https://www.cs.toronto.edu/~kriz/cifar-100-python.tar.gz",
+      "archive_filename": "cifar-100-python.tar.gz",
+      "archive_md5": "eb9058c3a382ffc7106e4002c42a8d85",
+      "test_rows": 10000,
+      "classes": 100,
+      "normalization": {
+        "mean": [0.5070, 0.4865, 0.4409],
+        "std": [0.2673, 0.2564, 0.2761]
+      },
+      "seed_start": 1410000,
+      "seed_stop_exclusive": 1413000
+    },
+    "cifar10": {
+      "role": "replication_non_substitutable",
+      "dataset_url": "https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz",
+      "archive_filename": "cifar-10-python.tar.gz",
+      "archive_md5": "c58f30108f718f92721af3b95e74349a",
+      "test_rows": 10000,
+      "classes": 10,
+      "normalization": {
+        "mean": [0.4914, 0.4822, 0.4465],
+        "std": [0.2023, 0.1994, 0.2010]
+      },
+      "seed_start": 1413000,
+      "seed_stop_exclusive": 1416000
+    }
+  },
+  "partition": {
+    "salt": "srsa-cifar-partition-v1",
+    "ordering": "sha256(salt || raw_RGB_bytes), raw_archive_position_tiebreak",
+    "safety_rows": 2000,
+    "primary_outcome_rows": 6000,
+    "deployment_rows": 2000
+  },
+  "roster_rule": "smallest released checkpoint in each of four architecture families available under the same model name on both tasks",
+  "root_suffixes_in_order": [
+    "resnet20",
+    "vgg11_bn",
+    "mobilenetv2_x0_5",
+    "shufflenetv2_x0_5"
+  ],
+  "weight_urls": {
+    "cifar100_resnet20": "https://github.com/chenyaofo/pytorch-cifar-models/releases/download/resnet/cifar100_resnet20-23dac2f1.pt",
+    "cifar100_vgg11_bn": "https://github.com/chenyaofo/pytorch-cifar-models/releases/download/vgg/cifar100_vgg11_bn-57d0759e.pt",
+    "cifar100_mobilenetv2_x0_5": "https://github.com/chenyaofo/pytorch-cifar-models/releases/download/mobilenetv2/cifar100_mobilenetv2_x0_5-9f915757.pt",
+    "cifar100_shufflenetv2_x0_5": "https://github.com/chenyaofo/pytorch-cifar-models/releases/download/shufflenetv2/cifar100_shufflenetv2_x0_5-1977720f.pt",
+    "cifar10_resnet20": "https://github.com/chenyaofo/pytorch-cifar-models/releases/download/resnet/cifar10_resnet20-4118986f.pt",
+    "cifar10_vgg11_bn": "https://github.com/chenyaofo/pytorch-cifar-models/releases/download/vgg/cifar10_vgg11_bn-eaeebf42.pt",
+    "cifar10_mobilenetv2_x0_5": "https://github.com/chenyaofo/pytorch-cifar-models/releases/download/mobilenetv2/cifar10_mobilenetv2_x0_5-ca14ced9.pt",
+    "cifar10_shufflenetv2_x0_5": "https://github.com/chenyaofo/pytorch-cifar-models/releases/download/shufflenetv2/cifar10_shufflenetv2_x0_5-1308b4e9.pt"
+  },
+  "response": {
+    "candidate_fields": ["label", "variant"],
+    "reference_fields": ["label", "variant"],
+    "reference_variant": "*",
+    "base_variant": "base",
+    "alias_count": 4,
+    "canary_numerator": 1,
+    "canary_denominator": 20,
+    "canary_salt": "srsa-canary-v1",
+    "semantic_prediction_must_equal_parent": true
+  },
+  "attack_family": {
+    "attacked_roots": "all four fixed roots",
+    "primary_condition": "structured-response wrappers",
+    "secondary_anchor": "exact wrappers",
+    "adversarial_estimand": "maximum mean terminal harm across the four fixed root attacks",
+    "familywise_roots": 4
+  },
+  "selector": {
+    "name": "Select-LLM exact-group specialization with typed compatibility",
+    "pool_size": 500,
+    "budget": 2,
+    "temperature": 0.05,
+    "paired_runs_per_task": 3000,
+    "bootstrap_replicates": 10000,
+    "signflip_replicates": 100000,
+    "query_tie": "smallest raw-image digest",
+    "root_tie": "smallest root-manifest digest"
+  },
+  "primary_gates": {
+    "semantic_alias_equality": "bitwise all rows",
+    "realized_canary_fraction_min": 0.04,
+    "realized_canary_fraction_max": 0.06,
+    "path_change_min": 0.50,
+    "terminal_harm_min": 0.005,
+    "active_minus_fixed_terminal_harm_min": 0.005,
+    "bonferroni_simultaneous_lower_bound_gt": 0.0,
+    "holm_adjusted_one_sided_p_max": 0.05,
+    "cumulative_mean_gt": 0.0,
+    "cumulative_simultaneous_lower_bound_gt": 0.0,
+    "fixed_query_effect": 0.0,
+    "root_aware_effect": 0.0
+  },
+  "outcome_access": {
+    "stage0_public_metadata_only": true,
+    "stage1_labels_separate_sealed_artifact": true,
+    "stage2_endpoint_jobs_have_labels": false,
+    "stage3_preoutcome_has_labels": false,
+    "stage4_single_open": true
+  },
+  "closure": {
+    "no_third_task": true,
+    "replication_cannot_rescue_primary": true,
+    "scientific_no_go_exits_ci_success": true,
+    "ci_failure_reserved_for_technical_invalid": true
+  }
+}
