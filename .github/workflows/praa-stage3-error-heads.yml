@@ -6,6 +6,7 @@ on:
       - research/praa-admission-audit
     paths:
       - "post_v20/praa_registry_admission/PRAA_STAGE2_FINAL_LOCK_2026-08-14.json"
+      - "post_v20/praa_registry_admission/PRAA_STAGE3_TECHNICAL_AMENDMENT_A_2026-08-14.json"
   workflow_dispatch:
 
 permissions:
