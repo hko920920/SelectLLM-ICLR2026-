@@ -5,6 +5,8 @@ on:
     branches:
       - research/srsa-cifar-audit
     paths:
+      - ".github/workflows/srsa-stage0-probe.yml"
+      - "post_v20/srsa_cifar/srsa_stage0_probe.py"
       - "post_v20/srsa_cifar/SRSA_STAGE0_AUTHORIZE_2026-08-14.json"
   workflow_dispatch:
 
@@ -38,6 +40,7 @@ jobs:
           python -m pip install --disable-pip-version-check \
             torch==2.6.0 \
             --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --disable-pip-version-check numpy==1.26.4
 
       - name: Fetch exact public model source commit
         run: |
