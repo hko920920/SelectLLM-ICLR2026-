@@ -1,0 +1,105 @@
+name: Step 115 runtime probe
+
+on:
+  push:
+    branches:
+      - research/step115-direct-deployment
+    paths:
+      - ".github/workflows/step115-runtime-probe.yml"
+      - "post_v20/step115/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: step115-runtime-probe
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      HF_HOME: ${{ github.workspace }}/.cache/huggingface
+      HF_HUB_DISABLE_TELEMETRY: "1"
+    steps:
+      - name: Checkout repository and Git LFS objects
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 1
+
+      - name: Verify Git LFS materialization
+        shell: bash
+        run: |
+          set -euo pipefail
+          git lfs install --local
+          git lfs pull
+          test -f artifact_v20/step92_models/step92_clean_root_00.safetensors
+          bytes=$(wc -c < artifact_v20/step92_models/step92_clean_root_00.safetensors)
+          echo "materialized_bytes=${bytes}"
+          test "${bytes}" -gt 1000
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install probe dependency
+        run: python -m pip install --disable-pip-version-check huggingface-hub==0.34.5
+
+      - name: Run integrity and outbound-network probe
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p post_v20/step115/runtime_probe
+          python artifact_v20/validate_step92_anonymous_release.py --integrity-only \
+            | tee post_v20/step115/runtime_probe/integrity.log
+          python - <<'PY'
+          from __future__ import annotations
+
+          import hashlib
+          import json
+          import socket
+          from pathlib import Path
+
+          from huggingface_hub import hf_hub_download
+
+          expected = "5e3f1108e3cb34ee048634875d8482665b65ac713291a7e32396fb18f6ff0063"
+          host = "huggingface.co"
+          resolved = sorted({row[4][0] for row in socket.getaddrinfo(host, 443, type=socket.SOCK_STREAM)})
+          model_path = Path(
+              hf_hub_download(
+                  repo_id="distilbert/distilbert-base-uncased",
+                  filename="model.safetensors",
+                  revision="12040accade4e8a0f71eabdb258fecc2e7e948be",
+              )
+          )
+          digest = hashlib.sha256(model_path.read_bytes()).hexdigest()
+          if digest != expected:
+              raise AssertionError({"expected": expected, "observed": digest})
+          lfs_path = Path("artifact_v20/step92_models/step92_clean_root_00.safetensors")
+          payload = {
+              "verdict": "PASS_STEP115_RUNTIME_PROBE",
+              "dns_host": host,
+              "resolved_addresses": resolved,
+              "distilbert_model_sha256": digest,
+              "distilbert_model_bytes": model_path.stat().st_size,
+              "lfs_probe_path": str(lfs_path),
+              "lfs_probe_bytes": lfs_path.stat().st_size,
+          }
+          output = Path("post_v20/step115/runtime_probe/runtime_probe.json")
+          output.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+          print(json.dumps(payload, indent=2))
+          PY
+
+      - name: Upload probe receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: step115-runtime-probe
+          path: post_v20/step115/runtime_probe/
+          if-no-files-found: warn
+          retention-days: 30
