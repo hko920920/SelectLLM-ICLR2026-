@@ -1,0 +1,31 @@
+{
+  "schema": "step105.stage0_data_and_seal.v1",
+  "date": "2026-08-13",
+  "predata_lock_sha256": "11ae70195ab6caabb0c0ad3a0b266a6af306cc1623083f616b8726d481d7a794",
+  "protocol_sha256": "5fc51f828832e4539b987b49ea81bec7159f4556d6da5fb55b5da2ca565aa50f",
+  "metadata_sha256": "0a282428e467859692d0def7fe57cc6db464e5089fe1c1b783cc35b0942aa305",
+  "dataset_id": "fancyzhx/yelp_polarity",
+  "dataset_revision": "bbf1c97a1f0cf005e5aded43839fd814654a1557",
+  "development_rows": 9000,
+  "development_file": "STEP105_YELP_DEVELOPMENT_ROWS_2026-08-13.json",
+  "development_sha256": "23f2a320837ccf809a0abf617b3b76c7abeaa6b90a9259e6ef6b0f51dbdbe992",
+  "partition_counts": {
+    "adapter_train": 6000,
+    "threshold_calibration": 1000,
+    "threshold_safety": 2000
+  },
+  "target_selector_search_rows": 0,
+  "target_selector_verify_rows": 0,
+  "test_rows": 38000,
+  "test_input_file": "step105_test_inputs/yelp_polarity_test_inputs.json",
+  "test_input_sha256": "f41d2df87bb7e5f1140d1e376ebcab3e977063730573abb7726f33c213402fc1",
+  "test_input_contains_label_field": false,
+  "sealed_file": "external_data/step105_sealed/yelp_polarity_test_sealed_outcomes.npz",
+  "sealed_sha256": "440e8062f373f34ee09db78834279d9e46914bdca08a8b213cf9c2ea0e0acf0f",
+  "sealed_outcome_opened_for_analysis": false,
+  "console_exposed_test_labels_or_class_specific_predictions": false,
+  "code_sha256": {
+    "step105_common.py": "de45c067deee0dc4e638f4c75c38842a509a52ef545df102b6ca9ecaa85022d9",
+    "step105_stage0_prepare_and_seal.py": "a1935486c4cf9ecbc420ff8e130f2dd40d383a2125ca037119d7133e1e8d075e"
+  }
+}

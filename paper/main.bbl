@@ -1,0 +1,295 @@
+\begin{thebibliography}{33}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ashury~Tahan et~al.(2024)Ashury~Tahan, Gera, Sznajder, Choshen,
+  Ein-Dor, and Shnarch]{ashurytahan2024diffuse}
+Shir Ashury~Tahan, Ariel Gera, Benjamin Sznajder, Leshem Choshen, Liat Ein-Dor,
+  and Eyal Shnarch.
+\newblock Label-efficient model selection for text generation.
+\newblock In \emph{Proceedings of the 62nd Annual Meeting of the Association
+  for Computational Linguistics (Volume 1: Long Papers)}, pp.\  8384--8402.
+  Association for Computational Linguistics, 2024.
+\newblock \doi{10.18653/v1/2024.acl-long.456}.
+\newblock URL \url{https://aclanthology.org/2024.acl-long.456/}.
+
+\bibitem[Berriaud \& Wattenhofer(2026{\natexlab{a}})Berriaud and
+  Wattenhofer]{berriaud2026clone}
+Damien Berriaud and Roger Wattenhofer.
+\newblock Clone-robust weights in metric spaces: Handling redundancy bias in
+  benchmark aggregation.
+\newblock In \emph{Proceedings of the 25th International Conference on
+  Autonomous Agents and Multiagent Systems}, pp.\  2270--2278,
+  2026{\natexlab{a}}.
+\newblock \doi{10.65109/MJWJ6521}.
+
+\bibitem[Berriaud \& Wattenhofer(2026{\natexlab{b}})Berriaud and
+  Wattenhofer]{berriaud2026consensus}
+Damien Berriaud and Roger Wattenhofer.
+\newblock Breaking the illusion of artificial consensus: Clone-robust weighting
+  for arbitrary metric spaces.
+\newblock \emph{arXiv preprint arXiv:2602.24024}, 2026{\natexlab{b}}.
+\newblock URL \url{https://arxiv.org/abs/2602.24024}.
+
+\bibitem[Bowman et~al.(2015)Bowman, Angeli, Potts, and Manning]{bowman2015snli}
+Samuel~R. Bowman, Gabor Angeli, Christopher Potts, and Christopher~D. Manning.
+\newblock A large annotated corpus for learning natural language inference.
+\newblock In \emph{Proceedings of the 2015 Conference on Empirical Methods in
+  Natural Language Processing}, pp.\  632--642, 2015.
+\newblock \doi{10.18653/v1/D15-1075}.
+\newblock URL \url{https://aclanthology.org/D15-1075/}.
+
+\bibitem[Burnat \& Davidson(2026)Burnat and Davidson]{burnat2026quotient}
+Florian A.~D. Burnat and Brittany~I. Davidson.
+\newblock Quotient semivalues for false-name-resistant data attribution.
+\newblock \emph{arXiv preprint arXiv:2605.07663}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2605.07663}.
+
+\bibitem[Casanueva et~al.(2020)Casanueva, Tem{\v{c}}inas, Gerz, Henderson, and
+  Vuli{\'c}]{casanueva2020banking77}
+I{\~n}igo Casanueva, Tadas Tem{\v{c}}inas, Daniela Gerz, Matthew Henderson, and
+  Ivan Vuli{\'c}.
+\newblock Efficient intent detection with dual sentence encoders.
+\newblock In \emph{Proceedings of the 2nd Workshop on Natural Language
+  Processing for Conversational AI}, pp.\  38--45, 2020.
+\newblock \doi{10.18653/v1/2020.nlp4convai-1.5}.
+\newblock URL \url{https://aclanthology.org/2020.nlp4convai-1.5}.
+
+\bibitem[Cobbe et~al.(2021)Cobbe, Kosaraju, Bavarian, Chen, Jun, Kaiser,
+  Plappert, Tworek, Hilton, Nakano, Hesse, and Schulman]{cobbe2021gsm8k}
+Karl Cobbe, Vineet Kosaraju, Mohammad Bavarian, Mark Chen, Heewoo Jun, Lukasz
+  Kaiser, Matthias Plappert, Jerry Tworek, Jacob Hilton, Rei Nakano,
+  Christopher Hesse, and John Schulman.
+\newblock Training verifiers to solve math word problems.
+\newblock \emph{arXiv preprint arXiv:2110.14168}, 2021.
+\newblock URL \url{https://arxiv.org/abs/2110.14168}.
+
+\bibitem[Douceur(2002)]{douceur2002sybil}
+John~R. Douceur.
+\newblock The sybil attack.
+\newblock In \emph{Proceedings of the First International Workshop on
+  Peer-to-Peer Systems}, 2002.
+\newblock URL
+  \url{https://www.microsoft.com/en-us/research/publication/the-sybil-attack/}.
+
+\bibitem[Durmazkeser et~al.(2025)Durmazkeser, Okanovic, Kirsch, Hoefler, and
+  G{"u}rel]{durmazkeser2025llmselector}
+Yavuz Durmazkeser, Patrik Okanovic, Andreas Kirsch, Torsten Hoefler, and
+  Nezihe~Merve G{"u}rel.
+\newblock Active model selection for large language models.
+\newblock \emph{arXiv preprint arXiv:2510.09418}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2510.09418}.
+
+\bibitem[Durmazkeser et~al.(2026)Durmazkeser, Okanovic, Kirsch, Hoefler, and
+  G{\"u}rel]{durmazkeser2026selectllm}
+Yavuz Durmazkeser, Patrik Okanovic, Andreas Kirsch, Torsten Hoefler, and
+  Nezihe~Merve G{\"u}rel.
+\newblock Large language model selection with limited annotations.
+\newblock \emph{arXiv preprint arXiv:2605.24981}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2605.24981}.
+
+\bibitem[George(2010)]{george2010dilution}
+Edward~I. George.
+\newblock Dilution priors: Compensating for model space redundancy.
+\newblock In \emph{Borrowing Strength: Theory Powering Applications---A
+  Festschrift for Lawrence D. Brown}, volume~6 of \emph{IMS Collections}, pp.\
+  158--165. Institute of Mathematical Statistics, 2010.
+\newblock \doi{10.1214/10-IMSCOLL611}.
+
+\bibitem[Hays et~al.(2026)Hays, Li, Flanigan, and Raghavan]{hays2026strategic}
+Chris Hays, Rachel Li, Bailey Flanigan, and Manish Raghavan.
+\newblock Strategic candidacy in generative {AI} arenas.
+\newblock In \emph{Proceedings of the 43rd International Conference on Machine
+  Learning}, volume 306 of \emph{Proceedings of Machine Learning Research},
+  2026.
+\newblock URL \url{https://arxiv.org/abs/2603.26891}.
+
+\bibitem[Huang et~al.(2026)Huang, Shen, Wei, and Broderick]{huang2026dropping}
+Jenny~Y. Huang, Yunyi Shen, Dennis Wei, and Tamara Broderick.
+\newblock Dropping just a handful of preferences can change top large language
+  model rankings.
+\newblock In \emph{The Fourteenth International Conference on Learning
+  Representations}, 2026.
+\newblock URL \url{https://openreview.net/forum?id=jNiEMDsRgc}.
+
+\bibitem[Jin et~al.(2021)Jin, Pan, Oufattole, Weng, Fang, and
+  Szolovits]{jin2021medqa}
+Di~Jin, Eileen Pan, Nassim Oufattole, Wei-Hung Weng, Hanyi Fang, and Peter
+  Szolovits.
+\newblock What disease does this patient have? a large-scale open domain
+  question answering dataset from medical exams.
+\newblock \emph{Applied Sciences}, 11\penalty0 (14):\penalty0 6421, 2021.
+\newblock \doi{10.3390/app11146421}.
+
+\bibitem[Kay et~al.(2025)Kay, Van~Horn, Maji, Sheldon, and Beery]{kay2025coda}
+Justin Kay, Grant Van~Horn, Subhransu Maji, Daniel Sheldon, and Sara Beery.
+\newblock Consensus-driven active model selection.
+\newblock In \emph{Proceedings of the IEEE/CVF International Conference on
+  Computer Vision}, 2025.
+\newblock URL
+  \url{https://openaccess.thecvf.com/content/ICCV2025/html/Kay_Consensus-Driven_Active_Model_Selection_ICCV_2025_paper.html}.
+\newblock Highlight.
+
+\bibitem[Khot et~al.(2018)Khot, Sabharwal, and Clark]{khot2018scitail}
+Tushar Khot, Ashish Sabharwal, and Peter Clark.
+\newblock {SciTail}: A textual entailment dataset from science question
+  answering.
+\newblock In \emph{Proceedings of the AAAI Conference on Artificial
+  Intelligence}, volume~32, 2018.
+\newblock URL \url{https://ojs.aaai.org/index.php/AAAI/article/view/12022}.
+
+\bibitem[Lanctot et~al.(2026)Lanctot, Larson, Gemp, and
+  Kaisers]{lanctot2026activeevaluation}
+Marc Lanctot, Kate Larson, Ian Gemp, and Michael Kaisers.
+\newblock Active evaluation of general agents: Problem definition and
+  comparison of baseline algorithms.
+\newblock In \emph{Proceedings of the 25th International Conference on
+  Autonomous Agents and Multiagent Systems}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2601.07651}.
+
+\bibitem[Liang et~al.(2023)Liang, Bommasani, Lee, et~al.]{liang2023helm}
+Percy Liang, Rishi Bommasani, Tony Lee, et~al.
+\newblock Holistic evaluation of language models.
+\newblock \emph{Transactions on Machine Learning Research}, 2023.
+\newblock URL \url{https://openreview.net/forum?id=iO4LZibEqW}.
+
+\bibitem[Liang et~al.(2020)Liang, Zhang, and Ma]{liang2020putsc}
+Shen Liang, Yanchun Zhang, and Jiangang Ma.
+\newblock Active model selection for positive unlabeled time series
+  classification.
+\newblock In \emph{2020 IEEE 36th International Conference on Data
+  Engineering}, pp.\  361--372. IEEE, 2020.
+\newblock \doi{10.1109/ICDE48307.2020.00038}.
+\newblock URL \url{https://doi.org/10.1109/ICDE48307.2020.00038}.
+
+\bibitem[Maas et~al.(2011)Maas, Daly, Pham, Huang, Ng, and
+  Potts]{maas2011learning}
+Andrew~L. Maas, Raymond~E. Daly, Peter~T. Pham, Dan Huang, Andrew~Y. Ng, and
+  Christopher Potts.
+\newblock Learning word vectors for sentiment analysis.
+\newblock In \emph{Proceedings of the 49th Annual Meeting of the Association
+  for Computational Linguistics: Human Language Technologies}, pp.\  142--150.
+  Association for Computational Linguistics, 2011.
+\newblock URL \url{https://aclanthology.org/P11-1015/}.
+
+\bibitem[Mihaylov et~al.(2018)Mihaylov, Clark, Khot, and
+  Sabharwal]{mihaylov2018openbookqa}
+Todor Mihaylov, Peter Clark, Tushar Khot, and Ashish Sabharwal.
+\newblock Can a suit of armor conduct electricity? a new dataset for open book
+  question answering.
+\newblock In \emph{Proceedings of the 2018 Conference on Empirical Methods in
+  Natural Language Processing}, pp.\  2381--2391, 2018.
+\newblock \doi{10.18653/v1/D18-1260}.
+\newblock URL \url{https://aclanthology.org/D18-1260/}.
+
+\bibitem[Nguyen et~al.(2025)Nguyen, Hoffman, and McCormick]{nguyen2025unreal}
+Simon Nguyen, Kentaro Hoffman, and Tyler McCormick.
+\newblock Unique rashomon sets for robust active learning.
+\newblock \emph{arXiv preprint arXiv:2503.06770}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2503.06770}.
+
+\bibitem[Nie et~al.(2020)Nie, Williams, Dinan, Bansal, Weston, and
+  Kiela]{nie2020adversarial}
+Yixin Nie, Adina Williams, Emily Dinan, Mohit Bansal, Jason Weston, and Douwe
+  Kiela.
+\newblock Adversarial nli: A new benchmark for natural language understanding.
+\newblock In \emph{Proceedings of the 58th Annual Meeting of the Association
+  for Computational Linguistics}, pp.\  4885--4901. Association for
+  Computational Linguistics, 2020.
+\newblock URL \url{https://aclanthology.org/2020.acl-main.441/}.
+
+\bibitem[Okanovic et~al.(2025)Okanovic, Kirsch, Kasper, Hoefler, Krause, and
+  G{\"u}rel]{okanovic2025modelselector}
+Patrik Okanovic, Andreas Kirsch, Jannes Kasper, Torsten Hoefler, Andreas
+  Krause, and Nezihe~Merve G{\"u}rel.
+\newblock All models are wrong, some are useful: Model selection with limited
+  labels.
+\newblock In \emph{Proceedings of the 28th International Conference on
+  Artificial Intelligence and Statistics}, volume 258 of \emph{Proceedings of
+  Machine Learning Research}, pp.\  2035--2043. PMLR, 2025.
+\newblock URL \url{https://proceedings.mlr.press/v258/okanovic25a.html}.
+
+\bibitem[Procaccia et~al.(2025)Procaccia, Schiffer, and
+  Zhang]{procaccia2025clonerobust}
+Ariel~D. Procaccia, Benjamin Schiffer, and Shirley Zhang.
+\newblock Clone-robust {AI} alignment.
+\newblock In \emph{Proceedings of the 42nd International Conference on Machine
+  Learning}, volume 267 of \emph{Proceedings of Machine Learning Research},
+  pp.\  49903--49926. PMLR, 2025.
+\newblock URL \url{https://proceedings.mlr.press/v267/procaccia25a.html}.
+
+\bibitem[Shang et~al.(2026)Shang, Li, Chen, Liu, Gu, and
+  Wang]{shang2026lineage}
+Zhuoyi Shang, Jiasen Li, Pengzhen Chen, Yanwei Liu, Xiaoyan Gu, and Weiping
+  Wang.
+\newblock Attesting model lineage by consisted knowledge evolution with
+  fine-tuning trajectory.
+\newblock In \emph{35th USENIX Security Symposium (USENIX Security 26)}, 2026.
+\newblock URL
+  \url{https://www.usenix.org/conference/usenixsecurity26/presentation/shang}.
+
+\bibitem[Shin et~al.(2022)Shin, Lee, and Ok]{shin2022strategicreplication}
+Suho Shin, Seungjoon Lee, and Jungseul Ok.
+\newblock Multi-armed bandit algorithm against strategic replication.
+\newblock In \emph{Proceedings of the 25th International Conference on
+  Artificial Intelligence and Statistics}, volume 151 of \emph{Proceedings of
+  Machine Learning Research}, pp.\  403--431. PMLR, 2022.
+\newblock URL \url{https://proceedings.mlr.press/v151/shin22a.html}.
+
+\bibitem[Shin et~al.(2025)Shin, Esmaeili, and
+  Hajiaghayi]{shin2025replicationproof}
+Suho Shin, Seyed~A. Esmaeili, and MohammadTaghi Hajiaghayi.
+\newblock Replication-proof bandit mechanism design with bayesian agents.
+\newblock \emph{arXiv preprint arXiv:2312.16896v2}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2312.16896}.
+
+\bibitem[Singh et~al.(2025)Singh, Nan, Wang, D'Souza, Kapoor, {\"U}st{\"u}n,
+  Koyejo, Deng, Longpre, Smith, Ermis, Fadaee, and
+  Hooker]{singh2025leaderboard}
+Shivalika Singh, Yiyang Nan, Alex Wang, Daniel D'Souza, Sayash Kapoor, Ahmet
+  {\"U}st{\"u}n, Sanmi Koyejo, Yuntian Deng, Shayne Longpre, Noah~A. Smith,
+  Beyza Ermis, Marzieh Fadaee, and Sara Hooker.
+\newblock The leaderboard illusion.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~38, 2025.
+\newblock URL
+  \url{https://papers.nips.cc/paper_files/paper/2025/hash/70a93f260a51123b3c0e33ecd1b4de97-Abstract-Datasets_and_Benchmarks_Track.html}.
+\newblock Datasets and Benchmarks Track.
+
+\bibitem[Suri et~al.(2025)Suri, Chaudhari, Peng, Naseh, Houmansadr, and
+  Oprea]{suri2025trojanclimb}
+Anshuman Suri, Harsh Chaudhari, Yuefeng Peng, Ali Naseh, Amir Houmansadr, and
+  Alina Oprea.
+\newblock Exploiting leaderboards for large-scale distribution of malicious
+  models.
+\newblock \emph{arXiv preprint arXiv:2507.08983}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2507.08983}.
+
+\bibitem[Turkmen et~al.(2026)Turkmen, Buyukates, and
+  Bastopcu]{turkmen2026information}
+Yigit Turkmen, Baturalp Buyukates, and Melih Bastopcu.
+\newblock Don't always pick the highest-performing model: An information
+  theoretic view of {LLM} ensemble selection.
+\newblock \emph{arXiv preprint arXiv:2602.08003}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2602.08003}.
+
+\bibitem[Williams et~al.(2018)Williams, Nangia, and
+  Bowman]{williams2018multinli}
+Adina Williams, Nikita Nangia, and Samuel~R. Bowman.
+\newblock A broad-coverage challenge corpus for sentence understanding through
+  inference.
+\newblock In \emph{Proceedings of NAACL-HLT}, pp.\  1112--1122, 2018.
+\newblock URL \url{https://aclanthology.org/N18-1101/}.
+
+\bibitem[Zhang et~al.(2015)Zhang, Zhao, and LeCun]{zhang2015character}
+Xiang Zhang, Junbo Zhao, and Yann LeCun.
+\newblock Character-level convolutional networks for text classification.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~28, pp.\  649--657, 2015.
+\newblock URL
+  \url{https://proceedings.neurips.cc/paper/2015/hash/250cf8b51c773f3f8dc8b4be867a9a02-Abstract.html}.
+
+\end{thebibliography}

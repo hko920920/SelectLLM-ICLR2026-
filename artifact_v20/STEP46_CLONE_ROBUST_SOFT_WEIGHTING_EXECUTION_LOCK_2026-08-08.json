@@ -1,0 +1,22 @@
+{
+  "lock_id": "STEP46_CLONE_ROBUST_SOFT_WEIGHTING_EXECUTION_V1",
+  "created_before_full_outcomes": true,
+  "preregistration_file": "STEP46_CLONE_ROBUST_SOFT_WEIGHTING_PREREGISTRATION_2026-08-08.json",
+  "preregistration_sha256": "9CDFAEEAB69BB4E516E99F452FD932BD34323D3ED3A225C5E2833E8A1544B8E2",
+  "runner_file": "run_step46_clone_robust_soft_weighting.py",
+  "runner_sha256": "FFFC9BF093978FD0B4340EF06AE1DA8ADF8BBA6C1483AADF55F966EC28FF55CF",
+  "completed_full_task_outcomes_before_lock": 0,
+  "completed_checks_before_lock": [
+    "Python syntax compilation",
+    "synthetic normalization and positivity",
+    "synthetic permutation equivariance",
+    "synthetic exact-twin fairness",
+    "synthetic far-component locality",
+    "exact breakpoint integration versus 20001-point dense quadrature"
+  ],
+  "full_execution": {
+    "tasks": ["medqa", "gsm8k", "openbookqa"],
+    "workers": 3,
+    "scientific_protocol_change_from_preregistration": false
+  }
+}

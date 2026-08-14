@@ -1,0 +1,20 @@
+{
+  "manifest_id": "STEP61A_BLIND_OUTPUT_LOCK_V1",
+  "created_local_date": "2026-08-10",
+  "execution_lock_sha256": "be23275a28ceb567ef2d0c226aefa9bae25542e215c26ac9157a54cfafcd59a7",
+  "results_sha256": "92cc334bbfda298da1ae158135f7d77f3f2122e7d403a0790d39ecdc87dd1f7f",
+  "risk_ids_sha256": "6a73bd3c9e8bd01abd012b87e211f987d67358e92f2eaa400206337bf40a5702",
+  "validator_sha256": "08496c6866482bfb8e6136f5fe0963c4cb7b9dbf087f779cba8644bca2efe9bf",
+  "sealed_counts": {
+    "tasks": 14,
+    "nonclean_units": 420,
+    "paired_runs_per_unit": 32,
+    "model_selector_high_risk": 105,
+    "llm_selector_high_risk": 105,
+    "total_high_risk": 210,
+    "total_low_risk": 210
+  },
+  "outcome_status": "No per-instance outcome was used in the sealed results. A pre-score limited aggregate-accuracy exposure is separately disclosed and did not alter any locked rule.",
+  "stage_b_enabled": false,
+  "condition_to_enable_stage_b": "Independent Stage A validation must pass, then a Stage B outcome runner and execution lock must be written and hashed before any oracle array is deserialized or HELM per-instance statistic is downloaded."
+}

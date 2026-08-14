@@ -1,0 +1,144 @@
+{
+  "result_id": "STEP94_FRESH_TASK_CONFIRMATORY_V1",
+  "date": "2026-08-13",
+  "decision": "NO_GO_RETAIN_FRESH_TASK_NEGATIVE",
+  "execution_lock_sha256": "8ece3313a2b1fde60e9dce0943c45dc43c94f730ae94a88a84027845dc87628f",
+  "stagea_config_sha256": "32c00b22b458851f0d6a7a169364be4e99cdc4adc84199a053b495db113e2121",
+  "raw_sha256": "76aec828348bee627299c6c9f1da1a57f7390ee8f2b4916a89c0d37ea919b700",
+  "selected_task": "20newsgroups",
+  "dataset": {
+    "id": "SetFit/20_newsgroups",
+    "revision": "f1b91292074e7cfb69be58b642d583ec262f30ed",
+    "n_classes": 20
+  },
+  "roster_bank_root_ids": [
+    10,
+    9,
+    6,
+    3,
+    1,
+    0,
+    2,
+    4
+  ],
+  "parent_position": 0,
+  "parent_bank_root_id": 10,
+  "tau": 0.25,
+  "thresholds": [
+    0.9976939857006073,
+    0.9990220665931702,
+    0.9930411577224731,
+    0.9973019659519196
+  ],
+  "endpoint": {
+    "hidden_sha256": "629d4cdd7782186f09103f3f83f61fea836134cce8c70c3c49962138b4ab32f2",
+    "integrated_variant_sha256": [
+      "00ffa5e7ab9115d91cbd42188551d394e471362e6ec4940b77a243076a3b4d0b",
+      "6791eafaf6e970fb4e390406026c0a864c5472d629227f2f04957af72eb469f3",
+      "cbb0bb59dbb1270c1b8d0e40440c7e731686c366f1adf7b4bcc9698f4ad426f8",
+      "1fe99b27deb29222104c540c2bc95c9054519a7414be5fcd08ecf8707ebb6c76"
+    ],
+    "integrated_variant_parameter_counts": [
+      205245,
+      205245,
+      205245,
+      205245
+    ],
+    "parent_replay_exact": true,
+    "forbidden_runtime_inputs": false
+  },
+  "quality": {
+    "parent_accuracy": 0.6084705257567711,
+    "alias_accuracies": [
+      0.605416887944769,
+      0.6059479553903345,
+      0.6035581518852894,
+      0.6044875199150292
+    ],
+    "alias_losses": [
+      0.0030536378120020746,
+      0.0025225703664365495,
+      0.00491237387148169,
+      0.003983005841741827
+    ],
+    "coordinate_wise_nonimproving": true,
+    "trigger_fractions": [
+      0.015268189060010621,
+      0.015268189060010621,
+      0.01898566117896973,
+      0.022039298990971852
+    ]
+  },
+  "mechanism": {
+    "path_change_rate": 1.0,
+    "query_set_change_rate": 1.0,
+    "final_root_change_rate": 0.482
+  },
+  "effects": {
+    "terminal": {
+      "mean": 0.0011979999999999998,
+      "median": 0.0,
+      "bootstrap_95": [
+        -0.00044402499999999893,
+        0.002895049999999998
+      ],
+      "one_sided_signflip_p": 0.08126918730812692,
+      "positive_fraction": 0.243,
+      "negative_fraction": 0.2315,
+      "zero_fraction": 0.5255
+    },
+    "active_minus_fixed_terminal": {
+      "mean": 0.0011979999999999998,
+      "median": 0.0,
+      "bootstrap_95": [
+        -0.000488999999999999,
+        0.002857049999999999
+      ],
+      "one_sided_signflip_p": 0.08102918970810292,
+      "positive_fraction": 0.243,
+      "negative_fraction": 0.2315,
+      "zero_fraction": 0.5255
+    },
+    "cumulative": {
+      "mean": 0.08215699999999991,
+      "median": 0.0840000000000003,
+      "bootstrap_95": [
+        0.03854362499999993,
+        0.12655414999999995
+      ],
+      "one_sided_signflip_p": 0.0001999980000199998,
+      "positive_fraction": 0.549,
+      "negative_fraction": 0.45,
+      "zero_fraction": 0.001
+    },
+    "fixed_terminal_max_abs": 0.0,
+    "fixed_cumulative_max_abs": 0.0,
+    "fixed_root_history_exact": true
+  },
+  "gates": {
+    "pre_outcome_integrity": true,
+    "same_literal_similarity": true,
+    "four_distinct_integrated_checkpoint_hashes": true,
+    "raw_input_endpoint_signature_has_no_forbidden_input": true,
+    "coordinate_wise_nonimproving": true,
+    "each_alias_loss_at_most_one_point": true,
+    "path_change_at_least_half": true,
+    "terminal_mean_at_least_half_point": false,
+    "terminal_bootstrap_lower_positive": false,
+    "terminal_signflip_at_most_point05": false,
+    "active_minus_fixed_mean_at_least_half_point": false,
+    "active_minus_fixed_bootstrap_lower_positive": false,
+    "cumulative_mean_positive": true,
+    "cumulative_bootstrap_lower_positive": true,
+    "fixed_terminal_exact_zero": true,
+    "fixed_cumulative_exact_zero": true,
+    "fixed_root_history_bitwise_exact": true
+  },
+  "failed_gates": [
+    "terminal_mean_at_least_half_point",
+    "terminal_bootstrap_lower_positive",
+    "terminal_signflip_at_most_point05",
+    "active_minus_fixed_mean_at_least_half_point",
+    "active_minus_fixed_bootstrap_lower_positive"
+  ]
+}

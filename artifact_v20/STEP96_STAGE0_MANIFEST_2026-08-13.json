@@ -1,0 +1,133 @@
+{
+  "manifest_id": "STEP96_SNLI_STAGE0_V1",
+  "date": "2026-08-13",
+  "authority_sha256": {
+    "STEP96_SNLI_DIRECTIONAL_TERMINAL_BRIDGE_PREREGISTRATION_2026-08-13.md": "1f7656eb26d5a2b61d9b2e130238f27026f149f4eb8a55392390ce78c3b6ff95"
+  },
+  "pre_outcome_statement": {
+    "protocol_existed_before_data_shard_download": true,
+    "dataset_card_schema_split_sizes_and_one_card_example_seen": true,
+    "no_snli_candidate_prediction_or_effect_seen_before_lock": true,
+    "no_validation_or_test_outcome_seen_before_lock": true
+  },
+  "dataset": {
+    "id": "stanfordnlp/snli",
+    "config": "plain_text",
+    "revision": "cdb5c3d5eed6ead6e5a341c8e56e669bb666725b",
+    "raw_sha256": {
+      "train": "ef9a7b25d97390a62aeda7abe26aec8640600f50b818eaeb9107097d60ac6620",
+      "validation": "00f5ed8deaed007fef3022f0215b287efbab815b1bb31ac3f3ff4f4129d41ffe",
+      "test": "4696deda851c4d2385f26b58f2e13f9ed9f08ea7b42a3f4c2b97a9d08448878c"
+    },
+    "valid_rows": {
+      "train": 549367,
+      "validation": 9842,
+      "test": 9824
+    }
+  },
+  "development": {
+    "file": "STEP96_SNLI_DEVELOPMENT_ROWS_2026-08-13.json",
+    "sha256": "1466a94078630eb1c238e86fadb0b790284d0f2a82ed4bf66a867f9abdf93052",
+    "selected_train_rows": 22500,
+    "validation_rows": 9842,
+    "partition_counts": {
+      "adapter_train": 9000,
+      "roster_gate": 3000,
+      "threshold": 4500,
+      "selector_search": 6000
+    },
+    "stratum_audit": {
+      "0": {
+        "available": 183416,
+        "selected": 7500,
+        "partition_counts": {
+          "adapter_train": 3000,
+          "roster_gate": 1000,
+          "threshold": 1500,
+          "selector_search": 2000
+        }
+      },
+      "1": {
+        "available": 182764,
+        "selected": 7500,
+        "partition_counts": {
+          "adapter_train": 3000,
+          "roster_gate": 1000,
+          "threshold": 1500,
+          "selector_search": 2000
+        }
+      },
+      "2": {
+        "available": 183187,
+        "selected": 7500,
+        "partition_counts": {
+          "adapter_train": 3000,
+          "roster_gate": 1000,
+          "threshold": 1500,
+          "selector_search": 2000
+        }
+      }
+    }
+  },
+  "test_input": {
+    "file": "step96_test_inputs/snli_test_inputs.json",
+    "sha256": "ea94e47f79986cb4041cd1f0521cad672f7364d13d81b68d52a13cbcb63ef4ae",
+    "rows": 9824,
+    "contains_labels": false
+  },
+  "sealed_outcome": {
+    "file": "external_data/step96_sealed/snli_test_sealed_outcomes.npz",
+    "sha256": "0c475a4c0c635507303494b248e707903c6e873ee8a392be4e19faa6a3116766",
+    "rows": 9824
+  },
+  "root_bank": [
+    {
+      "key": "crossencoder_deberta_small",
+      "repo_id": "cross-encoder/nli-deberta-v3-small",
+      "revision": "fa2804872c3b4bd748f38c0185cc85775361e735",
+      "raw_to_dataset": [
+        2,
+        0,
+        1
+      ],
+      "parent": true
+    },
+    {
+      "key": "moritz_minilm",
+      "repo_id": "MoritzLaurer/MiniLM-L6-mnli",
+      "revision": "6e0917f1a395b7a6c0f054a56b91c45d8e3af92f",
+      "raw_to_dataset": [
+        0,
+        1,
+        2
+      ],
+      "parent": false
+    },
+    {
+      "key": "mfac_bert_mini",
+      "repo_id": "M-FAC/bert-mini-finetuned-mnli",
+      "revision": "780061727f47254ff763de653920bb8b7e2fd5f2",
+      "raw_to_dataset": [
+        0,
+        1,
+        2
+      ],
+      "parent": false
+    },
+    {
+      "key": "mfac_bert_tiny",
+      "repo_id": "M-FAC/bert-tiny-finetuned-mnli",
+      "revision": "618f766f89b50853abc1bea92fd38e1973818f0b",
+      "raw_to_dataset": [
+        0,
+        1,
+        2
+      ],
+      "parent": false
+    }
+  ],
+  "source_code_sha256": {
+    "step96_common.py": "994411e8e9fb776c4fc447be1ad18b9c657a7199348d505815c1ed67f07e7acd",
+    "step96_stage0_prepare.py": "af3b04bf6dfe8cc2575f60c6cdd3647371c6ede1e8cdd733c2fbb871cc83fb70"
+  }
+}

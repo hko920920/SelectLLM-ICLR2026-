@@ -1,0 +1,15 @@
+\begin{table}[H]
+\centering
+\caption{Preregistered learned single-similarity confirmations on sealed Banking77 (1,000 pools) and selected fresh 20 Newsgroups (2,000 pools). The same exact-match $s$ drives acquisition and posterior evidence. Loss and terminal columns are percentage points; CReg is the 50-step cumulative root-regret difference. Fixed-query effects are exactly zero.}
+\label{tab:step93-source-faithful}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\linewidth}{@{}l r r c c c c@{}}
+\toprule
+Task & Params/alias & Alias loss & Path/root & $\Delta$Terminal [95\%] & $\Delta$CReg [95\%] & Gate \\
+\midrule
+Banking77 & 50,817 & .098--.358 & 99.8/36.6\% & $+.032$ [$-.055,+.122$] & $+.0409$ [$+.0129,+.0689$] & No \\
+20 Newsgroups & 205,245 & .252--.491 & 100/48.2\% & $+.120$ [$-.044,+.290$] & $+.0822$ [$+.0385,+.1266$] & No \\
+\bottomrule
+\end{tabularx}
+\end{table}

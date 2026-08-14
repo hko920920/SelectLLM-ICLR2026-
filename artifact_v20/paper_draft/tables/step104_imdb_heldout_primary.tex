@@ -1,0 +1,16 @@
+\begin{table}[H]
+\centering
+\caption{Development provenance and disjoint IMDB held-out primary. Intervals are paired 95\% bootstrap intervals; development search is descriptive. Path/root gives the percentage of changed ordered paths/final roots.}
+\label{tab:step104-imdb}
+\scriptsize
+\setlength{\tabcolsep}{1.5pt}
+\begin{tabular}{@{}lrrlllll@{}}
+\toprule
+Partition & Rows & Runs & Terminal $\Delta$ (pp) & $\Delta$CReg & Path/root (\%) & Fixed & Status \\
+\midrule
+Development search & 1,000 & 400 & $+1.560$ & $+.06718$ & 99.75/66.00 & zero & selection input \\
+Development verification & 2,000 & 1,500 & $+.533$ [$+.419,+.648$] & $+.02141$ [$+.01715,+.02560$] & 99.80/53.93 & zero & lock gate pass \\
+Sealed held-out primary & 13,000 & 3,000 & $+.702$ [$+.615,+.788$] & $+.02795$ [$+.02467,+.03129$] & 99.93/60.67 & zero & \texttt{GO} \\
+\bottomrule
+\end{tabular}
+\end{table}

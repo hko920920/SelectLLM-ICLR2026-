@@ -1,0 +1,18 @@
+\begin{table}[H]
+\centering
+\caption{Prospective Yelp one-shot result (3,000 paired pools). Effects are refined minus clean. The literal decision remains \texttt{NO\_GO} because the terminal means miss the frozen $+.5$-point gate.}
+\label{tab:step105-yelp}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrl@{}}
+\toprule
+Endpoint & Effect & Paired 95\% interval & Frozen gate \\
+\midrule
+Terminal regret (pp) & $+.3527$ & $[+.3090,+.3977]$ & $\geq+.5$: no \\
+Active--fixed terminal (pp) & $+.3527$ & $[+.3076,+.3956]$ & $\geq+.5$: no \\
+Cumulative regret & $+.017925$ & $[+.016163,+.019706]$ & lower $>0$: yes \\
+Ordered-path change & $99.90\%$ & --- & $\geq50\%$: yes \\
+Fixed-query effect & $.0000$ & exact & $=0$: yes \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,91 @@
+{
+  "manifest_id": "STEP61B_INDEPENDENT_VALIDATION_V1",
+  "validator_independent_of_stage_b_runner_imports": true,
+  "result_sha256": "b58eedfe95ab543a571f044350352cbd51d957d7a6bd8a3e12fb53581b395479",
+  "outcome_manifest_sha256": "d204cc5bdfe76f56c429c0977e2c8d1ba03ec6ab9ab99563dea72c49f67c0091",
+  "execution_lock_sha256": "8e807f77e19ec1f4656d9a5712b7719a9174f801e95697984ac360109c96f32e",
+  "checks_passed": 98,
+  "checks_total": 98,
+  "failures": [],
+  "recomputed": {
+    "erfa": {
+      "spearman_absolute_effect": 0.185373994289315,
+      "materiality_auroc": 0.7192949907235622,
+      "task_block_permutation_p": 0.4163583641635836
+    },
+    "operating_point": {
+      "tp": 26,
+      "fn": 9,
+      "tn": 201,
+      "fp": 184,
+      "sensitivity": 0.7428571428571429,
+      "specificity": 0.522077922077922
+    },
+    "baselines": {
+      "count_distance": {
+        "spearman_absolute_effect": 0.10153103304263812,
+        "materiality_auroc": 0.5939146567717997
+      },
+      "first_query_change_fraction": {
+        "spearman_absolute_effect": 0.15009448525344818,
+        "materiality_auroc": 0.5957328385899815
+      },
+      "path_hamming": {
+        "spearman_absolute_effect": 0.3744180740536205,
+        "materiality_auroc": 0.6861595547309833
+      },
+      "path_jaccard": {
+        "spearman_absolute_effect": 0.18841203349512425,
+        "materiality_auroc": 0.5153246753246753
+      },
+      "static_mass_rank_displacement": {
+        "spearman_absolute_effect": 0.33942028050020695,
+        "materiality_auroc": 0.7879406307977737
+      }
+    },
+    "family": {
+      "model_selector": {
+        "material_units": 1,
+        "erfa": {
+          "spearman_absolute_effect": -0.03783814428215205,
+          "materiality_auroc": 0.3349282296650718
+        },
+        "best_baseline": "count_distance",
+        "best_baseline_auroc": 0.65311004784689
+      },
+      "select_llm": {
+        "material_units": 34,
+        "erfa": {
+          "spearman_absolute_effect": 0.21127783157263155,
+          "materiality_auroc": 0.6753843582887701
+        },
+        "best_baseline": "first_query_change_fraction",
+        "best_baseline_auroc": 0.6527406417112299
+      }
+    },
+    "bootstrap": {
+      "mean_difference": -0.07458703842182647,
+      "ci95": [
+        -0.19486129952500514,
+        0.02441174705625746
+      ],
+      "median_difference": -0.06837670246330274,
+      "nonpositive_fraction": 0.9117
+    },
+    "fallback": {
+      "harmful_excess_reduction_fraction": 0.3438930795319556,
+      "active_coverage": 0.5
+    },
+    "diverse_low_risk_fraction": 0.7857142857142857,
+    "gates": {
+      "G1_magnitude": false,
+      "G2_materiality": false,
+      "G3_adaptive_value": false,
+      "G4_cross_selector": false,
+      "G5_selective_fallback": false,
+      "G6_nonvacuity_control": true
+    },
+    "decision": "STOP_FRAGILITY_PIVOT"
+  },
+  "verdict": "VALIDATED"
+}

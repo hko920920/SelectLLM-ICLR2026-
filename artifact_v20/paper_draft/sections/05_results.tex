@@ -1,0 +1,56 @@
+\clearpage
+\section{Results}
+\label{sec:results}
+
+Table~\ref{tab:result-ladder} separates occurrence, causal identification, and transfer. These layers answer different questions: a natural alias need not cause harm, and a controlled causal effect need not constitute a production attack.
+
+\begin{table}[H]
+\centering
+\caption{Result ladder. Terminal ``passes'' use each audit's frozen gate; all reported causal terminal effects have zero fixed-query effect.}
+\label{tab:result-ladder}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\linewidth}{@{}p{.17\linewidth}p{.21\linewidth}p{.25\linewidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Evidence & Scope & Terminal result & What it establishes \\
+\midrule
+Natural exact alias & 3 tasks, 1,500 runs & No reliable harm & Representation non-invariance \\
+Exact-quality T2-A & 3 tasks & Harm on 2/3; CReg on 3/3 & Acquisition-mediated causality \\
+Calibration-only T1 & 8 untouched scenarios & Gate passes on 3/8 & Selective reference-free transfer \\
+Learned IMDB & 13,000 held-out rows & $+.702$ [$.615,.788$] pp & Executable same-view terminal effect \\
+Prospective Yelp & 38,000 one-shot rows & $+.353$ [$.309,.398$] pp; below gate & Directional no-search transfer \\
+Official LLM Selector & 6 datasets & Gate passes on 2/6 & Second-family transfer \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Representation dependence occurs naturally without reliable natural harm}
+
+The two frozen version entries are the unique cross-task exact response-and-utility pair: zero mismatches over 2,500 items and equal task qualities .548/.721/.844. Restoring the later entry to its 30-entry quotient adds no behavior or quality vector, yet changes at least one query in all 500 paired runs per task. Mean changed positions and query-set Jaccards are 40.744/.844, 21.752/.911, and 16.010/.940 (Table~\ref{tab:primary-llm}, Panel A). Candidate-invariant random queries produce identical query matrices, root histories, and regret, so the active effect follows from changing one behavior's entry mass from $1/30$ to $2/31$.
+
+\input{tables/primary_llm_results}
+
+Ordered displacement is not the same as acquiring many new labels. Query sets change in 94.0/87.4/66.0\% of runs, but only 4.358/1.420/.960 unique labels are replaced (8.72/4.73/3.20\% of budget). Cumulative-regret directions mix and every terminal interval contains zero. The natural anchor therefore establishes occurrence and limited evidence substitution, not adversarial intent or natural damage.
+
+\subsection{Quality-preserving refinement completes the causal chain}
+
+Every T2-A alias has a distinct response hash but exactly the parent's correctness vector. Existing entries, references, best root, pool distribution, and selector remain fixed, and the constructor reads no peer response. All 500 fresh trajectories change on every task. Cumulative regret rises by 3.252/3.781/.846 (Table~\ref{tab:primary-llm}, Panel B; corrected $q=9.999\times10^{-5}$); terminal regret rises by 2.91/10.56 points on MedQA/GSM8K, while OpenBookQA is cumulative-only.
+
+The counterfactual identifies the mediator: forcing clean and refined registries to use the same query matrix makes root histories and regret exactly equal. Thus adding lower-quality roots or changing a static deployment rule cannot explain the effect. All 48,000 replays across 16 registry permutations are bitwise canonical-equal, and every cell in the nine-policy query/root tie cross retains positive cumulative-regret intervals. Clean active selection also beats random querying on two tasks, excluding a vacuous selector.
+
+The effect is selectable rather than monotone. Development-to-final target-effect correlations are .991/.995/.999, but complete target medians are $-.006/-.046/-.176$. All primary temperature and budget cells are positive; the wider OpenBookQA grid contains 171 positive and 69 negative cells. Candidate refinement can steer the trajectory in either direction, and the paper's claim concerns the existence of targeted harm.
+
+\subsection{Outcome-free execution is real but transfers selectively}
+
+Calibration-only T1 aliases pass terminal and active-minus-fixed gates on NarrativeQA and WMT14 fr--en/ru--en ($3/8$; corrected $q\leq.00027$). Three nonpasses improve and two are null. This is prospective cross-task evidence, not a universal success rate.
+
+The stronger learned confirmation uses one literal exact-match view for both acquisition and evidence. Four independently trained IMDB raw-text adapters emit the parent label or abstain, never improve a coordinate, and lose only .438--.523 accuracy points. On the disjoint 13,000-row outcome, 99.93\% of paths and 60.67\% of final roots change. Terminal and active-minus-fixed regret rise by $+.702$ [$.615,.788$] points, cumulative regret by $+.02795$ [$.02467,.03129$], and fixed-query effects are zero. Because the task, roster, and condition were developed on separate IMDB rows, this is held-out outcome confirmation rather than untouched-task transfer or live admission.
+
+Yelp tests that stricter boundary. A public-checkpoint roster and inherited pipeline are fixed before target access, with no target selector grid or replacement outcome. Aliases lose .376--.561 accuracy points; 99.90\% of paths and 41.70\% of final roots change. Terminal and active-minus-fixed regret rise by $+.353$ [$.309,.398$] points and fixed-query effects remain zero, but the effect misses the predeclared $.5$-point materiality threshold. We therefore retain it as a negative, directional one-shot transfer rather than a second primary success.
+
+\subsection{Defenses and second-family results bound the claim}
+
+Exact quotienting misses response-distinct aliases. A distance-matched 5\% cover suppresses T2-M, but larger radii merge natural models and can cost 3.975 terminal points. Soft clone-robust weights mitigate 74/105 cells, yet no fixed response-only setting is non-worsening across all attacks and clean conditions. Authenticated lineage is exact because it supplies the missing root information (Appendix~\ref{app:defense}).
+
+The official LLM Selector audit passes terminal gates on AlpacaEval and Bingo ($2/6$; $.321/.498$ points, corrected $q=3.0\times10^{-5}$), with zero fixed-query effects. The remaining datasets improve, miss correction, or are null; CODA is mixed. Only 8/420 untargeted additions are materially harmful versus 27 beneficial, and a preregistered fragility score fails five of six gates. Together, these results support a cross-family but targeted failure, not average harm (Appendices~\ref{app:step88}, \ref{app:coda}, and~\ref{app:untargeted}).
+\FloatBarrier

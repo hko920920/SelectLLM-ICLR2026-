@@ -1,0 +1,61 @@
+{
+  "lock_id": "STEP90_HIGH_CONFIDENCE_EXECUTABLE_ADAPTER_CONFIRMATORY_LOCK_V1",
+  "locked_at": "2026-08-12 Asia/Seoul, before MNLI or QQP holdout parent inference and before either sealed outcome was opened for selection",
+  "models": {
+    "mnli": {
+      "name": "cross-encoder/nli-distilroberta-base",
+      "revision": "b14d131f9d32668a5e6a982729b57ff6ed5dfcbd",
+      "model_safetensors_sha256": "9df3eb5d37118f952f4ba4fb46fde6889e3a9ccedeee0bad09b0110fc64c5c29"
+    },
+    "qqp": {
+      "name": "cross-encoder/quora-distilroberta-base",
+      "revision": "f62e7a4b20b97195c2868e53ec59126df5eac743",
+      "model_safetensors_sha256": "73fd14ad7d08f3ef30eb25841c8f4ba89e91230f48159279233b37015ccb33fb"
+    }
+  },
+  "locked_sha256": {
+    "STEP89_QNLI_EXECUTABLE_ADAPTER_RESULTS_2026-08-12.json": "efb16dbc16830d2398f98592747018fb7f1da952a4022e76ea0f06270b892ec0",
+    "STEP90_HIGH_CONFIDENCE_ADAPTER_STAGE0_PROTOCOL_2026-08-12.md": "1b459457a222b070953e52079a83a1ceda0bb5d6a78fc0c8c07e23e36491354f",
+    "STEP90_HIGH_CONFIDENCE_ADAPTER_STAGE0_MANIFEST_2026-08-12.json": "4aa672d6657d1324636c74a29510c8a06a5ea804c6f5db0fd51d3272c9df87cb",
+    "STEP90_MNLI_CALIBRATION_PACKAGE_2026-08-12.json": "c3a96597992421df812d4b533cfedc0fd4380cc3ed22b38abbc87fa9aea0c080",
+    "STEP90_MNLI_HOLDOUT_INPUTS_2026-08-12.json": "f6a9c03e2afc01d2bddfbaebc732198bb78c5e3b7c983082c0a9a591e755dbd2",
+    "external_data/step90_sealed/STEP90_MNLI_SEALED_OUTCOMES_2026-08-12.npz": "41152974e52501c7c2f6f28b5947a42df47052c9d8dc83c1bdce2404c2c3b20c",
+    "STEP90_MNLI_CALIBRATION_PARENT_OUTPUTS_2026-08-12.npz": "2a949057e8731070bed3ed077da7bf7577c0417eb44fe81208314fd038640885",
+    "STEP90_MNLI_STAGEA_SEARCH_LEDGER_2026-08-12.json": "d3a0469871808369f0308c624ef896d374858a0e4bde1497ce77262eb3dd5e2d",
+    "STEP90_QQP_CALIBRATION_PACKAGE_2026-08-12.json": "0a5b869608ec6b9a2dbe382bb511879c65f21b444a19d56f9f4fe0e54001fc1e",
+    "STEP90_QQP_HOLDOUT_INPUTS_2026-08-12.json": "d161378ffe3644a6b9c4369a2f09c948498ce8389c62629fac050fcbeb017dcd",
+    "external_data/step90_sealed/STEP90_QQP_SEALED_OUTCOMES_2026-08-12.npz": "c8e86616ded01baf66da3e165df8c9a5f6fb586f7db67f8b3a1213fc7df8e48b",
+    "STEP90_QQP_CALIBRATION_PARENT_OUTPUTS_2026-08-12.npz": "a86186061a74bb430d968f4e3fae7cf2bc44eb12cc43483b984e630eb91f8f26",
+    "STEP90_QQP_STAGEA_SEARCH_LEDGER_2026-08-12.json": "4cece7800f2fcf4d1917e70b99861fe392c8d59ce8b27d8a9d18db77fa3e568f",
+    "STEP90_HIGH_CONFIDENCE_STAGEA_FROZEN_CONFIG_2026-08-12.json": "3dfda0e5deb6db51bba510fcf074360f4a8764a95271c16f427bbec1b585ecb4",
+    "STEP90_HIGH_CONFIDENCE_EXECUTABLE_ADAPTER_PREREGISTRATION_2026-08-12.md": "70147e0b5b1c70024e95492f23d31dbe9b739866468a407237bc0cb661b05c55",
+    "step90_stage0_prepare.py": "bd5e3196d3490112de58bb344f3a0dcabc0627097beb5e16cc86e2aabd272ae0",
+    "step90_stagea_develop.py": "efd8ed33c910ea083219e5c9b54d841d093d02251e13bd8d90475a4e8a41040c",
+    "step90_stageb_confirmatory.py": "a50f7c192a5fab220a576019e3927f5463c8b6afa39d9fb7fb35037c4f1c8783",
+    "step90_models/step90_mnli_adapter_0.safetensors": "750f2e2d98d92cd440f4d11044f296ee9d057b6cd8345eb923a6776ded8b18a2",
+    "step90_models/step90_mnli_adapter_1.safetensors": "c54105ec135b1d57257abb68543abbdf8855ded8a0123806546c105074926dc1",
+    "step90_models/step90_mnli_adapter_2.safetensors": "56c7b637492d65bd097119eacf8ed39041e01196f27c889edfba4aef50012dc9",
+    "step90_models/step90_mnli_adapter_3.safetensors": "0d12dc05eabf0f6d6cd88b98903e413508b7d2e31f93161dfa64dc7acb9935dd",
+    "step90_models/step90_qqp_adapter_0.safetensors": "7e4cc6f70dd45490d49b004071ea2dd4c403d829d92531c47053dadb5a44d136",
+    "step90_models/step90_qqp_adapter_1.safetensors": "92a7be6d812222757c7faa75191f35265bc594d6973cc54aa02dbcb10e53886b",
+    "step90_models/step90_qqp_adapter_2.safetensors": "f50624038c24592115612cf39cb5a9f67c79f68c69c71eacef64459d872baaa7",
+    "step90_models/step90_qqp_adapter_3.safetensors": "d7029f9701641f8833c5f28d9d6f26ebf3c2d6dc3d3f734f511acf328a919b4c"
+  },
+  "per_task_gate": {
+    "paired_runs": 1000,
+    "pool_size": 400,
+    "budget": 50,
+    "minimum_path_change_rate": 0.5,
+    "minimum_mean_terminal_regret_delta": 0.005,
+    "bootstrap_lower_strictly_positive": true,
+    "holm_adjusted_one_sided_p_maximum": 0.05,
+    "fixed_query_effect_exactly_zero": true,
+    "coordinate_wise_hard_utility_equal": true,
+    "active_minus_fixed_terminal_minimum": 0.005
+  },
+  "decision": {
+    "both_pass": "GO_STRONG_EXECUTABLE_ADAPTER_TRANSFER",
+    "one_pass": "GO_LIMITED_EXECUTABLE_ADAPTER_TRANSFER",
+    "none_pass": "NO_CONFIRMATORY_EXECUTABLE_ADAPTER_TRANSFER"
+  }
+}

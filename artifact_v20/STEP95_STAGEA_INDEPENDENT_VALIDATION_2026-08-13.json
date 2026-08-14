@@ -1,0 +1,30 @@
+{
+  "validation_id": "STEP95_STAGEA_INDEPENDENT_RECONSTRUCTION_V1",
+  "date": "2026-08-13",
+  "ledger_sha256": "b6e9a801ce29a9de0c3f62bba7510ee43e9c7458290ebf3556cb2ffe43317d00",
+  "config_sha256": "1a36fc7d02929fd40fd023e2d7c6fc40ca5e11358c664a4a433e6716917359c9",
+  "arrays_sha256": "3fe4d4f707a25f65511014005c60c5fca2fc333572275709a97d695f90716c57",
+  "checks": {
+    "hash_bindings": true,
+    "parent_and_roster_reconstruction": true,
+    "complete_grid_and_top_eight_selection": true,
+    "selected_search_full_rerun_exact": true,
+    "selected_verification_full_rerun_exact": true,
+    "bootstrap_and_signflip_reconstruction": true,
+    "gate_and_decision_reconstruction": true,
+    "sealed_confirmation_absent": true
+  },
+  "decision": "NO_GO_DEVELOPMENT_GATE_STOP",
+  "failed_gates": [
+    "alias_losses_at_most_one_point_threshold_search_verify",
+    "search_and_verification_terminal_mean_at_least_half_point",
+    "search_and_verification_active_minus_fixed_mean_at_least_half_point"
+  ],
+  "verification_terminal_mean": 0.0004986666666666671,
+  "verification_terminal_bootstrap_95": [
+    0.00026400000000000024,
+    0.0007306666666666673
+  ],
+  "verification_cumulative_mean": 0.05055733333333333,
+  "sealed_test_opened": false
+}

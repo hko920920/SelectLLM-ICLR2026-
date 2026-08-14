@@ -1,0 +1,63 @@
+{
+  "manifest_id": "STEP98_STAGE0_TRAIN_ONLY_V1",
+  "date": "2026-08-13",
+  "protocol_sha256": "8a8ed383e512933999f0a114e03f17b3140caa0af6e5a96ee7b27aeb0d427255",
+  "code_sha256": {
+    "step98_common.py": "11ad12d3c032a5d31242f5c5e61bf76a1d88aef42a62b4d5032aa4f62f73c4a3",
+    "step98_stage0_prepare_train_only.py": "c7e3cc6dde3d2bf1aa0ba8d8118df883163f2bd82bad23ee2a09fee24065ede4"
+  },
+  "dataset": {
+    "id": "facebook/anli",
+    "config": "plain_text",
+    "revision": "8e4813d81f46d313dac7892e1c28076917cfcdf9",
+    "train_splits_accessed": [
+      "train_r1",
+      "train_r2",
+      "train_r3"
+    ],
+    "dev_splits_accessed": [],
+    "test_splits_accessed": [],
+    "builder_cache_materialized_all_splits": true,
+    "experiment_code_iterated_only_requested_train_objects": true,
+    "label_names": [
+      "entailment",
+      "neutral",
+      "contradiction"
+    ]
+  },
+  "train_rows_file": "STEP98_ANLI_TRAIN_ONLY_ROWS_2026-08-13.json",
+  "train_rows_sha256": "f5aba8e6a2030b3ed52c5374b48f6a80f7174dc6bfa1b3a9598372d8bcf130c4",
+  "round_partition_counts": {
+    "r2": {
+      "geometry_search": 750,
+      "geometry_verify": 750,
+      "adapter_train": 5400,
+      "threshold_calibration": 1200,
+      "threshold_safety": 1500,
+      "selector_search": 1800,
+      "selector_verify": 3000
+    },
+    "r3": {
+      "geometry_search": 750,
+      "geometry_verify": 750,
+      "adapter_train": 5400,
+      "threshold_calibration": 1200,
+      "threshold_safety": 1500,
+      "selector_search": 1800,
+      "selector_verify": 3000
+    }
+  },
+  "ineligible_rounds": {
+    "r1": {
+      "reason": "fewer_than_frozen_rows_in_at_least_one_label",
+      "available_by_label": {
+        "0": 5371,
+        "1": 7052,
+        "2": 4523
+      },
+      "required_per_label": 4800
+    }
+  },
+  "selected_round": null,
+  "sealed_dev_created": false
+}

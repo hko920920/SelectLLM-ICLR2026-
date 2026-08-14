@@ -1,0 +1,23 @@
+{
+  "manifest_id": "STEP89_QNLI_EXECUTABLE_ADAPTER_STAGE0_V1",
+  "date": "2026-08-12",
+  "dataset_revision": "bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c",
+  "model_revision": "7dd04ee0a6040c06fb381ad7edcb8585f4d937fd",
+  "split_salt": "step89-qnli-v1",
+  "counts": {
+    "total": 5463,
+    "calibration": 2691,
+    "holdout": 2772
+  },
+  "inputs_sha256": {
+    "protocol": "319df624d966a40965bc51a68ef291444c49333a193812f6f4fe5d06e14ea5c5",
+    "official_oracle": "836981f8fe1af9f2b37023a68b38df1bf8a19de64474323529e023bd8d0f3e5e",
+    "official_predictions": "4a7c396ab8e7024176d58d94aacd513e5d6855ccdc99c9b3eece8b36aeb04c63"
+  },
+  "outputs_sha256": {
+    "STEP89_QNLI_CALIBRATION_PACKAGE_2026-08-12.json": "c7198204aade4be425ff6c6925bfb0bdcc695b5f1528c1752b5ec3a85c061170",
+    "STEP89_QNLI_HOLDOUT_INPUTS_2026-08-12.json": "e96d76c590ba1f41262c4a19c40e75caa8dd71e9bccfde4552a7ba39842af024",
+    "external_data\\step89_sealed\\STEP89_QNLI_SEALED_HOLDOUT_OUTCOMES_2026-08-12.npz": "975afe2f177aab03e2014de5716f2c6a9ba6a6fbe6a9290a6c5ce7fd44c07aa2"
+  },
+  "pre_outcome_statement": "No frozen-parent, adapter, active-path, selected-root, regret, or holdout-effect outcome was computed before this split lock."
+}

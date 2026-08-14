@@ -1,0 +1,36 @@
+\begin{table}[H]
+\centering
+\caption{Complete fixed-configuration soft-weight audit. Mean and maximum $R$ summarize absolute residual CReg ratios over five eligible attack cells; ``mit.'' counts $R<1$. Clean columns report $\Delta$CReg on GSM8K/MedQA/OpenBookQA. Final is the largest absolute clean terminal shift across the three tasks, in percentage points.}
+\label{tab:soft-weight-all}
+\scriptsize
+\setlength{\tabcolsep}{2.2pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrrrr@{}}
+\toprule
+Rule & $\alpha$ & Mean $R$ & Max $R$ & Mit. & Clean G & Clean M & Clean O & Final pp \\
+\midrule
+class-unif. & .010 & .814 & 1.061 & 3/5 & $-.180$ & $+.351$ & $+.338$ & .023 \\
+class-unif. & .050 & .824 & 1.061 & 3/5 & $-.180$ & $+.351$ & $+.238$ & .023 \\
+class-unif. & .100 & .830 & 1.153 & 3/5 & $-.180$ & $+.275$ & $+.973$ & .020 \\
+class-unif. & .132 & .656 & 1.185 & 4/5 & $-.180$ & $+.386$ & $+1.110$ & .203 \\
+class-unif. & .150 & .644 & 1.400 & 4/5 & $-.314$ & $+.555$ & $+1.108$ & .181 \\
+class-unif. & .184 & .744 & 1.307 & 4/5 & $-.211$ & $+.609$ & $+1.455$ & .037 \\
+class-unif. & .213 & .730 & 1.550 & 4/5 & $-.160$ & $+.638$ & $+1.290$ & .037 \\
+\midrule
+MCCA & .010 & .814 & 1.061 & 3/5 & $-.180$ & $+.351$ & $+.338$ & .023 \\
+MCCA & .050 & .824 & 1.061 & 3/5 & $-.180$ & $+.351$ & $+.238$ & .023 \\
+MCCA & .100 & .765 & 1.121 & 3/5 & $-.180$ & $+.275$ & $+1.018$ & .022 \\
+MCCA & .132 & .584 & 1.158 & 4/5 & $-.180$ & $+.386$ & $+1.273$ & .024 \\
+MCCA & .150 & .637 & 1.295 & 4/5 & $-.314$ & $+.555$ & $+1.172$ & .037 \\
+MCCA & .184 & .597 & 1.259 & 4/5 & $-.211$ & $+.609$ & $+2.010$ & .037 \\
+MCCA & .213 & .714 & 1.497 & 4/5 & $-.160$ & $+.638$ & $+2.483$ & .037 \\
+\midrule
+MCCP & .010 & .814 & 1.061 & 3/5 & $-.180$ & $+.351$ & $+.338$ & .023 \\
+MCCP & .050 & .824 & 1.061 & 3/5 & $-.180$ & $+.351$ & $+.238$ & .023 \\
+MCCP & .100 & .721 & 1.125 & 4/5 & $-.180$ & $+.275$ & $+1.112$ & .175 \\
+MCCP & .132 & .734 & 1.162 & 4/5 & $-.180$ & $+.386$ & $+1.897$ & .181 \\
+MCCP & .150 & .785 & 1.390 & 4/5 & $-.314$ & $+.555$ & $+1.823$ & .169 \\
+MCCP & .184 & .874 & 1.304 & 3/5 & $-.211$ & $+.609$ & $+2.933$ & .037 \\
+MCCP & .213 & 1.064 & 1.584 & 3/5 & $-.160$ & $+.638$ & $+3.724$ & .037 \\
+\bottomrule
+\end{tabular*}
+\end{table}

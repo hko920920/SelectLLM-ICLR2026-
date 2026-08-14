@@ -1,0 +1,326 @@
+\section{Prospective Reference-Free Terminal Audit}
+\label{app:step87b}
+
+\paragraph{Outcome-blind task freeze.}
+An initial preregistration named 18 fresh MMLU subjects, but all 31 model-prefix requests for its first frozen subject returned HTTP 404 before any response or outcome was observed; HELM-Lite v1.0.0 contains only the five MMLU subjects already used elsewhere in the project. We retained that structural failure rather than replacing a result. A metadata-only enumeration then identified eight previously untouched scenarios with the complete 31-model roster. Before downloading their content or outcomes, a separate protocol froze NarrativeQA, NaturalQA closed/open, and WMT14 cs/de/fr/hi/ru--en. These exhaust the untouched, structurally complete non-LegalBench HELM-Lite scenarios left after excluding prior tasks; no frozen scenario could be dropped or replaced.
+
+Each task was split by a manifest-keyed SHA-256 ordering: NarrativeQA contributes 235 calibration and 235 sealed-holdout items, and every other scenario contributes 500 and 500. The first metric present for every model--item pair under the frozen order F1, quasi-exact match, exact match, BLEU-4, BLEU was selected without attack outcomes; this yields F1 for the three QA scenarios and BLEU-4 for translation. Utilities lie in $[0,1]$.
+
+\paragraph{Attack freeze and gate.}
+Five-fold out-of-fold TF--IDF bigram ridge prediction estimates the selected parent's continuous error from prompt and parent output. A prediction-only exact-clone screen retains five parents. Calibration then selects among three support-overlap rules, distances $.5/1\%$, budgets 10/20/40, and clean-selected temperatures 1/3/5 by maximizing active-minus-fixed terminal harm over 200 paired pools. Only after that choice does the builder open the selected parent's blind holdout prompts and outputs. It changes the top predicted-error coordinates to four alias-specific opaque abstention strings; no holdout reference, utility, peer output, pool, trajectory, or selector state is read. Unchanged utilities are inherited and changed utilities are zero, so every alias is coordinate-wise non-improving and loses at most its declared distance. The tokens are subsequently checked against all sealed references and have zero collision.
+
+Stage B runs exactly 1,000 paired pools (seeds 88400--89399) per frozen scenario. A scenario passes only if (i) all aliases remain within one percentage point, (ii) both active terminal harm and active-minus-fixed terminal harm have paired-bootstrap 95\% lower bounds above zero, and (iii) their separately eight-task BH-adjusted one-sided sign-flip $q$-values are below $.05$. Fixed-query terminal effects are reported separately; any nonzero value forbids exact mediation. At least two passing scenarios were required for promotion.
+
+\input{tables/step87b_reference_free_results}
+
+Three scenarios pass: NarrativeQA, WMT14 fr--en, and WMT14 ru--en. Their worst alias quality gaps are $-.851$, $-.064$, and $.000$ percentage points, respectively; thus the Russian pair is exact-utility-equivalent on the sealed holdout. All eight fixed-query root histories and regret arrays are byte-identical, making the active and active-minus-fixed point effects equal. The five nonpassing scenarios are not hidden: two confidence intervals cross zero, while NaturalQA closed/open and WMT14 de--en significantly improve the selected terminal utility. The machine decision is \texttt{PROMOTE\_REFERENCE\_FREE\_TERMINAL\_BRIDGE}; it supports a selectable, reference-free attack on new task families, not monotone transfer.
+
+The Stage-A attack was frozen before deserializing the sealed outcomes. The Stage-B lock binds the preregistration, attack rows, sealed package, runner, independent validator, and six runtime dependencies. A separate implementation reconstructs canonicalization, active and fixed acquisition loops, every raw path/regret array, 10,000-repetition intervals and sign-flip tests, BH adjustment, quality/integrity gates, and the final $3/8$ decision. All eight task checks, all four lock checks, and the decision check pass under \texttt{PASS\_STEP87B\_INDEPENDENT\_RECONSTRUCTION}. The immutable results and raw-array SHA-256 values begin \texttt{FC953C87} and \texttt{26422130}; the independent-validation hash begins \texttt{1EF6C0F7}.
+
+\section{Full Proofs and Formal Verification}
+\label{app:proofs}
+
+\subsection{Product-frame construction}
+
+Fix budget $B$ and let each canonical behavior be a vector $z\in\{A,B\}^B$. The public registry contains $2^B$ exact submitted copies of every $z$, for $4^B$ submitted IDs in total. A latent frame is indexed by $\omega\in\{A,B\}^B$. Define
+\[
+m_\omega(z)=\left|\{t:z_t=\omega_t\}\right|.
+\]
+Frame $\Phi_\omega$ partitions the $2^B$ public copies of $z$ into $r_\omega(z)=2^{m_\omega(z)}$ accountable roots, each containing $2^{B-m_\omega(z)}$ aliases. These are integer partitions of the same public leaves. Every frame contains
+\[
+\sum_z 2^{m_\omega(z)}=3^B
+\]
+roots. A uniform root prior therefore induces
+\[
+\Pr_\omega(F=z)=\frac{2^{m_\omega(z)}}{3^B}
+=\prod_{t=1}^B
+\begin{cases}
+2/3,&z_t=\omega_t,\\
+1/3,&z_t\neq\omega_t.
+\end{cases}
+\]
+The candidate coordinates are independent, with $\Pr(F_t=\omega_t)=2/3$, although the submitted IDs and responses are identical in all $2^B$ frames.
+
+For each coordinate $t$, the fixed pool contains two binary queries $q_{t,+}$ and $q_{t,-}$. With $c=1/4$, their channels are
+\[
+\begin{array}{lll}
+q_{t,+}:&\Pr(Y=1\mid F_t=A)=1,&\Pr(Y=1\mid F_t=B)=c,\\
+q_{t,-}:&\Pr(Y=1\mid F_t=A)=1-c,&\Pr(Y=1\mid F_t=B)=0.
+\end{array}
+\]
+Outcomes are conditionally independent across coordinates given $F$. If $\Pr(F_t=A)=2/3$, direct substitution in $I(F_t;Y)=H(Y)-H(Y\mid F_t)$ gives
+\[
+I(F_t;Y_{t,+})=0.540852=:I_{\rm hi},\qquad
+I(F_t;Y_{t,-})=0.459148=:I_{\rm lo};
+\]
+the values reverse when the prior is $1/3$.
+
+\subsection{Proof of Theorem~\ref{thm:sequential}}
+
+Place a uniform distribution over the $2^B$ frames. Until coordinate $t$ is queried, $\omega_t$ is independent of every observation from the other coordinates. Thus any frame-blind policy chooses the correct polarity on a fresh coordinate with average probability at most $1/2$, and obtains at most
+\[
+\tfrac12(I_{\rm hi}+I_{\rm lo})=0.5
+\]
+bits on its first query to that coordinate.
+
+It remains to show that adaptivity and repeated queries do not improve this average bound. The prior entropy of one coordinate is $h(2/3)=0.918296$ bits. Even after the lower-information first query, its remaining entropy is at most
+\[
+h(2/3)-I_{\rm lo}=0.459148<0.5.
+\]
+Consequently, even a hypothetical follow-up that revealed all remaining uncertainty is worse than the average value of querying a fresh coordinate. A frame-aware policy also moves to a fresh coordinate because $h(2/3)-I_{\rm hi}=0.377444<I_{\rm hi}$. An exchange argument therefore transforms either optimal policy into one that queries each coordinate exactly once without reducing value.
+
+The frame-aware value is $BI_{\rm hi}$, whereas the average frame-blind value is at most $B/2$. Hence the average regret over frames is at least
+\[
+B(I_{\rm hi}-1/2)=\frac{B}{2}(I_{\rm hi}-I_{\rm lo}),
+\]
+so at least one fixed frame attains the claimed lower bound. A policy that visits each coordinate once and independently randomizes its polarity obtains exactly $(I_{\rm hi}+I_{\rm lo})/2$ on every frame, proving tightness.
+
+For Hamming loss, the posterior Bayes error is $1/12$ after the correct-polarity channel and $1/6$ after the wrong-polarity channel. Fair randomization gives $1/8$. An untouched coordinate has error $1/3$, so a fresh query reduces error by $5/24$; all error remaining after a first query is at most $1/6<5/24$. The same exchange argument applies, and the minimax excess is
+\[
+B(1/8-1/12)=B/24.
+\]
+
+\subsection{Proof of Theorem~\ref{thm:amplification}}
+
+Let $B\geq3$ be odd. The five canonical candidates are $A,B,C,D,E$, and the pool has $B$ good and $B$ bad binary items. On every good item their responses are $(0,0,1,1,1)$ and the reference is $0$. On bad item $t$ their responses are $(0,0,1,0,0)$, with reference $1$ for odd $t$ and $0$ for even $t$. The refinement adds four exact copies of $C$.
+
+For Select-LLM's exact-match acquisition, write
+\[
+S(x)=x^2+(1-x)^2,
+\]
+where $x$ is posterior mass predicting one. After $s$ clean good labels, $A$ and $B$ have likelihood weight $a=e^{s/\tau}$ and $C,D,E$ have weight one. With $d=2a+3$, an unqueried good item has one-mass $3/d$, while a bad item has one-mass $1/d$. Since
+\[
+S(1/d)-S(3/d)=\frac{4(d-4)}{d^2}>0,
+\]
+every remaining good item has strictly lower acquisition score. The clean selector exhausts the good block, and $A,B$ remain selected.
+
+In the refined registry, behavior $C$ has five of nine entries. Along the bad path, its aggregate posterior mass is $x=5/9$ after every even number of bad labels and
+\[
+x=\frac{5e^{1/\tau}}{5e^{1/\tau}+4}
+\]
+after every odd number, so $1/2<x<1$ for every finite $\tau>0$. A bad item has one-mass $x$. A good item groups $C$ with $D,E$ and has one-mass $(1+x)/2$. The bad item is strictly closer to one half because $x-1/2<x/2$ whenever $x<1$, and hence has lower $S$. Induction shows that the refined selector exhausts the disjoint bad block.
+
+Across the complete $2B$-item pool, $A$ and $B$ outperform $C$ by
+\[
+\Delta_B=\frac{B-1}{2B}.
+\]
+After each odd bad label, $C$ has one more observed correct response than every non-$C$ candidate, so the selected behavior must be $C$. There are $(B+1)/2$ such steps. Even granting favorable tie-breaking on every even step, cumulative regret is at least
+\[
+\frac{B+1}{2}\Delta_B=\frac{B^2-1}{4B}.
+\]
+The final step is odd, giving terminal regret $\Delta_B$.
+
+\subsection{Proof of Proposition~\ref{prop:factorization}}
+
+Consider any allowed refinement and couple the clean and refined runs using the same policy randomization and reference randomness. Initially, fixed root masses and refinement-invariant summaries give identical root-level states. Assume the transcripts agree through step $t-1$. The selector's state is then the same by factorization, hence so is its conditional action kernel. Under the coupling it selects the same query and observes the same reference; refinement invariance produces the same updated root summaries and root decision. Induction gives identical complete transcripts and decisions almost surely, hence equal distributions. The argument applies to any acquisition objective---including uncertainty, diversity, or mutual information---only if its implemented state and action kernel satisfy the stated factorization.
+
+\subsection{Executable verification}
+
+The standard-library checker verifies the channel information values and Bayes errors; every integer root partition for $B=1,\ldots,6$; all deterministic polarity vectors against all frames for $B=1,\ldots,8$; and the amplification instance for $B\in\{3,5,11,51\}$ and $\tau\in\{.1,.5,1,3,10\}$. All assertions pass. At $B=51$, every tested temperature gives clean cumulative regret zero, refined cumulative regret $12.745098$, terminal regret $.490196$, and 51/51 acquisitions redirected to the disjoint block.
+
+\section{Complete LLM Protocol and Results}
+\label{app:llmprotocol}
+
+T2-M target selection used development pools 3500--3999 and was complete over every eligible parent; primary outcomes used paired pools 50000--50499 only after the parent lock. The complete robustness cross is temperature $\{.1,.5,1,3,5\}$, alias count $\{1,2,4,8\}$, response distance $\{.1\%,1\%,5\%,10\%\}$, and the three task-specific budgets in Table~\ref{tab:protocol}. This yields 240 MedQA, 180 GSM8K, and 240 OpenBookQA cells. GSM8K's locked parent is correct on too many items to construct quality-identical 10\% aliases, so all 60 such cells are marked ineligible rather than retargeted.
+
+\begin{table}[H]
+\centering
+\caption{Complete T2-M grid; every eligible cell is retained. Positive and negative indicate the sign of mean paired cumulative-regret change.}
+\label{tab:complete-grid}
+\small
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Task & Eligible & Positive & Negative & BH-significant $+/-$ \\
+\midrule
+MedQA & 240 & 240 & 0 & 240/0 \\
+GSM8K & 180 & 180 & 0 & 180/0 \\
+OpenBookQA & 240 & 171 & 69 & 167/60 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+At 5\% distance, four aliases, and the primary budget, all five temperatures are positive in all three tasks. At each locked temperature, all three budgets are likewise positive, for 24/24 task--setting cells. OpenBookQA supplies the important non-monotone boundary: at its primary setting, four 5\% aliases give $+1.460$ cumulative regret but eight give $-.438$. We report all cells because alias count and distance change a directional prior; they are not scalar corruption strengths.
+
+Every final pool is sampled without replacement and shared by its clean/refined pair. The paired bootstrap and sign-flip tests use 10,000 repetitions; Benjamini--Hochberg correction is applied within each prespecified family. Target development/final mean-effect rank correlations are $.991/.995/.999$ for MedQA/GSM8K/OpenBookQA. The raw artifact stores the 500 paired cumulative and terminal arrays, query paths, selected roots, hashes, and eligibility reason for every cell.
+
+\paragraph{Peer-response-free realism confirmation.}
+After the T2-M targets were frozen, a separately hash-locked audit rebuilt four 5\%-distance aliases from only the parent's outputs, public IDs/options, and references. It used no peer response or response-frequency statistic and generated pools only after construction. Under the historical backend, fresh seeds 91000--91499 gave mean paired $\Delta\mathrm{CReg}$ of $3.2657$ [3.0341, 3.4997], $3.7851$ [3.6247, 3.9492], and $.9552$ [.8742, 1.0342] on MedQA, GSM8K, and OpenBookQA. Fixed-query paired effects were exactly zero. A sequential-reference variant stopped after 258/1000, 697/1000, and 136/500 inspected labels; it harmed the first two tasks but improved OpenBookQA by $.6805$. The preregistration, raw 500-pair arrays, and isolated-constructor replay are stored in the Step 54 artifacts; the validator reports \texttt{PASS\_STEP54\_MATRIX\_FREE\_REALISM\_AUDIT}.
+
+\paragraph{Canonical V2 implementation-stability transfer.}
+An implementation audit found that evidence from a separately tested legacy matrix-aware wrapper could not certify the paper's matrix-free headline condition. Before computing V2 outcomes for that exact condition, we therefore hash-locked its unchanged aliases, data, pools, targets, budgets, and temperatures, plus canonical entry ordering and an exact $3\times3$ tie-policy cross. The V2 replay gives $3.2518$ [3.0214, 3.4842], $3.7811$ [3.6177, 3.9433], and $.8459$ [.7650, .9260]. Fixed-query effects remain exactly zero, so sequential-excess effects equal the full paired penalties, with independently recomputed positive lower bounds of 3.0231, 3.6209, and .7649. All 16 permutations of both registries produce zero bitwise mismatch over 48,000 scenario--pool paths. Every one of the 27 tie cells changes all paths and has a positive cumulative interval; MedQA/GSM8K terminal means are positive under every tie policy, while OpenBookQA is not promoted as terminal harm. A runner-independent reconstruction replays aliases, acquisition paths, 10,000-repetition inference, BH correction, and adjudication in 2,882 checks, reporting \texttt{PASS\_STEP80\_INDEPENDENT\_VALIDATION} and \texttt{STRONG\_TRANSFER}. Main-text values use this V2 backend; Step 54 values above remain the historical record.
+
+\paragraph{Executable endpoint replay.}
+A subsequent outcome-blind lock converted only the changed coordinates into immutable SHA-256-prompt/output maps. Runtime requests contain question text and ordered public options but no dataset ID, reference, correctness tag, peer response, pool seed, or selector state. Four endpoints per task reproduce all 12 Step 54 response hashes and all 13 selector-run fields exactly on the same 500 fresh pools. Manifests range from 2,272 to 5,088 bytes; appending a probe character to every supported changed prompt triggers zero overrides. This establishes feasibility under output-only research interfaces, not admission to a particular production registry. The independent validator reports \texttt{PASS\_STEP55\_EXECUTABLE\_ENDPOINT\_REALISM\_AUDIT}.
+
+\paragraph{Calibration-to-holdout, holdout-reference-free audit.}
+A preregistered hash split produces labeled calibration halves of size 500/500/250 and blind holdouts of size 500/500/250 with zero ID overlap. Before holdout outcomes, five-fold calibration selected MiniLM/TF--IDF error learners and froze 1\%-distance alias rows; the blind builder received only prompts, public options, and parent outputs. All holdout aliases stay within one accuracy point and at most 1\% oracle disagreement. Mean $\Delta\mathrm{CReg}$ is $+.2941$ [.1079,.4791], $+.1599$ [.1059,.2141], and $-.1124$ [$-.1421$,$-.0835$] on MedQA, GSM8K, and OpenBookQA. Fixed-query effects are $-.0306/0/0$. GSM8K selected-support error precision is zero, so this is small-distance approximate control, not exact quality equivalence. The locked machine decision is \texttt{PROMOTE\_LABEL\_FREE\_T1}, where ``label-free'' is scoped only to holdout construction; the validator reports \texttt{PASS\_STEP56\_CALIBRATION\_TO\_HOLDOUT\_AUDIT}.
+
+\section{Natural Exact-Alias Audit}
+\label{app:natural}
+
+The natural anchor is selected by the unique intersection of exact response-and-oracle pairs across MedQA, GSM8K, and OpenBookQA, before running the base-versus-refined selector comparison. The 30-entry stable-order quotient retains frozen index 9; the original 31-entry roster restores index 10 and maps it to root 9. A primary task is path-material at path-change fraction at least .10 and one mean changed position; it is outcome-material at $|\Delta\mathrm{CReg}|\geq.1$, a zero-excluding interval, and three-task BH $q<.05$. Across 21 prespecified temperature/budget cells, all cells are path-material and 14 have family-corrected cumulative-regret differences, split into five harms and nine improvements. Candidate-invariant random acquisition gives exact query, root-path, cumulative-regret, and terminal-regret equality in every primary task. The complete Step 50 arrays are stored at SHA-256 \texttt{14B77BD3\ldots B0F8EA4}.
+
+A subsequent descriptive replay distinguishes changed positions from unique labels. Mean base-only query counts are 4.358, 1.420, and .960; query sets differ in 94.0\%, 87.4\%, and 66.0\% of runs. Mean first divergence occurs at steps 1.486, 3.698, and 4.690, while mean changed root-decision positions are 10.592, 2.902, and 2.012. The 5\% replacement threshold is an analyst-chosen heuristic defined after aggregate Jaccards were known, not confirmatory evidence. Raw arrays and exact random controls are stored in \texttt{STEP52\_OPERATIONAL\_SIGNIFICANCE\_RESULTS\_2026-08-09.json} (SHA-256 \texttt{BB70CEFD\ldots E372FA}).
+
+\section{CODA Official-Code Audit}
+\label{app:coda}
+
+The official implementation is locked at commit \texttt{6c95b7f8}. A prediction-only rule---fixed before labels---selects one parent from the lowest-consensus quartile by the increase in initial family $P_{\rm Best}$ mass after adding four variants. The near variants use $q_j=(1-\epsilon_j)p+\epsilon_j/C$ for $\epsilon_j\in\{.0005,.001,.0015,.002\}$, preserving every hard prediction and correctness value while changing probability tensors. Exact4 is the multiplicity control. CODA's EIG configuration and a 30-label budget are fixed; only CoLA activates the public stochastic tie flag, for which all ten frozen seeds are paired.
+
+\input{tables/coda_results}
+
+Near4 changes the ordered path on CoLA, MRPC, RTE, SST-2, and the prospectively unused WNLI pool. Cumulative-regret changes are $+.051965,+.053921,+.841155,-.271789,-.014085$, respectively. Exact4 gives the same task-level effects. WNLI has query-set Jaccard one and only reorders its acquisitions. Thus the audit supports cross-method path sensitivity, not response-distinct defense evasion or universal harm.
+
+\section{Preregistered LLM Selector Audit}
+\label{app:step88}
+
+\paragraph{Outcome-blind freeze and intervention.}
+The official LLM Selector repository is locked at commit \texttt{15faa47}. Before any judge or weak-judge value was printed, one protocol bound both source-file hashes for all six upstream datasets, included every dataset, and selected the first non-null source-order model as parent. There is no target search. Four aliases inherit the parent's complete strong-judge outcome row coordinate-wise. Each begins with only the parent's own ten-weak-judge tensor, then a public SHA-256 rule cycles a frozen 20\% of ternary coordinates; it reads no other candidate, strong-judge outcome, pool, acquisition path, or selector state. Realized alias--parent weak-view distances range from 17.25\% to 22.25\%, while every strong-utility distance is exactly zero. This is a controlled pairwise decision-view refinement over released score matrices, not an executable response wrapper or production-registry submission.
+
+The audit reproduces the official uniform-entry posterior and mean ten-judge expected-entropy acquisition at $(\epsilon_1,\epsilon_2)=(.2,.4)$. For each dataset and seeds 0--999, clean and four-alias registries share a pool of size $\min(400,N)$, budget 30, and deterministic original-root tie rule. Primary terminal regret compares the selected original root with the best original root on that pool. The six-part gate requires coordinate-wise utility identity, exactly zero fixed-query terminal and cumulative effects, path-change rate at least .5, mean terminal harm at least .25 percentage points, positive paired-bootstrap lower bound, and six-task BH-adjusted one-sided sign-flip $q\leq.05$. Two passing datasets were frozen as the promotion threshold; all nulls and improvements remain.
+
+\input{tables/step88_llm_selector_results}
+
+AlpacaEval and Bingo pass, producing the preregistered decision \texttt{GO\_STRONG\_CROSS\_SELECTOR}. The result is directional rather than generic: Arena-Hard significantly improves; Flickr30k's positive point effect misses both the magnitude and corrected-significance gates; MEDIQA and MT-Bench have terminal effect exactly zero, although their interim cumulative effects are positive. All 6,000 ordered paths change, but query-set and terminal-root changes differ by task. AlpacaEval is especially informative about endpoint choice: terminal regret worsens while cumulative regret improves, so neither metric substitutes for the other.
+
+An independent file that imports no runner verifies all input hashes, reconstructs aliases and every stored pool/statistic, and checks 85,934 invariants. It additionally replays 300 result-independent trajectories from scratch using the literal official entropy equation; all paths, roots, and regrets match. The receipt reports \texttt{PASS\_STEP88\_INDEPENDENT\_VALIDATION}; the preregistration, result, and receipt hashes begin \texttt{B6303706}, \texttt{24C3FCDA}, and the receipt-bound validator hash \texttt{4EEE854C}.
+
+\section{Configuration-Only Raw-Input Wrapper Transfer}
+\label{app:step90}
+
+\paragraph{Outcome separation and endpoint.}
+Step 89 fixed QNLI's model revision, deterministic calibration/holdout split, complete development grid, one condition, and materiality gate before opening 2,772 sealed outcomes. Four small safetensors files store scalar calibration/configuration values rather than learned neural weights; a CLI accepts only a raw question/sentence pair and emits the parsed hard label with an adapter-specific confidence view. Its 1,000-pool result is negative and remains binding. Step 90 then froze two untouched tasks before any parent prediction: MNLI splits 4,933/4,882 and QQP 20,309/20,121 calibration/holdout items. Per task, all 135 combinations of three roster sizes, three budgets, three temperatures, and five high-confidence trigger fractions were retained; the top 12 pilot conditions were rerun on 300 calibration pools before one configuration was hashed. Runtime wrappers read only raw text and pinned-parent logits, contain no item map, and exactly preserve hard answers. They establish raw-input execution but are configuration-only response variants, not learned adapters or full checkpoints.
+
+\input{tables/step90_executable_adapter_results}
+
+MNLI and QQP both pass the preregistered eight-part gate: at least $.5$ terminal point, positive paired-bootstrap lower endpoint, two-task Holm $q\leq.05$, at least 50\% path change, coordinate-wise answer/utility equality, exact fixed-query equality, and matching active-minus-fixed harm. QNLI demonstrates the direction is not guaranteed. A validator importing no runner reconstructs all 4,000 active and 2,000 fixed-query trajectories, both bootstrap/sign-flip analyses, Holm correction, and 12,077 invariants; its receipt is \texttt{PASS\_STEP90\_INDEPENDENT\_VALIDATION}. The raw result and validation receipt are hash-bound. This precursor does not satisfy the learned-checkpoint condition addressed next.
+
+\section{Preregistered Learned-Adapter Decoupled-View Audit}
+\label{app:step92}
+
+\paragraph{New task, outcome separation, and learned parameters.}
+Before downloading an AG News row, Step 92 fixed dataset revision \texttt{eb185aad}, base-encoder revision \texttt{12040acc}, the full training recipe, split salt, finite attack grid, 1,000 test seeds, estimands, and nine-part pass gate. SHA-256 assigns the 120,000 public training examples to 83,993 root-model, 24,039 adapter-training, and 11,968 attack-calibration items. The complete 7,600-item test split is input-only outside a separately named sealed-label file. A source audit found no earlier AG News result in the project; SST-2 was rejected before new outcomes because it appeared in prior CODA work. This condition uses exact equality of confidence-coded response views for acquisition but hard-label correctness for posterior evidence and regret. It is therefore a decoupled-view selector audit, not an equation-faithful reproduction of Select-LLM's single similarity.
+
+Twelve bottleneck classification adapters (100,484 learned parameters each) share a frozen DistilBERT encoder and form the clean registry. Each trains without artificial label corruption on a preregistered 2--100\% fraction of the root-model partition. For each of five eligible parents, four contextual temperature adapters are independently optimized with four seeds and bootstraps on the disjoint adapter partition. Every saved attack file contains six nonconstant tensors and 50,817 nonzero learned parameters; the four selected files have distinct SHA-256 values. The learned positive temperature rescales parent logits, so the hard label is invariant on every input by construction. A confidence field above a frozen threshold makes the submitted response views distinct. Runtime reads raw text, frozen hidden state, and parent logits---never an item ID, test label, lookup table, peer output, pool, or selector state.
+
+Stage A retains all 300 parent/$\tau$/bin/trigger configurations on the attack-calibration partition and reruns the top 12 on 300 pools. It freezes parent 8, $\tau=.25$, eight bins, a 30\% trigger target, budget 50, and the full 12-root roster. Calibration terminal harm is $.609$ points with 100\% path change. Only then does Stage B open the test labels once.
+
+\input{tables/step92_learned_adapter_results}
+
+On the complete holdout, realized trigger rates are 30.2--31.5\%, pairwise alias-response Hamming distances are 24.1--26.3\%, and all 30,400 adapter--item hard answers equal the parent. Ordered paths change in 100\% of pools, query sets in 99.3\%, and terminal roots in 55.2\%. Terminal harm is $+.54675$ points with paired-bootstrap interval $[+.50225,+.59250]$ and one-sided sign-flip $p=9.9999\times10^{-6}$; active-minus-fixed has the same mean and a positive interval. Fixed-query root histories and terminal/cumulative effects are byte-identical. The locked decision is \texttt{GO\_SCORE\_CHANGING\_LEARNED\_ADAPTER\_BRIDGE}.
+
+A validator importing no experimental runner replays all 2,000 active and 2,000 fixed-query trajectories, reconstructs the statistics and gate in 4,170 checks, and runs 256 raw-input endpoint samples through all 12 clean checkpoints and four learned adapters. Its receipt is \texttt{PASS\_STEP92\_INDEPENDENT\_VALIDATION}. An initially detected $5.6\times10^{-17}$ acquisition-tie difference motivated a disclosed post-confirmatory audit: sorted, first-appearance, reverse-code, and $10^{-12}$ tolerance policies change many individual paths but all retain 100\% clean--refined path change, exact fixed-query equality, and terminal harm $.54575$--$.54800$ points with lower endpoints at least $.50125$. This robustness audit does not replace the preregistered primary result.
+
+The result closes a learned-parameter, new-task, no-test-lookup bridge for this explicitly decoupled-view selector. It does not establish learned source-faithful Select-LLM terminal harm, independent full-model fine-tuning, live registry admission, secret-task compromise, or deployment prevalence. The next audit tests the single-similarity gap directly.
+
+\section{Preregistered Source-Faithful Learned Confirmation}
+\label{app:step93}
+
+Before downloading a Banking77 row \citep{casanueva2020banking77}, Step 93 fixed the processed dataset revision \texttt{18072d26}, DistilBERT revision \texttt{12040acc}, hash partitions, 12-root training recipe, seven eligible parents, 504-condition Stage-A grid, 1,000 test seeds, and twelve confirmatory gates. Two pre-outcome amendments record that the pinned executable mirror contains 9,993/3,076 rather than the original metadata's 10,003/3,080 rows and includes an unused \texttt{label\_text} column. Both Stage-0 attempts stopped at assertions before row iteration or output; no scientific choice changed. SHA-256 then assigned 6,015/1,996/1,982 training rows to root training, error-predictor training, and calibration. Test texts and labels were separately hash-bound.
+
+Twelve 109,901-parameter intent adapters share a frozen encoder. For each of seven eligible parents, four independently bootstrapped 50,817-parameter networks learn to predict parent error from the hidden vector. A selected alias emits either the parent's integer label or its unique literal \texttt{ABSTAIN\_a}, which is outside all 77 references. Hence its exact-match evidence is coordinate-wise no greater than the parent's without consulting a test label. The runner accepts response codes and references but no external feedback/utility matrix: the identical function $s(a,b)=\mathbf 1[a=b]$ constructs candidate-equality groups and reference feedback. The execution lock binds both call sites' source hashes, all 40 weight files, the complete calibration ledger, sealed labels, and code before output.
+
+\input{tables/step93_source_faithful_results}
+
+The selected parent is root 10 with $\tau=.1$, budget 50, and a .25-point calibration-loss cap. On the 3,076-item holdout, aliases lose .098--.358 accuracy points, trigger on .10--.52\% of items, and are coordinate-wise non-improving. Across 1,000 paired pools, 99.8\% of ordered paths, 99.1\% of query sets, and 36.6\% of terminal roots change. Cumulative regret rises by $+.040945$ [$+.012905,+.068910$], but terminal regret rises only $+.032$ [$-.055,+.122$] percentage points with one-sided $p=.236$. Active-minus-fixed terminal harm is identical; all fixed-query root histories and terminal/cumulative effects are exactly equal. The preregistered $.5$-point terminal gate therefore fails and the retained decision is \texttt{NO\_GO\_RETAIN\_SOURCE\_FAITHFUL\_NEGATIVE}.
+
+The first machine result printed \texttt{INVALID\_STEP93\_IMPLEMENTATION} because a supplemental dense-versus-sparse acquisition check required absolute error at most $2.0\times10^{-16}$; the two algebraically equal reductions differed by $2.220446\times10^{-16}$, one binary64 ULP at one. Source hashes, bitwise reference feedback, endpoint replay, coordinate constraints, trajectories, and all scientific gates were unaffected. An independent implementation reconstructs all 1,000 clean/refined active and fixed runs, inference, and 128 raw-input endpoints in 82 checks and adjudicates the valid retained negative without promoting any gate or changing an outcome. No replacement task is opened.
+
+\section{Fresh-Task Learned Single-Similarity Replication}
+\label{app:step94}
+
+After retaining the Banking77 terminal negative, Step 94 fixed a finite menu---20 Newsgroups, MASSIVE en-US intent classification, and SST-5---before materializing their test splits. SHA-256 partitions each development population into root training, gate training, selector search, and selector verification. Sixteen independently trained bottleneck classifiers per task form a candidate bank. Three prespecified quality-gap templates deterministically select eight-root rosters from search accuracy; only the top three search roots are eligible parents. Four independently bootstrapped error gates per eligible parent consume frozen CLS vectors and parent logits. An integrated variant checkpoint contains a copy of the parent classifier plus one learned gate and accepts raw text only. Above its frozen threshold it emits a unique out-of-alphabet \texttt{ABSTAIN\_a}; otherwise it emits the parent class, guaranteeing coordinate-wise non-improvement without test outcomes.
+
+The complete search comprises 648 conditions per task. The top 24 are rerun on 500 disjoint development-verification pools, after which a locked rule selects the task with largest positive active-minus-fixed terminal effect among eligible tasks. All three are eligible; verification effects are $+.727/+.208/+.134$ terminal points for 20 Newsgroups/MASSIVE/SST-5, with 100\% path change and exact fixed-query equality. The rule selects 20 Newsgroups, root 10, the eight-root roster $(10,9,6,3,1,0,2,4)$, $\tau=.25$, and four thresholds. A lock binds the complete 1,944-cell search ledger, 72 verification rows, 128 learned files, code, the selected test, and 2,000 confirmatory seeds before only the selected test label file is opened. The other two test outcomes remain unanalyzed.
+
+Each selected integrated checkpoint has 205,245 nonzero learned parameters and a distinct SHA-256 digest. Raw-input replay exactly reproduces the parent component and never accepts a label, item ID, lookup, peer output, pool, trajectory, posterior, or selector state. On 7,532 sealed test items, parent accuracy is 60.847\%; aliases lose .252--.491 points and trigger on 1.53--2.20\%. Every ordered path and query set changes, as do 48.2\% of terminal roots. Cumulative regret increases by $+.082157$ [$+.038544,+.126554$] with one-sided sign-flip $p=.000200$. Terminal regret increases by only $+.1198$ [$-.0444,+.2895$] percentage points with $p=.0813$, below the frozen $.5$-point gate; active-minus-fixed is identical. Fixed-query root histories and both regret arrays are bitwise equal. The retained decision is \texttt{NO\_GO\_RETAIN\_FRESH\_TASK\_NEGATIVE}: a second source-faithful learned cumulative result, not a terminal success.
+
+An independent validator reads the locked raw arrays rather than the experimental runner and reconstructs hash bindings, all delta vectors, coordinate non-improvement, quality losses, bootstrap intervals, sign-flip values, path changes, fixed-query equality, every gate, and the retained decision. All checks pass. This audit strengthens replication and raw-endpoint realism for the paper's primary anytime endpoint, but does not close the stronger independently fine-tuned full-checkpoint or material terminal-harm condition.
+
+\section{MultiNLI Full-Adapter Development Stop}
+\label{app:step95}
+
+After Step 94's sealed terminal negative, Step 95 prospectively fixed one new task rather than reopening that menu: MultiNLI \citep{williams2018multinli}, revision \texttt{da70db2a}, with labeled training data partitioned by genre and class and \texttt{validation\_matched} stored as separate input and sealed-outcome files. Eight public NLI checkpoints and revisions were frozen before label-dependent evaluation. A deterministic rule selected the strongest of three eligible DistilBERT parents and five additional roots. For each of four aliases, a separately seeded binary classifier learns parent error from premise--hypothesis text while freezing embeddings and the first four DistilBERT blocks; the last two blocks, pre-classifier, and classifier comprise 14,767,874 learned parameters. The runtime endpoint accepts only the two raw text fields and emits the parent label or a unique out-of-class abstention token. The same literal exact-match function supplies output grouping and reference feedback.
+
+The complete 48-cell grid crosses three temperatures, four correct-coordinate loss caps, and four trigger caps on 400 search pools; its top eight cells are replayed on 1,500 disjoint verification pools. The frozen winner uses the \texttt{typeform} parent, six roots, $\tau=.05$, a 1-point threshold loss cap, and a 5\% trigger cap. On verification, aliases lose .724--.895 accuracy points and trigger on 1.01--1.22\% of examples. Ordered paths change in 99.33\%, query sets in 99.20\%, and terminal roots in 21.13\%. Cumulative regret rises by $+.050557$ [$+.042609,+.058891$], while terminal and active-minus-fixed regret rise by only $+.04987$ [$+.02640,+.07307$] percentage points. Fixed-query effects are exactly zero and root histories are bitwise equal.
+
+The positive terminal interval does not meet the preregistered $+.5$-point materiality gate; search terminal harm is only $+.0375$ points, and three search aliases exceed the one-point quality cap (maximum 1.3867 points). The locked decision is therefore \texttt{NO\_GO\_DEVELOPMENT\_GATE\_STOP}. No confirmatory execution lock was created, \texttt{validation\_matched} outcomes were not opened, and \texttt{validation\_mismatched} was not substituted. An independent validator replays the selected 400 search and 1,500 verification trajectories, reconstructs the complete-grid/top-eight selection, inference, all gates, decision, hashes, and absence of confirmatory output. This third learned single-$s$ audit reinforces path and anytime sensitivity but not a material terminal or operational bridge.
+
+\section{SNLI Directional Learned Terminal Audit}
+\label{app:step96}
+
+\paragraph{Development-only diagnosis and prospective lock.}
+A post-hoc analysis of Step 95's frozen verification partition, explicitly excluded from confirmatory evidence, found that 21.13\% terminal-root change produced only $+.04987$ points because the final contest was almost entirely between roots with a 1.01-point global gap and transitions occurred in both directions. Conditional on a changed root, the net drop was only about .22 points. An oracle geometry calculation was used only to establish design feasibility: a strong parent plus meaningfully lower challengers could convert directional transitions into material terminal cost. Before any SNLI row or outcome was inspected, Step 96 then froze SNLI \citep{bowman2015snli}, revision \texttt{cdb5c3d}, a four-root registry, budget 10, three temperatures, four construction-loss caps, four trigger caps, deterministic train partitions, disjoint official validation, and one sealed official test. The public DeBERTa parent exceeds the three frozen challengers by 17.05 points on validation. Four independently seeded raw-text error adapters train only on SNLI train labels; each saves 14,767,874 learned parameters. One literal exact-match function supplies both agreement and reference feedback.
+
+\paragraph{Development authorization and integer-boundary repair.}
+On 1,500 validation pools, the selected cell changes 98.73\% of paths and moves the terminal root from the parent to a challenger in 14.8\% of runs versus 2.93\% in reverse. Terminal and active-minus-fixed harm are $+2.231$ [$+1.836,+2.629$] points; CReg is $+.420$ [$+.376,+.465$], and fixed-query histories/effects are exactly equal. The first gate computation nevertheless emitted \texttt{NO\_GO} because exactly $45/4500=1\%$ was represented as $0.010000000000000009$. Before test access, an amendment fixed only this numerical implementation to compare integer loss counts: threshold/search/validation maxima are 45/4500, 57/6000, and 86/9842, all within the locked one-point cap. Original ledgers are retained, the chosen cell and every effect remain unchanged, and a receipt binds the repair before the one-time test lock.
+
+\paragraph{Locked primary test and complete top-eight sensitivity.}
+The label-free test predictions of all roots/adapters were hashed before the sealed test outcomes opened. On 3,000 locked pools, the selected primary changes 99.13\% of paths and 16.23\% of terminal roots. Terminal and active-minus-fixed harm equal $+1.631$ [$+1.360,+1.903$] points ($p=9.9999\times10^{-6}$), and CReg is $+.316$ [$+.285,+.347$]; fixed-query effects are exactly zero. Yet the primary remains \texttt{NO\_GO\_RETAIN\_STEP96\_NEGATIVE}: one alias loses 100 correct examples, two above the allowed 98, or 1.018\% instead of at most 1\%. The other aliases lose 86--93.
+
+After retaining that decision, we evaluated all eight predeveloped top conditions rather than choosing an unreported alternative. Because trigger caps were inactive, these collapse to two unique threshold vectors. Holm correction is applied across both. The conservative .5-point-construction threshold loses 31--47/9,824 examples (.316--.478 points), changes 99.43\% of paths, and satisfies every prespecified scientific gate: terminal and active-minus-fixed $+.915$ [$+.667,+1.173$] points with Holm $q=1.99998\times10^{-5}$, CReg $+.221$ [$+.193,+.250$], parent-to-challenger directionality, and exact fixed-query equality. Table~\ref{tab:step96-terminal} reports both rows. This secondary audit is explicitly post-confirmatory and does not replace the primary selection, but all models, adapters, thresholds, and label-free test predictions were fixed before test opening.
+
+\input{tables/step96_terminal_bridge_results}
+
+An independent validator reconstructs the pre-outcome/test binding, all 3,000 pools and trajectories, effect arrays, bootstrap and sign-flip inference, integer quality counts, gates, and literal primary \texttt{NO\_GO} decision from raw arrays. A final prospectively fixed SciTail \citep{khot2018scitail} replication used a single conservative threshold condition, but stopped before adapter training because the frozen parent's preregistered roster-gate advantage was only .4 rather than 2.5 points; its test remains sealed. No replacement task is authorized. The evidence therefore closes neither a live-registry nor full-base-checkpoint claim; it does add material learned raw-input single-$s$ terminal evidence under a targeted offline registry, strongest in a fully disclosed secondary analysis.
+
+\section{IMDB Development-Informed Held-Out Same-Similarity Primary}
+\label{app:step104}
+
+\paragraph{Retained failures before the successful lock.}
+After SciTail stopped, Step 98 selected ANLI R3 \citep{nie2020adversarial} from training data alone. Its development core effects were positive, but the clean parent was terminal in only 53.125\% of search pools versus a frozen 60\% auxiliary gate, so the development outcome remained unopened. Step 99 preserved the same models and thresholds and prospectively removed only that auxiliary condition before opening the already sealed outcome; terminal harm was $-.0667$ points and one alias lost 14 rather than at most 12 correct examples. Its decision remains \texttt{NO\_GO\_RETAIN\_STEP99\_NEGATIVE}. These attempts are not pooled with the later result.
+
+Step 100 then fixed the processed IMDB revision, within-label SHA-256 split, and separate label-free input and outcome files before analyzing candidate predictions. Of the official 25,000 test reviews \citep{maas2011learning}, 12,000 form a development population and 13,000 form the one-time held-out population. The initial fixed parent and Step 101's outcome-blind public-checkpoint screen both fail the development roster-gap gate. Step 102 replaces only the development roster through a disclosed public-card screen, trains four independently bootstrapped error adapters, and retains all 81 search cells. Although every cell meets search eligibility, the search-maximizing cell falls from $+1.878$ terminal points on search to $+.012$ on disjoint verification, producing \texttt{NO\_GO\_STEP102\_LEARNED\_DEVELOPMENT\_STOP}.
+
+\paragraph{Robust development selection before held-out access.}
+Step 103 freezes a robustness rule before evaluating the other cells on verification: among cells satisfying every gate on both development partitions, maximize the smaller terminal effect, then cumulative effect and path change under fixed tie rules. The 81 nominal cells contain 27 distinct threshold--budget--temperature conditions; all are evaluated and six are dual-eligible. The selected cell uses budget 5, $\tau=.05$, and the .75-point construction-loss threshold. It produces $+1.560$ terminal points on 400 search pools and $+.533$ [$+.419,+.648$] on 1,500 verification pools; fixed-query effects are zero in both. An independent development validator reconstructs the complete grid, equivalence classes, selection, raw arrays, inference, and authorization while confirming that the 13,000 outcomes remain unopened.
+
+\paragraph{Pre-outcome binding and one-time primary.}
+The four selected adapters each contain 14,767,874 learned parameters and have distinct SHA-256 digests. They freeze a public RoBERTa encoder's lower blocks and learn parent error from development review text; at runtime an endpoint accepts raw text only and emits the parent label or its adapter-specific out-of-label abstention token. It receives no item ID, held-out reference, outcome, peer output, pool, trajectory, posterior, or selector state. The same literal exact-match function groups candidate outputs and scores acquired references.
+
+Before the held-out outcome opens, Step 104 recomputes and binds all four root rows and all four adapter rows on the 13,000 label-free texts. Their trigger counts are 116/126/108/136. The lock additionally binds the development authority, model revisions, adapter weights and thresholds, outcome/input hashes, code, budget, temperature, and seeds 1,003,000--1,005,999. Only then is the sealed outcome opened once for the fixed analysis. The outcome hash remains identical to the Stage-0 seal.
+
+\input{tables/step104_imdb_heldout_primary}
+
+The parent accuracy is 94.131\%, versus 91.008/91.100/89.485\% for the three challengers. Alias loss counts are 60/68/57/68 of 13,000, below the allowed 130, and every changed coordinate is parent-correct to abstention; no alias improves a coordinate. Clean/refined parent-selection rates are 63.63/40.33\%; parent-to-challenger transitions exceed the reverse 35.43/12.13\%. Terminal and active-minus-fixed regret both rise by $+.7024$ points, with intervals $[+.6155,+.7882]$ and $[+.6124,+.7891]$ and one-sided sign-flip $p=9.9999\times10^{-6}$. Cumulative regret rises by $+.027947$ [$+.024669,+.031293$]. Fixed-query root histories and terminal/cumulative arrays are bitwise equal. All sixteen frozen gates pass, so the literal decision is \texttt{GO\_STEP104\_IMDB\_HELDOUT\_LEARNED\_SAME\_S\_TERMINAL\_PRIMARY}.
+
+The result is a development-informed held-out confirmation: task, roster, and condition were developed on the disjoint 12,000 rows, rather than preregistered before any IMDB data. It closes the narrower no-heldout-reference, learned raw-input, same-view, terminal-mediation condition left by the Banking77 negative. It does not establish an independently trained full base checkpoint, hidden-task transfer, live-registry admission, or production prevalence.
+
+\section{Yelp Prospective Cross-Benchmark One-Shot Audit}
+\label{app:step105}
+
+\paragraph{Before-target protocol and admission rule.}
+Before any Yelp Polarity row or model weight was accessed, Step 105 fixed dataset revision \texttt{bbf1c97a}, the complete official 38,000-row test, and a public admission rule \citep{zhang2015character}. The four largest-download, native binary Transformers checkpoints tagged for Yelp Polarity form the registry; the download-rank-one checkpoint is the parent. Reported model-card accuracy is recorded but never used for admission or parent selection. SHA-256 assigns 6,000/1,000/2,000 official-training rows to adapter training, threshold calibration, and threshold safety. There is no selector-search or selector-verification partition, no target-task grid, and no replacement task or second outcome attempt.
+
+\paragraph{Inherited raw-input pipeline and locks.}
+The four independently seeded error adapters inherit Step 104's architecture and training recipe: each freezes the lower RoBERTa blocks and learns 14,767,874 parameters from raw text and parent error. A stable threshold rule may use only the calibration and safety partitions. At runtime an alias emits the parent hard label or its own out-of-label abstention token and receives no test reference, item ID, lookup table, peer output, pool, posterior, trajectory, selector state, split, or dataset ID. One literal exact-match function supplies both acquisition and reference evidence. Before the official test outcomes opened, a pre-data lock bound the protocol, revisions, code, budget 5, $\tau=.05$, and seeds 1,053,000--1,055,999; a second lock bound all four roots, adapter weights, thresholds, and label-free root/error/alias predictions. The outcome then opened once.
+
+\input{tables/step105_yelp_prospective_one_shot}
+
+The parent accuracy is 97.797\%, 2.103 points above the best challenger. Alias loss counts are 178/209/143/213 of 38,000 (.376--.561 points), below the allowed 380, and no alias improves a coordinate. Across 3,000 paired pools, 99.90\% of ordered paths, 99.87\% of query sets, and 41.70\% of final roots change. Parent-to-challenger transitions exceed reverse transitions 26.53/9.37\%. Terminal and active-minus-fixed regret both rise by $+.3527$ points, with intervals $[+.3090,+.3977]$ and $[+.3076,+.3956]$ and one-sided sign-flip $p=9.9999\times10^{-6}$. Cumulative regret rises by $+.017925$ [$+.016163,+.019706$]. Fixed-query root histories and both regret arrays are bitwise equal.
+
+All integrity, quality, path, direction, fixed-query, and inference gates pass. Only the predeclared requirements that terminal and active-minus-fixed means each reach $+.5$ point fail. The binding decision is therefore \texttt{NO\_GO\_RETAIN\_STEP105\_PROSPECTIVE\_NEGATIVE}; the threshold is not relaxed and no replacement outcome is authorized. A runner-independent reconstruction exactly reproduces every array, interval, gate, and the literal \texttt{NO\_GO}; an independently written raw-input validator re-infers every root and alias from the 38,000 raw reviews. The result is a statistically directional, no-target-selector-tuning transfer and a preregistered materiality near-miss, not a second primary success. Because both IMDB and Yelp are binary sentiment, it establishes cross-benchmark and cross-registry transfer within one task family, not broad task-family or live-registry generality.
+
+\section{Prospective Untargeted-Refinement Stress Test}
+\label{app:untargeted}
+
+After the targeted experiments were complete, we prospectively locked 14 previously unused tasks: seven official MODEL SELECTOR tasks and seven HELM MATH subjects. The audit crossed exact, near, and independent-diverse additions, producing 420 nonclean task--condition units with 32 paired runs each. All response-only scores and a 50\% high-risk set were sealed before outcome access. Only 35/420 effects crossed the preregistered materiality threshold: one beneficial MODEL SELECTOR effect and 34 Select-LLM effects, of which eight were harmful and 26 beneficial. Exact quotienting neutralized all exact additions, and authenticated lineage neutralized every registered exact and near addition by construction.
+
+The attempted ex-ante registry-fragility audit did not transfer. Its magnitude Spearman correlation was $.185$ with task-block permutation $p=.416$; AUROC was $.719$, below a static mass-displacement baseline at $.788$; and it failed the magnitude, materiality, adaptive-value, cross-selector, and fallback gates. Only the non-vacuity gate passed. The locked decision is therefore \texttt{STOP\_FRAGILITY\_PIVOT}. These results rule out a generic ``more entries are harmful'' interpretation and any claim that our response-only score predicts attacks. They do not test the separately locked targeted T2-A constructor, whose support is deliberately chosen rather than random. The full protocol, 420 effects, six gates, and 98-check independent validation are stored in the Step 61 artifacts.
+
+\section{Defense and Mutation Audit}
+\label{app:defense}
+
+\input{tables/defense_frontier}
+
+\input{tables/soft_weight_frontier}
+
+The exact quotient groups identical full response rows and exactly neutralizes the natural pair and T0 copies. A radius-$\rho$ matched cover joins candidates within normalized response Hamming distance $\rho$ and retains the smallest-index representative of each connected component. At 5\%, it neutralizes the corresponding attack with incremental clean CReg $0/0/-.169$ across MedQA/GSM8K/OpenBookQA. At 10\%, it also neutralizes the attack, but clean CReg increases by $.569$ on MedQA and $1.030$ on OpenBookQA; the latter merges six natural models spanning 5.2 accuracy points and costs 3.975 terminal points. Authenticated lineage returns exact equality by retaining fixed root mass, but is explicitly an oracle-information comparator.
+
+The soft-weight audit crosses class-uniform, MCCA, and MCCP with $\alpha\in\{.01,.05,.10,.132,.15,.184,.213\}$. Its 63 clean and 105 eligible attack cells are stored without outcome filtering in \texttt{STEP46\_CLONE\_ROBUST\_SOFT\_WEIGHTING\_RESULTS\_2026-08-08.json} (SHA-256 \texttt{15B693F0\ldots B7B136}). The original joint regret/path gate remains 0/105 and all residual path-change fractions equal one. The outcome-first reanalysis instead finds 74 mitigated and 31 worsened attack cells; 24 reach at most 50\% residual, 11 at most 25\%, and four at most 10\%. No fixed setting is non-worsening on all five task--distance attacks. All 21 settings improve clean GSM8K CReg but worsen clean MedQA and OpenBookQA CReg; terminal intervals contain zero in 45/63 cells, with ten significant harms and eight improvements. Table~\ref{tab:soft-weight-all} reports every fixed setting. Independent validators reconstruct graph breakpoints, priors, paths, effects, and mutation failures rather than trusting recorded decisions.
+
+\input{tables/soft_weight_all_configs}
+
+\section{Artifact Map}
+
+The artifact root maps every main-text number to an immutable result and an independent validator. The primary families are Step 27 (formal checker), Steps 30--31 (complete T2-M grid and covers), Step 35 (official CODA), Steps 46--49 (soft weights), Steps 50--52 (natural pair), Steps 54--55 (peer-free executable T2-A), Step 56 (within-task T1), Step 61 (prospective untargeted stress), Step 80 (canonical V2 transfer), Step 87 (prospective fresh-task T1), Step 88 (official LLM Selector terminal audit), Steps 89--90 (sealed configuration-only wrappers), Step 92 (learned decoupled-view AG News), Steps 93--99 (learned same-$s$ negatives and sensitivity), Steps 100--104 (complete IMDB development and held-out primary), and Step 105 (prospective Yelp one-shot near-miss). Protocols, ledgers, execution locks, raw arrays, literal status, and validation outputs are preserved. The current manifest binds the revised paper, both final studies' learned adapters, label-free pre-outcome predictions, sealed outcomes, primary arrays, and independent reconstructions. Offline validation checks every bundled byte and anonymity. Public source packages, base weights, and third-party repositories are not embedded; this is validation closure, not regeneration of exploratory history.

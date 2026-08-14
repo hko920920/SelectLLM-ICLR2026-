@@ -1,0 +1,340 @@
+{
+  "selection_id": "STEP98_TRAIN_ONLY_ROUND_SELECTION_V1",
+  "date": "2026-08-13",
+  "decision": "GO_STEP98_SELECTED_ROUND_TO_LEARNED_DEVELOPMENT",
+  "protocol_sha256": "8a8ed383e512933999f0a114e03f17b3140caa0af6e5a96ee7b27aeb0d427255",
+  "amendment_a_sha256": "0b6a00c580687e0368ea638a87690eb749d97e07c33224071baa91a489688e4e",
+  "stage0_manifest_sha256": "0777f9c8ad845abbf23a52e7972b7f477d0fb8b301fbbdccfd59bfeea3007302",
+  "train_rows_sha256": "f5aba8e6a2030b3ed52c5374b48f6a80f7174dc6bfa1b3a9598372d8bcf130c4",
+  "rounds": {
+    "r2": {
+      "round": "r2",
+      "cache_resumed": false,
+      "prediction_file": "step98_selection_work/r2_geometry_root_predictions.npz",
+      "prediction_sha256": "e04ca28e03762602a675d8a91880720fc3cceb126b511789a17d98df9b98e8c1",
+      "audit_file": "step98_selection_work/r2_geometry_root_audits.json",
+      "audit_sha256": "623e66dcc55940d5cceeaeca1cb0b669b4410b8619cb037585d678e8a7843fcd",
+      "root_audits": [
+        {
+          "root_key": "crossencoder_deberta_small",
+          "repo_id": "cross-encoder/nli-deberta-v3-small",
+          "revision": "fa2804872c3b4bd748f38c0185cc85775361e735",
+          "model_type": "deberta-v2",
+          "raw_to_dataset": [
+            2,
+            0,
+            1
+          ],
+          "prediction_sha256": "060df619c7541afe675ca850c440be039397fed45a11e772907eae60ecc3f9bd",
+          "samples": 1500,
+          "tokenizer_class": "DebertaV2Tokenizer"
+        },
+        {
+          "root_key": "moritz_minilm",
+          "repo_id": "MoritzLaurer/MiniLM-L6-mnli",
+          "revision": "6e0917f1a395b7a6c0f054a56b91c45d8e3af92f",
+          "model_type": "bert",
+          "raw_to_dataset": [
+            0,
+            1,
+            2
+          ],
+          "prediction_sha256": "cbe2844bbee245d984d4d6a73f0cbb5f666b9bcb170d44e266a17bb1700cb4cd",
+          "samples": 1500,
+          "tokenizer_class": "BertTokenizerFast"
+        },
+        {
+          "root_key": "mfac_bert_mini",
+          "repo_id": "M-FAC/bert-mini-finetuned-mnli",
+          "revision": "780061727f47254ff763de653920bb8b7e2fd5f2",
+          "model_type": "bert",
+          "raw_to_dataset": [
+            0,
+            1,
+            2
+          ],
+          "prediction_sha256": "1f2426a34fb76b43b084547a8d441cac7aa06809878c2f6a4342fb2712e9bdf1",
+          "samples": 1500,
+          "tokenizer_class": "BertTokenizerFast"
+        },
+        {
+          "root_key": "mfac_bert_tiny",
+          "repo_id": "M-FAC/bert-tiny-finetuned-mnli",
+          "revision": "618f766f89b50853abc1bea92fd38e1973818f0b",
+          "model_type": "bert",
+          "raw_to_dataset": [
+            0,
+            1,
+            2
+          ],
+          "prediction_sha256": "e7f7c51f5464e5d05f70b3be86294b5f12eaffa1897ffe492ecde853b2a6b554",
+          "samples": 1500,
+          "tokenizer_class": "BertTokenizerFast"
+        }
+      ],
+      "geometry_search": {
+        "round": "r2",
+        "partition": "geometry_search",
+        "rows": 750,
+        "root_accuracies": [
+          0.676,
+          0.6253333333333333,
+          0.564,
+          0.508
+        ],
+        "root_accuracy_by_key": {
+          "crossencoder_deberta_small": 0.676,
+          "moritz_minilm": 0.6253333333333333,
+          "mfac_bert_mini": 0.564,
+          "mfac_bert_tiny": 0.508
+        },
+        "parent_minus_best_challenger": 0.05066666666666675,
+        "parent_error_prevalence": 0.324,
+        "challenger_correct_given_parent_wrong": {
+          "moritz_minilm": 0.4074074074074074,
+          "mfac_bert_mini": 0.38271604938271603,
+          "mfac_bert_tiny": 0.40329218106995884
+        },
+        "max_challenger_correct_given_parent_wrong": 0.4074074074074074,
+        "oracle_terminal_harm": 0.04206666666666668,
+        "oracle_terminal_harm_pp": 4.206666666666668,
+        "path_change_rate": 0.7333333333333333,
+        "final_root_change_rate": 0.5066666666666667,
+        "clean_parent_terminal_rate": 0.51,
+        "refined_parent_terminal_rate": 0.06666666666666667,
+        "parent_to_challenger_rate": 0.44666666666666666,
+        "challenger_to_parent_rate": 0.0033333333333333335,
+        "max_abs_fixed_terminal_delta": 0.0,
+        "max_abs_fixed_cumulative_delta": 0.0,
+        "fixed_root_history_exact": true,
+        "gates": {
+          "parent_gap_at_least_2_5pp": true,
+          "parent_error_at_least_10pct": true,
+          "challenger_complementarity_at_least_15pct": true,
+          "oracle_terminal_harm_at_least_1pp": true,
+          "parent_to_challenger_exceeds_reverse": true,
+          "fixed_query_exact_zero": true
+        },
+        "eligible": true
+      },
+      "geometry_verify": {
+        "round": "r2",
+        "partition": "geometry_verify",
+        "rows": 750,
+        "root_accuracies": [
+          0.6733333333333333,
+          0.636,
+          0.5573333333333333,
+          0.488
+        ],
+        "root_accuracy_by_key": {
+          "crossencoder_deberta_small": 0.6733333333333333,
+          "moritz_minilm": 0.636,
+          "mfac_bert_mini": 0.5573333333333333,
+          "mfac_bert_tiny": 0.488
+        },
+        "parent_minus_best_challenger": 0.03733333333333333,
+        "parent_error_prevalence": 0.32666666666666666,
+        "challenger_correct_given_parent_wrong": {
+          "moritz_minilm": 0.3836734693877551,
+          "mfac_bert_mini": 0.34285714285714286,
+          "mfac_bert_tiny": 0.34285714285714286
+        },
+        "max_challenger_correct_given_parent_wrong": 0.3836734693877551,
+        "oracle_terminal_harm": 0.028733333333333336,
+        "oracle_terminal_harm_pp": 2.8733333333333335,
+        "path_change_rate": 0.7033333333333334,
+        "final_root_change_rate": 0.5033333333333333,
+        "clean_parent_terminal_rate": 0.5266666666666666,
+        "refined_parent_terminal_rate": 0.06666666666666667,
+        "parent_to_challenger_rate": 0.46,
+        "challenger_to_parent_rate": 0.0,
+        "max_abs_fixed_terminal_delta": 0.0,
+        "max_abs_fixed_cumulative_delta": 0.0,
+        "fixed_root_history_exact": true,
+        "gates": {
+          "parent_gap_at_least_2_5pp": true,
+          "parent_error_at_least_10pct": true,
+          "challenger_complementarity_at_least_15pct": true,
+          "oracle_terminal_harm_at_least_1pp": true,
+          "parent_to_challenger_exceeds_reverse": true,
+          "fixed_query_exact_zero": true
+        },
+        "eligible": true
+      },
+      "eligible": true,
+      "selection_primary": 0.028733333333333336,
+      "selection_secondary": 0.028733333333333336,
+      "selection_gap": 0.03733333333333333
+    },
+    "r3": {
+      "round": "r3",
+      "cache_resumed": false,
+      "prediction_file": "step98_selection_work/r3_geometry_root_predictions.npz",
+      "prediction_sha256": "c9e77c386d7b8e3f41c1260b913e1e7b66cbdf76e7b9919cfd798c0d03c51999",
+      "audit_file": "step98_selection_work/r3_geometry_root_audits.json",
+      "audit_sha256": "c931814a4b1c5626e5b960c26a69a4679a8f5255d21972b011624baa35b1e159",
+      "root_audits": [
+        {
+          "root_key": "crossencoder_deberta_small",
+          "repo_id": "cross-encoder/nli-deberta-v3-small",
+          "revision": "fa2804872c3b4bd748f38c0185cc85775361e735",
+          "model_type": "deberta-v2",
+          "raw_to_dataset": [
+            2,
+            0,
+            1
+          ],
+          "prediction_sha256": "25b2700ad15b7c5eb0d233b8c1f13f790ab32c81b6a597d22288a393bea6743e",
+          "samples": 1500,
+          "tokenizer_class": "DebertaV2Tokenizer"
+        },
+        {
+          "root_key": "moritz_minilm",
+          "repo_id": "MoritzLaurer/MiniLM-L6-mnli",
+          "revision": "6e0917f1a395b7a6c0f054a56b91c45d8e3af92f",
+          "model_type": "bert",
+          "raw_to_dataset": [
+            0,
+            1,
+            2
+          ],
+          "prediction_sha256": "5122c5cdb89c0c15d7d9d4df296ba0ad78310a15e9c109a199a95cff12daae44",
+          "samples": 1500,
+          "tokenizer_class": "BertTokenizerFast"
+        },
+        {
+          "root_key": "mfac_bert_mini",
+          "repo_id": "M-FAC/bert-mini-finetuned-mnli",
+          "revision": "780061727f47254ff763de653920bb8b7e2fd5f2",
+          "model_type": "bert",
+          "raw_to_dataset": [
+            0,
+            1,
+            2
+          ],
+          "prediction_sha256": "277bdee9e757847b434d8b863154e60a6516bdfdde0beb1b0a5b678eb863be9f",
+          "samples": 1500,
+          "tokenizer_class": "BertTokenizerFast"
+        },
+        {
+          "root_key": "mfac_bert_tiny",
+          "repo_id": "M-FAC/bert-tiny-finetuned-mnli",
+          "revision": "618f766f89b50853abc1bea92fd38e1973818f0b",
+          "model_type": "bert",
+          "raw_to_dataset": [
+            0,
+            1,
+            2
+          ],
+          "prediction_sha256": "2f473d9ff4f84044ec8fd1554c7d6c22da6e80d0571f4abc218b96ae741397db",
+          "samples": 1500,
+          "tokenizer_class": "BertTokenizerFast"
+        }
+      ],
+      "geometry_search": {
+        "round": "r3",
+        "partition": "geometry_search",
+        "rows": 750,
+        "root_accuracies": [
+          0.6853333333333333,
+          0.6506666666666666,
+          0.5906666666666667,
+          0.5426666666666666
+        ],
+        "root_accuracy_by_key": {
+          "crossencoder_deberta_small": 0.6853333333333333,
+          "moritz_minilm": 0.6506666666666666,
+          "mfac_bert_mini": 0.5906666666666667,
+          "mfac_bert_tiny": 0.5426666666666666
+        },
+        "parent_minus_best_challenger": 0.034666666666666734,
+        "parent_error_prevalence": 0.31466666666666665,
+        "challenger_correct_given_parent_wrong": {
+          "moritz_minilm": 0.3177966101694915,
+          "mfac_bert_mini": 0.3771186440677966,
+          "mfac_bert_tiny": 0.4025423728813559
+        },
+        "max_challenger_correct_given_parent_wrong": 0.4025423728813559,
+        "oracle_terminal_harm": 0.036480000000000005,
+        "oracle_terminal_harm_pp": 3.6480000000000006,
+        "path_change_rate": 0.6566666666666666,
+        "final_root_change_rate": 0.5166666666666667,
+        "clean_parent_terminal_rate": 0.5133333333333333,
+        "refined_parent_terminal_rate": 0.06333333333333334,
+        "parent_to_challenger_rate": 0.45,
+        "challenger_to_parent_rate": 0.0,
+        "max_abs_fixed_terminal_delta": 0.0,
+        "max_abs_fixed_cumulative_delta": 0.0,
+        "fixed_root_history_exact": true,
+        "gates": {
+          "parent_gap_at_least_2_5pp": true,
+          "parent_error_at_least_10pct": true,
+          "challenger_complementarity_at_least_15pct": true,
+          "oracle_terminal_harm_at_least_1pp": true,
+          "parent_to_challenger_exceeds_reverse": true,
+          "fixed_query_exact_zero": true
+        },
+        "eligible": true
+      },
+      "geometry_verify": {
+        "round": "r3",
+        "partition": "geometry_verify",
+        "rows": 750,
+        "root_accuracies": [
+          0.6573333333333333,
+          0.608,
+          0.5853333333333334,
+          0.5506666666666666
+        ],
+        "root_accuracy_by_key": {
+          "crossencoder_deberta_small": 0.6573333333333333,
+          "moritz_minilm": 0.608,
+          "mfac_bert_mini": 0.5853333333333334,
+          "mfac_bert_tiny": 0.5506666666666666
+        },
+        "parent_minus_best_challenger": 0.04933333333333334,
+        "parent_error_prevalence": 0.3426666666666667,
+        "challenger_correct_given_parent_wrong": {
+          "moritz_minilm": 0.3735408560311284,
+          "mfac_bert_mini": 0.4163424124513619,
+          "mfac_bert_tiny": 0.4396887159533074
+        },
+        "max_challenger_correct_given_parent_wrong": 0.4396887159533074,
+        "oracle_terminal_harm": 0.029593333333333346,
+        "oracle_terminal_harm_pp": 2.9593333333333347,
+        "path_change_rate": 0.7,
+        "final_root_change_rate": 0.5066666666666667,
+        "clean_parent_terminal_rate": 0.48,
+        "refined_parent_terminal_rate": 0.06333333333333334,
+        "parent_to_challenger_rate": 0.42,
+        "challenger_to_parent_rate": 0.0033333333333333335,
+        "max_abs_fixed_terminal_delta": 0.0,
+        "max_abs_fixed_cumulative_delta": 0.0,
+        "fixed_root_history_exact": true,
+        "gates": {
+          "parent_gap_at_least_2_5pp": true,
+          "parent_error_at_least_10pct": true,
+          "challenger_complementarity_at_least_15pct": true,
+          "oracle_terminal_harm_at_least_1pp": true,
+          "parent_to_challenger_exceeds_reverse": true,
+          "fixed_query_exact_zero": true
+        },
+        "eligible": true
+      },
+      "eligible": true,
+      "selection_primary": 0.029593333333333346,
+      "selection_secondary": 0.029593333333333346,
+      "selection_gap": 0.034666666666666734
+    }
+  },
+  "selected_round": "r3",
+  "dev_accessed": false,
+  "code_sha256": {
+    "step93_common.py": "cbb4df4ccba18d386f710fbc2dd98fbf83ff266c237fffd523fc1b9dc5c89ccd",
+    "step95_common.py": "687f9899e7f8a7ea8d3a1c244ec85e3844f72ffde763d875daa1d14a38ea93c8",
+    "step96_common.py": "994411e8e9fb776c4fc447be1ad18b9c657a7199348d505815c1ed67f07e7acd",
+    "step98_common.py": "11ad12d3c032a5d31242f5c5e61bf76a1d88aef42a62b4d5032aa4f62f73c4a3",
+    "step98_stagea_select_round.py": "bc79c6e8af80e261e365457fbef9b8a40ce555fe71bb23bf9f61361a451617a7"
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "manifest_id": "STEP61_ERFA_FRESH_CROSS_SELECTOR_V1",
+  "created_local_date": "2026-08-10",
+  "status_at_creation": "No Step 61 oracle vector, candidate accuracy, true trajectory, regret effect, materiality label, AUROC, correlation, or policy outcome has been computed or inspected.",
+  "parent_audit": {
+    "path": "STEP60_REGISTRY_FRAGILITY_COLLISION_AUDIT_2026-08-10.md",
+    "sha256": "558fc27f63152f6782d8dbfac9721b837c7ff89693c4f98a9332b795645ad047",
+    "decision": "NARROW_CONDITIONAL_GO; CERTIFICATE_CLAIM_NO_GO"
+  },
+  "research_question": "Before any target label is purchased, can a response-only simulation of the full future active-selection transcript identify candidate-registry additions whose downstream absolute cumulative-regret effect will be material, outperform static and path-only diagnostics, and support a non-vacuous selective fallback?",
+  "frozen_claim_boundary": {
+    "allowed_if_all_gates_pass": "ERFA is a pre-label registry-fragility score and selective triage rule for a declared candidate-addition stress family.",
+    "forbidden": [
+      "certificate",
+      "guarantee that no harmful refinement exists",
+      "prediction of the sign of an effect",
+      "detection of real aliases or ownership",
+      "robustness to arbitrary registry mutations",
+      "a separate paper contribution based only on same-data correlation"
+    ]
+  },
+  "fresh_task_cohort": {
+    "model_selector_family": {
+      "source": "Official MODEL SELECTOR repository resources/datasets",
+      "repository": "https://github.com/soeren01/model-selector",
+      "local_commit": "6aa57e5750153bccb04c9e96946b726d14f5d3f1",
+      "tasks": [
+        "domain_drift",
+        "emotion_detection",
+        "imagenet",
+        "imagenet_pytorch_models",
+        "imagenet_v2_matched-frequency",
+        "imagenet_v2_threshold-0.7",
+        "imagenet_v2_top-images"
+      ],
+      "prediction_orientation": "N_by_H hard response matrix",
+      "sealed_outcome": "oracle.npy",
+      "selector": "equation-faithful optimized implementation of official Model Picker",
+      "official_epsilon_by_task": {
+        "domain_drift": 0.50,
+        "emotion_detection": 0.47,
+        "imagenet": 0.45,
+        "imagenet_pytorch_models": 0.46,
+        "imagenet_v2_matched-frequency": 0.46,
+        "imagenet_v2_threshold-0.7": 0.46,
+        "imagenet_v2_top-images": 0.46
+      }
+    },
+    "llm_selector_family": {
+      "source": "Official Stanford CRFM HELM Lite v1.0.0 benchmark outputs",
+      "benchmark_page": "https://crfm.stanford.edu/helm/lite/v1.0.0/",
+      "object_base": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/",
+      "helm_code_reference": "https://github.com/stanford-crfm/helm/tree/v0.4.0",
+      "tasks": [
+        "math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True",
+        "math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True",
+        "math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True",
+        "math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True",
+        "math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True",
+        "math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True",
+        "math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True"
+      ],
+      "models": 31,
+      "blind_response_fields": [
+        "instance_id",
+        "train_trial_index",
+        "predicted_text"
+      ],
+      "discarded_before_stage_a": "Every display_predictions.stats field, including math_equiv_chain_of_thought.",
+      "response_canonicalizer": "HELM v0.4.0 math_scenario.get_answer followed by _strip_string; missing boxed answers receive a fixed MISSING_BOXED sentinel.",
+      "sealed_outcome": "math_equiv_chain_of_thought from per_instance_stats.json",
+      "selector": "equation-faithful Select-LLM categorical-mass acquisition with temperature 1.0"
+    },
+    "minimum_freshness": "All 14 exact task identifiers must have zero occurrence in pre-Step-61 root-level outcome reports and runners. Shape/schema inspection and cryptographic hashing do not constitute outcome inspection."
+  },
+  "candidate_partition": {
+    "ordering": "Ascending SHA256(manifest_id || task_id || candidate_id). Candidate IDs are official model names when available and stable original indices otherwise.",
+    "core_count": "min(H-2, max(6, floor(0.8*H)))",
+    "reserve_count": "H-core_count",
+    "stress_roots": "Exactly four core candidates, selected without labels at response-disagreement ranks nearest quantiles 0.10, 0.40, 0.70, and 0.90; stable hash order breaks ties.",
+    "independent_controls": "The first two reserve candidates in frozen hash order, each added once as an independent diverse entry.",
+    "no_repartition": "No candidate may move between core, root, or reserve roles after any outcome is opened."
+  },
+  "registry_scenarios_per_task": {
+    "clean": 1,
+    "exact_refinements": {
+      "roots": 4,
+      "alias_counts": [1, 2, 4],
+      "distance": 0.0,
+      "cells": 12
+    },
+    "near_refinements": {
+      "roots": 4,
+      "alias_counts": [1, 4],
+      "response_distance_fractions": [0.02, 0.10],
+      "cells": 16,
+      "generator": "For each root, rank positions by ascending clean-core support for the root response and a manifest-seeded hash tie break. At k=max(1,round(rho*N)) positions, replace the root response by the most-supported non-root response emitted by a clean core candidate. Alias index applies a fixed cyclic offset before taking k positions. The generator never reads outcomes.",
+      "validity_reporting": "Retain every cell. After outcomes open, separately mark the subset whose alias mean accuracy differs from its parent by at most 0.01; never filter the primary analysis."
+    },
+    "independent_diverse_controls": 2,
+    "total_including_clean": 31,
+    "total_nonclean_per_task": 30,
+    "total_tasks": 14,
+    "total_nonclean_units": 420
+  },
+  "paired_evaluation": {
+    "seed_start": 61000,
+    "seed_stop_inclusive": 61031,
+    "paired_runs": 32,
+    "budget": 30,
+    "model_selector_pool_size": 512,
+    "llm_selector_pool_size": 100,
+    "small_task_rule": "Use the full task if N is below the registered pool size; budget is min(30, pool_size-1).",
+    "sampling": "Python random.Random(seed).sample over the full instance index set, sorted before use.",
+    "tie_rule": "Use a fresh NumPy PCG64 stream initialized by the paired seed for each condition, and sample uniformly from stable sorted minimizer or maximizer sets exactly where the source selector randomizes ties."
+  },
+  "erfa": {
+    "name": "Ex-Ante Registry Fragility Audit",
+    "input": "Clean-core and proposed-registry response matrices, selector specification, pools, seeds, and budget; no target outcomes and no parent/lineage metadata.",
+    "frozen_clean_proxy": "For candidate h and item x, u_tilde(h,x) is the fraction of clean-core candidates emitting h's canonical response on x. The denominator and response support remain the clean core under every registry condition.",
+    "counterfactual": "Run clean and proposed registries through the full selector transcript using u_tilde as fractional feedback, identical paired pools, and identical paired tie seeds.",
+    "score": "S_ERFA = abs(mean_seed(CRegProxy_proposed - CRegProxy_clean)) / B, where proxy regret at each step is the best clean-core proxy pool score minus the proxy pool score of the currently deployed entry.",
+    "witness": "Store the largest-absolute paired proxy trajectory, its registry condition, query path hashes, and selected-entry path hashes.",
+    "direction_claim": "Only magnitude is used. The sign is stored for auditing but may not be promoted as a prediction."
+  },
+  "required_baselines": {
+    "count_distance": "Number of added entries times mean nearest-core hard-response distance; exact refinements therefore have zero distance but retain their count as a separately reported covariate.",
+    "first_query": "Fraction of paired seeds whose first acquired item differs between clean and proposed proxy runs.",
+    "path_hamming": "Mean fraction of query-path positions that differ between clean and proposed proxy runs.",
+    "path_jaccard": "One minus the mean Jaccard similarity of the acquired query sets.",
+    "static_mass": "Mean paired normalized absolute percentile-rank displacement of all initial acquisition scores before feedback.",
+    "policies": [
+      "always active",
+      "always fixed-query fallback",
+      "ERFA selective fallback"
+    ],
+    "oracle_comparators": [
+      "exact response quotient",
+      "authenticated lineage collapse"
+    ]
+  },
+  "stage_a_risk_rule": {
+    "calibration": "Within each selector family, rank all 210 nonclean units by S_ERFA and then scenario SHA256. Flag the upper 50 percent as high risk and seal the 105 exact scenario IDs before outcomes.",
+    "policy": "Low risk uses the original active selector. High risk uses the frozen seed-paired fixed-query order sampled without candidate responses.",
+    "no_task_thresholds": true,
+    "guaranteed_blind_active_coverage": 0.50
+  },
+  "stage_b_outcomes": {
+    "classifier_reward": "Indicator that a candidate hard prediction equals oracle.npy for the item.",
+    "llm_reward": "Official HELM math_equiv_chain_of_thought per-instance statistic.",
+    "regret_reference": "Best unchanged clean-core candidate accuracy on the paired sampled pool.",
+    "primary_effect": "DeltaNormCReg = mean_seed(CReg_proposed - CReg_clean) / B.",
+    "prediction_target": "abs(DeltaNormCReg)",
+    "material_effect": "abs(DeltaNormCReg) >= 0.01.",
+    "harmful_excess": "max(DeltaNormCReg,0), primary over exact and near refinements; independent entrants are reported separately.",
+    "secondary": [
+      "final normalized regret",
+      "paired path change",
+      "sign of DeltaNormCReg as descriptive only",
+      "near-quality-matched subset",
+      "family- and task-stratified results"
+    ]
+  },
+  "statistics": {
+    "magnitude": "Spearman correlation between each blind score and abs(DeltaNormCReg).",
+    "task_block_permutation": "10000 repetitions. Permute complete 30-cell outcome blocks among the seven tasks within each selector family; preserve within-task cell order and selector family.",
+    "materiality": "AUROC plus sensitivity and specificity at the sealed family-wise upper-half operating point.",
+    "adaptive_value": "For 10000 task bootstraps, resample the 14 tasks with replacement and compute ERFA AUROC minus the maximum AUROC among count-distance, first-query, path-Hamming, path-Jaccard, and static-mass baselines in that replicate.",
+    "cross_selector": "Repeat AUROC and improvement direction separately in MODEL SELECTOR and LLM-selector families.",
+    "constant_score_rule": "A constant score receives Spearman 0 and AUROC 0.5. Undefined resamples are retained as zero improvement, never discarded."
+  },
+  "unchanged_promotion_gates": {
+    "G1_magnitude": "ERFA Spearman >= 0.60 and task-block permutation p < 0.01.",
+    "G2_materiality": "ERFA AUROC >= 0.75 and both sensitivity and specificity >= 0.65 at the sealed operating point.",
+    "G3_adaptive_value": "The 2.5th percentile of the paired task-bootstrap ERFA-minus-best-baseline AUROC difference is > 0.",
+    "G4_cross_selector": "ERFA AUROC exceeds the best registered baseline AUROC separately in both selector families.",
+    "G5_selective_fallback": "Relative to always active, selective fallback removes at least 50 percent of harmful exact/near excess while at least 50 percent of all nonclean runs remain active.",
+    "G6_nonvacuity_control": "At least one third of independent diverse-entry controls are low risk, and ERFA AUROC exceeds the count-distance baseline.",
+    "all_required": true
+  },
+  "decisions": {
+    "METHOD_PROMOTION_GO": "All G1-G6 pass. Add ERFA only as a method and selective mitigation inside the current paper.",
+    "DIAGNOSTIC_ONLY_NO_GO": "G1-G2 show signal but any of G3-G6 fails. Keep the attack paper and do not promote ERFA.",
+    "STOP_FRAGILITY_PIVOT": "G1 or G2 fails. Stop proxy development and return to the frozen Step 57 manuscript."
+  },
+  "sequential_seal": {
+    "stage_0": "Run only the freshness/schema feasibility audit; do not load oracle arrays or HELM metric values.",
+    "stage_a": "Create stripped response-only packages, candidate partitions, all scenarios, ERFA/baseline scores, witness hashes, and exact high-risk IDs.",
+    "stage_a_lock": "Hash protocol, blind packages, Stage A runner, common code, and Stage A output before enabling the outcome runner.",
+    "stage_b": "Only then load oracle.npy and HELM per_instance_stats, compute true trajectories, policies, statistics, and the fixed decision.",
+    "validation": "An independent validator must reconstruct task counts, risk IDs, primary metrics, gates, file hashes, and the final decision."
+  },
+  "forbidden_after_outcomes": [
+    "Changing tasks, candidates, partitions, roots, controls, mutation grid, distances, counts, pools, seeds, budget, selectors, epsilon, temperature, proxy, thresholds, baselines, materiality cutoff, tests, or gates.",
+    "Dropping beneficial, null, low-quality, unavailable, or failed cells from the primary all-cell analysis.",
+    "Replacing a missing model or task after any outcome is opened.",
+    "Selecting the better of multiple proxy formulas or operating thresholds.",
+    "Calling a result a certificate or claiming sign prediction.",
+    "Presenting the fresh test as independent if its task identifier appears in a pre-Step-61 outcome artifact."
+  ]
+}

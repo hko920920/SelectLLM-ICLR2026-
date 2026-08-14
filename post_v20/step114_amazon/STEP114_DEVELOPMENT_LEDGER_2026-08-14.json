@@ -1,0 +1,262 @@
+{
+  "schema": "step114.development_ledger.v1",
+  "date": "2026-08-14",
+  "decision": "STOP_STEP114_DEVELOPMENT_NOT_CERTIFIED",
+  "claim_status": "PREOUTCOME_DEVELOPMENT_ONLY",
+  "predata_lock_sha256": "051012cd377de684966173b6daabe98905450083d800d6a05dc8413d6164bfd2",
+  "stage0_manifest_sha256": "08f7b874e61ceab8198d8bcf2ccbfec932402f5d40e35d3177a017c088eb86f0",
+  "root_audits": [
+    {
+      "key": "adamcodd_distilbert",
+      "repo_id": "AdamCodd/distilbert-base-uncased-finetuned-sentiment-amazon",
+      "revision": "af15ca2e0c7a2779f19dc242a7e87817393ab797",
+      "model_to_native": [
+        0,
+        1
+      ],
+      "model_class": "DistilBertForSequenceClassification",
+      "tokenizer_class": "DistilBertTokenizerFast",
+      "model_type": "distilbert",
+      "id2label": {
+        "0": "negative",
+        "1": "positive"
+      },
+      "samples": 16000,
+      "max_length": 256,
+      "prediction_sha256": "4856ab4a0bf6acf70769f3992e5778483915487f6ccc97bf448c422167c8ea7b",
+      "logits_sha256": "844dcdee11b309765bcf4d36d48c22bae302c25f2ec00d4f711285f64ce5e683",
+      "features_sha256": "83f3a943765951edd118376970ce7cd25c2b3d582f60cc5528bdb34308b792b6",
+      "feature_dimension": 770
+    },
+    {
+      "key": "etelis_albert",
+      "repo_id": "Etelis/amazonPolarity_ALBERT_5E",
+      "revision": "099a705d29cbaf47df683b10070cb87c0560fb8b",
+      "model_to_native": [
+        0,
+        1
+      ],
+      "model_class": "AlbertForSequenceClassification",
+      "tokenizer_class": "AlbertTokenizerFast",
+      "model_type": "albert",
+      "id2label": {
+        "0": "LABEL_0",
+        "1": "LABEL_1"
+      },
+      "samples": 4000,
+      "max_length": 256,
+      "prediction_sha256": "87b6b7ba2dd3fd6093dce29c05ac2495656867a533b17550388a3397dd7f27c9",
+      "logits_sha256": "a53a09dd2824930414194322fa64ddefedaa26be1299cfdfe2dbdfd29d315b76",
+      "features_sha256": null,
+      "feature_dimension": null
+    },
+    {
+      "key": "fabrice_bert",
+      "repo_id": "fabriceyhc/bert-base-uncased-amazon_polarity",
+      "revision": "36abc4b1e41b52cb0904d666ea522e9434bca998",
+      "model_to_native": [
+        0,
+        1
+      ],
+      "model_class": "BertForSequenceClassification",
+      "tokenizer_class": "BertTokenizerFast",
+      "model_type": "bert",
+      "id2label": {
+        "0": "negative",
+        "1": "positive"
+      },
+      "samples": 4000,
+      "max_length": 256,
+      "prediction_sha256": "9f09cd31a6ee2ca96d06c866f19a6707eb1361811dd4f86294924e3f1ada71a4",
+      "logits_sha256": "397cd556bc57521df9377057d730fc44219b0a518a3b6fe7bcd63c678a7ab657",
+      "features_sha256": null,
+      "feature_dimension": null
+    },
+    {
+      "key": "quinton_distilbert",
+      "repo_id": "quintonpyx/distilbert-amazon-polarity",
+      "revision": "d8abbd64ad8206b7e680bcf6a8b0a7f2938321b3",
+      "model_to_native": [
+        0,
+        1
+      ],
+      "model_class": "DistilBertForSequenceClassification",
+      "tokenizer_class": "BertTokenizerFast",
+      "model_type": "distilbert",
+      "id2label": {
+        "0": "NEGATIVE",
+        "1": "POSITIVE"
+      },
+      "samples": 4000,
+      "max_length": 256,
+      "prediction_sha256": "0dfd70ab40c92e7f1b860e993df007b9220d961543d4efb71a6ad08ba1131ec0",
+      "logits_sha256": "95db9eb09b9a95005fcac7508b0cdd6792e5d73a790e96e42a8e16e47fd5ffc6",
+      "features_sha256": null,
+      "feature_dimension": null
+    }
+  ],
+  "head_paths": [
+    "step114_models/step114_amazon_error_head_0.safetensors",
+    "step114_models/step114_amazon_error_head_1.safetensors",
+    "step114_models/step114_amazon_error_head_2.safetensors",
+    "step114_models/step114_amazon_error_head_3.safetensors"
+  ],
+  "head_checkpoints": [
+    {
+      "path": "step114_models/step114_amazon_error_head_0.safetensors",
+      "sha256": "41133ef8c4a7d154b52eed4a3bbad134e1dd4cf8ae3f8ff683edfd4a9f4df6ae",
+      "bytes": 9900,
+      "parameter_count": 771
+    },
+    {
+      "path": "step114_models/step114_amazon_error_head_1.safetensors",
+      "sha256": "c30048d6d0a3680beb44cbc57dcdf860856fd72ab24f91c4602078db7a14011f",
+      "bytes": 9900,
+      "parameter_count": 771
+    },
+    {
+      "path": "step114_models/step114_amazon_error_head_2.safetensors",
+      "sha256": "39b046844a97092819cae0838d847e907cb5928fc428ea62856876adb3f37ea5",
+      "bytes": 9900,
+      "parameter_count": 771
+    },
+    {
+      "path": "step114_models/step114_amazon_error_head_3.safetensors",
+      "sha256": "3b3bc8801a14ecb2cd211855d30e2739ff44abcc41a077f79afbb47a934cdf84",
+      "bytes": 9900,
+      "parameter_count": 771
+    }
+  ],
+  "head_training": [
+    {
+      "seed": 114100,
+      "feature_dimension": 770,
+      "train_rows": 8000,
+      "parent_error_rows": 421,
+      "balanced_bootstrap_rows": 842,
+      "epochs": 30,
+      "batch_size": 256,
+      "learning_rate": 0.001,
+      "weight_decay": 0.001,
+      "initial_epoch_loss": 0.6411398599663143,
+      "final_epoch_loss": 0.3886348773634632,
+      "parameter_count": 771
+    },
+    {
+      "seed": 114101,
+      "feature_dimension": 770,
+      "train_rows": 8000,
+      "parent_error_rows": 421,
+      "balanced_bootstrap_rows": 842,
+      "epochs": 30,
+      "batch_size": 256,
+      "learning_rate": 0.001,
+      "weight_decay": 0.001,
+      "initial_epoch_loss": 0.707945739996405,
+      "final_epoch_loss": 0.42038532440282955,
+      "parameter_count": 771
+    },
+    {
+      "seed": 114102,
+      "feature_dimension": 770,
+      "train_rows": 8000,
+      "parent_error_rows": 421,
+      "balanced_bootstrap_rows": 842,
+      "epochs": 30,
+      "batch_size": 256,
+      "learning_rate": 0.001,
+      "weight_decay": 0.001,
+      "initial_epoch_loss": 0.6223544446561229,
+      "final_epoch_loss": 0.396531432442314,
+      "parameter_count": 771
+    },
+    {
+      "seed": 114103,
+      "feature_dimension": 770,
+      "train_rows": 8000,
+      "parent_error_rows": 421,
+      "balanced_bootstrap_rows": 842,
+      "epochs": 30,
+      "batch_size": 256,
+      "learning_rate": 0.001,
+      "weight_decay": 0.001,
+      "initial_epoch_loss": 0.6545382811734343,
+      "final_epoch_loss": 0.40787312183130947,
+      "parameter_count": 771
+    }
+  ],
+  "thresholds": [
+    0.9762361645698547,
+    0.9551658034324646,
+    0.9724199771881104,
+    0.9773099422454834
+  ],
+  "threshold_rule": "target_input_only_empirical_p993_higher",
+  "quality": {
+    "parent_accuracy": 0.9495,
+    "alias_accuracy": [
+      0.948,
+      0.94625,
+      0.9465,
+      0.946
+    ],
+    "improvement_counts": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "loss_counts": [
+      6,
+      13,
+      12,
+      14
+    ],
+    "coordinate_wise_nonimproving": true,
+    "loss_within_one_point": true
+  },
+  "diagnostics_not_gates": {
+    "clean_root_accuracies": [
+      0.9495,
+      0.943,
+      0.9495,
+      0.91975
+    ],
+    "parent_runner_up_gap": 0.0,
+    "parent_error_rate": 0.0505,
+    "error_auc": [
+      0.878721995422291,
+      0.8879073926349981,
+      0.8854999244000229,
+      0.8794428021001153
+    ],
+    "trigger_counts": [
+      14,
+      22,
+      33,
+      24
+    ],
+    "trigger_error_precision": [
+      0.5714285714285714,
+      0.4090909090909091,
+      0.6363636363636364,
+      0.4166666666666667
+    ]
+  },
+  "gates": {
+    "clean_response_vectors_distinct": true,
+    "designated_parent_unique_best": false,
+    "each_alias_triggers": true,
+    "aliases_response_distinct": true,
+    "coordinate_wise_nonimproving": true,
+    "quality_loss_within_one_point": true,
+    "four_nonempty_hash_distinct_checkpoints": true,
+    "checkpoint_score_reconstruction_exact": true,
+    "no_selector_effect_used": true,
+    "outcome_still_unopened": true
+  },
+  "arrays_file": "STEP114_DEVELOPMENT_ARRAYS_2026-08-14.npz",
+  "arrays_sha256": "9163c9f8e0c28846c0fd79fce2f2c7557e9eaae69f438f26860c2393db24d7df",
+  "outcome_model_inference_completed": false,
+  "outcome_opened": false
+}

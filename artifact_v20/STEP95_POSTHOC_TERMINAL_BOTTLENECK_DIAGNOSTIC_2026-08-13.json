@@ -1,0 +1,372 @@
+{
+  "diagnostic_id": "STEP95_POSTHOC_TERMINAL_BOTTLENECK_V1",
+  "scope": {
+    "data": "Step 95 selector_verify development partition only",
+    "sealed_test_opened": false,
+    "confirmatory_use": false,
+    "warning": "Post-hoc mechanism diagnosis; no number here can relabel Step 95 or select its sealed confirmation."
+  },
+  "selected_condition_locked_1500_runs": {
+    "tau": 0.05,
+    "thresholds": [
+      0.9592984616756439,
+      0.9520889520645142,
+      0.9587028622627258,
+      0.9531120955944061
+    ],
+    "mean_terminal_delta": 0.0004986666666666671,
+    "terminal_pp": 0.04986666666666671,
+    "root_change_rate": 0.21133333333333335,
+    "positive_fraction": 0.11733333333333333,
+    "negative_fraction": 0.07666666666666666,
+    "zero_fraction": 0.806
+  },
+  "trajectory_diagnostic_400_fixed_runs": {
+    "seed_range": [
+      954000,
+      954399
+    ],
+    "mean_terminal_delta": 0.0004150000000000004,
+    "terminal_pp": 0.04150000000000004,
+    "root_change_rate": 0.19
+  },
+  "root_global_accuracy": {
+    "typeform_distilbert": 0.9780952380952381,
+    "crossencoder_deberta_small": 0.968,
+    "crossencoder_distilroberta": 0.8923809523809524,
+    "moritz_minilm": 0.8662857142857143,
+    "mfac_bert_mini": 0.7948571428571428,
+    "mfac_bert_tiny": 0.7276190476190476
+  },
+  "root_global_gap_from_parent_pp": {
+    "typeform_distilbert": 0.0,
+    "crossencoder_deberta_small": 1.0095238095238157,
+    "crossencoder_distilroberta": 8.571428571428575,
+    "moritz_minilm": 11.18095238095238,
+    "mfac_bert_mini": 18.32380952380953,
+    "mfac_bert_tiny": 25.04761904761905
+  },
+  "pool_quality_geometry": {
+    "best_minus_second": {
+      "min": 0.0,
+      "p10": 0.0020000000000000018,
+      "p25": 0.006000000000000005,
+      "median": 0.010000000000000009,
+      "p75": 0.016000000000000014,
+      "p90": 0.020000000000000018,
+      "max": 0.028000000000000025
+    },
+    "best_minus_worst": {
+      "min": 0.19799999999999995,
+      "p10": 0.22799999999999998,
+      "p25": 0.24,
+      "median": 0.252,
+      "p75": 0.2645,
+      "p90": 0.276,
+      "max": 0.30199999999999994
+    },
+    "fraction_best_second_tied": 0.0575,
+    "mean_best_minus_second_pp": 1.037500000000001,
+    "mean_best_minus_worst_pp": 25.218
+  },
+  "terminal_delta_geometry": {
+    "all_quantiles": {
+      "min": -0.02200000000000002,
+      "p10": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p90": 0.0020000000000000018,
+      "max": 0.020000000000000018
+    },
+    "changed_quantiles": {
+      "min": -0.02200000000000002,
+      "p10": -0.010000000000000009,
+      "p25": -0.0040000000000000036,
+      "median": 0.0020000000000000018,
+      "p75": 0.010000000000000009,
+      "p90": 0.015000000000000013,
+      "max": 0.020000000000000018
+    },
+    "positive_quantiles": {
+      "min": 0.0020000000000000018,
+      "p10": 0.0020000000000000018,
+      "p25": 0.006000000000000005,
+      "median": 0.008000000000000007,
+      "p75": 0.01200000000000001,
+      "p90": 0.016000000000000014,
+      "max": 0.020000000000000018
+    },
+    "negative_quantiles": {
+      "min": -0.02200000000000002,
+      "p10": -0.014800000000000013,
+      "p25": -0.010000000000000009,
+      "median": -0.0040000000000000036,
+      "p75": -0.0040000000000000036,
+      "p90": -0.0020000000000000018,
+      "max": -0.0020000000000000018
+    },
+    "mean_positive": 0.009170731707317081,
+    "mean_negative": -0.007241379310344834,
+    "mean_given_root_change": 0.0021842105263157915,
+    "conditional_drop_needed_for_half_point": 0.02631578947368421,
+    "conditional_drop_needed_pp": 2.631578947368421
+  },
+  "terminal_transitions": [
+    {
+      "clean_root": "typeform_distilbert",
+      "refined_root": "typeform_distilbert",
+      "count": 259,
+      "rate": 0.6475,
+      "mean_terminal_delta": 0.0,
+      "positive": 0,
+      "negative": 0,
+      "zero": 259
+    },
+    {
+      "clean_root": "crossencoder_deberta_small",
+      "refined_root": "crossencoder_deberta_small",
+      "count": 65,
+      "rate": 0.1625,
+      "mean_terminal_delta": 0.0,
+      "positive": 0,
+      "negative": 0,
+      "zero": 65
+    },
+    {
+      "clean_root": "typeform_distilbert",
+      "refined_root": "crossencoder_deberta_small",
+      "count": 44,
+      "rate": 0.11,
+      "mean_terminal_delta": 0.007863636363636371,
+      "positive": 38,
+      "negative": 3,
+      "zero": 3
+    },
+    {
+      "clean_root": "crossencoder_deberta_small",
+      "refined_root": "typeform_distilbert",
+      "count": 32,
+      "rate": 0.08,
+      "mean_terminal_delta": -0.005625000000000005,
+      "positive": 3,
+      "negative": 26,
+      "zero": 3
+    }
+  ],
+  "terminal_score_geometry": {
+    "clean_entry_margin_zero_fraction": 0.01,
+    "refined_entry_margin_zero_fraction": 0.03,
+    "clean_entry_margin_quantiles": {
+      "min": 0.0,
+      "p10": 2.0,
+      "p25": 2.0,
+      "median": 2.0,
+      "p75": 2.0,
+      "p90": 3.0,
+      "max": 5.0
+    },
+    "refined_entry_margin_quantiles": {
+      "min": 0.0,
+      "p10": 1.0,
+      "p25": 2.0,
+      "median": 2.0,
+      "p75": 2.0,
+      "p90": 2.0,
+      "max": 4.0
+    }
+  },
+  "query_diagnostics": {
+    "clean_parent_error_fraction": 0.083125,
+    "refined_parent_error_fraction": 0.117375,
+    "clean_root_disagreement_mean": 1.676875,
+    "refined_root_disagreement_mean": 1.68475,
+    "mean_unique_clean_only": 5.4475,
+    "mean_unique_refined_only": 5.4475,
+    "alias_trigger_fraction_on_clean_queries": [
+      0.03575,
+      0.02625,
+      0.027875,
+      0.035
+    ],
+    "alias_trigger_fraction_on_refined_queries": [
+      0.14375,
+      0.13525,
+      0.1325,
+      0.144625
+    ]
+  },
+  "budget_scan": [
+    {
+      "budget": 5,
+      "runs": 400,
+      "mean_terminal_delta": 0.0015000000000000005,
+      "terminal_pp": 0.15000000000000005,
+      "positive_fraction": 0.1625,
+      "negative_fraction": 0.11,
+      "root_change_rate": 0.2925,
+      "mean_cumulative_delta": 0.05238999999999999
+    },
+    {
+      "budget": 10,
+      "runs": 400,
+      "mean_terminal_delta": 0.0008050000000000007,
+      "terminal_pp": 0.08050000000000007,
+      "positive_fraction": 0.14,
+      "negative_fraction": 0.0825,
+      "root_change_rate": 0.24,
+      "mean_cumulative_delta": 0.05787
+    },
+    {
+      "budget": 15,
+      "runs": 400,
+      "mean_terminal_delta": 0.0005550000000000005,
+      "terminal_pp": 0.05550000000000005,
+      "positive_fraction": 0.11,
+      "negative_fraction": 0.07,
+      "root_change_rate": 0.195,
+      "mean_cumulative_delta": 0.06056
+    },
+    {
+      "budget": 20,
+      "runs": 400,
+      "mean_terminal_delta": 0.0004150000000000004,
+      "terminal_pp": 0.04150000000000004,
+      "positive_fraction": 0.1025,
+      "negative_fraction": 0.0725,
+      "root_change_rate": 0.19,
+      "mean_cumulative_delta": 0.063095
+    },
+    {
+      "budget": 30,
+      "runs": 400,
+      "mean_terminal_delta": 0.00026500000000000026,
+      "terminal_pp": 0.026500000000000027,
+      "positive_fraction": 0.0925,
+      "negative_fraction": 0.0725,
+      "root_change_rate": 0.1825,
+      "mean_cumulative_delta": 0.06661
+    },
+    {
+      "budget": 40,
+      "runs": 400,
+      "mean_terminal_delta": 0.00029000000000000027,
+      "terminal_pp": 0.029000000000000026,
+      "positive_fraction": 0.08,
+      "negative_fraction": 0.0575,
+      "root_change_rate": 0.1525,
+      "mean_cumulative_delta": 0.06940500000000001
+    },
+    {
+      "budget": 60,
+      "runs": 400,
+      "mean_terminal_delta": 0.0003500000000000003,
+      "terminal_pp": 0.03500000000000003,
+      "positive_fraction": 0.0775,
+      "negative_fraction": 0.045,
+      "root_change_rate": 0.1375,
+      "mean_cumulative_delta": 0.07731500000000002
+    },
+    {
+      "budget": 80,
+      "runs": 400,
+      "mean_terminal_delta": 0.00025500000000000024,
+      "terminal_pp": 0.025500000000000023,
+      "positive_fraction": 0.0625,
+      "negative_fraction": 0.035,
+      "root_change_rate": 0.1175,
+      "mean_cumulative_delta": 0.08355500000000003
+    },
+    {
+      "budget": 100,
+      "runs": 400,
+      "mean_terminal_delta": 0.00018500000000000016,
+      "terminal_pp": 0.018500000000000016,
+      "positive_fraction": 0.0525,
+      "negative_fraction": 0.035,
+      "root_change_rate": 0.1075,
+      "mean_cumulative_delta": 0.08782000000000004
+    }
+  ],
+  "locked_grid_summary": {
+    "search_max_terminal_pp": 0.06300000000000003,
+    "search_min_terminal_pp": 0.0005000000000000004,
+    "search_max_cumulative": 0.056319999999999995,
+    "verification_max_terminal_pp": 0.04986666666666671,
+    "verification_min_terminal_pp": 0.02426666666666669,
+    "verification_rows": [
+      {
+        "search_rank": 1,
+        "tau": 0.05,
+        "loss_cap": 0.0075,
+        "trigger_cap": 0.05,
+        "terminal_pp": 0.02426666666666669,
+        "cumulative": 0.05297733333333334,
+        "root_change_rate": 0.20333333333333334
+      },
+      {
+        "search_rank": 2,
+        "tau": 0.05,
+        "loss_cap": 0.0075,
+        "trigger_cap": 0.1,
+        "terminal_pp": 0.02426666666666669,
+        "cumulative": 0.05297733333333334,
+        "root_change_rate": 0.20333333333333334
+      },
+      {
+        "search_rank": 3,
+        "tau": 0.05,
+        "loss_cap": 0.0075,
+        "trigger_cap": 0.15,
+        "terminal_pp": 0.02426666666666669,
+        "cumulative": 0.05297733333333334,
+        "root_change_rate": 0.20333333333333334
+      },
+      {
+        "search_rank": 4,
+        "tau": 0.05,
+        "loss_cap": 0.0075,
+        "trigger_cap": 0.2,
+        "terminal_pp": 0.02426666666666669,
+        "cumulative": 0.05297733333333334,
+        "root_change_rate": 0.20333333333333334
+      },
+      {
+        "search_rank": 5,
+        "tau": 0.05,
+        "loss_cap": 0.01,
+        "trigger_cap": 0.05,
+        "terminal_pp": 0.04986666666666671,
+        "cumulative": 0.05055733333333333,
+        "root_change_rate": 0.21133333333333335
+      },
+      {
+        "search_rank": 6,
+        "tau": 0.05,
+        "loss_cap": 0.01,
+        "trigger_cap": 0.1,
+        "terminal_pp": 0.04986666666666671,
+        "cumulative": 0.05055733333333333,
+        "root_change_rate": 0.21133333333333335
+      },
+      {
+        "search_rank": 7,
+        "tau": 0.05,
+        "loss_cap": 0.01,
+        "trigger_cap": 0.15,
+        "terminal_pp": 0.04986666666666671,
+        "cumulative": 0.05055733333333333,
+        "root_change_rate": 0.21133333333333335
+      },
+      {
+        "search_rank": 8,
+        "tau": 0.05,
+        "loss_cap": 0.01,
+        "trigger_cap": 0.2,
+        "terminal_pp": 0.04986666666666671,
+        "cumulative": 0.05055733333333333,
+        "root_change_rate": 0.21133333333333335
+      }
+    ]
+  }
+}

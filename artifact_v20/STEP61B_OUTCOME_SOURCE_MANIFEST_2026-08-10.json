@@ -1,0 +1,2059 @@
+{
+  "manifest_id": "STEP61B_OUTCOME_SOURCE_MANIFEST_V1",
+  "execution_lock_sha256": "8e807f77e19ec1f4656d9a5712b7719a9174f801e95697984ac360109c96f32e",
+  "classifier_tasks": {
+    "domain_drift": {
+      "task_id": "domain_drift",
+      "selector_family": "model_selector",
+      "shape": [
+        3600,
+        9
+      ],
+      "source": {
+        "path": "external\\model-selector\\resources\\datasets\\domain_drift\\oracle.npy",
+        "bytes": 28928,
+        "sha256": "fd343fb30697193d7464d3d853331eef83c0219d70f8b737867e9968e6153db7"
+      },
+      "outcome_package": {
+        "path": "STEP61_OUTCOME_PACKAGES\\domain_drift.npz",
+        "bytes": 14439,
+        "sha256": "e555231723fb928878478fa59871851ed24f92b815b40a7d48944cc9e309f378"
+      },
+      "alignment": {
+        "instances": 3600,
+        "candidates": 9,
+        "exact_length_match": true
+      }
+    },
+    "emotion_detection": {
+      "task_id": "emotion_detection",
+      "selector_family": "model_selector",
+      "shape": [
+        5509,
+        8
+      ],
+      "source": {
+        "path": "external\\model-selector\\resources\\datasets\\emotion_detection\\oracle.npy",
+        "bytes": 44200,
+        "sha256": "c0cacd2cb2fb775aacf8228b691b6931a1225ff5f1a27b94195681e5f5c6ba64"
+      },
+      "outcome_package": {
+        "path": "STEP61_OUTCOME_PACKAGES\\emotion_detection.npz",
+        "bytes": 20344,
+        "sha256": "ed976bad61b45a05655669818d20c2895322f1e72050fbd742d349139c7c0b0a"
+      },
+      "alignment": {
+        "instances": 5509,
+        "candidates": 8,
+        "exact_length_match": true
+      }
+    },
+    "imagenet": {
+      "task_id": "imagenet",
+      "selector_family": "model_selector",
+      "shape": [
+        50000,
+        102
+      ],
+      "source": {
+        "path": "external\\model-selector\\resources\\datasets\\imagenet\\oracle.npy",
+        "bytes": 400128,
+        "sha256": "f4bf065ede5e6acf05bf173be7dc241866ef7c34aa2149401414eace0ca6ea65"
+      },
+      "outcome_package": {
+        "path": "STEP61_OUTCOME_PACKAGES\\imagenet.npz",
+        "bytes": 921286,
+        "sha256": "112046e4e5d573d917c4580185dd3767e04daa073f6736fbc247f3a5e932b10b"
+      },
+      "alignment": {
+        "instances": 50000,
+        "candidates": 102,
+        "exact_length_match": true
+      }
+    },
+    "imagenet_pytorch_models": {
+      "task_id": "imagenet_pytorch_models",
+      "selector_family": "model_selector",
+      "shape": [
+        50000,
+        114
+      ],
+      "source": {
+        "path": "external\\model-selector\\resources\\datasets\\imagenet_pytorch_models\\oracle.npy",
+        "bytes": 200128,
+        "sha256": "d7b9b82f5af5b86e0f1baf457dd80b419f992dc8124cbfc9a78d658f576a12ce"
+      },
+      "outcome_package": {
+        "path": "STEP61_OUTCOME_PACKAGES\\imagenet_pytorch_models.npz",
+        "bytes": 1349896,
+        "sha256": "a287ddd54626ef116dd220a07f57fea44de0ab54a6e4bf9e30cc4c53414ed6db"
+      },
+      "alignment": {
+        "instances": 50000,
+        "candidates": 114,
+        "exact_length_match": true
+      }
+    },
+    "imagenet_v2_matched-frequency": {
+      "task_id": "imagenet_v2_matched-frequency",
+      "selector_family": "model_selector",
+      "shape": [
+        10000,
+        114
+      ],
+      "source": {
+        "path": "external\\model-selector\\resources\\datasets\\imagenet_v2_matched-frequency\\oracle.npy",
+        "bytes": 40128,
+        "sha256": "5fd2e9d92f8bcd9a841689752c75924f75984415e52f64fcb11366b88b29a2aa"
+      },
+      "outcome_package": {
+        "path": "STEP61_OUTCOME_PACKAGES\\imagenet_v2_matched-frequency.npz",
+        "bytes": 282929,
+        "sha256": "016f0b86b0a3eb5592a70285d30fb8d8d5e544ff890b4ea17b8cb67b5eb26b20"
+      },
+      "alignment": {
+        "instances": 10000,
+        "candidates": 114,
+        "exact_length_match": true
+      }
+    },
+    "imagenet_v2_threshold-0.7": {
+      "task_id": "imagenet_v2_threshold-0.7",
+      "selector_family": "model_selector",
+      "shape": [
+        10000,
+        114
+      ],
+      "source": {
+        "path": "external\\model-selector\\resources\\datasets\\imagenet_v2_threshold-0.7\\oracle.npy",
+        "bytes": 40128,
+        "sha256": "5fd2e9d92f8bcd9a841689752c75924f75984415e52f64fcb11366b88b29a2aa"
+      },
+      "outcome_package": {
+        "path": "STEP61_OUTCOME_PACKAGES\\imagenet_v2_threshold-0.7.npz",
+        "bytes": 256366,
+        "sha256": "ee473be2f5d3b2685831df0b9312c083a58c44e68886da70cee9e3369aaaf3d6"
+      },
+      "alignment": {
+        "instances": 10000,
+        "candidates": 114,
+        "exact_length_match": true
+      }
+    },
+    "imagenet_v2_top-images": {
+      "task_id": "imagenet_v2_top-images",
+      "selector_family": "model_selector",
+      "shape": [
+        10000,
+        114
+      ],
+      "source": {
+        "path": "external\\model-selector\\resources\\datasets\\imagenet_v2_top-images\\oracle.npy",
+        "bytes": 40128,
+        "sha256": "5fd2e9d92f8bcd9a841689752c75924f75984415e52f64fcb11366b88b29a2aa"
+      },
+      "outcome_package": {
+        "path": "STEP61_OUTCOME_PACKAGES\\imagenet_v2_top-images.npz",
+        "bytes": 234964,
+        "sha256": "6c71027e373b5c4b5ec5076907d96f5ef9192b06a1c3b263d2e320cf8de83b87"
+      },
+      "alignment": {
+        "instances": 10000,
+        "candidates": 114,
+        "exact_length_match": true
+      }
+    }
+  },
+  "helm_math_tasks": {
+    "algebra": {
+      "task_id": "math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True",
+      "subject": "algebra",
+      "selector_family": "select_llm",
+      "shape": [
+        135,
+        31
+      ],
+      "sources": {
+        "01-ai_yi-34b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-34b/per_instance_stats.json",
+          "bytes": 752487,
+          "sha256": "72660050edd3143807aee9a7d6268299a26827ce6ba26a37d8cc8e5708b10af0",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "01-ai_yi-6b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-6b/per_instance_stats.json",
+          "bytes": 752814,
+          "sha256": "fc104a86944f2c1303b9c171396217e5c11851933fea478f6bc75396736529f2",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "AlephAlpha_luminous-base": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-base/per_instance_stats.json",
+          "bytes": 779895,
+          "sha256": "4e26ed4fd9dd608b9774921234ff3c4819b6203a87338ebbe8e7fdb3254458f7",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "AlephAlpha_luminous-extended": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-extended/per_instance_stats.json",
+          "bytes": 779763,
+          "sha256": "70cece5b826881bbecaa3ea8c2c870b2fbbd419f4580e92b93e60aeff1206c52",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "AlephAlpha_luminous-supreme": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-supreme/per_instance_stats.json",
+          "bytes": 779570,
+          "sha256": "4c5a7e122c210924170dcd598aa2e45fe9935075ce38ae05b16c38ce2361d779",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "ai21_j2-grande": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-grande/per_instance_stats.json",
+          "bytes": 779967,
+          "sha256": "8545c43f2ae18af0ade4606bc0a11e68b0667c334ac7af4bc79109e1a2697fb9",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "ai21_j2-jumbo": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-jumbo/per_instance_stats.json",
+          "bytes": 780036,
+          "sha256": "66f0ba2dc11bec3d5cdca2b1e588d37a25869daf1f380db7c48b3f1ca79fcbf6",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-2.0": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.0/per_instance_stats.json",
+          "bytes": 755998,
+          "sha256": "ce0005bd9ca9ca9b86fcb95dedb585fe4a406cbf8bb7ea78095fe46027f2f8eb",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-2.1": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.1/per_instance_stats.json",
+          "bytes": 756028,
+          "sha256": "64105422016e74680f63bb7baff14d570eaff9b80055962c1c72c9c27385df24",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-instant-1.2": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-1.2/per_instance_stats.json",
+          "bytes": 755981,
+          "sha256": "23e2608e63757d87cc7b53411f728ae9658b9ca65165186854a7a1ecd61a0832",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-instant-v1": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-v1/per_instance_stats.json",
+          "bytes": 755994,
+          "sha256": "132b0a921ff430cea77cc161344ea71a27745537f442444f3fb912499658c99f",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-v1.3": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-v1.3/per_instance_stats.json",
+          "bytes": 755860,
+          "sha256": "be07d59f8bf62fcad7c59e91b6e25b5a1cb3c884af0c4a858284ee2c14233d40",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "cohere_command-light": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command-light/per_instance_stats.json",
+          "bytes": 779610,
+          "sha256": "4625c45c3bbb433d8fb61993a71abd258d7bbbb4c594ebcd69351e3eff5d6f41",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "cohere_command": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command/per_instance_stats.json",
+          "bytes": 779798,
+          "sha256": "a9c3c3bab3bf74895b45b1bbab973f0f89d7d1e70dc948e1e317fa8e4795d4b9",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "google_text-bison@001": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-bison@001/per_instance_stats.json",
+          "bytes": 756004,
+          "sha256": "5299ad4dbad3bb82dc803ec750ce90abc0f0fb166c30207eb41a9bd9df9429af",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "google_text-unicorn@001": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-unicorn@001/per_instance_stats.json",
+          "bytes": 756058,
+          "sha256": "ae5fcc4688cf20bcb776cf35ba4ba23138324ba75c4ead6b53d10d5a6c5afa15",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-2-13b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-13b/per_instance_stats.json",
+          "bytes": 752817,
+          "sha256": "92f55d02967b052cffa053375d9c93a3a358051ed7289a1ab47ef83e8a3837e3",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-2-70b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-70b/per_instance_stats.json",
+          "bytes": 752612,
+          "sha256": "20090fa242973c2f4f4931e98c21ea577083cdbfc9874450b1db746123dd6b26",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-2-7b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-7b/per_instance_stats.json",
+          "bytes": 752746,
+          "sha256": "07dc71ca68f05decbe298f09abf98a42706a2ae6c77a71f77a6b13847d5a03e9",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-65b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-65b/per_instance_stats.json",
+          "bytes": 752432,
+          "sha256": "cdb26de0ba29eeb06eee25aa3390a9e7ed1827b632a3922cf21b94b063cf0c79",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "mistralai_mistral-7b-v0.1": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mistral-7b-v0.1/per_instance_stats.json",
+          "bytes": 752880,
+          "sha256": "f68d925de1aacb6eef778d62cb089f8597f1bcd99f6fc7fc8f00c59944ebd681",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "mistralai_mixtral-8x7b-32kseqlen": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mixtral-8x7b-32kseqlen/per_instance_stats.json",
+          "bytes": 752797,
+          "sha256": "64d240bd41ffb40fb632de9ac1929cf30a59fde927e67be01fc138220d488777",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_gpt-3.5-turbo-0613": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-3.5-turbo-0613/per_instance_stats.json",
+          "bytes": 756034,
+          "sha256": "de720052d15abbfa31ea4e46b95e2593663fcb3946e479eec81259dc0a81bdfd",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_gpt-4-0613": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-0613/per_instance_stats.json",
+          "bytes": 755678,
+          "sha256": "9d81bb475b9fb1b8203aa489f65a1bc75dbdef1c9e8a057f7ea61155902543a2",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_gpt-4-1106-preview": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-1106-preview/per_instance_stats.json",
+          "bytes": 756991,
+          "sha256": "9de5ecb16e79e7545bd0a2297cc3b533e6ba404c5df4d40e82fe323920cf01cf",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_text-davinci-002": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-002/per_instance_stats.json",
+          "bytes": 827284,
+          "sha256": "b8935186f634e2a9f7e6c6e439a1d1aa6ad3b3ca2c68cff02322d995e5b82eb8",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_text-davinci-003": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-003/per_instance_stats.json",
+          "bytes": 779008,
+          "sha256": "7eda774fd9773cca71143582bfa1cef6c3203b160e0c7af9c99e5521fde8f2bc",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "tiiuae_falcon-40b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-40b/per_instance_stats.json",
+          "bytes": 752920,
+          "sha256": "19f07d4dfcd90139a44de54ecc07e59f0f4eb2ede5b3f5b6d0aa7d8034153256",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "tiiuae_falcon-7b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-7b/per_instance_stats.json",
+          "bytes": 753209,
+          "sha256": "9bbbe85d8886e4332da9cebd3f8449e25e017e25a2c81a839143fe42377cd001",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "writer_palmyra-x-v2": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v2/per_instance_stats.json",
+          "bytes": 756000,
+          "sha256": "d94f66a1d911b0e12f4a341ce0e521b5e83b93e9af6d05acbe74aa7ce93bda6b",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "writer_palmyra-x-v3": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v3/per_instance_stats.json",
+          "bytes": 755617,
+          "sha256": "abe5a339054ec5d92e63c31b50beddcbc32ab32d37e5ffcbd193966eb8dcadf8",
+          "rows": 135,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        }
+      },
+      "outcome_package": {
+        "path": "STEP61_OUTCOME_PACKAGES\\math_algebra.npz",
+        "bytes": 3053,
+        "sha256": "1f16d7ffa95a64536376ea3cad78628abdf45393f5eadbc8eae86a6ee1e5e447"
+      },
+      "alignment": {
+        "instances": 135,
+        "candidates": 31,
+        "exact_key_set_match_all_models": true
+      }
+    },
+    "counting_and_probability": {
+      "task_id": "math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True",
+      "subject": "counting_and_probability",
+      "selector_family": "select_llm",
+      "shape": [
+        39,
+        31
+      ],
+      "sources": {
+        "01-ai_yi-34b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-34b/per_instance_stats.json",
+          "bytes": 217477,
+          "sha256": "a15c404e5928f5e3d3233f81ab6e594ab18b03eaefaa2ba2697addad2df0630d",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "01-ai_yi-6b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-6b/per_instance_stats.json",
+          "bytes": 217487,
+          "sha256": "8cc949bec26b9bda7ffd62e1e986cfcc3600eaf3e8c3a2d37a58cb672a6dc24c",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "AlephAlpha_luminous-base": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-base/per_instance_stats.json",
+          "bytes": 225042,
+          "sha256": "57e32c3f8c6fcc68e9dd76856053d768c9083b2c4c45b32c95bc0056bc54ba91",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "AlephAlpha_luminous-extended": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-extended/per_instance_stats.json",
+          "bytes": 225251,
+          "sha256": "5a94bf88a86e8654e99ed142a8effec87f8f53dc2986fd7c24ee5802a3dfc548",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "AlephAlpha_luminous-supreme": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-supreme/per_instance_stats.json",
+          "bytes": 225028,
+          "sha256": "a05a8d9f10ca05ce857589a60c5240d5b5335009cfc28a8bfd886bf159079c24",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "ai21_j2-grande": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-grande/per_instance_stats.json",
+          "bytes": 225216,
+          "sha256": "616267d6e14c57c3cb241dea64100b46beeabd41cac794fe19843da05b4a1bdd",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "ai21_j2-jumbo": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-jumbo/per_instance_stats.json",
+          "bytes": 225259,
+          "sha256": "bc44d491ea8aff0ccf87eee00582a150a4da5afcef1bc1c65a88c6304f9c52ff",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-2.0": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.0/per_instance_stats.json",
+          "bytes": 218467,
+          "sha256": "155c81187e92ca06560e16688b4217306ab19ecc47ff1a8859b18f86ccdb5945",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-2.1": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.1/per_instance_stats.json",
+          "bytes": 218424,
+          "sha256": "4cc06222da085b752d743760521df1d8deec30d03fc6501333fb647ba795b80a",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-instant-1.2": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-1.2/per_instance_stats.json",
+          "bytes": 218360,
+          "sha256": "288ec25542f029bfb1e310959eccb4380bf11d842328724cc99714ef4774f9f2",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-instant-v1": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-v1/per_instance_stats.json",
+          "bytes": 218344,
+          "sha256": "046211e7b981cebd0b209880221054aefdc8e4b9538a0c3dc831238a5c5ee90f",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-v1.3": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-v1.3/per_instance_stats.json",
+          "bytes": 218366,
+          "sha256": "43365b02319b2c670c7fda8dbfac3f1dad17076915986b1b29849f32262c361b",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "cohere_command-light": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command-light/per_instance_stats.json",
+          "bytes": 225419,
+          "sha256": "6853b34916392e27df3cddcdb56c682b4ef5161642831b191d539700b28fa682",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "cohere_command": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command/per_instance_stats.json",
+          "bytes": 225331,
+          "sha256": "07f5f4848f5ca7aa1ceec037b2190c6122415762083f4084e3e0def6c55f73fa",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "google_text-bison@001": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-bison@001/per_instance_stats.json",
+          "bytes": 218491,
+          "sha256": "1255bdf0c39661c8f56f9bff4153158b280bbfb3bb52ef2ce076174262e5308b",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "google_text-unicorn@001": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-unicorn@001/per_instance_stats.json",
+          "bytes": 218514,
+          "sha256": "9fd912835d46a35d4a78c4bc2d939938d97cb394ed6511f6cfc365aa795de34d",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-2-13b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-13b/per_instance_stats.json",
+          "bytes": 217513,
+          "sha256": "c8e9fe88f8c7d07b4cf3c81218993ad330215ba3fdb055c786f9957076aa9290",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-2-70b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-70b/per_instance_stats.json",
+          "bytes": 217454,
+          "sha256": "0d21d3ef355fd3d8a4cc3185254390454281b536fdcad13bd187679634673432",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-2-7b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-7b/per_instance_stats.json",
+          "bytes": 217507,
+          "sha256": "b04b96dfa06b82f35721be590aef29367e804dabf399a6aea3056709390f883c",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-65b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-65b/per_instance_stats.json",
+          "bytes": 217422,
+          "sha256": "08498dd1d61fc2c27e7fd8846000982e3b8e2cd2dc8d405410b0ef65fac19811",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "mistralai_mistral-7b-v0.1": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mistral-7b-v0.1/per_instance_stats.json",
+          "bytes": 217618,
+          "sha256": "a9aa335911d9145311964fda2696e8c85c4742ab2fcc55a4b7868f0463fad5cc",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "mistralai_mixtral-8x7b-32kseqlen": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mixtral-8x7b-32kseqlen/per_instance_stats.json",
+          "bytes": 217585,
+          "sha256": "bed08a4d042c94567e84f9ae74ed124b18759b25263857d0a68d45d434353904",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_gpt-3.5-turbo-0613": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-3.5-turbo-0613/per_instance_stats.json",
+          "bytes": 218309,
+          "sha256": "d19b509105d2c65de43108c8ce87dcf069bb76b3722fa64ae9b10d8797c28dec",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_gpt-4-0613": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-0613/per_instance_stats.json",
+          "bytes": 218372,
+          "sha256": "39e9f3e92419086caf024a8178953448486d22abae49e915f05d6baef25d03f3",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_gpt-4-1106-preview": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-1106-preview/per_instance_stats.json",
+          "bytes": 218848,
+          "sha256": "eddd433519d244b470937e4744ddee02e36450caad3f7048db65e59fbc6d42b5",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_text-davinci-002": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-002/per_instance_stats.json",
+          "bytes": 239155,
+          "sha256": "a068b0f604b172699c8bf9209cbddd0c701eab3aff95b1f0cfbdc8b07254b104",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_text-davinci-003": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-003/per_instance_stats.json",
+          "bytes": 224953,
+          "sha256": "4c5ed5ace54e0142bbfe00f3917771958561e11394184034644eb0368b831013",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "tiiuae_falcon-40b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-40b/per_instance_stats.json",
+          "bytes": 217541,
+          "sha256": "1496932c2d8fef478c837d4521f08e9ac153fb6c95d2f74d240df21b4d3f3d0f",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "tiiuae_falcon-7b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-7b/per_instance_stats.json",
+          "bytes": 217585,
+          "sha256": "bdde412e4e52fda28d71605144df8737ea7f7ac8dfd2a8201a38a2b2bdcff575",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "writer_palmyra-x-v2": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v2/per_instance_stats.json",
+          "bytes": 218412,
+          "sha256": "a9cf8ff3edf317d24a960c58008d57cdf1c577e4a317769838e528dff7f4a30a",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "writer_palmyra-x-v3": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=counting_and_probability,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v3/per_instance_stats.json",
+          "bytes": 218283,
+          "sha256": "abf60a71adc10488b7773ace1edd665f0f2f9d0fd004829a45271f8d20bb863a",
+          "rows": 39,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        }
+      },
+      "outcome_package": {
+        "path": "STEP61_OUTCOME_PACKAGES\\math_counting_and_probability.npz",
+        "bytes": 2102,
+        "sha256": "d8ed3fa74666b0c335a84fd5a374de67121f0fbee3eb622012a3bd92ddb8e27c"
+      },
+      "alignment": {
+        "instances": 39,
+        "candidates": 31,
+        "exact_key_set_match_all_models": true
+      }
+    },
+    "geometry": {
+      "task_id": "math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True",
+      "subject": "geometry",
+      "selector_family": "select_llm",
+      "shape": [
+        38,
+        31
+      ],
+      "sources": {
+        "01-ai_yi-34b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-34b/per_instance_stats.json",
+          "bytes": 211970,
+          "sha256": "14377937fb8ab39891a81ff4b499f3dd6c9cc4741c453b91b0d10f0562c519c2",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "01-ai_yi-6b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-6b/per_instance_stats.json",
+          "bytes": 212037,
+          "sha256": "8af378ca1005b8712a41f7c1169c9bfe68705dbf1d52ceac9a68815115b5ab27",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "AlephAlpha_luminous-base": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-base/per_instance_stats.json",
+          "bytes": 219543,
+          "sha256": "ac8d5441d289631851a1b72d228839f3ca55bc453b17c305e56d5c0863136c68",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "AlephAlpha_luminous-extended": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-extended/per_instance_stats.json",
+          "bytes": 219634,
+          "sha256": "34f0080115c084cfb7920594982604f161a7b49de3cd0146d6b40c095269938d",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "AlephAlpha_luminous-supreme": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-supreme/per_instance_stats.json",
+          "bytes": 219441,
+          "sha256": "4bebeddf14af6651ee5bf9663d24a85a7f682a54b1addd4f5a6bff1b3c1f2f50",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "ai21_j2-grande": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-grande/per_instance_stats.json",
+          "bytes": 219674,
+          "sha256": "a0539418ecfff496ea7af0e3e4d91884d3229af67c3bae2a25a55baf454f36e2",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "ai21_j2-jumbo": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-jumbo/per_instance_stats.json",
+          "bytes": 219594,
+          "sha256": "5ce6b0b7a3d6d7b304569016c6ac3a8ebd72a22d63656fa91f896fe7932581a8",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-2.0": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.0/per_instance_stats.json",
+          "bytes": 213025,
+          "sha256": "a1cc58e0f38898c214564ab76950a6033c77fac47203474b513cc4bb9995db63",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-2.1": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.1/per_instance_stats.json",
+          "bytes": 213144,
+          "sha256": "1f14e3fc1b05ea1c17c273a11bdb9e9a6d0fc8e5b7093f160ecb9b157d77f3c7",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-instant-1.2": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-1.2/per_instance_stats.json",
+          "bytes": 212942,
+          "sha256": "fa3d6373ae3aee14e9ad2c328533a73766e9d066a70710d50c92a27b723ce34f",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-instant-v1": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-v1/per_instance_stats.json",
+          "bytes": 212932,
+          "sha256": "266886dee035a85654a83c7b7426ef8ed72bc8c552de2ba418d91e728e43cdcf",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-v1.3": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-v1.3/per_instance_stats.json",
+          "bytes": 212844,
+          "sha256": "26fbd0ca82ba2d36ab5af231cdc2a5a861868e9e0a124a073c3008eb0b5fa271",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "cohere_command-light": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command-light/per_instance_stats.json",
+          "bytes": 219756,
+          "sha256": "72318e69f984ab59b5016f391d78d1aa2964b97fb5489610ebaec39035d52fbd",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "cohere_command": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command/per_instance_stats.json",
+          "bytes": 219760,
+          "sha256": "8f4ecaa653e7464cb5ebfd39934093af6f10dd9ccce27ed2f59fc112873f43cd",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "google_text-bison@001": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-bison@001/per_instance_stats.json",
+          "bytes": 212976,
+          "sha256": "198deb3f13801a61f35f89bb0f4e30df800e9b680f3ec954384ddbc9fc716e18",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "google_text-unicorn@001": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-unicorn@001/per_instance_stats.json",
+          "bytes": 213009,
+          "sha256": "bbb6c09d8ec8f3ae0d269d2f6ecd507c6fbc7e08e3c69ff7ae06dacd4df86d45",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-2-13b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-13b/per_instance_stats.json",
+          "bytes": 212037,
+          "sha256": "3da9fa227404dbc9316bd924e3072d2bfadf8ad716bcf5e10fd96a1d27a8ac38",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-2-70b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-70b/per_instance_stats.json",
+          "bytes": 212031,
+          "sha256": "31cad1246631bea6acee36ba883b3c9efaae4217ac7b54f706bf39167cc84c4b",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-2-7b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-7b/per_instance_stats.json",
+          "bytes": 211970,
+          "sha256": "d7cc374793b445af804c8c27bff5796c9fc8b74fb40909b40d93cbecad66c848",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-65b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-65b/per_instance_stats.json",
+          "bytes": 212018,
+          "sha256": "d537cf958c5799b1587a1443224a0c6c9883624b6473ed94b31d824da5f3d3e0",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "mistralai_mistral-7b-v0.1": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mistral-7b-v0.1/per_instance_stats.json",
+          "bytes": 212008,
+          "sha256": "65f1329b2252e36fb28d55a2eaac324b9074d7e5558f807e3f58bb22998ff3d0",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "mistralai_mixtral-8x7b-32kseqlen": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mixtral-8x7b-32kseqlen/per_instance_stats.json",
+          "bytes": 211998,
+          "sha256": "75e36208bad38b29b71e785056098b55c6b0dadaa23c121732099e66b498e7fe",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_gpt-3.5-turbo-0613": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-3.5-turbo-0613/per_instance_stats.json",
+          "bytes": 212892,
+          "sha256": "9448c6ed4e7e9c03425224c71ac8d6d37d9f63c3fbce71eef756544481616db9",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_gpt-4-0613": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-0613/per_instance_stats.json",
+          "bytes": 212915,
+          "sha256": "82cff4fd970a280a0605731fcb1c04050972f96393f16c7683f194e8de502e9a",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_gpt-4-1106-preview": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-1106-preview/per_instance_stats.json",
+          "bytes": 213308,
+          "sha256": "34f18fe36d2080dcb60977d5523c317c67699d6c85eec8c318d8164d2fe3f169",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_text-davinci-002": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-002/per_instance_stats.json",
+          "bytes": 233543,
+          "sha256": "d6b2342dcadbe165e72dc87727e059ba3d088ded531eacf0a1731110b80b211e",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_text-davinci-003": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-003/per_instance_stats.json",
+          "bytes": 219457,
+          "sha256": "4312cdf7fbb962e89130d499574b6a88128006573e719fbb2360dd4f0c57278e",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "tiiuae_falcon-40b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-40b/per_instance_stats.json",
+          "bytes": 211923,
+          "sha256": "7d0ed15ace936384f854bc83e929b764b97efcb7e369b1026df0aaba5f4e13be",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "tiiuae_falcon-7b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-7b/per_instance_stats.json",
+          "bytes": 211956,
+          "sha256": "5e86f996ddaddc09ddb4b0d384fdebb49ace6623776e0f25fa8d4b7cf6eff9e8",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "writer_palmyra-x-v2": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v2/per_instance_stats.json",
+          "bytes": 213087,
+          "sha256": "496d48de529d2f473049d5944057b41e30efa2c5c8026e94d62a33a027b33d61",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "writer_palmyra-x-v3": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=geometry,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v3/per_instance_stats.json",
+          "bytes": 212931,
+          "sha256": "aca315500e567bb1d31a61fb3398cebad7e14a217346028a6bd8679b50aa0c93",
+          "rows": 38,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        }
+      },
+      "outcome_package": {
+        "path": "STEP61_OUTCOME_PACKAGES\\math_geometry.npz",
+        "bytes": 2082,
+        "sha256": "c1845100935a55e1572320b04611e8b01af7b827ea620a1284398b0e8c1c9212"
+      },
+      "alignment": {
+        "instances": 38,
+        "candidates": 31,
+        "exact_key_set_match_all_models": true
+      }
+    },
+    "intermediate_algebra": {
+      "task_id": "math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True",
+      "subject": "intermediate_algebra",
+      "selector_family": "select_llm",
+      "shape": [
+        52,
+        31
+      ],
+      "sources": {
+        "01-ai_yi-34b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-34b/per_instance_stats.json",
+          "bytes": 290053,
+          "sha256": "4ce992155133f2cdfaf286b2869cdeeae500e5b509fc5df4a206dd22ee37391c",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "01-ai_yi-6b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-6b/per_instance_stats.json",
+          "bytes": 290099,
+          "sha256": "bfc3463c6e8c35c7c442c2254d0fcee59dc95bc67c4f3762e74db433aeaaf3c5",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "AlephAlpha_luminous-base": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-base/per_instance_stats.json",
+          "bytes": 300061,
+          "sha256": "f22d10e419ba46cfaaec037a5dd7d95c438f53f342b9a4dddefa23a0ff40da0c",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "AlephAlpha_luminous-extended": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-extended/per_instance_stats.json",
+          "bytes": 300145,
+          "sha256": "4ea63c7535491de91df7f48883aa57fae8a426267bae943d45d5575e593dcca5",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "AlephAlpha_luminous-supreme": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-supreme/per_instance_stats.json",
+          "bytes": 300429,
+          "sha256": "f42ce648b44f6be7d121f7cfe9df98727306018ee4320757efa48d36abdfb8fd",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "ai21_j2-grande": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-grande/per_instance_stats.json",
+          "bytes": 300380,
+          "sha256": "0f3ab955491911ab826c7a33755f3f042999e5a3eede9d9f1841bd467d0793ba",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "ai21_j2-jumbo": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-jumbo/per_instance_stats.json",
+          "bytes": 300599,
+          "sha256": "dd75b0df5d716a104dd5a72e4f4310dab348d80860d1bfe7e693bc25118d223a",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-2.0": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.0/per_instance_stats.json",
+          "bytes": 291584,
+          "sha256": "758d2211784fca97affcbf0d7b8c771bcdc2186d58e841b6d6b9dcb82e68d53f",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-2.1": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.1/per_instance_stats.json",
+          "bytes": 291590,
+          "sha256": "e37d9778201f6a395f1712c75993afd0f80e45f012a202e6a52351737953aac5",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-instant-1.2": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-1.2/per_instance_stats.json",
+          "bytes": 291134,
+          "sha256": "7bcc0d965c79bc517e3861364ae0e8068ab0f5a3376615332953063debbde5f0",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-instant-v1": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-v1/per_instance_stats.json",
+          "bytes": 291099,
+          "sha256": "7b6ce55cf54f8f138704cac747606b26dd3a040689c620b34c972bb4530f57b1",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-v1.3": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-v1.3/per_instance_stats.json",
+          "bytes": 291380,
+          "sha256": "8f3f526fef78dd7a0e1c1e137b82a5a7ac4dc2cad57827639472e760daf5a7fe",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "cohere_command-light": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command-light/per_instance_stats.json",
+          "bytes": 300719,
+          "sha256": "e276b7502ee86bd29fb8e8506c919055e922d512db570f36fc282a9eafd2064c",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "cohere_command": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command/per_instance_stats.json",
+          "bytes": 300408,
+          "sha256": "95703f07d329f4f08a007d4527884b409fab9ebab2fcadb95ef9e2c65c4469d1",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "google_text-bison@001": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-bison@001/per_instance_stats.json",
+          "bytes": 291303,
+          "sha256": "ec78a83c85dbb07635f8d3a9bafffcb46f58c59235f54dc03130a7d0ec76029c",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "google_text-unicorn@001": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-unicorn@001/per_instance_stats.json",
+          "bytes": 291306,
+          "sha256": "bd3a2524ac3cc9237417c76b8e842abe4765230cbe89bcfc7a660b812a2a047f",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-2-13b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-13b/per_instance_stats.json",
+          "bytes": 290142,
+          "sha256": "e4bae14bff006f75fa440252724e650b00d2dbfdd9680bb5f58e24ad9f42694c",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-2-70b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-70b/per_instance_stats.json",
+          "bytes": 290051,
+          "sha256": "b80124fc32069dd035ec132bffcbd65798ff184ffb43a17c65919f4e09fea443",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-2-7b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-7b/per_instance_stats.json",
+          "bytes": 290107,
+          "sha256": "d737d4259cf73c5a6a299cbda47e677029b3595a95385f670ad1cb1b3e6d8011",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-65b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-65b/per_instance_stats.json",
+          "bytes": 289970,
+          "sha256": "5d58f23029b28dfad11dce3e127a5f041cd8ceb303dd2a38a89c8860088b1079",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "mistralai_mistral-7b-v0.1": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mistral-7b-v0.1/per_instance_stats.json",
+          "bytes": 290144,
+          "sha256": "01aed40072cc1e818c10b2539e337cd1ff02aa0ff89d238b133681d88ac7c674",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "mistralai_mixtral-8x7b-32kseqlen": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mixtral-8x7b-32kseqlen/per_instance_stats.json",
+          "bytes": 290085,
+          "sha256": "eb08b4215c7a957c9d0c919bf2b8fa638b8b05d36fa71fc3b4983066fc3f1b77",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_gpt-3.5-turbo-0613": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-3.5-turbo-0613/per_instance_stats.json",
+          "bytes": 291225,
+          "sha256": "d6aeac07d4dd505e2821afdcecccda4e9f7362e3d38c635e18615be6003d1667",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_gpt-4-0613": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-0613/per_instance_stats.json",
+          "bytes": 291257,
+          "sha256": "c8d27cc337e8ee7cd2847deb8581835a26cdfcb8ce7a1c89ce77123d7341ad10",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_gpt-4-1106-preview": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-1106-preview/per_instance_stats.json",
+          "bytes": 291887,
+          "sha256": "f80dff5a980e056cda838aa0297de87365d292236560ed4a1bd447f7d28c612b",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_text-davinci-002": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-002/per_instance_stats.json",
+          "bytes": 319348,
+          "sha256": "7b5c19d5748698caf62c8673c1c993e74bb1083b202af4b399f258ee01422897",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_text-davinci-003": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-003/per_instance_stats.json",
+          "bytes": 300191,
+          "sha256": "1aaabf4fc64b36e8015eb8ed1013729b2f4da59240bc76bc214f261964f4ddfc",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "tiiuae_falcon-40b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-40b/per_instance_stats.json",
+          "bytes": 289760,
+          "sha256": "8ebc9f71de2fe14d2028908ee26b43a2c96441a7fbfd672bfb417881f86b9331",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "tiiuae_falcon-7b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-7b/per_instance_stats.json",
+          "bytes": 289863,
+          "sha256": "968b9a9c43ec8012a0849bb65c5579ee5482653d735e57acc341670698ff7eec",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "writer_palmyra-x-v2": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v2/per_instance_stats.json",
+          "bytes": 291464,
+          "sha256": "0f1a1013ff6ccd2ec94b17d7a97476796596e32bf1fd05e0743f6816a338c92f",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "writer_palmyra-x-v3": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=intermediate_algebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v3/per_instance_stats.json",
+          "bytes": 291594,
+          "sha256": "11cd61d48849c4d7dc3f2834078d96f1f1ba895eeb1a99467e298d6ee0fc4419",
+          "rows": 52,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        }
+      },
+      "outcome_package": {
+        "path": "STEP61_OUTCOME_PACKAGES\\math_intermediate_algebra.npz",
+        "bytes": 2217,
+        "sha256": "b4ca7098d5f5ab0bb1ee993e30b2c87cb0ca18d5017d48c02cc9fc4a37facfd7"
+      },
+      "alignment": {
+        "instances": 52,
+        "candidates": 31,
+        "exact_key_set_match_all_models": true
+      }
+    },
+    "number_theory": {
+      "task_id": "math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True",
+      "subject": "number_theory",
+      "selector_family": "select_llm",
+      "shape": [
+        30,
+        31
+      ],
+      "sources": {
+        "01-ai_yi-34b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-34b/per_instance_stats.json",
+          "bytes": 167371,
+          "sha256": "dc32928ddca637d69fc219fcb872ca067cc600bcf45e034555aa628c8e801635",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "01-ai_yi-6b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-6b/per_instance_stats.json",
+          "bytes": 167378,
+          "sha256": "8373a85153b9a554396b1978478cd710a5528d0cd5d84638699c216a8f10f5b6",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "AlephAlpha_luminous-base": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-base/per_instance_stats.json",
+          "bytes": 173328,
+          "sha256": "169203d08c8699f0fb8beb2a5708e9d770c72e990ca0c7bd40abf790f1281634",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "AlephAlpha_luminous-extended": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-extended/per_instance_stats.json",
+          "bytes": 173347,
+          "sha256": "7378f913fd6c69b5c20a2c3eb3b38cd2f4949dc4ecf6e491c2e44160cc111501",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "AlephAlpha_luminous-supreme": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-supreme/per_instance_stats.json",
+          "bytes": 173309,
+          "sha256": "fddf2b9320aac3e56f424cbdc8bcf2d09a8366bc9dda5336481b00786510aaf6",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "ai21_j2-grande": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-grande/per_instance_stats.json",
+          "bytes": 173399,
+          "sha256": "cd4ad6f50aa4a2ffc677d67c40f0b41b8eaa17d8686dc28925d29b3bf9d5dfdd",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "ai21_j2-jumbo": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-jumbo/per_instance_stats.json",
+          "bytes": 173371,
+          "sha256": "e125b1de6250523f5f496b940c4831c4fe1526657adcd725d6fb3918257907fe",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-2.0": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.0/per_instance_stats.json",
+          "bytes": 168169,
+          "sha256": "eddd9c028f9b13fc071d781052f9faa9c08340c49d8a2ac47307a2841abeacd6",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-2.1": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.1/per_instance_stats.json",
+          "bytes": 168140,
+          "sha256": "64afdd88968f4c36cbb5dd1f1b5e4078ca1cf9224a90db06c461f4ece11320bd",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-instant-1.2": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-1.2/per_instance_stats.json",
+          "bytes": 168063,
+          "sha256": "0bbf6bf597af6676435f21245cd957213a9b22d275c3cac6bfe9bd6a1346d4a7",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-instant-v1": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-v1/per_instance_stats.json",
+          "bytes": 168049,
+          "sha256": "bc6c0d42d538ca62389a3cdf00401f9b144fb4d4266c3ec6306a5d654e5b3a40",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-v1.3": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-v1.3/per_instance_stats.json",
+          "bytes": 167914,
+          "sha256": "1dc34f149ec618a47d9ad33793cb9d6fc6fc615b984f6e7ce1243793ce0190c6",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "cohere_command-light": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command-light/per_instance_stats.json",
+          "bytes": 173423,
+          "sha256": "3260ddab29ed71fd8c5f517c4a735651e00db80b5160016485b4b8656da8779b",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "cohere_command": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command/per_instance_stats.json",
+          "bytes": 173484,
+          "sha256": "f1ad336a28b0042b47bb3878e6624c4e800b135a50b61180190ce8e4217d4b26",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "google_text-bison@001": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-bison@001/per_instance_stats.json",
+          "bytes": 167837,
+          "sha256": "1eb586068fe106dad55ca4fbf8feb84cbe6f7c6a9f34ee2c91111a2cdccd8f64",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "google_text-unicorn@001": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-unicorn@001/per_instance_stats.json",
+          "bytes": 167973,
+          "sha256": "33d7c83ab2f3dc068073e86dbdb6dd49c2aecf0851624ba144ee4517be4bc64e",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-2-13b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-13b/per_instance_stats.json",
+          "bytes": 167401,
+          "sha256": "b3169a46e900ff7180693248cc91fe11402776f8b26cbf417487cf2fc3a18037",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-2-70b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-70b/per_instance_stats.json",
+          "bytes": 167389,
+          "sha256": "5e9925b1c4430def4d0502daafd623ebdf7664e2a9d3f4e47648ce1c7817e35d",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-2-7b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-7b/per_instance_stats.json",
+          "bytes": 167366,
+          "sha256": "620b7b2bc04d3f9687f2d03c08e7fd3ed357bd3fc7045da759798c8edaecd79a",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-65b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-65b/per_instance_stats.json",
+          "bytes": 167356,
+          "sha256": "4e36478b64b8eee9913a9af50610931232fba35172e0f8abab465ecc5704b58c",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "mistralai_mistral-7b-v0.1": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mistral-7b-v0.1/per_instance_stats.json",
+          "bytes": 167364,
+          "sha256": "97b4202ca25086b95a98867c9b743d085b7b1fb72a82465fd7927f9601b48d8f",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "mistralai_mixtral-8x7b-32kseqlen": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mixtral-8x7b-32kseqlen/per_instance_stats.json",
+          "bytes": 167368,
+          "sha256": "63880c18987da601ed84dcf8fed7f1afc8ef381ae9cf42375c83f4964fbc8eb4",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_gpt-3.5-turbo-0613": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-3.5-turbo-0613/per_instance_stats.json",
+          "bytes": 168079,
+          "sha256": "95b90f9f565d630d13e27e1b21bb72ff3b599517a73238be8a5c7357bbca5bd5",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_gpt-4-0613": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-0613/per_instance_stats.json",
+          "bytes": 168081,
+          "sha256": "0f0df19e7bc84cab728b1002cb1ef55e02315a688adc5eb8570d012ba7c02121",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_gpt-4-1106-preview": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-1106-preview/per_instance_stats.json",
+          "bytes": 168365,
+          "sha256": "7839dc6a8f1225e343f7ba82b23d1ca38beee75536ec95617aa073cbc800ab4e",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_text-davinci-002": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-002/per_instance_stats.json",
+          "bytes": 184068,
+          "sha256": "1cfffc212bab85c615b71e13087815f45562b077243af43326340d782d4229e0",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_text-davinci-003": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-003/per_instance_stats.json",
+          "bytes": 173116,
+          "sha256": "49520febb65d49c6750751231ae505957346be999860323672c430428505d328",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "tiiuae_falcon-40b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-40b/per_instance_stats.json",
+          "bytes": 167310,
+          "sha256": "b99253c8ef5c5750d59d2e87e42204fae92199b1381aab9cc0bf37e4d6de9dd0",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "tiiuae_falcon-7b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-7b/per_instance_stats.json",
+          "bytes": 167338,
+          "sha256": "181e2fff0dc18724a35d20481e86d92b8e0d988fb6d37dac1ca9c1381251e206",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "writer_palmyra-x-v2": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v2/per_instance_stats.json",
+          "bytes": 168034,
+          "sha256": "ef444118ad4505ac4aceac7c1749f9f4002ebe6bf30afa1fca29bec44385d9b6",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "writer_palmyra-x-v3": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=number_theory,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v3/per_instance_stats.json",
+          "bytes": 167896,
+          "sha256": "6ed5e359264e990556127fda0cc9d1ae66bd3835ccd917fa367513f8f769e848",
+          "rows": 30,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        }
+      },
+      "outcome_package": {
+        "path": "STEP61_OUTCOME_PACKAGES\\math_number_theory.npz",
+        "bytes": 2018,
+        "sha256": "01836da1c354bb55e4a3358ede787e3c0eb721bb022ad2e60f1379d84d1798df"
+      },
+      "alignment": {
+        "instances": 30,
+        "candidates": 31,
+        "exact_key_set_match_all_models": true
+      }
+    },
+    "prealgebra": {
+      "task_id": "math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True",
+      "subject": "prealgebra",
+      "selector_family": "select_llm",
+      "shape": [
+        86,
+        31
+      ],
+      "sources": {
+        "01-ai_yi-34b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-34b/per_instance_stats.json",
+          "bytes": 479832,
+          "sha256": "d15f805352ef955f980de7bc7a5c0b73ed385ca8ff7c7f15157dc0ba3f8311a8",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "01-ai_yi-6b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-6b/per_instance_stats.json",
+          "bytes": 479980,
+          "sha256": "425e4214b08a6b2622bd90a1bca0f830c63f3d32a4223d94cd523ceef56ba219",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "AlephAlpha_luminous-base": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-base/per_instance_stats.json",
+          "bytes": 497288,
+          "sha256": "4d9bf5008ee0b4ca5b2f1c39454385960769757245ee79d45b81de2efc1171ff",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "AlephAlpha_luminous-extended": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-extended/per_instance_stats.json",
+          "bytes": 497000,
+          "sha256": "c92c17358f99314fc601dcd82ac4947f5915d22a7f2c0ed7c2a83a0444085470",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "AlephAlpha_luminous-supreme": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-supreme/per_instance_stats.json",
+          "bytes": 496926,
+          "sha256": "947e24940c33f2a412f74cd20ec26cce2407815f9622080979049aa023443e53",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "ai21_j2-grande": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-grande/per_instance_stats.json",
+          "bytes": 497200,
+          "sha256": "18471181eb5d1407c43244e6890575dc0baccdaa58586a0cf5af85e38953c75a",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "ai21_j2-jumbo": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-jumbo/per_instance_stats.json",
+          "bytes": 497026,
+          "sha256": "fade5d8a5f459788c66dc1561bed81c02c85d995f76d3478273e74d7e3416110",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-2.0": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.0/per_instance_stats.json",
+          "bytes": 481795,
+          "sha256": "ab00a555afcd0d50856d8a6b184929569a60b6b7466a38ab00f29ccb42a4764c",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-2.1": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.1/per_instance_stats.json",
+          "bytes": 481936,
+          "sha256": "39a5c188b17d0d8a933c16a4266dcfca02749e0f795d11cb1dcc2eee19483d38",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-instant-1.2": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-1.2/per_instance_stats.json",
+          "bytes": 481817,
+          "sha256": "c1c2061969b3d7807dca007fcc1a55a758e16e28fd91a29197735b22cd3f1440",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-instant-v1": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-v1/per_instance_stats.json",
+          "bytes": 481829,
+          "sha256": "b902ada29f1124e840918ee65b053e97b2d09c338c9eca619fddad0725cbd80e",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-v1.3": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-v1.3/per_instance_stats.json",
+          "bytes": 481569,
+          "sha256": "d4d75f435f45d6dedefa0b6cd7f4a1db4c6ed1d5a1b93fa1a5e1cc4bae6ce3f5",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "cohere_command-light": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command-light/per_instance_stats.json",
+          "bytes": 497257,
+          "sha256": "2c8657611f378ba1218f01c16f3058c55b233c862cb7cb8dcad1730fe9be34a0",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "cohere_command": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command/per_instance_stats.json",
+          "bytes": 496897,
+          "sha256": "1af2b48bfe5207d51a685ce25400c8c278c073cdd1774acfbcdaab1d95938404",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "google_text-bison@001": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-bison@001/per_instance_stats.json",
+          "bytes": 481858,
+          "sha256": "03df0b56e2552b28da225faf09b8293192fea2de675fc937ed8a53d3a511fee6",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "google_text-unicorn@001": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-unicorn@001/per_instance_stats.json",
+          "bytes": 481731,
+          "sha256": "399b01ae8d6bbe9a2671c26e7dea06d7537ae98893d580f653a3464e3625cc51",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-2-13b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-13b/per_instance_stats.json",
+          "bytes": 479952,
+          "sha256": "dedd503b6b6e5d87d8da68f7a0659e708c0ab0f78c638fe8c964d8b5db76dbcd",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-2-70b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-70b/per_instance_stats.json",
+          "bytes": 479890,
+          "sha256": "b94da68ecd78202ceaf7a5dfd0761642565c815f0ae34ccc3d4027bd6e862992",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-2-7b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-7b/per_instance_stats.json",
+          "bytes": 479870,
+          "sha256": "83e514ee8766cedab38dee45f7664d903e2178960d7c37a3e575e9de044ed9cd",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-65b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-65b/per_instance_stats.json",
+          "bytes": 479842,
+          "sha256": "7e54b32b469b6a2abc3252da26139f88fc28bd36e8a54e2bc0edec7a2fa6f676",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "mistralai_mistral-7b-v0.1": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mistral-7b-v0.1/per_instance_stats.json",
+          "bytes": 479974,
+          "sha256": "5f216ee0d58ab5c6ff4dd69ee9881eb0f7481d06961acfd98195545ee108e7c2",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "mistralai_mixtral-8x7b-32kseqlen": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mixtral-8x7b-32kseqlen/per_instance_stats.json",
+          "bytes": 479944,
+          "sha256": "6a55757c113cf6f481a884ad43da74ce21046045994eaf29f58459ac5a17bbca",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_gpt-3.5-turbo-0613": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-3.5-turbo-0613/per_instance_stats.json",
+          "bytes": 481813,
+          "sha256": "68f2e35959914ae25e772dde4a1a0fd93202edc1afaa83f93eaa7e5b76ab4dd3",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_gpt-4-0613": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-0613/per_instance_stats.json",
+          "bytes": 481666,
+          "sha256": "31e9f8f86d19d4c159b1eeab0722e74a42fe13f643568f0f42d7fc5faea23b5f",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_gpt-4-1106-preview": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-1106-preview/per_instance_stats.json",
+          "bytes": 482514,
+          "sha256": "f514c045bf84b9ddc6e9c64837c24eb4b4ba54881c2e67dbfe58a16d9e90774f",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_text-davinci-002": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-002/per_instance_stats.json",
+          "bytes": 528075,
+          "sha256": "09e90c4c9035f27f41fdd0428651a6b9e005dd09c97b6c11f60d382a29de1d89",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_text-davinci-003": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-003/per_instance_stats.json",
+          "bytes": 496523,
+          "sha256": "9786aa3f5953f31c8f1edeeb7c0f2a230edfb408e260a3d45d0d817e37959377",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "tiiuae_falcon-40b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-40b/per_instance_stats.json",
+          "bytes": 479741,
+          "sha256": "588c27939ab4806ddd0faeb619d5bb487aa7347e64ff1f3d4989133f92f5c1e6",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "tiiuae_falcon-7b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-7b/per_instance_stats.json",
+          "bytes": 479786,
+          "sha256": "91ac6590bb936b60c264a0fde81404c6f1ad977fa99e30b46604afd29173d7ca",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "writer_palmyra-x-v2": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v2/per_instance_stats.json",
+          "bytes": 481840,
+          "sha256": "571c835f3f66ff9b7e8b3acb9fb95f0f6edae63ff0b474bd57940d2b608887ab",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "writer_palmyra-x-v3": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=prealgebra,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v3/per_instance_stats.json",
+          "bytes": 481702,
+          "sha256": "bc8af17208c04dc8147d26505829f02735f64c712006cbae700e012e9cce35f9",
+          "rows": 86,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        }
+      },
+      "outcome_package": {
+        "path": "STEP61_OUTCOME_PACKAGES\\math_prealgebra.npz",
+        "bytes": 2577,
+        "sha256": "6d0dc237e67b1076dde48c88c4810a904f046e08f1d52a39492bd2dfb5113505"
+      },
+      "alignment": {
+        "instances": 86,
+        "candidates": 31,
+        "exact_key_set_match_all_models": true
+      }
+    },
+    "precalculus": {
+      "task_id": "math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True",
+      "subject": "precalculus",
+      "selector_family": "select_llm",
+      "shape": [
+        57,
+        31
+      ],
+      "sources": {
+        "01-ai_yi-34b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-34b/per_instance_stats.json",
+          "bytes": 317934,
+          "sha256": "3a0d1075fb71b22669ed5837fcdf9da01dbb118219b4ee334263a005b5d71cb4",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "01-ai_yi-6b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=01-ai_yi-6b/per_instance_stats.json",
+          "bytes": 318029,
+          "sha256": "dcd6be72cb7e5b034650ce32ef70d2a0bf0bf58436d0d679697ebd8a6c764b5b",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "AlephAlpha_luminous-base": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-base/per_instance_stats.json",
+          "bytes": 329155,
+          "sha256": "ce839f6e83e944b55a792fa0f2891ae216fcf86efca72331eeab959f5a1fc15d",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "AlephAlpha_luminous-extended": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-extended/per_instance_stats.json",
+          "bytes": 329061,
+          "sha256": "505b9b5eb7a3f75cedf2aa7d70f6c0b03734a693c1d508a2ac025168aa6e1ea4",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "AlephAlpha_luminous-supreme": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=AlephAlpha_luminous-supreme/per_instance_stats.json",
+          "bytes": 329124,
+          "sha256": "2948535cf867d341956cd18a02d03fb8a1ac8ab9476a31e83d6a6ea707136ca4",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "ai21_j2-grande": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-grande/per_instance_stats.json",
+          "bytes": 328924,
+          "sha256": "8fb29f2fb6dc2f29a01e1e4a738e96e8bb594360a7b9dd9829c3a3205202ff86",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "ai21_j2-jumbo": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=ai21_j2-jumbo/per_instance_stats.json",
+          "bytes": 328804,
+          "sha256": "b9f56e38ba5bbe5e9da6523102bb6659c474717961d49ea46d08bf89e6c1294b",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-2.0": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.0/per_instance_stats.json",
+          "bytes": 319236,
+          "sha256": "34d868942655ecc902a8f1050043f1a73bd2e6666f48df9e2cd3570939db1720",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-2.1": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-2.1/per_instance_stats.json",
+          "bytes": 319274,
+          "sha256": "d063ac85433c2c0cd9e2fdb1fefa34d686d4ace25b7032f47aad5a9b01301217",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-instant-1.2": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-1.2/per_instance_stats.json",
+          "bytes": 319183,
+          "sha256": "a6c10c68310c5d19761313154325c8bd87a7128f2cdf3014fefb0e7d3904e021",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-instant-v1": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-instant-v1/per_instance_stats.json",
+          "bytes": 319199,
+          "sha256": "ae25a16d8fc3c787e50ef45f75070a060e387016714fb58ad80727ea4bb50833",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "anthropic_claude-v1.3": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=anthropic_claude-v1.3/per_instance_stats.json",
+          "bytes": 319221,
+          "sha256": "ab7cf7138550ffccb7ac28e7f191523ce829ca61d1060a013b54b9534ef01de2",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "cohere_command-light": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command-light/per_instance_stats.json",
+          "bytes": 329144,
+          "sha256": "9988c7a0beace0550544f6c7874f82064cd603eeaf4acefdf7b01482b500a99d",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "cohere_command": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=cohere_command/per_instance_stats.json",
+          "bytes": 329141,
+          "sha256": "9fcf22cf5762d75378eeff31917e7bb5868b2c2279eb99737ac68c20fae03527",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "google_text-bison@001": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-bison@001/per_instance_stats.json",
+          "bytes": 319307,
+          "sha256": "a79e8ac9bf018a8a34acdb5bd95d92ecd62420c2af8b05a35359bae6a50d443b",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "google_text-unicorn@001": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=google_text-unicorn@001/per_instance_stats.json",
+          "bytes": 319269,
+          "sha256": "e5a9c01d3e899aaa6a0c7297b7c351dded5b3477113767119b010aedd5aa4766",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-2-13b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-13b/per_instance_stats.json",
+          "bytes": 318020,
+          "sha256": "d10445edfe0288970312bdcf091410ec6767b465666a7090550d3183d52b3fd2",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-2-70b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-70b/per_instance_stats.json",
+          "bytes": 318006,
+          "sha256": "ce148999703ab31dc6f20ed9e509939c3f7b6c1b2d62d60b84a4c226ea3e539a",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-2-7b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-2-7b/per_instance_stats.json",
+          "bytes": 318022,
+          "sha256": "55e9712fd209af0aa4808e27c80179115d529a017f001b2ef5abee42caf11ad1",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "meta_llama-65b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=meta_llama-65b/per_instance_stats.json",
+          "bytes": 317974,
+          "sha256": "151658f27f5895fbecfaed723ffea1e58cc9da24f6ba749170f72d83eec3f208",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "mistralai_mistral-7b-v0.1": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mistral-7b-v0.1/per_instance_stats.json",
+          "bytes": 318037,
+          "sha256": "89fa10a936c8436e17c604ebd6f36be54b0b649e601dc97a821cb1fa1d32a479",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "mistralai_mixtral-8x7b-32kseqlen": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=mistralai_mixtral-8x7b-32kseqlen/per_instance_stats.json",
+          "bytes": 318016,
+          "sha256": "49320705f73494854d9137bca9e6356e61fe6757b8532c18cccb7d659c57a3f1",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_gpt-3.5-turbo-0613": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-3.5-turbo-0613/per_instance_stats.json",
+          "bytes": 319031,
+          "sha256": "134af09c630bda2c7eabb9a0cbe022eb24401092a8980db1f6a00447e6aee244",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_gpt-4-0613": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-0613/per_instance_stats.json",
+          "bytes": 318986,
+          "sha256": "e43f80f0d7e1337d3953897c3d0b05a57e0b5e8517befc85bdb6557a863faf94",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_gpt-4-1106-preview": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_gpt-4-1106-preview/per_instance_stats.json",
+          "bytes": 319586,
+          "sha256": "4f472766dc76a65e1ee2b72f3c79235ccfa1941b20106cb5bc7e7a8f820231f2",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_text-davinci-002": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-002/per_instance_stats.json",
+          "bytes": 350311,
+          "sha256": "a4c476c517d08f8e4dfbbb6facb803f169fc801df6142957a2cf2a35778a8bad",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "openai_text-davinci-003": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=openai_text-davinci-003/per_instance_stats.json",
+          "bytes": 328774,
+          "sha256": "286b78a931669494ed6675dfcc630ab79c9becf3bfd97ba7f3c7db95e41f2631",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "tiiuae_falcon-40b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-40b/per_instance_stats.json",
+          "bytes": 317900,
+          "sha256": "8ae40fbb9b9e58166c6d2277b15e1bfb9d368eb516ed82f2b639eeb102f0e0cc",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "tiiuae_falcon-7b": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=tiiuae_falcon-7b/per_instance_stats.json",
+          "bytes": 317837,
+          "sha256": "e46d53a2e3a09f993924e407a6f88dc9ce9decd03e06642c7b1151c6d8d88fc8",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "writer_palmyra-x-v2": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v2/per_instance_stats.json",
+          "bytes": 319367,
+          "sha256": "1be9a925a674137673299e0391bff78ffb319a8c98e812ede07661e818eb986b",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        },
+        "writer_palmyra-x-v3": {
+          "url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/math:subject=precalculus,level=1,use_official_examples=False,use_chain_of_thought=True,model=writer_palmyra-x-v3/per_instance_stats.json",
+          "bytes": 319296,
+          "sha256": "3f6f9b05d65c8a015b3b06b369e4a2f40556176e5556306bc04ab96f10b191dd",
+          "rows": 57,
+          "metric": "math_equiv_chain_of_thought",
+          "raw_payload_persisted": false
+        }
+      },
+      "outcome_package": {
+        "path": "STEP61_OUTCOME_PACKAGES\\math_precalculus.npz",
+        "bytes": 2237,
+        "sha256": "61070a59272d6bb34fbd7556f893fa3ddec5d7a39fa9950b47f5cf18ffdb0fca"
+      },
+      "alignment": {
+        "instances": 57,
+        "candidates": 31,
+        "exact_key_set_match_all_models": true
+      }
+    }
+  },
+  "counts": {
+    "classifier_tasks": 7,
+    "helm_math_tasks": 7,
+    "total_tasks": 14
+  },
+  "alignment_passed": true,
+  "raw_HELM_payloads_persisted": false
+}

@@ -1,0 +1,151 @@
+{
+  "manifest_id": "STEP94_FRESH_TASK_STAGE0_V1",
+  "date": "2026-08-13",
+  "authority_sha256": {
+    "STEP94_FRESH_TASK_LEARNED_VARIANT_PREREGISTRATION_2026-08-13.md": "31c96d1378d8fd841835ab509a50ee2fcb4b19480e317e43146ec37a01cf56f5",
+    "STEP94_PREREGISTRATION_AMENDMENT_A_2026-08-13.md": "8498c1d77a12ff701132ea02827ada29655032330e64b8d34937380135698c9b",
+    "STEP94_PREREGISTRATION_AMENDMENT_B_2026-08-13.md": "704071b0d983fea4f9afd9c38789ab27ea34a34dca05c75e4983f38796461556",
+    "STEP94_PREREGISTRATION_AMENDMENT_C_2026-08-13.md": "dad7f95ce810647dbf0f4cc74944a7765ffd3b8fdf6a28d101c712c44b901adc"
+  },
+  "base_model": {
+    "id": "distilbert/distilbert-base-uncased",
+    "revision": "12040accade4e8a0f71eabdb258fecc2e7e948be",
+    "model_safetensors_sha256": "5e3f1108e3cb34ee048634875d8482665b65ac713291a7e32396fb18f6ff0063"
+  },
+  "split_salt": "step94-fresh-learned-variant-v1",
+  "tasks": [
+    {
+      "task_key": "20newsgroups",
+      "order": 0,
+      "dataset_id": "SetFit/20_newsgroups",
+      "revision": "f1b91292074e7cfb69be58b642d583ec262f30ed",
+      "upstream_id": null,
+      "upstream_revision": null,
+      "n_classes": 20,
+      "development_splits": [
+        "train"
+      ],
+      "test_split": "test",
+      "raw_file_sha256": {
+        "train": "b696a1d6a43a306b2ea21cdf20be62c1e56a04908053f24e606707454e84a728",
+        "test": "a0c1f20c01fa77f6b832fdb5e6218018660781e762f3e68ee3e6f279e7839bcc"
+      },
+      "split_counts": {
+        "train": 11314,
+        "test": 7532
+      },
+      "development_count": 11314,
+      "development_text_sha256": "fcba84c590c48b5eca53851a3fead0244794138908fb6fd91e508bfa2c2992c9",
+      "development_label_sha256": "bc757201affa54934118994e644b8010121bfea686bfdfe62c83d9673ee79b25",
+      "development_origin_sha256": "96382517b3a28bcce7650a2827e3738bc3be54f45e009844e40c6b1a2452fb64",
+      "partition_counts": {
+        "root_train": 6255,
+        "gate_train": 1663,
+        "stagea_search": 1681,
+        "stagea_verification": 1715
+      },
+      "partition_index_sha256": {
+        "root_train": "749e3ced5650bdeadf04354ad25c7228aa46f20705b225882b533505b2e89469",
+        "gate_train": "4c0ff5b660eeb756412b41d20fdef8976a4d2aa9005ada0a013d4230c2df37c7",
+        "stagea_search": "4eb5a58355f52f842763b77838df669de260f6a2fba9aca65ccd351d4f1b9dd4",
+        "stagea_verification": "252c916571cb9584e235eab4bd19fd723f1a7713214fcbca0c1f721464563fe3"
+      },
+      "test_count": 7532,
+      "test_input_file": "step94_test_inputs/20newsgroups_test_inputs.json",
+      "test_input_sha256": "8ae73565577460af5b8ba5f61bb3646ccb98070821beb092ba4797b982e3a9cd",
+      "sealed_outcome_file": "external_data/step94_sealed/20newsgroups_sealed_outcomes.npz",
+      "sealed_outcome_sha256": "e3943aad8e9987228d0155c9c42a0f9dd7ba9e3d2b7daf3e54ec7b0ecdb1d715"
+    },
+    {
+      "task_key": "massive_en_us",
+      "order": 1,
+      "dataset_id": "SetFit/amazon_massive_intent_en-US",
+      "revision": "f7672a018e8ceb37fc0184dcfbb7e665155ffea6",
+      "upstream_id": "AmazonScience/massive",
+      "upstream_revision": "ff6bd8e4b27c3543e4f8fe2108f32bb95a6f8740",
+      "n_classes": 60,
+      "development_splits": [
+        "train",
+        "validation"
+      ],
+      "test_split": "test",
+      "raw_file_sha256": {
+        "train": "5d7acab7dd4ec9f8253dec8571eafd75fa8fc4ef64ad401ef2ac6907d277e1a8",
+        "validation": "616da8f9a9c33e72ae57f64bac4804f87b92f71712ef7f348f576032f7bf9c6d",
+        "test": "946947a0e8de7f120bc643b2892f54638673b9fe97b627a67305ca5f2d93c3c2"
+      },
+      "split_counts": {
+        "train": 11514,
+        "validation": 2033,
+        "test": 2974
+      },
+      "development_count": 13547,
+      "development_text_sha256": "6281604820d5feaa3698274ea70c75295f78d541e324ebdda9e88634ff8e0dc1",
+      "development_label_sha256": "fe696fb3d4669b8f5ebe4f3d6c1e58a01724d6a3159043ac4ca375f46307cfba",
+      "development_origin_sha256": "a7fdb84de2baf658503a269d14d1c84b4dbc6039c04c0a6b24a1d58289295a3e",
+      "partition_counts": {
+        "root_train": 7464,
+        "gate_train": 1929,
+        "stagea_search": 2017,
+        "stagea_verification": 2137
+      },
+      "partition_index_sha256": {
+        "root_train": "5df3ea1e4a16d27ff4ffe6e5547b927bc0578a639925a9665ebe2c7c2907d4cf",
+        "gate_train": "507118af080f8163e7047f8107bf5bc2b5af6e7f4c69eeb73cf1895b42ecabae",
+        "stagea_search": "1594dae13f6c4ba83a6bb6bbcb5648e8ab5ce7dda1fe9f5ba88c94f97e416729",
+        "stagea_verification": "fb2ff2ab7cad5c709bb6b7d449f712224180111a968baf9164a9c4771d5f4df6"
+      },
+      "test_count": 2974,
+      "test_input_file": "step94_test_inputs/massive_en_us_test_inputs.json",
+      "test_input_sha256": "846c2549bc82d4c95bcdfc34e0d0fe8741dd8e95dabe3f37843d201d75c909c2",
+      "sealed_outcome_file": "external_data/step94_sealed/massive_en_us_sealed_outcomes.npz",
+      "sealed_outcome_sha256": "493790fc55bd09a1c0da79fcbc4c2b959e56cab62871a3601568c9364f23b253"
+    },
+    {
+      "task_key": "sst5",
+      "order": 2,
+      "dataset_id": "SetFit/sst5",
+      "revision": "e51bdcd8cd3a30da231967c1a249ba59361279a3",
+      "upstream_id": null,
+      "upstream_revision": null,
+      "n_classes": 5,
+      "development_splits": [
+        "train",
+        "dev"
+      ],
+      "test_split": "test",
+      "raw_file_sha256": {
+        "train": "46bde4fb5abc93ffbadfa9a9f67de17c08a2f535cfb5756c59188d070434f433",
+        "dev": "4369df4d4229e736fa734af49b342c7d6002c4d8514d9c206a5aa26edc620b79",
+        "test": "1384216112a34f3d70b6fa210762f3399bb080410c0456ac6e54a5cb413f04b2"
+      },
+      "split_counts": {
+        "train": 8544,
+        "dev": 1101,
+        "test": 2210
+      },
+      "development_count": 9645,
+      "development_text_sha256": "856cf1d898ad1f2f0b36b8937db5564b4ed3cacb0582c593ae7d3b79464d435b",
+      "development_label_sha256": "06a2214886621859a372752f4ee49de54d3b6a8d6a2a2672f01b54286dbe0283",
+      "development_origin_sha256": "dae4a8524d7dc3f33168740ad56b147d48b87838b7961df69883477cd50a4d70",
+      "partition_counts": {
+        "root_train": 5351,
+        "gate_train": 1435,
+        "stagea_search": 1453,
+        "stagea_verification": 1406
+      },
+      "partition_index_sha256": {
+        "root_train": "ab8c1ce62ff1e04e9b80a3e9ef8894ae728a5f04e0af9126d43dc9f8ed387c78",
+        "gate_train": "4957ea3a42859b1c9e754c96243cfec454560416fa922b5c50e933f12d757664",
+        "stagea_search": "2c1aa5cc7624411e4bede3121c38bac15815e25c13baeda8f97b34a06a1dd380",
+        "stagea_verification": "2676ce6c61b89bff719a5b7a2c917ea1fe8f58fd3621d784aca4d4c28022554c"
+      },
+      "test_count": 2210,
+      "test_input_file": "step94_test_inputs/sst5_test_inputs.json",
+      "test_input_sha256": "d0f1006b536a4db84afcc83831052e4c417fb50aa5b62a25283604bea4cd9679",
+      "sealed_outcome_file": "external_data/step94_sealed/sst5_sealed_outcomes.npz",
+      "sealed_outcome_sha256": "b95ff5c49cdd6fc9659ad4516db079dd9e0b1aa97388d7650672d0faf8509a5f"
+    }
+  ],
+  "pre_outcome_statement": "Stage 0 printed no task row, class frequency, label, prediction, accuracy, path, root, effect, or regret. Test labels are stored only under the sealed directory."
+}

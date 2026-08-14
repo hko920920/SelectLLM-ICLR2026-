@@ -1,0 +1,98 @@
+{
+  "ledger_id": "STEP100_STAGEA_COMPLETE_V1",
+  "date": "2026-08-13",
+  "decision": "NO_GO_STEP100_GEOMETRY_STOP",
+  "geometry": {
+    "selector_search": {
+      "rows": 1000,
+      "root_accuracies": [
+        0.913,
+        0.909,
+        0.925,
+        0.898
+      ],
+      "root_accuracy_by_key": {
+        "lvwerra_distilbert_parent": 0.913,
+        "textattack_distilbert": 0.909,
+        "textattack_albert": 0.925,
+        "harsha_tinybert": 0.898
+      },
+      "parent_minus_best_challenger": -0.01200000000000001,
+      "parent_error_prevalence": 0.087,
+      "max_challenger_correct_given_parent_wrong": 0.5057471264367817,
+      "oracle": {
+        "runs": 400,
+        "budget": 10,
+        "tau": 0.025,
+        "mean_terminal_delta": 0.0002700000000000008,
+        "mean_active_minus_fixed_terminal_delta": 0.0002700000000000008,
+        "mean_cumulative_delta": 0.001385000000000005,
+        "path_change_rate": 0.4025,
+        "query_set_change_rate": 0.4025,
+        "final_root_change_rate": 0.27,
+        "clean_parent_terminal_rate": 0.185,
+        "refined_parent_terminal_rate": 0.0125,
+        "parent_to_challenger_rate": 0.1725,
+        "challenger_to_parent_rate": 0.0,
+        "max_abs_fixed_terminal_delta": 0.0,
+        "max_abs_fixed_cumulative_delta": 0.0,
+        "fixed_root_history_exact": true
+      },
+      "gates": {
+        "parent_gap_at_least_2_5pp": false,
+        "parent_error_at_least_5pct": true,
+        "challenger_complementarity_at_least_15pct": true,
+        "oracle_terminal_at_least_1pp": false,
+        "oracle_parent_to_challenger_exceeds_reverse": true,
+        "oracle_fixed_exact_zero": true
+      },
+      "eligible": false
+    },
+    "selector_verify": {
+      "rows": 2000,
+      "root_accuracies": [
+        0.91,
+        0.9075,
+        0.9175,
+        0.898
+      ],
+      "root_accuracy_by_key": {
+        "lvwerra_distilbert_parent": 0.91,
+        "textattack_distilbert": 0.9075,
+        "textattack_albert": 0.9175,
+        "harsha_tinybert": 0.898
+      },
+      "parent_minus_best_challenger": -0.007499999999999951,
+      "parent_error_prevalence": 0.09,
+      "max_challenger_correct_given_parent_wrong": 0.4388888888888889,
+      "oracle": {
+        "runs": 1500,
+        "budget": 10,
+        "tau": 0.025,
+        "mean_terminal_delta": -0.00015466666666666637,
+        "mean_active_minus_fixed_terminal_delta": -0.00015466666666666637,
+        "mean_cumulative_delta": -0.0029079999999999965,
+        "path_change_rate": 0.536,
+        "query_set_change_rate": 0.536,
+        "final_root_change_rate": 0.388,
+        "clean_parent_terminal_rate": 0.2633333333333333,
+        "refined_parent_terminal_rate": 0.006666666666666667,
+        "parent_to_challenger_rate": 0.258,
+        "challenger_to_parent_rate": 0.0013333333333333333,
+        "max_abs_fixed_terminal_delta": 0.0,
+        "max_abs_fixed_cumulative_delta": 0.0,
+        "fixed_root_history_exact": true
+      },
+      "gates": {
+        "parent_gap_at_least_2_5pp": false,
+        "parent_error_at_least_5pct": true,
+        "challenger_complementarity_at_least_15pct": true,
+        "oracle_terminal_at_least_1pp": false,
+        "oracle_parent_to_challenger_exceeds_reverse": true,
+        "oracle_fixed_exact_zero": true
+      },
+      "eligible": false
+    }
+  },
+  "sealed_outcome_opened": false
+}

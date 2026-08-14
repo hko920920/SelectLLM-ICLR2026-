@@ -1,0 +1,58 @@
+\begin{figure}[!h]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[
+    x=1cm,
+    y=1cm,
+    font=\sffamily\scriptsize,
+    entry/.style={draw=framegray, rounded corners=1.5pt, minimum width=0.62cm, minimum height=0.47cm, inner sep=1pt, fill=white},
+    alias/.style={entry, draw=frameorange, very thick, fill=frameorange!10},
+    panel/.style={draw=framegray!55, rounded corners=4pt, fill=framegray!3},
+    flow/.style={-{Latex[length=1.7mm]}, thick, draw=framegray},
+    warn/.style={draw=frameorange, rounded corners=2pt, fill=frameorange!8, align=center, inner sep=3pt}
+]
+% Panels
+\draw[panel] (-7.85,0.72) rectangle (-0.23,-3.18);
+\draw[panel] (0.23,0.72) rectangle (7.85,-3.18);
+\node[font=\sffamily\small\bfseries, text=frameblue] at (-4.04,0.42) {Clean registry};
+\node[font=\sffamily\small\bfseries, text=frameorange] at (4.04,0.42) {Quality-preserving refinement};
+
+% Clean registry
+\node[anchor=east] at (-6.95,-0.05) {entries};
+\node[entry] (ca) at (-6.45,-0.05) {A};
+\node[entry] (cb) at (-5.55,-0.05) {B};
+\node[entry] (cc) at (-4.65,-0.05) {C};
+\node[entry] (cd) at (-3.75,-0.05) {D};
+\node[align=left, text=framegray] at (-2.00,-0.05) {$4$ entries\\$4$ roots};
+\node[warn, draw=frameblue, fill=frameblue!7, text=black, minimum width=2.65cm] (cleanmass) at (-5.75,-1.12) {per-entry mass\\$=1/4$ per root};
+\node[warn, draw=frameblue, fill=frameblue!7, text=black, minimum width=2.65cm] (cleanpath) at (-2.25,-1.12) {query transcript\\$x_2\!\rightarrow x_5\!\rightarrow x_9$};
+\draw[flow] (cleanmass) -- (cleanpath);
+\node[font=\bfseries, text=framegreen] at (-4.04,-2.22) {lower cumulative regret};
+\node[text=framegray, align=center] at (-4.04,-2.75) {candidate quality vectors unchanged};
+
+% Refined registry
+\node[anchor=east] at (1.20,-0.05) {entries};
+\node[alias] (ra) at (1.52,-0.05) {A};
+\node[alias] (ra1) at (2.25,-0.05) {$A_1$};
+\node[alias] (ra2) at (2.98,-0.05) {$A_2$};
+\node[alias] (ra3) at (3.71,-0.05) {$A_3$};
+\node[alias] (ra4) at (4.44,-0.05) {$A_4$};
+\node[entry] (rb) at (5.25,-0.05) {B};
+\node[entry] (rc) at (5.98,-0.05) {C};
+\node[entry] (rd) at (6.71,-0.05) {D};
+\node[draw=frameorange, dashed, rounded corners=2pt, fit=(ra)(ra1)(ra2)(ra3)(ra4), inner sep=2pt,
+      label={[text=frameorange, font=\sffamily\tiny]below:one accountable root}] {};
+\node[warn, minimum width=2.80cm] (refmass) at (2.20,-1.40) {per-entry mass\\A-family $=5/8$};
+\node[warn, minimum width=2.80cm] (refpath) at (5.72,-1.40) {different transcript\\$x_1\!\rightarrow x_4\!\rightarrow x_8$};
+\draw[flow, draw=frameorange] (refmass) -- (refpath);
+\node[font=\bfseries, text=frameorange] at (4.04,-2.35) {higher cumulative regret can result};
+\node[text=framegray, align=center] at (4.04,-2.83) {same roots and per-example utility};
+
+% Missing observation boundary
+\node[warn, minimum width=12.5cm, font=\sffamily\scriptsize] at (0,-3.78)
+{Predictions expose submitted response rows, but not the accountable map $\rho:E\!\rightarrow\!R$ or which entries deserve independent evidential mass.};
+\end{tikzpicture}
+}%
+\caption{The candidate list is an empirical prior. Adding entries from one accountable root can change active queries even when the added entries introduce no new per-example quality vector. The observable responses do not authenticate the root map. This schematic illustrates the mechanism; Tables~\ref{tab:primary-llm} and~\ref{tab:step88} report measured effects.}
+\label{fig:registry-refinement}
+\end{figure}

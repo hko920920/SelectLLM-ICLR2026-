@@ -1,0 +1,137 @@
+{
+  "schema": "step114.predata_lock.v1",
+  "date": "2026-08-14",
+  "status": "LOCKED_BEFORE_ANY_AMAZON_POLARITY_ROW_ACCESS_OR_TASK_INFERENCE",
+  "claim_status": "FINAL_POSTREVIEW_PROSPECTIVE_TERMINAL_BRIDGE",
+  "protocol_sha256": "eb2844a1e41565746c71c7ae3e4d782fd3b71e2d0e55aad2adbb5591e7923031",
+  "metadata_sha256": "d78b9ce4c60bc2e1c67c444cf3af309cbf5884c7fd512193f13f537428a77cf3",
+  "step113_no_go_ledger_sha256": "38bf2be7abddba9db2afa6aa73c3b7329a582c2fc8a5942d60792475548e168a",
+  "dataset_id": "fancyzhx/amazon_polarity",
+  "dataset_revision": "9d9c45c18f8c3cf1b23a3c27917b60cbf28f3289",
+  "registry": [
+    {
+      "key": "adamcodd_distilbert",
+      "repo_id": "AdamCodd/distilbert-base-uncased-finetuned-sentiment-amazon",
+      "revision": "af15ca2e0c7a2779f19dc242a7e87817393ab797",
+      "model_to_native": [
+        0,
+        1
+      ],
+      "batch_size": 32,
+      "safe_weights": false,
+      "parent": true
+    },
+    {
+      "key": "etelis_albert",
+      "repo_id": "Etelis/amazonPolarity_ALBERT_5E",
+      "revision": "099a705d29cbaf47df683b10070cb87c0560fb8b",
+      "model_to_native": [
+        0,
+        1
+      ],
+      "batch_size": 32,
+      "safe_weights": false,
+      "parent": false
+    },
+    {
+      "key": "fabrice_bert",
+      "repo_id": "fabriceyhc/bert-base-uncased-amazon_polarity",
+      "revision": "36abc4b1e41b52cb0904d666ea522e9434bca998",
+      "model_to_native": [
+        0,
+        1
+      ],
+      "batch_size": 16,
+      "safe_weights": false,
+      "parent": false
+    },
+    {
+      "key": "quinton_distilbert",
+      "repo_id": "quintonpyx/distilbert-amazon-polarity",
+      "revision": "d8abbd64ad8206b7e680bcf6a8b0a7f2938321b3",
+      "model_to_native": [
+        0,
+        1
+      ],
+      "batch_size": 32,
+      "safe_weights": true,
+      "parent": false
+    }
+  ],
+  "input_contract": {
+    "field": "content",
+    "max_length": 256
+  },
+  "source_index_seed": 114000,
+  "source_index_sha256": {
+    "error_head_train": "1c4f4cecc0b201aca019729ea330f63db5f4f1abbad3cef7437926e9dc2d59f2",
+    "safety": "f15d6c1e0fb27542445985a5173d2c9b42935d778cfd9efd7a59c17319e488aa",
+    "target_threshold": "2b9799272a988f5d0aed12cbc3adc5d22878e28dbfef62dfed7a16c9beabd6bd",
+    "primary_outcome": "1f105f5e826f17a5d4030de16c01fef6ba0b32118bc35da603ef65d51a85a765"
+  },
+  "partition_counts": {
+    "error_head_train": 8000,
+    "safety": 4000,
+    "target_threshold": 4000,
+    "primary_outcome": 8000
+  },
+  "error_head_recipe": {
+    "implementation": "locked_step113_linear_error_head_recipe",
+    "seeds": [
+      114100,
+      114101,
+      114102,
+      114103
+    ],
+    "epochs": 30,
+    "batch_size": 256,
+    "learning_rate": 0.001,
+    "weight_decay": 0.001
+  },
+  "threshold_rule": {
+    "quantile": 0.993,
+    "method": "higher",
+    "target_inputs_only": true,
+    "target_labels_available": false
+  },
+  "preoutcome_trigger_certificate": {
+    "minimum_per_alias": 1,
+    "maximum_per_alias": 80,
+    "guaranteed_maximum_quality_loss": 0.01
+  },
+  "selector": {
+    "pool_size": 500,
+    "budget": 2,
+    "temperature": 0.05,
+    "paired_runs": 3000,
+    "seed_range": [
+      1216000,
+      1219000
+    ],
+    "same_literal_exact_match": true
+  },
+  "primary_gates": "terminal_and_active_minus_fixed_terminal_only_plus_validity_and_mediation",
+  "cumulative_and_switch_direction_are_diagnostics": true,
+  "replacement_allowed": false,
+  "family_stops_if_not_go": true,
+  "environment": {
+    "python": "3.11.5",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.56.2",
+    "numpy": "1.26.4",
+    "pyarrow": "25.0.0",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 3070"
+  },
+  "code_sha256": {
+    "step114_common.py": "64953a71b546b0268933adda2631e422c07930bd0d6a6bab3f65d4a87020244d",
+    "step114_endpoint.py": "fc2d97755547e19b6a89643f6787bb61d8388d9437235bf74f7245e3629ee698",
+    "step114_pipeline.py": "36c40e55c9913d31ce47d342b6b535e35cf211b0ed7a54ba7b846282abacb25e",
+    "step114_validate_independent.py": "ccf68169f6c139f85169cd671769d98d8ea00742150610e74ad2422ce93281df",
+    "step113_common.py": "28b2d98e6f2450542f698343d2d3145ca40bc35719512f2a00abb596aba4d99c",
+    "step93_common.py": "cbb4df4ccba18d386f710fbc2dd98fbf83ff266c237fffd523fc1b9dc5c89ccd"
+  },
+  "data_access_completed": false,
+  "outcome_opened": false
+}

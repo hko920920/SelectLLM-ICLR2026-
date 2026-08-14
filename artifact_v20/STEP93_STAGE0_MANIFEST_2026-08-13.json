@@ -1,0 +1,50 @@
+{
+  "manifest_id": "STEP93_BANKING77_STAGE0_V1",
+  "date": "2026-08-13",
+  "protocol_sha256": "5b91bbac3a3eac126dba44b13959c85d25a018fde1db78386662d976708f4bf0",
+  "amendment_a_sha256": "20ea03822505f74521276d816e83980815439f401bdf60ebdf639b0ec8573fe9",
+  "amendment_b_sha256": "950049a20ae699505ef55a0231cd5a25023311adedcf9b996113c705338be4e7",
+  "dataset": {
+    "id": "mteb/banking77",
+    "revision": "18072d2685ea682290f7b8924d94c62acc19c0b2",
+    "upstream_id": "PolyAI/banking77",
+    "upstream_revision": "90d4e2ee5521c04fc1488f065b8b083658768c57",
+    "raw_parquet_sha256": {
+      "train": "482d07d5f8027debcaca8fb3b8fa9da9d81a01318bba746eb36e5bb4fcd785af",
+      "test": "9575f636fdeae0c94a0f3f2d926ca8f9a2833b998cf94108936dfd5d72322bf9"
+    },
+    "fingerprints": {
+      "train": "a1844e72965b9075",
+      "test": "af83a4cc217cdb94"
+    },
+    "counts": {
+      "train": 9993,
+      "test": 3076,
+      "root_train": 6015,
+      "adapter_train": 1996,
+      "stagea_calibration": 1982
+    },
+    "split_index_sha256": {
+      "root_train": "bce101675960269b4d96aa8c9ab1252a2b5010332810fe65bf024459a393dccd",
+      "adapter_train": "2d4fb1ba38f311574efd3ce597c1ae9a143a1dfd3cad895c28ac4d4b5afb543d",
+      "stagea_calibration": "8a35f226b5ea04277ff5b9d90a6da9d44463a58b6833f1c480dee26e9903ca91"
+    },
+    "train_label_array_sha256": "3fc339b2191634dd696baeddeb7a55119ac82f789326248c07969d5ff0af1c0e"
+  },
+  "base_model": {
+    "id": "distilbert/distilbert-base-uncased",
+    "revision": "12040accade4e8a0f71eabdb258fecc2e7e948be",
+    "model_safetensors_sha256": "5e3f1108e3cb34ee048634875d8482665b65ac713291a7e32396fb18f6ff0063"
+  },
+  "single_similarity": {
+    "definition": "s(a,b)=1[a=b]",
+    "candidate_candidate": "step93_common.exact_match_similarity",
+    "reference_candidate": "step93_common.exact_match_similarity"
+  },
+  "outputs": {
+    "STEP93_BANKING77_CALIBRATION_PACKAGE_2026-08-13.json": "8eaa63c950692e6d8cb4999e0b6a233fac9d19fc6d5714cf3365e2f4744fe5b9",
+    "STEP93_BANKING77_HOLDOUT_INPUTS_2026-08-13.json": "5b868353d7367aadce450f64e20ced8ebcbde5cdea94ec5293d3a50893d2b517",
+    "external_data/step93_sealed/STEP93_BANKING77_SEALED_OUTCOMES_2026-08-13.npz": "9e5c43a1f5d11d6ee1bb29657d2b4dab4c374b771e5c4cdfb0c500fc6b06d5bf"
+  },
+  "pre_outcome_statement": "Stage 0 emitted only counts and hashes; no Banking77 text, label, prediction, active path, selected root, effect, or regret value was printed."
+}

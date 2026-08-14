@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\caption{SNLI learned single-$s$ audit on 3,000 sealed-test pools. Effects are refined-minus-clean; terminal units are percentage points. The locked primary decision remains \texttt{NO\_GO}. The conservative row is a complete post-confirmatory sensitivity over the two unique thresholds represented in all eight predeveloped top conditions; its $q$ is Holm-adjusted across those two.}
+\label{tab:step96-terminal}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccc}
+\toprule
+Condition & Alias loss pp & Path/final-root & Terminal pp & CReg & Fixed & Status \\
+\midrule
+Locked primary & .875--1.018 & 99.13/16.23\% & $+1.631$ [$+1.360,+1.903$] & $+.316$ [$+.285,+.347$] & 0 & No-go \\
+Conservative top-8 sensitivity & .316--.478 & 99.43/13.23\% & $+.915$ [$+.667,+1.173$] & $+.221$ [$+.193,+.250$] & 0 & Secondary pass \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

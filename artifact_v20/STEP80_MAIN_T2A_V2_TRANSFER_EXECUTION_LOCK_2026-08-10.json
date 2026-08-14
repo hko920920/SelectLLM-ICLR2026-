@@ -1,0 +1,42 @@
+{
+  "manifest_id": "STEP80_MAIN_T2A_V2_TRANSFER_EXECUTION_LOCK_V1",
+  "created_local_date": "2026-08-10",
+  "status": "LOCKED_BEFORE_SCIENTIFIC_OUTCOME_EXECUTION",
+  "frozen_input_sha256": {
+    "preregistration": "a4644ece8c9e36c66469b95301978963dc0bf4c36142f3416fcf2a1e75e6e607",
+    "protocol": "e0f45b8d3a8bdff4544a850889d03b49fd63a57aac51a80e18ffdf1f401309e3",
+    "scope_audit": "0ded1d19e7733d1c49b36fc46fd087c332257c9e12161d76bf805c9371bd3ac9",
+    "preregistration_lock": "6645607e15f871ffc06885ba6d87963ddeb736bb800c3b375c1dbf96f094c56c",
+    "step54_preregistration": "cf45cdd3e6b1425db2f2c17d4e4283bde95d58356a3fd1ade09c2ef6813e8ed9",
+    "step54_execution_lock": "2d213d8090b35a4cd14edc6292ddc3d73e934e288c14a24743daabf5b32d5bb3",
+    "step54_results": "4ab5428c368991f8c9696edda63660ac76b1d516bb7c78d52eeb553ad56a41dd",
+    "step54_runner": "f6fedf37dcbbef82b68353526b7ecd5b0f2156fb85918574fda139db23df4f7d",
+    "v2_runner": "4f8059efc834c9983b5856217f5319672c0e6cd9c28e6ccd9adad8fadd3c7577"
+  },
+  "code_sha256": {
+    "runner": "4fc46dcee545b1190ad9e73102ac894898397e747234adfbd738d4823305824a",
+    "validator": "e0c1d4d54fb405a2d0d8de89bb5b7a4a54b6955781b95e8301eeec8322b9a1a2",
+    "preoutcome_auditor": "eed5f7bfaa2c072af8485f517b225878596fcd86bc3cbe916e49ec1762e1b9ee"
+  },
+  "preoutcome_result_sha256": "8be922f9d730debb9fdbe4b7e8011467a4ea58db5ce9ca543cfac9e5c05d1a0f",
+  "frozen_execution": {
+    "tasks": ["medqa", "gsm8k", "openbookqa"],
+    "paired_seed_block": [91000, 91499],
+    "runs_per_task": 500,
+    "candidate_permutation_seed_block": [803000, 803015],
+    "candidate_permutations": 16,
+    "query_tie_policies": 3,
+    "root_tie_policies": 3,
+    "bootstrap_repetitions": 10000,
+    "signflip_repetitions": 10000,
+    "random_query_offset": 99173,
+    "primary_condition": "Step54 matrix_free_public_reference_5pct",
+    "backend": "V2 canonical exact-tie acquisition"
+  },
+  "reserved_outputs_absent_at_lock": [
+    "STEP80_MAIN_T2A_V2_TRANSFER_RESULTS_2026-08-10.json",
+    "STEP80_MAIN_T2A_V2_TRANSFER_RAW_2026-08-10.npz",
+    "STEP80_MAIN_T2A_V2_TRANSFER_VALIDATION_2026-08-10.json"
+  ],
+  "post_lock_rule": "Execute exactly once; no scientific rescue edit is allowed after observing any outcome. Independent validation determines whether the preregistered classification is usable."
+}

@@ -1,0 +1,62 @@
+{
+  "schema": "step113.preoutcome_lock.v1",
+  "date": "2026-08-14",
+  "status": "LOCKED_BEFORE_FIRST_OUTCOME_OPEN",
+  "protocol_sha256": "982a560ae1dc05621dad8e09fb3736076668d9d22dab85ea790569d58e2a2863",
+  "metadata_sha256": "b6fb091f050934d05c28b1e9e2368e7f48e38e1fabc3e80fcf04e98057bfb566",
+  "predata_lock_sha256": "b79319a463fc34cac1152dd7d41bcdadc438a4a323b5be946524f05cdb2252b0",
+  "stage0_manifest_sha256": "76c5e93b1e61efca95e8965dd1b017221af422cf2b27930bf990a365c9477f59",
+  "development_go_lock_sha256": "494f43892d8bdcb4b66bbf774d29454818daa59a6cb31fc34c6e4f5d4e11284b",
+  "preoutcome_ledger_sha256": "915f0794eb75b1891f190e59fc44cb0466bf31270f0e16b055c4e6bceef80fa7",
+  "predictions_file": "STEP113_PREOUTCOME_PREDICTIONS_2026-08-14.npz",
+  "predictions_sha256": "db482a2784f4f6d7c4357105368d5bb4b253a1bff089087a093ef2b622f4d52e",
+  "prediction_hashes": {
+    "uids": "f1454ac4bad6f2af7ed7053e6d76ff5039a21d6d88965536888eb5b0490b65ff",
+    "roots": "5cfc6a9c9f3dd5b758c5d2bc50b7b4231b2ddd1389ee562cb9d5a090a0d15007",
+    "parent_logits": "7c1f2814f3cbda7b9c67e5baaf7dd71e13362b0367235183b167426ac2635b39",
+    "parent_features": "0f61d9da7ef7522b5ebdebad917b516d01f4cdaf962c2d49d6601cb607937f1c",
+    "scores": "16ea11bb4fed0fed09e0e07053d7f90d3e36313bb6eeb61b4345300dc03df4e8",
+    "aliases": "04d1371c16a81fde4e71781278dc99cb23dc92e4dd03934afe69c2ac9e66327d",
+    "triggers": "84cfb2a5e65226685165a20fb086035be1ddc834c0beb68134a0911186627531"
+  },
+  "head_paths": [
+    "step113_models/step113_boolq_error_head_0.safetensors",
+    "step113_models/step113_boolq_error_head_1.safetensors",
+    "step113_models/step113_boolq_error_head_2.safetensors",
+    "step113_models/step113_boolq_error_head_3.safetensors"
+  ],
+  "head_sha256": {
+    "step113_models/step113_boolq_error_head_0.safetensors": "cff01c14bd0498da6d92660df977a2ac7a7d6779c1bba5523f66454efb5e24b9",
+    "step113_models/step113_boolq_error_head_1.safetensors": "8c4ca8896c740376c624d1dfea8e83697a318c8c4047cf877c7e08e98800ab72",
+    "step113_models/step113_boolq_error_head_2.safetensors": "8f5269ca459766b2f79ad1c2a5cd95511382ffd7a1c00b991492999b84d3ae56",
+    "step113_models/step113_boolq_error_head_3.safetensors": "434488d436272e771166bc1408c909d06ab8edc3868f3968c9f653133871d0e6"
+  },
+  "thresholds": [
+    0.9874104857444763,
+    0.9981029033660889,
+    0.9872893691062927,
+    0.9914655089378357
+  ],
+  "sealed_outcome_file": "external_data/step113_sealed/boolq_validation_sealed_outcomes.npz",
+  "sealed_outcome_sha256": "699adb40bf56252baefb9a313c9f4fbe9950fb0961a5c295ab1bcf60e2b1d256",
+  "selector": {
+    "pool_size": 500,
+    "budget": 2,
+    "temperature": 0.05,
+    "seed_range": [
+      1213000,
+      1216000
+    ],
+    "same_literal_exact_match": true
+  },
+  "primary_gates": "verbatim_STEP113_protocol",
+  "replacement_allowed": false,
+  "code_sha256": {
+    "step113_common.py": "28b2d98e6f2450542f698343d2d3145ca40bc35719512f2a00abb596aba4d99c",
+    "step113_endpoint.py": "855179cd8c00c9879a7008399bb52fad767faa4f31a9771d9b72729a7c426da3",
+    "step113_pipeline.py": "962a1d361aadcce14c05a9477c06ce70bac948a9910af332aa954edf044e1e90",
+    "step113_validate_independent.py": "7c2dc46c2b70146dba41a2844f2ed3328dd6e6640c188cb3a0f172fa8cfb962f",
+    "step93_common.py": "cbb4df4ccba18d386f710fbc2dd98fbf83ff266c237fffd523fc1b9dc5c89ccd"
+  },
+  "outcome_opened": false
+}

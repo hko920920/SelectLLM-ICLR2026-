@@ -1,0 +1,58 @@
+[
+  {
+    "root_key": "lvwerra_distilbert_parent",
+    "repo_id": "lvwerra/distilbert-imdb",
+    "revision": "0fc02cd68445b599a9cb2da2368050e7fb31d29a",
+    "model_type": "distilbert",
+    "id2label": {
+      "0": "NEGATIVE",
+      "1": "POSITIVE"
+    },
+    "max_length": 256,
+    "prediction_sha256": "c84c167aed0b387c2dde3df4ff0b990e5e76bcffe7087637062b9ef33bc0ec0a",
+    "samples": 12000,
+    "tokenizer_class": "DistilBertTokenizerFast"
+  },
+  {
+    "root_key": "textattack_distilbert",
+    "repo_id": "textattack/distilbert-base-uncased-imdb",
+    "revision": "5b0f46c2fc4b86bf21f0ec0409bed77ee142b332",
+    "model_type": "distilbert",
+    "id2label": {
+      "0": "LABEL_0",
+      "1": "LABEL_1"
+    },
+    "max_length": 256,
+    "prediction_sha256": "b1fcd838c2e67dd5dd1dc7c3a05e07241abecaa4530853d8bd0c3b5100bfb766",
+    "samples": 12000,
+    "tokenizer_class": "DistilBertTokenizerFast"
+  },
+  {
+    "root_key": "textattack_albert",
+    "repo_id": "textattack/albert-base-v2-imdb",
+    "revision": "e377b81678ba240cd835375c5853bb590e10e75a",
+    "model_type": "albert",
+    "id2label": {
+      "0": "LABEL_0",
+      "1": "LABEL_1"
+    },
+    "max_length": 256,
+    "prediction_sha256": "0809c8e834ee5ddfdd08ca92ec31e922d72dd3605708df941c6e27e1189faafa",
+    "samples": 12000,
+    "tokenizer_class": "AlbertTokenizerFast"
+  },
+  {
+    "root_key": "harsha_tinybert",
+    "repo_id": "Harsha901/tinybert-imdb-sentiment-analysis-model",
+    "revision": "0cd5d1ac6c06eb0f5f81b7022f95691528c981fa",
+    "model_type": "bert",
+    "id2label": {
+      "0": "negative",
+      "1": "positive"
+    },
+    "max_length": 256,
+    "prediction_sha256": "0f6a60f7d7c8dea066601b3f8643fc57920b434c486fac3808a42342dbfbbccc",
+    "samples": 12000,
+    "tokenizer_class": "BertTokenizerFast"
+  }
+]

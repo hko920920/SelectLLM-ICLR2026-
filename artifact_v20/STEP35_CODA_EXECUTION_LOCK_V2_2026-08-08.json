@@ -1,0 +1,15 @@
+{
+  "supersedes": "STEP35_CODA_EXECUTION_LOCK_2026-08-08.json",
+  "reason": "CPU invocation timed out before any task-level outcome; switch to official CUDA device path",
+  "runner": {
+    "file": "run_step35_locked_coda_cross_method.py",
+    "sha256": "8142695877E069F7EE8BB850D8CCEA84149C3181D18F546874A97F5F9B55E828"
+  },
+  "device_correction": {
+    "file": "STEP34B_CODA_DEVICE_CORRECTION_2026-08-08.md",
+    "sha256": "33A74C41B34DBF1C0564D9FE26326B80D278BEF2E38AF63880A215FDD287FD05"
+  },
+  "target_lock_sha256": "115FB8A1BCDCB8301BCF8D14D2A9F99B236510E8D69C04B5775A93C1D16585EE",
+  "scientific_protocol_changed": false,
+  "completed_outcomes_before_v2_lock": 0
+}

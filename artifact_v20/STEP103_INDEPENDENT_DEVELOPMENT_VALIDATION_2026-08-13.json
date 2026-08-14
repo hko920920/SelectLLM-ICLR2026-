@@ -1,0 +1,35 @@
+{
+  "validation_id": "STEP103_INDEPENDENT_DEVELOPMENT_VALIDATION_V1",
+  "date": "2026-08-13",
+  "decision": "PASS_STEP103_INDEPENDENT_DEVELOPMENT_VALIDATION",
+  "checks": {
+    "step102_no_go_retained": true,
+    "authority_hashes_match": true,
+    "complete_grid_cardinality": true,
+    "selection_rule_reconstructed": true,
+    "selected_effect_reconstructed": true,
+    "selected_raw_vectors_bitwise": true,
+    "selected_inference_reconstructed": true,
+    "all_development_go_gates": true
+  },
+  "failed_checks": [],
+  "selected_cell": "l0.0075_t0.025_b5_tau0.050",
+  "recomputed": {
+    "dual_eligible_cell_count": 6,
+    "search_terminal_pp": 1.5604999999999982,
+    "verify_terminal_pp": 0.5331999999999992,
+    "verify_terminal_ci_pp": [
+      0.41853333333333265,
+      0.6484033333333323
+    ]
+  },
+  "authority_sha256": {
+    "STEP102_STAGEA_COMPLETE_LEDGER_2026-08-13.json": "e71dc439e46ec526a28ab04bc7e5b2c4d5cb00ec77584413bab95a5908da09a6",
+    "STEP102_STAGEA_DEVELOPMENT_ARRAYS_2026-08-13.npz": "2e345926d768e541e58d3ea59fd779953ee412ea35d2d8be7f44f5029bbb4e57",
+    "STEP103_COMPLETE_DUAL_DEVELOPMENT_GRID_2026-08-13.json": "0e83cbae0d97171667c584bd8447978a9526e28929e13af5ab966ee810954b4f",
+    "STEP103_SELECTED_DEVELOPMENT_ARRAYS_2026-08-13.npz": "90e056dd543e44dfc1e082c545851ba66f0eb56e534ebd5fc17c101cccf1aa66",
+    "STEP103_ROBUST_DUAL_DEVELOPMENT_LEDGER_2026-08-13.json": "c92841f05a5d642adfd15ef2b20f14b0602e554cbcae5b027f7c1237b7a92d49",
+    "step103_validate_robust_development.py": "f318f5cd698c19677a46669ff00fbea7526cb3809071a05a1745d456e6ae6f30"
+  },
+  "sealed_outcome_opened": false
+}

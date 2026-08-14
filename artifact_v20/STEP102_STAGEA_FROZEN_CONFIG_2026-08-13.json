@@ -1,0 +1,69 @@
+{
+  "config_id": "STEP102_STAGEA_FROZEN_CONFIG_V1",
+  "date": "2026-08-13",
+  "decision": "NO_GO_STEP102_LEARNED_DEVELOPMENT_STOP",
+  "stagea_ledger_sha256": "e71dc439e46ec526a28ab04bc7e5b2c4d5cb00ec77584413bab95a5908da09a6",
+  "arrays_sha256": "2e345926d768e541e58d3ea59fd779953ee412ea35d2d8be7f44f5029bbb4e57",
+  "grid_sha256": "517b15cd302c7673bdf2933fd521df2d02b811e3b13cee901af521260be04423",
+  "selected": {
+    "cell_id": "l0.0025_t0.025_b5_tau0.050",
+    "pair_id": "l0.0025_t0.025",
+    "loss_cap": 0.0025,
+    "trigger_cap": 0.025,
+    "budget": 5,
+    "tau": 0.05,
+    "effect": {
+      "runs": 400,
+      "budget": 5,
+      "tau": 0.05,
+      "mean_terminal_delta": 0.018779999999999984,
+      "mean_active_minus_fixed_terminal_delta": 0.018779999999999984,
+      "mean_cumulative_delta": 0.08271499999999993,
+      "path_change_rate": 1.0,
+      "query_set_change_rate": 0.9975,
+      "final_root_change_rate": 0.675,
+      "clean_parent_terminal_rate": 0.665,
+      "refined_parent_terminal_rate": 0.2075,
+      "parent_to_challenger_rate": 0.495,
+      "challenger_to_parent_rate": 0.0375,
+      "max_abs_fixed_terminal_delta": 0.0,
+      "max_abs_fixed_cumulative_delta": 0.0,
+      "fixed_root_history_exact": true
+    },
+    "gates": {
+      "quality": true,
+      "path_change_at_least_half": true,
+      "directionality": true,
+      "terminal_at_least_half_point": true,
+      "active_at_least_half_point": true,
+      "cumulative_positive": true,
+      "fixed_exact_zero": true
+    },
+    "eligible": true
+  },
+  "thresholds": [
+    0.9550579786300659,
+    0.9454382658004761,
+    0.9513739943504333,
+    0.9419267773628235
+  ],
+  "adapter_paths": [
+    "step102_models/step102_imdb_wrmurray_error_adapter_0.safetensors",
+    "step102_models/step102_imdb_wrmurray_error_adapter_1.safetensors",
+    "step102_models/step102_imdb_wrmurray_error_adapter_2.safetensors",
+    "step102_models/step102_imdb_wrmurray_error_adapter_3.safetensors"
+  ],
+  "adapter_sha256": {
+    "step102_models/step102_imdb_wrmurray_error_adapter_0.safetensors": "c557e8c8e9ae41265a266b8e5c6f243d3620ea625f2df065303405da3077eb35",
+    "step102_models/step102_imdb_wrmurray_error_adapter_1.safetensors": "29d7dc9dffd05878293523378267bea5a675d5e40c381727fbd34bfc4c6586d9",
+    "step102_models/step102_imdb_wrmurray_error_adapter_2.safetensors": "1882f082a65002d24eca8ae57f3ce8fe819398f080de924ca10eb34efd5e8aa7",
+    "step102_models/step102_imdb_wrmurray_error_adapter_3.safetensors": "0906364d58c2bd63a742ff66fa2b07dbb85b275c034e3d447b9230f4b7b6d775"
+  },
+  "test_input": "step100_test_inputs/imdb_test_heldout_inputs.json",
+  "test_input_sha256": "6ac998dbe34e88c01fd940d551bb9b01deb63b15ad8855f5428835f96c480de9",
+  "sealed_outcome": "external_data/step100_sealed/imdb_test_heldout_sealed_outcomes.npz",
+  "sealed_outcome_sha256": "1ee1c6005330792de2a375064efa47a51b616a8145f72a022946d0ded9a4b2db",
+  "test_seed_start": 1003000,
+  "test_seed_stop_exclusive": 1006000,
+  "test_seed_count": 3000
+}

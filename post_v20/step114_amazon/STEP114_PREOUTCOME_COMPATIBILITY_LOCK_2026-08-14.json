@@ -1,0 +1,26 @@
+{
+  "schema": "step114.preoutcome_execution_compatibility_lock.v1",
+  "date": "2026-08-14",
+  "status": "LOCKED_AFTER_DEVELOPMENT_ONLY_API_EXCEPTION_BEFORE_ANY_PRIMARY_OUTCOME_INFERENCE_OR_OPENING",
+  "failure_signature": "TypeError: DistilBertForSequenceClassification.forward() got an unexpected keyword argument 'token_type_ids'",
+  "bounded_action": "Discard only tokenizer-emitted token_type_ids for DistilBertForSequenceClassification; delegate all other arguments to the original forward method.",
+  "scientific_changes": false,
+  "original_locked_files_modified": false,
+  "development_ledger_existed_at_lock": false,
+  "preoutcome_prediction_ledger_existed_at_lock": false,
+  "preoutcome_lock_existed_at_lock": false,
+  "primary_confirmatory_ledger_existed_at_lock": false,
+  "primary_outcome_model_inference_completed": false,
+  "primary_outcome_label_or_statistic_inspected": false,
+  "primary_outcome_opened": false,
+  "files": {
+    "step114_compat_runner.py": "38b820fa89dc8aa8361cc21cabbbe82ea7a0d5c418bfbbd8bfdd6c0247c1f7ce",
+    "STEP114_PREOUTCOME_EXECUTION_COMPATIBILITY_AMENDMENT_2026-08-14.md": "2182f007e996f519b9bdab5dc18a51384b377bf09d6cfee8dc7ae0f874ed5d4d",
+    "STEP114_PREDATA_LOCK_2026-08-14.json": "051012cd377de684966173b6daabe98905450083d800d6a05dc8413d6164bfd2",
+    "STEP114_STAGE0_DATA_AND_SEAL_MANIFEST_2026-08-14.json": "08f7b874e61ceab8198d8bcf2ccbfec932402f5d40e35d3177a017c088eb86f0",
+    "step114_common.py": "64953a71b546b0268933adda2631e422c07930bd0d6a6bab3f65d4a87020244d",
+    "step114_endpoint.py": "fc2d97755547e19b6a89643f6787bb61d8388d9437235bf74f7245e3629ee698",
+    "step114_pipeline.py": "36c40e55c9913d31ce47d342b6b535e35cf211b0ed7a54ba7b846282abacb25e",
+    "step114_validate_independent.py": "ccf68169f6c139f85169cd671769d98d8ea00742150610e74ad2422ce93281df"
+  }
+}

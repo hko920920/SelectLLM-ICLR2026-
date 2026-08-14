@@ -1,0 +1,180 @@
+{
+  "result_id": "STEP92_LEARNED_CONTEXTUAL_ADAPTER_CONFIRMATORY_V1",
+  "decision": "GO_SCORE_CHANGING_LEARNED_ADAPTER_BRIDGE",
+  "config_sha256": "2c2d51aa81c4a99d942c0a129fed99785149315adfc20092ec62b869e442e9f1",
+  "execution_lock_sha256": "c219349a46e4a326f4d3cf8853ac69093014d0bdfe73ae44f0359f4259d426cc",
+  "raw_sha256": "fdcaf9b09c648dcf13ae21b4a28e5358afe6df85a5f97b497bc866f3f07816ff",
+  "task": {
+    "name": "AG News",
+    "dataset": "fancyzhx/ag_news",
+    "revision": "eb185aade064a813bc0b7f42de02595523103ca4",
+    "n_holdout": 7600,
+    "paired_runs": 1000,
+    "selected": {
+      "parent_root": 8,
+      "tau": 0.25,
+      "bins": 8,
+      "trigger_fraction": 0.3,
+      "thresholds": [
+        0.9999999999733984,
+        0.999999999614233,
+        0.9999999999995566,
+        0.9999999999722047
+      ],
+      "pool_size": 400,
+      "budget": 50
+    },
+    "clean_root_holdout_accuracies": [
+      0.8772368421052632,
+      0.8875,
+      0.8880263157894737,
+      0.8992105263157895,
+      0.9038157894736842,
+      0.8990789473684211,
+      0.9071052631578947,
+      0.911578947368421,
+      0.9131578947368421,
+      0.9173684210526316,
+      0.9184210526315789,
+      0.9151315789473684
+    ],
+    "parent_holdout_accuracy": 0.9131578947368421,
+    "adapter_parent_accuracy_gaps": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "realized_trigger_fractions": [
+      0.3021052631578947,
+      0.30855263157894736,
+      0.31473684210526315,
+      0.30644736842105263
+    ],
+    "pairwise_alias_response_hamming": [
+      0.2503947368421053,
+      0.24789473684210525,
+      0.2406578947368421,
+      0.2632894736842105,
+      0.24394736842105263,
+      0.2567105263157895
+    ],
+    "mean_pairwise_alias_response_hamming": 0.2504824561403509,
+    "minimum_pairwise_alias_response_hamming": 0.2406578947368421,
+    "path_change_rate": 1.0,
+    "query_set_change_rate": 0.993,
+    "final_root_change_rate": 0.552,
+    "terminal_regret_delta": {
+      "mean": 0.005467500000000004,
+      "median": 0.0024999999999999467,
+      "bootstrap_95": [
+        0.005022500000000003,
+        0.0059250000000000014
+      ],
+      "one_sided_signflip_p": 9.99990000099999e-06,
+      "positive_fraction": 0.526,
+      "negative_fraction": 0.006,
+      "zero_fraction": 0.468
+    },
+    "cumulative_regret_delta": {
+      "mean": 0.1444075000000001,
+      "median": 0.08375000000000021,
+      "bootstrap_95": [
+        0.12807000000000013,
+        0.16088768750000015
+      ],
+      "one_sided_signflip_p": 9.99990000099999e-06,
+      "positive_fraction": 0.686,
+      "negative_fraction": 0.302,
+      "zero_fraction": 0.012
+    },
+    "active_minus_fixed_terminal": {
+      "mean": 0.005467500000000004,
+      "median": 0.0024999999999999467,
+      "bootstrap_95": [
+        0.005017500000000005,
+        0.005927500000000006
+      ],
+      "one_sided_signflip_p": 9.99990000099999e-06,
+      "positive_fraction": 0.526,
+      "negative_fraction": 0.006,
+      "zero_fraction": 0.468
+    },
+    "max_abs_fixed_terminal_delta": 0.0,
+    "max_abs_fixed_cumulative_delta": 0.0,
+    "learned_adapter_audits": {
+      "step92_parent_08_learned_adapter_0.safetensors": {
+        "sha256": "29fbc038d39093c69e1e75811bf14f579fcf69f73169764d8f55e7f3a7ad98fb",
+        "tensor_names": [
+          "down.bias",
+          "down.weight",
+          "norm.bias",
+          "norm.weight",
+          "out.bias",
+          "out.weight"
+        ],
+        "parameter_count": 50817,
+        "nonzero_count": 50817,
+        "variance": 0.022674547508358955,
+        "bytes": 204100
+      },
+      "step92_parent_08_learned_adapter_1.safetensors": {
+        "sha256": "ec46f442071830e0b4ccb13d9879bf0c52e4b856fc8eb891fa4afb93b3bb79ad",
+        "tensor_names": [
+          "down.bias",
+          "down.weight",
+          "norm.bias",
+          "norm.weight",
+          "out.bias",
+          "out.weight"
+        ],
+        "parameter_count": 50817,
+        "nonzero_count": 50817,
+        "variance": 0.02265859767794609,
+        "bytes": 204100
+      },
+      "step92_parent_08_learned_adapter_2.safetensors": {
+        "sha256": "9892f0bd36ac9d1a940c2207bac989922d81c979f5ff449664ce254086a748c4",
+        "tensor_names": [
+          "down.bias",
+          "down.weight",
+          "norm.bias",
+          "norm.weight",
+          "out.bias",
+          "out.weight"
+        ],
+        "parameter_count": 50817,
+        "nonzero_count": 50817,
+        "variance": 0.022139471024274826,
+        "bytes": 204100
+      },
+      "step92_parent_08_learned_adapter_3.safetensors": {
+        "sha256": "7a161beb3e1c1961fd749117d55a1f09ee47405c81a90451f111dbce97c3a93e",
+        "tensor_names": [
+          "down.bias",
+          "down.weight",
+          "norm.bias",
+          "norm.weight",
+          "out.bias",
+          "out.weight"
+        ],
+        "parameter_count": 50817,
+        "nonzero_count": 50817,
+        "variance": 0.022329844534397125,
+        "bytes": 204100
+      }
+    },
+    "gates": {
+      "all_locked_hashes_match": true,
+      "genuine_learned_adapter_files": true,
+      "coordinate_wise_hard_utility_equal": true,
+      "fixed_query_exact_zero": true,
+      "path_change_at_least_half": true,
+      "mean_terminal_delta_at_least_0_5pp": true,
+      "terminal_bootstrap_lower_above_zero": true,
+      "one_sided_signflip_p_at_most_0_05": true,
+      "active_minus_fixed_at_least_0_5pp": true
+    }
+  },
+  "claim_boundary": "New raw-input task with nontrivially learned contextual calibration adapters; not live registry admission, secret-task compromise, universal harm, or deployment prevalence."
+}

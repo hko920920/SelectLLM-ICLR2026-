@@ -1,0 +1,138 @@
+{
+  "manifest_id": "STEP50_NATURAL_EXACT_ALIAS_V1",
+  "created_local_date": "2026-08-09",
+  "purpose": "Test whether one naturally occurring exact version alias changes active LLM model-selection transcripts or decision utility when the underlying behavioral alternatives are unchanged.",
+  "epistemic_status": "The alias pair was identified in Step 48 from frozen response and oracle-vector equality, before running the base-versus-refined active-selection comparison. This is an internal result-blind lock, not a prospective external preregistration.",
+  "locked_inputs": {
+    "step28_manifest": {
+      "file": "STEP28_FINAL_MATRIX_MANIFEST_2026-08-06.json",
+      "sha256": "a16f9a262f8d100899a443e96e3ae141ca266f7b5121cdf5e628fc1a67c201ca"
+    },
+    "step29_results": {
+      "file": "STEP29_LOCKED_PHASE_A_RESULTS_2026-08-06.json",
+      "sha256": "9a075b143db6a8f11a42dbbbc313a9262a4547249fe81d39caa3f1c7a1540aaa"
+    },
+    "step31_preregistration": {
+      "file": "STEP31_PHASE_B2_PREREGISTRATION_2026-08-06.json",
+      "sha256": "a757631ef6f43ed90fd86c40f042a8ab9259e6008704fe460e04b8bc612b2af0"
+    },
+    "step48_audit": {
+      "file": "STEP48_ADVERSARIAL_REVIEW_AUDIT_2026-08-09.json",
+      "sha256": "c102f5671897efccec3c3baa3e8bbe9f9860966b027d16590d1ba07b3d4bf3ba"
+    }
+  },
+  "natural_pair": {
+    "selection_rule": "Use the unique pair among the 31 frozen candidates whose complete response row and complete recorded oracle row are identical in all three tasks. The same-provider/version naming relation is descriptive and was not used to select among outcome results.",
+    "retained_index": 9,
+    "retained_model": "anthropic_claude-instant-1.2",
+    "added_index": 10,
+    "added_model": "anthropic_claude-instant-v1",
+    "base_registry": "The 30-entry stable-order subset formed by deleting frozen index 10 and retaining frozen index 9.",
+    "refined_registry": "The original frozen 31-entry roster, with index 10 root-mapped to index 9.",
+    "orientation_rule": "Retain the smaller frozen index, exactly matching the existing exact-response quotient tie rule. Do not reverse or select the orientation after observing outcomes.",
+    "required_checks": [
+      "The pair is the unique cross-task intersection of exact response-and-oracle pairs.",
+      "The added entry has zero response mismatches and zero oracle mismatches with the retained entry in every task.",
+      "Every non-added candidate is byte-for-byte unchanged and remains in frozen order.",
+      "The added entry maps to the retained entry's deployment root.",
+      "The pair has the same full-dataset quality in each task."
+    ]
+  },
+  "evaluation": {
+    "tasks": {
+      "medqa": {
+        "examples": 1000,
+        "pool_size": 500,
+        "primary_budget": 50,
+        "selected_temperature": 3.0,
+        "robustness_budgets": [10, 30, 50]
+      },
+      "gsm8k": {
+        "examples": 1000,
+        "pool_size": 500,
+        "primary_budget": 30,
+        "selected_temperature": 5.0,
+        "robustness_budgets": [10, 20, 30]
+      },
+      "openbookqa": {
+        "examples": 500,
+        "pool_size": 400,
+        "primary_budget": 30,
+        "selected_temperature": 5.0,
+        "robustness_budgets": [10, 20, 30]
+      }
+    },
+    "temperature_grid": [0.1, 0.5, 1.0, 3.0, 5.0],
+    "configuration_rule": "For each task, run all five temperatures at the primary budget and all three budgets at the frozen selected temperature. Their overlap is run once, yielding seven configurations per task and 21 total cells.",
+    "primary_cells": "One frozen selected-temperature/primary-budget cell per task. Only these three cells determine the Step 50 classification.",
+    "secondary_cells": "The other 18 cells are complete robustness slices. They are descriptive and cannot promote a failed primary classification.",
+    "paired_pool_seeds": {
+      "start": 50000,
+      "stop_inclusive": 50499,
+      "runs": 500
+    },
+    "active_method": "The independently implemented Select-LLM acquisition rule already frozen in Step 29, with uniform probability over registry entries and deterministic smallest-index tie breaking.",
+    "random_query_control": {
+      "query_seed_offset": 99173,
+      "rule": "Draw a candidate-invariant ordered query sequence without replacement from each paired pool, then evaluate both registries on that identical sequence.",
+      "required_pass": "Query matrices and root-selected paths must be exactly identical, and all paired cumulative and terminal root-regret deltas must be zero, in every primary cell."
+    }
+  },
+  "endpoints": {
+    "delta_orientation": "refined 31-entry registry minus collapsed 30-entry base; positive regret delta is harmful and negative is beneficial.",
+    "primary": "Paired delta in cumulative deployment-root regret through the task's primary budget.",
+    "secondary": [
+      "query-path change fraction",
+      "mean changed query positions",
+      "mean query-set Jaccard",
+      "final selected-root change fraction",
+      "paired delta in final root regret",
+      "paired delta in cumulative deployed-entry regret",
+      "harmful, improved, and tied pool fractions"
+    ],
+    "statistics": "For regret deltas, use 10000-repetition paired bootstrap percentile 95 percent intervals and 10000-repetition paired two-sided sign-flip tests. Apply Benjamini-Hochberg correction across the three primary task p-values and, separately for descriptive reporting, across all 21 robustness cells."
+  },
+  "materiality_and_classification": {
+    "path_materiality": "A primary task is path-material when path-change fraction is at least 0.10 and mean changed query positions is at least 1.0.",
+    "outcome_materiality": "A primary task is outcome-material when absolute mean paired cumulative root-regret delta is at least 0.10, its bootstrap 95 percent interval excludes zero, and its three-task primary-family BH q-value is below 0.05.",
+    "direction_labels": {
+      "harm": "Outcome-material with a positive mean delta.",
+      "benefit": "Outcome-material with a negative mean delta. This still falsifies registry-refinement invariance but is not evidence of natural harm."
+    },
+    "ordered_classes": [
+      {
+        "class": "INVALID_CONTROL_OR_PAIR",
+        "rule": "Any required exact-pair, input-lock, construction, or random-query-control check fails."
+      },
+      {
+        "class": "STRONG_NATURAL_OUTCOME_ANCHOR",
+        "rule": "At least two of three primary tasks are path-material and at least two are outcome-material."
+      },
+      {
+        "class": "LIMITED_NATURAL_OUTCOME_ANCHOR",
+        "rule": "At least two primary tasks are path-material and exactly one is outcome-material."
+      },
+      {
+        "class": "NATURAL_TRANSCRIPT_ANCHOR_ONLY",
+        "rule": "At least two primary tasks are path-material and none is outcome-material."
+      },
+      {
+        "class": "TASK_LOCAL_OR_NULL_NATURAL_EFFECT",
+        "rule": "Fewer than two primary tasks are path-material, with no stronger class satisfied."
+      }
+    ],
+    "manuscript_use": {
+      "STRONG_NATURAL_OUTCOME_ANCHOR": "May support a cross-task natural outcome non-invariance claim, with direction reported task by task.",
+      "LIMITED_NATURAL_OUTCOME_ANCHOR": "May support only a task-local natural outcome example plus cross-task transcript sensitivity.",
+      "NATURAL_TRANSCRIPT_ANCHOR_ONLY": "May support natural transcript sensitivity only; do not imply natural regret harm.",
+      "TASK_LOCAL_OR_NULL_NATURAL_EFFECT": "Do not use this pair as broad practical-effect evidence; preserve the synthetic attack evidence and its realism limitation."
+    }
+  },
+  "interpretive_boundary": [
+    "This test studies a natural registry refinement, not evidence that Anthropic acted adversarially.",
+    "Exact aliases establish that real rosters can contain duplicated behavioral alternatives, but they do not by themselves validate the response-distinct T2 wrapper construction.",
+    "An exact-response quotient can remove this exact pair; the purpose is to establish occurrence and unprotected-method sensitivity, not to defeat exact deduplication.",
+    "A beneficial regret delta still violates representation invariance but cannot be described as an attack-induced harm.",
+    "No pair, task, orientation, temperature, budget, seed subset, or endpoint may be changed after execution to obtain a stronger class."
+  ]
+}

@@ -1,0 +1,16 @@
+\begin{table}[H]
+\centering
+\caption{Sealed executable calibration-adapter audits (1,000 paired pools each). Terminal effects are refined-minus-clean root regret in percentage points. Hard answers and utilities equal the parent coordinate-wise; every fixed-query effect is zero. MNLI/QQP $q$-values use Holm correction. QNLI is the retained earlier single-task negative result and reports its raw $p$.}
+\label{tab:step90-adapters}
+\scriptsize
+\setlength{\tabcolsep}{3.2pt}
+\begin{tabular}{@{}lrrrcc@{}}
+\toprule
+Task & Trigger & $\Delta$ terminal [95\% CI] & $q$/$p$ & Path/final-root change & Gate \\
+\midrule
+QNLI & all confidence views & $-.068$ [$-.149,.014$] & $.948$ & $96.9/41.7\%$ & No \\
+MNLI & top 30\% confidence & $+.702$ [$+.586,.823$] & $2.0\!\times\!10^{-5}$ & $99.8/32.8\%$ & Pass \\
+QQP & top 20\% confidence & $+1.270$ [$+1.201,+1.340$] & $2.0\!\times\!10^{-5}$ & $100.0/82.3\%$ & Pass \\
+\bottomrule
+\end{tabular}
+\end{table}

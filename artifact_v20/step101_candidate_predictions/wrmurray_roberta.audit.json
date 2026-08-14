@@ -1,0 +1,29 @@
+{
+  "candidate": "wrmurray_roberta",
+  "repo_id": "wrmurray/roberta-base-finetuned-imdb",
+  "revision": "7aa8ca3fae56a1860d8b4c6bf727b91370821ad5",
+  "protocol_sha256": "2e0f3120508cc5b82a4e8f3d174bdb58ba8c252d367bce84d17bbce9ce7da801",
+  "development_sha256": "325fe59440d0444d968b2446c282dec08697d7e7c2a2c2fb1f726c6ae33f3c4e",
+  "prediction_file": "step101_candidate_predictions/wrmurray_roberta.npz",
+  "prediction_file_sha256": "911d0a7140692739ecec838124329603764b3f90365157141d3e74b7c39960fa",
+  "prediction_array_sha256": "02064f4326e51c90afc9f040ba20b11e5a0bde058b6f13070868ed78a5930c3b",
+  "model_audit": {
+    "root_key": "wrmurray_roberta",
+    "repo_id": "wrmurray/roberta-base-finetuned-imdb",
+    "revision": "7aa8ca3fae56a1860d8b4c6bf727b91370821ad5",
+    "model_type": "roberta",
+    "id2label": {
+      "0": "LABEL_0",
+      "1": "LABEL_1"
+    },
+    "max_length": 256,
+    "prediction_sha256": "02064f4326e51c90afc9f040ba20b11e5a0bde058b6f13070868ed78a5930c3b",
+    "samples": 12000,
+    "tokenizer_class": "RobertaTokenizerFast"
+  },
+  "sealed_outcome_opened": false,
+  "code_sha256": {
+    "step100_common.py": "74c43111b3ca768930d7d205cd048466327c806310a91a94aa1fe11cd1e793e1",
+    "step101_infer_candidate.py": "77331c1d32709610f42e5366d66fd06fcf1eefde67dc4c662c81f402fb8cc075"
+  }
+}

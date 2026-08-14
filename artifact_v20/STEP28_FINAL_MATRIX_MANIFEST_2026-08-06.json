@@ -1,0 +1,229 @@
+{
+  "manifest_id": "STEP28_FINAL_MATRIX_V1_1",
+  "amendment_before_final_execution": "Corrected the proxy-temperature grid to the paper's Appendix D grid and added disjoint proxy-tuning seeds before any final seed was executed.",
+  "frozen_local_date": "2026-08-06",
+  "paper_working_title": "Candidate Lists Are Priors: Registry-Refinement Attacks on Active Model Selection",
+  "primary_claim": "Candidate-registry multiplicity is an unverified prior intervention: it can redirect sequential annotation and deployment, while prediction-only quotient defenses face an evasion-versus-false-merge frontier.",
+  "forbidden_claims": [
+    "Every duplicate or refinement harms selection.",
+    "The response-only attack is quality preserving.",
+    "The response-only harmful attack generalizes across all evaluated tasks.",
+    "The reference-aware attack represents an outsider against a fully private clinical label pool.",
+    "Exact deduplication is a novel defense.",
+    "Behavioral clustering identifies true ownership or independence.",
+    "The independent equation-faithful implementation is the authors' official artifact."
+  ],
+  "roles": {
+    "registry_curator": "Accepts candidate entries but has no authenticated root or independence evidence.",
+    "candidate_submitter": "Controls only its added candidate entries and their precomputed responses.",
+    "active_selector": "Runs the frozen acquisition and update algorithm honestly.",
+    "annotation_oracle": "Returns the frozen benchmark or expert reference honestly.",
+    "auditor": "Receives candidate responses, attack metadata, paired transcripts, and evaluation summaries."
+  },
+  "invariants_across_clean_and_refined_runs": [
+    "Original candidate responses are unchanged.",
+    "Original candidate oracle scores are unchanged.",
+    "The query pool and paired random seed are unchanged.",
+    "The annotation oracle is unchanged and honest.",
+    "The acquisition code, temperature, budget, and tie breaking are unchanged.",
+    "The attack is constructed before the first active query and does not adapt online.",
+    "The original-candidate oracle optimum is evaluated on the same sampled pool."
+  ],
+  "excluded_attacker_capabilities": [
+    "Changing existing candidates or their responses.",
+    "Changing or poisoning oracle annotations.",
+    "Observing final evaluation pool seeds before constructing a wrapper.",
+    "Changing selector code, hyperparameters, budget, or tie breaking.",
+    "Adapting wrapper outputs after observing the active query trajectory.",
+    "Using model weights, gradients, logits, or hidden states."
+  ],
+  "threat_tiers": {
+    "T0_exact_or_accidental_refinement": {
+      "label_access": false,
+      "response_matrix_access": true,
+      "online_adaptation": false,
+      "operator": "Add exact response-vector copies of one registered candidate.",
+      "quality_relation": "Per-example oracle scores are exactly identical to the parent.",
+      "realistic_scope": "Duplicate endpoints, checkpoints, aliases, prompting entries, or accidental registry repetition.",
+      "allowed_claim": "Exact refinement can change the active path and can harm or improve empirical selection; its sign is not universal."
+    },
+    "T1_response_only_offline_refinement": {
+      "label_access": false,
+      "response_matrix_access": true,
+      "prompt_and_option_access": true,
+      "online_adaptation": false,
+      "operator": "On a frozen fraction of queries, replace the parent's response with a low-frequency alternative chosen from prompts/options and candidate-response frequencies only.",
+      "quality_relation": "Not guaranteed; every alias's actual per-example and aggregate score must be reported.",
+      "realistic_scope": "Private target domains in which a submitter can inspect prompts or peer responses but not expert references.",
+      "allowed_claim": "This tier evades exact hashing and has demonstrated harmful selection on MedQA; cross-task harmful generality remains unestablished."
+    },
+    "T2_reference_aware_offline_refinement": {
+      "label_access": true,
+      "response_matrix_access": true,
+      "prompt_and_option_access": true,
+      "online_adaptation": false,
+      "operator": "Modify only parent-wrong positions to distinct alternative wrong responses, preserving the complete per-example correctness vector.",
+      "quality_relation": "Exactly equal to the parent on every example under the frozen exact-match oracle.",
+      "realistic_scope": "Public benchmarks, leaderboards, benchmark-aware vendors, or submitters that separately acquire the reference set.",
+      "clinical_scope_limit": "Not presented as an outside attack on a hospital's secret expert labels unless the submitter independently obtains those labels.",
+      "allowed_claim": "A quality-equivalent offline refiner can manipulate active selection across the three tested public-reference tasks without online control of the oracle or evaluation seeds."
+    }
+  },
+  "data": {
+    "source": "Public HELM-Lite v1.0.0 raw model responses and references.",
+    "models": 31,
+    "tasks": {
+      "medqa": {
+        "examples": 1000,
+        "pool_size": 500,
+        "primary_budget": 50,
+        "robustness_budgets": [10, 30, 50],
+        "metric": "HELM quasi_exact_match"
+      },
+      "gsm8k": {
+        "examples": 1000,
+        "pool_size": 500,
+        "primary_budget": 30,
+        "robustness_budgets": [10, 20, 30],
+        "metric": "HELM final-number exact match"
+      },
+      "openbookqa": {
+        "examples": 500,
+        "pool_size": 400,
+        "primary_budget": 30,
+        "robustness_budgets": [10, 20, 30],
+        "metric": "HELM canonical-option exact match"
+      }
+    }
+  },
+  "randomness_partition": {
+    "response_only_screen_seeds": {
+      "start": 0,
+      "stop_inclusive": 499,
+      "purpose": "Select response-sensitive targets without oracle labels."
+    },
+    "development_seeds": {
+      "start": 1000,
+      "stop_inclusive": 3999,
+      "purpose": "Prior exploratory work and attack construction diagnostics; never used for final confidence intervals."
+    },
+    "proxy_temperature_seeds": {
+      "start": 40000,
+      "stop_inclusive": 40499,
+      "count": 500,
+      "purpose": "Response-only proxy temperature selection; disjoint from development and final evaluation."
+    },
+    "final_paired_seeds": {
+      "start": 50000,
+      "stop_inclusive": 50499,
+      "count": 500,
+      "purpose": "Locked primary paired evaluation; wrappers are constructed globally without inspecting these sampled pools."
+    },
+    "bootstrap_seed_base": 280000,
+    "bootstrap_repetitions": 10000
+  },
+  "primary_method": {
+    "name": "Select-LLM independent equation-faithful instantiation",
+    "acquisition": "Equation 5 posterior-weighted pairwise response similarity",
+    "update": "Equation 7 exponential posterior update",
+    "initial_prior": "Uniform over submitted candidate entries",
+    "response_similarity": "Exact equality of canonical task responses",
+    "implementation_boundary": "Independent implementation on public raw outputs, not labeled as the authors' artifact.",
+    "temperature_policy": {
+      "primary": "Paper-style response-only proxy tuning performed separately per task by maximizing mean proxy identification probability across budgets 1 through the task's primary budget; exact ties choose the smallest temperature.",
+      "proxy_grid": [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 2.0, 3.0, 4.0, 5.0],
+      "proxy_tuning_realizations": 500,
+      "robustness_grid": [0.1, 0.5, 1.0, 3.0, 5.0]
+    }
+  },
+  "controls_and_comparators": {
+    "random_querying": "Candidate-registry-invariant negative control under paired seeds.",
+    "exact_response_quotient": "Blocks T0 exact copies; expected to retain distinct-hash T1/T2 variants.",
+    "behavioral_component_cover": {
+      "distance": "Fraction of full-dataset canonical responses that disagree.",
+      "radii": [0.0, 0.01, 0.05, 0.1, 0.132, 0.15, 0.184, 0.213],
+      "report": "Attack residual, models removed, natural same-provider pairs merged, and maximum within-component quality span."
+    },
+    "authenticated_root_mass_oracle": "Upper-bound comparator requiring true root lineage; not claimed as a response-only method.",
+    "older_public_selectors": [
+      "CODA",
+      "EnsV",
+      "ModelPicker",
+      "released LLM-Selector MediQA implementation"
+    ]
+  },
+  "attack_factors": {
+    "alias_counts": [1, 2, 4, 8],
+    "primary_alias_count": 4,
+    "wrapper_distance_fractions": [0.001, 0.01, 0.05, 0.1],
+    "minimum_changed_queries": 1,
+    "primary_wrapper_distance_fraction": 0.05,
+    "target_panel": [
+      "response_only_screen_sensitive",
+      "response_consensus_highest",
+      "highest_quality_eligible_for_T2",
+      "median_quality_eligible_for_T2"
+    ],
+    "secondary_all_target_audit": true
+  },
+  "primary_phase": {
+    "name": "Phase A essential confirmation",
+    "tasks": ["medqa", "gsm8k", "openbookqa"],
+    "paired_seeds": 500,
+    "conditions": [
+      "clean",
+      "T0 with 1 exact copy",
+      "T0 with 4 exact copies",
+      "T1 with 4 aliases at 5 percent response distance",
+      "T2 with 4 aliases at 5 percent response distance",
+      "random-query negative control",
+      "exact-response quotient",
+      "behavioral-cover frontier"
+    ]
+  },
+  "secondary_phase": {
+    "name": "Phase B robustness and heterogeneity",
+    "cross": [
+      "all robustness budgets",
+      "all robustness temperatures",
+      "all alias counts",
+      "all wrapper distances",
+      "target panel",
+      "all eligible parents as a distributional audit"
+    ]
+  },
+  "evaluation_metrics": {
+    "primary": "Paired change in cumulative fixed-universe deployed-output regret.",
+    "fixed_universe_deployed_output_regret": "Best original candidate score on the paired pool minus the actual selected entry's score on that pool.",
+    "expanded_universe_regret": "Best score among original and added entries minus the actual selected entry's score on the paired pool.",
+    "root_attribution_regret": "Best original candidate score minus the score of the selected entry's declared parent; secondary only and valid as a deployed-output proxy only for T0/T2 per-example-equal refinements.",
+    "additional": [
+      "Any query-path change fraction.",
+      "Mean number of changed query positions.",
+      "Query-set overlap and Jaccard similarity.",
+      "Final selected-entry and selected-root change fractions.",
+      "Paired final deployed-output regret.",
+      "Harmful, improved, and tied paired-pool fractions.",
+      "Per-alias response distance and oracle quality gap.",
+      "Exact-hash survivors.",
+      "Behavioral-cover false merges and quality spans."
+    ]
+  },
+  "statistical_protocol": {
+    "pairing": "Every clean/refined comparison shares task, model registry, sampled pool, seed, budget, temperature, and oracle.",
+    "interval": "Paired nonparametric bootstrap 95 percent confidence interval over final pools.",
+    "multiplicity": "Benjamini-Hochberg correction within each predeclared robustness family; primary task-level endpoints are reported individually with raw and adjusted values.",
+    "effect_reporting": "Always report mean, median, interval, harmful/improved/tied fractions, and all negative results.",
+    "selection_reporting": "Target-selection policy and whether it uses labels must appear in every table row."
+  },
+  "claim_gates": {
+    "G1_current_method_exposure": "At least two of three tasks show nonzero exact-refinement path-change rate; sign of regret may differ.",
+    "G2_quality_equal_strategic_harm": "For T2 primary conditions, cumulative deployed-output regret has positive point estimates on all three tasks and a positive paired 95 percent lower bound on at least two tasks.",
+    "G3_cross_target_robustness": "Report the complete eligible-parent distribution; the headline may use an adversarially selected parent only if selection uses development data and final seeds remain locked.",
+    "G4_response_only_boundary": "T1 is promoted beyond a medical/domain-specific result only if at least two tasks have positive paired 95 percent lower bounds using actual alias output quality.",
+    "G5_exact_dedup_limit": "Every non-identical T1/T2 alias survives exact response hashing.",
+    "G6_behavioral_cover_frontier": "Any radius advertised as materially suppressing T2 must be accompanied by natural-family removals and quality-span costs at the same radius.",
+    "G7_negative_control": "Random querying must have identical query transcripts under paired clean/refined registry conditions.",
+    "G8_kill_condition": "If G2 fails after faithful proxy-temperature tuning or disappears when actual selected-entry quality is used, the strategic headline is withdrawn rather than retuned on final seeds."
+  }
+}

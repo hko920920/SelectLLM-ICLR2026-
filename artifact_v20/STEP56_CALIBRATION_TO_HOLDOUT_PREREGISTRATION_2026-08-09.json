@@ -1,0 +1,178 @@
+{
+  "manifest_id": "STEP56_CALIBRATION_TO_HOLDOUT_REFERENCE_FREE_V1",
+  "frozen_local_date": "2026-08-09",
+  "status_before_execution": "PREREGISTERED_NO_SPLIT_SPECIFIC_CALIBRATION_OR_HOLDOUT_OUTCOME_SEEN",
+  "paper_working_title": "Candidate Lists Are Priors: Registry-Refinement Attacks on Active Model Selection",
+  "purpose": "Test the largest remaining external-validity objection: whether a response-distinct wrapper can be learned from a disjoint labeled calibration half and then constructed on a sealed holdout using only prompt text, public options, and the parent's own output.",
+  "frozen_question": "Can a calibration-trained, peer-response-free wrapper preserve the frozen parent's held-out utility closely enough to isolate registry refinement while increasing active-selection cumulative deployed-output regret on unseen references?",
+  "scope_boundary": {
+    "primary_access": "Calibration references, calibration prompts/options, and the parent's calibration outputs may be used for fitting and development selection. On holdout, construction receives only prompt text, ordered public options, and the frozen parent's own output.",
+    "forbidden_holdout_inputs": [
+      "holdout reference or correctness tag",
+      "holdout oracle score",
+      "any peer-model holdout response",
+      "candidate-response frequency or consensus",
+      "pool seed or sampled pool",
+      "selector state, trajectory, or outcome"
+    ],
+    "not_claimed": [
+      "exact coordinate-wise quality equality on holdout",
+      "a secret clinical-label attack",
+      "an independently trained checkpoint",
+      "production-registry admission",
+      "universal harm"
+    ]
+  },
+  "locked_sources": {
+    "raw_helm_file_count": 96,
+    "raw_helm_file_manifest_sha256": "94abcb375d2fa390ae3b314d0eac74b8a21c13d95b341b18323742a7e5a14854",
+    "raw_helm_total_bytes": 39855615,
+    "medqa_loader_sha256": "60f38dd5b4fdaa2c6dee86affcb71dfd4e54eea9b314329e5b572bea1b6d5049",
+    "external_task_loader_sha256": "827813911e5d86a8c7da894b660923f25374a743a3f3ee88a3ec905a2fb04cf6",
+    "selection_runner_sha256": "8019d116e17bf669f876f5f20ed4ca90c2f0b276868e049005a8cdcc4a1f0839",
+    "step46_runner_sha256": "fffc9bf093978fd0b4340ef06ae1da8adf8bba6c1483aadf55f966ec28ff55cf",
+    "step54_preregistration_sha256": "cf45cdd3e6b1425db2f2c17d4e4283bde95d58356a3fd1ade09c2ef6813e8ed9",
+    "step54_results_sha256": "4ab5428c368991f8c9696edda63660ac76b1d516bb7c78d52eeb553ad56a41dd"
+  },
+  "frozen_feature_encoder": {
+    "huggingface_id": "sentence-transformers/all-MiniLM-L6-v2",
+    "snapshot_commit": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "model_safetensors_sha256": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
+    "loading": "local_files_only=True",
+    "pooling": "attention-mask-weighted last-hidden-state mean followed by L2 normalization",
+    "max_length": 256,
+    "batch_size": 32,
+    "device": "CUDA if available, otherwise CPU",
+    "role": "Frozen feature extractor only; no holdout labels or peer responses enter it."
+  },
+  "split": {
+    "rule": "Within each task, sort examples by SHA-256 of compact JSON [manifest_id, 'split', task, public example ID]. The first floor(N/2) are calibration and the remainder are holdout.",
+    "calibration_examples": {
+      "medqa": 500,
+      "gsm8k": 500,
+      "openbookqa": 250
+    },
+    "holdout_examples": {
+      "medqa": 500,
+      "gsm8k": 500,
+      "openbookqa": 250
+    },
+    "separation_protocol": [
+      "A preparation program writes a labeled calibration package and a blind holdout attack-input package.",
+      "The blind package contains IDs, prompt text, public options, and only the frozen parent's response; it contains no correct answer, oracle, peer response, pool, or selector field.",
+      "The attack builder reads only those two packages and writes frozen holdout alias responses before any holdout outcome program is executed.",
+      "A second execution lock binds the attack artifact and outcome runner before the original holdout oracle is opened for evaluation."
+    ]
+  },
+  "frozen_tasks": {
+    "medqa": {
+      "target_index": 24,
+      "target": "openai_gpt-4-1106-preview",
+      "temperature": 3.0,
+      "budget": 50,
+      "calibration_pool_size": 250,
+      "holdout_pool_size": 250
+    },
+    "gsm8k": {
+      "target_index": 23,
+      "target": "openai_gpt-4-0613",
+      "temperature": 5.0,
+      "budget": 30,
+      "calibration_pool_size": 250,
+      "holdout_pool_size": 250
+    },
+    "openbookqa": {
+      "target_index": 25,
+      "target": "openai_text-davinci-002",
+      "temperature": 5.0,
+      "budget": 30,
+      "calibration_pool_size": 200,
+      "holdout_pool_size": 200
+    }
+  },
+  "learner": {
+    "runtime_text": "Question text, ordered public options, and parent output serialized with fixed field labels.",
+    "error_target": "One iff the frozen parent's recorded calibration oracle is zero.",
+    "cross_fitting": "Five-fold StratifiedKFold with shuffle=True and random_state 56000 plus task index; every calibration attack score used for policy selection is out-of-fold.",
+    "error_model_grid": [
+      "TF-IDF word (1,2) plus char_wb (3,5), min_df=2, sublinear_tf=True, at most 30000 features per branch; class-balanced liblinear logistic regression C=1",
+      "same TF-IDF features with C=10",
+      "frozen MiniLM embedding plus class-balanced liblinear logistic regression C=0.1",
+      "same MiniLM embedding with C=1",
+      "same MiniLM embedding with C=10"
+    ],
+    "error_model_selection": "Maximize the unweighted mean precision among the top 1%, 2%, and 5% of out-of-fold error scores; break ties by average precision, then the listed model order.",
+    "multiple_choice_option_ranker": "A separate class-balanced C=1 logistic regression on frozen MiniLM embeddings of question/candidate-option pairs. Calibration option scores are five-fold out-of-fold; the holdout ranker is fit on all calibration options.",
+    "gsm8k_replacement": "Parse the parent canonical number and add alias-specific offsets [1,-1,2,-2]; invalid parent outputs receive deterministic alias strings.",
+    "aliases": 4,
+    "support": "For each distance, all aliases use the top-d predicted-parent-error holdout examples, with SHA-256 tie breaking independent of references.",
+    "multiple_choice_identity": "Normally emit the non-parent option with the lowest predicted correctness probability. The first two support coordinates encode the two-bit alias index by choosing the second-lowest option when the bit is one, yielding four distinct response rows without accessing correctness.",
+    "distance_grid": [0.01, 0.02, 0.05],
+    "multiple_choice_choice_modes": [
+      "calibrated_lowest_probability",
+      "hash_ranked_nonparent"
+    ]
+  },
+  "calibration_policy_selection": {
+    "candidate_count_per_multiple_choice_task": 6,
+    "candidate_count_gsm8k": 3,
+    "development_pool_seeds": {
+      "start": 91500,
+      "stop_inclusive": 91699,
+      "count": 200
+    },
+    "feasibility": "Every alias must have absolute calibration accuracy gap at most 0.01 and coordinate-wise oracle-disagreement fraction at most 0.02 relative to the parent.",
+    "choice": "Among feasible policies choose the largest mean paired calibration delta cumulative deployed-output regret; ties choose lower maximum oracle disagreement, lower distance, calibrated option mode, then lexical configuration name.",
+    "no_feasible_fallback": "For diagnostic execution only, choose minimum maximum oracle disagreement then maximum calibration effect. This cannot pass the calibration-feasibility gate.",
+    "outcome_reporting": "Retain calibration results for every candidate policy, including negative effects."
+  },
+  "holdout_evaluation": {
+    "paired_pool_seeds": {
+      "start": 92000,
+      "stop_inclusive": 92499,
+      "count": 500
+    },
+    "primary_endpoint": "Paired change in cumulative fixed-universe deployed-output regret using the actual generated alias oracle, not parent attribution.",
+    "secondary_endpoints": [
+      "paired terminal deployed-output regret",
+      "ordered path change and changed positions",
+      "query-set Jaccard",
+      "harmful, improved, and tied fractions",
+      "per-alias aggregate accuracy gap",
+      "per-alias coordinate-wise oracle disagreement",
+      "error precision on the selected support",
+      "root-attribution regret as a labeled diagnostic only"
+    ],
+    "statistics": "500 paired pools, 10000-repetition paired bootstrap 95% interval, and 10000-repetition paired sign-flip test with task-specific seeds rooted at 956000.",
+    "fixed_query_control": "One registry-independent random query matrix is shared by clean and refined scenarios. Query matrices must be byte-identical; regret need not be identical because learned aliases are not guaranteed coordinate-wise equal."
+  },
+  "predeclared_gates": {
+    "G0_blind_construction_integrity": "Split hashes match; calibration and holdout IDs are disjoint; the blind package and attack artifact contain no holdout correct/oracle/peer/pool/selector fields; all aliases are frozen before outcome execution.",
+    "G1_calibration_feasibility": "The development-selected policy satisfies the preregistered 0.01 aggregate-gap and 0.02 coordinate-disagreement bounds on every task.",
+    "G2_holdout_quality": {
+      "task_pass": "All four aliases have absolute held-out accuracy gap at most 0.01 and oracle-disagreement fraction at most 0.02.",
+      "strong": "All three tasks pass.",
+      "narrow": "Exactly two tasks pass."
+    },
+    "G3_holdout_effect": {
+      "task_pass": "The paired 95% lower bound for cumulative deployed-output regret is greater than zero.",
+      "promotion": "At least two tasks pass both G2 task quality and G3 task effect.",
+      "narrow": "Exactly one task passes both."
+    },
+    "G4_controls": "All holdout aliases have four distinct non-parent hashes and exact declared response distance; fixed-query matrices are byte-identical on every task.",
+    "overall": {
+      "PROMOTE_LABEL_FREE_T1": "G0, G1, and G4 pass and at least two tasks jointly pass G2 quality and G3 effect.",
+      "NARROW_LABEL_FREE_EVIDENCE": "G0 and G4 pass and exactly one task jointly passes quality and effect.",
+      "NO_TRANSFER_PROMOTION": "No task jointly passes or any construction/control integrity gate fails. Existing public-reference claims remain unchanged."
+    }
+  },
+  "forbidden_rescues": [
+    "No split salt, target, feature encoder, classifier grid, distance grid, choice rule, pool size, budget, temperature, or seed block may change after holdout outcomes.",
+    "No peer response or consensus feature may be added after calibration or holdout results.",
+    "No failed selected policy may be replaced by a better holdout grid cell.",
+    "A positive path effect without actual-output quality control cannot promote T1.",
+    "Calibration performance cannot be reported as held-out evidence.",
+    "A one-task result cannot be called cross-task label-free generality.",
+    "Failure does not invalidate the already locked public-reference T2 result; it narrows attacker access rather than reopening topic search."
+  ]
+}

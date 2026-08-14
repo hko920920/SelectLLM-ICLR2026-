@@ -1,0 +1,106 @@
+{
+  "schema": "step105.predata_lock.v1",
+  "date": "2026-08-13",
+  "status": "LOCKED_BEFORE_ANY_YELP_ROW_OR_MODEL_WEIGHT_EXECUTION",
+  "protocol_file": "STEP105_YELP_PROSPECTIVE_CROSS_TASK_ONE_SHOT_PROTOCOL_2026-08-13.md",
+  "protocol_sha256": "5fc51f828832e4539b987b49ea81bec7159f4556d6da5fb55b5da2ca565aa50f",
+  "metadata_file": "STEP105_PUBLIC_METADATA_SNAPSHOT_2026-08-13.json",
+  "metadata_sha256": "0a282428e467859692d0def7fe57cc6db464e5089fe1c1b783cc35b0942aa305",
+  "dataset_id": "fancyzhx/yelp_polarity",
+  "dataset_config": "plain_text",
+  "dataset_revision": "bbf1c97a1f0cf005e5aded43839fd814654a1557",
+  "root_specs": [
+    {
+      "key": "victorsanh_roberta_parent",
+      "repo_id": "VictorSanh/roberta-base-finetuned-yelp-polarity",
+      "revision": "709b46dd24f08e9b310fd7630cd0728f6d52b570",
+      "parent": true
+    },
+    {
+      "key": "fabrice_bert",
+      "repo_id": "fabriceyhc/bert-base-uncased-yelp_polarity",
+      "revision": "5793d97b55d24e604d9157704e9d3a76735515c1",
+      "parent": false
+    },
+    {
+      "key": "randell_distilbert",
+      "repo_id": "randellcotta/distilbert-base-uncased-finetuned-yelp-polarity",
+      "revision": "a70e629510f730cdaa8407db4928705cfedb257c",
+      "parent": false
+    },
+    {
+      "key": "jiaqilee_robust_bert",
+      "repo_id": "JiaqiLee/robust-bert-yelp",
+      "revision": "a40e8daa515ff7cd09fed21c3d56f50ab7da8f25",
+      "parent": false
+    }
+  ],
+  "development_quotas_per_label": {
+    "adapter_train": 3000,
+    "threshold_calibration": 500,
+    "threshold_safety": 1000
+  },
+  "adapter_seeds": [
+    105100,
+    105101,
+    105102,
+    105103
+  ],
+  "test_seeds": [
+    1053000,
+    1055999
+  ],
+  "test_seed_count": 3000,
+  "bootstrap_seeds": [
+    105800,
+    105801,
+    105802
+  ],
+  "signflip_seeds": [
+    105801,
+    105802,
+    105803
+  ],
+  "selector": {
+    "pool_size": 500,
+    "budget": 5,
+    "temperature": 0.05,
+    "loss_cap": 0.0075,
+    "trigger_cap": 0.025,
+    "same_literal_exact_match": true
+  },
+  "success_label": "GO_STEP105_YELP_PROSPECTIVE_CROSS_TASK_ONE_SHOT",
+  "failure_label": "NO_GO_RETAIN_STEP105_PROSPECTIVE_NEGATIVE",
+  "endpoint_audit": {
+    "parameters": [
+      "texts",
+      "parent_predictions",
+      "adapter_paths",
+      "thresholds"
+    ],
+    "forbidden_source_hits": []
+  },
+  "search_audit": {
+    "forbidden_grid_constants": [],
+    "single_condition": {
+      "loss_cap": 0.0075,
+      "trigger_cap": 0.025,
+      "budget": 5,
+      "temperature": 0.05
+    }
+  },
+  "code_sha256": {
+    "step93_common.py": "cbb4df4ccba18d386f710fbc2dd98fbf83ff266c237fffd523fc1b9dc5c89ccd",
+    "step105_common.py": "de45c067deee0dc4e638f4c75c38842a509a52ef545df102b6ca9ecaa85022d9",
+    "step105_executable_adapter_endpoint.py": "6b5386d7bd7ea21e1009fbe021133de32a1d002626db80a4302df20bddd1042d",
+    "step105_create_predata_lock.py": "844db30b716585f6e457ccbbd8c6f0cd982bd9a7d952090f892311ee9bb93f95",
+    "step105_stage0_prepare_and_seal.py": "a1935486c4cf9ecbc420ff8e130f2dd40d383a2125ca037119d7133e1e8d075e",
+    "step105_train_lock_predictions.py": "e6f1c4f082ed0cb1aef3f5bcf4de4692fbfb313835adaa04a4a0e76df2c112fa",
+    "step105_create_preoutcome_lock.py": "baa46bf381de17dca83fc0dcadcaa2c8f7cd000bd5f51d1449c194fee46ff454",
+    "step105_confirm_sealed_one_shot.py": "f0dda25d02b5b07bd243376a2e97bbbe99803c3b2513f6210f7588d68a0257d6",
+    "step105_validate_independent.py": "32f5578c9c40b4060f44284d25560cca03ff11dadd96cacad2fcf2a0f4d55e5c"
+  },
+  "dataset_rows_loaded_before_lock": false,
+  "model_weights_run_before_lock": false,
+  "prior_outcomes_modified": false
+}

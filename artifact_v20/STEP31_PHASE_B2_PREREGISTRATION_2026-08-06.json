@@ -1,0 +1,97 @@
+{
+  "manifest_id": "STEP31_PHASE_B2_V1",
+  "created_local_date": "2026-08-06",
+  "parent_manifest": "STEP28_FINAL_MATRIX_V1_1",
+  "phase_b1_preregistration_sha256": "75426cf20eda0e2536b85f1d0274652eef94dd8dbea66faa5e483291a167156a",
+  "phase_b1_selection_lock_sha256": "98af2c94f8cd3f831ff83fd78fbf6c6755f0fda49460d4c16778b57be1974c7d",
+  "phase_b1_result_sha256": "53f45f99edf2116a2e2f871fd7faac425e8ec0d38aa2944fb6e867c3420760bd",
+  "purpose": "Final robustness and matched-defense decision for the candidate-registry topic.",
+  "frozen_targets": {
+    "medqa": "openai_gpt-4-1106-preview",
+    "gsm8k": "openai_gpt-4-0613",
+    "openbookqa": "openai_text-davinci-002"
+  },
+  "target_rule": "Targets are copied verbatim from the hash-bound Phase B1 development selection. No replacement is allowed for an ineligible distance or an unfavorable result.",
+  "attack": {
+    "tier": "T2_reference_aware_offline_refinement",
+    "per_example_quality_relation": "Every alias must preserve the parent's complete frozen per-example oracle vector.",
+    "online_adaptation": false,
+    "temperature_grid": [0.1, 0.5, 1.0, 3.0, 5.0],
+    "alias_counts": [1, 2, 4, 8],
+    "nominal_distance_fractions": [0.001, 0.01, 0.05, 0.1],
+    "realized_distance_rule": "max(1, round(nominal_fraction * task_examples)) / task_examples",
+    "budgets": {
+      "medqa": [10, 30, 50],
+      "gsm8k": [10, 20, 30],
+      "openbookqa": [10, 20, 30]
+    },
+    "ineligible_rule": "Record INELIGIBLE_TARGET_AT_DISTANCE and do not substitute another parent."
+  },
+  "evaluation": {
+    "seeds_start": 50000,
+    "seeds_stop_inclusive": 50499,
+    "paired_runs": 500,
+    "pool_sizes": {
+      "medqa": 500,
+      "gsm8k": 500,
+      "openbookqa": 400
+    },
+    "primary_endpoint": "Paired delta in cumulative fixed-universe deployed-output regret through each budget.",
+    "secondary_endpoints": [
+      "final deployed-output regret",
+      "query-path change fraction",
+      "changed query positions",
+      "query-set Jaccard",
+      "harmful, improved, and tied pool fractions"
+    ],
+    "statistics": "10000-repetition paired bootstrap 95 percent intervals and 10000-repetition paired two-sided sign-flip tests.",
+    "multiplicity": [
+      "BH across the full eligible robustness grid within each task for descriptive reporting.",
+      "BH within each task's five-temperature binding family.",
+      "BH within each task's three-budget binding family."
+    ]
+  },
+  "matched_behavioral_cover": {
+    "distance": "Use the realized alias-parent response distance as rho; never compare an attack with a larger unmatched radius.",
+    "attack_anchor": "Four aliases, the B1 proxy-selected task temperature, and the task primary budget.",
+    "report_each_distance": [
+      "attack residual after cover",
+      "clean cumulative and final regret cost",
+      "natural models removed beyond exact-response quotient",
+      "same-provider natural pairs merged",
+      "maximum within-component full-dataset quality span",
+      "component members and scores"
+    ],
+    "authenticated_lineage_oracle": "Report the trivial upper-bound comparator that retains the frozen parent and rejects its authenticated aliases; do not claim it as a new method."
+  },
+  "binding_gates": {
+    "R_robust_harm_surface": {
+      "temperature_condition": "For every task at 5 percent distance, four aliases, and primary budget: positive point estimates at at least 4 of 5 temperatures and strictly positive 95 percent lower bounds at at least 3 temperatures, with the corresponding family-BH p values below 0.05.",
+      "budget_condition": "For every task at 5 percent distance, four aliases, and the frozen proxy-selected temperature: positive point estimates at all 3 budgets and strictly positive 95 percent lower bounds at at least 2 budgets, with the corresponding family-BH p values below 0.05.",
+      "pass": "Both conditions must pass in all three tasks."
+    },
+    "D_matched_defense_cost": {
+      "anchor": "Nominal 10 percent distance, four aliases, frozen proxy-selected temperature, primary budget.",
+      "task_qualifies_if": [
+        "the frozen target is eligible at 10 percent",
+        "the undefended attack has a strictly positive 95 percent lower bound",
+        "the matched cover suppresses the attack to exact paired path and regret equality",
+        "and either the cover has a strictly positive clean cumulative-regret lower bound or a natural clean-registry component has at least a 5 percentage-point full-dataset quality span"
+      ],
+      "pass": "At least two of three tasks qualify. Ineligibility is a failure for that task and cannot trigger retargeting."
+    },
+    "final_decision": "FINAL_PAPER_GO only if both R and D pass; otherwise FINAL_TOPIC_NO_GO_CURRENT_FORM. A failed D gate may leave an empirical audit/theorem result, but not the planned ICLR attack/defense paper."
+  },
+  "known_overlap_disclosure": [
+    "The 5 percent, four-alias, proxy-temperature, primary-budget cell was already observed in Phase B1 and is an exact-reproduction check, not new confirmation.",
+    "Phase A already exposed clean cover costs at its registered radii. Phase B2's contribution is the complete fixed-target matched attack/defense grid, not an independently held-out defense-cost estimate."
+  ],
+  "forbidden_after_results": [
+    "Changing any frozen target.",
+    "Selecting a favorable temperature, distance, alias count, or budget as if it were preregistered primary evidence.",
+    "Using an unmatched larger cover radius to claim cost for a smaller-distance attack.",
+    "Dropping ineligible or beneficial cells.",
+    "Calling public-reference T2 an outsider attack on secret hospital labels.",
+    "Calling behavioral similarity ownership or independence evidence."
+  ]
+}

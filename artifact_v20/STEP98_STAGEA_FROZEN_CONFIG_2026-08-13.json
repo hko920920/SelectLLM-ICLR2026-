@@ -1,0 +1,60 @@
+{
+  "config_id": "STEP98_STAGEA_FROZEN_CONFIG_V1",
+  "date": "2026-08-13",
+  "decision": "NO_GO_STEP98_DEVELOPMENT_STOP",
+  "selected_round": "r3",
+  "stagea_ledger_sha256": "af52b01d0d6c3ecb66fa6be2fe0f4360b3306ff98ebdc881e69ef29df17d1f48",
+  "development_arrays_sha256": "9426c5195b27b095bf9c08f607af35f35be58a14e96b4c907c4eeb969ef72c19",
+  "adapter_paths": [
+    "step98_models/step98_anli_r3_error_adapter_0.safetensors",
+    "step98_models/step98_anli_r3_error_adapter_1.safetensors",
+    "step98_models/step98_anli_r3_error_adapter_2.safetensors",
+    "step98_models/step98_anli_r3_error_adapter_3.safetensors"
+  ],
+  "adapter_sha256": {
+    "step98_models/step98_anli_r3_error_adapter_0.safetensors": "48632e15c328784222a34bdfb73fe01135e058ccf65872763ee163dc5a0af2e9",
+    "step98_models/step98_anli_r3_error_adapter_1.safetensors": "679dd686a83c4279f245049e39576e01a413df6a65183856cf52da327d25916a",
+    "step98_models/step98_anli_r3_error_adapter_2.safetensors": "770b903049c26fad4dfe18a6dcee8f250b2586af544f1352b58137fab226eb7a",
+    "step98_models/step98_anli_r3_error_adapter_3.safetensors": "047e61e82139e735e8a11b5c3ca94f0672f77cd909a56a29d7a7e99a9cfabe77"
+  },
+  "thresholds": [
+    0.9255263805389404,
+    0.9232463538646698,
+    0.8986169695854187,
+    0.9152269959449768
+  ],
+  "tau": 0.025,
+  "budget": 10,
+  "pool_size": 500,
+  "development_gates": {
+    "train_only_round_selection_reconstructed": true,
+    "four_distinct_adapters_at_least_ten_million_parameters": true,
+    "raw_input_endpoint_has_no_forbidden_runtime_input": true,
+    "same_literal_similarity": true,
+    "parent_gap_at_least_2_5pp_on_search_and_verify": true,
+    "coordinate_wise_nonimproving_and_quality_at_most_one_point": true,
+    "search_and_verify_path_change_at_least_half": true,
+    "clean_parent_terminal_rate_at_least_60pct": false,
+    "parent_to_challenger_exceeds_reverse": true,
+    "search_and_verify_terminal_mean_at_least_half_point": true,
+    "search_and_verify_active_mean_at_least_half_point": true,
+    "verification_terminal_inference_positive": true,
+    "verification_active_inference_positive": true,
+    "verification_cumulative_positive": true,
+    "fixed_query_exact_zero": true
+  },
+  "test_input": "step98_test_inputs/anli_r3_dev_inputs.json",
+  "test_input_sha256": "42815f52f0faba2910b40f19ec72593ce8932c1868d789565ece66a470f1faf0",
+  "sealed_outcome": "external_data/step98_sealed/anli_r3_dev_sealed_outcomes.npz",
+  "sealed_outcome_sha256": "1349139f995a9535c5f8fad38309dbee884cc41d58914f9084b43812b0d8a106",
+  "construction_access": {
+    "selected_train_labels": true,
+    "dev_reference": false,
+    "dev_item_lookup": false,
+    "peer_outputs_in_training_or_runtime": false,
+    "runtime_fields": [
+      "premise",
+      "hypothesis"
+    ]
+  }
+}

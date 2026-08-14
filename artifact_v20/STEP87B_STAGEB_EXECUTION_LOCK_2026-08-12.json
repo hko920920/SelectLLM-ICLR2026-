@@ -1,0 +1,22 @@
+{
+  "manifest_id": "STEP87B_STAGEB_EXECUTION_LOCK_V1",
+  "locked_local_date": "2026-08-12",
+  "purpose": "Bind the preregistration, frozen reference-free attack, sealed holdout, outcome runner, independent validator, and all runtime dependencies before the one-shot sealed holdout execution.",
+  "outcomes_executed_before_lock": false,
+  "input_sha256": {
+    "preregistration": "a95c6f0b2a11177577cd03574d019475bc7d8c169b71f02ab8de778a99ed8093",
+    "attack": "ac44b311dff31cac2911319bf39fdc7aa9d6097fc932f90eeed07a1eda738ec2",
+    "sealed_holdout": "48d0767a7b0677cbad4a1b0352ea7e1ca0d5f307e4484231a0a9330507a03bcf"
+  },
+  "code_sha256": {
+    "stage_b_runner": "8988333c314f3ad673181c0a19c4a0e401b9564fb569489dc369b60d966d2e86",
+    "independent_validator": "4eadebe5f7f6bd26bb8eea2bf60290b5d609a66e48d177b27a96359ce1687019",
+    "step87b_openended_common.py": "4928933c79357bb9a79ab60b20b7cebc39c4d871bb8474054e4eadcac3ca8662",
+    "run_step80_main_t2a_v2_transfer.py": "4fc46dcee545b1190ad9e73102ac894898397e747234adfbd738d4823305824a",
+    "run_step54_matrix_free_realism_audit.py": "f6fedf37dcbbef82b68353526b7ecd5b0f2156fb85918574fda139db23df4f7d",
+    "run_step46_clone_robust_soft_weighting.py": "fffc9bf093978fd0b4340ef06ae1da8adf8bba6c1483aadf55f966ec28ff55cf",
+    "run_step50_natural_alias_audit.py": "a355dfe7e83e5348564f89248865d726af5f1c410dd24fd197bb8527d99261f0",
+    "run_step29_locked_phase_a.py": "8019d116e17bf669f876f5f20ed4ca90c2f0b276868e049005a8cdcc4a1f0839"
+  },
+  "execution_rule": "Run every one of the eight frozen scenarios exactly once with the frozen configuration, retain every null or negative result, then run the separately implemented validator without modifying any locked byte."
+}

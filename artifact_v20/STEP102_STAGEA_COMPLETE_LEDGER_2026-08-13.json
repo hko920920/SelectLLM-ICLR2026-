@@ -1,0 +1,2588 @@
+{
+  "ledger_id": "STEP102_STAGEA_COMPLETE_V1",
+  "date": "2026-08-13",
+  "decision": "NO_GO_STEP102_LEARNED_DEVELOPMENT_STOP",
+  "protocol_sha256": "c1b7a4689d27226f58967889139d4268fd2c446bd617105d999e657ab037362b",
+  "authority_sha256": {
+    "STEP100_STAGEA_COMPLETE_LEDGER_2026-08-13.json": "64cdb3aee991d5735fc193b6bea0d90edab4d0d56b1789606932505cb46b0c02",
+    "STEP101_IMDB_DEVELOPMENT_PARENT_ROSTER_SELECTION_2026-08-13.json": "44787c9bc8f2f318f77d8e3289b63a76e92c457aa584f30c0d92208facc5760b",
+    "STEP100_IMDB_DEVELOPMENT_ROWS_2026-08-13.json": "325fe59440d0444d968b2446c282dec08697d7e7c2a2c2fb1f726c6ae33f3c4e",
+    "root_predictions.npz": "5673226220185b0202f929656a7e06fdf5ffdf543e891656f57939818a2941c7",
+    "wrmurray_roberta.npz": "911d0a7140692739ecec838124329603764b3f90365157141d3e74b7c39960fa"
+  },
+  "geometry": {
+    "selector_search": {
+      "rows": 1000,
+      "root_accuracies": [
+        0.941,
+        0.913,
+        0.909,
+        0.898
+      ],
+      "root_accuracy_by_key": {
+        "wrmurray_roberta_parent": 0.941,
+        "lvwerra_distilbert_parent": 0.913,
+        "textattack_distilbert": 0.909,
+        "harsha_tinybert": 0.898
+      },
+      "parent_minus_best_challenger": 0.027999999999999914,
+      "parent_error_prevalence": 0.059,
+      "max_challenger_correct_given_parent_wrong": 0.4576271186440678,
+      "oracle": {
+        "runs": 400,
+        "budget": 10,
+        "tau": 0.025,
+        "mean_terminal_delta": 0.021249999999999974,
+        "mean_active_minus_fixed_terminal_delta": 0.021249999999999974,
+        "mean_cumulative_delta": 0.19477499999999975,
+        "path_change_rate": 0.8025,
+        "query_set_change_rate": 0.8025,
+        "final_root_change_rate": 0.6625,
+        "clean_parent_terminal_rate": 0.6225,
+        "refined_parent_terminal_rate": 0.02,
+        "parent_to_challenger_rate": 0.6025,
+        "challenger_to_parent_rate": 0.0,
+        "max_abs_fixed_terminal_delta": 0.0,
+        "max_abs_fixed_cumulative_delta": 0.0,
+        "fixed_root_history_exact": true
+      },
+      "gates": {
+        "parent_gap_at_least_2_5pp": true,
+        "parent_error_at_least_3pct": true,
+        "challenger_complementarity_at_least_15pct": true,
+        "oracle_terminal_at_least_1pp": true,
+        "path_change_at_least_half": true,
+        "directionality": true,
+        "fixed_exact_zero": true
+      },
+      "eligible": true
+    },
+    "selector_verify": {
+      "rows": 2000,
+      "root_accuracies": [
+        0.9415,
+        0.91,
+        0.9075,
+        0.898
+      ],
+      "root_accuracy_by_key": {
+        "wrmurray_roberta_parent": 0.9415,
+        "lvwerra_distilbert_parent": 0.91,
+        "textattack_distilbert": 0.9075,
+        "harsha_tinybert": 0.898
+      },
+      "parent_minus_best_challenger": 0.03149999999999997,
+      "parent_error_prevalence": 0.0585,
+      "max_challenger_correct_given_parent_wrong": 0.3418803418803419,
+      "oracle": {
+        "runs": 1500,
+        "budget": 10,
+        "tau": 0.025,
+        "mean_terminal_delta": 0.020106666666666637,
+        "mean_active_minus_fixed_terminal_delta": 0.020106666666666637,
+        "mean_cumulative_delta": 0.18717599999999973,
+        "path_change_rate": 0.756,
+        "query_set_change_rate": 0.754,
+        "final_root_change_rate": 0.634,
+        "clean_parent_terminal_rate": 0.57,
+        "refined_parent_terminal_rate": 0.015333333333333332,
+        "parent_to_challenger_rate": 0.5546666666666666,
+        "challenger_to_parent_rate": 0.0,
+        "max_abs_fixed_terminal_delta": 0.0,
+        "max_abs_fixed_cumulative_delta": 0.0,
+        "fixed_root_history_exact": true
+      },
+      "gates": {
+        "parent_gap_at_least_2_5pp": true,
+        "parent_error_at_least_3pct": true,
+        "challenger_complementarity_at_least_15pct": true,
+        "oracle_terminal_at_least_1pp": true,
+        "path_change_at_least_half": true,
+        "directionality": true,
+        "fixed_exact_zero": true
+      },
+      "eligible": true
+    }
+  },
+  "roster": [
+    {
+      "key": "wrmurray_roberta_parent",
+      "repo_id": "wrmurray/roberta-base-finetuned-imdb",
+      "revision": "7aa8ca3fae56a1860d8b4c6bf727b91370821ad5",
+      "parent": true
+    },
+    {
+      "key": "lvwerra_distilbert_parent",
+      "repo_id": "lvwerra/distilbert-imdb",
+      "revision": "0fc02cd68445b599a9cb2da2368050e7fb31d29a",
+      "parent": true
+    },
+    {
+      "key": "textattack_distilbert",
+      "repo_id": "textattack/distilbert-base-uncased-imdb",
+      "revision": "5b0f46c2fc4b86bf21f0ec0409bed77ee142b332",
+      "parent": false
+    },
+    {
+      "key": "harsha_tinybert",
+      "repo_id": "Harsha901/tinybert-imdb-sentiment-analysis-model",
+      "revision": "0cd5d1ac6c06eb0f5f81b7022f95691528c981fa",
+      "parent": false
+    }
+  ],
+  "adapter_audits": [
+    {
+      "alias": 0,
+      "path": "step102_models/step102_imdb_wrmurray_error_adapter_0.safetensors",
+      "training": {
+        "seed": 102100,
+        "train_rows": 6000,
+        "parent_error_prevalence": 0.05466666666666667,
+        "balanced_bootstrap_rows": 11344,
+        "positive_bootstrap_fraction": 0.5,
+        "epochs": 2,
+        "optimizer_steps": 710,
+        "warmup_steps": 71,
+        "mean_training_loss": 0.500968604943648,
+        "trainable_parameter_count": 14767874,
+        "trainable_tensor_names": [
+          "roberta.encoder.layer.10.attention.self.query.weight",
+          "roberta.encoder.layer.10.attention.self.query.bias",
+          "roberta.encoder.layer.10.attention.self.key.weight",
+          "roberta.encoder.layer.10.attention.self.key.bias",
+          "roberta.encoder.layer.10.attention.self.value.weight",
+          "roberta.encoder.layer.10.attention.self.value.bias",
+          "roberta.encoder.layer.10.attention.output.dense.weight",
+          "roberta.encoder.layer.10.attention.output.dense.bias",
+          "roberta.encoder.layer.10.attention.output.LayerNorm.weight",
+          "roberta.encoder.layer.10.attention.output.LayerNorm.bias",
+          "roberta.encoder.layer.10.intermediate.dense.weight",
+          "roberta.encoder.layer.10.intermediate.dense.bias",
+          "roberta.encoder.layer.10.output.dense.weight",
+          "roberta.encoder.layer.10.output.dense.bias",
+          "roberta.encoder.layer.10.output.LayerNorm.weight",
+          "roberta.encoder.layer.10.output.LayerNorm.bias",
+          "roberta.encoder.layer.11.attention.self.query.weight",
+          "roberta.encoder.layer.11.attention.self.query.bias",
+          "roberta.encoder.layer.11.attention.self.key.weight",
+          "roberta.encoder.layer.11.attention.self.key.bias",
+          "roberta.encoder.layer.11.attention.self.value.weight",
+          "roberta.encoder.layer.11.attention.self.value.bias",
+          "roberta.encoder.layer.11.attention.output.dense.weight",
+          "roberta.encoder.layer.11.attention.output.dense.bias",
+          "roberta.encoder.layer.11.attention.output.LayerNorm.weight",
+          "roberta.encoder.layer.11.attention.output.LayerNorm.bias",
+          "roberta.encoder.layer.11.intermediate.dense.weight",
+          "roberta.encoder.layer.11.intermediate.dense.bias",
+          "roberta.encoder.layer.11.output.dense.weight",
+          "roberta.encoder.layer.11.output.dense.bias",
+          "roberta.encoder.layer.11.output.LayerNorm.weight",
+          "roberta.encoder.layer.11.output.LayerNorm.bias",
+          "classifier.dense.weight",
+          "classifier.dense.bias",
+          "classifier.out_proj.weight",
+          "classifier.out_proj.bias"
+        ]
+      },
+      "checkpoint": {
+        "sha256": "c557e8c8e9ae41265a266b8e5c6f243d3620ea625f2df065303405da3077eb35",
+        "bytes": 59075840,
+        "tensor_names": [
+          "classifier.dense.bias",
+          "classifier.dense.weight",
+          "classifier.out_proj.bias",
+          "classifier.out_proj.weight",
+          "roberta.encoder.layer.10.attention.output.LayerNorm.bias",
+          "roberta.encoder.layer.10.attention.output.LayerNorm.weight",
+          "roberta.encoder.layer.10.attention.output.dense.bias",
+          "roberta.encoder.layer.10.attention.output.dense.weight",
+          "roberta.encoder.layer.10.attention.self.key.bias",
+          "roberta.encoder.layer.10.attention.self.key.weight",
+          "roberta.encoder.layer.10.attention.self.query.bias",
+          "roberta.encoder.layer.10.attention.self.query.weight",
+          "roberta.encoder.layer.10.attention.self.value.bias",
+          "roberta.encoder.layer.10.attention.self.value.weight",
+          "roberta.encoder.layer.10.intermediate.dense.bias",
+          "roberta.encoder.layer.10.intermediate.dense.weight",
+          "roberta.encoder.layer.10.output.LayerNorm.bias",
+          "roberta.encoder.layer.10.output.LayerNorm.weight",
+          "roberta.encoder.layer.10.output.dense.bias",
+          "roberta.encoder.layer.10.output.dense.weight",
+          "roberta.encoder.layer.11.attention.output.LayerNorm.bias",
+          "roberta.encoder.layer.11.attention.output.LayerNorm.weight",
+          "roberta.encoder.layer.11.attention.output.dense.bias",
+          "roberta.encoder.layer.11.attention.output.dense.weight",
+          "roberta.encoder.layer.11.attention.self.key.bias",
+          "roberta.encoder.layer.11.attention.self.key.weight",
+          "roberta.encoder.layer.11.attention.self.query.bias",
+          "roberta.encoder.layer.11.attention.self.query.weight",
+          "roberta.encoder.layer.11.attention.self.value.bias",
+          "roberta.encoder.layer.11.attention.self.value.weight",
+          "roberta.encoder.layer.11.intermediate.dense.bias",
+          "roberta.encoder.layer.11.intermediate.dense.weight",
+          "roberta.encoder.layer.11.output.LayerNorm.bias",
+          "roberta.encoder.layer.11.output.LayerNorm.weight",
+          "roberta.encoder.layer.11.output.dense.bias",
+          "roberta.encoder.layer.11.output.dense.weight"
+        ],
+        "parameter_count": 14767874,
+        "nonzero_count": 14767874,
+        "variance": 0.0022324819583445787
+      },
+      "error_score_sha256": "a3dbbcc753ae38d1c19db588a87d1c47c2b3cd3fee988a992d156c474b4e877a"
+    },
+    {
+      "alias": 1,
+      "path": "step102_models/step102_imdb_wrmurray_error_adapter_1.safetensors",
+      "training": {
+        "seed": 102101,
+        "train_rows": 6000,
+        "parent_error_prevalence": 0.05466666666666667,
+        "balanced_bootstrap_rows": 11344,
+        "positive_bootstrap_fraction": 0.5,
+        "epochs": 2,
+        "optimizer_steps": 710,
+        "warmup_steps": 71,
+        "mean_training_loss": 0.4969457980397726,
+        "trainable_parameter_count": 14767874,
+        "trainable_tensor_names": [
+          "roberta.encoder.layer.10.attention.self.query.weight",
+          "roberta.encoder.layer.10.attention.self.query.bias",
+          "roberta.encoder.layer.10.attention.self.key.weight",
+          "roberta.encoder.layer.10.attention.self.key.bias",
+          "roberta.encoder.layer.10.attention.self.value.weight",
+          "roberta.encoder.layer.10.attention.self.value.bias",
+          "roberta.encoder.layer.10.attention.output.dense.weight",
+          "roberta.encoder.layer.10.attention.output.dense.bias",
+          "roberta.encoder.layer.10.attention.output.LayerNorm.weight",
+          "roberta.encoder.layer.10.attention.output.LayerNorm.bias",
+          "roberta.encoder.layer.10.intermediate.dense.weight",
+          "roberta.encoder.layer.10.intermediate.dense.bias",
+          "roberta.encoder.layer.10.output.dense.weight",
+          "roberta.encoder.layer.10.output.dense.bias",
+          "roberta.encoder.layer.10.output.LayerNorm.weight",
+          "roberta.encoder.layer.10.output.LayerNorm.bias",
+          "roberta.encoder.layer.11.attention.self.query.weight",
+          "roberta.encoder.layer.11.attention.self.query.bias",
+          "roberta.encoder.layer.11.attention.self.key.weight",
+          "roberta.encoder.layer.11.attention.self.key.bias",
+          "roberta.encoder.layer.11.attention.self.value.weight",
+          "roberta.encoder.layer.11.attention.self.value.bias",
+          "roberta.encoder.layer.11.attention.output.dense.weight",
+          "roberta.encoder.layer.11.attention.output.dense.bias",
+          "roberta.encoder.layer.11.attention.output.LayerNorm.weight",
+          "roberta.encoder.layer.11.attention.output.LayerNorm.bias",
+          "roberta.encoder.layer.11.intermediate.dense.weight",
+          "roberta.encoder.layer.11.intermediate.dense.bias",
+          "roberta.encoder.layer.11.output.dense.weight",
+          "roberta.encoder.layer.11.output.dense.bias",
+          "roberta.encoder.layer.11.output.LayerNorm.weight",
+          "roberta.encoder.layer.11.output.LayerNorm.bias",
+          "classifier.dense.weight",
+          "classifier.dense.bias",
+          "classifier.out_proj.weight",
+          "classifier.out_proj.bias"
+        ]
+      },
+      "checkpoint": {
+        "sha256": "29d7dc9dffd05878293523378267bea5a675d5e40c381727fbd34bfc4c6586d9",
+        "bytes": 59075840,
+        "tensor_names": [
+          "classifier.dense.bias",
+          "classifier.dense.weight",
+          "classifier.out_proj.bias",
+          "classifier.out_proj.weight",
+          "roberta.encoder.layer.10.attention.output.LayerNorm.bias",
+          "roberta.encoder.layer.10.attention.output.LayerNorm.weight",
+          "roberta.encoder.layer.10.attention.output.dense.bias",
+          "roberta.encoder.layer.10.attention.output.dense.weight",
+          "roberta.encoder.layer.10.attention.self.key.bias",
+          "roberta.encoder.layer.10.attention.self.key.weight",
+          "roberta.encoder.layer.10.attention.self.query.bias",
+          "roberta.encoder.layer.10.attention.self.query.weight",
+          "roberta.encoder.layer.10.attention.self.value.bias",
+          "roberta.encoder.layer.10.attention.self.value.weight",
+          "roberta.encoder.layer.10.intermediate.dense.bias",
+          "roberta.encoder.layer.10.intermediate.dense.weight",
+          "roberta.encoder.layer.10.output.LayerNorm.bias",
+          "roberta.encoder.layer.10.output.LayerNorm.weight",
+          "roberta.encoder.layer.10.output.dense.bias",
+          "roberta.encoder.layer.10.output.dense.weight",
+          "roberta.encoder.layer.11.attention.output.LayerNorm.bias",
+          "roberta.encoder.layer.11.attention.output.LayerNorm.weight",
+          "roberta.encoder.layer.11.attention.output.dense.bias",
+          "roberta.encoder.layer.11.attention.output.dense.weight",
+          "roberta.encoder.layer.11.attention.self.key.bias",
+          "roberta.encoder.layer.11.attention.self.key.weight",
+          "roberta.encoder.layer.11.attention.self.query.bias",
+          "roberta.encoder.layer.11.attention.self.query.weight",
+          "roberta.encoder.layer.11.attention.self.value.bias",
+          "roberta.encoder.layer.11.attention.self.value.weight",
+          "roberta.encoder.layer.11.intermediate.dense.bias",
+          "roberta.encoder.layer.11.intermediate.dense.weight",
+          "roberta.encoder.layer.11.output.LayerNorm.bias",
+          "roberta.encoder.layer.11.output.LayerNorm.weight",
+          "roberta.encoder.layer.11.output.dense.bias",
+          "roberta.encoder.layer.11.output.dense.weight"
+        ],
+        "parameter_count": 14767874,
+        "nonzero_count": 14767874,
+        "variance": 0.0022325022146105766
+      },
+      "error_score_sha256": "a41466f79780cb97afe1939a50eeaa6fed2fe7e234e1c95756dd7b0e842ee038"
+    },
+    {
+      "alias": 2,
+      "path": "step102_models/step102_imdb_wrmurray_error_adapter_2.safetensors",
+      "training": {
+        "seed": 102102,
+        "train_rows": 6000,
+        "parent_error_prevalence": 0.05466666666666667,
+        "balanced_bootstrap_rows": 11344,
+        "positive_bootstrap_fraction": 0.5,
+        "epochs": 2,
+        "optimizer_steps": 710,
+        "warmup_steps": 71,
+        "mean_training_loss": 0.4917976807261724,
+        "trainable_parameter_count": 14767874,
+        "trainable_tensor_names": [
+          "roberta.encoder.layer.10.attention.self.query.weight",
+          "roberta.encoder.layer.10.attention.self.query.bias",
+          "roberta.encoder.layer.10.attention.self.key.weight",
+          "roberta.encoder.layer.10.attention.self.key.bias",
+          "roberta.encoder.layer.10.attention.self.value.weight",
+          "roberta.encoder.layer.10.attention.self.value.bias",
+          "roberta.encoder.layer.10.attention.output.dense.weight",
+          "roberta.encoder.layer.10.attention.output.dense.bias",
+          "roberta.encoder.layer.10.attention.output.LayerNorm.weight",
+          "roberta.encoder.layer.10.attention.output.LayerNorm.bias",
+          "roberta.encoder.layer.10.intermediate.dense.weight",
+          "roberta.encoder.layer.10.intermediate.dense.bias",
+          "roberta.encoder.layer.10.output.dense.weight",
+          "roberta.encoder.layer.10.output.dense.bias",
+          "roberta.encoder.layer.10.output.LayerNorm.weight",
+          "roberta.encoder.layer.10.output.LayerNorm.bias",
+          "roberta.encoder.layer.11.attention.self.query.weight",
+          "roberta.encoder.layer.11.attention.self.query.bias",
+          "roberta.encoder.layer.11.attention.self.key.weight",
+          "roberta.encoder.layer.11.attention.self.key.bias",
+          "roberta.encoder.layer.11.attention.self.value.weight",
+          "roberta.encoder.layer.11.attention.self.value.bias",
+          "roberta.encoder.layer.11.attention.output.dense.weight",
+          "roberta.encoder.layer.11.attention.output.dense.bias",
+          "roberta.encoder.layer.11.attention.output.LayerNorm.weight",
+          "roberta.encoder.layer.11.attention.output.LayerNorm.bias",
+          "roberta.encoder.layer.11.intermediate.dense.weight",
+          "roberta.encoder.layer.11.intermediate.dense.bias",
+          "roberta.encoder.layer.11.output.dense.weight",
+          "roberta.encoder.layer.11.output.dense.bias",
+          "roberta.encoder.layer.11.output.LayerNorm.weight",
+          "roberta.encoder.layer.11.output.LayerNorm.bias",
+          "classifier.dense.weight",
+          "classifier.dense.bias",
+          "classifier.out_proj.weight",
+          "classifier.out_proj.bias"
+        ]
+      },
+      "checkpoint": {
+        "sha256": "1882f082a65002d24eca8ae57f3ce8fe819398f080de924ca10eb34efd5e8aa7",
+        "bytes": 59075840,
+        "tensor_names": [
+          "classifier.dense.bias",
+          "classifier.dense.weight",
+          "classifier.out_proj.bias",
+          "classifier.out_proj.weight",
+          "roberta.encoder.layer.10.attention.output.LayerNorm.bias",
+          "roberta.encoder.layer.10.attention.output.LayerNorm.weight",
+          "roberta.encoder.layer.10.attention.output.dense.bias",
+          "roberta.encoder.layer.10.attention.output.dense.weight",
+          "roberta.encoder.layer.10.attention.self.key.bias",
+          "roberta.encoder.layer.10.attention.self.key.weight",
+          "roberta.encoder.layer.10.attention.self.query.bias",
+          "roberta.encoder.layer.10.attention.self.query.weight",
+          "roberta.encoder.layer.10.attention.self.value.bias",
+          "roberta.encoder.layer.10.attention.self.value.weight",
+          "roberta.encoder.layer.10.intermediate.dense.bias",
+          "roberta.encoder.layer.10.intermediate.dense.weight",
+          "roberta.encoder.layer.10.output.LayerNorm.bias",
+          "roberta.encoder.layer.10.output.LayerNorm.weight",
+          "roberta.encoder.layer.10.output.dense.bias",
+          "roberta.encoder.layer.10.output.dense.weight",
+          "roberta.encoder.layer.11.attention.output.LayerNorm.bias",
+          "roberta.encoder.layer.11.attention.output.LayerNorm.weight",
+          "roberta.encoder.layer.11.attention.output.dense.bias",
+          "roberta.encoder.layer.11.attention.output.dense.weight",
+          "roberta.encoder.layer.11.attention.self.key.bias",
+          "roberta.encoder.layer.11.attention.self.key.weight",
+          "roberta.encoder.layer.11.attention.self.query.bias",
+          "roberta.encoder.layer.11.attention.self.query.weight",
+          "roberta.encoder.layer.11.attention.self.value.bias",
+          "roberta.encoder.layer.11.attention.self.value.weight",
+          "roberta.encoder.layer.11.intermediate.dense.bias",
+          "roberta.encoder.layer.11.intermediate.dense.weight",
+          "roberta.encoder.layer.11.output.LayerNorm.bias",
+          "roberta.encoder.layer.11.output.LayerNorm.weight",
+          "roberta.encoder.layer.11.output.dense.bias",
+          "roberta.encoder.layer.11.output.dense.weight"
+        ],
+        "parameter_count": 14767874,
+        "nonzero_count": 14767874,
+        "variance": 0.0022325313184410334
+      },
+      "error_score_sha256": "1b69ca31ce3133afde64b5d54545452f9a51fe4847d8cb22056b478f4e5d5251"
+    },
+    {
+      "alias": 3,
+      "path": "step102_models/step102_imdb_wrmurray_error_adapter_3.safetensors",
+      "training": {
+        "seed": 102103,
+        "train_rows": 6000,
+        "parent_error_prevalence": 0.05466666666666667,
+        "balanced_bootstrap_rows": 11344,
+        "positive_bootstrap_fraction": 0.5,
+        "epochs": 2,
+        "optimizer_steps": 710,
+        "warmup_steps": 71,
+        "mean_training_loss": 0.5064444118645699,
+        "trainable_parameter_count": 14767874,
+        "trainable_tensor_names": [
+          "roberta.encoder.layer.10.attention.self.query.weight",
+          "roberta.encoder.layer.10.attention.self.query.bias",
+          "roberta.encoder.layer.10.attention.self.key.weight",
+          "roberta.encoder.layer.10.attention.self.key.bias",
+          "roberta.encoder.layer.10.attention.self.value.weight",
+          "roberta.encoder.layer.10.attention.self.value.bias",
+          "roberta.encoder.layer.10.attention.output.dense.weight",
+          "roberta.encoder.layer.10.attention.output.dense.bias",
+          "roberta.encoder.layer.10.attention.output.LayerNorm.weight",
+          "roberta.encoder.layer.10.attention.output.LayerNorm.bias",
+          "roberta.encoder.layer.10.intermediate.dense.weight",
+          "roberta.encoder.layer.10.intermediate.dense.bias",
+          "roberta.encoder.layer.10.output.dense.weight",
+          "roberta.encoder.layer.10.output.dense.bias",
+          "roberta.encoder.layer.10.output.LayerNorm.weight",
+          "roberta.encoder.layer.10.output.LayerNorm.bias",
+          "roberta.encoder.layer.11.attention.self.query.weight",
+          "roberta.encoder.layer.11.attention.self.query.bias",
+          "roberta.encoder.layer.11.attention.self.key.weight",
+          "roberta.encoder.layer.11.attention.self.key.bias",
+          "roberta.encoder.layer.11.attention.self.value.weight",
+          "roberta.encoder.layer.11.attention.self.value.bias",
+          "roberta.encoder.layer.11.attention.output.dense.weight",
+          "roberta.encoder.layer.11.attention.output.dense.bias",
+          "roberta.encoder.layer.11.attention.output.LayerNorm.weight",
+          "roberta.encoder.layer.11.attention.output.LayerNorm.bias",
+          "roberta.encoder.layer.11.intermediate.dense.weight",
+          "roberta.encoder.layer.11.intermediate.dense.bias",
+          "roberta.encoder.layer.11.output.dense.weight",
+          "roberta.encoder.layer.11.output.dense.bias",
+          "roberta.encoder.layer.11.output.LayerNorm.weight",
+          "roberta.encoder.layer.11.output.LayerNorm.bias",
+          "classifier.dense.weight",
+          "classifier.dense.bias",
+          "classifier.out_proj.weight",
+          "classifier.out_proj.bias"
+        ]
+      },
+      "checkpoint": {
+        "sha256": "0906364d58c2bd63a742ff66fa2b07dbb85b275c034e3d447b9230f4b7b6d775",
+        "bytes": 59075840,
+        "tensor_names": [
+          "classifier.dense.bias",
+          "classifier.dense.weight",
+          "classifier.out_proj.bias",
+          "classifier.out_proj.weight",
+          "roberta.encoder.layer.10.attention.output.LayerNorm.bias",
+          "roberta.encoder.layer.10.attention.output.LayerNorm.weight",
+          "roberta.encoder.layer.10.attention.output.dense.bias",
+          "roberta.encoder.layer.10.attention.output.dense.weight",
+          "roberta.encoder.layer.10.attention.self.key.bias",
+          "roberta.encoder.layer.10.attention.self.key.weight",
+          "roberta.encoder.layer.10.attention.self.query.bias",
+          "roberta.encoder.layer.10.attention.self.query.weight",
+          "roberta.encoder.layer.10.attention.self.value.bias",
+          "roberta.encoder.layer.10.attention.self.value.weight",
+          "roberta.encoder.layer.10.intermediate.dense.bias",
+          "roberta.encoder.layer.10.intermediate.dense.weight",
+          "roberta.encoder.layer.10.output.LayerNorm.bias",
+          "roberta.encoder.layer.10.output.LayerNorm.weight",
+          "roberta.encoder.layer.10.output.dense.bias",
+          "roberta.encoder.layer.10.output.dense.weight",
+          "roberta.encoder.layer.11.attention.output.LayerNorm.bias",
+          "roberta.encoder.layer.11.attention.output.LayerNorm.weight",
+          "roberta.encoder.layer.11.attention.output.dense.bias",
+          "roberta.encoder.layer.11.attention.output.dense.weight",
+          "roberta.encoder.layer.11.attention.self.key.bias",
+          "roberta.encoder.layer.11.attention.self.key.weight",
+          "roberta.encoder.layer.11.attention.self.query.bias",
+          "roberta.encoder.layer.11.attention.self.query.weight",
+          "roberta.encoder.layer.11.attention.self.value.bias",
+          "roberta.encoder.layer.11.attention.self.value.weight",
+          "roberta.encoder.layer.11.intermediate.dense.bias",
+          "roberta.encoder.layer.11.intermediate.dense.weight",
+          "roberta.encoder.layer.11.output.LayerNorm.bias",
+          "roberta.encoder.layer.11.output.LayerNorm.weight",
+          "roberta.encoder.layer.11.output.dense.bias",
+          "roberta.encoder.layer.11.output.dense.weight"
+        ],
+        "parameter_count": 14767874,
+        "nonzero_count": 14767874,
+        "variance": 0.00223249732516706
+      },
+      "error_score_sha256": "a29bed50e293affde7c954b3702d45232efbb036e1fec2af275912cb7d8223ff"
+    }
+  ],
+  "threshold_pairs": {
+    "l0.0025_t0.025": {
+      "loss_cap": 0.0025,
+      "trigger_cap": 0.025,
+      "thresholds": [
+        0.9550579786300659,
+        0.9454382658004761,
+        0.9513739943504333,
+        0.9419267773628235
+      ],
+      "audits": [
+        {
+          "alias": 0,
+          "calibration": {
+            "threshold": 0.9550579786300659,
+            "trigger_count": 4,
+            "trigger_fraction": 0.004,
+            "utility_loss_count": 2,
+            "utility_loss": 0.002
+          },
+          "safety_initial": {
+            "threshold": 0.9454928338527679,
+            "trigger_count": 23,
+            "trigger_fraction": 0.0115,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9550579786300659,
+          "safety_final_trigger_count": 6,
+          "safety_final_loss_count": 2,
+          "safety_final_cp99_upper": 0.004196248126538938
+        },
+        {
+          "alias": 1,
+          "calibration": {
+            "threshold": 0.9454382658004761,
+            "trigger_count": 3,
+            "trigger_fraction": 0.003,
+            "utility_loss_count": 2,
+            "utility_loss": 0.002
+          },
+          "safety_initial": {
+            "threshold": 0.9350811839103699,
+            "trigger_count": 23,
+            "trigger_fraction": 0.0115,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9454382658004761,
+          "safety_final_trigger_count": 8,
+          "safety_final_loss_count": 4,
+          "safety_final_cp99_upper": 0.005791290628706344
+        },
+        {
+          "alias": 2,
+          "calibration": {
+            "threshold": 0.9513739943504333,
+            "trigger_count": 7,
+            "trigger_fraction": 0.007,
+            "utility_loss_count": 2,
+            "utility_loss": 0.002
+          },
+          "safety_initial": {
+            "threshold": 0.946609765291214,
+            "trigger_count": 20,
+            "trigger_fraction": 0.01,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9513739943504333,
+          "safety_final_trigger_count": 11,
+          "safety_final_loss_count": 8,
+          "safety_final_cp99_upper": 0.008680885577085294
+        },
+        {
+          "alias": 3,
+          "calibration": {
+            "threshold": 0.9419267773628235,
+            "trigger_count": 6,
+            "trigger_fraction": 0.006,
+            "utility_loss_count": 2,
+            "utility_loss": 0.002
+          },
+          "safety_initial": {
+            "threshold": 0.9394078254699707,
+            "trigger_count": 18,
+            "trigger_fraction": 0.009,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9419267773628235,
+          "safety_final_trigger_count": 16,
+          "safety_final_loss_count": 8,
+          "safety_final_cp99_upper": 0.008680885577085294
+        }
+      ],
+      "quality": {
+        "adapter_train": {
+          "rows": 6000,
+          "loss_counts": [
+            7,
+            6,
+            11,
+            12
+          ],
+          "allowed_loss_count": 60,
+          "loss_fractions": [
+            0.0011666666666666668,
+            0.001,
+            0.0018333333333333333,
+            0.002
+          ],
+          "trigger_fractions": [
+            0.0055,
+            0.0055,
+            0.006833333333333334,
+            0.007833333333333333
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "threshold_calibration": {
+          "rows": 1000,
+          "loss_counts": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "allowed_loss_count": 10,
+          "loss_fractions": [
+            0.002,
+            0.002,
+            0.002,
+            0.002
+          ],
+          "trigger_fractions": [
+            0.004,
+            0.003,
+            0.007,
+            0.006
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "threshold_safety": {
+          "rows": 2000,
+          "loss_counts": [
+            2,
+            4,
+            8,
+            8
+          ],
+          "allowed_loss_count": 20,
+          "loss_fractions": [
+            0.001,
+            0.002,
+            0.004,
+            0.004
+          ],
+          "trigger_fractions": [
+            0.003,
+            0.004,
+            0.0055,
+            0.008
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "selector_search": {
+          "rows": 1000,
+          "loss_counts": [
+            1,
+            1,
+            2,
+            1
+          ],
+          "allowed_loss_count": 10,
+          "loss_fractions": [
+            0.001,
+            0.001,
+            0.002,
+            0.001
+          ],
+          "trigger_fractions": [
+            0.004,
+            0.004,
+            0.005,
+            0.005
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "selector_verify": {
+          "rows": 2000,
+          "loss_counts": [
+            12,
+            5,
+            9,
+            10
+          ],
+          "allowed_loss_count": 20,
+          "loss_fractions": [
+            0.006,
+            0.0025,
+            0.0045,
+            0.005
+          ],
+          "trigger_fractions": [
+            0.0075,
+            0.004,
+            0.007,
+            0.007
+          ],
+          "coordinate_wise_nonimproving": true
+        }
+      },
+      "quality_pass": true
+    },
+    "l0.0025_t0.050": {
+      "loss_cap": 0.0025,
+      "trigger_cap": 0.05,
+      "thresholds": [
+        0.9550579786300659,
+        0.9454382658004761,
+        0.9513739943504333,
+        0.9419267773628235
+      ],
+      "audits": [
+        {
+          "alias": 0,
+          "calibration": {
+            "threshold": 0.9550579786300659,
+            "trigger_count": 4,
+            "trigger_fraction": 0.004,
+            "utility_loss_count": 2,
+            "utility_loss": 0.002
+          },
+          "safety_initial": {
+            "threshold": 0.9454928338527679,
+            "trigger_count": 23,
+            "trigger_fraction": 0.0115,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9550579786300659,
+          "safety_final_trigger_count": 6,
+          "safety_final_loss_count": 2,
+          "safety_final_cp99_upper": 0.004196248126538938
+        },
+        {
+          "alias": 1,
+          "calibration": {
+            "threshold": 0.9454382658004761,
+            "trigger_count": 3,
+            "trigger_fraction": 0.003,
+            "utility_loss_count": 2,
+            "utility_loss": 0.002
+          },
+          "safety_initial": {
+            "threshold": 0.9350811839103699,
+            "trigger_count": 23,
+            "trigger_fraction": 0.0115,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9454382658004761,
+          "safety_final_trigger_count": 8,
+          "safety_final_loss_count": 4,
+          "safety_final_cp99_upper": 0.005791290628706344
+        },
+        {
+          "alias": 2,
+          "calibration": {
+            "threshold": 0.9513739943504333,
+            "trigger_count": 7,
+            "trigger_fraction": 0.007,
+            "utility_loss_count": 2,
+            "utility_loss": 0.002
+          },
+          "safety_initial": {
+            "threshold": 0.946609765291214,
+            "trigger_count": 20,
+            "trigger_fraction": 0.01,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9513739943504333,
+          "safety_final_trigger_count": 11,
+          "safety_final_loss_count": 8,
+          "safety_final_cp99_upper": 0.008680885577085294
+        },
+        {
+          "alias": 3,
+          "calibration": {
+            "threshold": 0.9419267773628235,
+            "trigger_count": 6,
+            "trigger_fraction": 0.006,
+            "utility_loss_count": 2,
+            "utility_loss": 0.002
+          },
+          "safety_initial": {
+            "threshold": 0.9394078254699707,
+            "trigger_count": 18,
+            "trigger_fraction": 0.009,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9419267773628235,
+          "safety_final_trigger_count": 16,
+          "safety_final_loss_count": 8,
+          "safety_final_cp99_upper": 0.008680885577085294
+        }
+      ],
+      "quality": {
+        "adapter_train": {
+          "rows": 6000,
+          "loss_counts": [
+            7,
+            6,
+            11,
+            12
+          ],
+          "allowed_loss_count": 60,
+          "loss_fractions": [
+            0.0011666666666666668,
+            0.001,
+            0.0018333333333333333,
+            0.002
+          ],
+          "trigger_fractions": [
+            0.0055,
+            0.0055,
+            0.006833333333333334,
+            0.007833333333333333
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "threshold_calibration": {
+          "rows": 1000,
+          "loss_counts": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "allowed_loss_count": 10,
+          "loss_fractions": [
+            0.002,
+            0.002,
+            0.002,
+            0.002
+          ],
+          "trigger_fractions": [
+            0.004,
+            0.003,
+            0.007,
+            0.006
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "threshold_safety": {
+          "rows": 2000,
+          "loss_counts": [
+            2,
+            4,
+            8,
+            8
+          ],
+          "allowed_loss_count": 20,
+          "loss_fractions": [
+            0.001,
+            0.002,
+            0.004,
+            0.004
+          ],
+          "trigger_fractions": [
+            0.003,
+            0.004,
+            0.0055,
+            0.008
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "selector_search": {
+          "rows": 1000,
+          "loss_counts": [
+            1,
+            1,
+            2,
+            1
+          ],
+          "allowed_loss_count": 10,
+          "loss_fractions": [
+            0.001,
+            0.001,
+            0.002,
+            0.001
+          ],
+          "trigger_fractions": [
+            0.004,
+            0.004,
+            0.005,
+            0.005
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "selector_verify": {
+          "rows": 2000,
+          "loss_counts": [
+            12,
+            5,
+            9,
+            10
+          ],
+          "allowed_loss_count": 20,
+          "loss_fractions": [
+            0.006,
+            0.0025,
+            0.0045,
+            0.005
+          ],
+          "trigger_fractions": [
+            0.0075,
+            0.004,
+            0.007,
+            0.007
+          ],
+          "coordinate_wise_nonimproving": true
+        }
+      },
+      "quality_pass": true
+    },
+    "l0.0025_t0.100": {
+      "loss_cap": 0.0025,
+      "trigger_cap": 0.1,
+      "thresholds": [
+        0.9550579786300659,
+        0.9454382658004761,
+        0.9513739943504333,
+        0.9419267773628235
+      ],
+      "audits": [
+        {
+          "alias": 0,
+          "calibration": {
+            "threshold": 0.9550579786300659,
+            "trigger_count": 4,
+            "trigger_fraction": 0.004,
+            "utility_loss_count": 2,
+            "utility_loss": 0.002
+          },
+          "safety_initial": {
+            "threshold": 0.9454928338527679,
+            "trigger_count": 23,
+            "trigger_fraction": 0.0115,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9550579786300659,
+          "safety_final_trigger_count": 6,
+          "safety_final_loss_count": 2,
+          "safety_final_cp99_upper": 0.004196248126538938
+        },
+        {
+          "alias": 1,
+          "calibration": {
+            "threshold": 0.9454382658004761,
+            "trigger_count": 3,
+            "trigger_fraction": 0.003,
+            "utility_loss_count": 2,
+            "utility_loss": 0.002
+          },
+          "safety_initial": {
+            "threshold": 0.9350811839103699,
+            "trigger_count": 23,
+            "trigger_fraction": 0.0115,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9454382658004761,
+          "safety_final_trigger_count": 8,
+          "safety_final_loss_count": 4,
+          "safety_final_cp99_upper": 0.005791290628706344
+        },
+        {
+          "alias": 2,
+          "calibration": {
+            "threshold": 0.9513739943504333,
+            "trigger_count": 7,
+            "trigger_fraction": 0.007,
+            "utility_loss_count": 2,
+            "utility_loss": 0.002
+          },
+          "safety_initial": {
+            "threshold": 0.946609765291214,
+            "trigger_count": 20,
+            "trigger_fraction": 0.01,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9513739943504333,
+          "safety_final_trigger_count": 11,
+          "safety_final_loss_count": 8,
+          "safety_final_cp99_upper": 0.008680885577085294
+        },
+        {
+          "alias": 3,
+          "calibration": {
+            "threshold": 0.9419267773628235,
+            "trigger_count": 6,
+            "trigger_fraction": 0.006,
+            "utility_loss_count": 2,
+            "utility_loss": 0.002
+          },
+          "safety_initial": {
+            "threshold": 0.9394078254699707,
+            "trigger_count": 18,
+            "trigger_fraction": 0.009,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9419267773628235,
+          "safety_final_trigger_count": 16,
+          "safety_final_loss_count": 8,
+          "safety_final_cp99_upper": 0.008680885577085294
+        }
+      ],
+      "quality": {
+        "adapter_train": {
+          "rows": 6000,
+          "loss_counts": [
+            7,
+            6,
+            11,
+            12
+          ],
+          "allowed_loss_count": 60,
+          "loss_fractions": [
+            0.0011666666666666668,
+            0.001,
+            0.0018333333333333333,
+            0.002
+          ],
+          "trigger_fractions": [
+            0.0055,
+            0.0055,
+            0.006833333333333334,
+            0.007833333333333333
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "threshold_calibration": {
+          "rows": 1000,
+          "loss_counts": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "allowed_loss_count": 10,
+          "loss_fractions": [
+            0.002,
+            0.002,
+            0.002,
+            0.002
+          ],
+          "trigger_fractions": [
+            0.004,
+            0.003,
+            0.007,
+            0.006
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "threshold_safety": {
+          "rows": 2000,
+          "loss_counts": [
+            2,
+            4,
+            8,
+            8
+          ],
+          "allowed_loss_count": 20,
+          "loss_fractions": [
+            0.001,
+            0.002,
+            0.004,
+            0.004
+          ],
+          "trigger_fractions": [
+            0.003,
+            0.004,
+            0.0055,
+            0.008
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "selector_search": {
+          "rows": 1000,
+          "loss_counts": [
+            1,
+            1,
+            2,
+            1
+          ],
+          "allowed_loss_count": 10,
+          "loss_fractions": [
+            0.001,
+            0.001,
+            0.002,
+            0.001
+          ],
+          "trigger_fractions": [
+            0.004,
+            0.004,
+            0.005,
+            0.005
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "selector_verify": {
+          "rows": 2000,
+          "loss_counts": [
+            12,
+            5,
+            9,
+            10
+          ],
+          "allowed_loss_count": 20,
+          "loss_fractions": [
+            0.006,
+            0.0025,
+            0.0045,
+            0.005
+          ],
+          "trigger_fractions": [
+            0.0075,
+            0.004,
+            0.007,
+            0.007
+          ],
+          "coordinate_wise_nonimproving": true
+        }
+      },
+      "quality_pass": true
+    },
+    "l0.0050_t0.025": {
+      "loss_cap": 0.005,
+      "trigger_cap": 0.025,
+      "thresholds": [
+        0.9534445703029633,
+        0.9398181438446045,
+        0.9488589763641357,
+        0.9394304752349854
+      ],
+      "audits": [
+        {
+          "alias": 0,
+          "calibration": {
+            "threshold": 0.9534445703029633,
+            "trigger_count": 7,
+            "trigger_fraction": 0.007,
+            "utility_loss_count": 5,
+            "utility_loss": 0.005
+          },
+          "safety_initial": {
+            "threshold": 0.9454928338527679,
+            "trigger_count": 23,
+            "trigger_fraction": 0.0115,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9534445703029633,
+          "safety_final_trigger_count": 10,
+          "safety_final_loss_count": 4,
+          "safety_final_cp99_upper": 0.005791290628706344
+        },
+        {
+          "alias": 1,
+          "calibration": {
+            "threshold": 0.9370197653770447,
+            "trigger_count": 8,
+            "trigger_fraction": 0.008,
+            "utility_loss_count": 5,
+            "utility_loss": 0.005
+          },
+          "safety_initial": {
+            "threshold": 0.9350811839103699,
+            "trigger_count": 23,
+            "trigger_fraction": 0.0115,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9398181438446045,
+          "safety_final_trigger_count": 15,
+          "safety_final_loss_count": 9,
+          "safety_final_cp99_upper": 0.009368602364530772
+        },
+        {
+          "alias": 2,
+          "calibration": {
+            "threshold": 0.9469427466392517,
+            "trigger_count": 10,
+            "trigger_fraction": 0.01,
+            "utility_loss_count": 5,
+            "utility_loss": 0.005
+          },
+          "safety_initial": {
+            "threshold": 0.946609765291214,
+            "trigger_count": 20,
+            "trigger_fraction": 0.01,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9488589763641357,
+          "safety_final_trigger_count": 16,
+          "safety_final_loss_count": 9,
+          "safety_final_cp99_upper": 0.009368602364530772
+        },
+        {
+          "alias": 3,
+          "calibration": {
+            "threshold": 0.9361509084701538,
+            "trigger_count": 11,
+            "trigger_fraction": 0.011,
+            "utility_loss_count": 5,
+            "utility_loss": 0.005
+          },
+          "safety_initial": {
+            "threshold": 0.9394078254699707,
+            "trigger_count": 18,
+            "trigger_fraction": 0.009,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9394304752349854,
+          "safety_final_trigger_count": 17,
+          "safety_final_loss_count": 9,
+          "safety_final_cp99_upper": 0.009368602364530772
+        }
+      ],
+      "quality": {
+        "adapter_train": {
+          "rows": 6000,
+          "loss_counts": [
+            8,
+            17,
+            18,
+            14
+          ],
+          "allowed_loss_count": 60,
+          "loss_fractions": [
+            0.0013333333333333333,
+            0.0028333333333333335,
+            0.003,
+            0.0023333333333333335
+          ],
+          "trigger_fractions": [
+            0.006666666666666667,
+            0.009,
+            0.009333333333333334,
+            0.009333333333333334
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "threshold_calibration": {
+          "rows": 1000,
+          "loss_counts": [
+            5,
+            4,
+            3,
+            3
+          ],
+          "allowed_loss_count": 10,
+          "loss_fractions": [
+            0.005,
+            0.004,
+            0.003,
+            0.003
+          ],
+          "trigger_fractions": [
+            0.007,
+            0.006,
+            0.008,
+            0.008
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "threshold_safety": {
+          "rows": 2000,
+          "loss_counts": [
+            4,
+            9,
+            9,
+            9
+          ],
+          "allowed_loss_count": 20,
+          "loss_fractions": [
+            0.002,
+            0.0045,
+            0.0045,
+            0.0045
+          ],
+          "trigger_fractions": [
+            0.005,
+            0.0075,
+            0.008,
+            0.0085
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "selector_search": {
+          "rows": 1000,
+          "loss_counts": [
+            1,
+            3,
+            3,
+            2
+          ],
+          "allowed_loss_count": 10,
+          "loss_fractions": [
+            0.001,
+            0.003,
+            0.003,
+            0.002
+          ],
+          "trigger_fractions": [
+            0.004,
+            0.008,
+            0.006,
+            0.007
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "selector_verify": {
+          "rows": 2000,
+          "loss_counts": [
+            12,
+            13,
+            11,
+            13
+          ],
+          "allowed_loss_count": 20,
+          "loss_fractions": [
+            0.006,
+            0.0065,
+            0.0055,
+            0.0065
+          ],
+          "trigger_fractions": [
+            0.0085,
+            0.0105,
+            0.009,
+            0.0095
+          ],
+          "coordinate_wise_nonimproving": true
+        }
+      },
+      "quality_pass": true
+    },
+    "l0.0050_t0.050": {
+      "loss_cap": 0.005,
+      "trigger_cap": 0.05,
+      "thresholds": [
+        0.9534445703029633,
+        0.9398181438446045,
+        0.9488589763641357,
+        0.9394304752349854
+      ],
+      "audits": [
+        {
+          "alias": 0,
+          "calibration": {
+            "threshold": 0.9534445703029633,
+            "trigger_count": 7,
+            "trigger_fraction": 0.007,
+            "utility_loss_count": 5,
+            "utility_loss": 0.005
+          },
+          "safety_initial": {
+            "threshold": 0.9454928338527679,
+            "trigger_count": 23,
+            "trigger_fraction": 0.0115,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9534445703029633,
+          "safety_final_trigger_count": 10,
+          "safety_final_loss_count": 4,
+          "safety_final_cp99_upper": 0.005791290628706344
+        },
+        {
+          "alias": 1,
+          "calibration": {
+            "threshold": 0.9370197653770447,
+            "trigger_count": 8,
+            "trigger_fraction": 0.008,
+            "utility_loss_count": 5,
+            "utility_loss": 0.005
+          },
+          "safety_initial": {
+            "threshold": 0.9350811839103699,
+            "trigger_count": 23,
+            "trigger_fraction": 0.0115,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9398181438446045,
+          "safety_final_trigger_count": 15,
+          "safety_final_loss_count": 9,
+          "safety_final_cp99_upper": 0.009368602364530772
+        },
+        {
+          "alias": 2,
+          "calibration": {
+            "threshold": 0.9469427466392517,
+            "trigger_count": 10,
+            "trigger_fraction": 0.01,
+            "utility_loss_count": 5,
+            "utility_loss": 0.005
+          },
+          "safety_initial": {
+            "threshold": 0.946609765291214,
+            "trigger_count": 20,
+            "trigger_fraction": 0.01,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9488589763641357,
+          "safety_final_trigger_count": 16,
+          "safety_final_loss_count": 9,
+          "safety_final_cp99_upper": 0.009368602364530772
+        },
+        {
+          "alias": 3,
+          "calibration": {
+            "threshold": 0.9361509084701538,
+            "trigger_count": 11,
+            "trigger_fraction": 0.011,
+            "utility_loss_count": 5,
+            "utility_loss": 0.005
+          },
+          "safety_initial": {
+            "threshold": 0.9394078254699707,
+            "trigger_count": 18,
+            "trigger_fraction": 0.009,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9394304752349854,
+          "safety_final_trigger_count": 17,
+          "safety_final_loss_count": 9,
+          "safety_final_cp99_upper": 0.009368602364530772
+        }
+      ],
+      "quality": {
+        "adapter_train": {
+          "rows": 6000,
+          "loss_counts": [
+            8,
+            17,
+            18,
+            14
+          ],
+          "allowed_loss_count": 60,
+          "loss_fractions": [
+            0.0013333333333333333,
+            0.0028333333333333335,
+            0.003,
+            0.0023333333333333335
+          ],
+          "trigger_fractions": [
+            0.006666666666666667,
+            0.009,
+            0.009333333333333334,
+            0.009333333333333334
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "threshold_calibration": {
+          "rows": 1000,
+          "loss_counts": [
+            5,
+            4,
+            3,
+            3
+          ],
+          "allowed_loss_count": 10,
+          "loss_fractions": [
+            0.005,
+            0.004,
+            0.003,
+            0.003
+          ],
+          "trigger_fractions": [
+            0.007,
+            0.006,
+            0.008,
+            0.008
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "threshold_safety": {
+          "rows": 2000,
+          "loss_counts": [
+            4,
+            9,
+            9,
+            9
+          ],
+          "allowed_loss_count": 20,
+          "loss_fractions": [
+            0.002,
+            0.0045,
+            0.0045,
+            0.0045
+          ],
+          "trigger_fractions": [
+            0.005,
+            0.0075,
+            0.008,
+            0.0085
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "selector_search": {
+          "rows": 1000,
+          "loss_counts": [
+            1,
+            3,
+            3,
+            2
+          ],
+          "allowed_loss_count": 10,
+          "loss_fractions": [
+            0.001,
+            0.003,
+            0.003,
+            0.002
+          ],
+          "trigger_fractions": [
+            0.004,
+            0.008,
+            0.006,
+            0.007
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "selector_verify": {
+          "rows": 2000,
+          "loss_counts": [
+            12,
+            13,
+            11,
+            13
+          ],
+          "allowed_loss_count": 20,
+          "loss_fractions": [
+            0.006,
+            0.0065,
+            0.0055,
+            0.0065
+          ],
+          "trigger_fractions": [
+            0.0085,
+            0.0105,
+            0.009,
+            0.0095
+          ],
+          "coordinate_wise_nonimproving": true
+        }
+      },
+      "quality_pass": true
+    },
+    "l0.0050_t0.100": {
+      "loss_cap": 0.005,
+      "trigger_cap": 0.1,
+      "thresholds": [
+        0.9534445703029633,
+        0.9398181438446045,
+        0.9488589763641357,
+        0.9394304752349854
+      ],
+      "audits": [
+        {
+          "alias": 0,
+          "calibration": {
+            "threshold": 0.9534445703029633,
+            "trigger_count": 7,
+            "trigger_fraction": 0.007,
+            "utility_loss_count": 5,
+            "utility_loss": 0.005
+          },
+          "safety_initial": {
+            "threshold": 0.9454928338527679,
+            "trigger_count": 23,
+            "trigger_fraction": 0.0115,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9534445703029633,
+          "safety_final_trigger_count": 10,
+          "safety_final_loss_count": 4,
+          "safety_final_cp99_upper": 0.005791290628706344
+        },
+        {
+          "alias": 1,
+          "calibration": {
+            "threshold": 0.9370197653770447,
+            "trigger_count": 8,
+            "trigger_fraction": 0.008,
+            "utility_loss_count": 5,
+            "utility_loss": 0.005
+          },
+          "safety_initial": {
+            "threshold": 0.9350811839103699,
+            "trigger_count": 23,
+            "trigger_fraction": 0.0115,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9398181438446045,
+          "safety_final_trigger_count": 15,
+          "safety_final_loss_count": 9,
+          "safety_final_cp99_upper": 0.009368602364530772
+        },
+        {
+          "alias": 2,
+          "calibration": {
+            "threshold": 0.9469427466392517,
+            "trigger_count": 10,
+            "trigger_fraction": 0.01,
+            "utility_loss_count": 5,
+            "utility_loss": 0.005
+          },
+          "safety_initial": {
+            "threshold": 0.946609765291214,
+            "trigger_count": 20,
+            "trigger_fraction": 0.01,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9488589763641357,
+          "safety_final_trigger_count": 16,
+          "safety_final_loss_count": 9,
+          "safety_final_cp99_upper": 0.009368602364530772
+        },
+        {
+          "alias": 3,
+          "calibration": {
+            "threshold": 0.9361509084701538,
+            "trigger_count": 11,
+            "trigger_fraction": 0.011,
+            "utility_loss_count": 5,
+            "utility_loss": 0.005
+          },
+          "safety_initial": {
+            "threshold": 0.9394078254699707,
+            "trigger_count": 18,
+            "trigger_fraction": 0.009,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9394304752349854,
+          "safety_final_trigger_count": 17,
+          "safety_final_loss_count": 9,
+          "safety_final_cp99_upper": 0.009368602364530772
+        }
+      ],
+      "quality": {
+        "adapter_train": {
+          "rows": 6000,
+          "loss_counts": [
+            8,
+            17,
+            18,
+            14
+          ],
+          "allowed_loss_count": 60,
+          "loss_fractions": [
+            0.0013333333333333333,
+            0.0028333333333333335,
+            0.003,
+            0.0023333333333333335
+          ],
+          "trigger_fractions": [
+            0.006666666666666667,
+            0.009,
+            0.009333333333333334,
+            0.009333333333333334
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "threshold_calibration": {
+          "rows": 1000,
+          "loss_counts": [
+            5,
+            4,
+            3,
+            3
+          ],
+          "allowed_loss_count": 10,
+          "loss_fractions": [
+            0.005,
+            0.004,
+            0.003,
+            0.003
+          ],
+          "trigger_fractions": [
+            0.007,
+            0.006,
+            0.008,
+            0.008
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "threshold_safety": {
+          "rows": 2000,
+          "loss_counts": [
+            4,
+            9,
+            9,
+            9
+          ],
+          "allowed_loss_count": 20,
+          "loss_fractions": [
+            0.002,
+            0.0045,
+            0.0045,
+            0.0045
+          ],
+          "trigger_fractions": [
+            0.005,
+            0.0075,
+            0.008,
+            0.0085
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "selector_search": {
+          "rows": 1000,
+          "loss_counts": [
+            1,
+            3,
+            3,
+            2
+          ],
+          "allowed_loss_count": 10,
+          "loss_fractions": [
+            0.001,
+            0.003,
+            0.003,
+            0.002
+          ],
+          "trigger_fractions": [
+            0.004,
+            0.008,
+            0.006,
+            0.007
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "selector_verify": {
+          "rows": 2000,
+          "loss_counts": [
+            12,
+            13,
+            11,
+            13
+          ],
+          "allowed_loss_count": 20,
+          "loss_fractions": [
+            0.006,
+            0.0065,
+            0.0055,
+            0.0065
+          ],
+          "trigger_fractions": [
+            0.0085,
+            0.0105,
+            0.009,
+            0.0095
+          ],
+          "coordinate_wise_nonimproving": true
+        }
+      },
+      "quality_pass": true
+    },
+    "l0.0075_t0.025": {
+      "loss_cap": 0.0075,
+      "trigger_cap": 0.025,
+      "thresholds": [
+        0.9515677094459534,
+        0.9398181438446045,
+        0.9488589763641357,
+        0.9394304752349854
+      ],
+      "audits": [
+        {
+          "alias": 0,
+          "calibration": {
+            "threshold": 0.9515677094459534,
+            "trigger_count": 10,
+            "trigger_fraction": 0.01,
+            "utility_loss_count": 7,
+            "utility_loss": 0.007
+          },
+          "safety_initial": {
+            "threshold": 0.9454928338527679,
+            "trigger_count": 23,
+            "trigger_fraction": 0.0115,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9515677094459534,
+          "safety_final_trigger_count": 12,
+          "safety_final_loss_count": 6,
+          "safety_final_cp99_upper": 0.007269711022989352
+        },
+        {
+          "alias": 1,
+          "calibration": {
+            "threshold": 0.9328604936599731,
+            "trigger_count": 13,
+            "trigger_fraction": 0.013,
+            "utility_loss_count": 7,
+            "utility_loss": 0.007
+          },
+          "safety_initial": {
+            "threshold": 0.9350811839103699,
+            "trigger_count": 23,
+            "trigger_fraction": 0.0115,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9398181438446045,
+          "safety_final_trigger_count": 15,
+          "safety_final_loss_count": 9,
+          "safety_final_cp99_upper": 0.009368602364530772
+        },
+        {
+          "alias": 2,
+          "calibration": {
+            "threshold": 0.945174366235733,
+            "trigger_count": 13,
+            "trigger_fraction": 0.013,
+            "utility_loss_count": 7,
+            "utility_loss": 0.007
+          },
+          "safety_initial": {
+            "threshold": 0.946609765291214,
+            "trigger_count": 20,
+            "trigger_fraction": 0.01,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9488589763641357,
+          "safety_final_trigger_count": 16,
+          "safety_final_loss_count": 9,
+          "safety_final_cp99_upper": 0.009368602364530772
+        },
+        {
+          "alias": 3,
+          "calibration": {
+            "threshold": 0.9346425533294678,
+            "trigger_count": 13,
+            "trigger_fraction": 0.013,
+            "utility_loss_count": 7,
+            "utility_loss": 0.007
+          },
+          "safety_initial": {
+            "threshold": 0.9394078254699707,
+            "trigger_count": 18,
+            "trigger_fraction": 0.009,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9394304752349854,
+          "safety_final_trigger_count": 17,
+          "safety_final_loss_count": 9,
+          "safety_final_cp99_upper": 0.009368602364530772
+        }
+      ],
+      "quality": {
+        "adapter_train": {
+          "rows": 6000,
+          "loss_counts": [
+            11,
+            17,
+            18,
+            14
+          ],
+          "allowed_loss_count": 60,
+          "loss_fractions": [
+            0.0018333333333333333,
+            0.0028333333333333335,
+            0.003,
+            0.0023333333333333335
+          ],
+          "trigger_fractions": [
+            0.008,
+            0.009,
+            0.009333333333333334,
+            0.009333333333333334
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "threshold_calibration": {
+          "rows": 1000,
+          "loss_counts": [
+            7,
+            4,
+            3,
+            3
+          ],
+          "allowed_loss_count": 10,
+          "loss_fractions": [
+            0.007,
+            0.004,
+            0.003,
+            0.003
+          ],
+          "trigger_fractions": [
+            0.01,
+            0.006,
+            0.008,
+            0.008
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "threshold_safety": {
+          "rows": 2000,
+          "loss_counts": [
+            6,
+            9,
+            9,
+            9
+          ],
+          "allowed_loss_count": 20,
+          "loss_fractions": [
+            0.003,
+            0.0045,
+            0.0045,
+            0.0045
+          ],
+          "trigger_fractions": [
+            0.006,
+            0.0075,
+            0.008,
+            0.0085
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "selector_search": {
+          "rows": 1000,
+          "loss_counts": [
+            2,
+            3,
+            3,
+            2
+          ],
+          "allowed_loss_count": 10,
+          "loss_fractions": [
+            0.002,
+            0.003,
+            0.003,
+            0.002
+          ],
+          "trigger_fractions": [
+            0.005,
+            0.008,
+            0.006,
+            0.007
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "selector_verify": {
+          "rows": 2000,
+          "loss_counts": [
+            12,
+            13,
+            11,
+            13
+          ],
+          "allowed_loss_count": 20,
+          "loss_fractions": [
+            0.006,
+            0.0065,
+            0.0055,
+            0.0065
+          ],
+          "trigger_fractions": [
+            0.0095,
+            0.0105,
+            0.009,
+            0.0095
+          ],
+          "coordinate_wise_nonimproving": true
+        }
+      },
+      "quality_pass": true
+    },
+    "l0.0075_t0.050": {
+      "loss_cap": 0.0075,
+      "trigger_cap": 0.05,
+      "thresholds": [
+        0.9515677094459534,
+        0.9398181438446045,
+        0.9488589763641357,
+        0.9394304752349854
+      ],
+      "audits": [
+        {
+          "alias": 0,
+          "calibration": {
+            "threshold": 0.9515677094459534,
+            "trigger_count": 10,
+            "trigger_fraction": 0.01,
+            "utility_loss_count": 7,
+            "utility_loss": 0.007
+          },
+          "safety_initial": {
+            "threshold": 0.9454928338527679,
+            "trigger_count": 23,
+            "trigger_fraction": 0.0115,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9515677094459534,
+          "safety_final_trigger_count": 12,
+          "safety_final_loss_count": 6,
+          "safety_final_cp99_upper": 0.007269711022989352
+        },
+        {
+          "alias": 1,
+          "calibration": {
+            "threshold": 0.9328604936599731,
+            "trigger_count": 13,
+            "trigger_fraction": 0.013,
+            "utility_loss_count": 7,
+            "utility_loss": 0.007
+          },
+          "safety_initial": {
+            "threshold": 0.9350811839103699,
+            "trigger_count": 23,
+            "trigger_fraction": 0.0115,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9398181438446045,
+          "safety_final_trigger_count": 15,
+          "safety_final_loss_count": 9,
+          "safety_final_cp99_upper": 0.009368602364530772
+        },
+        {
+          "alias": 2,
+          "calibration": {
+            "threshold": 0.945174366235733,
+            "trigger_count": 13,
+            "trigger_fraction": 0.013,
+            "utility_loss_count": 7,
+            "utility_loss": 0.007
+          },
+          "safety_initial": {
+            "threshold": 0.946609765291214,
+            "trigger_count": 20,
+            "trigger_fraction": 0.01,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9488589763641357,
+          "safety_final_trigger_count": 16,
+          "safety_final_loss_count": 9,
+          "safety_final_cp99_upper": 0.009368602364530772
+        },
+        {
+          "alias": 3,
+          "calibration": {
+            "threshold": 0.9346425533294678,
+            "trigger_count": 13,
+            "trigger_fraction": 0.013,
+            "utility_loss_count": 7,
+            "utility_loss": 0.007
+          },
+          "safety_initial": {
+            "threshold": 0.9394078254699707,
+            "trigger_count": 18,
+            "trigger_fraction": 0.009,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9394304752349854,
+          "safety_final_trigger_count": 17,
+          "safety_final_loss_count": 9,
+          "safety_final_cp99_upper": 0.009368602364530772
+        }
+      ],
+      "quality": {
+        "adapter_train": {
+          "rows": 6000,
+          "loss_counts": [
+            11,
+            17,
+            18,
+            14
+          ],
+          "allowed_loss_count": 60,
+          "loss_fractions": [
+            0.0018333333333333333,
+            0.0028333333333333335,
+            0.003,
+            0.0023333333333333335
+          ],
+          "trigger_fractions": [
+            0.008,
+            0.009,
+            0.009333333333333334,
+            0.009333333333333334
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "threshold_calibration": {
+          "rows": 1000,
+          "loss_counts": [
+            7,
+            4,
+            3,
+            3
+          ],
+          "allowed_loss_count": 10,
+          "loss_fractions": [
+            0.007,
+            0.004,
+            0.003,
+            0.003
+          ],
+          "trigger_fractions": [
+            0.01,
+            0.006,
+            0.008,
+            0.008
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "threshold_safety": {
+          "rows": 2000,
+          "loss_counts": [
+            6,
+            9,
+            9,
+            9
+          ],
+          "allowed_loss_count": 20,
+          "loss_fractions": [
+            0.003,
+            0.0045,
+            0.0045,
+            0.0045
+          ],
+          "trigger_fractions": [
+            0.006,
+            0.0075,
+            0.008,
+            0.0085
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "selector_search": {
+          "rows": 1000,
+          "loss_counts": [
+            2,
+            3,
+            3,
+            2
+          ],
+          "allowed_loss_count": 10,
+          "loss_fractions": [
+            0.002,
+            0.003,
+            0.003,
+            0.002
+          ],
+          "trigger_fractions": [
+            0.005,
+            0.008,
+            0.006,
+            0.007
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "selector_verify": {
+          "rows": 2000,
+          "loss_counts": [
+            12,
+            13,
+            11,
+            13
+          ],
+          "allowed_loss_count": 20,
+          "loss_fractions": [
+            0.006,
+            0.0065,
+            0.0055,
+            0.0065
+          ],
+          "trigger_fractions": [
+            0.0095,
+            0.0105,
+            0.009,
+            0.0095
+          ],
+          "coordinate_wise_nonimproving": true
+        }
+      },
+      "quality_pass": true
+    },
+    "l0.0075_t0.100": {
+      "loss_cap": 0.0075,
+      "trigger_cap": 0.1,
+      "thresholds": [
+        0.9515677094459534,
+        0.9398181438446045,
+        0.9488589763641357,
+        0.9394304752349854
+      ],
+      "audits": [
+        {
+          "alias": 0,
+          "calibration": {
+            "threshold": 0.9515677094459534,
+            "trigger_count": 10,
+            "trigger_fraction": 0.01,
+            "utility_loss_count": 7,
+            "utility_loss": 0.007
+          },
+          "safety_initial": {
+            "threshold": 0.9454928338527679,
+            "trigger_count": 23,
+            "trigger_fraction": 0.0115,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9515677094459534,
+          "safety_final_trigger_count": 12,
+          "safety_final_loss_count": 6,
+          "safety_final_cp99_upper": 0.007269711022989352
+        },
+        {
+          "alias": 1,
+          "calibration": {
+            "threshold": 0.9328604936599731,
+            "trigger_count": 13,
+            "trigger_fraction": 0.013,
+            "utility_loss_count": 7,
+            "utility_loss": 0.007
+          },
+          "safety_initial": {
+            "threshold": 0.9350811839103699,
+            "trigger_count": 23,
+            "trigger_fraction": 0.0115,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9398181438446045,
+          "safety_final_trigger_count": 15,
+          "safety_final_loss_count": 9,
+          "safety_final_cp99_upper": 0.009368602364530772
+        },
+        {
+          "alias": 2,
+          "calibration": {
+            "threshold": 0.945174366235733,
+            "trigger_count": 13,
+            "trigger_fraction": 0.013,
+            "utility_loss_count": 7,
+            "utility_loss": 0.007
+          },
+          "safety_initial": {
+            "threshold": 0.946609765291214,
+            "trigger_count": 20,
+            "trigger_fraction": 0.01,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9488589763641357,
+          "safety_final_trigger_count": 16,
+          "safety_final_loss_count": 9,
+          "safety_final_cp99_upper": 0.009368602364530772
+        },
+        {
+          "alias": 3,
+          "calibration": {
+            "threshold": 0.9346425533294678,
+            "trigger_count": 13,
+            "trigger_fraction": 0.013,
+            "utility_loss_count": 7,
+            "utility_loss": 0.007
+          },
+          "safety_initial": {
+            "threshold": 0.9394078254699707,
+            "trigger_count": 18,
+            "trigger_fraction": 0.009,
+            "utility_loss_count": 10,
+            "utility_loss": 0.005
+          },
+          "final_threshold": 0.9394304752349854,
+          "safety_final_trigger_count": 17,
+          "safety_final_loss_count": 9,
+          "safety_final_cp99_upper": 0.009368602364530772
+        }
+      ],
+      "quality": {
+        "adapter_train": {
+          "rows": 6000,
+          "loss_counts": [
+            11,
+            17,
+            18,
+            14
+          ],
+          "allowed_loss_count": 60,
+          "loss_fractions": [
+            0.0018333333333333333,
+            0.0028333333333333335,
+            0.003,
+            0.0023333333333333335
+          ],
+          "trigger_fractions": [
+            0.008,
+            0.009,
+            0.009333333333333334,
+            0.009333333333333334
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "threshold_calibration": {
+          "rows": 1000,
+          "loss_counts": [
+            7,
+            4,
+            3,
+            3
+          ],
+          "allowed_loss_count": 10,
+          "loss_fractions": [
+            0.007,
+            0.004,
+            0.003,
+            0.003
+          ],
+          "trigger_fractions": [
+            0.01,
+            0.006,
+            0.008,
+            0.008
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "threshold_safety": {
+          "rows": 2000,
+          "loss_counts": [
+            6,
+            9,
+            9,
+            9
+          ],
+          "allowed_loss_count": 20,
+          "loss_fractions": [
+            0.003,
+            0.0045,
+            0.0045,
+            0.0045
+          ],
+          "trigger_fractions": [
+            0.006,
+            0.0075,
+            0.008,
+            0.0085
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "selector_search": {
+          "rows": 1000,
+          "loss_counts": [
+            2,
+            3,
+            3,
+            2
+          ],
+          "allowed_loss_count": 10,
+          "loss_fractions": [
+            0.002,
+            0.003,
+            0.003,
+            0.002
+          ],
+          "trigger_fractions": [
+            0.005,
+            0.008,
+            0.006,
+            0.007
+          ],
+          "coordinate_wise_nonimproving": true
+        },
+        "selector_verify": {
+          "rows": 2000,
+          "loss_counts": [
+            12,
+            13,
+            11,
+            13
+          ],
+          "allowed_loss_count": 20,
+          "loss_fractions": [
+            0.006,
+            0.0065,
+            0.0055,
+            0.0065
+          ],
+          "trigger_fractions": [
+            0.0095,
+            0.0105,
+            0.009,
+            0.0095
+          ],
+          "coordinate_wise_nonimproving": true
+        }
+      },
+      "quality_pass": true
+    }
+  },
+  "eligible_cell_count": 81,
+  "selected": {
+    "cell_id": "l0.0025_t0.025_b5_tau0.050",
+    "pair_id": "l0.0025_t0.025",
+    "loss_cap": 0.0025,
+    "trigger_cap": 0.025,
+    "budget": 5,
+    "tau": 0.05,
+    "effect": {
+      "runs": 400,
+      "budget": 5,
+      "tau": 0.05,
+      "mean_terminal_delta": 0.018779999999999984,
+      "mean_active_minus_fixed_terminal_delta": 0.018779999999999984,
+      "mean_cumulative_delta": 0.08271499999999993,
+      "path_change_rate": 1.0,
+      "query_set_change_rate": 0.9975,
+      "final_root_change_rate": 0.675,
+      "clean_parent_terminal_rate": 0.665,
+      "refined_parent_terminal_rate": 0.2075,
+      "parent_to_challenger_rate": 0.495,
+      "challenger_to_parent_rate": 0.0375,
+      "max_abs_fixed_terminal_delta": 0.0,
+      "max_abs_fixed_cumulative_delta": 0.0,
+      "fixed_root_history_exact": true
+    },
+    "gates": {
+      "quality": true,
+      "path_change_at_least_half": true,
+      "directionality": true,
+      "terminal_at_least_half_point": true,
+      "active_at_least_half_point": true,
+      "cumulative_positive": true,
+      "fixed_exact_zero": true
+    },
+    "eligible": true
+  },
+  "verification": {
+    "runs": 1500,
+    "budget": 5,
+    "tau": 0.05,
+    "mean_terminal_delta": 0.00011999999999999862,
+    "mean_active_minus_fixed_terminal_delta": 0.00011999999999999862,
+    "mean_cumulative_delta": 0.003906666666666659,
+    "path_change_rate": 0.9986666666666667,
+    "query_set_change_rate": 0.9986666666666667,
+    "final_root_change_rate": 0.4613333333333333,
+    "clean_parent_terminal_rate": 0.652,
+    "refined_parent_terminal_rate": 0.6473333333333333,
+    "parent_to_challenger_rate": 0.19333333333333333,
+    "challenger_to_parent_rate": 0.18866666666666668,
+    "max_abs_fixed_terminal_delta": 0.0,
+    "max_abs_fixed_cumulative_delta": 0.0,
+    "fixed_root_history_exact": true,
+    "inference": {
+      "terminal": {
+        "mean": 0.00011999999999999862,
+        "median": 0.0,
+        "bootstrap_95": [
+          -0.0010120333333333347,
+          0.0012400333333333292
+        ],
+        "one_sided_signflip_p": 0.41905580944190557,
+        "positive_fraction": 0.23,
+        "negative_fraction": 0.226,
+        "zero_fraction": 0.544
+      },
+      "active_minus_fixed_terminal": {
+        "mean": 0.00011999999999999862,
+        "median": 0.0,
+        "bootstrap_95": [
+          -0.0010081000000000011,
+          0.001225399999999996
+        ],
+        "one_sided_signflip_p": 0.4176758232417676,
+        "positive_fraction": 0.23,
+        "negative_fraction": 0.226,
+        "zero_fraction": 0.544
+      },
+      "cumulative": {
+        "mean": 0.003906666666666659,
+        "median": 0.0,
+        "bootstrap_95": [
+          -0.0003975000000000026,
+          0.00821876666666665
+        ],
+        "one_sided_signflip_p": 0.03729962700372996,
+        "positive_fraction": 0.4573333333333333,
+        "negative_fraction": 0.42333333333333334,
+        "zero_fraction": 0.11933333333333333
+      }
+    }
+  },
+  "verification_gates": {
+    "quality": true,
+    "path_change_at_least_half": true,
+    "directionality": true,
+    "terminal_at_least_half_point": false,
+    "active_at_least_half_point": false,
+    "terminal_inference_positive": false,
+    "active_inference_positive": false,
+    "cumulative_inference_positive": false,
+    "fixed_exact_zero": true
+  },
+  "failed_verification_gates": [
+    "terminal_at_least_half_point",
+    "active_at_least_half_point",
+    "terminal_inference_positive",
+    "active_inference_positive",
+    "cumulative_inference_positive"
+  ],
+  "endpoint_signature": "(texts: 'list[str]', parent_predictions: 'np.ndarray', adapter_paths: 'list[str]', thresholds: 'list[float]') -> 'np.ndarray'",
+  "grid_file": "STEP102_STAGEA_COMPLETE_GRID_2026-08-13.json",
+  "grid_sha256": "517b15cd302c7673bdf2933fd521df2d02b811e3b13cee901af521260be04423",
+  "arrays_file": "STEP102_STAGEA_DEVELOPMENT_ARRAYS_2026-08-13.npz",
+  "arrays_sha256": "2e345926d768e541e58d3ea59fd779953ee412ea35d2d8be7f44f5029bbb4e57",
+  "sealed_outcome_opened": false,
+  "code_sha256": {
+    "step93_common.py": "cbb4df4ccba18d386f710fbc2dd98fbf83ff266c237fffd523fc1b9dc5c89ccd",
+    "step100_common.py": "74c43111b3ca768930d7d205cd048466327c806310a91a94aa1fe11cd1e793e1",
+    "step100_stagea_develop.py": "38ffaad2de7ac876a0110b277b9d3f8401cddbafb7067a9ac75d8e2707f33803",
+    "step102_common.py": "1c1109a87391ae695bf95ffaa8c7a5d1c20c81f1fb7c5942a0add2e613dfd72e",
+    "step102_executable_adapter_endpoint.py": "103b0159fc0fca3d00a3eed42411e21427905ff5f5623152049cc4a8b6cd3864",
+    "step102_stagea_develop.py": "9dd5bbc318c5632908012bad1131a37a08a138c666c4353d42ef6486bfcc3928"
+  }
+}

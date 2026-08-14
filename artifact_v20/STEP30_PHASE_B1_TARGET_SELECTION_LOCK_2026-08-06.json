@@ -1,0 +1,4224 @@
+{
+  "complete": true,
+  "elapsed_seconds": 142.3403468132019,
+  "gate": "STEP30_PHASE_B1_DEVELOPMENT_SELECTION",
+  "phase_a_result_sha256": "9a075b143db6a8f11a42dbbbc313a9262a4547249fe81d39caa3f1c7a1540aaa",
+  "preregistration_sha256": "75426cf20eda0e2536b85f1d0274652eef94dd8dbea66faa5e483291a167156a",
+  "tasks": {
+    "gsm8k": {
+      "all_development_targets": [
+        {
+          "development": {
+            "harmful_fraction": 0.176,
+            "improved_fraction": 0.55,
+            "mean_changed_query_positions": 24.668,
+            "mean_delta_cumulative_deployed_regret": -0.22486400000000006,
+            "mean_delta_final_deployed_regret": -0.0006720000000000006,
+            "median_delta_cumulative_deployed_regret": -0.09900000000000009,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.274
+          },
+          "target": "01-ai_yi-34b",
+          "target_full_score": 0.648,
+          "target_index": 0,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "59c3e9222b46d480b0cb85a6cf7c4dee9bddea790cd7d20c1386fc9f4b453f78",
+              "08d39681797dd611ed8f4b0ab90e4e41ef76a6d3da2a91e4751b5ad80a52a266",
+              "faddd0dbc80b480c423d2031b4d6c8c5521ad4e47a12fc2c063c8eb71167ec74",
+              "55506568da62fb11e6d25d6cc2e1a2e04b00375fbe0cb70ec2d3394a72dffdfe"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "010335a119bb673fabe175400e41f2c169b4f50ed3430b6dea4ad1c384a417dc",
+              "41e2cf6c402f222c07112795c6f4c8663c23634a2d00d09cca23a3bfb1b6859d",
+              "7f9dc20494b45a16dff8ef5e0ea1f4a64055088b5c4af5ff9939262d43e77297",
+              "ffd1d9bc2046da899a1d3e02649c6366ab61a4d43cd9b1a94820554f1b54d919"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "01-ai_yi-34b",
+            "target_index": 0,
+            "target_score": 0.648
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.518,
+            "improved_fraction": 0.29,
+            "mean_changed_query_positions": 22.316,
+            "mean_delta_cumulative_deployed_regret": 0.08997600000000004,
+            "mean_delta_final_deployed_regret": -0.0005160000000000005,
+            "median_delta_cumulative_deployed_regret": 0.05500000000000005,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.192
+          },
+          "target": "01-ai_yi-6b",
+          "target_full_score": 0.375,
+          "target_index": 1,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "827b7c533d6c891e8e89149598716972d71e2dc21153aa86071bc6a33b2c0f37",
+              "129760f391fef09b0e23d2ea4cf4648359bac99fe2832efda9158cffcb140cbe",
+              "92db0aa288446af16e45ab4f4526a9c175fa70bb5e6a10f62c4a23204813fe23",
+              "75f0c1aec4654998f45530d9ec1efbf0389643d0666dd219b2a077b279503bfe"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "8623cb1564b3dc0b261d78a759743548246564ba031a89712dfbbeafdab45ee1",
+              "f0a9168fee4c729a369dfd058c90e8e352583bcc4c26e5ab0b427852840b11f0",
+              "ea94ba7dca3e5f1b6c1cdfd1aa1fa42189fa198e792970e413357441f97db70b",
+              "b4829945217d76de00717161881e08eef58831725300dbc2ce0e245b3707c883"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "01-ai_yi-6b",
+            "target_index": 1,
+            "target_score": 0.375
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.406,
+            "improved_fraction": 0.44,
+            "mean_changed_query_positions": 23.288,
+            "mean_delta_cumulative_deployed_regret": -0.022035999999999972,
+            "mean_delta_final_deployed_regret": -0.0003280000000000003,
+            "median_delta_cumulative_deployed_regret": 0.0,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.154
+          },
+          "target": "AlephAlpha_luminous-base",
+          "target_full_score": 0.028,
+          "target_index": 2,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "686420c8b0425ef29e133f3403d89e5879d1bbdecb17470e20c88b6803feeefd",
+              "c92636051a0a8047c0a0d221e3880b03435df99103cc3b78672525c8aa58e703",
+              "b458fb23e3d76642fbbc927987b366d68c76cb068440f34df0d1f60a40af8ab9",
+              "1e6e97f200a89150bd3adbc3d32c178b52430ff38ba32d3b2c15f7202b8ae379"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "e5c825e9fd96245a7f51ca85eeabcf54047583172cc4848a374477970e2e86b8",
+              "3662fcce344ef1b7e82b0dcb763efbe3725742bcf8abdad5242b6695c48bab9a",
+              "75b45724805015ab04ca4abafa8dd313d523a49d011692df8ca1719622976bbd",
+              "012cdac0150907798404c9b519f21643fb371fc8a00d45d45e262233834ffd58"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "AlephAlpha_luminous-base",
+            "target_index": 2,
+            "target_score": 0.028
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.544,
+            "improved_fraction": 0.39,
+            "mean_changed_query_positions": 23.766,
+            "mean_delta_cumulative_deployed_regret": 0.11581200000000005,
+            "mean_delta_final_deployed_regret": -0.0008280000000000007,
+            "median_delta_cumulative_deployed_regret": 0.09600000000000009,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.066
+          },
+          "target": "AlephAlpha_luminous-extended",
+          "target_full_score": 0.075,
+          "target_index": 3,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "2d078a8ea7bae107799115a570ba286e843ddd73cbe730a915639755911b0ae1",
+              "c5bfcd1de3835f2e602ce322fa3b238005028622aa3e0396b60fd68ec52c46f0",
+              "dc8cc9c9ed968eda428768301f4ec397dc71ad5b125c2f14877c4d5bf2d94cdd",
+              "f73c48e1c5e52d268bbb0597bdc3df78804fe6c4198f5f98dbf60192024a1d6f"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "ddad06edc3d438b3d7ff27983ae3ca56fcf5681d0b0af3b35bbba72902681961",
+              "6f95fcfdae7e84e2ad85bec13b9346ed42fcace1c7880a6d1d943534957b7461",
+              "7926450145afee0faf8b1d871d04835f8a35a5a484b803730a7e8a451a43ffac",
+              "6486520db169eb347c7eb2a70c7c54261e75f5013604f64358137b307ec15d65"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "AlephAlpha_luminous-extended",
+            "target_index": 3,
+            "target_score": 0.075
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.602,
+            "improved_fraction": 0.358,
+            "mean_changed_query_positions": 24.634,
+            "mean_delta_cumulative_deployed_regret": 0.08223200000000007,
+            "mean_delta_final_deployed_regret": -0.0008280000000000007,
+            "median_delta_cumulative_deployed_regret": 0.10100000000000003,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.04
+          },
+          "target": "AlephAlpha_luminous-supreme",
+          "target_full_score": 0.137,
+          "target_index": 4,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "97622269284c94a01576e203d93c90e535b4fc481bd68486fdc0dbd2c7b7886e",
+              "c53da422e3131181379e54c237462f0ab34137f8e096a2ef04ac6d35174291d5",
+              "fc1dc5b81a2795d9b75c25cc5a64f781a2f6fd324bb219474ec1c7d13d13bf90",
+              "30c60c59ec15e20aa09a7b2281de864171b6c8bb10e607c3f7d8215c33c493eb"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "42e8de86c27fb58d4b8687fa5e8deca2cb377c610f2a3317c6068e61bada12be",
+              "d883f88a6c6dc5f9e502d60504c4a436c4f957a6efd7b393b55a61c7d9ac122b",
+              "256666944d64d8026fab1f25058f5b53beac772dfcc10909a1c0fc2302a80b2f",
+              "a29943b8ac806b1dbf4706ce781e9934b45d997020b6738588fe34b4fa3a4747"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "AlephAlpha_luminous-supreme",
+            "target_index": 4,
+            "target_score": 0.137
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.298,
+            "improved_fraction": 0.54,
+            "mean_changed_query_positions": 22.452,
+            "mean_delta_cumulative_deployed_regret": -0.14988000000000004,
+            "mean_delta_final_deployed_regret": -0.0006400000000000006,
+            "median_delta_cumulative_deployed_regret": -0.08099999999999996,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.162
+          },
+          "target": "ai21_j2-grande",
+          "target_full_score": 0.159,
+          "target_index": 5,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "ba47c71216cb2f64b6de61f16cbbb8c02d0a68da264ffcd76c98d0739bafe53a",
+              "3b244b7104d72e6adf94820f340423db64e51615be5b02b575216a0d2d75d883",
+              "7970ee0c59d4ddfedab9e1b2da3309802a81b31067ff6185bd96df7c6ccf1f6a",
+              "9a4ab20a287432e0c549b814c3de0bbbeaedd66059cd0d4739721876b1f5a685"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "4feb503aa607bb7927a567dea3e2761a386a96c6e183c90581f6757655095813",
+              "9d5c6c8cba6644ceceb780491a20a89d4ff605bcd4b18a0ee73cf8388d4af9f4",
+              "f15e73b59cf44e31d2a60710dc0f05d59ed793d28982c400a17f646ba7df6617",
+              "ae2d29e5e8bf6b958aa182bb29a3251f469b4023c95339d9a0db29a4b29d7361"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "ai21_j2-grande",
+            "target_index": 5,
+            "target_score": 0.159
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.324,
+            "improved_fraction": 0.534,
+            "mean_changed_query_positions": 24.456,
+            "mean_delta_cumulative_deployed_regret": -0.114352,
+            "mean_delta_final_deployed_regret": -0.0008280000000000007,
+            "median_delta_cumulative_deployed_regret": -0.05499999999999994,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.142
+          },
+          "target": "ai21_j2-jumbo",
+          "target_full_score": 0.239,
+          "target_index": 6,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "04ffa0fb8da3001fa87fa8be0d55974e81a1aee096cfd886efcdde83fe4c1e95",
+              "e4149ba6c792033878a0d1ca72d44d78a05d6822e5d1c25a8cbfb4172a34e718",
+              "5f063d16573f7a059fbc491937725a779eeec54e414fb26714b38ef2c2233d0a",
+              "3ad0f6b62f0c6212308176bd29f11bcf850ee791ddebe963cdbd8e2c6829c3b2"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "108a18d16b116a686d870ac24aae86e732bf7d54011bc3127598f7a4ba67acf4",
+              "81cdce7417b4a6f5920f7214059cc27639c6622ad6eee6a5f0f4a03c3870d391",
+              "28c346ef26cf611f3e801cd701f3b25a1667aad9a143475ce3b7ecf27b5c7b16",
+              "a5cd8323948439ef6df10cb6daeb13086298127501c40066c770c0e22227601f"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "ai21_j2-jumbo",
+            "target_index": 6,
+            "target_score": 0.239
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.02,
+            "improved_fraction": 0.862,
+            "mean_changed_query_positions": 26.382,
+            "mean_delta_cumulative_deployed_regret": -0.8967320000000002,
+            "mean_delta_final_deployed_regret": -0.0005120000000000004,
+            "median_delta_cumulative_deployed_regret": -0.7030000000000003,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.118
+          },
+          "target": "anthropic_claude-2.0",
+          "target_full_score": 0.583,
+          "target_index": 7,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "208c900ba57f17f492fab8a9ce94704b58940cdda6561c720bc865bb6cff4de8",
+              "f549e30da2c2d35e01c13b72bdc5ed952ed826f22dccca9ee309d0ed7a43710d",
+              "1fedb58af20ea5d878c19c76700f56805a57ec4fbebd9068a87242e7012b6b0f",
+              "ec5afb5c779be7b3bd6591a374fc6b60c55fc2e42b6426733c452b6c2582fdfe"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "1e6fa19690d2a1f5b1abc00df5ce8cbb3fbf935aed8a14bac057b373d53b1991",
+              "03abffa13f63e9e204802e0430e5a225a52dc132cede33bd904093c5ce54c8e5",
+              "2022e6031a7a9e522a0d2e5290a66bc60727bd0f33fe90eb2962bd5482ad3e4d",
+              "45e0722a050cc7d3a5ee65b80149f355cf538df5cb12c8a8813b8861b1fba049"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "anthropic_claude-2.0",
+            "target_index": 7,
+            "target_score": 0.583
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.062,
+            "improved_fraction": 0.712,
+            "mean_changed_query_positions": 25.916,
+            "mean_delta_cumulative_deployed_regret": -0.5629200000000002,
+            "mean_delta_final_deployed_regret": -0.0006280000000000005,
+            "median_delta_cumulative_deployed_regret": -0.3919999999999999,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.226
+          },
+          "target": "anthropic_claude-2.1",
+          "target_full_score": 0.604,
+          "target_index": 8,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "351fc47a5733d8fb325cf32187409086d3722d96edc8d5fd3a2fa31d44f1c464",
+              "de7fcf3079248226efc50ba6dfbfbab0440814aff847cebb127142d4c8098ba2",
+              "0537df083c2c23b61930d8c83319b4cfad50c2e14eb52cc32f25f50bc7fc4d99",
+              "b8d1ac73d8454b25d3971f78ea5d8ad751b7534594dda0bc06fdc9f3b383cbd6"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "5f3951d80cba4d9de48ac8f0f7dd5f00f715ad8c1b27a8e0002a8e32612b686c",
+              "ead08004b4620510c00eb49bfddda9b61d2304351816ed4a7228783030497e51",
+              "4fcd3672773f82bc8e6a3d9e1a7a6097f1c0b07267be847a8bd8d7ee982c287b",
+              "8f614eccac329a7f7a007f1dfe2c1baf3b8f04ae96f4d6783e86261cf1a3ef68"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "anthropic_claude-2.1",
+            "target_index": 8,
+            "target_score": 0.604
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.234,
+            "improved_fraction": 0.646,
+            "mean_changed_query_positions": 25.514,
+            "mean_delta_cumulative_deployed_regret": -0.36978800000000006,
+            "mean_delta_final_deployed_regret": -0.0005080000000000004,
+            "median_delta_cumulative_deployed_regret": -0.3420000000000001,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.12
+          },
+          "target": "anthropic_claude-instant-1.2",
+          "target_full_score": 0.721,
+          "target_index": 9,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "00e7c6c70c1d04f88411777875cb2ed62ca90721bec0d85eeba068d5c47d9672",
+              "14cd0771ec5d8bb3e7b30839b85047c43088dc126544f5fa23af6863fb2c86f7",
+              "f649e5bb78b4931027f592f8581396dcbb7b05fb59e2324746143440d38b4992",
+              "6c42647e0ed67bb1e17cca1daf636c44d51975240a1ef3ced828a2b01a1dbc93"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "47a9405019733566beec8ae9e3f1480e218c6d858c8aa1d9856319ca872b3b35",
+              "3f90b9669f44b02bbc821ea5163bddbdc36665d310045c3cfcdf82ec10045111",
+              "c805c4b005bcd6bace94dc20c09830142a81063b21d525348925dfa236e0fa82",
+              "ad7d002e7fc77619432988ed126b1fbb80ec97703feabe8bf8f608ea52e4ab4b"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "anthropic_claude-instant-1.2",
+            "target_index": 9,
+            "target_score": 0.721
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.234,
+            "improved_fraction": 0.646,
+            "mean_changed_query_positions": 25.514,
+            "mean_delta_cumulative_deployed_regret": -0.36978800000000006,
+            "mean_delta_final_deployed_regret": -0.0005080000000000004,
+            "median_delta_cumulative_deployed_regret": -0.3420000000000001,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.12
+          },
+          "target": "anthropic_claude-instant-v1",
+          "target_full_score": 0.721,
+          "target_index": 10,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "00e7c6c70c1d04f88411777875cb2ed62ca90721bec0d85eeba068d5c47d9672",
+              "14cd0771ec5d8bb3e7b30839b85047c43088dc126544f5fa23af6863fb2c86f7",
+              "f649e5bb78b4931027f592f8581396dcbb7b05fb59e2324746143440d38b4992",
+              "6c42647e0ed67bb1e17cca1daf636c44d51975240a1ef3ced828a2b01a1dbc93"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "47a9405019733566beec8ae9e3f1480e218c6d858c8aa1d9856319ca872b3b35",
+              "3f90b9669f44b02bbc821ea5163bddbdc36665d310045c3cfcdf82ec10045111",
+              "c805c4b005bcd6bace94dc20c09830142a81063b21d525348925dfa236e0fa82",
+              "ad7d002e7fc77619432988ed126b1fbb80ec97703feabe8bf8f608ea52e4ab4b"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "anthropic_claude-instant-v1",
+            "target_index": 10,
+            "target_score": 0.721
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.422,
+            "improved_fraction": 0.472,
+            "mean_changed_query_positions": 26.198,
+            "mean_delta_cumulative_deployed_regret": -0.007087999999999941,
+            "mean_delta_final_deployed_regret": -0.00018800000000000018,
+            "median_delta_cumulative_deployed_regret": 0.0,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.106
+          },
+          "target": "anthropic_claude-v1.3",
+          "target_full_score": 0.784,
+          "target_index": 11,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "aff861d14d598beb3e42b63e61a2abe4926d1962267dddcdde704941d345500f",
+              "d9e24127c3d122b8b41d2efa46a78b0c9f18c1404a17fd859481f61323c9312a",
+              "cd91e830385076bff516967206ed89380532e9cbbd1773099082bbd8db2a5602",
+              "177687734edb7d5655304712798a23b8c5d3d7b1a5ca787590d06ba97033d326"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "55f7251950b68dacdaadf7dd64f33ebe1f5fd348cf3b312cc282212014ff9bf6",
+              "bf19262e32bf8bb653b48123f11bf6f2557a08ad9f5dab39526ee2f31c346097",
+              "b00d29a2d2ad251fe0b67e9bc4c6ee6e1829db237f9958b5a2c3e3ddb245f20b",
+              "b2b00df1f3bae3e9fdd14b17ccd75d30d1e5510fb15989f43fa8e01cfbb9bfeb"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "anthropic_claude-v1.3",
+            "target_index": 11,
+            "target_score": 0.784
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.722,
+            "improved_fraction": 0.232,
+            "mean_changed_query_positions": 23.718,
+            "mean_delta_cumulative_deployed_regret": 0.26104000000000005,
+            "mean_delta_final_deployed_regret": 2.000000000000002e-05,
+            "median_delta_cumulative_deployed_regret": 0.32899999999999996,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.046
+          },
+          "target": "cohere_command-light",
+          "target_full_score": 0.149,
+          "target_index": 12,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "d8a6b42ccc970ba00390e6553111daf5f01fc3d48319662a954bf86aeec2733c",
+              "21bc080b1fc3b0e2d599498289c55f7a9958d7c629ce92c8eb2038cef08ec5c6",
+              "90d949e124500b479592a99e833bab9354a6d821508cc284f9b8482ab7fbcadc",
+              "4a343e234f960951acb84ee9b31c73134031aec867cf840983ba92c0933cb83c"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "909532ecf8f18f58edaef5bcdd43c327790425878b5f8c305cd0576be8789973",
+              "ce68ce2e9f18a562ca0f1158dfc0709d5c790332f584e75b7895666c8fcaff15",
+              "5aee8bc56996a8e8d77a082cf33bed6bcd7958178c2f66430d98e7a4f249642c",
+              "006b2c3e8838b8066470d85625b67f6162d4987a80e736949d188e619a49ae7f"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "cohere_command-light",
+            "target_index": 12,
+            "target_score": 0.149
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.546,
+            "improved_fraction": 0.212,
+            "mean_changed_query_positions": 22.938,
+            "mean_delta_cumulative_deployed_regret": 0.15596400000000005,
+            "mean_delta_final_deployed_regret": -0.0004720000000000004,
+            "median_delta_cumulative_deployed_regret": 0.09600000000000009,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.242
+          },
+          "target": "cohere_command",
+          "target_full_score": 0.452,
+          "target_index": 13,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "c77091748a22bdfeb5d3efe6e0a08be340f2d056a67074742974ca446464f893",
+              "d4e0799dfbb1b098defcc9b2f75389ba75f3954fec641d1c18d7a783b80560ca",
+              "a066165364514672a0e05042fcd970765f823cb8d4377358c999f8bcf52d6c8d",
+              "1104499a39f7e70ff3bcfb85dadde83c76ebb29e39aa264e5ed89bba66aaf475"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "fcdfd245d13e2b04cbcda83e45f105897f28b6676e3c66386444e1a7ece4dce8",
+              "c6bec08898ec1d05d83c8ca2e7a8bda62c373f6142c6a137d7ebdf63a43d80b1",
+              "9c728e045258f571c9f32065d36ebfd9b422d1badfd6f171974cc9e16ac5e76f",
+              "775782f87fb18fd3fa14d60c81c253523d751bdf1f6eb60d6cc8e745246ad31b"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "cohere_command",
+            "target_index": 13,
+            "target_score": 0.452
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.408,
+            "improved_fraction": 0.398,
+            "mean_changed_query_positions": 25.398,
+            "mean_delta_cumulative_deployed_regret": -0.045624000000000026,
+            "mean_delta_final_deployed_regret": -0.0008280000000000007,
+            "median_delta_cumulative_deployed_regret": 0.0,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.194
+          },
+          "target": "google_text-bison@001",
+          "target_full_score": 0.61,
+          "target_index": 14,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "8394c6c7065088af58d4356400426453d2eee6c47fb6926b8d37763d6167a8f9",
+              "79d06828b2d4c51b4f5afaebb436f63e047c2b8e431ee321f25cba1060cc97ca",
+              "489705f2d098e512b069d78e880efd2f7f12fc6905a3bb6e25271bb673811060",
+              "69656a4da7bf27c46ee1535e5c14ec18f5c52eaad64e33a019c990aa69099992"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "060f77f71d2a17b94ba7f3a07098674b30c22624af28d4a5a294799cf18d7ae6",
+              "a34ed7ce91c2fb8205fec4c8c301d7840d9ac464af1f89f8fa8f930e1029f8bc",
+              "0328c8a36f992d9703e222d1cfe9585b37b8d52dadca92b679e326072a4c379d",
+              "1078a0579a35eef1abc66f19d3b46d6cec0dfdcf2b6546e4fc00cfb25d5bd8f3"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "google_text-bison@001",
+            "target_index": 14,
+            "target_score": 0.61
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.066,
+            "improved_fraction": 0.8,
+            "mean_changed_query_positions": 26.774,
+            "mean_delta_cumulative_deployed_regret": -0.6043320000000002,
+            "mean_delta_final_deployed_regret": -0.0008280000000000007,
+            "median_delta_cumulative_deployed_regret": -0.39700000000000035,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.134
+          },
+          "target": "google_text-unicorn@001",
+          "target_full_score": 0.831,
+          "target_index": 15,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "674add93bb8ac790fb2d26b26c93bf9184cecd266a867e646c22251359b9f123",
+              "4489ebf243a87d30510e1cefbe0790ec08fccfd3246c94d1f2c22c13508326e6",
+              "0f147a10fdf9319f5752e110d144ecb108fcc0662eba08e93fe8d275b660aee4",
+              "21635eb857cae6e21efea5de28445f17c688ee7c8eb6987392dfe45ad0a5f407"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "b00769b2de7df37f8f402674d4b767a6525a9cf0573358a0459b9ea571ab0b5d",
+              "b9f0ef948fddba4c86e462d69371bb19cedc40230cdc0645117038335673cc00",
+              "22e0a37a8267e33d7f58ba9f8112c31ba3347204aaa42d031d7dc1568834ca5f",
+              "ea34e234aae2c0ae4a133e3838473c8a243b1c22a4b2a1328bcf81897d956dc2"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "google_text-unicorn@001",
+            "target_index": 15,
+            "target_score": 0.831
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.212,
+            "improved_fraction": 0.444,
+            "mean_changed_query_positions": 22.048,
+            "mean_delta_cumulative_deployed_regret": -0.10607200000000003,
+            "mean_delta_final_deployed_regret": -4.000000000000003e-06,
+            "median_delta_cumulative_deployed_regret": 0.0,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.344
+          },
+          "target": "meta_llama-2-13b",
+          "target_full_score": 0.266,
+          "target_index": 16,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "0effff7027f65a7fbcf3a9b67daa1e7d8a77aa127b450aeed4a83f2fc6f93648",
+              "307a709b5482010557e4f95a03cd8bea8585605e2fcbf4416ae028b95cdc6877",
+              "91b2a8fe927f630c77904ff1f0ccb1a15f29b68fc1ed683b238b9f1cc31e93fd",
+              "8a3e52891f45b1ceed487b0ed0180982e50ce50a92d8784c8c03c8c2d19e6cd1"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "8307a3eba7f52e2c3b3f5b83f7a2f29687f43ddfb24aa7e31072f6a516af4014",
+              "6c4a4cd2486b7379fdf3262e802d79c51fd4fe58b05e8169eaae95f527f55cf2",
+              "655063ca7b837a910f12f0458df4def556bbcdc9438256661eca0ab5fe1cda5b",
+              "07a65eb99ef9772c7e1b799ab37353d9ad84a27eabc836c58d80dcd3637ac00f"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "meta_llama-2-13b",
+            "target_index": 16,
+            "target_score": 0.266
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.372,
+            "improved_fraction": 0.368,
+            "mean_changed_query_positions": 24.188,
+            "mean_delta_cumulative_deployed_regret": 0.00017599999999999837,
+            "mean_delta_final_deployed_regret": -0.0006600000000000005,
+            "median_delta_cumulative_deployed_regret": 0.0,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.26
+          },
+          "target": "meta_llama-2-70b",
+          "target_full_score": 0.567,
+          "target_index": 17,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "da39fbcf78d0251d85498d58823bc5e9c03c8aa0a28f55310335dddcd293a4e3",
+              "e26ec8e1203dc4ecd61c1b5ec01dacccce2ba75ff5096cf9085b63aabf6ec63c",
+              "f211d223663b511fb47fca8cd3a01433f0b91cea5757273fca9851a28ab935e5",
+              "7d7cc18dcd47878407a7be348c2916a37f49aa35d6923d5d8f9fbddb7edb1341"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "13cfc6959514da9a570ffe94674f38ad0ecf484c1a99cfce9bfc4c6db9d83123",
+              "abd939b4cdc38f97821b10f0a401c901daccabe58f92c6182054d724fa348c51",
+              "0e6a7073bd1ee8d8610cf9192b4429184866c0239011e4e8c4111c244f3f6736",
+              "5431ddbd9eb8a7ff11ca33bfe9c3ca130e330e47c7a17e051d617b89ed56f8ae"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "meta_llama-2-70b",
+            "target_index": 17,
+            "target_score": 0.567
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.332,
+            "improved_fraction": 0.494,
+            "mean_changed_query_positions": 23.282,
+            "mean_delta_cumulative_deployed_regret": -0.12472399999999997,
+            "mean_delta_final_deployed_regret": -0.0004920000000000005,
+            "median_delta_cumulative_deployed_regret": 0.0,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.174
+          },
+          "target": "meta_llama-2-7b",
+          "target_full_score": 0.154,
+          "target_index": 18,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "6ece2c41f32470fc5a122487e8c51af1bcf07a5c202d4609a599c6a3955fcb1b",
+              "c582612396eb29a2755821cfbc5561b01953132dbd31b4f8f40338a84dc9d795",
+              "c9b6b41013f9918febfc188579f2fbb0e3717e710b7891e8e066e0eae998583d",
+              "5135eac2b6b7366fb475b012dacd43921f9deda8490f99c3a08dacf3888a3053"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "bb16cd32c42d3484bb60d594e48c16dab869dc3d5b5a0bb82da5b99834bfc5cf",
+              "6a7ebb7eb92ea34529a58b8ad7d62323f9ee7b5265054427772d089dfc5d234c",
+              "f056c5166a44794560b1b5002e13f3eb9f83bfd7bf067cfa9696d52e976e05aa",
+              "c816164f55036e1b2dd69a08789e4acb5a82b2500fdf563576484d9cee1a5cc4"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "meta_llama-2-7b",
+            "target_index": 18,
+            "target_score": 0.154
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.356,
+            "improved_fraction": 0.468,
+            "mean_changed_query_positions": 24.95,
+            "mean_delta_cumulative_deployed_regret": -0.056288000000000046,
+            "mean_delta_final_deployed_regret": -0.0006720000000000006,
+            "median_delta_cumulative_deployed_regret": 0.0,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.176
+          },
+          "target": "meta_llama-65b",
+          "target_full_score": 0.489,
+          "target_index": 19,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "d2ceb7a98e9be78b9f18f0040c0b4519bf3ca08dce1eca92b227ac7a49273f04",
+              "86ec6bf2c87eb148e613f672108c9882c0318e1e03c422762d8e92b425a319db",
+              "0fa4ad8b3958ac2b68ffdecd608bef5a64cb8d17303898db062439fa7e2e71f3",
+              "b8770299575fcb40027358051945150e591ead2dc6275a5006b52f3742acf747"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "c9e005573b5272711bcee81145289f243bbe7cb9a98f3d58edbf587496670e9e",
+              "54a3194e570ee98f38a40b1e3af2f84ee72198d22ddca39fe36418b40edb8f62",
+              "46c9785685680f8de051ae1482903afd29c35c407553045144c485c1afd9528b",
+              "40e9efa9ab69994a6a7a614c367093f4d36cccb919cd33155da6c93e4d8d1b12"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "meta_llama-65b",
+            "target_index": 19,
+            "target_score": 0.489
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.596,
+            "improved_fraction": 0.232,
+            "mean_changed_query_positions": 24.314,
+            "mean_delta_cumulative_deployed_regret": 0.2417240000000001,
+            "mean_delta_final_deployed_regret": -0.0005160000000000005,
+            "median_delta_cumulative_deployed_regret": 0.13099999999999978,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.172
+          },
+          "target": "mistralai_mistral-7b-v0.1",
+          "target_full_score": 0.377,
+          "target_index": 20,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "a72f414a9a555afaa6c6cfa7af8c6fb6a94b620c78f63a35c76085595dced97d",
+              "abfa2080c3187ddcf864ff416f293b37e66e7f19026aa741b80da772e9fe9ae7",
+              "3c3a8e05850521385bb63615d75b6a578e92de8dbb5a7002563429d914646dcb",
+              "293a6ebe028def78ef1f6e3afa052009772eac8aed097c1eff70f11e57c146a6"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "6207baab4047cf50194c49afb07929d75e439acdf29e0dd50964483941927316",
+              "6600c5bd72d2dff739d01b8e3142e3d02ee0db51ccc52366c28bf1baa1319b7c",
+              "7c479c11cadd7fd0da1002d828722d7118091c4b96198686ca30dbd7cd4a319c",
+              "62058bc0c0588449afc5b6e7a9b9fed64c5164a8f96452f233ea3cfd05dde9ee"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "mistralai_mistral-7b-v0.1",
+            "target_index": 20,
+            "target_score": 0.377
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.15,
+            "improved_fraction": 0.594,
+            "mean_changed_query_positions": 25.374,
+            "mean_delta_cumulative_deployed_regret": -0.2707000000000001,
+            "mean_delta_final_deployed_regret": -0.0006720000000000006,
+            "median_delta_cumulative_deployed_regret": -0.192,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.256
+          },
+          "target": "mistralai_mixtral-8x7b-32kseqlen",
+          "target_full_score": 0.622,
+          "target_index": 21,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "8dd4d96d157bbc5c296d9c968104877aecfa0613e3fa74323b876b54009751b5",
+              "9419ae3670316b39ed539b8ec5ad83a23f45dd541ccdddc9c350499e4f28cdc7",
+              "fcb0486af03be056697c6227ccb916375a234bee1fc60ab98ffaa051ba43a87e",
+              "5165794f3052b681c5beb485c45114914c9fba056000aa601915d0029c7cffed"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "f8f5bc17e6e16fb0b086ba8e72b17e5cf87e758cf2170aac7636aea0aecfd8ad",
+              "215090fa1499ed103c1cb1b61faa4b2c3832c16f06e62fa26ebc20a8c279cedd",
+              "75faf2914901390122ac9e1ecf1e82f1e271bedaf45c9b82c948e631ed92c162",
+              "8b40dc3bc67bdf2d89fa071570f77e2f50f4a33552028330c16832f40c1ced72"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "mistralai_mixtral-8x7b-32kseqlen",
+            "target_index": 21,
+            "target_score": 0.622
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.668,
+            "improved_fraction": 0.268,
+            "mean_changed_query_positions": 26.094,
+            "mean_delta_cumulative_deployed_regret": 0.33907600000000016,
+            "mean_delta_final_deployed_regret": -0.0008280000000000007,
+            "median_delta_cumulative_deployed_regret": 0.29000000000000026,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.064
+          },
+          "target": "openai_gpt-3.5-turbo-0613",
+          "target_full_score": 0.501,
+          "target_index": 22,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "f7afe16e8b5870999279d00cd2fb2dc026b896426941076b5c788a064fc9c6b4",
+              "18eb811b226e33e2daceb4fe3164cee214a62796ea9b96ce503b94b322e456ca",
+              "12a6a6d0428830cb0958e9002b3b607602cc863f745549ab933e63a96f101bb9",
+              "2fbec3e3668dab3e6ab5e55c78ad0f35e56c702795230949cd2f159b092fa7b0"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "c90f8bbd3a946f65a91b8e8ee2453bbda73d117fa02c49ac36acf8c17ffea098",
+              "af4bb3f2edf17d4f60f38e7b9278b49fc0f3b7d65806231c1eb979fb0a2dccf1",
+              "9a94a2ad4c2d839483102f5e09842c69d982aa26ff10cb8f54890a136d170f6c",
+              "2d3532619edede6cedb4df88146aec73ba93f4305378681768f8c03d7626d4a3"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "openai_gpt-3.5-turbo-0613",
+            "target_index": 22,
+            "target_score": 0.501
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.996,
+            "improved_fraction": 0.004,
+            "mean_changed_query_positions": 27.742,
+            "mean_delta_cumulative_deployed_regret": 3.049900000000001,
+            "mean_delta_final_deployed_regret": 0.08234400000000006,
+            "median_delta_cumulative_deployed_regret": 2.951,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.0
+          },
+          "target": "openai_gpt-4-0613",
+          "target_full_score": 0.932,
+          "target_index": 23,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "51d5535b69e55570443e17c2a3662aa129bf0e2543e348680afb3f25bbcf87c6",
+              "8ddd9f02d296b169817718b384ef75edb25b1fa96d41ae2037856fcb100e7a35",
+              "f78543bd3c6a716af8ebb4afa06e1f8e4f0f724e6a25216571ae939a9fdb5471",
+              "988b4fa3726427eaebb79ef1bb01b1da1f669ab895b2ea94b2908c8addc99436"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "1728adc7c85cff22c04b7f3ecef140f0343630e0fb4028050463b5b9b1058d25",
+              "44c3b6766a5a2a698a3723e944c52bd2b3fbb870d6e6aa1e2f49d8bbebdaf420",
+              "bbe7b74ab1070fa2dd138d41e63fd5594c26ccc76ea0f60f699808d522333bbf",
+              "cdfa22fc855fe2a8506d662dc614c31d254ec2c7a952cb9a77c3d50f5a616b60"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "openai_gpt-4-0613",
+            "target_index": 23,
+            "target_score": 0.932
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.212,
+            "improved_fraction": 0.62,
+            "mean_changed_query_positions": 25.526,
+            "mean_delta_cumulative_deployed_regret": -0.3503240000000001,
+            "mean_delta_final_deployed_regret": -0.0005080000000000004,
+            "median_delta_cumulative_deployed_regret": -0.2650000000000001,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.168
+          },
+          "target": "openai_gpt-4-1106-preview",
+          "target_full_score": 0.668,
+          "target_index": 24,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "37ed8b94fed37db1e51471ca56977a4eb2ca0bc3f516a0424a9c4780c7db8d7e",
+              "ee3520eb14e20925c19eaffeab393babb383ecd45d0bd476fef1088bc0327bc4",
+              "5c1ea48d59cdfe093c1aa8e33f5d0742f3addfcb9ff45314103e22f6375bc690",
+              "db7866e40abbb801067111b77811db747e1e40615619789fb88f4355a324a910"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "94287f2e70629dc6ee8b8a274cf2e2a986812544df7c98d6bf599aebf653e73b",
+              "669de5c9ce7ef0c8fd5de418446a832818ac89f98ecd6789bc968af533765fd2",
+              "203b40458578bb96fe365edb70fb3672198bbb6f9461dfe91d0406a5390a9c07",
+              "9a6ba14d80d30b3ee3b2843a61ea7822f7c4b01c8f616d4a73d492bb793cb9ee"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "openai_gpt-4-1106-preview",
+            "target_index": 24,
+            "target_score": 0.668
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.502,
+            "improved_fraction": 0.23,
+            "mean_changed_query_positions": 24.064,
+            "mean_delta_cumulative_deployed_regret": 0.13855600000000004,
+            "mean_delta_final_deployed_regret": -0.00017600000000000016,
+            "median_delta_cumulative_deployed_regret": 0.011000000000000343,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.268
+          },
+          "target": "openai_text-davinci-002",
+          "target_full_score": 0.479,
+          "target_index": 25,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "cc03310e61c75415d34c08207eb3fff5e404f0015a7872ba04df675e9c96c3c8",
+              "3c9b03746966a2a93a19fcb0602048309450af9e95bb2b2bf699f9758e628b63",
+              "9f7d39f37de5af70c77c2537c47aa53f28f05294d5a2eb8f1d9d3328238b7943",
+              "5d6e71fc2dbf290fbbd16a123f3d158cbcbed8092390b4e32c37116df1ccb359"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "b92f3ca10c43c3f069315d1313431323b9811f07d9393add7080cd6b565a04ca",
+              "63294983f311846384c2c6c7a267e5046c39d16dd84001ccb996b10efb3eb9e4",
+              "bfd655527bdf4a47f968a6e31069b1dd2cccd93e30d38b631d6880f26b528a80",
+              "07f4121da6cb4d1595becd1f89857e490a98f7d5057b3bdcc044f9ea0359ca0b"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "openai_text-davinci-002",
+            "target_index": 25,
+            "target_score": 0.479
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.588,
+            "improved_fraction": 0.33,
+            "mean_changed_query_positions": 25.636,
+            "mean_delta_cumulative_deployed_regret": 0.20097200000000004,
+            "mean_delta_final_deployed_regret": -0.0006720000000000006,
+            "median_delta_cumulative_deployed_regret": 0.13299999999999995,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.082
+          },
+          "target": "openai_text-davinci-003",
+          "target_full_score": 0.615,
+          "target_index": 26,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "382375ce507c676d9141825cd4ccd4e1a4c4e561c835420f94df52ba65b42b32",
+              "d56f480848e5c74d11e4e38549d98721b5202f462923ae6c479e459db61db145",
+              "bb8fc34b4d83f6c25ab71416aa423519864534241ec2ec4ae4b84b5f982f2538",
+              "fd09aa5d999071e56efb42a517cb52708eb8ccd0cc1bac6018d6d26a5393cc95"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "b3cbf75f4a8b9d5268198027680dd2e59377cc68671e4609eee1f079fbf15818",
+              "c7274ef879b0ada3699c9ad0ec8762d77e189bac0ce581e24604bb82d01480e6",
+              "4efb8459eb8515f6c54908b2b6c5c0dc8d720aa4a7b7398ab1b00ebeb4349d79",
+              "8acc0729354b8151610ef9b253bc6c00ad19fce11a85a54d6d3f286c8d00f851"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "openai_text-davinci-003",
+            "target_index": 26,
+            "target_score": 0.615
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.498,
+            "improved_fraction": 0.398,
+            "mean_changed_query_positions": 23.198,
+            "mean_delta_cumulative_deployed_regret": 0.027012000000000067,
+            "mean_delta_final_deployed_regret": -0.0005160000000000005,
+            "median_delta_cumulative_deployed_regret": 0.0,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.104
+          },
+          "target": "tiiuae_falcon-40b",
+          "target_full_score": 0.267,
+          "target_index": 27,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "6aa177b1388f18946ab2bab2cf695cba055697fe51b420cf935fb93db33f959c",
+              "e1de64b6171133462ace6e98d80b88a850ab8bdcaa3dfa362f085d2d3c0b4580",
+              "a8c1eae17e551a173401b7602bc7f7656ec09e7de9a870861d193852662ee627",
+              "0ab26d4ed546e6121e8c8532ed84838a86b5e497830a425532b4cc5ecc48c955"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "988e79a71533acd54b021116cc0ba884e2e0fb632a9987090dd97717036c4c2c",
+              "b9239f1890ea246ba7c4ce95bdbda6bd00702b7bee2ef6cfd93a6ed919ae9dea",
+              "42aa1970fefd0b0a2984dfb5df48e413bef79de0d9446ed9d816f760e101a8c1",
+              "f7e30fe34c897161e941aa8a3bd51718e3502a03acb2a422a5dd7a8c6f2b2ba3"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "tiiuae_falcon-40b",
+            "target_index": 27,
+            "target_score": 0.267
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.558,
+            "improved_fraction": 0.348,
+            "mean_changed_query_positions": 23.866,
+            "mean_delta_cumulative_deployed_regret": 0.14725600000000003,
+            "mean_delta_final_deployed_regret": -0.00014000000000000012,
+            "median_delta_cumulative_deployed_regret": 0.1050000000000002,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.094
+          },
+          "target": "tiiuae_falcon-7b",
+          "target_full_score": 0.055,
+          "target_index": 28,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "67c69d56df5bd424229baca11c1a8e96bbc03391190832c336391023d8eed0af",
+              "86e8c611e01ea32222f5c4cf67bd278d11a1c317ce75d9168652dd75ce767ef3",
+              "cc6a8274d0b407043e766de166fca58776848d49cd311cfcaffe58fb2b150366",
+              "9dd4061a4ec99569cbdfcea8b86cf390070781ee5905143d5a48eb8102bfb065"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "9f444697be6e5cc4e685210bcc32bcbc43bebd0295b22342e522d8a8374d1b60",
+              "510758ee6dda8e743d4ec66c411e2cbda06edd56e3b7b6509a4f19b0f210c9f5",
+              "7e2617db10f584aef907a7c68a0111a6a4d190356ce78c288fc22d4c0906d59c",
+              "defaff51a32eec707d3f0114b306b7b879abaafc5d1cf2ba65d15cb673b47f6c"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "tiiuae_falcon-7b",
+            "target_index": 28,
+            "target_score": 0.055
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.308,
+            "improved_fraction": 0.596,
+            "mean_changed_query_positions": 26.266,
+            "mean_delta_cumulative_deployed_regret": -0.23139199999999996,
+            "mean_delta_final_deployed_regret": -2.400000000000002e-05,
+            "median_delta_cumulative_deployed_regret": -0.21499999999999997,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.096
+          },
+          "target": "writer_palmyra-x-v2",
+          "target_full_score": 0.735,
+          "target_index": 29,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "72cc82f9af7d871f02fc733f5682adffff34decf2e8dc9138e62115bac2fec86",
+              "d05efced7dd99d855440a7d127316b3177370ea61989bbfdcaa9621aafa7019e",
+              "25a74c5ceaeacf034ec8f2b1a33383d2ea72e96575ee97900113d47be6e97a34",
+              "1afa705eb43ff72c000b10c715fbc58b5a28e0d98f4680c4748efacde3a2b911"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "ee0e9ab1f46729c843ae861c61039424070fe314f188df6b0bb4688bfc1056c2",
+              "fb8ddfd50fc557b30de9a11427225ca8eb140e8c2623a6045397b37b1d5ab4bb",
+              "ca12f0c98c51a50ee41342b91676a726936068d53c0c0f568dc286f249ede298",
+              "5e7761a36e121f2b721fffca4b014dd361881d09179b1fbeecc95a946624fe4f"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "writer_palmyra-x-v2",
+            "target_index": 29,
+            "target_score": 0.735
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.436,
+            "improved_fraction": 0.448,
+            "mean_changed_query_positions": 25.856,
+            "mean_delta_cumulative_deployed_regret": 0.021307999999999976,
+            "mean_delta_final_deployed_regret": -0.0008280000000000007,
+            "median_delta_cumulative_deployed_regret": 0.0,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.116
+          },
+          "target": "writer_palmyra-x-v3",
+          "target_full_score": 0.831,
+          "target_index": 30,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "396ebd86b32ea7475a5fdeeeb00a13ecdec437f0b952d603595c79d257894a6a",
+              "bc79627c43355facab711ba88e811753452dfe7acff471446dcccdc4499bb13f",
+              "43f7cc06e0a54422404cbef574c6bc292994a06988fb59456e1d4c9a2d420e4f",
+              "8cb691977eb3d934e65acf150322fb1caa8957e3866cc5d34cf47faaa8a48b68"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "e5b97c754c94e7794504070d6e8e158340ed06ce98a0937781b5212d15ec802f",
+              "2b4b98c2b1007e6e742fb9ad9dd03c2186d6d31d60f57e9e627905240fba79e6",
+              "60dcdf355d3107e37451aaf5dbe6167c293c7c220b992c577a966281bd12d028",
+              "8d92d35a9cbb0c4439a0e97d2ddfe00ee1c8eaa7ba2b57d10e5f9b5b95d88b7b"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "writer_palmyra-x-v3",
+            "target_index": 30,
+            "target_score": 0.831
+          }
+        }
+      ],
+      "budget": 30,
+      "data_digests": {
+        "ids": "95a8f9676e01d627745f61460904a44fc2ab750221e3d90af7c5d777d034f06a",
+        "oracle": "16ccd139c2fbc0801dd1969e3276c1f5be27b3ad6b25353430b35c33bfc63839",
+        "responses": "c59adfedea6a0a18f56c221fcc65844e9bfa00a5409b85ae5a64e534af459412"
+      },
+      "distance_queries": 50,
+      "eligible_parent_count": 31,
+      "selected_development_effect": {
+        "harmful_fraction": 0.996,
+        "improved_fraction": 0.004,
+        "mean_changed_query_positions": 27.742,
+        "mean_delta_cumulative_deployed_regret": 3.049900000000001,
+        "mean_delta_final_deployed_regret": 0.08234400000000006,
+        "median_delta_cumulative_deployed_regret": 2.951,
+        "path_change_fraction": 1.0,
+        "tied_fraction": 0.0
+      },
+      "selected_target": "openai_gpt-4-0613",
+      "selected_target_index": 23,
+      "temperature": 5.0
+    },
+    "medqa": {
+      "all_development_targets": [
+        {
+          "development": {
+            "harmful_fraction": 0.262,
+            "improved_fraction": 0.732,
+            "mean_changed_query_positions": 45.734,
+            "mean_delta_cumulative_deployed_regret": -0.808064,
+            "mean_delta_final_deployed_regret": 0.0004439999999999993,
+            "median_delta_cumulative_deployed_regret": -0.599000000000001,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.006
+          },
+          "target": "01-ai_yi-34b",
+          "target_full_score": 0.652,
+          "target_index": 0,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "3f04beb70c40320a4386d378bd5ee908489ab544753a9e212c5d4c6518bb7ce7",
+              "4b5eb6f002d7d7eb8b94699ed7236d66702f770b2207b97225afd2c9f4abd38e",
+              "ffd47afc429d817475fc4fda2fe1881b861e9df97ae8ef6aae5d5f24fbd32265",
+              "ffa5d942d30850d508141656c62da6e748cc1c91b683b040c4d9c9ab7620df77"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "313b53687a80da911a25703ab42583d60aaef1b2a01047eb42bf2f56ddab3beb",
+              "717a1764a66a42948544b103b5cbf56f21cbcca2b7609ced99be8abb7acd397f",
+              "11b95fdd7cd672325071d67191f3a01e30c25d5d7be9ab38dc9eeb48fc2fcf73",
+              "17f51df66422e4e95f166543f8d85a1d14262863fc53979b523d0c664a48f6aa"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "01-ai_yi-34b",
+            "target_index": 0,
+            "target_score": 0.652
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.23,
+            "improved_fraction": 0.766,
+            "mean_changed_query_positions": 46.008,
+            "mean_delta_cumulative_deployed_regret": -0.970096,
+            "mean_delta_final_deployed_regret": 9.99999999999992e-05,
+            "median_delta_cumulative_deployed_regret": -0.748,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.004
+          },
+          "target": "01-ai_yi-6b",
+          "target_full_score": 0.483,
+          "target_index": 1,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "34528d68da9eb78f57e46ed6cc7c7ea9109822538f607e6ab43c7db445359e75",
+              "d9fe0f17a7d10a77481870315560cc01975e663b4dbe369cc781b022d3c93e46",
+              "7d470226bc4477ddc13b0082885911265bbac97cf66cd54e22824c80fc9ec24e",
+              "c4a0381f0084e3887befd4ad832b8482b81f5e3e94cdb9952b965007cd20c773"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "a61d8c6f7bd3b33a7174f249de292ebdcedfe942aaccddcf7b9b4fd33e59b6be",
+              "4e7141dd2f395d162f01cae4e418203ed943ff3a08d213e11cd63655d723f80f",
+              "deb7bbcc777e6406a3e751df8c5a6f19ab542f98a317e0e5c8c47b6ff23e6491",
+              "a94b05bd9231a334501c0a57338d035b2998b475cd877058a14810ceaf53ecd8"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "01-ai_yi-6b",
+            "target_index": 1,
+            "target_score": 0.483
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.58,
+            "improved_fraction": 0.42,
+            "mean_changed_query_positions": 47.684,
+            "mean_delta_cumulative_deployed_regret": 0.11837199999999981,
+            "mean_delta_final_deployed_regret": 0.0002999999999999985,
+            "median_delta_cumulative_deployed_regret": 0.30699999999999994,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.0
+          },
+          "target": "AlephAlpha_luminous-base",
+          "target_full_score": 0.236,
+          "target_index": 2,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "2248b94c1601084ca770ce7ecacc2c1c37ea95cb061356b3040062f48e6e0d37",
+              "38f645a83a837a84d20339f7b4ddcb20fca6adf879cbc80bf43ad593f55da75b",
+              "4342e889db75cb2ea21de1858183395374db8fc1274fb96874062fe589531d55",
+              "8515e54e558e42963d87dc1e34d70df610737aafbc63533834279e2f46f24d37"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "d6a9892dd8beb426dfe95f3482aeb3ce2b9074afe881f9519d7280775e8cad69",
+              "842bbcf5a73470c68244229dbc90df4dd98148eebe753c652c72089fa19a4ac6",
+              "a620998ff0d7d094f76aa47e1061782bcb7de342c08019e6c216a056bef9887d",
+              "dbcfd4fb1fbc06366cc3dbd17d509cc287f633826fedda0dc8020e161d551859"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "AlephAlpha_luminous-base",
+            "target_index": 2,
+            "target_score": 0.236
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.42,
+            "improved_fraction": 0.58,
+            "mean_changed_query_positions": 46.992,
+            "mean_delta_cumulative_deployed_regret": -0.42267600000000005,
+            "mean_delta_final_deployed_regret": 0.00019199999999999862,
+            "median_delta_cumulative_deployed_regret": -0.3010000000000004,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.0
+          },
+          "target": "AlephAlpha_luminous-extended",
+          "target_full_score": 0.26,
+          "target_index": 3,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "e063b5d4be42855bd21679afc4b95ffdeb6c086b2df20419ceb49fbc6f1b8e4d",
+              "c5038e2d61e3d291aec55acaa32567b86ec8253f7dfefef3a63da029985d3b4c",
+              "1975e9969abd8b2f8e162f069484c2279764505fe5f621356c7546bc54dae03f",
+              "7660ad876ea987b57ab3764c2a57837afcdfc25e391f0034daff4259b4b5259f"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "ff0234990ac9474bb6c9c8529c37782464e710351eb5918c5452bdc1808405c1",
+              "2ecba67ef3938c46d608ec9f9a9bcc55ef7250e1092db20370d7736258ce53e8",
+              "da169a7b112d5b7606c62b1aa00b228eae4c77daddbcee52051ae6c5974526fa",
+              "43c7bcb5f766c48e2efc428fb89cef4bfb798f172223a25356432bae24d9f8b6"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "AlephAlpha_luminous-extended",
+            "target_index": 3,
+            "target_score": 0.26
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.486,
+            "improved_fraction": 0.512,
+            "mean_changed_query_positions": 46.604,
+            "mean_delta_cumulative_deployed_regret": 0.07505600000000001,
+            "mean_delta_final_deployed_regret": 0.00019199999999999906,
+            "median_delta_cumulative_deployed_regret": -0.031999999999999806,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.002
+          },
+          "target": "AlephAlpha_luminous-supreme",
+          "target_full_score": 0.27,
+          "target_index": 4,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "5392e934a9dabba7ba875026dca6e9172adc090da8bec2a6048b316f12fb4cc6",
+              "f238f626c2ab4c71ca0f3551227e81c64908fdbfd1534593644873afb0a92e17",
+              "15c89f092ba92a0e810c3d574cb02918049027410b296920c9eaa808da3d83fc",
+              "d0c9a4ee594f3889fd2c5a4e7f5a9844306cc7e7e8e8f19ca5ea8d36dee19e0c"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "a8e51c231f2d74d10206504f96386e2dd61143e596546df6e9ab57850a64c2bf",
+              "970826e7c7ec7db25b55e9ac33a099474e6e01ca56251e405db038e31ffce5be",
+              "1c6ef2a4176bcf6808938de4645253caf599a12d6d085a8f53588f7412673602",
+              "613767edbe6db1b7694a5b60ac6c5aafe4c941e4ee2628d62616c451a1102b3f"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "AlephAlpha_luminous-supreme",
+            "target_index": 4,
+            "target_score": 0.27
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.206,
+            "improved_fraction": 0.786,
+            "mean_changed_query_positions": 45.91,
+            "mean_delta_cumulative_deployed_regret": -0.9418039999999999,
+            "mean_delta_final_deployed_regret": 8.399999999999963e-05,
+            "median_delta_cumulative_deployed_regret": -0.7840000000000001,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.008
+          },
+          "target": "ai21_j2-grande",
+          "target_full_score": 0.386,
+          "target_index": 5,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "a2e13f0815cd34bd3c40a8cc00e0b868b787ca88280ad412a4f0e16f52803633",
+              "e861ef7e7df2acff960fcc7a8902bc3680dea4c554fa4a2c7dca70d4b67986a6",
+              "933547da73521ef35492132f175190d84e90ec4e1b0e604c0ca8d65227ec3d18",
+              "8bd99793029d2be3e7294b0ea6423774251c92abaf5f2d3dd82a991715f62d80"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "76f260368658ba0c78548c9a9ef6ca3647205d21bc42fd49b2d07def046d4caa",
+              "a38967dfcee4f38b706656f02d27f1758f630600a4db74705223ce5c7f9414c2",
+              "02e6b52282d69336dff67f03d96b2cff12b3e4a72cb5e6945052bd59f88ce8e1",
+              "f1b157a9e7b8e62bdcefab5c8643afedc95fcb6b1fae78d966296a4f362018b7"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "ai21_j2-grande",
+            "target_index": 5,
+            "target_score": 0.386
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.344,
+            "improved_fraction": 0.652,
+            "mean_changed_query_positions": 45.73,
+            "mean_delta_cumulative_deployed_regret": -0.668528,
+            "mean_delta_final_deployed_regret": -4.399999999999959e-05,
+            "median_delta_cumulative_deployed_regret": -0.484,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.004
+          },
+          "target": "ai21_j2-jumbo",
+          "target_full_score": 0.438,
+          "target_index": 6,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "1de81261d8022901646cf639ed99f36b79eb960dfe91e9f41f57e86b9d929e68",
+              "169d695ab4ecc5e21ba8cccb9b2aca96cff1b558696bdfab0f8e485e3a13d413",
+              "57c7dde902713e58ae3539ff6b46c410354030b6b67062e96448d3efbef62f2e",
+              "8460a154561d61cb7e46aa57b1903572943850b5a3ca32f2de6da89f1cf5317f"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "85cf8ae5512c57e6cb5bcae3db4a5a68b72b53d781a67015fd0e2bd33f8a3c0c",
+              "d101a9d010a4b4988ca74d983ffe91f2941577fd69cda72e89a997412ee27dea",
+              "1cb050f1f4062cf46f9a0b92d30d07996362aea7704925e9db5acb6d6d5298c3",
+              "4df354b632894fe6d3026e009a318d086d5ce7e9c91eb39d828e2c6c52c7b930"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "ai21_j2-jumbo",
+            "target_index": 6,
+            "target_score": 0.438
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.25,
+            "improved_fraction": 0.748,
+            "mean_changed_query_positions": 45.138,
+            "mean_delta_cumulative_deployed_regret": -0.749376,
+            "mean_delta_final_deployed_regret": 0.0003359999999999981,
+            "median_delta_cumulative_deployed_regret": -0.6579999999999993,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.002
+          },
+          "target": "anthropic_claude-2.0",
+          "target_full_score": 0.629,
+          "target_index": 7,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "bec0263b617281708845d42abe87411f9631f5017e66e8c44cb7cd9e373c244a",
+              "abc420abff4129a3a0fdb347b465eb2ec8aa4ec941b174ba08171a1ea9600afc",
+              "a4d0e2a2e9afb9d21fef0f17ab117ed787525ed785f4943d60cfa99854f0ee57",
+              "bc5756d18a5aea5fa592d641d2711453411bceae4be469c7bfb617243012add4"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "ef0484439967a446da7d60dd867f711eb7aba6cd235c5a7e0aac3e0a51bcc961",
+              "a11a3233365855333b364569fe3c7993135ae315f142cd95aad89f6a24354642",
+              "506985b7d036fc558f6f73271a47cb0f6cebac7baf3e2bfe00f28768fbb529a8",
+              "26c40bcfc718733fef4acbdb49cc5edad20cace92b8eb7693800fb2b12a4b0fe"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "anthropic_claude-2.0",
+            "target_index": 7,
+            "target_score": 0.629
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.376,
+            "improved_fraction": 0.622,
+            "mean_changed_query_positions": 45.074,
+            "mean_delta_cumulative_deployed_regret": -0.326476,
+            "mean_delta_final_deployed_regret": 0.00016799999999999883,
+            "median_delta_cumulative_deployed_regret": -0.35699999999999965,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.002
+          },
+          "target": "anthropic_claude-2.1",
+          "target_full_score": 0.637,
+          "target_index": 8,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "7e7c976c62c7fb39fb66e2d4df2f6fbf2c6a3697e7aee1b8dc2ae0d3fc507f2e",
+              "b04750d740160afb21202017991785e8a69d2122cf39bf13be3a694ff239a9a1",
+              "b1562baa92f5d6b19baa799d0e2f0f7a4210435eb5d40b1f92da9983f104844c",
+              "41723816979fc051a906c65be0b009e31a13c24784d7316219c15a88370569b4"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "4861accb88f7abbd8bd28616bb89ed6ab76aaf249dc78b222051cbb478c9e16d",
+              "6f20f2058a4d8e527f2ad5ec458adc0f1d0b61f55b0b04cb33584fbfe8ca0880",
+              "938dddbbb7367cf8039832aa00ea38990099facab6ce2e4db315fc8405108e55",
+              "0b9fc5fe1ca5d4e951c07a691e75c324b4c24b5af9f9e2f50dcdd5af3fe6ef54"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "anthropic_claude-2.1",
+            "target_index": 8,
+            "target_score": 0.637
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.274,
+            "improved_fraction": 0.718,
+            "mean_changed_query_positions": 43.518,
+            "mean_delta_cumulative_deployed_regret": -0.687476,
+            "mean_delta_final_deployed_regret": 0.00015199999999999925,
+            "median_delta_cumulative_deployed_regret": -0.4590000000000001,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.008
+          },
+          "target": "anthropic_claude-instant-1.2",
+          "target_full_score": 0.548,
+          "target_index": 9,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "a3b78ec3a016a989e2a575d6bbd21254f72b7cf149456fa2c2f18249c3b39fca",
+              "7d77e6517084d4a41af078a69ff0e649eea85f1ba7326cc24eb7dad7a96de576",
+              "998035e6d07d3a64955fb8c1d8661d96331cd2d85542b66677cedf78b7d21dc2",
+              "048faee93187a639b6a95705e9f4fa768eeb55bf4fd104ec9c3573d1a7172f01"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "789b0be803f2bdd7b12aaa0824dd40c2319d3daba2e675d608ed3b6370047885",
+              "365814d19f65fd03cd41477b64c1ce109eb312672a084ca33ae7666345ec7665",
+              "030380caa9be4c06738e02cff46cee628de2e55477483a1c52e1ae5af67e380c",
+              "7f2a76df9a36dd67b4937b9192fb93c83cdded2e8594b465370e739b4e20504f"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "anthropic_claude-instant-1.2",
+            "target_index": 9,
+            "target_score": 0.548
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.274,
+            "improved_fraction": 0.718,
+            "mean_changed_query_positions": 43.518,
+            "mean_delta_cumulative_deployed_regret": -0.687476,
+            "mean_delta_final_deployed_regret": 0.00015199999999999925,
+            "median_delta_cumulative_deployed_regret": -0.4590000000000001,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.008
+          },
+          "target": "anthropic_claude-instant-v1",
+          "target_full_score": 0.548,
+          "target_index": 10,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "a3b78ec3a016a989e2a575d6bbd21254f72b7cf149456fa2c2f18249c3b39fca",
+              "7d77e6517084d4a41af078a69ff0e649eea85f1ba7326cc24eb7dad7a96de576",
+              "998035e6d07d3a64955fb8c1d8661d96331cd2d85542b66677cedf78b7d21dc2",
+              "048faee93187a639b6a95705e9f4fa768eeb55bf4fd104ec9c3573d1a7172f01"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "789b0be803f2bdd7b12aaa0824dd40c2319d3daba2e675d608ed3b6370047885",
+              "365814d19f65fd03cd41477b64c1ce109eb312672a084ca33ae7666345ec7665",
+              "030380caa9be4c06738e02cff46cee628de2e55477483a1c52e1ae5af67e380c",
+              "7f2a76df9a36dd67b4937b9192fb93c83cdded2e8594b465370e739b4e20504f"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "anthropic_claude-instant-v1",
+            "target_index": 10,
+            "target_score": 0.548
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.598,
+            "improved_fraction": 0.4,
+            "mean_changed_query_positions": 44.23,
+            "mean_delta_cumulative_deployed_regret": 0.34867999999999993,
+            "mean_delta_final_deployed_regret": 7.99999999999934e-06,
+            "median_delta_cumulative_deployed_regret": 0.2839999999999996,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.002
+          },
+          "target": "anthropic_claude-v1.3",
+          "target_full_score": 0.608,
+          "target_index": 11,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "8048ff876fb95e3cf9ec448a3a49b39051694f3091aad2b45c0a6d4b9b80d76e",
+              "daa8140e16a2778ea3067c83a12bd0a3a5bc3197451021db821f2bbe8ace50e2",
+              "9e43bba48ee8a1d72b4b7000c7508947357e6aecf981643eda2d04f4ef99f19b",
+              "6f50fdceab060f9ba4dbfdcd334245c8b7b98fa61564a2f4ecb1c411470f2222"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "9ea90c47e2f05f9529131155dc4c045475eee6c9845de69837516c136a49366f",
+              "ba83796231d7415d1a4f9744017e9742f34ee7fedcba2d1c5f14f6fef7131c90",
+              "08287ccdce3eabbee6f95707f9930257cb643e92d70be15792963606a5ecda81",
+              "c8fb1abc3d9d5d119a0fd94b020dff38adec72719595c72a913775913be2f343"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "anthropic_claude-v1.3",
+            "target_index": 11,
+            "target_score": 0.608
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.298,
+            "improved_fraction": 0.7,
+            "mean_changed_query_positions": 46.596,
+            "mean_delta_cumulative_deployed_regret": -0.8024519999999999,
+            "mean_delta_final_deployed_regret": -0.00017599999999999948,
+            "median_delta_cumulative_deployed_regret": -0.619,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.002
+          },
+          "target": "cohere_command-light",
+          "target_full_score": 0.294,
+          "target_index": 12,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "044d67c9e81ab6110faa2fa4cc93e064b26d1e77fae56bb409900cdba0e4f693",
+              "f4ba9c53fb9b069005b8a5274363df1664d9939aec22509252e0b47e37d98e96",
+              "00ec812649aa86a9f8d577b37e7de5511a09e802ec4905750adb6cd6e4a8b9cc",
+              "5f9caa24e2e9ee842a7d848fca14950e442aba6c1707061afbba447abccfd115"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "fda22ff801c9784f48844416e68cb42e1bbdbd91887bec44bc3fd0bb6598f995",
+              "1dcf2f8c806c71ebd5e72f80edb4f86ee0485dd37e7c89ca01193b8433373660",
+              "dbe05d1b7428363205ee44d22d82e3c248c14e92d192bf4a117e607ccc5a5d19",
+              "db9673b932ee0e1c4d0d6adaec1b6ae0797e3a1935ea02d86c5b08da497ae9d7"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "cohere_command-light",
+            "target_index": 12,
+            "target_score": 0.294
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.366,
+            "improved_fraction": 0.628,
+            "mean_changed_query_positions": 44.94,
+            "mean_delta_cumulative_deployed_regret": -0.302836,
+            "mean_delta_final_deployed_regret": 0.00020399999999999862,
+            "median_delta_cumulative_deployed_regret": -0.40700000000000003,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.006
+          },
+          "target": "cohere_command",
+          "target_full_score": 0.435,
+          "target_index": 13,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "ba22ef9e855c73ffaa4b14b6918c2cfee0d5579941291eca5c9a21a470200d7f",
+              "c734cfacdb4f0ed3da8c4b87284b157647052b76a313d5614b054ce7a455d645",
+              "23c10d86c5762996af59783be7222ec5e0076d304351ced827f29dfc4406304a",
+              "381c6dfc43c68c1b9bda8bb9e7d1d5f08be745693ab4d86483c2e1402cbf7d0c"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "55b70118ded25bf3530f33558e830ee4a5d81dbf3fa3b6cacda4a22e5cf676aa",
+              "d1140cab5e8daa7f063dd8a83001034e7f403a0b63c55b7c9d502eb5913a307e",
+              "8d18cd9e3d7d4e40a4d0b63637fdd7336b51e872c06d57eda376193145da5812",
+              "d8e617e420c05fbabca4c835f20c2e2717eae08388056483acde144ff6075201"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "cohere_command",
+            "target_index": 13,
+            "target_score": 0.435
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.718,
+            "improved_fraction": 0.28,
+            "mean_changed_query_positions": 46.432,
+            "mean_delta_cumulative_deployed_regret": 0.859088,
+            "mean_delta_final_deployed_regret": 0.0004119999999999986,
+            "median_delta_cumulative_deployed_regret": 0.7460000000000001,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.002
+          },
+          "target": "google_text-bison@001",
+          "target_full_score": 0.54,
+          "target_index": 14,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "6b2b46aa6dc2e660de4128764b9d6d395101ea6e932e8848d55668b29098b17b",
+              "0372686704ac7bda2e224694441faf058cea092d17eb24400ddfff570b2b9cf3",
+              "8179c4c15b4e124b4170865b78799610b6cc7943ac7a1933990d11f30972b236",
+              "a0996dbfe4f2fbf5d7ec2172abe9fde9aaf537f3e6f4ecf13550d2e29b0727d8"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "be5d3069897701080c96cd97668caa3d44c6895ec6325899feee5283d27f0e16",
+              "fb5aa2ebeb4836def92a395016630735602f56c2b45a8085ca501fff7f6f9204",
+              "6dd7dd1d6d93038fea00722c72b6532cbdee8602cfed4b39e2b2cf3a3280f9c7",
+              "6de68ba8fa62c6409eff77967058bf092ad89963150e7c9051f7a7f675142ae2"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "google_text-bison@001",
+            "target_index": 14,
+            "target_score": 0.54
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.478,
+            "improved_fraction": 0.52,
+            "mean_changed_query_positions": 45.088,
+            "mean_delta_cumulative_deployed_regret": -0.19926,
+            "mean_delta_final_deployed_regret": -8.000000000000452e-06,
+            "median_delta_cumulative_deployed_regret": -0.04599999999999982,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.002
+          },
+          "target": "google_text-unicorn@001",
+          "target_full_score": 0.681,
+          "target_index": 15,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "ffc690ce077b25bdf7b678339773ee943c56a854b81bd1eedcf5cedf0347c6a1",
+              "770f3be4f5847413701dff49ab479de6035ed7093ba6bf3d57118056d7d3b492",
+              "7b5d801c3187759783ce8ca1b3ebdd22d04d5adfe8d51fd8ae1c58ef6e6c0ec7",
+              "6ce65fa6b998b0824749f37d488b382afe57aa70d61cdd1c0b6d04c24aec7982"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "8d478d16ee261f93adfacdef1c6aa2aa3d8e7f8a167a534dd149b1253ff8fe91",
+              "3445d144769dfadd886433e4a2b6eaf6bf00c23991bb776a0185eed494246f09",
+              "8e0f312ce3796e7f22d80ebe0a0676cd204086ea84a87d56b56b1bbc24aeb54a",
+              "9d1786a0c2bc01e2371c6c8b20737ba9c7d10bd6a91e351d6d65b0031a4816c3"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "google_text-unicorn@001",
+            "target_index": 15,
+            "target_score": 0.681
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.588,
+            "improved_fraction": 0.412,
+            "mean_changed_query_positions": 45.952,
+            "mean_delta_cumulative_deployed_regret": 0.07719999999999996,
+            "mean_delta_final_deployed_regret": 9.999999999999942e-05,
+            "median_delta_cumulative_deployed_regret": 0.16799999999999993,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.0
+          },
+          "target": "meta_llama-2-13b",
+          "target_full_score": 0.384,
+          "target_index": 16,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "9b36ee8bd03f988e94cea5bacc10d192e6184bd2a5ff0af03dd2d7bf29923dbf",
+              "30b9e5d2ff34aee9e986683f52ab7a391110d8df4b2cba2e90ad4149185ba66a",
+              "7b55606f3d3fe10fc606d449825b2c904496e2022a4f0501f93938684e495af2",
+              "c391560926630e33241fab2ef7f944d128e4531e4ebb4644fea1cc4a308c2096"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "71294537ce1d3622d8c6470cdf63cda0cafa29b05a3c13db1a9637e1251c4f6d",
+              "0719a4b234bd5e254ff3e5f7e31b908765165fe18d52312b7f60277bdc4af785",
+              "e98d11bab8b200a8512821b6dbf63d6edfc34342ee2786a2e03e70af4c8a76a3",
+              "0532031e6204724432409079e6bd3abb4b3e3cf3dc84fe4db1a25de2e814a341"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "meta_llama-2-13b",
+            "target_index": 16,
+            "target_score": 0.384
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.588,
+            "improved_fraction": 0.406,
+            "mean_changed_query_positions": 44.962,
+            "mean_delta_cumulative_deployed_regret": 0.29952000000000006,
+            "mean_delta_final_deployed_regret": -6.799999999999939e-05,
+            "median_delta_cumulative_deployed_regret": 0.23199999999999993,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.006
+          },
+          "target": "meta_llama-2-70b",
+          "target_full_score": 0.582,
+          "target_index": 17,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "7c1c0c0ddfb569b983c62539677cdbddf919d1f1ff403aeaad6e344f374d6664",
+              "f6bf90d540f132f667dd34546bbf201603726cfacf72097acf4db3446566a0b4",
+              "5909d9259f5cf29ee02476a8ef677aac8089d653b35589f05efcf6582fdbe6e4",
+              "cb7de9db081141e47e9cc04ce6a77b4d26a6e35a5df2e23da0b15a5e3c785421"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "b536ecfa649f0c6a8612d2b98e852601384a67e366ac8f9fd992e7160ef22ac5",
+              "028be073cd122b324b1943f49914e458c6af86a1c7e3430eea3fd432a216caf9",
+              "5b3ea92e8b820132043a4f7dba8aa56b44b25b3d34c85b9ed0b0830cbe219f8a",
+              "8b09f77d47f723796bce54275b94b5c7d55ab8ce581c1d931a0661df5b9a36d6"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "meta_llama-2-70b",
+            "target_index": 17,
+            "target_score": 0.582
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.46,
+            "improved_fraction": 0.538,
+            "mean_changed_query_positions": 46.448,
+            "mean_delta_cumulative_deployed_regret": -0.16802000000000003,
+            "mean_delta_final_deployed_regret": 4.000000000000026e-05,
+            "median_delta_cumulative_deployed_regret": -0.13200000000000012,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.002
+          },
+          "target": "meta_llama-2-7b",
+          "target_full_score": 0.361,
+          "target_index": 18,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "cff1ba407f3fae25dbed383da11f9881f65b49009db5fc1176d6c80e78e12d72",
+              "c0c7f0eadc46dff96b039ad271efcc1da90daf4b02916160fc87bc154f901545",
+              "ffef0b61c02a6ce5b980c29d28d17bb945894d012d01b25d2030ab9efe02adb4",
+              "a22b088a28831ffa6a75242e90a7134c89c18a4fd6835d69bdafc10db1db6cd9"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "4a9fd6c98326b612fd8616365f81691a9316997c9519e37e1a3e6a3ba7327fbc",
+              "827c5c1557a759fbcfb3267354cf0575f0e86a5da653b3d251ff26397e526faa",
+              "f40081f12badaefdcd5cc6136044a2be40c4b23f36d75f6b0e843a235b8282b3",
+              "5edb0742fca060e605fbaa5ad9d550380e322f38a0b8c9c4f25bd09aa41c88a0"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "meta_llama-2-7b",
+            "target_index": 18,
+            "target_score": 0.361
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.43,
+            "improved_fraction": 0.558,
+            "mean_changed_query_positions": 44.024,
+            "mean_delta_cumulative_deployed_regret": -0.188708,
+            "mean_delta_final_deployed_regret": 0.00013599999999999924,
+            "median_delta_cumulative_deployed_regret": -0.16200000000000006,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.012
+          },
+          "target": "meta_llama-65b",
+          "target_full_score": 0.5,
+          "target_index": 19,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "9caf09795f2bb35f460f0c43785a8f2b346336581c6bb252194c2b71d346cbb4",
+              "57c51a383a6f9bd98dccbb5bf7b9e41060d763e92f454a27c6b321d685ab1085",
+              "ab549dcbad3b43a996297490fba9aba3de6df2ac8e9446b0869106120519c399",
+              "4bce41f6208ed610830a4a9fee122f0af3658075873d618d9ed041780d46f730"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "abc975ca7a23632dde29b76374d2280d898535d581bc9973052496c6957a49cd",
+              "d1e19198d5adabf31375b66b730c74165f6844037525b418091792040819e1be",
+              "c98946d47c3dd2ca47f85c66f6113d4fba429df7e96b56149b0f556ae723c870",
+              "6f737829493da8fa6444f00d5764a6d80f9772f2b767cdac7761866a4d624231"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "meta_llama-65b",
+            "target_index": 19,
+            "target_score": 0.5
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.654,
+            "improved_fraction": 0.346,
+            "mean_changed_query_positions": 45.566,
+            "mean_delta_cumulative_deployed_regret": 0.754164,
+            "mean_delta_final_deployed_regret": -0.0001639999999999995,
+            "median_delta_cumulative_deployed_regret": 0.6359999999999995,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.0
+          },
+          "target": "mistralai_mistral-7b-v0.1",
+          "target_full_score": 0.516,
+          "target_index": 20,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "cf06bc89763ea9443da56cf337793c083ca018d0928d8cd168a1a7f790836881",
+              "115b6fb9413b97e81c2648ce9882c4bcfd6f7528ef4aedb13b085038298515c2",
+              "7497d627192e819a78dabc4947571cd40721fc63e226fbf13452366fa900f430",
+              "2789d4e718586d28d584339f00eb346ce68a4fd0a1bd39af189aa921152ecf84"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "f5ac1a19d7b15b836a28f60b317aea9f03cb87852fc60b647fd7875144cf6853",
+              "f358f2343c0ac5c27be18ab8e8977844f59860946935bcf418072b1e6bd62a5b",
+              "e9a4bf3fc06d719ca13e3ae7a6c2c446ef5dd4ed6dbcfc03e9702a63ef82278c",
+              "15205459f70ee0687954011460559460a15132d80fba08771f79240d18c736f6"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "mistralai_mistral-7b-v0.1",
+            "target_index": 20,
+            "target_score": 0.516
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.666,
+            "improved_fraction": 0.332,
+            "mean_changed_query_positions": 45.406,
+            "mean_delta_cumulative_deployed_regret": 0.749372,
+            "mean_delta_final_deployed_regret": 0.0001280000000000001,
+            "median_delta_cumulative_deployed_regret": 0.4869999999999999,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.002
+          },
+          "target": "mistralai_mixtral-8x7b-32kseqlen",
+          "target_full_score": 0.634,
+          "target_index": 21,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "e579a06af61c8626f824ee990d89ce4d390fee57e1b921211534d18943471ee2",
+              "7592a345c285982ff6321c1989f3080664cda524e3baa0a621dc6941fdd0dfce",
+              "c32197497f9fda4e576ed5df1681e1d6cad1c22a5a0e792d777e7d8b471e0264",
+              "3152d819718b79b558e070bbe4c56ecbfa998560042871f029e439541a049729"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "48e81e4d2f60963909e8dbaa6824a1e9c9de5cccde54dffe4454f5c6cd0753ee",
+              "9662abc4f256badd6265c969ba22b155649d23fecd5fa5c5d6704f528a23885f",
+              "25304e9dd9ca8b9558f5906f01b282c4989413a93765cc23cdc470b59f21a0f2",
+              "3c1c94ece53c3e381498b801d7a3741cbc9c5cacb0e0c181117010bb8c963a7f"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "mistralai_mixtral-8x7b-32kseqlen",
+            "target_index": 21,
+            "target_score": 0.634
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.652,
+            "improved_fraction": 0.346,
+            "mean_changed_query_positions": 45.722,
+            "mean_delta_cumulative_deployed_regret": 0.41858399999999996,
+            "mean_delta_final_deployed_regret": 0.00024399999999999956,
+            "median_delta_cumulative_deployed_regret": 0.41399999999999987,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.002
+          },
+          "target": "openai_gpt-3.5-turbo-0613",
+          "target_full_score": 0.61,
+          "target_index": 22,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "47d483b956d3ebc722ce25907d70852ed10a47e84ea8f55c47d251334c03acaa",
+              "4581689a4200f868728ada300228b32ef8b2ca6163b5d7ff75aeaf580d2f1d7d",
+              "2012e0cbeaa0895aed474bd39626484f67b99f125dd340090856a5f5a2a990e5",
+              "89004428e96458a5f3f32726f0abb5d4e49dd07d6eedd3e9092eec22cd570f26"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "70913a8ca12d870f6415a704525624aacb79441212ae679862608a73fb8543d1",
+              "02474450ba2f8b64c403ebe30c89bde34553ec8f502844b7b9263b01af4412ad",
+              "c76812b0271cb8e2460f6ad5cb2c28413e3b52db5dce3259617c1b595570da1c",
+              "272940e019c1b5a34b5edfad932ce7b0779368ba3077c8efa00cd800cae6e4d2"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "openai_gpt-3.5-turbo-0613",
+            "target_index": 22,
+            "target_score": 0.61
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.614,
+            "improved_fraction": 0.386,
+            "mean_changed_query_positions": 47.65,
+            "mean_delta_cumulative_deployed_regret": 0.7398239999999998,
+            "mean_delta_final_deployed_regret": 0.004107999999999995,
+            "median_delta_cumulative_deployed_regret": 0.5020000000000002,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.0
+          },
+          "target": "openai_gpt-4-0613",
+          "target_full_score": 0.817,
+          "target_index": 23,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "23e1bba1a0c08778c89a8e85dd68249fee55e98bf6682b100de74188ca2c27ed",
+              "3ffbd486c5d105fe29d3a1708ec0576d227f8e726e90273022e77c640b1c0c58",
+              "7902c9e4536e222f1a7c90ed735ed102a5cb0f8893afca274ae52c24001baf1e",
+              "47ba503c6ec576e9acccfbe3a0fd4cb55837deb4a638410e1adfcb7ac877b15c"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "929111923d6a305f11eb9bd68652150306ae387505e9f1b0dd8cac858ee3b32c",
+              "338dd010be1e23f3e2a7514e72d087fd4443adea3ecf16e1e73a851a6b24c9fb",
+              "55ed0154d11c3ede2539e49819396cdf0683a95594e3129712f359cfbcb023ae",
+              "302f805618a0d7e54c4e2ae6794c3b5df9e3d2783bd18ac76872cba207f85563"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "openai_gpt-4-0613",
+            "target_index": 23,
+            "target_score": 0.817
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.948,
+            "improved_fraction": 0.052,
+            "mean_changed_query_positions": 48.28,
+            "mean_delta_cumulative_deployed_regret": 3.823244,
+            "mean_delta_final_deployed_regret": 0.038479999999999986,
+            "median_delta_cumulative_deployed_regret": 3.519,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.0
+          },
+          "target": "openai_gpt-4-1106-preview",
+          "target_full_score": 0.817,
+          "target_index": 24,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "a099a02064a80016081429d86f6e6190c99c7781eaca8b5681eea64a1fffd9a5",
+              "6d6a09667b87e1b052882d44810843a146f4bbb4a79408450a9be3c58eb8ce9e",
+              "22951b8db68063d4f3c127a8e185312b50ae7ddb5968570109e0982c08f061fc",
+              "3748b368bed0d3fd12bdbc8201ce46e3559f9618cf5a6a14b43cce7583cf6878"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "bde359cc17ecf5c66d3c1e67b58e61f09d479d65846b0bd230d0346a9ff66bac",
+              "e8a7baaa1922fb93f464c78e24a9e7311a2a1c72eaee3031bf9e1ddfc93eec45",
+              "6f2f8c2b355f64246c56d5676be0a9332f3c37e4ee2071749fbe563994103646",
+              "4ca0c68c40f4ae2236f1a5ddf3fd01d1869f49c3a887156154faa081a5b39235"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "openai_gpt-4-1106-preview",
+            "target_index": 24,
+            "target_score": 0.817
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.594,
+            "improved_fraction": 0.406,
+            "mean_changed_query_positions": 45.198,
+            "mean_delta_cumulative_deployed_regret": 0.332272,
+            "mean_delta_final_deployed_regret": -0.00015200000000000058,
+            "median_delta_cumulative_deployed_regret": 0.23999999999999977,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.0
+          },
+          "target": "openai_text-davinci-002",
+          "target_full_score": 0.519,
+          "target_index": 25,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "8b452aef383b5272c976f45eeea37b25eba2821fcc60ef3ad279a206ea6f40ea",
+              "ef0086abd425d74b48bd412ad9e918787bb0556869f417678a940b9b6e8ab5f4",
+              "68cef9d484b952bd1a08c0accf76ee08529ab4596e6daaed64066f3e24d0d8d5",
+              "fe49c2c90c0254cda0932249d93002770cb720a7da7fb9c28566f44a42edde05"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "3b9f8cb6fd0cc312d4e70878df0dfad41b3044c4fec6e431137e817608a8674e",
+              "bbc304919e331074c536ce159e08d8bfcb6ba5b9d48643d93f7462218c693965",
+              "6a74560d5aed12273605b48a1f10bd069bc519654e1aa70abde4ad9037fcd88e",
+              "322cdc795a31c9df4394ac909c7edbfa5e7c1a966f0c03cf449b56ffc8f086f2"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "openai_text-davinci-002",
+            "target_index": 25,
+            "target_score": 0.519
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.68,
+            "improved_fraction": 0.316,
+            "mean_changed_query_positions": 46.192,
+            "mean_delta_cumulative_deployed_regret": 0.69434,
+            "mean_delta_final_deployed_regret": 0.0005079999999999996,
+            "median_delta_cumulative_deployed_regret": 0.6819999999999997,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.004
+          },
+          "target": "openai_text-davinci-003",
+          "target_full_score": 0.529,
+          "target_index": 26,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "641ef93b2602241fbc6b5f180eab7140817872ed2b0fe59b7fefb5f00f8d9d83",
+              "5d642431afeab49ef683f7041a0561c9543f8bb59e9d185f8f95112eec4a1145",
+              "d538c7a19565ed9fd3112ad052cb606ec7374a0b217978ad461558baad6e55bb",
+              "dc9fb9818df245cd6ef97b52fe47310d1f8aa60f6fe6f467115702fbf50a6aac"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "223deb8f035df398c86b32941aaac8b755e8147aa0a565a53dbeccb02ca4ce38",
+              "a2df033dcab663f8eb8a9d01d2a410727606174ca564a27f26665e895557701e",
+              "4a27d1b54e02cfb943d61785e5befd9570c3a85db608d2b068d88e202d71ae66",
+              "a4c915126062fa1e715680881d3492c5979f8b59af7493fb9fcf13fa71ccacb4"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "openai_text-davinci-003",
+            "target_index": 26,
+            "target_score": 0.529
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.582,
+            "improved_fraction": 0.418,
+            "mean_changed_query_positions": 45.732,
+            "mean_delta_cumulative_deployed_regret": 0.155916,
+            "mean_delta_final_deployed_regret": -8.800000000000008e-05,
+            "median_delta_cumulative_deployed_regret": 0.239,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.0
+          },
+          "target": "tiiuae_falcon-40b",
+          "target_full_score": 0.412,
+          "target_index": 27,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "570bb63b0dcd3b79d202e7b3708db2d8af6a0d830ab77cb7c2ddcba2086a9b18",
+              "d82cb7c1a76468b84703407fe64eb7dc4ce74ec7ef3f45da42a62f6cce4a099c",
+              "9abb7c0c6a71d3c68e71a0ee45a932d98a8f1717ca3a984212fdb6cc2575639b",
+              "7c6a626681f709e4b8fed05e7f4a862f09fad64106aa9ef003f11a3a15ab6a97"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "3b2c133ce96f74a5abb5cc8147b85652bcde2054f4341b8b59a9017392b01c68",
+              "686fc220f93c9162542261130c345ecf083cd9f17c00c0a63341f920214fe4be",
+              "059e12325e4ee3f635ee4467ee0ea549bcd1127f34562946916d009ec8dd89c2",
+              "f5b5a63162bfa3d219acc27bfa6d22c89e9a1d7a9102fe5208eb6ccbd3fe4b7d"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "tiiuae_falcon-40b",
+            "target_index": 27,
+            "target_score": 0.412
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.346,
+            "improved_fraction": 0.654,
+            "mean_changed_query_positions": 46.128,
+            "mean_delta_cumulative_deployed_regret": -0.617496,
+            "mean_delta_final_deployed_regret": 9.59999999999992e-05,
+            "median_delta_cumulative_deployed_regret": -0.4989999999999999,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.0
+          },
+          "target": "tiiuae_falcon-7b",
+          "target_full_score": 0.267,
+          "target_index": 28,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "de387350272e1e0215c607fbdb0615a5e9337e23131567fffc415dd3cb6aa150",
+              "9ea5fa23dcde4b316c9aa7e75e5795a0a4ac1bc5f1c0fffabfc3d055c4803b61",
+              "77c5eeb17fba90b99831f0f4e974ff30e438704514925cf48e885a0ab73347c6",
+              "9546d8cd3bd1fc6c7014715d69ea3161b9f65e0f5ca985d958b5a17ed99da712"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "8abedf81be5a6c636c173d4c8c2aa8e63cded15a21febd376be0c90b969d22b9",
+              "946efffab1a7b31c641dce3f9aee11eb803c438947781c5323713636c5cbd048",
+              "3efd091d8604da014adffd127c74543269091f8d6546a74707a6680e41671d40",
+              "b9f760ea51b29cfe229eb67a41b45d240ef267b8973fcbd3c4205182b50606fd"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "tiiuae_falcon-7b",
+            "target_index": 28,
+            "target_score": 0.267
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.744,
+            "improved_fraction": 0.256,
+            "mean_changed_query_positions": 46.152,
+            "mean_delta_cumulative_deployed_regret": 0.9465520000000001,
+            "mean_delta_final_deployed_regret": 0.00010399999999999876,
+            "median_delta_cumulative_deployed_regret": 0.9139999999999999,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.0
+          },
+          "target": "writer_palmyra-x-v2",
+          "target_full_score": 0.575,
+          "target_index": 29,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "015eaf3d6a389ddf05cd96fb6a706f46321e9e9d1b4960ab16ac3eb9104e285b",
+              "bc7a7e8e14905d831e8347113f51c03f4a647fc4fafcc5a823b445e1a85d51a1",
+              "32ffe2419b65ca3ee69ff0066d646e3eb09e8e8b736a77b2b2fe6b953dc6b8bd",
+              "3b45e0b5aefd46b61a3a3964e31692bc9e94af7e00fefc4fe7d090831bbb9324"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "a0633054f63850113b2c37aced38d684726aef841a0c1d9f2cb6de973fac09ea",
+              "810c7b8ef881e3de3754773298f5a6c68f327218d4f1be59edc9d8d06f154dc8",
+              "d8807594e074c5e18d41fdd90e939565a20d7bdf8ac511ba2cf2074794021134",
+              "024fd13f3cb20dd6706e700d1d87952ac7b30b9e0fbad2855adeb823c9007a31"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "writer_palmyra-x-v2",
+            "target_index": 29,
+            "target_score": 0.575
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.478,
+            "improved_fraction": 0.52,
+            "mean_changed_query_positions": 45.088,
+            "mean_delta_cumulative_deployed_regret": -0.19926,
+            "mean_delta_final_deployed_regret": -8.000000000000452e-06,
+            "median_delta_cumulative_deployed_regret": -0.04599999999999982,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.002
+          },
+          "target": "writer_palmyra-x-v3",
+          "target_full_score": 0.681,
+          "target_index": 30,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "ffc690ce077b25bdf7b678339773ee943c56a854b81bd1eedcf5cedf0347c6a1",
+              "770f3be4f5847413701dff49ab479de6035ed7093ba6bf3d57118056d7d3b492",
+              "7b5d801c3187759783ce8ca1b3ebdd22d04d5adfe8d51fd8ae1c58ef6e6c0ec7",
+              "6ce65fa6b998b0824749f37d488b382afe57aa70d61cdd1c0b6d04c24aec7982"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "8d478d16ee261f93adfacdef1c6aa2aa3d8e7f8a167a534dd149b1253ff8fe91",
+              "3445d144769dfadd886433e4a2b6eaf6bf00c23991bb776a0185eed494246f09",
+              "8e0f312ce3796e7f22d80ebe0a0676cd204086ea84a87d56b56b1bbc24aeb54a",
+              "9d1786a0c2bc01e2371c6c8b20737ba9c7d10bd6a91e351d6d65b0031a4816c3"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 50,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "writer_palmyra-x-v3",
+            "target_index": 30,
+            "target_score": 0.681
+          }
+        }
+      ],
+      "budget": 50,
+      "data_digests": {
+        "ids": "e5b5dc5e956f639f47709fd65a49e7a1d40758394db3a9d5fac55aaca23c04b7",
+        "oracle": "875ed01f1063aa64c39dc420ff231dc9da523bedc33772b4635a40e76c5ae99a",
+        "responses": "b6eae69a525a78f0cd2213b646602707aced46dcfe6e59a222c1ae16365e9c9e"
+      },
+      "distance_queries": 50,
+      "eligible_parent_count": 31,
+      "selected_development_effect": {
+        "harmful_fraction": 0.948,
+        "improved_fraction": 0.052,
+        "mean_changed_query_positions": 48.28,
+        "mean_delta_cumulative_deployed_regret": 3.823244,
+        "mean_delta_final_deployed_regret": 0.038479999999999986,
+        "median_delta_cumulative_deployed_regret": 3.519,
+        "path_change_fraction": 1.0,
+        "tied_fraction": 0.0
+      },
+      "selected_target": "openai_gpt-4-1106-preview",
+      "selected_target_index": 24,
+      "temperature": 3.0
+    },
+    "openbookqa": {
+      "all_development_targets": [
+        {
+          "development": {
+            "harmful_fraction": 0.794,
+            "improved_fraction": 0.202,
+            "mean_changed_query_positions": 27.816,
+            "mean_delta_cumulative_deployed_regret": 0.5872850000000001,
+            "mean_delta_final_deployed_regret": 0.0006400000000000002,
+            "median_delta_cumulative_deployed_regret": 0.5299999999999998,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.004
+          },
+          "target": "01-ai_yi-34b",
+          "target_full_score": 0.92,
+          "target_index": 0,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "99832d060f7806917c0ceb6f6bd3ac288eb1df9cf2db12c5f08e4c487f4192cf",
+              "63e8b0c299074c79370fa070133187b41e513e5fe074bf323d50591a1d3bdea8",
+              "6ec33ce02a82a54767dbc6d96768474a6df1f06d71a9859e7a6c1f92058ec60c",
+              "f9e3e501d9ba78e5897e185296a8238414854e1100fd152f9e84798a03a2332a"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "500f3e84a6091c11eadeef0b6d93ae613b3546fe398f89a0bbbaa316a5769efc",
+              "2149910f649bbb517ba2b7ebb0c54b704735e391f0709a88f3fd00af831ae871",
+              "d704397f9a355c6fe10e29f7c52035f2891fdd744b148b8bc9b51b9703ac9d55",
+              "97c9842aeeae0ef3abb27cf1c963a717002a511aa5b241d997b37b6fade041bc"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "01-ai_yi-34b",
+            "target_index": 0,
+            "target_score": 0.92
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.746,
+            "improved_fraction": 0.252,
+            "mean_changed_query_positions": 26.492,
+            "mean_delta_cumulative_deployed_regret": 0.72733,
+            "mean_delta_final_deployed_regret": -7.000000000000006e-05,
+            "median_delta_cumulative_deployed_regret": 1.0625,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.002
+          },
+          "target": "01-ai_yi-6b",
+          "target_full_score": 0.8,
+          "target_index": 1,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "6d01a2c831d819c79636e85ba98e920c3ca11a0e6bd7ac9476f35a8567dcb86d",
+              "4c5793192497e1246b5a457fe0664d79d92f204a27f25cb290f7bc3b5fecc371",
+              "81088b16256b08f158f00b891b67f17139fc0b78813af5ab517829a5779a85ce",
+              "1c94a59b4c7935e51b31e81ab0e4011fedf2e4edb7582f43f7d37126386233fb"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "8cc9f08d3ceb25ffdf07ebf2c67e17a0d7484f3897bd3dd60bc7c6e83002222f",
+              "1f47b919a5410c704cce067715e759c6d54cbb8a616c963660929e1636114ca4",
+              "22d69209a0c59d0d632b22658e847305d525d7eaf4f234c30b8a9228ec6484f1",
+              "929bdf0f9d66c7d6654ef7877528ad7caf4424a7becc0499712d6f32a48c8d0d"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "01-ai_yi-6b",
+            "target_index": 1,
+            "target_score": 0.8
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.754,
+            "improved_fraction": 0.24,
+            "mean_changed_query_positions": 26.97,
+            "mean_delta_cumulative_deployed_regret": 1.30879,
+            "mean_delta_final_deployed_regret": 4.000000000000004e-05,
+            "median_delta_cumulative_deployed_regret": 1.65125,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.006
+          },
+          "target": "AlephAlpha_luminous-base",
+          "target_full_score": 0.286,
+          "target_index": 2,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "dbf59c29c80c1db06da54b4e6164aa4d3773b269c70681ff04ebd303787d0156",
+              "4e01c4b9131b046df1d68118ddaab5cd1628f98270f588b2e4cab3ae3c259496",
+              "95d2aaf1b1f7df75886fda08204dc762dfd501fea510804e4ee10902dfee74ec",
+              "dfb1ee0ffe79a0176aeb13d7e523359df7a699b9f95b2c43622ebc002d9f8969"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "7da1eec9ca44b9a8f1faccf47d39cd20763587edffd938d7db604dc8279da8d5",
+              "0a212a5de4fff62eb629f2295c2ce20274632e77fe42228cdfb201ce56fabe79",
+              "18e19a78c88a060905209d9dc56162ae2a35f7ef7014ba9f6777195d167367bf",
+              "01cde5c5065f83de0a046200cc9a5eeb85e80dafcc670e942021534dab956781"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "AlephAlpha_luminous-base",
+            "target_index": 2,
+            "target_score": 0.286
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.078,
+            "improved_fraction": 0.872,
+            "mean_changed_query_positions": 25.624,
+            "mean_delta_cumulative_deployed_regret": -0.646495,
+            "mean_delta_final_deployed_regret": 0.00010499999999999931,
+            "median_delta_cumulative_deployed_regret": -0.7137500000000001,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.05
+          },
+          "target": "AlephAlpha_luminous-extended",
+          "target_full_score": 0.272,
+          "target_index": 3,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "ade2ac21a3a39857661e2d9f94a4013a2c623b4b0415d9b49eede9a71b3218dd",
+              "42ce88cd3bff68d27c6ec5226faf7e1f540fc1a49d9be21272b368ec7f63ba93",
+              "36ac8d0d19a7f58a188511be6d99d288252c03838eb3afe844b05b271a0d334c",
+              "dc717790b335b5023931519b08ccc1b60ce2eaff6b26473fc23f11c45f0f3864"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "4677dfd66bb39711fba0fdf1a0cffbffc7413b572d563c68c9db940efee248f0",
+              "49997bdef4cd111c8076d176e5da78091a5078eaf5836888bdcb42c3a1200d19",
+              "9a27df18454ffe107fb12d7859805515642ebe7cf65f8fc83dfdda511de4664e",
+              "9fc0174264d00334162210c79aed4b3a7377d9e04d2f12e77764ae074b0fdf9b"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "AlephAlpha_luminous-extended",
+            "target_index": 3,
+            "target_score": 0.272
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.294,
+            "improved_fraction": 0.706,
+            "mean_changed_query_positions": 28.754,
+            "mean_delta_cumulative_deployed_regret": -0.172995,
+            "mean_delta_final_deployed_regret": -0.00018000000000000015,
+            "median_delta_cumulative_deployed_regret": -0.25250000000000006,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.0
+          },
+          "target": "AlephAlpha_luminous-supreme",
+          "target_full_score": 0.284,
+          "target_index": 4,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "4049e98b9ceb03d584b720c3cbd014fd8926403d137e4b164227f9b3b7122261",
+              "b7391f750380583bfc3304b4861bc43de09f61f969e4e47b727caef8970dcae5",
+              "f72abe11fd22258db89dc73c82e5fb296379af81b4fd92cb764af2ec4e0cf94b",
+              "2e15726d9131aab7c11c76b136ba7ac5edca680e70735304414b5b266abbdf36"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "9a9fd696436706d429953829127b39d88ea502f2e7487dca7dee7e393071d74f",
+              "dfb4dc515739d6ca329e6d43e8d8ad7cb0cf6b8be1478e40b47c6ab2a09114b3",
+              "3647eaac9f68014e4f6864342b0973d38b881350bed2abd69a12993ee4d13d56",
+              "ddf2820106dacde22e0ddb84195c35a814ff098cc2e36b51205df90a6fd53737"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "AlephAlpha_luminous-supreme",
+            "target_index": 4,
+            "target_score": 0.284
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.728,
+            "improved_fraction": 0.266,
+            "mean_changed_query_positions": 24.838,
+            "mean_delta_cumulative_deployed_regret": 0.77123,
+            "mean_delta_final_deployed_regret": 0.000345,
+            "median_delta_cumulative_deployed_regret": 0.6387500000000002,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.006
+          },
+          "target": "ai21_j2-grande",
+          "target_full_score": 0.614,
+          "target_index": 5,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "b22ee4f86dd038944eaafa9aa9a17c18e0dbddf9dae6dd4dfe403673ce58eed5",
+              "0d93bf7b294abc9da0725735334e1c55020a33c17931dd0d8744c8096a4ad5c3",
+              "b4cb8561bc41f0b9ba727850423df59d563fd973fb06c5d3a3831ed2c0834330",
+              "0ea02f76efcf7d5948dabfc11517cc3c97600ff7ada3bf8f13e00d1500a0b85a"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "cf4e239f765b1dd9a401b58dc1051c61e832a33577070bc00b1163acb0ccadf0",
+              "0f5cfb2de9cba4bb4c9afccd18774b5fd4b3d8835614efbff1084e21166275c7",
+              "48cd3087e33e853d8274d109a32374bfff039d8ea51b4c624711bf1ad684cb58",
+              "b924ce957dcc65938046d423d411be702f6a8cf09ee5c731e5fd14db7d756011"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "ai21_j2-grande",
+            "target_index": 5,
+            "target_score": 0.614
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.096,
+            "improved_fraction": 0.898,
+            "mean_changed_query_positions": 22.972,
+            "mean_delta_cumulative_deployed_regret": -0.560765,
+            "mean_delta_final_deployed_regret": -6.0000000000000056e-05,
+            "median_delta_cumulative_deployed_regret": -0.73875,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.006
+          },
+          "target": "ai21_j2-jumbo",
+          "target_full_score": 0.688,
+          "target_index": 6,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "b486e3dc7b45610f94f598726482c63d7cb5e2efc421b4d001a5b539af37b69e",
+              "a7247a51c244e3ab4b11ca879c66c0d2cb732e993a17c9e4c19598be4aeaab53",
+              "5d2d7bcf9dfbe3211eca183ed444c70cd8ff8b16f850e85475f67ffcb437364d",
+              "6ad999b283ce6e656e03dbb62cf7c1481cadf9fd08b9a1cfeaa9bbe382bef371"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "5af723d63e0e1d81b63271b4f57e17e2f9972d2efadc7eee4d9e9667c346b7bd",
+              "cb32cc3b93a18ec3cdc155eb9a0b5d92eb0fed6e2a6c3bcca48d360b9f04494c",
+              "f008cd18a4bdbe7b0ee44bf9e3384e23c8e5112e64dd8cf8afd0b21e05d5a49b",
+              "fc8d7e5164733d34175599f1ebe9baadc8069906bcd6f22108528cf6e2854a80"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "ai21_j2-jumbo",
+            "target_index": 6,
+            "target_score": 0.688
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.846,
+            "improved_fraction": 0.142,
+            "mean_changed_query_positions": 24.044,
+            "mean_delta_cumulative_deployed_regret": 0.5581399999999999,
+            "mean_delta_final_deployed_regret": -9.499999999999998e-05,
+            "median_delta_cumulative_deployed_regret": 0.6024999999999998,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.012
+          },
+          "target": "anthropic_claude-2.0",
+          "target_full_score": 0.862,
+          "target_index": 7,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "171b4c0fb78b4d9c8b77be5971dd5bdcd468b1e902106c42522933e3bb4ae02c",
+              "3d883ddfe682b3991f9f2abfb4850bfc3c7faf2373e0aca141935e22efc5ca73",
+              "b7bf90adb328f23f5e72b18b31513ca29201bcf2f2dd759fc40f4392b83b7a54",
+              "b83e58f7e1ee725c38aeed05c72bcd61f0a05224a4c345c44adb93210eabec8b"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "bcaae52db3519e127406c55a407f255e7aadb79691699a1cc55d2fdb30632224",
+              "c18376faeec34855ca8179092afb55b197aaa5cbe0878f064e26c50bcb11c791",
+              "d9191e1ffe56872b84379012890f44d0c10dddabbec6abc9ae9167026a88e21d",
+              "9ae4284b813a212aeb951758c18186650656bbb69035b56cba19437518786590"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "anthropic_claude-2.0",
+            "target_index": 7,
+            "target_score": 0.862
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.8,
+            "improved_fraction": 0.158,
+            "mean_changed_query_positions": 23.448,
+            "mean_delta_cumulative_deployed_regret": 0.45089,
+            "mean_delta_final_deployed_regret": -2.499999999999991e-05,
+            "median_delta_cumulative_deployed_regret": 0.4475,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.042
+          },
+          "target": "anthropic_claude-2.1",
+          "target_full_score": 0.872,
+          "target_index": 8,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "a0b5dfe99087f1f9f41d23569b67053302d622cb3fa2bdbea0bcd37959c0ee23",
+              "50e1cf2a16de460595a2202891f4cb09a023a930ece3473a9b9efc6ea66c8439",
+              "ab7abfcc91034a378e91ae6592cf5f4eb1e566fc507de191f6fad5f583d84287",
+              "d72ab2d211d943ed16b158c6ea6d707a3fdf76f9a7a06195435910d8f7275c99"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "9c3e34a16e9bab3bc3218c2638e6da2980f175a3e9796b605b868eb2c5b9f02d",
+              "ecdd2adeb21bd3c51eeb0f54d796ca6f3c82526824f303daf46278b2b77713d3",
+              "3750359b43a55cbed1a9c477a3404a074893ba666a4bcaafb45779e3eddba1a9",
+              "d0574a568346935c29f893309782e4581a9cc0d674936a92cc352fe3e1e32121"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "anthropic_claude-2.1",
+            "target_index": 8,
+            "target_score": 0.872
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.708,
+            "improved_fraction": 0.284,
+            "mean_changed_query_positions": 22.474,
+            "mean_delta_cumulative_deployed_regret": 0.15949999999999995,
+            "mean_delta_final_deployed_regret": -4.999999999999894e-06,
+            "median_delta_cumulative_deployed_regret": 0.15874999999999978,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.008
+          },
+          "target": "anthropic_claude-instant-1.2",
+          "target_full_score": 0.844,
+          "target_index": 9,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "8b907a9040bcd723f643e6223d5e968c3bd0325632603b2289d1fd9d8694cfa7",
+              "6892cccb783b95083ed88feb8d783481f238c5debb4300e1d9f7d902fc82329f",
+              "f73fb46609a47b3b1f7be2b5f1058623d55f383a0c390cce7ae9d6b6b3f717eb",
+              "440e20bbd1b1e6b126c6f73062d787eea459a0c505fe5f825ebd3ee9b4d0ca44"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "82b893cd7df263c96c07e18af03126e13075b26a2deaf50df6e3246d2a0ce005",
+              "22610a31b6f42c641b98f218af84255b8a15d216ba65668138676b3c0955215d",
+              "c429157d0b7bba04c54818cb32659a6cfdccf5b719794e36108f7e774190b899",
+              "14511afb920566361da53745563bb13e17b7a6e0c5ca034f16c56c8105d2d0bd"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "anthropic_claude-instant-1.2",
+            "target_index": 9,
+            "target_score": 0.844
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.708,
+            "improved_fraction": 0.284,
+            "mean_changed_query_positions": 22.474,
+            "mean_delta_cumulative_deployed_regret": 0.15949999999999995,
+            "mean_delta_final_deployed_regret": -4.999999999999894e-06,
+            "median_delta_cumulative_deployed_regret": 0.15874999999999978,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.008
+          },
+          "target": "anthropic_claude-instant-v1",
+          "target_full_score": 0.844,
+          "target_index": 10,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "8b907a9040bcd723f643e6223d5e968c3bd0325632603b2289d1fd9d8694cfa7",
+              "6892cccb783b95083ed88feb8d783481f238c5debb4300e1d9f7d902fc82329f",
+              "f73fb46609a47b3b1f7be2b5f1058623d55f383a0c390cce7ae9d6b6b3f717eb",
+              "440e20bbd1b1e6b126c6f73062d787eea459a0c505fe5f825ebd3ee9b4d0ca44"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "82b893cd7df263c96c07e18af03126e13075b26a2deaf50df6e3246d2a0ce005",
+              "22610a31b6f42c641b98f218af84255b8a15d216ba65668138676b3c0955215d",
+              "c429157d0b7bba04c54818cb32659a6cfdccf5b719794e36108f7e774190b899",
+              "14511afb920566361da53745563bb13e17b7a6e0c5ca034f16c56c8105d2d0bd"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "anthropic_claude-instant-v1",
+            "target_index": 10,
+            "target_score": 0.844
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.154,
+            "improved_fraction": 0.812,
+            "mean_changed_query_positions": 25.462,
+            "mean_delta_cumulative_deployed_regret": -0.5341800000000001,
+            "mean_delta_final_deployed_regret": -7.000000000000051e-05,
+            "median_delta_cumulative_deployed_regret": -0.5750000000000002,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.034
+          },
+          "target": "anthropic_claude-v1.3",
+          "target_full_score": 0.908,
+          "target_index": 11,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "4a6635fd286f9811e57311323cc3df304cb73ce313b661a983f3972ffe394b0c",
+              "27e24182f307bc9bcbf0b3f198d2492f95a824817299969840ff7f331188dc88",
+              "353b367482673679a117ec79095a9070e046f9f749d0569f122d91ae09d1e6f7",
+              "6e056c24f58b86daae18845678f732ab8ee9ec830befe1b04a34fd37363a5cd6"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "c3e137a8b43dee8fa39eabd876ea799b816741a71890cc7664b95ba48873209f",
+              "2674ce9635426b1c7861a2350c551f390c5f3f91cd627d5b31cdfe11443c343a",
+              "38bb8a11d88a309d1031f4a3a7cf842c6a5d20d5e1ed1546ab3e5d3a619213ef",
+              "bea5083d5a0fb43e6d0c0f76e41905b4b0e9228fcea605ae8cacccd50edafce9"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "anthropic_claude-v1.3",
+            "target_index": 11,
+            "target_score": 0.908
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.928,
+            "improved_fraction": 0.064,
+            "mean_changed_query_positions": 25.274,
+            "mean_delta_cumulative_deployed_regret": 0.6545550000000001,
+            "mean_delta_final_deployed_regret": 0.0001549999999999996,
+            "median_delta_cumulative_deployed_regret": 0.6675,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.008
+          },
+          "target": "cohere_command-light",
+          "target_full_score": 0.398,
+          "target_index": 12,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "915bb598721f2d2641d8437ef598b7d2cac485938617ee67c247a19c01e659f3",
+              "162bf63129eb7a5dc2bc5d535ae51dbc32cad87b63df2ae2c5586858ba233352",
+              "3ce20a426eb9b0f65387ca050b55c020c7d305288131494825f1d81899c885e2",
+              "021b08b4c0055df0ab2eba25b93b1dc058c925c297128d269816ecafe4c79a65"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "96f26dd32c933e41cd97b41b0aa785142fe43b0e1cbdaab6d8ed59a1079c1e23",
+              "69aeb9ec13c8f6847edc706f89d0398ec94513fd3332e2bdeeedf5ec30850040",
+              "fd5433e6d43d3123dcf0ad3d36b5e1f02b8eba1fec8f964c68d38ad5f3638808",
+              "1100480d3a55666647c0e71b0d9a45c6f91659be70653d310e351792abdb8bd3"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "cohere_command-light",
+            "target_index": 12,
+            "target_score": 0.398
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.16,
+            "improved_fraction": 0.83,
+            "mean_changed_query_positions": 26.302,
+            "mean_delta_cumulative_deployed_regret": -0.37194499999999997,
+            "mean_delta_final_deployed_regret": -0.00010000000000000032,
+            "median_delta_cumulative_deployed_regret": -0.5687499999999999,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.01
+          },
+          "target": "cohere_command",
+          "target_full_score": 0.774,
+          "target_index": 13,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "9dd80e8f6f542721040156afa23ef8a442cfefdf8f07447a48d628a42d78fa23",
+              "7a761e342961b574eb7ef95c9fd6fb746d1926b525f7126fc044ea5c92165ea2",
+              "df67429fa2cae442fdf7e45d2d7ca3ecbb171ec6fd2cdf81fb4ec77204d96064",
+              "38e03a4ecc57f7df2420e93847c225d79b7d7773a26373645c6a719eb92be10f"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "278094d8dcefc8af57450cc4f9e9dba3c9fd5992baca0a51c650cef3ebb6453f",
+              "e9a1125b189b936a37b3e0b9c73e442f12e53bcd40cf35aa5e99fdafacb86bec",
+              "9ad03579a18372b3aae7c297694d99020e529351299f2f9f667fef427aa4a29b",
+              "66e043047479afecae74ea4cf6d996a57f19f4195e1df28e7749d8424c30d79f"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "cohere_command",
+            "target_index": 13,
+            "target_score": 0.774
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.17,
+            "improved_fraction": 0.808,
+            "mean_changed_query_positions": 26.15,
+            "mean_delta_cumulative_deployed_regret": -0.50024,
+            "mean_delta_final_deployed_regret": -8.500000000000041e-05,
+            "median_delta_cumulative_deployed_regret": -0.5375000000000001,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.022
+          },
+          "target": "google_text-bison@001",
+          "target_full_score": 0.878,
+          "target_index": 14,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "d26f00d744fee4422d0dc87e200d3afd6d77351d533790c64f516274a180fa8a",
+              "adc4570a9dad36c5725b9f5cb32c2633624696122156ee06b784879c1d848fe9",
+              "b970899ae996406feb2469998c5c1b80edfe6b2b495ac51408d9518449f9fc2b",
+              "81ba4fb71d3cc3762ee7d570b0e85d8e15d6429ceea62f70a6fa22a82332351e"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "e24ef866118ae67503eb0bdaf3d343210729f0ad708724242ea5e4ba1ec5c702",
+              "6292ec36c84b3c3c72ce22f89c0f941741d434db80b229558b0697e03535dd37",
+              "4bcdce724e77e278e128249b936d016a558607290e622f98e57c9a4b8520c1ea",
+              "df95bba23a026c22fa027590a2301eee7985c7904da4d2e74045308253fd4669"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "google_text-bison@001",
+            "target_index": 14,
+            "target_score": 0.878
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.068,
+            "improved_fraction": 0.922,
+            "mean_changed_query_positions": 26.284,
+            "mean_delta_cumulative_deployed_regret": -0.61299,
+            "mean_delta_final_deployed_regret": -0.00017500000000000027,
+            "median_delta_cumulative_deployed_regret": -0.72,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.01
+          },
+          "target": "google_text-unicorn@001",
+          "target_full_score": 0.938,
+          "target_index": 15,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "6857e19de06d2662735f627e46cac141c00bfa4b87ca04eb81f59a9f637caf86",
+              "69cf3f4bb5559be821fbfce21506894da9247488e58b305d4138c68467406443",
+              "50af7e78ba60889839ea0e15fdea81963f2744301835613eacf201df0e4f760e",
+              "7593f353352ed5e98729dfcfab418436d1dc001ef251b568e89d77f581c88560"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "5626c04445399c26993626ebcf393b2ccf5c7a2ecf40b938cae81b7cacb35974",
+              "8fb1494805f15fbf801d965465b5e5024889b446e92ee4ab587835a0a1fc8046",
+              "cd0920330a7f7355dacb6b48c9ecc62a18c5d9b43c897f6feb845066d7928ec0",
+              "f2c6ab0d2c19424e9f7ef3e607318756aa3dabb9b9ae175f7cdd59b1acb05d05"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "google_text-unicorn@001",
+            "target_index": 15,
+            "target_score": 0.938
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.15,
+            "improved_fraction": 0.79,
+            "mean_changed_query_positions": 21.702,
+            "mean_delta_cumulative_deployed_regret": -0.22075999999999998,
+            "mean_delta_final_deployed_regret": -9.999999999999787e-06,
+            "median_delta_cumulative_deployed_regret": -0.15749999999999997,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.06
+          },
+          "target": "meta_llama-2-13b",
+          "target_full_score": 0.634,
+          "target_index": 16,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "796c75936b0be3cb1bea69fdba21bf14c1fb958e25dfbfe67bff1726dd098957",
+              "b377f23094a816a79cacbc49188c7180643f0709724029693b4dd98a08e90401",
+              "1e081c7237ad67e7d79c2923254109ebf3541bd0a8c1fcebef818749fa64b3db",
+              "799e2461549423d2ba43bc46cfb7011e14a2a64cf9100fcf1abc2d9d75d81f53"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "14ede845ae376ce13651cb1ae729457dded373532ada7a3a6ea05577868afaf7",
+              "0c491697cdcf7d818570c3f902ef32c5c5ef3a078a4b27cfaf2c2731faf7706a",
+              "e2acb8878b07c12a57526974f2fdc48f905714ba4efa1faf324f64454dbb72f2",
+              "8adf25abb37b752c4e7586b8671acb14b63ccd8ed5f09f0cf5797e078e70533c"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "meta_llama-2-13b",
+            "target_index": 16,
+            "target_score": 0.634
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.41,
+            "improved_fraction": 0.574,
+            "mean_changed_query_positions": 24.796,
+            "mean_delta_cumulative_deployed_regret": 0.03787499999999998,
+            "mean_delta_final_deployed_regret": 0.0002749999999999995,
+            "median_delta_cumulative_deployed_regret": -0.10875000000000007,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.016
+          },
+          "target": "meta_llama-2-70b",
+          "target_full_score": 0.838,
+          "target_index": 17,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "a9b6422c7b1b1924b9b5291a2c5473fab10690253fe192eeff5dd173cb46f1e3",
+              "81264713a5d3dd9de38bf383b7f06db1be8f72dad8fa90da6314d15a7ea01558",
+              "b1cea12f3863a78abeb5b03c8346a0ebb79dc72465ce5ef13775e7716a7cea19",
+              "b2f08420798e653f3638932310b1c4135e4dafe2caf774da034b752246ca89fb"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "7e2907374db255527417c3affa626346b34f3329c78555d406ba19bf847a0367",
+              "01e1de74ffa938cbe034259ec676ef4d86743b28820ca51718caa73c992b8fd5",
+              "39b14c4d429763ea1e401430d269b3b902f2392b8fe3c38baacf2c25a638496b",
+              "5b459932f26f654b8ac97d882aa4bd7f88ff2a8426bb281b0cc57c052486f6d3"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "meta_llama-2-70b",
+            "target_index": 17,
+            "target_score": 0.838
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.034,
+            "improved_fraction": 0.95,
+            "mean_changed_query_positions": 24.97,
+            "mean_delta_cumulative_deployed_regret": -0.5932000000000001,
+            "mean_delta_final_deployed_regret": 0.00017499999999999937,
+            "median_delta_cumulative_deployed_regret": -0.6737500000000001,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.016
+          },
+          "target": "meta_llama-2-7b",
+          "target_full_score": 0.544,
+          "target_index": 18,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "f7ff21cdc9b4da6b76b15ff8a38595085bd667a910807de3dc769182435ab0be",
+              "e9539fbef1dea34927843edf057733162aadcb0265120eda0cb43a0af4028acc",
+              "acf000637c3e34384ce2f6902bad209b4a209caa208e38803cdd21bb18310c89",
+              "fadab84adc37733a6b9d24fb5c62ce15726e843273d6239f37e06a66d943c865"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "b3438175dbdfdd05049d4532151d63cec2128b5aaf4966f0d738de6c45778851",
+              "ed2224e40767b39c3e4d4fae1a6835630800e58b28098e2f86e1781008f88570",
+              "66de6e69b864dc614d0ef48631bf24f14ab331abbd7b972c16a0482b3d81a724",
+              "894498b4553bf5bd39cb185f3d71e2d675b123da53b0600b66bd0ecce1725e30"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "meta_llama-2-7b",
+            "target_index": 18,
+            "target_score": 0.544
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.278,
+            "improved_fraction": 0.712,
+            "mean_changed_query_positions": 23.838,
+            "mean_delta_cumulative_deployed_regret": -0.4074400000000001,
+            "mean_delta_final_deployed_regret": -0.00010999999999999988,
+            "median_delta_cumulative_deployed_regret": -0.5250000000000002,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.01
+          },
+          "target": "meta_llama-65b",
+          "target_full_score": 0.754,
+          "target_index": 19,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "ca9710fd39c8874fa7a8c37a04bbfab0345089b6e332055f8720f57b47d82f74",
+              "549ad1a847fb284a889a0f8ef04335b22d2a742eabcf9a947512561c6c658806",
+              "2cf7ebeaac94e1e851fb53b50952a060f9c939039792e59ac330369f28048828",
+              "b7b9e738a80ae7432e045a8409de2683f2eab1c884ccaaf08bf03fdb37d157ab"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "d1f9f21c6289840a1527420d5ed49dd9badcb32998ed5bc0890e90b79921770e",
+              "94891caabd1020479686f0a148638979afee673e79f86093ada191e0ae793ba6",
+              "7bf29da55e4a36603799e4a291694c4e69695be8a56613c578097c8932a139f8",
+              "f2825f447001a14c7827648287cb26c3e4d2662254397eb9d85ec8cc7840fcf8"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "meta_llama-65b",
+            "target_index": 19,
+            "target_score": 0.754
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.718,
+            "improved_fraction": 0.234,
+            "mean_changed_query_positions": 23.248,
+            "mean_delta_cumulative_deployed_regret": 0.222485,
+            "mean_delta_final_deployed_regret": 0.00016999999999999971,
+            "median_delta_cumulative_deployed_regret": 0.08499999999999996,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.048
+          },
+          "target": "mistralai_mistral-7b-v0.1",
+          "target_full_score": 0.776,
+          "target_index": 20,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "4cb749bf179e76484a2e08970bf0bca0e0ead62ebe9b9d9e1f13c345112b7a62",
+              "0a851ef53f6a1c3f7ad5c3c07f9013a7fe87bec25b17a346694fa9802beeadd3",
+              "e01dc241be01652adda0f0bd46e365d5035580ba9eabc2839380624209a1fe35",
+              "d9e194f7da4a314aa0c53519240a679f4cfbb00d67711f9ad3d758b451330c3a"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "2d81085cf4507a064c290a2fa37d93312d30c03dc83ed28e98446534a3587312",
+              "115748b87bffe757ce7d3975b3c507de2ed6d6e7533dcf6fe5590a57eac68a46",
+              "db06fab1c49343454b265ab8956bdf0e0ce49e14c9f9ebd6c361653f5746e617",
+              "8d36623d8f68d6de3f44756e27c157fc7ab907a72a0ef7b6a77fe0bf450b9dba"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "mistralai_mistral-7b-v0.1",
+            "target_index": 20,
+            "target_score": 0.776
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.258,
+            "improved_fraction": 0.69,
+            "mean_changed_query_positions": 24.156,
+            "mean_delta_cumulative_deployed_regret": -0.09466499999999997,
+            "mean_delta_final_deployed_regret": -0.00013000000000000034,
+            "median_delta_cumulative_deployed_regret": -0.04749999999999999,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.052
+          },
+          "target": "mistralai_mixtral-8x7b-32kseqlen",
+          "target_full_score": 0.868,
+          "target_index": 21,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "58ffa598f6c7090a1703b0d00d781b3fd1d4b3adb6ec0d8e2ce8238d437d7fd5",
+              "d999983d7f529495f280e509a22f8659b44d80b46e3000d0a6479352830980c8",
+              "884c18a6094b6f74b5b071c1f61e882261d72fad2cb5a93097500a5f3d0598c0",
+              "e8ed5e4cb61a6511998f77353fcc38b6e843d20ec01b50cc8229289f55da639c"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "873be3e2370dabf3937fe29a4350a12271717a7ed4edccc0fbd4c951e2d733dc",
+              "108245cd74b2f8818c555a3ae8934f8564ed694f5d4e88f80cb417a28b73128c",
+              "074f1a8ae14ba00d7b386c38ec4af0f00dd41e9329ce0b66893349c0edb4e02c",
+              "67c88a6fcfbd07ce9dc5013d9d205023bff8e0302bb1a5ca5c0d35c578a9f170"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "mistralai_mixtral-8x7b-32kseqlen",
+            "target_index": 21,
+            "target_score": 0.868
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.206,
+            "improved_fraction": 0.786,
+            "mean_changed_query_positions": 26.74,
+            "mean_delta_cumulative_deployed_regret": -0.4119450000000001,
+            "mean_delta_final_deployed_regret": -4.4999999999999705e-05,
+            "median_delta_cumulative_deployed_regret": -0.42250000000000004,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.008
+          },
+          "target": "openai_gpt-3.5-turbo-0613",
+          "target_full_score": 0.838,
+          "target_index": 22,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "1ee6cbaec590b70bbd763680039aae387aefb871c5254ea247ec3fccaf335ae1",
+              "53b896dca9eb732c3202f870b5e2395c1e1dbcd05c1d1da5a6a3c40990287d42",
+              "bccb04c8591fc54bc6744903165282fb1de68606286d43019835373242455d90",
+              "8364cab2310097e66166acf81b5e9a579a06975b4ac91a746a71e6acb211c19e"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "833db1b6f6902dbb53cdc3b9c486d88f588adba4e5c28842acec3f11956d3f59",
+              "bf24efef4a6ec3f28ba41f1c62ff2df3c49b0a260dd1a20996c54736e6136b09",
+              "449c9dca2fbff2ec30da35b3aae44492ebb4be086c1f049df4cd9712207be3f5",
+              "c92c64b9b891a0d402c983f6d9f3d86495e9236e9c3e3d8db050332a7f00b99b"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "openai_gpt-3.5-turbo-0613",
+            "target_index": 22,
+            "target_score": 0.838
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.258,
+            "improved_fraction": 0.738,
+            "mean_changed_query_positions": 27.678,
+            "mean_delta_cumulative_deployed_regret": -0.2774850000000002,
+            "mean_delta_final_deployed_regret": 5.499999999999994e-05,
+            "median_delta_cumulative_deployed_regret": -0.3175000000000005,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.004
+          },
+          "target": "openai_gpt-4-1106-preview",
+          "target_full_score": 0.95,
+          "target_index": 24,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "16584efbbd1606c793d6c6e4d1826ae46500fa3faa8403d64917784816ebfa0a",
+              "d71cbe4f38fecbae00a099dc0d0545b7f90dca5ace02b3f7a470f4fcc6b53b73",
+              "a69eacdb5c0dcfdc361359e2934be68d0ac4a1060182cce4a9f60d8db2ce7134",
+              "533fdb79713ccfe5434ab3c0bc137e908097c50165dc4583d1d018236ca13195"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "655d2cfd5e1d130663ab1544c697f56cc36343bc1d53dd9995475eb0367c9a4a",
+              "e7c2e304790168f4b7b82dafd75336dec07315f2cb6cec25d18f77f093427a1d",
+              "e7f4468605abeab42db016b6f3ac7346b21fcdbdc8cbd403e0b2d6bfc4287ec7",
+              "9eee5d74e6eac959802a180f1ff979d214232100d9e64fea5239b869b2b47dc9"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "openai_gpt-4-1106-preview",
+            "target_index": 24,
+            "target_score": 0.95
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.846,
+            "improved_fraction": 0.138,
+            "mean_changed_query_positions": 26.138,
+            "mean_delta_cumulative_deployed_regret": 1.319435,
+            "mean_delta_final_deployed_regret": 0.00012499999999999979,
+            "median_delta_cumulative_deployed_regret": 1.2462500000000003,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.016
+          },
+          "target": "openai_text-davinci-002",
+          "target_full_score": 0.796,
+          "target_index": 25,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "7e08d59d0b6be7bcd1a388885448fc8bc5569346f68f1f090f2b3de91857d36d",
+              "d1c0bab6adb6e185c7ca4380986b9afd15edead32434be0a291d988b4d822209",
+              "8b241da8947a354baa586224db73f054ecc00f8c23d9d9ec95fa87c610b4a761",
+              "24214574684ff1c1c70afa16112100fc34af0642fc4fa0df6c5d19da9c46f14e"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "3ecf846a1f2307b5926a1565216477fa265e16448046e2f3f775e006d69680c2",
+              "77f095b6019876a15d8a262e9ca48e312fef8515673153a36f0ad8887e6a6595",
+              "e734d47b0ec2e915be357d7f5d88ed8ab9af855d07bddc84c74acc3a6933b973",
+              "490682440a86094121b1232e724ba242838db5bafd861d1d825cce7d63987860"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "openai_text-davinci-002",
+            "target_index": 25,
+            "target_score": 0.796
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.31,
+            "improved_fraction": 0.672,
+            "mean_changed_query_positions": 23.094,
+            "mean_delta_cumulative_deployed_regret": -0.09081,
+            "mean_delta_final_deployed_regret": -0.00011000000000000032,
+            "median_delta_cumulative_deployed_regret": -0.09125,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.018
+          },
+          "target": "openai_text-davinci-003",
+          "target_full_score": 0.828,
+          "target_index": 26,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "d97b09243f66d83b2205d7ccd2a29c7d5ddaf890b52985670c0ef98c44976a5c",
+              "ee21238ee6f2f58b009a69d7d8e71f65663987f2e35760f4c236f5db10d8bc79",
+              "32fe10bb706941f00012d17cb53ad05fbb70f5f0c7f82268f9e272503c4f9897",
+              "c1a71ec8fb4646a380348664d3f97b1c7fb414fcb39753db7cbd1de782d6090d"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "72acd8740561481e5f970d3988aba3211481ea26fe36c360d2ace04f82569f8e",
+              "d380658240408fc8be11def6fb09b3eb789731618ea9aaffb037ce89f6b7e55b",
+              "f43437ff26ea3648fe268416745f02c5ad77790e60e3af8bdeddc7f6f925456a",
+              "b7dd7edd7512b35092d2d91618a1e3b50a0abfc192833404850aa1c9baa09652"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "openai_text-davinci-003",
+            "target_index": 26,
+            "target_score": 0.828
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.184,
+            "improved_fraction": 0.8,
+            "mean_changed_query_positions": 25.654,
+            "mean_delta_cumulative_deployed_regret": -0.5290750000000001,
+            "mean_delta_final_deployed_regret": -8.000000000000007e-05,
+            "median_delta_cumulative_deployed_regret": -0.74375,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.016
+          },
+          "target": "tiiuae_falcon-40b",
+          "target_full_score": 0.662,
+          "target_index": 27,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "9a09f37ecc50c57fd26701d3b8d4a4ace2010598158f0b70c100484b3d3ccb13",
+              "f08256f35584e4e018603111a2c2159963d9f6ec9fb22ba34fa89ce0061fefd6",
+              "ab5916edca5177d090c322e4f39d1867e6a49139881ebd04cd1f09d6a816672e",
+              "837f83ed1c7305b02cc2ac98da38257e9791b92bea13298c00345b4dc5e759d2"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "ee92aea1160d700d5cefa23970024d6d905dcccb2193c077b4d00a00e399d571",
+              "302db70480071a89a27100b7bcd23471a2a5669a07cd65f4396926fbf4f66597",
+              "8ee9848396e35d991f5d6d5a77342370390328bf23f9bbb382054bfcb91eb278",
+              "52471a14b7232ee9a03e6d5d159d6fd593aa5d14b747f6da3e8801bd89d20128"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "tiiuae_falcon-40b",
+            "target_index": 27,
+            "target_score": 0.662
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.214,
+            "improved_fraction": 0.772,
+            "mean_changed_query_positions": 27.414,
+            "mean_delta_cumulative_deployed_regret": -0.470385,
+            "mean_delta_final_deployed_regret": 0.00016999999999999971,
+            "median_delta_cumulative_deployed_regret": -0.6312500000000003,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.014
+          },
+          "target": "tiiuae_falcon-7b",
+          "target_full_score": 0.26,
+          "target_index": 28,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "fe81f7642bc833184c8623049c647ea627e08d926436c8c2df050d861349ac82",
+              "6a9f70a694165f78576156db4b4f41819a7f509c37c98f1106e0c9bf658bff16",
+              "1c4e74612c5c55685f937a0d769affde81482bf90f32fc81b88f4b67da947f69",
+              "1e0cebd14922a4a4d7dd6711f95c8793e776368058a14ee154561bcf641d75cf"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "465373b2c24e1c1dd1a2a3136ba6a22ed8ff3c3c7e2c4210d9508f60433283fa",
+              "9c557815826ebcdf56f259d84a930de51928baa9fbf215d4a06680610e145094",
+              "ac8c14327096308e3c92672a055860ade365a2447eb1719710fa3058cdcef7c1",
+              "3c3a367f27290511adc71867ed1816435bdee87021b74a6d4e8ac9f8ef507010"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "tiiuae_falcon-7b",
+            "target_index": 28,
+            "target_score": 0.26
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.134,
+            "improved_fraction": 0.838,
+            "mean_changed_query_positions": 25.832,
+            "mean_delta_cumulative_deployed_regret": -0.5129600000000001,
+            "mean_delta_final_deployed_regret": -0.00016000000000000015,
+            "median_delta_cumulative_deployed_regret": -0.5349999999999997,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.028
+          },
+          "target": "writer_palmyra-x-v2",
+          "target_full_score": 0.878,
+          "target_index": 29,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "daf3ec346ba3c284872726aa779176842dcc3edf578a334730523baaef3bedaa",
+              "ddee7ce03d7a8af267f4d0f4208511f176b605f3124b71ba41ce46e3b0368ed6",
+              "ca5697652c37a67ff3ad1842ef2f4b1e17d565cc02d76ba3b9773722a94dad43",
+              "51af631b7e6a03412dbdc247049cf8eebc3bdaa0925c50578ac513e3cfa72ae9"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "6575dd7a006dc0f9f2d390e250ef9b5e7978671d18f73c0a6b669dbeed37ae00",
+              "61b64dd0242c119bc0be141527cee7bc48e31c92b653732d1d36df708d981724",
+              "c74ef1ae34c49d87aa59f7c2f70208f76c025292f267aeb183607a328f8f84c9",
+              "361452ff7a6c3c84fa0a89c36c21bf4b30ca038c0ed887c047145a8dcd9090d0"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "writer_palmyra-x-v2",
+            "target_index": 29,
+            "target_score": 0.878
+          }
+        },
+        {
+          "development": {
+            "harmful_fraction": 0.068,
+            "improved_fraction": 0.922,
+            "mean_changed_query_positions": 26.284,
+            "mean_delta_cumulative_deployed_regret": -0.61299,
+            "mean_delta_final_deployed_regret": -0.00017500000000000027,
+            "median_delta_cumulative_deployed_regret": -0.72,
+            "path_change_fraction": 1.0,
+            "tied_fraction": 0.01
+          },
+          "target": "writer_palmyra-x-v3",
+          "target_full_score": 0.938,
+          "target_index": 30,
+          "wrapper_metadata": {
+            "alias_full_score_gaps": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "alias_hashes": [
+              "99e249cf195ab7eb6e8f66d8732bf964903569c663134f6acbcc4bd463b01fa9",
+              "69cf3f4bb5559be821fbfce21506894da9247488e58b305d4138c68467406443",
+              "50af7e78ba60889839ea0e15fdea81963f2744301835613eacf201df0e4f760e",
+              "7593f353352ed5e98729dfcfab418436d1dc001ef251b568e89d77f581c88560"
+            ],
+            "aliases": 4,
+            "changed_set_digests": [
+              "5626c04445399c26993626ebcf393b2ccf5c7a2ecf40b938cae81b7cacb35974",
+              "8fb1494805f15fbf801d965465b5e5024889b446e92ee4ab587835a0a1fc8046",
+              "cd0920330a7f7355dacb6b48c9ecc62a18c5d9b43c897f6feb845066d7928ec0",
+              "f2c6ab0d2c19424e9f7ef3e607318756aa3dabb9b9ae175f7cdd59b1acb05d05"
+            ],
+            "distance_fraction": 0.05,
+            "distance_queries": 25,
+            "exact_hash_survivors": 4,
+            "online_adaptation": false,
+            "per_example_quality_equal": true,
+            "reference_aware": true,
+            "target": "writer_palmyra-x-v3",
+            "target_index": 30,
+            "target_score": 0.938
+          }
+        }
+      ],
+      "budget": 30,
+      "data_digests": {
+        "ids": "3f712df9ac91e28d5b57edad741f90e9df886d15f4dda2b474edb6264ae631de",
+        "oracle": "0ff5d8a355aeca5cdd43dbca5cd060f40b9163d1186a8fc095d48c9efeeb1cda",
+        "responses": "ba9d50bb531310cdaf12d6a868756c02fe17f45914e2c96e1ece08470556178c"
+      },
+      "distance_queries": 25,
+      "eligible_parent_count": 30,
+      "selected_development_effect": {
+        "harmful_fraction": 0.846,
+        "improved_fraction": 0.138,
+        "mean_changed_query_positions": 26.138,
+        "mean_delta_cumulative_deployed_regret": 1.319435,
+        "mean_delta_final_deployed_regret": 0.00012499999999999979,
+        "median_delta_cumulative_deployed_regret": 1.2462500000000003,
+        "path_change_fraction": 1.0,
+        "tied_fraction": 0.016
+      },
+      "selected_target": "openai_text-davinci-002",
+      "selected_target_index": 25,
+      "temperature": 5.0
+    }
+  }
+}

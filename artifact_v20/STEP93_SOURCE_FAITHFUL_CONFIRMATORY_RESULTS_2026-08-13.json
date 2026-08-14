@@ -1,0 +1,238 @@
+{
+  "result_id": "STEP93_SOURCE_FAITHFUL_LEARNED_ABSTENTION_CONFIRMATORY_V1",
+  "decision": "INVALID_STEP93_IMPLEMENTATION",
+  "config_sha256": "8de9e66fa32ac0c3e2b7fe4af9b0ea514d41d55cb7f7cbd496bcf72a6783963a",
+  "execution_lock_sha256": "f389d4be70abc4cf57f10fb7a4685ca4ee3a67a9ed9e3c7a75e0e8272d66ef62",
+  "raw_sha256": "4b0ad4c7e321924c618f23429d84201d3787d57f7fb478f35624a9066030ab8d",
+  "task": {
+    "name": "Banking77",
+    "dataset": "mteb/banking77",
+    "revision": "18072d2685ea682290f7b8924d94c62acc19c0b2",
+    "n_holdout": 3076,
+    "paired_runs": 1000,
+    "selected": {
+      "parent_root": 10,
+      "tau": 0.1,
+      "max_calibration_utility_loss": 0.0025,
+      "max_trigger_fraction": 0.05,
+      "thresholds": [
+        0.9490626156330109,
+        0.9702306389808655,
+        0.9864926934242249,
+        0.9935747683048248
+      ],
+      "calibration_alias_utility_losses": [
+        0.0020181634712410634,
+        0.0020181634712410634,
+        0.0020181634712410634,
+        0.0020181634712410634
+      ],
+      "calibration_trigger_fractions": [
+        0.004036326942482341,
+        0.006054490413723511,
+        0.006054490413723511,
+        0.0035317860746720484
+      ],
+      "calibration_active_minus_fixed_terminal_delta": 0.0025916666666666657,
+      "calibration_terminal_delta": 0.0025916666666666657,
+      "calibration_cumulative_delta": 0.05459999999999996,
+      "calibration_path_change_rate": 1.0,
+      "pool_size": 400,
+      "budget": 50
+    },
+    "clean_root_holdout_accuracies": [
+      0.3455786736020806,
+      0.4541612483745123,
+      0.5442132639791938,
+      0.6277633289986996,
+      0.6830299089726918,
+      0.7321196358907672,
+      0.7480494148244473,
+      0.7574772431729518,
+      0.7786085825747724,
+      0.7994148244473342,
+      0.7971391417425228,
+      0.8052665799739922
+    ],
+    "parent_holdout_accuracy": 0.7971391417425228,
+    "alias_holdout_accuracies": [
+      0.793888166449935,
+      0.7945383615084526,
+      0.7935630689206762,
+      0.7961638491547465
+    ],
+    "alias_parent_accuracy_losses": [
+      0.0032509752925877766,
+      0.002600780234070177,
+      0.0035760728218465765,
+      0.0009752925877762886
+    ],
+    "realized_trigger_fractions": [
+      0.004551365409622887,
+      0.003250975292587776,
+      0.005201560468140442,
+      0.0009752925877763329
+    ],
+    "pairwise_alias_response_hamming": [
+      0.007152145643693108,
+      0.008452535760728219,
+      0.004876462938881665,
+      0.007477243172951885,
+      0.003250975292587776,
+      0.0055266579973992196
+    ],
+    "mean_pairwise_alias_response_hamming": 0.006122670134373645,
+    "minimum_pairwise_alias_response_hamming": 0.003250975292587776,
+    "path_change_rate": 0.998,
+    "query_set_change_rate": 0.991,
+    "final_root_change_rate": 0.366,
+    "terminal_regret_delta": {
+      "mean": 0.00032000000000000106,
+      "median": 0.0,
+      "bootstrap_95": [
+        -0.000549999999999999,
+        0.0012150000000000008
+      ],
+      "one_sided_signflip_p": 0.23593764062359376,
+      "positive_fraction": 0.173,
+      "negative_fraction": 0.167,
+      "zero_fraction": 0.66
+    },
+    "cumulative_regret_delta": {
+      "mean": 0.04094500000000001,
+      "median": 0.03999999999999998,
+      "bootstrap_95": [
+        0.01290481249999998,
+        0.06891012499999999
+      ],
+      "one_sided_signflip_p": 0.001909980900190998,
+      "positive_fraction": 0.548,
+      "negative_fraction": 0.443,
+      "zero_fraction": 0.009
+    },
+    "active_minus_fixed_terminal": {
+      "mean": 0.00032000000000000106,
+      "median": 0.0,
+      "bootstrap_95": [
+        -0.000549999999999999,
+        0.0012150000000000008
+      ],
+      "one_sided_signflip_p": 0.23593764062359376,
+      "positive_fraction": 0.173,
+      "negative_fraction": 0.167,
+      "zero_fraction": 0.66
+    },
+    "max_abs_fixed_terminal_delta": 0.0,
+    "max_abs_fixed_cumulative_delta": 0.0,
+    "same_similarity_observed": {
+      "definition": "s(a,b)=1[a=b]",
+      "function": "step93_common.exact_match_similarity",
+      "function_source_sha256": "75bcffd476c232ba3d501a5a0f62e73c7fc320fc31b058990fed9b28cf6b9902",
+      "feedback_function_source_sha256": "0ff8fd8c0ef110b1ef63e0cc18b5b835be591afda831e131e9d3da6dbc6e0e0f",
+      "group_builder_source_sha256": "8b81ec90234c5cafc8c5ad49052e9bba9b744d57ba64df05a13e60d4794d04ce",
+      "run_active_source_sha256": "11fd79b0fff11cbaefc1114e78d0ce4bfbc155042fb04af722f9e74ac476633a",
+      "run_active_accepts_external_feedback": false
+    },
+    "same_similarity_numeric_probe": false,
+    "endpoint_exact_replay": true,
+    "runtime_input_contract": [
+      "raw_text",
+      "frozen_encoder_weights",
+      "selected_parent_weights",
+      "selected_abstention_adapter_weights",
+      "frozen_scalar_thresholds"
+    ],
+    "forbidden_runtime_inputs": [
+      "reference_label",
+      "item_index_or_id",
+      "exact_prompt_lookup",
+      "peer_output",
+      "pool_seed",
+      "trajectory",
+      "acquisition_score",
+      "posterior",
+      "selector_state"
+    ],
+    "learned_adapter_audits": {
+      "step93_parent_10_abstention_adapter_0.safetensors": {
+        "sha256": "590007666c54979d69ebce24e9a55867aa4f1a8b8c86a65a7c9f73fdef08d36c",
+        "tensor_names": [
+          "down.bias",
+          "down.weight",
+          "norm.bias",
+          "norm.weight",
+          "out.bias",
+          "out.weight"
+        ],
+        "parameter_count": 50817,
+        "nonzero_count": 50817,
+        "nonzero_fraction": 1.0,
+        "variance": 0.020025378093123436,
+        "bytes": 204084
+      },
+      "step93_parent_10_abstention_adapter_1.safetensors": {
+        "sha256": "3c4ebaf91c9050a21f5de2b18a0787245238358a87e1b057c3770c0edff718c0",
+        "tensor_names": [
+          "down.bias",
+          "down.weight",
+          "norm.bias",
+          "norm.weight",
+          "out.bias",
+          "out.weight"
+        ],
+        "parameter_count": 50817,
+        "nonzero_count": 50817,
+        "nonzero_fraction": 1.0,
+        "variance": 0.019549883902072906,
+        "bytes": 204084
+      },
+      "step93_parent_10_abstention_adapter_2.safetensors": {
+        "sha256": "b4630e8357f600814884eedad0a9d2dfcb047c1ded73f3149eb4b02e26c47239",
+        "tensor_names": [
+          "down.bias",
+          "down.weight",
+          "norm.bias",
+          "norm.weight",
+          "out.bias",
+          "out.weight"
+        ],
+        "parameter_count": 50817,
+        "nonzero_count": 50817,
+        "nonzero_fraction": 1.0,
+        "variance": 0.019606662914156914,
+        "bytes": 204084
+      },
+      "step93_parent_10_abstention_adapter_3.safetensors": {
+        "sha256": "a7889939270fbbeb88a2218015017c47212e16c50380af9818437e3012e029a4",
+        "tensor_names": [
+          "down.bias",
+          "down.weight",
+          "norm.bias",
+          "norm.weight",
+          "out.bias",
+          "out.weight"
+        ],
+        "parameter_count": 50817,
+        "nonzero_count": 50817,
+        "nonzero_fraction": 1.0,
+        "variance": 0.02040914073586464,
+        "bytes": 204084
+      }
+    },
+    "gates": {
+      "all_locked_hashes_match": true,
+      "same_exact_similarity_for_acquisition_and_posterior": false,
+      "four_genuine_distinct_50817_parameter_adapters": true,
+      "raw_text_endpoint_exact_replay_and_runtime_exclusions": true,
+      "coordinate_wise_nonimproving": true,
+      "each_alias_accuracy_loss_at_most_1pp": true,
+      "path_change_at_least_half": true,
+      "mean_terminal_delta_at_least_0_5pp": false,
+      "terminal_bootstrap_lower_above_zero": false,
+      "terminal_one_sided_signflip_p_at_most_0_05": false,
+      "active_minus_fixed_at_least_0_5pp_and_lower_above_zero": false,
+      "fixed_query_terminal_and_cumulative_exact_zero": true
+    }
+  },
+  "claim_boundary": "One fresh task with learned no-lookup same-root abstention refinements and one source-faithful exact-match similarity; not live registry admission, an independently fine-tuned full language model, secret-task compromise, universal harm, or prevalence."
+}

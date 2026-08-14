@@ -1,0 +1,151 @@
+{
+  "manifest_id": "STEP54_MATRIX_FREE_REALISM_V1",
+  "frozen_local_date": "2026-08-09",
+  "paper_working_title": "Candidate Lists Are Priors: Registry-Refinement Attacks on Active Model Selection",
+  "purpose": "Kill-test whether the quality-equivalent T2 result survives after removing access to every competing model response from attack construction, while retaining the previously declared public-reference threat tier.",
+  "status_before_execution": "PREREGISTERED_NO_OUTCOME_SEEN",
+  "frozen_scientific_question": "Can a submitter create response-distinct, per-example-quality-equivalent registry refinements using only its own submitted response vector, public task answer spaces, and public or sequentially acquired reference labels, and can those refinements still redirect active model selection on fresh paired pools?",
+  "inputs": {
+    "step28_manifest": {
+      "file": "STEP28_FINAL_MATRIX_MANIFEST_2026-08-06.json",
+      "sha256": "a16f9a262f8d100899a443e96e3ae141ca266f7b5121cdf5e628fc1a67c201ca"
+    },
+    "step29_results": {
+      "file": "STEP29_LOCKED_PHASE_A_RESULTS_2026-08-06.json",
+      "sha256": "9a075b143db6a8f11a42dbbbc313a9262a4547249fe81d39caa3f1c7a1540aaa"
+    },
+    "step30_target_lock": {
+      "file": "STEP30_PHASE_B1_TARGET_SELECTION_LOCK_2026-08-06.json",
+      "sha256": "98af2c94f8cd3f831ff83fd78fbf6c6755f0fda49460d4c16778b57be1974c7d"
+    },
+    "step31_preregistration": {
+      "file": "STEP31_PHASE_B2_PREREGISTRATION_2026-08-06.json",
+      "sha256": "a757631ef6f43ed90fd86c40f042a8ab9259e6008704fe460e04b8bc612b2af0"
+    }
+  },
+  "frozen_tasks": {
+    "medqa": {
+      "examples": 1000,
+      "pool_size": 500,
+      "target_index": 24,
+      "target": "openai_gpt-4-1106-preview",
+      "temperature": 3.0,
+      "budget": 50,
+      "primary_distance_queries": 50,
+      "secondary_distance_queries": 10,
+      "answer_space": "public multiple-choice options"
+    },
+    "gsm8k": {
+      "examples": 1000,
+      "pool_size": 500,
+      "target_index": 23,
+      "target": "openai_gpt-4-0613",
+      "temperature": 5.0,
+      "budget": 30,
+      "primary_distance_queries": 50,
+      "secondary_distance_queries": 10,
+      "answer_space": "canonical numeric answer plus deterministic nonzero integer offsets"
+    },
+    "openbookqa": {
+      "examples": 500,
+      "pool_size": 400,
+      "target_index": 25,
+      "target": "openai_text-davinci-002",
+      "temperature": 5.0,
+      "budget": 30,
+      "primary_distance_queries": 25,
+      "secondary_distance_queries": 5,
+      "answer_space": "public multiple-choice options"
+    }
+  },
+  "frozen_attack_construction": {
+    "shared_invariants": [
+      "Exactly four added aliases are mapped to the frozen target root.",
+      "Every alias differs from the target on exactly the declared number of coordinates.",
+      "Only target-wrong coordinates are modified and every replacement is independently guaranteed wrong, so the complete per-example oracle vector is exactly unchanged.",
+      "The constructor receives no competing-model response row, response frequency, response similarity, model score, pool seed, active transcript, or selector outcome.",
+      "The constructor is completed globally before fresh evaluation pools are generated and never adapts online.",
+      "All changed-coordinate orders and answer choices are deterministic SHA-256 functions of this manifest identifier, task, alias index, and public example ID."
+    ],
+    "matrix_free_public_reference": {
+      "role": "primary realism kill test",
+      "reference_access": "The full public benchmark reference vector is available, as already allowed by frozen T2.",
+      "support_rule": "For each alias independently, order target-wrong coordinates by the frozen SHA-256 rule and take the first d coordinates.",
+      "multiple_choice_rule": "Choose a public option distinct from both the target response and correct option. The first two changed coordinates encode the alias index when two alternatives exist; remaining choices use the frozen hash rule.",
+      "gsm8k_rule": "Parse the public correct final number and emit correct plus alias-specific nonzero integer offset, increasing that offset by four only if it equals the target's wrong numeric response."
+    },
+    "matrix_free_sequential_reference": {
+      "role": "strict reference-cost stress test",
+      "reference_access": "Inspect labels in one reference-independent SHA-256 order and stop immediately when d usable target-wrong coordinates have been collected.",
+      "support_rule": "All four aliases share the acquired d-coordinate support but use distinct deterministic wrong answers.",
+      "cost_accounting": "Count every inspected reference, including correct target coordinates, through the stopping coordinate. No uninspected label may affect construction."
+    },
+    "legacy_matrix_t2": {
+      "role": "fresh-seed reproduction control only",
+      "rule": "Reconstruct the previously frozen Step 29 reference-aware wrapper with the original code, target, distance, and alias count. It is not evidence for matrix-free realism."
+    }
+  },
+  "evaluation": {
+    "paired_pool_seeds": {
+      "start": 91000,
+      "stop_inclusive": 91499,
+      "count": 500,
+      "status": "not used by any earlier locked experiment located before preregistration"
+    },
+    "conditions": [
+      "clean",
+      "legacy_matrix_t2 at five percent",
+      "matrix_free_public_reference at five percent",
+      "matrix_free_sequential_reference at five percent",
+      "matrix_free_public_reference at one percent",
+      "registry-independent fixed-query transcript control"
+    ],
+    "primary_endpoint": "Paired change in cumulative deployed-output regret at five percent distance under matrix_free_public_reference.",
+    "secondary_endpoints": [
+      "paired change in cumulative root regret",
+      "path-change fraction",
+      "mean changed query positions",
+      "harmful/improved/tied fractions",
+      "one-percent distance effect",
+      "sequential-reference effect and label cost"
+    ],
+    "statistics": "For each task and condition, 500 paired fresh pools, 10000-repetition paired nonparametric bootstrap 95 percent interval, and 10000-repetition paired sign-flip test.",
+    "random_query_control": "Use one fixed random query matrix per task for clean and refined registries and require byte-identical query transcripts; selection/regret need not be identical because registry multiplicity can still change posterior model choice."
+  },
+  "predeclared_gates": {
+    "G0_constructor_integrity": {
+      "pass_if": "All aliases have four distinct non-parent response hashes, exact distance, exact per-example oracle equality, zero competitor-row inputs, and no online or pool access on all tasks and variants.",
+      "failure_consequence": "NO_GO_REALISM"
+    },
+    "G1_fresh_legacy_reproduction": {
+      "pass_if": "The lower endpoint of the 95 percent interval for legacy T2 cumulative deployed regret is greater than zero on all three tasks.",
+      "failure_consequence": "NO_GO_STABILITY"
+    },
+    "G2_primary_matrix_free_effect": {
+      "strong_pass": "The lower endpoint of the 95 percent interval is greater than zero on all three tasks.",
+      "narrow_pass": "The lower endpoint is greater than zero on exactly two tasks; the third task is reported without rescue or replacement.",
+      "failure": "Fewer than two tasks have a positive lower endpoint."
+    },
+    "G3_sequential_reference_cost": {
+      "pass_if": "At five percent distance, labels inspected are at most 80 percent of N on every task and at most 35 percent of N on at least two tasks.",
+      "interpretation": "Effect sizes are descriptive; this gate tests construction feasibility, not a rescue criterion for G2."
+    },
+    "G4_fixed_query_control": {
+      "pass_if": "Clean and primary matrix-free fixed-query matrices are byte-identical on every task.",
+      "failure_consequence": "IMPLEMENTATION_INVALID"
+    },
+    "overall": {
+      "STRONG_GO": "G0, G1, G3, and G4 pass and G2 is a strong pass.",
+      "NARROWED_GO": "G0, G1, G3, and G4 pass and G2 is a narrow pass.",
+      "NO_GO": "Any required integrity/stability/control gate fails or G2 fails."
+    }
+  },
+  "forbidden_rescues": [
+    "No target replacement or task-specific retargeting after outcomes are observed.",
+    "No alternate fresh-seed block, budget, temperature, alias count, distance, support salt, or answer generator may replace a failed locked result.",
+    "The one-percent or sequential-reference result cannot rescue a failed five-percent primary gate.",
+    "A positive legacy-matrix result cannot be described as matrix-free evidence.",
+    "No claim that arbitrary naturally occurring aliases have the same effect.",
+    "No claim that numeric-offset GSM8K outputs are independently generated model checkpoints or APIs."
+  ]
+}

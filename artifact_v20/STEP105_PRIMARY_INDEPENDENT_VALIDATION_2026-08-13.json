@@ -1,0 +1,136 @@
+{
+  "schema": "step105.primary_independent_raw_input_validation.v1",
+  "date": "2026-08-13",
+  "verdict": "PASS_STEP105_PRIMARY_INDEPENDENT_RECONSTRUCTION",
+  "failed_checks": [],
+  "checks": {
+    "preoutcome_lock_hash": true,
+    "primary_arrays_hash": true,
+    "root_predictions_bitwise": true,
+    "aliases_bitwise": true,
+    "labels_bitwise": true,
+    "clean_queries_bitwise": true,
+    "refined_queries_bitwise": true,
+    "clean_roots_bitwise": true,
+    "refined_roots_bitwise": true,
+    "fixed_roots_bitwise": true,
+    "terminal_summary_exact": true,
+    "active_minus_fixed_summary_exact": true,
+    "cumulative_summary_exact": true,
+    "path_summary_exact": true,
+    "endpoint_signature": true,
+    "decision_consistent": true
+  },
+  "primary_decision": "NO_GO_RETAIN_STEP105_PROSPECTIVE_NEGATIVE",
+  "primary_failed_gates": [
+    "terminal_mean_at_least_half_point",
+    "active_minus_fixed_mean_at_least_half_point"
+  ],
+  "root_reinference_audits": [
+    {
+      "root_key": "victorsanh_roberta_parent",
+      "repo_id": "VictorSanh/roberta-base-finetuned-yelp-polarity",
+      "revision": "709b46dd24f08e9b310fd7630cd0728f6d52b570",
+      "parent": true,
+      "model_type": "roberta",
+      "architectures": [
+        "RobertaForSequenceClassification"
+      ],
+      "num_labels": 2,
+      "id2label": {
+        "0": "LABEL_0",
+        "1": "LABEL_1"
+      },
+      "label2id": {
+        "LABEL_0": 0,
+        "LABEL_1": 1
+      },
+      "max_length": 256,
+      "prediction_sha256": "0962a5e1dd3957b80ceb801e2cda2535f62b165326830dffdf565ca59c067124",
+      "samples": 38000,
+      "tokenizer_class": "RobertaTokenizerFast",
+      "model_class": "RobertaForSequenceClassification"
+    },
+    {
+      "root_key": "fabrice_bert",
+      "repo_id": "fabriceyhc/bert-base-uncased-yelp_polarity",
+      "revision": "5793d97b55d24e604d9157704e9d3a76735515c1",
+      "parent": false,
+      "model_type": "bert",
+      "architectures": [
+        "BertForSequenceClassification"
+      ],
+      "num_labels": 2,
+      "id2label": {
+        "0": "LABEL_0",
+        "1": "LABEL_1"
+      },
+      "label2id": {
+        "LABEL_0": 0,
+        "LABEL_1": 1
+      },
+      "max_length": 256,
+      "prediction_sha256": "26be94f1ef2bd9e6d32c64a80bc65601a7b3aa6616f8342e5b96b60d25d9aa03",
+      "samples": 38000,
+      "tokenizer_class": "BertTokenizerFast",
+      "model_class": "BertForSequenceClassification"
+    },
+    {
+      "root_key": "randell_distilbert",
+      "repo_id": "randellcotta/distilbert-base-uncased-finetuned-yelp-polarity",
+      "revision": "a70e629510f730cdaa8407db4928705cfedb257c",
+      "parent": false,
+      "model_type": "distilbert",
+      "architectures": [
+        "DistilBertForSequenceClassification"
+      ],
+      "num_labels": 2,
+      "id2label": {
+        "0": "LABEL_0",
+        "1": "LABEL_1"
+      },
+      "label2id": {
+        "LABEL_0": 0,
+        "LABEL_1": 1
+      },
+      "max_length": 256,
+      "prediction_sha256": "77110ab218c56f4cadc8069cefecdd2723bcd1866e509e7ab8cb7606df02b56e",
+      "samples": 38000,
+      "tokenizer_class": "DistilBertTokenizerFast",
+      "model_class": "DistilBertForSequenceClassification"
+    },
+    {
+      "root_key": "jiaqilee_robust_bert",
+      "repo_id": "JiaqiLee/robust-bert-yelp",
+      "revision": "a40e8daa515ff7cd09fed21c3d56f50ab7da8f25",
+      "parent": false,
+      "model_type": "bert",
+      "architectures": [
+        "BertForSequenceClassification"
+      ],
+      "num_labels": 2,
+      "id2label": {
+        "0": "negative",
+        "1": "positive"
+      },
+      "label2id": {
+        "negative": 0,
+        "positive": 1
+      },
+      "max_length": 256,
+      "prediction_sha256": "527068bb609fc9967897de2486ab6df50a1b85db29f08088f4dded5dc9797386",
+      "samples": 38000,
+      "tokenizer_class": "BertTokenizerFast",
+      "model_class": "BertForSequenceClassification"
+    }
+  ],
+  "test_rows": 38000,
+  "adapter_paths": [
+    "step105_models/step105_yelp_error_adapter_0.safetensors",
+    "step105_models/step105_yelp_error_adapter_1.safetensors",
+    "step105_models/step105_yelp_error_adapter_2.safetensors",
+    "step105_models/step105_yelp_error_adapter_3.safetensors"
+  ],
+  "test_reference_passed_to_endpoint": false,
+  "item_lookup_passed_to_endpoint": false
+}

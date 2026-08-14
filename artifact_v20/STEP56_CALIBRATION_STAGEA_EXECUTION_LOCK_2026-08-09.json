@@ -1,0 +1,22 @@
+{
+  "manifest_id": "STEP56_CALIBRATION_STAGEA_EXECUTION_LOCK_V1",
+  "locked_local_date": "2026-08-09",
+  "status_at_lock": "LOCKED_BEFORE_SPLIT_SPECIFIC_CALIBRATION_OR_HOLDOUT_OUTCOME",
+  "outcomes_seen_before_lock": false,
+  "preregistration_sha256": "909626b48342171b82f91d6f61a51b2a1f2d3db0df1a2a75e4611d12e3842896",
+  "common_module_sha256": "4531256f63e274ce02ed5e2b54ce7ef1ecd872e409ac8c4e9f5baea01f3434dd",
+  "preparation_runner_sha256": "e9a8b2d44c5ed962528e734adcabfe04b729d7dacd7d84c1916ff9fa1961cfec",
+  "attack_builder_sha256": "d625d245a7d1ae846b30f8ce113d1e2f2756c69003cc628770ffc00dd22ef40c",
+  "inherited_code_sha256": {
+    "medqa_loader": "60f38dd5b4fdaa2c6dee86affcb71dfd4e54eea9b314329e5b572bea1b6d5049",
+    "external_task_loader": "827813911e5d86a8c7da894b660923f25374a743a3f3ee88a3ec905a2fb04cf6",
+    "selection_runner": "8019d116e17bf669f876f5f20ed4ca90c2f0b276868e049005a8cdcc4a1f0839",
+    "step46_runner": "fffc9bf093978fd0b4340ef06ae1da8adf8bba6c1483aadf55f966ec28ff55cf",
+    "step54_runner": "f6fedf37dcbbef82b68353526b7ecd5b0f2156fb85918574fda139db23df4f7d"
+  },
+  "raw_helm_file_count": 96,
+  "raw_helm_file_manifest_sha256": "94abcb375d2fa390ae3b314d0eac74b8a21c13d95b341b18323742a7e5a14854",
+  "minilm_snapshot_commit": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "minilm_model_safetensors_sha256": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
+  "note": "This lock freezes the split, feature extraction, cross-fitting, policy grid, calibration selection, and blind holdout construction before any split-specific calibration metric or holdout outcome is observed."
+}

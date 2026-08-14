@@ -1,0 +1,118 @@
+{
+  "result_id": "STEP89_QNLI_EXECUTABLE_ADAPTER_CONFIRMATORY_RESULT_V1",
+  "decision": "NO_CONFIRMATORY_EXECUTABLE_ADAPTER_BRIDGE",
+  "config_sha256": "8bf2598eb8e2c7ceb3c55773817c2060256c40d5e5b457354726f62d6a02b582",
+  "execution_lock_sha256": "e2bb94ae9b8b355da5c8142edcbc4e098bd3e53814f518902401aa851d3715c4",
+  "raw_sha256": "4e7ad9d8e622700cd3504420876e368733d65ca2b700613682f20a93fa9699d0",
+  "model_safetensors_sha256": "8b0cfff5547faac6a89c58eca8e0d26b3c4df0022937d59accb417957747ce6c",
+  "n_holdout": 2772,
+  "paired_runs": 1000,
+  "pool_size": 400,
+  "budget": 20,
+  "tau": 0.25,
+  "roster_indices": [
+    24,
+    58,
+    15,
+    87,
+    19,
+    63,
+    41,
+    77,
+    27,
+    42,
+    66,
+    71
+  ],
+  "parent_holdout_accuracy": 0.9094516594516594,
+  "best_original_holdout_accuracy": 0.9534632034632035,
+  "adapter_parent_accuracy_gaps": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "adapter_pairwise_response_hamming": [
+    {
+      "left": 1,
+      "right": 0,
+      "hamming": 0.6987734487734488
+    },
+    {
+      "left": 2,
+      "right": 0,
+      "hamming": 0.9949494949494949
+    },
+    {
+      "left": 2,
+      "right": 1,
+      "hamming": 0.9949494949494949
+    },
+    {
+      "left": 3,
+      "right": 0,
+      "hamming": 0.9963924963924964
+    },
+    {
+      "left": 3,
+      "right": 1,
+      "hamming": 0.9963924963924964
+    },
+    {
+      "left": 3,
+      "right": 2,
+      "hamming": 0.015873015873015872
+    }
+  ],
+  "path_change_rate": 0.969,
+  "final_root_change_rate": 0.417,
+  "terminal_regret_delta": {
+    "mean": -0.0006799999999999991,
+    "median": 0.0,
+    "bootstrap_95": [
+      -0.0014949999999999985,
+      0.00013750000000000074
+    ],
+    "one_sided_signflip_p": 0.9478305216947831,
+    "positive_fraction": 0.191,
+    "negative_fraction": 0.201,
+    "zero_fraction": 0.608
+  },
+  "cumulative_regret_delta": {
+    "mean": -0.03272749999999998,
+    "median": -0.015000000000000346,
+    "bootstrap_95": [
+      -0.04186256249999997,
+      -0.023587499999999997
+    ],
+    "one_sided_signflip_p": 1.0,
+    "positive_fraction": 0.374,
+    "negative_fraction": 0.546,
+    "zero_fraction": 0.08
+  },
+  "active_minus_fixed_terminal": {
+    "mean": -0.0006799999999999991,
+    "median": 0.0,
+    "bootstrap_95": [
+      -0.0014999999999999992,
+      0.00013250000000000005
+    ],
+    "one_sided_signflip_p": 0.9477305226947731,
+    "positive_fraction": 0.191,
+    "negative_fraction": 0.201,
+    "zero_fraction": 0.608
+  },
+  "max_abs_fixed_terminal_delta": 0.0,
+  "max_abs_fixed_cumulative_delta": 0.0,
+  "gate": {
+    "model_and_adapter_hashes": true,
+    "coordinate_wise_hard_utility_equal": true,
+    "fixed_query_terminal_and_cumulative_exact_zero": true,
+    "ordered_path_change_at_least_half": true,
+    "mean_terminal_delta_at_least_0_15pp": false,
+    "terminal_bootstrap_lower_above_zero": false,
+    "terminal_one_sided_p_at_most_0_05": false,
+    "active_minus_fixed_terminal_positive": false
+  },
+  "claim_boundary": "One untouched QNLI task with a pinned public parent and four executable calibration-adapter files; not live registry admission, hidden-task compromise, or universal harm."
+}

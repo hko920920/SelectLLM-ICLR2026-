@@ -1,0 +1,119 @@
+{
+  "schema": "step113.preoutcome_prediction_ledger.v1",
+  "date": "2026-08-14",
+  "status": "ALL_PREDICTIONS_COMPLETE_OUTCOMES_UNOPENED",
+  "development_go_lock_sha256": "494f43892d8bdcb4b66bbf774d29454818daa59a6cb31fc34c6e4f5d4e11284b",
+  "root_audits": [
+    {
+      "key": "nfliu_deberta_v3_large",
+      "repo_id": "nfliu/deberta-v3-large_boolq",
+      "revision": "9df67c219a86b2611c177f288b8ccc82d7b97707",
+      "model_class": "DebertaV2ForSequenceClassification",
+      "tokenizer_class": "DebertaV2TokenizerFast",
+      "model_type": "deberta-v2",
+      "id2label": {
+        "0": "False",
+        "1": "True"
+      },
+      "max_length": 256,
+      "samples": 3270,
+      "prediction_sha256": "4f85e6a56a31c6aae55f9e939f8dc94d294f7d74b7cf2570a1b7d29bef2a41be",
+      "logits_sha256": "7c1f2814f3cbda7b9c67e5baaf7dd71e13362b0367235183b167426ac2635b39",
+      "features_sha256": "0f61d9da7ef7522b5ebdebad917b516d01f4cdaf962c2d49d6601cb607937f1c",
+      "feature_dimension": 1026
+    },
+    {
+      "key": "nfliu_roberta_large",
+      "repo_id": "nfliu/roberta-large_boolq",
+      "revision": "efc939f590968d9b5055127d4aeb8a930ffa0826",
+      "model_class": "RobertaForSequenceClassification",
+      "tokenizer_class": "RobertaTokenizerFast",
+      "model_type": "roberta",
+      "id2label": {
+        "0": "False",
+        "1": "True"
+      },
+      "max_length": 256,
+      "samples": 3270,
+      "prediction_sha256": "553106eab34a4ec3f8e4fff392b600c0f54d6cd36dfc89dbd9ab025967b6e15e",
+      "logits_sha256": "2122cfb0b305aa29633e45145e9a332978c6d0b8ff18e9b797542ea46978c245",
+      "features_sha256": null,
+      "feature_dimension": null
+    },
+    {
+      "key": "nfliu_minilmv2_l6_h768",
+      "repo_id": "nfliu/MiniLMv2-L6-H768-distilled-from-RoBERTa-Large_boolq",
+      "revision": "f31b1a94395e97a0472054793e5236fd8b7b2416",
+      "model_class": "RobertaForSequenceClassification",
+      "tokenizer_class": "RobertaTokenizerFast",
+      "model_type": "roberta",
+      "id2label": {
+        "0": "False",
+        "1": "True"
+      },
+      "max_length": 256,
+      "samples": 3270,
+      "prediction_sha256": "69a702198a2cb74d89614df63b419636a7400468626497ddffe1b891b6514f81",
+      "logits_sha256": "14039b8e90ad8779f8a2b86d018a815d6f9d336fdbe997cad0b791dd727b4667",
+      "features_sha256": null,
+      "feature_dimension": null
+    },
+    {
+      "key": "andi611_distilbert",
+      "repo_id": "andi611/distilbert-base-uncased-qa-boolq",
+      "revision": "168ef0953f2bf4083670a8519a14db558a6f043c",
+      "model_class": "DistilBertForSequenceClassification",
+      "tokenizer_class": "DistilBertTokenizerFast",
+      "model_type": "distilbert",
+      "id2label": {
+        "0": "False",
+        "1": "True"
+      },
+      "max_length": 256,
+      "samples": 3270,
+      "prediction_sha256": "3dc38463680c714fe69ab562c9c86ada6ed47cf4ce1f57e3bde13fc0b2b26073",
+      "logits_sha256": "5b5388597ef657255b96a65ddbdef91b26b54627f78f8d4c528bd436718675b5",
+      "features_sha256": null,
+      "feature_dimension": null
+    }
+  ],
+  "head_paths": [
+    "step113_models/step113_boolq_error_head_0.safetensors",
+    "step113_models/step113_boolq_error_head_1.safetensors",
+    "step113_models/step113_boolq_error_head_2.safetensors",
+    "step113_models/step113_boolq_error_head_3.safetensors"
+  ],
+  "head_sha256": {
+    "step113_models/step113_boolq_error_head_0.safetensors": "cff01c14bd0498da6d92660df977a2ac7a7d6779c1bba5523f66454efb5e24b9",
+    "step113_models/step113_boolq_error_head_1.safetensors": "8c4ca8896c740376c624d1dfea8e83697a318c8c4047cf877c7e08e98800ab72",
+    "step113_models/step113_boolq_error_head_2.safetensors": "8f5269ca459766b2f79ad1c2a5cd95511382ffd7a1c00b991492999b84d3ae56",
+    "step113_models/step113_boolq_error_head_3.safetensors": "434488d436272e771166bc1408c909d06ab8edc3868f3968c9f653133871d0e6"
+  },
+  "thresholds": [
+    0.9874104857444763,
+    0.9981029033660889,
+    0.9872893691062927,
+    0.9914655089378357
+  ],
+  "prediction_hashes": {
+    "uids": "f1454ac4bad6f2af7ed7053e6d76ff5039a21d6d88965536888eb5b0490b65ff",
+    "roots": "5cfc6a9c9f3dd5b758c5d2bc50b7b4231b2ddd1389ee562cb9d5a090a0d15007",
+    "parent_logits": "7c1f2814f3cbda7b9c67e5baaf7dd71e13362b0367235183b167426ac2635b39",
+    "parent_features": "0f61d9da7ef7522b5ebdebad917b516d01f4cdaf962c2d49d6601cb607937f1c",
+    "scores": "16ea11bb4fed0fed09e0e07053d7f90d3e36313bb6eeb61b4345300dc03df4e8",
+    "aliases": "04d1371c16a81fde4e71781278dc99cb23dc92e4dd03934afe69c2ac9e66327d",
+    "triggers": "84cfb2a5e65226685165a20fb086035be1ddc834c0beb68134a0911186627531"
+  },
+  "clean_response_vectors_distinct": true,
+  "alias_response_vectors_distinct": true,
+  "trigger_fraction_label_free": [
+    0.022629969418960245,
+    0.02996941896024465,
+    0.030275229357798167,
+    0.023547400611620795
+  ],
+  "predictions_file": "STEP113_PREOUTCOME_PREDICTIONS_2026-08-14.npz",
+  "predictions_sha256": "db482a2784f4f6d7c4357105368d5bb4b253a1bff089087a093ef2b622f4d52e",
+  "sealed_outcome_sha256_unchanged": true,
+  "sealed_outcome_opened": false
+}

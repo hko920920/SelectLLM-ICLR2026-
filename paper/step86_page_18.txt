@@ -1,0 +1,76 @@
+      Under review as a conference paper at ICLR 2027
+
+
+
+
+918
+919   Table 8: Complete fixed-configuration soft-weight audit. Mean and maximum R summarize absolute
+920   residual CReg ratios over five eligible attack cells; “mit.” counts R < 1. Clean columns report
+921   ∆CReg on GSM8K/MedQA/OpenBookQA. Final is the largest absolute clean terminal shift across
+922   the three tasks, in percentage points.
+923   Rule            α       Mean R      Max R        Mit.     Clean G      Clean M      Clean O      Final pp
+
+924   class-unif.   .010         .814       1.061      3/5       −.180        +.351        +.338          .023
+      class-unif.   .050         .824       1.061      3/5       −.180        +.351        +.238          .023
+925   class-unif.   .100         .830       1.153      3/5       −.180        +.275        +.973          .020
+926   class-unif.   .132         .656       1.185      4/5       −.180        +.386       +1.110          .203
+      class-unif.   .150         .644       1.400      4/5       −.314        +.555       +1.108          .181
+927   class-unif.   .184         .744       1.307      4/5       −.211        +.609       +1.455          .037
+928   class-unif.   .213         .730       1.550      4/5       −.160        +.638       +1.290          .037
+
+929   MCCA          .010         .814       1.061      3/5       −.180        +.351        +.338          .023
+      MCCA          .050         .824       1.061      3/5       −.180        +.351        +.238          .023
+930   MCCA          .100         .765       1.121      3/5       −.180        +.275       +1.018          .022
+931   MCCA          .132         .584       1.158      4/5       −.180        +.386       +1.273          .024
+      MCCA          .150         .637       1.295      4/5       −.314        +.555       +1.172          .037
+932   MCCA          .184         .597       1.259      4/5       −.211        +.609       +2.010          .037
+933   MCCA          .213         .714       1.497      4/5       −.160        +.638       +2.483          .037
+934   MCCP          .010         .814       1.061      3/5       −.180        +.351        +.338          .023
+      MCCP          .050         .824       1.061      3/5       −.180        +.351        +.238          .023
+935   MCCP          .100         .721       1.125      4/5       −.180        +.275       +1.112          .175
+936   MCCP          .132         .734       1.162      4/5       −.180        +.386       +1.897          .181
+      MCCP          .150         .785       1.390      4/5       −.314        +.555       +1.823          .169
+937   MCCP          .184         .874       1.304      3/5       −.211        +.609       +2.933          .037
+938   MCCP          .213        1.064       1.584      3/5       −.160        +.638       +3.724          .037
+939
+940
+941   G       A RTIFACT M AP
+942
+943   The artifact root maps every main-text number to an immutable result and an independent validator.
+944   The primary families are Step 27 (formal checker), Steps 30–31 (complete T2-M grid and covers), Step
+945   35 (official CODA), Steps 46–49 (soft weights), Steps 50–52 (natural pair), Steps 54–55 (peer-free
+946   executable T2-A), Step 56 (calibration-to-holdout T1), and Step 61 (prospective untargeted stress test).
+947   Each family contains a protocol or preregistration, execution lock, raw result, and validation output.
+948
+      STEP65 SUBMISSION ARTIFACT MANIFEST 2026-08-10.json records the manuscript
+      and core locked evidence. The anonymous upload’s STEP68 RELEASE MANIFEST.json adds
+949
+      the traced first-party validation closure, and validate step68 anonymous release.py sup-
+950
+      ports offline integrity checking followed by a full replay after fetching 96 SHA-256-locked HELM
+951   files and three commit-locked repositories. Public data and third-party code are not embedded.
+952   The full clean-room suite reruns ten independent result validators and the paper-table validator; it
+953   validates Step 61 from sealed outcome packages rather than refetching outcomes and does not claim
+954   to regenerate the exploratory history.
+955
+956
+957
+958
+959
+960
+961
+962
+963
+964
+965
+966
+967
+968
+969
+970
+971
+
+
+
+                                                        18
+

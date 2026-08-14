@@ -1,0 +1,132 @@
+{
+  "config_id": "STEP92_LEARNED_CONTEXTUAL_ADAPTER_CONFIRMATORY_V1",
+  "stage0_manifest_sha256": "9a6bc9d60a1e339fc94eddf62c0fea16ae611ec64515f0e95695bb8bd8208147",
+  "stagea_ledger_sha256": "562fbc63ab223c2cff5cbebcb013a1eb9745398d45b98e50f213b33f56f0d525",
+  "calibration_outputs_sha256": "813a9f6e4fcf1af1afb6f81c18c73b7eab4ff9d21acdb2b8d3b79aa612c59a32",
+  "dataset": {
+    "id": "fancyzhx/ag_news",
+    "revision": "eb185aade064a813bc0b7f42de02595523103ca4"
+  },
+  "base_model": {
+    "id": "distilbert/distilbert-base-uncased",
+    "revision": "12040accade4e8a0f71eabdb258fecc2e7e948be",
+    "model_safetensors_sha256": "5e3f1108e3cb34ee048634875d8482665b65ac713291a7e32396fb18f6ff0063"
+  },
+  "roster_roots": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "clean_root_sha256": {
+    "step92_clean_root_00.safetensors": "e32c803e270c10748e3ab201a69a05c6beb8d07fb244f7ddcdd1e451d9831a5d",
+    "step92_clean_root_01.safetensors": "481256b4f745a2ff72f97de92aea41905a041fd06c4877d3009418585a41a60a",
+    "step92_clean_root_02.safetensors": "bc1179687be22bb5a3bba9ba85de1785b8e43e8353cdfe22f88ea545be8d6432",
+    "step92_clean_root_03.safetensors": "b9b080a91864e0a2967e503f7bc9a4b320ff7b19befa6b67daf104583f2fb547",
+    "step92_clean_root_04.safetensors": "f9400ec06b27a528b8bfa2422984d3cb7670b448f7921c46d1dae17358e6b525",
+    "step92_clean_root_05.safetensors": "6306824958bab81dcf3d5c879223b0f136830e102862df66b275356665d7f9cc",
+    "step92_clean_root_06.safetensors": "b016fe937244db1b0e43c2d2018e7b6c3a156f95380f0a0e5f453267637d3fd4",
+    "step92_clean_root_07.safetensors": "0eec953fdbf3a3ab3c791bbf2d6fbe212e5b9761daa8fb7b72b8b512f33bcde7",
+    "step92_clean_root_08.safetensors": "88109c92b24a525e9fde19966533b3a581a0d23ebb228f946b479fb7a9a5cef0",
+    "step92_clean_root_09.safetensors": "f76fd3288e4ab178ba8df1d2caa5d45b1f6bc902dcf887063e0196a931d61231",
+    "step92_clean_root_10.safetensors": "b05657916b531dc5a23e10eaa41255b66f8df851fca60192a236939c72b1a8c0",
+    "step92_clean_root_11.safetensors": "317ca2d2d3a859ba2edff82c0ee680a8d842cfad6a29719248f12de831d54d3d"
+  },
+  "selected": {
+    "parent_root": 8,
+    "tau": 0.25,
+    "bins": 8,
+    "trigger_fraction": 0.3,
+    "thresholds": [
+      0.9999999999733984,
+      0.999999999614233,
+      0.9999999999995566,
+      0.9999999999722047
+    ],
+    "pool_size": 400,
+    "budget": 50
+  },
+  "learned_adapter_sha256": {
+    "step92_parent_08_learned_adapter_0.safetensors": "29fbc038d39093c69e1e75811bf14f579fcf69f73169764d8f55e7f3a7ad98fb",
+    "step92_parent_08_learned_adapter_1.safetensors": "ec46f442071830e0b4ccb13d9879bf0c52e4b856fc8eb891fa4afb93b3bb79ad",
+    "step92_parent_08_learned_adapter_2.safetensors": "9892f0bd36ac9d1a940c2207bac989922d81c979f5ff449664ce254086a748c4",
+    "step92_parent_08_learned_adapter_3.safetensors": "7a161beb3e1c1961fd749117d55a1f09ee47405c81a90451f111dbce97c3a93e"
+  },
+  "learned_adapter_audits": {
+    "step92_parent_08_learned_adapter_0.safetensors": {
+      "sha256": "29fbc038d39093c69e1e75811bf14f579fcf69f73169764d8f55e7f3a7ad98fb",
+      "tensor_names": [
+        "down.bias",
+        "down.weight",
+        "norm.bias",
+        "norm.weight",
+        "out.bias",
+        "out.weight"
+      ],
+      "parameter_count": 50817,
+      "nonzero_count": 50817,
+      "variance": 0.022674547508358955,
+      "bytes": 204100
+    },
+    "step92_parent_08_learned_adapter_1.safetensors": {
+      "sha256": "ec46f442071830e0b4ccb13d9879bf0c52e4b856fc8eb891fa4afb93b3bb79ad",
+      "tensor_names": [
+        "down.bias",
+        "down.weight",
+        "norm.bias",
+        "norm.weight",
+        "out.bias",
+        "out.weight"
+      ],
+      "parameter_count": 50817,
+      "nonzero_count": 50817,
+      "variance": 0.02265859767794609,
+      "bytes": 204100
+    },
+    "step92_parent_08_learned_adapter_2.safetensors": {
+      "sha256": "9892f0bd36ac9d1a940c2207bac989922d81c979f5ff449664ce254086a748c4",
+      "tensor_names": [
+        "down.bias",
+        "down.weight",
+        "norm.bias",
+        "norm.weight",
+        "out.bias",
+        "out.weight"
+      ],
+      "parameter_count": 50817,
+      "nonzero_count": 50817,
+      "variance": 0.022139471024274826,
+      "bytes": 204100
+    },
+    "step92_parent_08_learned_adapter_3.safetensors": {
+      "sha256": "7a161beb3e1c1961fd749117d55a1f09ee47405c81a90451f111dbce97c3a93e",
+      "tensor_names": [
+        "down.bias",
+        "down.weight",
+        "norm.bias",
+        "norm.weight",
+        "out.bias",
+        "out.weight"
+      ],
+      "parameter_count": 50817,
+      "nonzero_count": 50817,
+      "variance": 0.022329844534397125,
+      "bytes": 204100
+    }
+  },
+  "construction_access": {
+    "public_train_labels": true,
+    "stagea_calibration_labels": true,
+    "test_inputs_or_labels": false,
+    "item_or_prompt_lookup": false,
+    "peer_outputs_at_runtime": false
+  }
+}

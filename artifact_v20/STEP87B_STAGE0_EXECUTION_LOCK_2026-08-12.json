@@ -1,0 +1,21 @@
+{
+  "manifest_id": "STEP87B_STAGE0_EXECUTION_LOCK_V1",
+  "locked_local_date": "2026-08-12",
+  "purpose": "Bind the separate Step 87B protocol and preparation implementation before downloading any of its eight fresh scenario contents.",
+  "new_task_contents_seen_before_lock": false,
+  "metadata_only_checks_before_lock": {
+    "all_eight_scenarios_have_31_model_prefixes": true,
+    "exact_preexisting_project_name_hits": 0,
+    "prompts_predictions_references_metrics_or_outcomes_downloaded": false
+  },
+  "sha256": {
+    "preregistration": "a95c6f0b2a11177577cd03574d019475bc7d8c169b71f02ab8de778a99ed8093",
+    "common_module": "4928933c79357bb9a79ab60b20b7cebc39c4d871bb8474054e4eadcac3ca8662",
+    "preparation_runner": "acce2712e69a5ed6b9d458f4a6c6eb7f533835ceabfa2e319e9724abba79d394"
+  },
+  "separation_commitment": {
+    "stage_a": "May use labeled calibration and only the calibration-selected parent's blind holdout input file.",
+    "stage_b": "May open the sealed holdout package only after the frozen attack and Stage-B code are hash-bound.",
+    "no_replacement": "No frozen scenario or experimental rule may be swapped after this lock."
+  }
+}

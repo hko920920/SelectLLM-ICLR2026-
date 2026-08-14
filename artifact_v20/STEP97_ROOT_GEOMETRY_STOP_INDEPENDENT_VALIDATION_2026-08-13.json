@@ -1,0 +1,62 @@
+{
+  "validation_id": "STEP97_ROOT_GEOMETRY_STOP_INDEPENDENT_V1",
+  "date": "2026-08-13",
+  "status": "PASS_STEP97_GEOMETRY_STOP_VALIDATION",
+  "checks": {
+    "protocol_hash": true,
+    "development_hash": true,
+    "root_cache_hash": true,
+    "gates": true,
+    "decision": true,
+    "test_unopened": true,
+    "no_later_outputs": true
+  },
+  "reconstructed_geometry": {
+    "roster_gate": {
+      "rows": 1000,
+      "root_accuracies": [
+        0.79,
+        0.786,
+        0.751,
+        0.717
+      ],
+      "parent_minus_best_challenger": 0.0040000000000000036,
+      "parent_error_prevalence": 0.21,
+      "max_challenger_correct_given_parent_wrong": 0.43333333333333335
+    },
+    "selector_search": {
+      "rows": 2000,
+      "root_accuracies": [
+        0.795,
+        0.7695,
+        0.7475,
+        0.724
+      ],
+      "parent_minus_best_challenger": 0.025500000000000078,
+      "parent_error_prevalence": 0.205,
+      "max_challenger_correct_given_parent_wrong": 0.4097560975609756
+    },
+    "selector_verify": {
+      "rows": 1304,
+      "root_accuracies": [
+        0.7530674846625767,
+        0.7308282208588958,
+        0.700920245398773,
+        0.7032208588957055
+      ],
+      "parent_minus_best_challenger": 0.02223926380368091,
+      "parent_error_prevalence": 0.2469325153374233,
+      "max_challenger_correct_given_parent_wrong": 0.36335403726708076
+    }
+  },
+  "failed_gates": [
+    "parent_unique_best_by_2_5pp_on_roster_gate"
+  ],
+  "sealed_test_opened": false,
+  "bound_sha256": {
+    "receipt": "6ce784b278c9e710a129c1f119994a049348b056db6d72249aa3435c74a939c7",
+    "development": "668ce615b97b2884ef7ccca05d53a80ad3dcbc340d7db8a47255c174a7835c1e",
+    "root_cache": "64249fe3a61389fbdb1f6af4ce9710230e3ccafacfbd56f3164639a1a9f0e8f2",
+    "validator": "e2ea1a500e448044e9964f37ebff3de1c4acbcf2502c755d75c91a36eb615174"
+  }
+}

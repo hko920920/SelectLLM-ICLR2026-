@@ -1,0 +1,92 @@
+{
+  "receipt_id": "STEP95_DEVELOPMENT_STOP_CLOSURE_V1",
+  "date": "2026-08-13",
+  "decision": "NO_GO_DEVELOPMENT_GATE_STOP",
+  "file_sha256": {
+    "protocol": "f1212135928d132a0bcd9c045e982ba22e06b596382dcb31c0fb5f04ce97bdf1",
+    "amendment_a": "551a6a1a18ce836577df77b40240c0cadcee0fa57ec386cdc2881613a8f12694",
+    "incident_b": "9c4273dbdc196af976604479337ec07f411cb367e951f4248b44603ad9c85376",
+    "manifest": "c7ab140ba2a35a8ce7e6c56a225f130dd93fba040fe62c114a36e4d4c86b74da",
+    "development": "15203a670d476ffc4bcb4f7bb72412a7121438b7b459a556ffbc9b4e340f8ea7",
+    "arrays": "3fe4d4f707a25f65511014005c60c5fca2fc333572275709a97d695f90716c57",
+    "ledger": "b6e9a801ce29a9de0c3f62bba7510ee43e9c7458290ebf3556cb2ffe43317d00",
+    "config": "1a36fc7d02929fd40fd023e2d7c6fc40ca5e11358c664a4a433e6716917359c9",
+    "validation": "e3e09cbd51d48b06632b4ff1ba5b6ea64f5ef374a964bd08edce802c3495f0da",
+    "closure_report": "be3a8157f84f3fe3abf4537f8e0719eab5b336ccac3c8f10c8e07e058c5a93ad"
+  },
+  "adapter_sha256": {
+    "step95_models/step95_typeform_distilbert_error_adapter_0.safetensors": "8c319fc597caef40012592a29713f4ee82b68bfa29a4f44934444a106f869ccc",
+    "step95_models/step95_typeform_distilbert_error_adapter_1.safetensors": "0fb2d78efb2bfd401799ed6c6c0c911371a0717510c237660ffc7f444f9299d7",
+    "step95_models/step95_typeform_distilbert_error_adapter_2.safetensors": "21a95e712c782f3cae87729f752dc1a75aec4544781385e2997875d2a88bf88f",
+    "step95_models/step95_typeform_distilbert_error_adapter_3.safetensors": "db523e23468b0ba7acd65e1eacf6b8de962dd55a5b348c58a8f0d6554ba969d2"
+  },
+  "sealed_outcome": {
+    "file": "external_data/step95_sealed/mnli_matched_sealed_outcomes.npz",
+    "sha256": "6fd0d069a7e407e8e37f0ce748b5937073208511122f1b313666eaf268ffe4c0",
+    "opened_for_step95_confirmation": false
+  },
+  "confirmatory_outputs_absent": [
+    "STEP95_CONFIRMATORY_EXECUTION_LOCK_2026-08-13.json",
+    "STEP95_CONFIRMATORY_RAW_2026-08-13.npz",
+    "STEP95_CONFIRMATORY_RESULTS_2026-08-13.json",
+    "STEP95_INDEPENDENT_VALIDATION_2026-08-13.json"
+  ],
+  "failed_gates": [
+    "alias_losses_at_most_one_point_threshold_search_verify",
+    "search_and_verification_terminal_mean_at_least_half_point",
+    "search_and_verification_active_minus_fixed_mean_at_least_half_point"
+  ],
+  "verification": {
+    "runs": 1500,
+    "path_change_rate": 0.9933333333333333,
+    "query_set_change_rate": 0.992,
+    "final_root_change_rate": 0.21133333333333335,
+    "terminal": {
+      "mean": 0.0004986666666666671,
+      "median": 0.0,
+      "bootstrap_95": [
+        0.00026400000000000024,
+        0.0007306666666666673
+      ],
+      "one_sided_signflip_p": 1.999980000199998e-05,
+      "positive_fraction": 0.11733333333333333,
+      "negative_fraction": 0.07666666666666666,
+      "zero_fraction": 0.806
+    },
+    "active_minus_fixed_terminal": {
+      "mean": 0.0004986666666666671,
+      "median": 0.0,
+      "bootstrap_95": [
+        0.00026533333333333357,
+        0.000733333333333334
+      ],
+      "one_sided_signflip_p": 1.999980000199998e-05,
+      "positive_fraction": 0.11733333333333333,
+      "negative_fraction": 0.07666666666666666,
+      "zero_fraction": 0.806
+    },
+    "cumulative": {
+      "mean": 0.05055733333333333,
+      "median": 0.0040000000000000036,
+      "bootstrap_95": [
+        0.042609299999999996,
+        0.058890766666666663
+      ],
+      "one_sided_signflip_p": 9.99990000099999e-06,
+      "positive_fraction": 0.5073333333333333,
+      "negative_fraction": 0.254,
+      "zero_fraction": 0.23866666666666667
+    },
+    "fixed_query_exact": true
+  },
+  "independent_validation_checks": {
+    "hash_bindings": true,
+    "parent_and_roster_reconstruction": true,
+    "complete_grid_and_top_eight_selection": true,
+    "selected_search_full_rerun_exact": true,
+    "selected_verification_full_rerun_exact": true,
+    "bootstrap_and_signflip_reconstruction": true,
+    "gate_and_decision_reconstruction": true,
+    "sealed_confirmation_absent": true
+  }
+}

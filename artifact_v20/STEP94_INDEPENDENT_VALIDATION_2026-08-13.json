@@ -1,0 +1,27 @@
+{
+  "validation_id": "STEP94_INDEPENDENT_RECONSTRUCTION_V1",
+  "date": "2026-08-13",
+  "result_sha256": "e93187ecc87341cb24191b46b97372e0e28caf4bb526e3ff8f55319ea0c52ccd",
+  "raw_sha256": "76aec828348bee627299c6c9f1da1a57f7390ee8f2b4916a89c0d37ea919b700",
+  "lock_sha256": "8ece3313a2b1fde60e9dce0943c45dc43c94f730ae94a88a84027845dc87628f",
+  "checks": {
+    "hash_bindings": true,
+    "raw_delta_reconstruction": true,
+    "coordinate_nonimprovement_reconstruction": true,
+    "quality_loss_reconstruction": true,
+    "bootstrap_reconstruction": true,
+    "signflip_reconstruction": true,
+    "path_reconstruction": true,
+    "fixed_query_reconstruction": true,
+    "gate_reconstruction": true,
+    "decision_reconstruction": true
+  },
+  "decision": "NO_GO_RETAIN_FRESH_TASK_NEGATIVE",
+  "terminal_mean": 0.0011979999999999998,
+  "terminal_bootstrap_95": [
+    -0.00044402499999999893,
+    0.002895049999999998
+  ],
+  "cumulative_mean": 0.08215699999999991,
+  "fixed_root_history_exact": true
+}

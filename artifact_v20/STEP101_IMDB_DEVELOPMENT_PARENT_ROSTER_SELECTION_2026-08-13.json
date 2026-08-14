@@ -1,0 +1,261 @@
+{
+  "selection_id": "STEP101_IMDB_DEVELOPMENT_PARENT_ROSTER_SELECTION_V1",
+  "date": "2026-08-13",
+  "decision": "NO_GO_STEP101_PARENT_GEOMETRY_STOP",
+  "selected_parent": null,
+  "protocol_sha256": "2e0f3120508cc5b82a4e8f3d174bdb58ba8c252d367bce84d17bbce9ce7da801",
+  "development_sha256": "325fe59440d0444d968b2446c282dec08697d7e7c2a2c2fb1f726c6ae33f3c4e",
+  "legacy_prediction_sha256": "5673226220185b0202f929656a7e06fdf5ffdf543e891656f57939818a2941c7",
+  "candidates": {
+    "aychang_roberta": {
+      "candidate": "aychang_roberta",
+      "repo_id": "aychang/roberta-base-imdb",
+      "revision": "cb6bcadd0540b61c9623bd6295d51ac445ceb135",
+      "prediction_file": "step101_candidate_predictions/aychang_roberta.npz",
+      "prediction_file_sha256": "716c723ad17da657ea5c2b8ae7c92ff332e2ef56d7da9a946d825a9513859d68",
+      "roster_keys": [
+        "aychang_roberta",
+        "textattack_albert",
+        "lvwerra_distilbert_parent",
+        "textattack_distilbert"
+      ],
+      "selector_search": {
+        "rows": 1000,
+        "root_accuracies": [
+          0.924,
+          0.925,
+          0.913,
+          0.909
+        ],
+        "parent_minus_best_challenger": -0.0010000000000000009,
+        "parent_error_prevalence": 0.076,
+        "max_challenger_correct_given_parent_wrong": 0.4473684210526316,
+        "oracle_terminal_harm": 0.003700000000000001,
+        "oracle_terminal_harm_pp": 0.3700000000000001,
+        "path_change_rate": 0.67,
+        "clean_parent_terminal_rate": 0.3125,
+        "refined_parent_terminal_rate": 0.0,
+        "parent_to_challenger_rate": 0.3125,
+        "challenger_to_parent_rate": 0.0,
+        "max_abs_fixed_terminal_delta": 0.0,
+        "max_abs_fixed_cumulative_delta": 0.0,
+        "fixed_root_history_exact": true,
+        "gates": {
+          "parent_gap_at_least_2_5pp": false,
+          "parent_error_at_least_3pct": true,
+          "challenger_complementarity_at_least_15pct": true,
+          "oracle_terminal_at_least_1pp": false,
+          "path_change_at_least_half": true,
+          "directionality": true,
+          "fixed_exact_zero": true
+        },
+        "eligible": false
+      },
+      "selector_verify": {
+        "rows": 2000,
+        "root_accuracies": [
+          0.927,
+          0.9175,
+          0.91,
+          0.9075
+        ],
+        "parent_minus_best_challenger": 0.009500000000000064,
+        "parent_error_prevalence": 0.073,
+        "max_challenger_correct_given_parent_wrong": 0.3972602739726027,
+        "oracle_terminal_harm": 0.005594666666666664,
+        "oracle_terminal_harm_pp": 0.5594666666666663,
+        "path_change_rate": 0.626,
+        "clean_parent_terminal_rate": 0.376,
+        "refined_parent_terminal_rate": 0.006,
+        "parent_to_challenger_rate": 0.37,
+        "challenger_to_parent_rate": 0.0,
+        "max_abs_fixed_terminal_delta": 0.0,
+        "max_abs_fixed_cumulative_delta": 0.0,
+        "fixed_root_history_exact": true,
+        "gates": {
+          "parent_gap_at_least_2_5pp": false,
+          "parent_error_at_least_3pct": true,
+          "challenger_complementarity_at_least_15pct": true,
+          "oracle_terminal_at_least_1pp": false,
+          "path_change_at_least_half": true,
+          "directionality": true,
+          "fixed_exact_zero": true
+        },
+        "eligible": false
+      },
+      "eligible": false,
+      "selection_primary": 0.003700000000000001,
+      "selection_secondary": 0.005594666666666664,
+      "selection_gap": -0.0010000000000000009
+    },
+    "wrmurray_roberta": {
+      "candidate": "wrmurray_roberta",
+      "repo_id": "wrmurray/roberta-base-finetuned-imdb",
+      "revision": "7aa8ca3fae56a1860d8b4c6bf727b91370821ad5",
+      "prediction_file": "step101_candidate_predictions/wrmurray_roberta.npz",
+      "prediction_file_sha256": "911d0a7140692739ecec838124329603764b3f90365157141d3e74b7c39960fa",
+      "roster_keys": [
+        "wrmurray_roberta",
+        "textattack_albert",
+        "lvwerra_distilbert_parent",
+        "textattack_distilbert"
+      ],
+      "selector_search": {
+        "rows": 1000,
+        "root_accuracies": [
+          0.941,
+          0.925,
+          0.913,
+          0.909
+        ],
+        "parent_minus_best_challenger": 0.015999999999999903,
+        "parent_error_prevalence": 0.059,
+        "max_challenger_correct_given_parent_wrong": 0.3559322033898305,
+        "oracle_terminal_harm": 0.01502999999999997,
+        "oracle_terminal_harm_pp": 1.502999999999997,
+        "path_change_rate": 0.86,
+        "clean_parent_terminal_rate": 0.565,
+        "refined_parent_terminal_rate": 0.01,
+        "parent_to_challenger_rate": 0.555,
+        "challenger_to_parent_rate": 0.0,
+        "max_abs_fixed_terminal_delta": 0.0,
+        "max_abs_fixed_cumulative_delta": 0.0,
+        "fixed_root_history_exact": true,
+        "gates": {
+          "parent_gap_at_least_2_5pp": false,
+          "parent_error_at_least_3pct": true,
+          "challenger_complementarity_at_least_15pct": true,
+          "oracle_terminal_at_least_1pp": true,
+          "path_change_at_least_half": true,
+          "directionality": true,
+          "fixed_exact_zero": true
+        },
+        "eligible": false
+      },
+      "selector_verify": {
+        "rows": 2000,
+        "root_accuracies": [
+          0.9415,
+          0.9175,
+          0.91,
+          0.9075
+        ],
+        "parent_minus_best_challenger": 0.02400000000000002,
+        "parent_error_prevalence": 0.0585,
+        "max_challenger_correct_given_parent_wrong": 0.3333333333333333,
+        "oracle_terminal_harm": 0.01586266666666664,
+        "oracle_terminal_harm_pp": 1.586266666666664,
+        "path_change_rate": 0.772,
+        "clean_parent_terminal_rate": 0.566,
+        "refined_parent_terminal_rate": 0.014,
+        "parent_to_challenger_rate": 0.552,
+        "challenger_to_parent_rate": 0.0,
+        "max_abs_fixed_terminal_delta": 0.0,
+        "max_abs_fixed_cumulative_delta": 0.0,
+        "fixed_root_history_exact": true,
+        "gates": {
+          "parent_gap_at_least_2_5pp": false,
+          "parent_error_at_least_3pct": true,
+          "challenger_complementarity_at_least_15pct": true,
+          "oracle_terminal_at_least_1pp": true,
+          "path_change_at_least_half": true,
+          "directionality": true,
+          "fixed_exact_zero": true
+        },
+        "eligible": false
+      },
+      "eligible": false,
+      "selection_primary": 0.01502999999999997,
+      "selection_secondary": 0.01586266666666664,
+      "selection_gap": 0.015999999999999903
+    },
+    "dfurman_deberta": {
+      "candidate": "dfurman_deberta",
+      "repo_id": "dfurman/deberta-v3-base-imdb",
+      "revision": "cbfcf7b54b2fb47d13b75f3c3a517f95808a2285",
+      "prediction_file": "step101_candidate_predictions/dfurman_deberta.npz",
+      "prediction_file_sha256": "a141b9b5aad675db22bc1d25fd7b0470504dd33b972b5353b258853dbb7f6514",
+      "roster_keys": [
+        "dfurman_deberta",
+        "textattack_albert",
+        "lvwerra_distilbert_parent",
+        "textattack_distilbert"
+      ],
+      "selector_search": {
+        "rows": 1000,
+        "root_accuracies": [
+          0.939,
+          0.925,
+          0.913,
+          0.909
+        ],
+        "parent_minus_best_challenger": 0.013999999999999901,
+        "parent_error_prevalence": 0.061,
+        "max_challenger_correct_given_parent_wrong": 0.3770491803278688,
+        "oracle_terminal_harm": 0.010339999999999983,
+        "oracle_terminal_harm_pp": 1.0339999999999983,
+        "path_change_rate": 0.72,
+        "clean_parent_terminal_rate": 0.4475,
+        "refined_parent_terminal_rate": 0.0125,
+        "parent_to_challenger_rate": 0.435,
+        "challenger_to_parent_rate": 0.0,
+        "max_abs_fixed_terminal_delta": 0.0,
+        "max_abs_fixed_cumulative_delta": 0.0,
+        "fixed_root_history_exact": true,
+        "gates": {
+          "parent_gap_at_least_2_5pp": false,
+          "parent_error_at_least_3pct": true,
+          "challenger_complementarity_at_least_15pct": true,
+          "oracle_terminal_at_least_1pp": true,
+          "path_change_at_least_half": true,
+          "directionality": true,
+          "fixed_exact_zero": true
+        },
+        "eligible": false
+      },
+      "selector_verify": {
+        "rows": 2000,
+        "root_accuracies": [
+          0.9295,
+          0.9175,
+          0.91,
+          0.9075
+        ],
+        "parent_minus_best_challenger": 0.01200000000000001,
+        "parent_error_prevalence": 0.0705,
+        "max_challenger_correct_given_parent_wrong": 0.4397163120567376,
+        "oracle_terminal_harm": 0.007133333333333329,
+        "oracle_terminal_harm_pp": 0.7133333333333329,
+        "path_change_rate": 0.66,
+        "clean_parent_terminal_rate": 0.376,
+        "refined_parent_terminal_rate": 0.008,
+        "parent_to_challenger_rate": 0.368,
+        "challenger_to_parent_rate": 0.0,
+        "max_abs_fixed_terminal_delta": 0.0,
+        "max_abs_fixed_cumulative_delta": 0.0,
+        "fixed_root_history_exact": true,
+        "gates": {
+          "parent_gap_at_least_2_5pp": false,
+          "parent_error_at_least_3pct": true,
+          "challenger_complementarity_at_least_15pct": true,
+          "oracle_terminal_at_least_1pp": false,
+          "path_change_at_least_half": true,
+          "directionality": true,
+          "fixed_exact_zero": true
+        },
+        "eligible": false
+      },
+      "eligible": false,
+      "selection_primary": 0.007133333333333329,
+      "selection_secondary": 0.007133333333333329,
+      "selection_gap": 0.01200000000000001
+    }
+  },
+  "sealed_outcome_opened": false,
+  "code_sha256": {
+    "step93_common.py": "cbb4df4ccba18d386f710fbc2dd98fbf83ff266c237fffd523fc1b9dc5c89ccd",
+    "step100_common.py": "74c43111b3ca768930d7d205cd048466327c806310a91a94aa1fe11cd1e793e1",
+    "step101_infer_candidate.py": "77331c1d32709610f42e5366d66fd06fcf1eefde67dc4c662c81f402fb8cc075",
+    "step101_select_parent_roster.py": "37fba206ac27db5fcbf9fca935771f65fdd28e6ce4ca9b5f658605ff82e091e7"
+  }
+}

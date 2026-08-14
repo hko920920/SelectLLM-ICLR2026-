@@ -1,0 +1,158 @@
+{
+  "manifest_id": "STEP87B_SPLIT_AND_SCHEMA_AUDIT_V1",
+  "preregistration_sha256": "a95c6f0b2a11177577cd03574d019475bc7d8c169b71f02ab8de778a99ed8093",
+  "tasks": {
+    "narrativeqa": {
+      "scenario": "narrative_qa",
+      "metric": "f1_score",
+      "complete_metric_keys_in_frozen_order": [
+        "f1_score"
+      ],
+      "total": 470,
+      "calibration": 235,
+      "holdout": 235,
+      "id_overlap": 0,
+      "calibration_id_digest": "16ede3e117277a1e94cfaaff78bd06f6fcb3822f7ba7e53e07ec1ca348a3b2d9",
+      "holdout_id_digest": "1d466a1ba6a9941ea722f04778177fab61bd26040c5b3a4ec5cddb24925e0400",
+      "all_31_models": true,
+      "utility_range": [
+        0.0,
+        1.0
+      ],
+      "opaque_tokens_absent_from_references": true
+    },
+    "naturalqa_closed": {
+      "scenario": "natural_qa:mode=closedbook",
+      "metric": "f1_score",
+      "complete_metric_keys_in_frozen_order": [
+        "f1_score"
+      ],
+      "total": 1000,
+      "calibration": 500,
+      "holdout": 500,
+      "id_overlap": 0,
+      "calibration_id_digest": "a323edc45b0883a007a63cd9ee3882e57b480270b4abdb2b85c63ba115618030",
+      "holdout_id_digest": "66ee2e67d937e04b53677cceda4126702bf630a87e2d4ee79feb83c2978cf0e0",
+      "all_31_models": true,
+      "utility_range": [
+        0.0,
+        1.0
+      ],
+      "opaque_tokens_absent_from_references": true
+    },
+    "naturalqa_open": {
+      "scenario": "natural_qa:mode=openbook_longans",
+      "metric": "f1_score",
+      "complete_metric_keys_in_frozen_order": [
+        "f1_score"
+      ],
+      "total": 1000,
+      "calibration": 500,
+      "holdout": 500,
+      "id_overlap": 0,
+      "calibration_id_digest": "e9718b301c18dc8a96a044e08e71e4f04c98c12a28aa682ca193d66704fdc22b",
+      "holdout_id_digest": "a07268d5c5046fc6aeec2edc01dc5b6d68299ee86e7c199cecbf0a026889ef05",
+      "all_31_models": true,
+      "utility_range": [
+        0.0,
+        1.0
+      ],
+      "opaque_tokens_absent_from_references": true
+    },
+    "wmt_cs_en": {
+      "scenario": "wmt_14:language_pair=cs-en",
+      "metric": "bleu_4",
+      "complete_metric_keys_in_frozen_order": [
+        "bleu_4"
+      ],
+      "total": 1000,
+      "calibration": 500,
+      "holdout": 500,
+      "id_overlap": 0,
+      "calibration_id_digest": "306562fdcdb1dea583f69d28ce5cd607467ae4d50caedbea041cd81322277561",
+      "holdout_id_digest": "dd4390a150221d05a44e5e105680c4fb6d564c9f5b814ef7e20262cbae761325",
+      "all_31_models": true,
+      "utility_range": [
+        0.0,
+        1.0
+      ],
+      "opaque_tokens_absent_from_references": true
+    },
+    "wmt_de_en": {
+      "scenario": "wmt_14:language_pair=de-en",
+      "metric": "bleu_4",
+      "complete_metric_keys_in_frozen_order": [
+        "bleu_4"
+      ],
+      "total": 1000,
+      "calibration": 500,
+      "holdout": 500,
+      "id_overlap": 0,
+      "calibration_id_digest": "3711c6c531a76a632f314d01910b10a29fd8be49e5fb4c57623f463c68693c87",
+      "holdout_id_digest": "fb2e72f971ba086eb43a8b82ed94fc17f3defdc2480a5ec5e05a9a078e0e3d51",
+      "all_31_models": true,
+      "utility_range": [
+        0.0,
+        1.0
+      ],
+      "opaque_tokens_absent_from_references": true
+    },
+    "wmt_fr_en": {
+      "scenario": "wmt_14:language_pair=fr-en",
+      "metric": "bleu_4",
+      "complete_metric_keys_in_frozen_order": [
+        "bleu_4"
+      ],
+      "total": 1000,
+      "calibration": 500,
+      "holdout": 500,
+      "id_overlap": 0,
+      "calibration_id_digest": "a341a0e2c26869f5c55f038fa51a380e8411298233c299e9f3bce149fe35241a",
+      "holdout_id_digest": "1a5fbb99989b2a11ae9374dce1465d67d908641b1987b9a42a57972b276c34a5",
+      "all_31_models": true,
+      "utility_range": [
+        0.0,
+        1.0
+      ],
+      "opaque_tokens_absent_from_references": true
+    },
+    "wmt_hi_en": {
+      "scenario": "wmt_14:language_pair=hi-en",
+      "metric": "bleu_4",
+      "complete_metric_keys_in_frozen_order": [
+        "bleu_4"
+      ],
+      "total": 1000,
+      "calibration": 500,
+      "holdout": 500,
+      "id_overlap": 0,
+      "calibration_id_digest": "b7aae9cae522a11cf85806c8ec0f11900898f4e09661298198f617a276d1e55a",
+      "holdout_id_digest": "f1c5111d74d66be398e3a376a46e7da78a15484b4ba919c448529693514f6f5b",
+      "all_31_models": true,
+      "utility_range": [
+        0.0,
+        1.0
+      ],
+      "opaque_tokens_absent_from_references": true
+    },
+    "wmt_ru_en": {
+      "scenario": "wmt_14:language_pair=ru-en",
+      "metric": "bleu_4",
+      "complete_metric_keys_in_frozen_order": [
+        "bleu_4"
+      ],
+      "total": 1000,
+      "calibration": 500,
+      "holdout": 500,
+      "id_overlap": 0,
+      "calibration_id_digest": "4a8f7d0b6e19d45cc7df17813ad3d920b611ec06d688df069dc370acb1a499ca",
+      "holdout_id_digest": "3a7ed1accd333684866f2747cd362afd7ed3cc94c57846ea1e67aaa4793a999d",
+      "all_31_models": true,
+      "utility_range": [
+        0.0,
+        1.0
+      ],
+      "opaque_tokens_absent_from_references": true
+    }
+  }
+}

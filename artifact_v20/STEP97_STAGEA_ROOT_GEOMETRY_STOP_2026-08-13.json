@@ -1,0 +1,214 @@
+{
+  "decision": "NO_GO_STEP97_ROOT_GEOMETRY_STOP",
+  "authority_sha256": {
+    "STEP97_SCITAIL_CONSERVATIVE_TERMINAL_BRIDGE_PREREGISTRATION_2026-08-13.md": "bcc30540ad8633b1bd053a12cdc6699769ba3410297169c3d8bfca06f5ccbf4b"
+  },
+  "manifest_sha256": "e7e0d8c3f8447d89ac3511a566d5fa1063499bff45516f862562ff70bd155aa3",
+  "development_sha256": "668ce615b97b2884ef7ccca05d53a80ad3dcbc340d7db8a47255c174a7835c1e",
+  "root_cache_sha256": "64249fe3a61389fbdb1f6af4ce9710230e3ccafacfbd56f3164639a1a9f0e8f2",
+  "root_audits_sha256": "2114885a68a919af7732e7020ea711267506ee07d8e4db8bf1c2264fdf8ea064",
+  "root_preflight": [
+    {
+      "bank_index": 0,
+      "key": "crossencoder_deberta_small",
+      "repo_id": "cross-encoder/nli-deberta-v3-small",
+      "revision": "fa2804872c3b4bd748f38c0185cc85775361e735",
+      "model_type": "deberta-v2",
+      "num_labels": 3,
+      "parameter_count": 141897219,
+      "tokenizer_class": "DebertaV2Tokenizer",
+      "raw_to_dataset": [
+        1,
+        0,
+        1
+      ],
+      "loaded_before_scitail_prediction": true
+    },
+    {
+      "bank_index": 1,
+      "key": "moritz_minilm",
+      "repo_id": "MoritzLaurer/MiniLM-L6-mnli",
+      "revision": "6e0917f1a395b7a6c0f054a56b91c45d8e3af92f",
+      "model_type": "bert",
+      "num_labels": 3,
+      "parameter_count": 22714371,
+      "tokenizer_class": "BertTokenizerFast",
+      "raw_to_dataset": [
+        0,
+        1,
+        1
+      ],
+      "loaded_before_scitail_prediction": true
+    },
+    {
+      "bank_index": 2,
+      "key": "mfac_bert_mini",
+      "repo_id": "M-FAC/bert-mini-finetuned-mnli",
+      "revision": "780061727f47254ff763de653920bb8b7e2fd5f2",
+      "model_type": "bert",
+      "num_labels": 3,
+      "parameter_count": 11171331,
+      "tokenizer_class": "BertTokenizerFast",
+      "raw_to_dataset": [
+        0,
+        1,
+        1
+      ],
+      "loaded_before_scitail_prediction": true
+    },
+    {
+      "bank_index": 3,
+      "key": "mfac_bert_tiny",
+      "repo_id": "M-FAC/bert-tiny-finetuned-mnli",
+      "revision": "618f766f89b50853abc1bea92fd38e1973818f0b",
+      "model_type": "bert",
+      "num_labels": 3,
+      "parameter_count": 4386307,
+      "tokenizer_class": "BertTokenizerFast",
+      "raw_to_dataset": [
+        0,
+        1,
+        1
+      ],
+      "loaded_before_scitail_prediction": true
+    }
+  ],
+  "root_prediction_audits": [
+    {
+      "root_key": "crossencoder_deberta_small",
+      "repo_id": "cross-encoder/nli-deberta-v3-small",
+      "revision": "fa2804872c3b4bd748f38c0185cc85775361e735",
+      "model_type": "deberta-v2",
+      "raw_to_dataset": [
+        1,
+        0,
+        1
+      ],
+      "prediction_sha256": "4c4e0ed2abd5df1d6b504cabb56dc73b202a2eecaf860fdf3e446c6dcae45102",
+      "samples": 10804,
+      "tokenizer_class": "DebertaV2Tokenizer"
+    },
+    {
+      "root_key": "moritz_minilm",
+      "repo_id": "MoritzLaurer/MiniLM-L6-mnli",
+      "revision": "6e0917f1a395b7a6c0f054a56b91c45d8e3af92f",
+      "model_type": "bert",
+      "raw_to_dataset": [
+        0,
+        1,
+        1
+      ],
+      "prediction_sha256": "b24543b9783b672c89016365c6a0d80efc0699de55a8e99258ce204b8750b99d",
+      "samples": 10804,
+      "tokenizer_class": "BertTokenizerFast"
+    },
+    {
+      "root_key": "mfac_bert_mini",
+      "repo_id": "M-FAC/bert-mini-finetuned-mnli",
+      "revision": "780061727f47254ff763de653920bb8b7e2fd5f2",
+      "model_type": "bert",
+      "raw_to_dataset": [
+        0,
+        1,
+        1
+      ],
+      "prediction_sha256": "1db13d82e8e199679fd368f6401b3ef9e593605a53354cd3dfae79375e6cd589",
+      "samples": 10804,
+      "tokenizer_class": "BertTokenizerFast"
+    },
+    {
+      "root_key": "mfac_bert_tiny",
+      "repo_id": "M-FAC/bert-tiny-finetuned-mnli",
+      "revision": "618f766f89b50853abc1bea92fd38e1973818f0b",
+      "model_type": "bert",
+      "raw_to_dataset": [
+        0,
+        1,
+        1
+      ],
+      "prediction_sha256": "08431e63a8401a899a22d87061bb3f78c72db45fed5e7e41f5449d11665f0100",
+      "samples": 10804,
+      "tokenizer_class": "BertTokenizerFast"
+    }
+  ],
+  "geometry": {
+    "roster_gate": {
+      "rows": 1000,
+      "root_accuracies": [
+        0.79,
+        0.786,
+        0.751,
+        0.717
+      ],
+      "root_accuracy_by_key": {
+        "crossencoder_deberta_small": 0.79,
+        "moritz_minilm": 0.786,
+        "mfac_bert_mini": 0.751,
+        "mfac_bert_tiny": 0.717
+      },
+      "parent_minus_best_challenger": 0.0040000000000000036,
+      "parent_error_prevalence": 0.21,
+      "challenger_correct_given_parent_wrong": {
+        "moritz_minilm": 0.3952380952380952,
+        "mfac_bert_mini": 0.43333333333333335,
+        "mfac_bert_tiny": 0.3952380952380952
+      },
+      "max_challenger_correct_given_parent_wrong": 0.43333333333333335
+    },
+    "selector_search": {
+      "rows": 2000,
+      "root_accuracies": [
+        0.795,
+        0.7695,
+        0.7475,
+        0.724
+      ],
+      "root_accuracy_by_key": {
+        "crossencoder_deberta_small": 0.795,
+        "moritz_minilm": 0.7695,
+        "mfac_bert_mini": 0.7475,
+        "mfac_bert_tiny": 0.724
+      },
+      "parent_minus_best_challenger": 0.025500000000000078,
+      "parent_error_prevalence": 0.205,
+      "challenger_correct_given_parent_wrong": {
+        "moritz_minilm": 0.35121951219512193,
+        "mfac_bert_mini": 0.4097560975609756,
+        "mfac_bert_tiny": 0.4
+      },
+      "max_challenger_correct_given_parent_wrong": 0.4097560975609756
+    },
+    "selector_verify": {
+      "rows": 1304,
+      "root_accuracies": [
+        0.7530674846625767,
+        0.7308282208588958,
+        0.700920245398773,
+        0.7032208588957055
+      ],
+      "root_accuracy_by_key": {
+        "crossencoder_deberta_small": 0.7530674846625767,
+        "moritz_minilm": 0.7308282208588958,
+        "mfac_bert_mini": 0.700920245398773,
+        "mfac_bert_tiny": 0.7032208588957055
+      },
+      "parent_minus_best_challenger": 0.02223926380368091,
+      "parent_error_prevalence": 0.2469325153374233,
+      "challenger_correct_given_parent_wrong": {
+        "moritz_minilm": 0.3416149068322981,
+        "mfac_bert_mini": 0.34782608695652173,
+        "mfac_bert_tiny": 0.36335403726708076
+      },
+      "max_challenger_correct_given_parent_wrong": 0.36335403726708076
+    }
+  },
+  "gates": {
+    "parent_unique_best_by_2_5pp_on_roster_gate": false,
+    "parent_error_prevalence_at_least_3pct": true,
+    "challenger_correct_on_at_least_15pct_parent_errors": true
+  },
+  "failed_gates": [
+    "parent_unique_best_by_2_5pp_on_roster_gate"
+  ],
+  "sealed_test_opened": false
+}

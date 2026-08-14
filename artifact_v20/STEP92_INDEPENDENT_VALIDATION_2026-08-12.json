@@ -1,0 +1,37 @@
+{
+  "validation_id": "STEP92_INDEPENDENT_VALIDATION_V1",
+  "verdict": "PASS_STEP92_INDEPENDENT_VALIDATION",
+  "result_sha256": "8e20db3d7bbeb6fd4dff550ba8a24e2e992d88eb7bcaeb3d1233428deca011e4",
+  "raw_sha256": "fdcaf9b09c648dcf13ae21b4a28e5358afe6df85a5f97b497bc866f3f07816ff",
+  "config_sha256": "2c2d51aa81c4a99d942c0a129fed99785149315adfc20092ec62b869e442e9f1",
+  "execution_lock_sha256": "c219349a46e4a326f4d3cf8853ac69093014d0bdfe73ae44f0359f4259d426cc",
+  "checks": 4170,
+  "active_trajectory_replays": 2000,
+  "fixed_query_replays": 2000,
+  "endpoint_replay": {
+    "sample_size": 256,
+    "sample_sha256": "66ba05d25a7ab597deb0f11ef2557687be9897407d4a93cd9e93df2a1b10bef9",
+    "root_prediction_checks": 3072,
+    "adapter_parameter_counts": [
+      50817,
+      50817,
+      50817,
+      50817
+    ],
+    "distinct_adapter_hashes": 4,
+    "max_abs_root_logit_replay_error": 1.9073486328125e-05,
+    "max_abs_adapter_log_temperature_replay_error": 7.510185241699219e-06
+  },
+  "reconstructed": {
+    "decision": "GO_SCORE_CHANGING_LEARNED_ADAPTER_BRIDGE",
+    "mean_terminal_delta_pp": 0.5467500000000004,
+    "terminal_bootstrap_95_pp": [
+      0.5022500000000003,
+      0.5925000000000001
+    ],
+    "one_sided_signflip_p": 9.99990000099999e-06,
+    "active_minus_fixed_pp": 0.5467500000000004,
+    "path_change_rate": 1.0,
+    "fixed_query_exact_zero": true
+  }
+}

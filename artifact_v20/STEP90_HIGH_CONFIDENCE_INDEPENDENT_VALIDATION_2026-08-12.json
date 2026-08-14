@@ -1,0 +1,41 @@
+{
+  "validation_id": "STEP90_HIGH_CONFIDENCE_INDEPENDENT_VALIDATION_V1",
+  "validator_imports_runner_code": false,
+  "checks": 12077,
+  "literal_trajectory_replays": 4000,
+  "fixed_query_replays": 2000,
+  "reconstructed": {
+    "mnli": {
+      "mean_terminal_delta": 0.007017500000000001,
+      "terminal_bootstrap_95": [
+        0.005857500000000002,
+        0.0082275
+      ],
+      "one_sided_signflip_p": 9.99990000099999e-06,
+      "path_change_rate": 0.998,
+      "fixed_query_exact": true
+    },
+    "qqp": {
+      "mean_terminal_delta": 0.012695,
+      "terminal_bootstrap_95": [
+        0.012009937499999996,
+        0.013399999999999999
+      ],
+      "one_sided_signflip_p": 9.99990000099999e-06,
+      "path_change_rate": 1.0,
+      "fixed_query_exact": true
+    }
+  },
+  "holm_adjusted_p": {
+    "mnli": 1.999980000199998e-05,
+    "qqp": 1.999980000199998e-05
+  },
+  "passing_tasks": [
+    "mnli",
+    "qqp"
+  ],
+  "decision": "GO_STRONG_EXECUTABLE_ADAPTER_TRANSFER",
+  "raw_sha256": "5ef206b57d2204c128e621f07c83f8a621d1e94ab6856cbddc05d8e3bbd44d6d",
+  "result_sha256": "f699eee78c4fd84139933e469d1c1c2bfbefb9ffe4a6cc3f278a2996f55d5654",
+  "verdict": "PASS_STEP90_INDEPENDENT_VALIDATION"
+}

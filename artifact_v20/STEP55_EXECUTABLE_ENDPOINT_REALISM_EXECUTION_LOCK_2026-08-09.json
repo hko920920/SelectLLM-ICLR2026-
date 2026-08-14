@@ -1,0 +1,29 @@
+{
+  "manifest_id": "STEP55_EXECUTABLE_ENDPOINT_REALISM_EXECUTION_LOCK_V1",
+  "locked_local_date": "2026-08-09",
+  "status_at_lock": "LOCKED_BEFORE_ENDPOINT_OUTCOME_EXECUTION",
+  "outcomes_seen_before_lock": false,
+  "preregistration_sha256": "5058ede34407249bd818cce47110957b3124a4bc761bb2bc9f41df58ccccdedd",
+  "runner_sha256": "d29a3123f138398458b32d63ceb59733bbd9bcdb08b11a58a3178b059556f294",
+  "input_sha256": {
+    "step54_results": "4ab5428c368991f8c9696edda63660ac76b1d516bb7c78d52eeb553ad56a41dd",
+    "step54_preregistration": "cf45cdd3e6b1425db2f2c17d4e4283bde95d58356a3fd1ade09c2ef6813e8ed9",
+    "medqa_instances": "3b80d9db281936cf24054b8272161a1a583be3b7883ffa19cdab4653e0bd62b2",
+    "gsm8k_instances": "050e1d1f860f83ae0e00f1f9e4328593034e39170fdef3fb86f7dd3ee771fa76",
+    "openbookqa_instances": "fa6dd7e8c7ac9c335fc6af5bdc3efe7552845d47ed091b4473a95629553656eb"
+  },
+  "code_dependency_sha256": {
+    "endpoint_module": "16105271ea7c9c9c5e80e225d8b12cb9a4f5e49227c6adf7c2fb99de795d7684",
+    "step54_runner": "f6fedf37dcbbef82b68353526b7ecd5b0f2156fb85918574fda139db23df4f7d",
+    "step54_validator": "2f83f8a6e9660b55da3204148e2346368caff5987804ff2ad21f1f5b8057a47e",
+    "step29_runner": "8019d116e17bf669f876f5f20ed4ca90c2f0b276868e049005a8cdcc4a1f0839",
+    "step46_runner": "fffc9bf093978fd0b4340ef06ae1da8adf8bba6c1483aadf55f966ec28ff55cf",
+    "medqa_loader": "60f38dd5b4fdaa2c6dee86affcb71dfd4e54eea9b314329e5b572bea1b6d5049",
+    "external_task_loader": "827813911e5d86a8c7da894b660923f25374a743a3f3ee88a3ec905a2fb04cf6",
+    "model_selector_interface": "2aed0dbe55aa1adcee50ebe6f68872b66119df57a9b6666b846423d555e2611e",
+    "model_selector_npy_adapter": "62b90f37a4e84e3f1d4e4da2e5e6246b42f9c41ce0315f3005c4e035aee6c54d",
+    "coda_dataset_interface": "98970eebddef5675b16ece8683dd4833616d6ec48d771819ae72c41601c77a87",
+    "older_llm_selector_main": "2fe36d90e21631ecc7793acbbd95c227381c280626a4df8716569e12a41e37c0"
+  },
+  "note": "This lock binds the preregistration, runner, frozen data, endpoint implementation, inherited analysis code, and local official-interface evidence before the first endpoint-outcome run."
+}

@@ -1,0 +1,308 @@
+{
+  "manifest_id": "STEP95_MNLI_STAGE0_V1",
+  "date": "2026-08-13",
+  "authority_sha256": {
+    "STEP95_MNLI_FULL_ADAPTER_PREREGISTRATION_2026-08-13.md": "f1212135928d132a0bcd9c045e982ba22e06b596382dcb31c0fb5f04ce97bdf1"
+  },
+  "pre_outcome_statement": {
+    "protocol_existed_before_dataset_file_download": true,
+    "no_validation_row_or_outcome_previously_inspected": true,
+    "public_cards_configs_and_revision_metadata_only": true
+  },
+  "dataset": {
+    "id": "nyu-mll/multi_nli",
+    "revision": "da70db2af9d09693783c3320c4249840212ee221",
+    "development_split": "train",
+    "test_split": "validation_matched",
+    "unused_split": "validation_mismatched",
+    "raw_train_sha256": "1c1de03640b168e410aabfca19e7cc2f3dfcd7f0e126e935674e56fb102c4529",
+    "raw_test_sha256": "350c26950b55f460b50d36c76aef87d64b49c78812d7abf7bf97e5fede10f186",
+    "valid_train_rows": 392702,
+    "test_rows": 9815
+  },
+  "development": {
+    "file": "STEP95_MNLI_DEVELOPMENT_ROWS_2026-08-13.json",
+    "sha256": "15203a670d476ffc4bcb4f7bb72412a7121438b7b459a556ffbc9b4e340f8ea7",
+    "rows": 27750,
+    "partition_counts": {
+      "adapter_train": 12000,
+      "parent_select": 3000,
+      "threshold": 3750,
+      "selector_search": 3750,
+      "selector_verify": 5250
+    },
+    "stratum_audit": {
+      "fiction::0": {
+        "available": 25784,
+        "selected": 1850,
+        "partition_counts": {
+          "adapter_train": 800,
+          "parent_select": 200,
+          "threshold": 250,
+          "selector_search": 250,
+          "selector_verify": 350
+        }
+      },
+      "fiction::1": {
+        "available": 25782,
+        "selected": 1850,
+        "partition_counts": {
+          "adapter_train": 800,
+          "parent_select": 200,
+          "threshold": 250,
+          "selector_search": 250,
+          "selector_verify": 350
+        }
+      },
+      "fiction::2": {
+        "available": 25782,
+        "selected": 1850,
+        "partition_counts": {
+          "adapter_train": 800,
+          "parent_select": 200,
+          "threshold": 250,
+          "selector_search": 250,
+          "selector_verify": 350
+        }
+      },
+      "government::0": {
+        "available": 25783,
+        "selected": 1850,
+        "partition_counts": {
+          "adapter_train": 800,
+          "parent_select": 200,
+          "threshold": 250,
+          "selector_search": 250,
+          "selector_verify": 350
+        }
+      },
+      "government::1": {
+        "available": 25784,
+        "selected": 1850,
+        "partition_counts": {
+          "adapter_train": 800,
+          "parent_select": 200,
+          "threshold": 250,
+          "selector_search": 250,
+          "selector_verify": 350
+        }
+      },
+      "government::2": {
+        "available": 25783,
+        "selected": 1850,
+        "partition_counts": {
+          "adapter_train": 800,
+          "parent_select": 200,
+          "threshold": 250,
+          "selector_search": 250,
+          "selector_verify": 350
+        }
+      },
+      "slate::0": {
+        "available": 25768,
+        "selected": 1850,
+        "partition_counts": {
+          "adapter_train": 800,
+          "parent_select": 200,
+          "threshold": 250,
+          "selector_search": 250,
+          "selector_verify": 350
+        }
+      },
+      "slate::1": {
+        "available": 25768,
+        "selected": 1850,
+        "partition_counts": {
+          "adapter_train": 800,
+          "parent_select": 200,
+          "threshold": 250,
+          "selector_search": 250,
+          "selector_verify": 350
+        }
+      },
+      "slate::2": {
+        "available": 25770,
+        "selected": 1850,
+        "partition_counts": {
+          "adapter_train": 800,
+          "parent_select": 200,
+          "threshold": 250,
+          "selector_search": 250,
+          "selector_verify": 350
+        }
+      },
+      "telephone::0": {
+        "available": 27782,
+        "selected": 1850,
+        "partition_counts": {
+          "adapter_train": 800,
+          "parent_select": 200,
+          "threshold": 250,
+          "selector_search": 250,
+          "selector_verify": 350
+        }
+      },
+      "telephone::1": {
+        "available": 27783,
+        "selected": 1850,
+        "partition_counts": {
+          "adapter_train": 800,
+          "parent_select": 200,
+          "threshold": 250,
+          "selector_search": 250,
+          "selector_verify": 350
+        }
+      },
+      "telephone::2": {
+        "available": 27783,
+        "selected": 1850,
+        "partition_counts": {
+          "adapter_train": 800,
+          "parent_select": 200,
+          "threshold": 250,
+          "selector_search": 250,
+          "selector_verify": 350
+        }
+      },
+      "travel::0": {
+        "available": 25782,
+        "selected": 1850,
+        "partition_counts": {
+          "adapter_train": 800,
+          "parent_select": 200,
+          "threshold": 250,
+          "selector_search": 250,
+          "selector_verify": 350
+        }
+      },
+      "travel::1": {
+        "available": 25783,
+        "selected": 1850,
+        "partition_counts": {
+          "adapter_train": 800,
+          "parent_select": 200,
+          "threshold": 250,
+          "selector_search": 250,
+          "selector_verify": 350
+        }
+      },
+      "travel::2": {
+        "available": 25785,
+        "selected": 1850,
+        "partition_counts": {
+          "adapter_train": 800,
+          "parent_select": 200,
+          "threshold": 250,
+          "selector_search": 250,
+          "selector_verify": 350
+        }
+      }
+    }
+  },
+  "test_input": {
+    "file": "step95_test_inputs/mnli_matched_test_inputs.json",
+    "sha256": "89e3403c7b8d37399bef5f09208c31b15475575cc9ac4f74ee17b732aabf4392",
+    "rows": 9815,
+    "contains_labels": false,
+    "contains_genre": false
+  },
+  "sealed_outcome": {
+    "file": "external_data/step95_sealed/mnli_matched_sealed_outcomes.npz",
+    "sha256": "6fd0d069a7e407e8e37f0ce748b5937073208511122f1b313666eaf268ffe4c0",
+    "rows": 9815
+  },
+  "root_bank": [
+    {
+      "key": "textattack_distilbert",
+      "repo_id": "textattack/distilbert-base-uncased-MNLI",
+      "revision": "2cee56ec53fc7935042c094638345db757eece0d",
+      "raw_to_dataset": [
+        0,
+        1,
+        2
+      ],
+      "eligible_parent": true
+    },
+    {
+      "key": "typeform_distilbert",
+      "repo_id": "typeform/distilbert-base-uncased-mnli",
+      "revision": "cfa538a0fddbbd978fefe8966c1aeff7ad409c90",
+      "raw_to_dataset": [
+        0,
+        1,
+        2
+      ],
+      "eligible_parent": true
+    },
+    {
+      "key": "ishan_distilbert",
+      "repo_id": "ishan/distilbert-base-uncased-mnli",
+      "revision": "5b5436f6f59086b00ac829afecc16d1bd926cbfb",
+      "raw_to_dataset": [
+        0,
+        1,
+        2
+      ],
+      "eligible_parent": true
+    },
+    {
+      "key": "mfac_bert_mini",
+      "repo_id": "M-FAC/bert-mini-finetuned-mnli",
+      "revision": "780061727f47254ff763de653920bb8b7e2fd5f2",
+      "raw_to_dataset": [
+        0,
+        1,
+        2
+      ],
+      "eligible_parent": false
+    },
+    {
+      "key": "mfac_bert_tiny",
+      "repo_id": "M-FAC/bert-tiny-finetuned-mnli",
+      "revision": "618f766f89b50853abc1bea92fd38e1973818f0b",
+      "raw_to_dataset": [
+        0,
+        1,
+        2
+      ],
+      "eligible_parent": false
+    },
+    {
+      "key": "crossencoder_distilroberta",
+      "repo_id": "cross-encoder/nli-distilroberta-base",
+      "revision": "b14d131f9d32668a5e6a982729b57ff6ed5dfcbd",
+      "raw_to_dataset": [
+        2,
+        0,
+        1
+      ],
+      "eligible_parent": false
+    },
+    {
+      "key": "moritz_minilm",
+      "repo_id": "MoritzLaurer/MiniLM-L6-mnli",
+      "revision": "6e0917f1a395b7a6c0f054a56b91c45d8e3af92f",
+      "raw_to_dataset": [
+        0,
+        1,
+        2
+      ],
+      "eligible_parent": false
+    },
+    {
+      "key": "crossencoder_deberta_small",
+      "repo_id": "cross-encoder/nli-deberta-v3-small",
+      "revision": "fa2804872c3b4bd748f38c0185cc85775361e735",
+      "raw_to_dataset": [
+        2,
+        0,
+        1
+      ],
+      "eligible_parent": false
+    }
+  ],
+  "source_code_sha256": {
+    "step95_common.py": "687f9899e7f8a7ea8d3a1c244ec85e3844f72ffde763d875daa1d14a38ea93c8",
+    "step95_stage0_prepare.py": "c18c2cef77a08b076254841e09adb33099bfde45f21b2ef0481d7fd43089c174"
+  }
+}

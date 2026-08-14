@@ -1,0 +1,21 @@
+\begin{table}[H]
+\centering
+\caption{Prospective reference-free terminal audit on eight previously untouched HELM-Lite scenarios. Values are utility percentage points; $q^\star$ is the larger of the two eight-task BH-adjusted one-sided sign-flip $q$-values for active terminal harm and active-minus-fixed terminal harm. Clean and refined fixed-query effects are exactly zero in every row. All rows were frozen and retained.}
+\label{tab:step87b-reference-free}
+\scriptsize
+\setlength{\tabcolsep}{3.2pt}
+\begin{tabular}{@{}lccrrrcc@{}}
+\toprule
+Scenario (metric) & $d$ & $B$ & Quality gap & $\Delta$ terminal [95\% CI] & $q^\star$ & Path/root change & Gate \\
+\midrule
+NarrativeQA (F1) & 1\% & 10 & $-.851$ & $+3.021$ [$2.766,3.282$] & $.00027$ & $100.0/45.6$\% & Pass \\
+NaturalQA closed (F1) & .5\% & 10 & $.000$ & $-1.213$ [$-1.443,-.985$] & $1.000$ & $97.6/55.5$\% & No \\
+NaturalQA open (F1) & 1\% & 10 & $-.842$ & $-.317$ [$-.552,-.075$] & $1.000$ & $99.6/35.6$\% & No \\
+WMT14 cs--en (BLEU-4) & 1\% & 10 & $-.109$ & $+.080$ [$-.033,.192$] & $.161$ & $99.1/39.5$\% & No \\
+WMT14 de--en (BLEU-4) & 1\% & 10 & $-.275$ & $-.087$ [$-.169,-.002$] & $1.000$ & $94.2/35.9$\% & No \\
+WMT14 fr--en (BLEU-4) & 1\% & 40 & $-.064$ & $+.139$ [$+.102,.177$] & $.00027$ & $75.1/10.6$\% & Pass \\
+WMT14 hi--en (BLEU-4) & 1\% & 20 & $.000$ & $+.001$ [$-.033,.035$] & $.757$ & $100.0/15.4$\% & No \\
+WMT14 ru--en (BLEU-4) & 1\% & 10 & $.000$ & $+.250$ [$+.154,.350$] & $.00027$ & $97.4/46.1$\% & Pass \\
+\bottomrule
+\end{tabular}
+\end{table}

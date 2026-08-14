@@ -1,0 +1,24 @@
+\begin{table}[H]
+\centering
+\caption{Natural and targeted refinements on 500 paired pools per task. Panel A restores one naturally occurring exact version alias to its 30-entry quotient. Panel B reports the canonical V2 replay of fresh-pool, 5\%-distance T2-A effects constructed without peer responses. Every run changes path; CReg is summed through $B$ and positive is worse.}
+\label{tab:primary-llm}
+\scriptsize
+\setlength{\tabcolsep}{3.4pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrr@{}}
+\toprule
+\multicolumn{5}{l}{\textit{A. Natural exact alias: occurrence and representation non-invariance}} \\
+Task & Changed positions & Query Jaccard & $\Delta$ CReg [95\% CI] & Unique repl. \\
+\midrule
+MedQA      & $40.744/50$ & .8437 & $-0.5002\ [-0.6152,-0.3883]$ & $4.358$ (8.72\%) \\
+GSM8K      & $21.752/30$ & .9111 & $+0.0593\ [0.0275,0.0921]$ & $1.420$ (4.73\%) \\
+OpenBookQA & $16.010/30$ & .9395 & $-0.0276\ [-0.0634,0.0083]$ & $0.960$ (3.20\%) \\
+\addlinespace[2pt]
+\multicolumn{5}{l}{\textit{B. Target-locked, peer-response-free T2-A: targeted exploitability}} \\
+Task & $B$ & $\Delta$ CReg [95\% CI] & $\Delta$ terminal pp [95\% CI] & Harmed pools \\
+\midrule
+MedQA      & 50 & $+3.2518\ [3.0214,3.4842]$ & $+2.906\ [2.316,3.543]$ & 92.0\% \\
+GSM8K      & 30 & $+3.7811\ [3.6177,3.9433]$ & $+10.559\ [9.908,11.234]$ & 99.2\% \\
+OpenBookQA & 30 & $+0.8459\ [0.7650,0.9260]$ & $+0.006\ [-0.016,0.031]$ & 78.8\% \\
+\bottomrule
+\end{tabular*}
+\end{table}

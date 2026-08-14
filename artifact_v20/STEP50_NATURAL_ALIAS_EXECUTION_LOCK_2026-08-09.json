@@ -1,0 +1,27 @@
+{
+  "manifest_id": "STEP50_NATURAL_EXACT_ALIAS_EXECUTION_LOCK_V1",
+  "locked_local_timestamp": "2026-08-09T01:41:01+09:00",
+  "result_file_absent_at_lock": true,
+  "preregistration_file": "STEP50_NATURAL_ALIAS_PREREGISTRATION_2026-08-09.json",
+  "preregistration_sha256": "4e5201cb67e8603378477510366b94847797905cf79d40a63fc43842fa2bedda",
+  "runner_file": "run_step50_natural_alias_audit.py",
+  "runner_sha256": "a355dfe7e83e5348564f89248865d726af5f1c410dd24fd197bb8527d99261f0",
+  "code_dependency_sha256": {
+    "run_step29_locked_phase_a.py": "8019d116e17bf669f876f5f20ed4ca90c2f0b276868e049005a8cdcc4a1f0839",
+    "run_step31_phase_b2_grid.py": "8c28ec9a2fb4e91cbc5ea2b485abf270cda0a582c9e8809dcc6d3ff0cbf56587",
+    "run_step46_clone_robust_soft_weighting.py": "fffc9bf093978fd0b4340ef06ae1da8adf8bba6c1483aadf55f966ec28ff55cf"
+  },
+  "input_sha256": {
+    "step28_manifest": "a16f9a262f8d100899a443e96e3ae141ca266f7b5121cdf5e628fc1a67c201ca",
+    "step29_results": "9a075b143db6a8f11a42dbbbc313a9262a4547249fe81d39caa3f1c7a1540aaa",
+    "step31_preregistration": "a757631ef6f43ed90fd86c40f042a8ab9259e6008704fe460e04b8bc612b2af0",
+    "step48_audit": "c102f5671897efccec3c3baa3e8bbe9f9860966b027d16590d1ba07b3d4bf3ba"
+  },
+  "locked_pair": {
+    "retained_index": 9,
+    "retained_model": "anthropic_claude-instant-1.2",
+    "added_index": 10,
+    "added_model": "anthropic_claude-instant-v1"
+  },
+  "authorization": "Run the locked 21-cell active audit and three primary random-query controls exactly once without changing the preregistration or runner after observing outcomes."
+}

@@ -1,0 +1,46 @@
+\section{Frame Identifiability and Sequential Amplification}
+\label{sec:theory}
+
+We ask whether labels can compensate for a missing frame in any response-only policy, and whether a constant refinement can redirect a current selector. The first result establishes information necessity; the second gives concrete amplification.
+
+\paragraph{Response-compatible worlds.}
+Let $O(E)=\{(e,a_e):e\in E\}$ be the public response view. Frames exposing the same $O(E)$ and label transcript are indistinguishable to a frame-blind policy: labels reveal useful behavior, not whether entries are independent roots. A fresh hidden-frame choice at every step makes this ambiguity accumulate.
+
+For the construction below, let $V^\pi_{\Phi,B}$ be the expected information, in bits, acquired by policy $\pi$ about $B$ latent binary candidate coordinates, and let $V^*_{\Phi,B}$ be the optimum for a policy that knows $\Phi$. Define $I_{\mathrm{hi}}=0.540852$ and $I_{\mathrm{lo}}=0.459148$ bits.
+
+\begin{theorem}[Tight cost of a missing evidence frame]
+\label{thm:sequential}
+For every integer budget $B\geq1$, there is one fixed public response registry, a pool with two binary queries per coordinate, and $2^B$ response-compatible frames such that every possibly randomized frame-blind policy has, on some fixed compatible frame,
+\[
+V^*_{\Phi,B}-V^\pi_{\Phi,B}
+\geq \frac{B}{2}(I_{\mathrm{hi}}-I_{\mathrm{lo}})
+=0.040852B\ \text{bits}.
+\]
+The bound is tight. The corresponding tight minimax excess coordinate-wise Hamming risk is $B/24$.
+\end{theorem}
+
+\paragraph{Proof intuition.}
+One latent frame bit per coordinate selects which of two query polarities yields $I_{\mathrm{hi}}$ instead of $I_{\mathrm{lo}}$. Under uniform compatible frames, an untouched bit is independent of prior observations, so a frame-blind policy chooses the informative polarity with probability at most one half. Revisiting cannot improve its minimax value. Averaging yields a fixed hard frame; independent randomization attains equality. Appendix~\ref{app:proofs} gives the construction and $1/24$ Hamming-risk calculation.
+
+The construction grows exponentially with $B$, proving necessity rather than practical registry size. A constant change can nevertheless be amplified by a concrete selector.
+
+\begin{theorem}[Constant-registry full-path amplification]
+\label{thm:amplification}
+For every odd $B\geq3$ and finite Select-LLM temperature $\tau>0$, there is a pool with five canonical response behaviors and $2B$ items such that adding four exact aliases produces nine submitted entries, redirects all $B$ acquisitions to a disjoint query block, and changes cumulative regret from zero to at least
+\[
+\frac{B^2-1}{4B}=\Omega(B),
+\]
+while the terminal regret is $(B-1)/(2B)$. The two best canonical behaviors and all existing responses are unchanged.
+\end{theorem}
+
+\paragraph{Proof intuition.}
+The clean registry always prefers a good query block. Four aliases move another behavior's mass above one half along an alternating-label path, making every bad query preferable and reinforcing the condition after each selection. Counting odd steps gives both regret bounds; Appendix~\ref{app:proofs} verifies them for every finite $\tau$.
+
+This is mechanism-specific, not universal harm, and exact hashing blocks the literal construction. Section~\ref{sec:protocol} therefore tests response-distinct, quality-equivalent variants.
+
+\begin{proposition}[Selector-agnostic root factorization]
+\label{prop:factorization}
+Suppose $\rho$ is authenticated, each root has fixed mass $w_r$, and at every step a selector's state, action kernel, and decision depend on entries only through root summaries $S_r$. If $S_r$ is invariant to an allowed within-root refinement, then the distribution of the complete query transcript and root decisions is invariant to that refinement.
+\end{proposition}
+
+Transcript induction proves the claim (Appendix~\ref{app:proofs}). It covers uncertainty, diversity, and mutual-information rules only when they actually factor through authenticated, refinement-invariant root summaries; a method label alone gives no protection. Exact quotienting handles unique response patterns, not response-distinct variants. Predictions also cannot authenticate $\rho$, so deployment still requires a declared canonical entry or fixed within-root mixture.

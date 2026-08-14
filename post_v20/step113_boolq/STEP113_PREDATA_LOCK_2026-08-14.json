@@ -1,0 +1,133 @@
+{
+  "schema": "step113.predata_lock.v1",
+  "date": "2026-08-14",
+  "status": "LOCKED_BEFORE_ANY_BOOLQ_ROW_ACCESS_MODEL_INFERENCE_OR_SELECTOR_EFFECT",
+  "claim_status": "POSTREVIEW_PROSPECTIVE_CROSS_TASK_ONE_SHOT",
+  "protocol_sha256": "982a560ae1dc05621dad8e09fb3736076668d9d22dab85ea790569d58e2a2863",
+  "metadata_sha256": "b6fb091f050934d05c28b1e9e2368e7f48e38e1fabc3e80fcf04e98057bfb566",
+  "dataset_id": "google/boolq",
+  "dataset_revision": "35b264d03638db9f4ce671b711558bf7ff0f80d5",
+  "registry": [
+    {
+      "key": "nfliu_deberta_v3_large",
+      "repo_id": "nfliu/deberta-v3-large_boolq",
+      "revision": "9df67c219a86b2611c177f288b8ccc82d7b97707",
+      "batch_size": 4,
+      "safe_weights": true,
+      "parent": true
+    },
+    {
+      "key": "nfliu_roberta_large",
+      "repo_id": "nfliu/roberta-large_boolq",
+      "revision": "efc939f590968d9b5055127d4aeb8a930ffa0826",
+      "batch_size": 8,
+      "safe_weights": false,
+      "parent": false
+    },
+    {
+      "key": "nfliu_minilmv2_l6_h768",
+      "repo_id": "nfliu/MiniLMv2-L6-H768-distilled-from-RoBERTa-Large_boolq",
+      "revision": "f31b1a94395e97a0472054793e5236fd8b7b2416",
+      "batch_size": 32,
+      "safe_weights": true,
+      "parent": false
+    },
+    {
+      "key": "andi611_distilbert",
+      "repo_id": "andi611/distilbert-base-uncased-qa-boolq",
+      "revision": "168ef0953f2bf4083670a8519a14db558a6f043c",
+      "batch_size": 32,
+      "safe_weights": false,
+      "parent": false
+    }
+  ],
+  "input_contract": {
+    "fields": [
+      "question",
+      "passage"
+    ],
+    "max_length": 256,
+    "labels": {
+      "0": "False",
+      "1": "True"
+    }
+  },
+  "partitions": {
+    "error_head_train": 6599,
+    "threshold_calibration": 1414,
+    "safety": 1414,
+    "salt": "step113-boolq-train-partition-v1"
+  },
+  "error_head_recipe": {
+    "seeds": [
+      113100,
+      113101,
+      113102,
+      113103
+    ],
+    "architecture": "standardized_frozen_parent_final_cls_plus_logits_to_linear_binary_head",
+    "balanced_bootstrap": true,
+    "epochs": 30,
+    "batch_size": 256,
+    "learning_rate": 0.001,
+    "weight_decay": 0.001
+  },
+  "threshold_rule": {
+    "quantile": 0.99,
+    "method": "higher",
+    "label_free": true,
+    "selector_effect_used": false
+  },
+  "preoutcome_gates": {
+    "unique_best_parent_on_safety": true,
+    "each_alias_nonempty_trigger": true,
+    "maximum_safety_trigger_fraction": 0.02,
+    "coordinate_wise_nonimproving": true,
+    "maximum_per_alias_quality_loss": 0.01,
+    "minimum_error_precision": null,
+    "selector_replay_on_train_partitions": false
+  },
+  "selector": {
+    "pool_size": 500,
+    "budget": 2,
+    "temperature": 0.05,
+    "paired_runs": 3000,
+    "seed_range": [
+      1213000,
+      1216000
+    ],
+    "same_literal_exact_match": true,
+    "aliases": 4
+  },
+  "primary_materiality": 0.005,
+  "replacement_task_or_configuration_allowed": false,
+  "prior_stops_retained": [
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112
+  ],
+  "environment": {
+    "python": "3.11.5",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.56.2",
+    "numpy": "1.26.4",
+    "pyarrow": "25.0.0",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 3070"
+  },
+  "code_sha256": {
+    "step113_common.py": "28b2d98e6f2450542f698343d2d3145ca40bc35719512f2a00abb596aba4d99c",
+    "step113_endpoint.py": "855179cd8c00c9879a7008399bb52fad767faa4f31a9771d9b72729a7c426da3",
+    "step113_pipeline.py": "962a1d361aadcce14c05a9477c06ce70bac948a9910af332aa954edf044e1e90",
+    "step113_validate_independent.py": "7c2dc46c2b70146dba41a2844f2ed3328dd6e6640c188cb3a0f172fa8cfb962f",
+    "step93_common.py": "cbb4df4ccba18d386f710fbc2dd98fbf83ff266c237fffd523fc1b9dc5c89ccd"
+  },
+  "data_access_completed": false,
+  "outcome_opened": false
+}

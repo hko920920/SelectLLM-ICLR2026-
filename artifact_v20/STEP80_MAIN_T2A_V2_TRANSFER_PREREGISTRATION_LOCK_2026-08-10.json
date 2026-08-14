@@ -1,0 +1,52 @@
+{
+  "manifest_id": "STEP80_MAIN_T2A_V2_TRANSFER_PREREGISTRATION_LOCK_V1",
+  "created_local_date": "2026-08-10",
+  "status": "LOCKED_BEFORE_IMPLEMENTATION_OR_TRANSFER_OUTCOMES",
+  "purpose": "Byte-lock the exact-primary-condition V2 scope-transfer protocol before writing its runner, validator, or observing any transfer outcome.",
+  "locked_documents": {
+    "scope_gap_audit": {
+      "file": "STEP80_MAIN_T2A_V2_SCOPE_GAP_AUDIT_2026-08-10.md",
+      "sha256": "0ded1d19e7733d1c49b36fc46fd087c332257c9e12161d76bf805c9371bd3ac9"
+    },
+    "protocol": {
+      "file": "STEP80_MAIN_T2A_V2_TRANSFER_PROTOCOL_2026-08-10.md",
+      "sha256": "e0f45b8d3a8bdff4544a850889d03b49fd63a57aac51a80e18ffdf1f401309e3"
+    },
+    "preregistration": {
+      "file": "STEP80_MAIN_T2A_V2_TRANSFER_PREREGISTRATION_2026-08-10.json",
+      "sha256": "a4644ece8c9e36c66469b95301978963dc0bf4c36142f3416fcf2a1e75e6e607"
+    }
+  },
+  "upstream_bindings_verified": {
+    "step54_preregistration": "cf45cdd3e6b1425db2f2c17d4e4283bde95d58356a3fd1ade09c2ef6813e8ed9",
+    "step54_execution_lock": "2d213d8090b35a4cd14edc6292ddc3d73e934e288c14a24743daabf5b32d5bb3",
+    "step54_results": "4ab5428c368991f8c9696edda63660ac76b1d516bb7c78d52eeb553ad56a41dd",
+    "step54_runner": "f6fedf37dcbbef82b68353526b7ecd5b0f2156fb85918574fda139db23df4f7d",
+    "step72_strategy": "e6d7b4eef6791360a78805164cdef63432e3b1e658c1f9423f6e5151e449e790",
+    "step79_results": "05613952a1ec75fb183bab3d0fee4851bbf5ec09019164bafc63f650f8d2acaf",
+    "step79_raw": "66d43c3733f873e8b15618161cadbd4817377fe60e72945eba4c68aa7ec7b063",
+    "step79_validation": "271ea31bdca94993cc93b9ee17f4432cf7486753955274e505d9ac681aa9ed59",
+    "v2_runner": "4f8059efc834c9983b5856217f5319672c0e6cd9c28e6ccd9adad8fadd3c7577",
+    "v2_validator": "f59b2a0963b3404e697843b909f2156021cbd5bca1ff0f08f178ca05945a6754",
+    "v2_execution_lock": "5cef28125bface590f4e59cc5ba76115b41bfa573f96e06598c4bb5e7eca2717"
+  },
+  "reserved_outputs_absent_at_lock": [
+    "STEP80_MAIN_T2A_V2_TRANSFER_RESULTS_2026-08-10.json",
+    "STEP80_MAIN_T2A_V2_TRANSFER_RAW_2026-08-10.npz",
+    "STEP80_MAIN_T2A_V2_TRANSFER_VALIDATION_2026-08-10.json"
+  ],
+  "next_locked_sequence": [
+    "Implement one runner and one independently structured validator without running transfer outcomes.",
+    "Run syntax, unit, protocol-binding, and code-path audits.",
+    "Byte-lock runner and validator in a separate execution lock.",
+    "Execute the frozen audit exactly once.",
+    "Run independent validation and apply the preregistered adjudication without rescue changes.",
+    "Integrate only claims permitted by the adjudicated class."
+  ],
+  "prohibitions": [
+    "No transfer outcome may be computed before the execution lock exists.",
+    "No outcome-informed scientific or statistical change is permitted.",
+    "No Step79 legacy-wrapper number may replace the Step54 matrix-free headline result.",
+    "No manuscript promotion is permitted before independent validation."
+  ]
+}

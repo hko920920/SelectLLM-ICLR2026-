@@ -1,0 +1,1242 @@
+{
+  "diagnostic_id": "STEP95_POSTHOC_ORACLE_ROSTER_GEOMETRY_V1",
+  "scope": {
+    "partition": "Step 95 selector_verify development only",
+    "seeds": [
+      954000,
+      954099
+    ],
+    "sealed_test_opened": false,
+    "confirmatory_use": false,
+    "oracle": "aliases abstain on every parent-wrong coordinate; this is a reference-aware upper-bound diagnostic, not a reference-free result"
+  },
+  "rows": [
+    {
+      "parent": "typeform_distilbert",
+      "roster": [
+        "typeform_distilbert",
+        "crossencoder_deberta_small"
+      ],
+      "global_accuracy": {
+        "typeform_distilbert": 0.9780952380952381,
+        "crossencoder_deberta_small": 0.968
+      },
+      "challenger_correct_given_parent_wrong": {
+        "crossencoder_deberta_small": 0.5391304347826087
+      },
+      "parent_error_rate": 0.021904761904761906,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 0.9140000000000007,
+          "root_change_rate": 0.75,
+          "positive_fraction": 0.74,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 1.2186666666666677
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 0.9620000000000009,
+          "root_change_rate": 0.8,
+          "positive_fraction": 0.79,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 1.2025000000000012
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 0.9720000000000009,
+          "root_change_rate": 0.8,
+          "positive_fraction": 0.79,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 1.2150000000000012
+        }
+      ]
+    },
+    {
+      "parent": "typeform_distilbert",
+      "roster": [
+        "typeform_distilbert",
+        "crossencoder_distilroberta"
+      ],
+      "global_accuracy": {
+        "typeform_distilbert": 0.9780952380952381,
+        "crossencoder_distilroberta": 0.8923809523809524
+      },
+      "challenger_correct_given_parent_wrong": {
+        "crossencoder_distilroberta": 0.2
+      },
+      "parent_error_rate": 0.021904761904761906,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 6.815999999999997,
+          "root_change_rate": 0.79,
+          "positive_fraction": 0.79,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 8.627848101265819
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 5.661999999999997,
+          "root_change_rate": 0.65,
+          "positive_fraction": 0.65,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 8.710769230769227
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 2.7179999999999986,
+          "root_change_rate": 0.32,
+          "positive_fraction": 0.32,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 8.493749999999997
+        }
+      ]
+    },
+    {
+      "parent": "typeform_distilbert",
+      "roster": [
+        "typeform_distilbert",
+        "moritz_minilm"
+      ],
+      "global_accuracy": {
+        "typeform_distilbert": 0.9780952380952381,
+        "moritz_minilm": 0.8662857142857143
+      },
+      "challenger_correct_given_parent_wrong": {
+        "moritz_minilm": 0.11304347826086956
+      },
+      "parent_error_rate": 0.021904761904761906,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 7.715999999999999,
+          "root_change_rate": 0.69,
+          "positive_fraction": 0.69,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 11.18260869565217
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 5.901999999999999,
+          "root_change_rate": 0.53,
+          "positive_fraction": 0.53,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 11.135849056603771
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 1.7659999999999996,
+          "root_change_rate": 0.17,
+          "positive_fraction": 0.17,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 10.388235294117644
+        }
+      ]
+    },
+    {
+      "parent": "typeform_distilbert",
+      "roster": [
+        "typeform_distilbert",
+        "mfac_bert_mini"
+      ],
+      "global_accuracy": {
+        "typeform_distilbert": 0.9780952380952381,
+        "mfac_bert_mini": 0.7948571428571428
+      },
+      "challenger_correct_given_parent_wrong": {
+        "mfac_bert_mini": 0.19130434782608696
+      },
+      "parent_error_rate": 0.021904761904761906,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 14.615999999999998,
+          "root_change_rate": 0.79,
+          "positive_fraction": 0.79,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 18.501265822784806
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 11.575999999999997,
+          "root_change_rate": 0.63,
+          "positive_fraction": 0.63,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 18.37460317460317
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 5.6019999999999985,
+          "root_change_rate": 0.3,
+          "positive_fraction": 0.3,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 18.673333333333332
+        }
+      ]
+    },
+    {
+      "parent": "typeform_distilbert",
+      "roster": [
+        "typeform_distilbert",
+        "mfac_bert_tiny"
+      ],
+      "global_accuracy": {
+        "typeform_distilbert": 0.9780952380952381,
+        "mfac_bert_tiny": 0.7276190476190476
+      },
+      "challenger_correct_given_parent_wrong": {
+        "mfac_bert_tiny": 0.24347826086956523
+      },
+      "parent_error_rate": 0.021904761904761906,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 22.022,
+          "root_change_rate": 0.86,
+          "positive_fraction": 0.86,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 25.606976744186046
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 18.061999999999998,
+          "root_change_rate": 0.71,
+          "positive_fraction": 0.71,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 25.439436619718315
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 9.953999999999999,
+          "root_change_rate": 0.39,
+          "positive_fraction": 0.39,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 25.523076923076932
+        }
+      ]
+    },
+    {
+      "parent": "typeform_distilbert",
+      "roster": [
+        "typeform_distilbert",
+        "crossencoder_deberta_small",
+        "crossencoder_distilroberta",
+        "moritz_minilm"
+      ],
+      "global_accuracy": {
+        "typeform_distilbert": 0.9780952380952381,
+        "crossencoder_deberta_small": 0.968,
+        "crossencoder_distilroberta": 0.8923809523809524,
+        "moritz_minilm": 0.8662857142857143
+      },
+      "challenger_correct_given_parent_wrong": {
+        "crossencoder_deberta_small": 0.5391304347826087,
+        "crossencoder_distilroberta": 0.2,
+        "moritz_minilm": 0.11304347826086956
+      },
+      "parent_error_rate": 0.021904761904761906,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 0.9500000000000006,
+          "root_change_rate": 0.71,
+          "positive_fraction": 0.67,
+          "negative_fraction": 0.02,
+          "conditional_terminal_pp": 1.3380281690140854
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 0.8700000000000008,
+          "root_change_rate": 0.73,
+          "positive_fraction": 0.7,
+          "negative_fraction": 0.01,
+          "conditional_terminal_pp": 1.1917808219178092
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 0.9280000000000007,
+          "root_change_rate": 0.71,
+          "positive_fraction": 0.68,
+          "negative_fraction": 0.01,
+          "conditional_terminal_pp": 1.307042253521128
+        }
+      ]
+    },
+    {
+      "parent": "typeform_distilbert",
+      "roster": [
+        "typeform_distilbert",
+        "crossencoder_deberta_small",
+        "crossencoder_distilroberta",
+        "moritz_minilm",
+        "mfac_bert_mini",
+        "mfac_bert_tiny"
+      ],
+      "global_accuracy": {
+        "typeform_distilbert": 0.9780952380952381,
+        "crossencoder_deberta_small": 0.968,
+        "crossencoder_distilroberta": 0.8923809523809524,
+        "moritz_minilm": 0.8662857142857143,
+        "mfac_bert_mini": 0.7948571428571428,
+        "mfac_bert_tiny": 0.7276190476190476
+      },
+      "challenger_correct_given_parent_wrong": {
+        "crossencoder_deberta_small": 0.5391304347826087,
+        "crossencoder_distilroberta": 0.2,
+        "moritz_minilm": 0.11304347826086956,
+        "mfac_bert_mini": 0.19130434782608696,
+        "mfac_bert_tiny": 0.24347826086956523
+      },
+      "parent_error_rate": 0.021904761904761906,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 1.4580000000000002,
+          "root_change_rate": 0.69,
+          "positive_fraction": 0.66,
+          "negative_fraction": 0.03,
+          "conditional_terminal_pp": 2.11304347826087
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 0.8940000000000007,
+          "root_change_rate": 0.69,
+          "positive_fraction": 0.69,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 1.2956521739130444
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 0.7720000000000007,
+          "root_change_rate": 0.67,
+          "positive_fraction": 0.67,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 1.1522388059701503
+        }
+      ]
+    },
+    {
+      "parent": "mfac_bert_mini",
+      "roster": [
+        "mfac_bert_mini",
+        "mfac_bert_tiny"
+      ],
+      "global_accuracy": {
+        "mfac_bert_mini": 0.7948571428571428,
+        "mfac_bert_tiny": 0.7276190476190476
+      },
+      "challenger_correct_given_parent_wrong": {
+        "mfac_bert_tiny": 0.2181987000928505
+      },
+      "parent_error_rate": 0.20514285714285715,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 5.6540000000000035,
+          "root_change_rate": 0.8,
+          "positive_fraction": 0.8,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 7.067500000000004
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 6.148000000000004,
+          "root_change_rate": 0.88,
+          "positive_fraction": 0.88,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 6.986363636363641
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 6.3540000000000045,
+          "root_change_rate": 0.91,
+          "positive_fraction": 0.91,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 6.982417582417587
+        }
+      ]
+    },
+    {
+      "parent": "crossencoder_distilroberta",
+      "roster": [
+        "crossencoder_distilroberta",
+        "moritz_minilm"
+      ],
+      "global_accuracy": {
+        "crossencoder_distilroberta": 0.8923809523809524,
+        "moritz_minilm": 0.8662857142857143
+      },
+      "challenger_correct_given_parent_wrong": {
+        "moritz_minilm": 0.3256637168141593
+      },
+      "parent_error_rate": 0.10761904761904761,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 1.8600000000000017,
+          "root_change_rate": 0.67,
+          "positive_fraction": 0.67,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 2.776119402985077
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 2.096000000000001,
+          "root_change_rate": 0.76,
+          "positive_fraction": 0.76,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 2.7578947368421063
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 2.192000000000001,
+          "root_change_rate": 0.77,
+          "positive_fraction": 0.77,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 2.846753246753248
+        }
+      ]
+    },
+    {
+      "parent": "crossencoder_distilroberta",
+      "roster": [
+        "crossencoder_distilroberta",
+        "mfac_bert_mini"
+      ],
+      "global_accuracy": {
+        "crossencoder_distilroberta": 0.8923809523809524,
+        "mfac_bert_mini": 0.7948571428571428
+      },
+      "challenger_correct_given_parent_wrong": {
+        "mfac_bert_mini": 0.2831858407079646
+      },
+      "parent_error_rate": 0.10761904761904761,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 9.197999999999999,
+          "root_change_rate": 0.92,
+          "positive_fraction": 0.92,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 9.997826086956522
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 9.505999999999998,
+          "root_change_rate": 0.95,
+          "positive_fraction": 0.95,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 10.006315789473682
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 9.831999999999999,
+          "root_change_rate": 0.99,
+          "positive_fraction": 0.99,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 9.93131313131313
+        }
+      ]
+    },
+    {
+      "parent": "crossencoder_distilroberta",
+      "roster": [
+        "crossencoder_distilroberta",
+        "mfac_bert_tiny"
+      ],
+      "global_accuracy": {
+        "crossencoder_distilroberta": 0.8923809523809524,
+        "mfac_bert_tiny": 0.7276190476190476
+      },
+      "challenger_correct_given_parent_wrong": {
+        "mfac_bert_tiny": 0.2831858407079646
+      },
+      "parent_error_rate": 0.10761904761904761,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 15.960000000000003,
+          "root_change_rate": 0.95,
+          "positive_fraction": 0.95,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 16.8
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 16.828000000000003,
+          "root_change_rate": 1.0,
+          "positive_fraction": 1.0,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 16.828000000000003
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 16.828000000000003,
+          "root_change_rate": 1.0,
+          "positive_fraction": 1.0,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 16.828000000000003
+        }
+      ]
+    },
+    {
+      "parent": "crossencoder_distilroberta",
+      "roster": [
+        "crossencoder_distilroberta",
+        "moritz_minilm",
+        "mfac_bert_mini",
+        "mfac_bert_tiny"
+      ],
+      "global_accuracy": {
+        "crossencoder_distilroberta": 0.8923809523809524,
+        "moritz_minilm": 0.8662857142857143,
+        "mfac_bert_mini": 0.7948571428571428,
+        "mfac_bert_tiny": 0.7276190476190476
+      },
+      "challenger_correct_given_parent_wrong": {
+        "moritz_minilm": 0.3256637168141593,
+        "mfac_bert_mini": 0.2831858407079646,
+        "mfac_bert_tiny": 0.2831858407079646
+      },
+      "parent_error_rate": 0.10761904761904761,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 3.6280000000000006,
+          "root_change_rate": 0.64,
+          "positive_fraction": 0.59,
+          "negative_fraction": 0.05,
+          "conditional_terminal_pp": 5.668750000000002
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 4.3340000000000005,
+          "root_change_rate": 0.73,
+          "positive_fraction": 0.73,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 5.936986301369863
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 4.174,
+          "root_change_rate": 0.75,
+          "positive_fraction": 0.73,
+          "negative_fraction": 0.01,
+          "conditional_terminal_pp": 5.565333333333334
+        }
+      ]
+    },
+    {
+      "parent": "moritz_minilm",
+      "roster": [
+        "moritz_minilm",
+        "mfac_bert_mini"
+      ],
+      "global_accuracy": {
+        "moritz_minilm": 0.8662857142857143,
+        "mfac_bert_mini": 0.7948571428571428
+      },
+      "challenger_correct_given_parent_wrong": {
+        "mfac_bert_mini": 0.28347578347578345
+      },
+      "parent_error_rate": 0.1337142857142857,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 6.567999999999998,
+          "root_change_rate": 0.87,
+          "positive_fraction": 0.87,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 7.5494252873563195
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 6.6999999999999975,
+          "root_change_rate": 0.89,
+          "positive_fraction": 0.89,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 7.528089887640446
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 7.163999999999998,
+          "root_change_rate": 0.96,
+          "positive_fraction": 0.96,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 7.462499999999999
+        }
+      ]
+    },
+    {
+      "parent": "moritz_minilm",
+      "roster": [
+        "moritz_minilm",
+        "mfac_bert_tiny"
+      ],
+      "global_accuracy": {
+        "moritz_minilm": 0.8662857142857143,
+        "mfac_bert_tiny": 0.7276190476190476
+      },
+      "challenger_correct_given_parent_wrong": {
+        "mfac_bert_tiny": 0.28774928774928776
+      },
+      "parent_error_rate": 0.1337142857142857,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 13.122,
+          "root_change_rate": 0.91,
+          "positive_fraction": 0.91,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 14.41978021978022
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 13.654000000000002,
+          "root_change_rate": 0.95,
+          "positive_fraction": 0.95,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 14.37263157894737
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 14.066000000000004,
+          "root_change_rate": 0.98,
+          "positive_fraction": 0.98,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 14.3530612244898
+        }
+      ]
+    },
+    {
+      "parent": "crossencoder_deberta_small",
+      "roster": [
+        "crossencoder_deberta_small",
+        "crossencoder_distilroberta"
+      ],
+      "global_accuracy": {
+        "crossencoder_deberta_small": 0.968,
+        "crossencoder_distilroberta": 0.8923809523809524
+      },
+      "challenger_correct_given_parent_wrong": {
+        "crossencoder_distilroberta": 0.2261904761904762
+      },
+      "parent_error_rate": 0.032,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 6.865999999999996,
+          "root_change_rate": 0.89,
+          "positive_fraction": 0.89,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 7.7146067415730295
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 6.489999999999996,
+          "root_change_rate": 0.85,
+          "positive_fraction": 0.85,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 7.635294117647056
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 4.913999999999996,
+          "root_change_rate": 0.64,
+          "positive_fraction": 0.64,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 7.678124999999995
+        }
+      ]
+    },
+    {
+      "parent": "crossencoder_deberta_small",
+      "roster": [
+        "crossencoder_deberta_small",
+        "moritz_minilm"
+      ],
+      "global_accuracy": {
+        "crossencoder_deberta_small": 0.968,
+        "moritz_minilm": 0.8662857142857143
+      },
+      "challenger_correct_given_parent_wrong": {
+        "moritz_minilm": 0.25595238095238093
+      },
+      "parent_error_rate": 0.032,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 9.899999999999999,
+          "root_change_rate": 0.97,
+          "positive_fraction": 0.97,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 10.206185567010309
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 9.181999999999999,
+          "root_change_rate": 0.91,
+          "positive_fraction": 0.91,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 10.090109890109886
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 7.697999999999998,
+          "root_change_rate": 0.76,
+          "positive_fraction": 0.76,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 10.12894736842105
+        }
+      ]
+    },
+    {
+      "parent": "crossencoder_deberta_small",
+      "roster": [
+        "crossencoder_deberta_small",
+        "mfac_bert_mini"
+      ],
+      "global_accuracy": {
+        "crossencoder_deberta_small": 0.968,
+        "mfac_bert_mini": 0.7948571428571428
+      },
+      "challenger_correct_given_parent_wrong": {
+        "mfac_bert_mini": 0.32142857142857145
+      },
+      "parent_error_rate": 0.032,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 17.113999999999997,
+          "root_change_rate": 0.97,
+          "positive_fraction": 0.97,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 17.643298969072163
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 16.577999999999996,
+          "root_change_rate": 0.94,
+          "positive_fraction": 0.94,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 17.636170212765954
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 14.897999999999994,
+          "root_change_rate": 0.85,
+          "positive_fraction": 0.85,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 17.527058823529405
+        }
+      ]
+    },
+    {
+      "parent": "crossencoder_deberta_small",
+      "roster": [
+        "crossencoder_deberta_small",
+        "mfac_bert_tiny"
+      ],
+      "global_accuracy": {
+        "crossencoder_deberta_small": 0.968,
+        "mfac_bert_tiny": 0.7276190476190476
+      },
+      "challenger_correct_given_parent_wrong": {
+        "mfac_bert_tiny": 0.30952380952380953
+      },
+      "parent_error_rate": 0.032,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 24.062,
+          "root_change_rate": 0.98,
+          "positive_fraction": 0.98,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 24.5530612244898
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 22.518,
+          "root_change_rate": 0.92,
+          "positive_fraction": 0.92,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 24.476086956521737
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 16.330000000000002,
+          "root_change_rate": 0.67,
+          "positive_fraction": 0.67,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 24.373134328358212
+        }
+      ]
+    },
+    {
+      "parent": "crossencoder_deberta_small",
+      "roster": [
+        "crossencoder_deberta_small",
+        "crossencoder_distilroberta",
+        "moritz_minilm",
+        "mfac_bert_mini"
+      ],
+      "global_accuracy": {
+        "crossencoder_deberta_small": 0.968,
+        "crossencoder_distilroberta": 0.8923809523809524,
+        "moritz_minilm": 0.8662857142857143,
+        "mfac_bert_mini": 0.7948571428571428
+      },
+      "challenger_correct_given_parent_wrong": {
+        "crossencoder_distilroberta": 0.2261904761904762,
+        "moritz_minilm": 0.25595238095238093,
+        "mfac_bert_mini": 0.32142857142857145
+      },
+      "parent_error_rate": 0.032,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 12.035999999999998,
+          "root_change_rate": 0.9,
+          "positive_fraction": 0.9,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 13.37333333333333
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 12.125999999999998,
+          "root_change_rate": 0.93,
+          "positive_fraction": 0.93,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 13.038709677419352
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 9.217999999999996,
+          "root_change_rate": 0.74,
+          "positive_fraction": 0.74,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 12.456756756756752
+        }
+      ]
+    }
+  ],
+  "top_10": [
+    {
+      "parent": "crossencoder_deberta_small",
+      "roster": [
+        "crossencoder_deberta_small",
+        "mfac_bert_tiny"
+      ],
+      "global_accuracy": {
+        "crossencoder_deberta_small": 0.968,
+        "mfac_bert_tiny": 0.7276190476190476
+      },
+      "challenger_correct_given_parent_wrong": {
+        "mfac_bert_tiny": 0.30952380952380953
+      },
+      "parent_error_rate": 0.032,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 24.062,
+          "root_change_rate": 0.98,
+          "positive_fraction": 0.98,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 24.5530612244898
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 22.518,
+          "root_change_rate": 0.92,
+          "positive_fraction": 0.92,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 24.476086956521737
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 16.330000000000002,
+          "root_change_rate": 0.67,
+          "positive_fraction": 0.67,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 24.373134328358212
+        }
+      ]
+    },
+    {
+      "parent": "typeform_distilbert",
+      "roster": [
+        "typeform_distilbert",
+        "mfac_bert_tiny"
+      ],
+      "global_accuracy": {
+        "typeform_distilbert": 0.9780952380952381,
+        "mfac_bert_tiny": 0.7276190476190476
+      },
+      "challenger_correct_given_parent_wrong": {
+        "mfac_bert_tiny": 0.24347826086956523
+      },
+      "parent_error_rate": 0.021904761904761906,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 22.022,
+          "root_change_rate": 0.86,
+          "positive_fraction": 0.86,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 25.606976744186046
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 18.061999999999998,
+          "root_change_rate": 0.71,
+          "positive_fraction": 0.71,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 25.439436619718315
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 9.953999999999999,
+          "root_change_rate": 0.39,
+          "positive_fraction": 0.39,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 25.523076923076932
+        }
+      ]
+    },
+    {
+      "parent": "crossencoder_deberta_small",
+      "roster": [
+        "crossencoder_deberta_small",
+        "mfac_bert_mini"
+      ],
+      "global_accuracy": {
+        "crossencoder_deberta_small": 0.968,
+        "mfac_bert_mini": 0.7948571428571428
+      },
+      "challenger_correct_given_parent_wrong": {
+        "mfac_bert_mini": 0.32142857142857145
+      },
+      "parent_error_rate": 0.032,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 17.113999999999997,
+          "root_change_rate": 0.97,
+          "positive_fraction": 0.97,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 17.643298969072163
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 16.577999999999996,
+          "root_change_rate": 0.94,
+          "positive_fraction": 0.94,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 17.636170212765954
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 14.897999999999994,
+          "root_change_rate": 0.85,
+          "positive_fraction": 0.85,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 17.527058823529405
+        }
+      ]
+    },
+    {
+      "parent": "crossencoder_distilroberta",
+      "roster": [
+        "crossencoder_distilroberta",
+        "mfac_bert_tiny"
+      ],
+      "global_accuracy": {
+        "crossencoder_distilroberta": 0.8923809523809524,
+        "mfac_bert_tiny": 0.7276190476190476
+      },
+      "challenger_correct_given_parent_wrong": {
+        "mfac_bert_tiny": 0.2831858407079646
+      },
+      "parent_error_rate": 0.10761904761904761,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 15.960000000000003,
+          "root_change_rate": 0.95,
+          "positive_fraction": 0.95,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 16.8
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 16.828000000000003,
+          "root_change_rate": 1.0,
+          "positive_fraction": 1.0,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 16.828000000000003
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 16.828000000000003,
+          "root_change_rate": 1.0,
+          "positive_fraction": 1.0,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 16.828000000000003
+        }
+      ]
+    },
+    {
+      "parent": "typeform_distilbert",
+      "roster": [
+        "typeform_distilbert",
+        "mfac_bert_mini"
+      ],
+      "global_accuracy": {
+        "typeform_distilbert": 0.9780952380952381,
+        "mfac_bert_mini": 0.7948571428571428
+      },
+      "challenger_correct_given_parent_wrong": {
+        "mfac_bert_mini": 0.19130434782608696
+      },
+      "parent_error_rate": 0.021904761904761906,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 14.615999999999998,
+          "root_change_rate": 0.79,
+          "positive_fraction": 0.79,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 18.501265822784806
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 11.575999999999997,
+          "root_change_rate": 0.63,
+          "positive_fraction": 0.63,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 18.37460317460317
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 5.6019999999999985,
+          "root_change_rate": 0.3,
+          "positive_fraction": 0.3,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 18.673333333333332
+        }
+      ]
+    },
+    {
+      "parent": "moritz_minilm",
+      "roster": [
+        "moritz_minilm",
+        "mfac_bert_tiny"
+      ],
+      "global_accuracy": {
+        "moritz_minilm": 0.8662857142857143,
+        "mfac_bert_tiny": 0.7276190476190476
+      },
+      "challenger_correct_given_parent_wrong": {
+        "mfac_bert_tiny": 0.28774928774928776
+      },
+      "parent_error_rate": 0.1337142857142857,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 13.122,
+          "root_change_rate": 0.91,
+          "positive_fraction": 0.91,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 14.41978021978022
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 13.654000000000002,
+          "root_change_rate": 0.95,
+          "positive_fraction": 0.95,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 14.37263157894737
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 14.066000000000004,
+          "root_change_rate": 0.98,
+          "positive_fraction": 0.98,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 14.3530612244898
+        }
+      ]
+    },
+    {
+      "parent": "crossencoder_deberta_small",
+      "roster": [
+        "crossencoder_deberta_small",
+        "crossencoder_distilroberta",
+        "moritz_minilm",
+        "mfac_bert_mini"
+      ],
+      "global_accuracy": {
+        "crossencoder_deberta_small": 0.968,
+        "crossencoder_distilroberta": 0.8923809523809524,
+        "moritz_minilm": 0.8662857142857143,
+        "mfac_bert_mini": 0.7948571428571428
+      },
+      "challenger_correct_given_parent_wrong": {
+        "crossencoder_distilroberta": 0.2261904761904762,
+        "moritz_minilm": 0.25595238095238093,
+        "mfac_bert_mini": 0.32142857142857145
+      },
+      "parent_error_rate": 0.032,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 12.035999999999998,
+          "root_change_rate": 0.9,
+          "positive_fraction": 0.9,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 13.37333333333333
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 12.125999999999998,
+          "root_change_rate": 0.93,
+          "positive_fraction": 0.93,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 13.038709677419352
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 9.217999999999996,
+          "root_change_rate": 0.74,
+          "positive_fraction": 0.74,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 12.456756756756752
+        }
+      ]
+    },
+    {
+      "parent": "crossencoder_deberta_small",
+      "roster": [
+        "crossencoder_deberta_small",
+        "moritz_minilm"
+      ],
+      "global_accuracy": {
+        "crossencoder_deberta_small": 0.968,
+        "moritz_minilm": 0.8662857142857143
+      },
+      "challenger_correct_given_parent_wrong": {
+        "moritz_minilm": 0.25595238095238093
+      },
+      "parent_error_rate": 0.032,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 9.899999999999999,
+          "root_change_rate": 0.97,
+          "positive_fraction": 0.97,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 10.206185567010309
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 9.181999999999999,
+          "root_change_rate": 0.91,
+          "positive_fraction": 0.91,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 10.090109890109886
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 7.697999999999998,
+          "root_change_rate": 0.76,
+          "positive_fraction": 0.76,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 10.12894736842105
+        }
+      ]
+    },
+    {
+      "parent": "crossencoder_distilroberta",
+      "roster": [
+        "crossencoder_distilroberta",
+        "mfac_bert_mini"
+      ],
+      "global_accuracy": {
+        "crossencoder_distilroberta": 0.8923809523809524,
+        "mfac_bert_mini": 0.7948571428571428
+      },
+      "challenger_correct_given_parent_wrong": {
+        "mfac_bert_mini": 0.2831858407079646
+      },
+      "parent_error_rate": 0.10761904761904761,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 9.197999999999999,
+          "root_change_rate": 0.92,
+          "positive_fraction": 0.92,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 9.997826086956522
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 9.505999999999998,
+          "root_change_rate": 0.95,
+          "positive_fraction": 0.95,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 10.006315789473682
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 9.831999999999999,
+          "root_change_rate": 0.99,
+          "positive_fraction": 0.99,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 9.93131313131313
+        }
+      ]
+    },
+    {
+      "parent": "typeform_distilbert",
+      "roster": [
+        "typeform_distilbert",
+        "moritz_minilm"
+      ],
+      "global_accuracy": {
+        "typeform_distilbert": 0.9780952380952381,
+        "moritz_minilm": 0.8662857142857143
+      },
+      "challenger_correct_given_parent_wrong": {
+        "moritz_minilm": 0.11304347826086956
+      },
+      "parent_error_rate": 0.021904761904761906,
+      "budget_results": [
+        {
+          "budget": 5,
+          "terminal_pp": 7.715999999999999,
+          "root_change_rate": 0.69,
+          "positive_fraction": 0.69,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 11.18260869565217
+        },
+        {
+          "budget": 10,
+          "terminal_pp": 5.901999999999999,
+          "root_change_rate": 0.53,
+          "positive_fraction": 0.53,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 11.135849056603771
+        },
+        {
+          "budget": 20,
+          "terminal_pp": 1.7659999999999996,
+          "root_change_rate": 0.17,
+          "positive_fraction": 0.17,
+          "negative_fraction": 0.0,
+          "conditional_terminal_pp": 10.388235294117644
+        }
+      ]
+    }
+  ]
+}

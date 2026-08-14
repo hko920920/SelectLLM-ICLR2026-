@@ -1,0 +1,40 @@
+{
+  "manifest_id": "STEP92_AGNEWS_STAGE0_V1",
+  "date": "2026-08-12",
+  "protocol_sha256": "47c63712082f5b119b7495195f6134bdfa9dae1947931aae93d6cc13cca7451c",
+  "dataset": {
+    "id": "fancyzhx/ag_news",
+    "revision": "eb185aade064a813bc0b7f42de02595523103ca4",
+    "raw_parquet_sha256": {
+      "train": "fc508d6d9868594e3da960a8cfeb63ab5a4746598b93428c224397080c1f52ee",
+      "test": "71de87ec66bc5737752a2502204dfa6d7fe9856ade3ea444dc6317789a4f13fb"
+    },
+    "fingerprints": {
+      "train": "2bc1e2be15d7f2ee",
+      "test": "0ebcc57b6aea2fc9"
+    },
+    "counts": {
+      "train": 120000,
+      "test": 7600,
+      "model_train": 83993,
+      "adapter_train": 24039,
+      "stagea_calibration": 11968
+    },
+    "split_index_sha256": {
+      "model_train": "95a54781b3197c1b38441e76203f20b432c5d9ec705e3fc3ebbf72508d6cfa9f",
+      "adapter_train": "a4a27d5705aa02f4c3f6109d790086180f1ef40ef25e87f20f418946b73630b3",
+      "stagea_calibration": "d85dedf3f73a5be24d90faf8e49e0a999c132f1728bbc20f4c870cb2ddbd2246"
+    }
+  },
+  "base_model": {
+    "id": "distilbert/distilbert-base-uncased",
+    "revision": "12040accade4e8a0f71eabdb258fecc2e7e948be",
+    "model_safetensors_sha256": "5e3f1108e3cb34ee048634875d8482665b65ac713291a7e32396fb18f6ff0063"
+  },
+  "outputs": {
+    "STEP92_AGNEWS_CALIBRATION_PACKAGE_2026-08-12.json": "71a2f93b2d4780e5876915d8295e030b37869167dc2316a3042ab1cc9db63970",
+    "STEP92_AGNEWS_HOLDOUT_INPUTS_2026-08-12.json": "6503f930f8e0ec2d2148fc1d89706d12e88cf2d003b2b8403ec5799f52570a95",
+    "external_data\\step92_sealed\\STEP92_AGNEWS_SEALED_OUTCOMES_2026-08-12.npz": "3d2b1d8d1b1b3fb411005058b491786140b2dcbe4f2288ad837a2ec81d238c16"
+  },
+  "pre_outcome_statement": "Stage 0 printed only counts and hashes; no AG News text, label, prediction, active path, selected root, or regret value was emitted."
+}

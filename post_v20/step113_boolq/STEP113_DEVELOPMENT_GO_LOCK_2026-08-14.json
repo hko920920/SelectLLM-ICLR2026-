@@ -1,0 +1,39 @@
+{
+  "schema": "step113.development_go_lock.v1",
+  "date": "2026-08-14",
+  "status": "LOCKED_AFTER_DEVELOPMENT_GO_BEFORE_VALIDATION_MODEL_INFERENCE",
+  "predata_lock_sha256": "b79319a463fc34cac1152dd7d41bcdadc438a4a323b5be946524f05cdb2252b0",
+  "stage0_manifest_sha256": "76c5e93b1e61efca95e8965dd1b017221af422cf2b27930bf990a365c9477f59",
+  "development_ledger_sha256": "717ace27754a45cec376b8393d7d9b676ba71a76d773fbf5f4bf7b458efd2104",
+  "development_arrays_sha256": "d8e401b4f434692e6aec65a77fad419dad7f75059a8a2abd277476836ecf79b4",
+  "head_paths": [
+    "step113_models/step113_boolq_error_head_0.safetensors",
+    "step113_models/step113_boolq_error_head_1.safetensors",
+    "step113_models/step113_boolq_error_head_2.safetensors",
+    "step113_models/step113_boolq_error_head_3.safetensors"
+  ],
+  "head_sha256": {
+    "step113_models/step113_boolq_error_head_0.safetensors": "cff01c14bd0498da6d92660df977a2ac7a7d6779c1bba5523f66454efb5e24b9",
+    "step113_models/step113_boolq_error_head_1.safetensors": "8c4ca8896c740376c624d1dfea8e83697a318c8c4047cf877c7e08e98800ab72",
+    "step113_models/step113_boolq_error_head_2.safetensors": "8f5269ca459766b2f79ad1c2a5cd95511382ffd7a1c00b991492999b84d3ae56",
+    "step113_models/step113_boolq_error_head_3.safetensors": "434488d436272e771166bc1408c909d06ab8edc3868f3968c9f653133871d0e6"
+  },
+  "thresholds": [
+    0.9874104857444763,
+    0.9981029033660889,
+    0.9872893691062927,
+    0.9914655089378357
+  ],
+  "validation_input_file": "external_data/step113_sealed/boolq_validation_inputs.json",
+  "validation_input_sha256": "a0b8b65b0610d8d9817d69a3eb69ba0480532fedbee182e031727f70c2c4362b",
+  "sealed_outcome_file": "external_data/step113_sealed/boolq_validation_sealed_outcomes.npz",
+  "sealed_outcome_sha256": "699adb40bf56252baefb9a313c9f4fbe9950fb0961a5c295ab1bcf60e2b1d256",
+  "code_sha256": {
+    "step113_common.py": "28b2d98e6f2450542f698343d2d3145ca40bc35719512f2a00abb596aba4d99c",
+    "step113_endpoint.py": "855179cd8c00c9879a7008399bb52fad767faa4f31a9771d9b72729a7c426da3",
+    "step113_pipeline.py": "962a1d361aadcce14c05a9477c06ce70bac948a9910af332aa954edf044e1e90",
+    "step113_validate_independent.py": "7c2dc46c2b70146dba41a2844f2ed3328dd6e6640c188cb3a0f172fa8cfb962f",
+    "step93_common.py": "cbb4df4ccba18d386f710fbc2dd98fbf83ff266c237fffd523fc1b9dc5c89ccd"
+  },
+  "sealed_outcome_opened": false
+}

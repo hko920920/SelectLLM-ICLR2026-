@@ -1,0 +1,23 @@
+\section{Introduction}
+\label{sec:introduction}
+
+\input{figures/figure1_registry_refinement}
+
+Expert labels are costly, so DiffUse, MODEL SELECTOR, CODA, LLM Selector, and Select-LLM use candidate outputs, weak judges, or consensus to prioritize labels for model comparison \citep{ashurytahan2024diffuse,okanovic2025modelselector,kay2025coda,durmazkeser2025llmselector,durmazkeser2026selectllm}. In the candidate-indexed Bayesian and consensus mechanisms we audit, however, every listed entry receives separate probability or consensus mass. They state no invariance requirement for two lists encoding the same behavioral alternatives.
+
+The missing object is the \emph{candidate evidence frame}: a map from listed \emph{submitted entries} to accountable \emph{candidate roots}, together with a root-mass rule. Predictions alone need not reveal the ownership or lineage evidence needed to authenticate this frame. Consequently, treating entries as the population makes registry representation part of the experiment.
+
+The issue occurs naturally. In our frozen roster, \texttt{claude-instant-1.2} and \texttt{claude-instant-v1} have identical responses and scores on all 2,500 task items. Restoring the latter to its 30-entry quotient raises one behavior's mass from $1/30$ to $2/31$ and changes every one of 1,500 Select-LLM paths; random querying is unchanged. Because unique-label substitution is only 8.7/4.7/3.2\% of budget and terminal harm is absent, this is evidence of representation dependence, not broad natural damage.
+
+We organize the paper around three questions. \emph{Is the frame necessary?} We prove a tight budget-linear cost for policies that cannot observe it and construct four aliases that redirect every query in a Select-LLM instance. \emph{Does refinement causally change model-selection cost?} Public-reference T2 aliases preserve correctness coordinate-wise while all existing candidates, labels, pools, and code remain fixed. They increase cumulative regret on three tasks and terminal regret by 2.91/10.56 points on MedQA/GSM8K; a fixed-query counterfactual removes the effect. \emph{Can the channel operate without target outcomes?} Calibration-only variants pass three of eight untouched scenarios, and raw-text learned adapters yield $+.702$ [$+.615,+.788$] terminal points on a disjoint 13,000-row IMDB outcome. A stricter one-shot Yelp transfer is positive but below its predeclared materiality threshold. Cross-selector and untargeted audits show selective rather than generic degradation.
+
+Sequential multiplicity is known in strategic-replication bandits, perturbed-clone active evaluation, redundant-committee quotients, and static leaderboards \citep{shin2022strategicreplication,shin2025replicationproof,lanctot2026activeevaluation,nguyen2025unreal,singh2025leaderboard,hays2026strategic}. We claim neither the first sequential clone effect nor the first multiplicity attack. Our remaining object is specific: in shared-label model selection with a latent root map, entry mass changes which reusable references are acquired and hence root-level regret. A static rank can be recomputed after quotienting; an acquisition transcript cannot recover labels never requested. Exact hashes remove literal copies, while response similarity cannot authenticate ownership.
+
+Our contributions are:
+\begin{enumerate}
+    \item We define evidence-frame ambiguity and show both its information-theoretic cost and a constant-size, full-path amplification.
+    \item Exact-quality interventions and fixed-query counterfactuals establish the complete refinement $\rightarrow$ acquisition $\rightarrow$ evidence $\rightarrow$ root-cost chain; a natural alias anchors the representation problem in an existing roster.
+    \item Reference-free, learned, cross-selector, defense, and untargeted audits identify where the effect transfers and where it does not. They support a targeted evaluation-integrity claim, not universal or production harm.
+\end{enumerate}
+
+We do not claim that every active selector is vulnerable, that a natural alias is adversarial, that every refinement is harmful, or that similarity reveals ownership. The resulting reliability requirement is narrower: an active evaluation should either bind submitted entries to a declared candidate evidence frame or qualify conclusions that depend on unaudited entry multiplicity.

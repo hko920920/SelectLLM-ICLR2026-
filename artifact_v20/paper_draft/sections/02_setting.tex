@@ -1,0 +1,51 @@
+\section{Setting and Candidate Evidence Frames}
+\label{sec:setting}
+
+\paragraph{Active selection.}
+Let $\mathcal{X}=\{x_1,\ldots,x_N\}$ be an unlabeled evaluation pool and $E=\{e_1,\ldots,e_H\}$ the submitted candidate entries. Entry $e$ exposes response vector $a_e=(a_e(x_1),\ldots,a_e(x_N))$ and has oracle utility vector $u_e$, binary per-example correctness in our experiments. An active policy $\pi$ sequentially acquires $B$ references. After step $t$, its transcript contains the queried indices, acquired references, and selected entries; using an oracle root map, we evaluate the corresponding root-level choices $\widehat r_1,\ldots,\widehat r_t$.
+
+\begin{definition}[Candidate evidence frame]
+A frame $\Phi=(R,\rho,w)$ maps submitted entries to accountable candidate roots through $\rho:E\rightarrow R$ and assigns root mass $w_r$. A root is the unit that the evaluation claim intends to count once; it need not be observable or cryptographically authenticated. Two frames are \emph{response-compatible} when they expose the same entry identifiers and response vectors.
+\end{definition}
+
+\begin{definition}[Registry refinement]
+A refinement of root $r$ adds entries mapped to $r$ without modifying existing entries. It is \emph{exact} when an added response vector copies its parent and \emph{quality-equivalent} when its oracle utility vector equals the parent's coordinate-wise, even if their responses differ. Root-level refinement integrity requires a declared within-root rule under which such representation changes do not silently redefine the evaluation claim.
+\end{definition}
+
+For example, a uniform per-entry mechanism induces the empirical measure $\mu_E=|E|^{-1}\sum_{e\in E}\delta_{a_e}$. Adding $k$ entries changes one root's represented mass without adding a root; candidate-consensus mechanisms can change analogously because consensus is computed over listed entries. A policy is \emph{frame-blind} when it observes responses and acquired references but not authenticated $\rho$ or $w$.
+
+Table~\ref{tab:closest-boundary} compares strategic-replication bandits \citep{shin2022strategicreplication,shin2025replicationproof}, active evaluation and selection \citep{lanctot2026activeevaluation,liang2020putsc,nguyen2025unreal,okanovic2025modelselector,kay2025coda,durmazkeser2025llmselector,durmazkeser2026selectllm}, arena candidacy \citep{singh2025leaderboard,huang2026dropping,hays2026strategic}, clone weighting \citep{george2010dilution,procaccia2025clonerobust,berriaud2026clone}, false-name work \citep{douceur2002sybil,burnat2026quotient}, and lineage \citep{shang2026lineage}.
+
+\begin{table}[H]
+\centering
+\caption{Closest-work obligation boundary. These lines solve important pieces, but not the effect of an unaudited candidate unit on a complete adaptive selection transcript.}
+\label{tab:closest-boundary}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X c >{\raggedright\arraybackslash}X@{}}
+\toprule
+Line & Unit or evidence & Path? & Unmet obligation here \\
+\midrule
+Replication bandits & Registered arms with known agent ownership & Yes & Shared labels, latent roots, terminal model choice \\
+Sequential selection & Perturbed clones, pattern quotients, exact mergers, or supplied IDs & Yes & Shared labels, latent roots, exact-utility refinement, mediation \\
+Arena candidacy & Provider/model clones & Final rank & Task-label acquisition transcript \\
+Dilution/clone weights & Fixed neighborhood or metric & No & Root evidence and adaptive transcript \\
+False-name/Sybil & Authority, resource, or evidence cluster & Not here & Active candidate-selection consequence \\
+Model lineage & Ancestry evidence & No & Candidate mass and within-root rule \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+We do not claim the first exact-duplicate preprocessor, sequential replication or clone effect, registry effect, multiplicity attack, clone-proof weight, evidence-backed quotient, or lineage system. Our object is the shared-label sequential boundary: what predictions justify about response-distinct candidate units, how latent same-root multiplicity alters acquired reusable labels, and what root-level decision cost follows. Lineage is useful missing input, not a selection policy supplied here.
+
+\paragraph{Natural refinement versus attack.}
+Our natural anchor compares the original frozen roster with the exact-response quotient that removes its later-index version alias. It attributes neither common control outside the evaluation frame nor adversarial intent to the provider. It asks only whether a behaviorally redundant listed entry changes the active experiment. The adversarial tiers below are separate interventions that test whether an actor controlling one root can exploit the same entry-mass channel.
+
+\paragraph{Offline threat tiers.}
+The attacker controls one root and registers before acquisition. \textbf{T0} adds exact copies as a mechanism and defense control. \textbf{T1} learns on disjoint calibration references, then uses only holdout prompts, options, and parent outputs; quality is measured and approximately bounded, not assumed equivalent. \textbf{T2}, the main causal intervention, uses public or independently acquired references and changes only parent-wrong responses, exactly preserving correctness. Thus T2 fixes quality but assumes such reference access; T1 removes holdout-reference access and tests transfer. Across tiers, the attacker cannot modify existing entries, references, selector code, pool, budget, temperature, seeds, or tie-breaking, or adapt after acquisition begins.
+
+Let $\ell(r)$ be root $r$'s full-pool loss and $r^*$ the best root. We report ordered-path divergence, terminal regret $\ell(\widehat r_B)-\ell(r^*)$, and the anytime quantity
+\[
+    \operatorname{CReg}_B=\sum_{t=1}^{B}\bigl[\ell(\widehat r_t)-\ell(r^*)\bigr].
+\]
+Cumulative regret models repeated interim use; pairing it with terminal regret prevents a transient path effect from being misreported as a worse final choice.

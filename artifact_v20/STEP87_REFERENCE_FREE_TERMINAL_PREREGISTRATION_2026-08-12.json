@@ -1,0 +1,148 @@
+{
+  "manifest_id": "STEP87_REFERENCE_FREE_TERMINAL_V1",
+  "frozen_local_date": "2026-08-12",
+  "status_before_execution": "PREREGISTERED_POST_REVIEW_BEFORE_NEW_TASK_DOWNLOAD_OR_OUTCOME_INSPECTION",
+  "purpose": "Test the repeated external-review condition: reference-free, quality-controlled terminal root-level model-selection harm on at least two unseen task blocks.",
+  "review_trigger": {
+    "channels": ["gpt-5.6", "stanford-agentic-reviewer"],
+    "recurring_concern": "The strongest terminal effect uses public-reference T2; existing T1 transfers cumulative but not substantial terminal harm.",
+    "disclosure": "This is a prospective follow-up designed after reading those reviews. It is not represented as part of the earlier Step 56 preregistration."
+  },
+  "prior_inspection_disclosure": {
+    "project_search": "Before this lock, exact subject-name search returned zero project files for all 18 frozen subjects.",
+    "new_subject_outputs_seen": false,
+    "new_subject_references_seen": false,
+    "new_subject_selector_outcomes_seen": false,
+    "forbidden_replacement": "No domain block or subject may be replaced after this lock, including after a structural failure or unfavorable result."
+  },
+  "public_source": {
+    "dataset": "HELM Lite benchmark outputs",
+    "version": "v1.0.0",
+    "base_url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/",
+    "candidate_models": [
+      "01-ai_yi-34b",
+      "01-ai_yi-6b",
+      "AlephAlpha_luminous-base",
+      "AlephAlpha_luminous-extended",
+      "AlephAlpha_luminous-supreme",
+      "ai21_j2-grande",
+      "ai21_j2-jumbo",
+      "anthropic_claude-2.0",
+      "anthropic_claude-2.1",
+      "anthropic_claude-instant-1.2",
+      "anthropic_claude-instant-v1",
+      "anthropic_claude-v1.3",
+      "cohere_command-light",
+      "cohere_command",
+      "google_text-bison@001",
+      "google_text-unicorn@001",
+      "meta_llama-2-13b",
+      "meta_llama-2-70b",
+      "meta_llama-2-7b",
+      "meta_llama-65b",
+      "mistralai_mistral-7b-v0.1",
+      "mistralai_mixtral-8x7b-32kseqlen",
+      "openai_gpt-3.5-turbo-0613",
+      "openai_gpt-4-0613",
+      "openai_gpt-4-1106-preview",
+      "openai_text-davinci-002",
+      "openai_text-davinci-003",
+      "tiiuae_falcon-40b",
+      "tiiuae_falcon-7b",
+      "writer_palmyra-x-v2",
+      "writer_palmyra-x-v3"
+    ],
+    "response_canonicalization": "Use stripped HELM mapped_output when present; otherwise prefix stripped predicted_text with INVALID:. Score by exact equality to the unique reference tagged correct.",
+    "instance_id": "compact JSON [scenario prefix, HELM instance_id]"
+  },
+  "frozen_domain_blocks": {
+    "health": [
+      "mmlu:subject=anatomy,method=multiple_choice_joint",
+      "mmlu:subject=clinical_knowledge,method=multiple_choice_joint",
+      "mmlu:subject=professional_medicine,method=multiple_choice_joint"
+    ],
+    "computing": [
+      "mmlu:subject=college_computer_science,method=multiple_choice_joint",
+      "mmlu:subject=machine_learning,method=multiple_choice_joint",
+      "mmlu:subject=electrical_engineering,method=multiple_choice_joint"
+    ],
+    "law_ethics": [
+      "mmlu:subject=professional_law,method=multiple_choice_joint",
+      "mmlu:subject=moral_disputes,method=multiple_choice_joint",
+      "mmlu:subject=business_ethics,method=multiple_choice_joint"
+    ],
+    "humanities": [
+      "mmlu:subject=philosophy,method=multiple_choice_joint",
+      "mmlu:subject=world_religions,method=multiple_choice_joint",
+      "mmlu:subject=logical_fallacies,method=multiple_choice_joint"
+    ],
+    "social_science": [
+      "mmlu:subject=sociology,method=multiple_choice_joint",
+      "mmlu:subject=high_school_psychology,method=multiple_choice_joint",
+      "mmlu:subject=human_aging,method=multiple_choice_joint"
+    ],
+    "stem": [
+      "mmlu:subject=college_physics,method=multiple_choice_joint",
+      "mmlu:subject=high_school_chemistry,method=multiple_choice_joint",
+      "mmlu:subject=astronomy,method=multiple_choice_joint"
+    ]
+  },
+  "split": {
+    "rule": "Within each domain block, concatenate subjects in the listed order, then sort examples by SHA-256 of [manifest_id, split, block, public ID]. The first floor(N/2) are calibration and the remainder are sealed holdout.",
+    "minimum_examples_per_half": 100,
+    "zero_id_overlap_required": true
+  },
+  "stage_separation": {
+    "calibration": "May contain all candidate responses and references.",
+    "blind_parent_input": "One file per candidate and block containing only IDs, prompts, public options, and that candidate's outputs.",
+    "attack_builder": "Selects a parent from calibration, then opens only that parent's blind file. It may not read the sealed holdout outcomes, peer holdout outputs, pools, or selector state.",
+    "holdout_outcomes": "Remain sealed until the attack rows and Stage-B execution lock are hashed."
+  },
+  "evaluation_protocol": {
+    "selector": "equation-faithful Select-LLM V2 backend used by the manuscript",
+    "budget": 20,
+    "temperature_grid": [1.0, 3.0, 5.0],
+    "temperature_selection": "Choose the temperature with minimum clean calibration cumulative root regret over 200 pools; ties choose the smaller value. No attacked outcome enters this choice.",
+    "calibration_pool_runs": 200,
+    "holdout_pool_runs": 1000,
+    "pool_size": "min(250, max(B+10, floor(0.8 * split_size)))",
+    "calibration_seed_block": [87000, 87199],
+    "holdout_seed_block": [87200, 88199]
+  },
+  "attack": {
+    "aliases": 4,
+    "distance": "Each alias changes max(1, floor(0.01*N)) coordinates, so holdout oracle disagreement and absolute accuracy shift are deterministically at most one percentage point.",
+    "error_learner": "Five-fold OOF TF-IDF logistic regression on calibration prompt, public options, and parent output; refit on all calibration data for holdout scoring.",
+    "support_policy_grid": ["disjoint_top", "overlap_top", "shared_top"],
+    "replacement": "Deterministic SHA-256-ranked public non-parent option; never use the reference when choosing an output.",
+    "parent_and_policy_selection": "Among all parents and the fixed policy grid, maximize calibration mean adaptive-minus-fixed terminal root-regret effect; tie-break by active terminal root regret, then adaptive-minus-fixed cumulative root regret, then smaller parent index and policy name.",
+    "holdout_runtime_inputs": ["prompt", "public_options", "parent_output"]
+  },
+  "statistics_and_controls": {
+    "paired_design": true,
+    "bootstrap_repetitions": 10000,
+    "sign_flip_repetitions": 10000,
+    "multiplicity_correction": "Benjamini-Hochberg across the six frozen blocks, separately for active terminal root harm and adaptive-minus-fixed terminal root harm.",
+    "fixed_query_control": "Clean and refined scenarios receive the same registry-independent random query matrix for each pool.",
+    "report_all_blocks": true
+  },
+  "task_gate": {
+    "quality": "All aliases have absolute holdout accuracy gap <= 0.01 and oracle-vector disagreement <= 0.01.",
+    "integrity": "Four distinct non-parent response hashes, exact declared distance, no forbidden holdout input, and byte-identical fixed-query matrices.",
+    "active_terminal_root_harm": "Paired 95% lower bound > 0 and BH q < 0.05.",
+    "adaptive_terminal_excess": "For each pool, subtract the fixed-query terminal root-regret delta from the active delta; paired 95% lower bound > 0 and BH q < 0.05.",
+    "fixed_query_boundary": "The fixed-query terminal root effect is reported and cannot be omitted; a positive fixed effect does not invalidate the task if adaptive excess passes, but forbids an exact-zero mediation claim."
+  },
+  "overall_decision": {
+    "PROMOTE_REFERENCE_FREE_TERMINAL_BRIDGE": "At least two of six frozen blocks pass every task gate.",
+    "NARROW_TERMINAL_BRIDGE": "Exactly one block passes every task gate.",
+    "NO_TERMINAL_PROMOTION": "No block passes or any global separation/integrity gate fails."
+  },
+  "forbidden_rescues": [
+    "No task, subject, model, policy, budget, temperature grid, seed, metric, or gate may change after this lock.",
+    "No holdout-better parent or policy may replace the calibration-selected one.",
+    "No failed endpoint or malformed scenario may be replaced.",
+    "Cumulative harm alone cannot satisfy the terminal bridge.",
+    "An unfavorable result remains in the paper record if Step 87 is discussed."
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "manifest_id": "STEP87B_STAGEA_EXECUTION_LOCK_V1",
+  "locked_local_date": "2026-08-12",
+  "purpose": "Bind calibration, blind-input manifests, and Stage-A code before selecting or constructing any blind holdout attack.",
+  "sealed_holdout_semantically_opened_before_stage_a": false,
+  "sealed_holdout_file_sha256_without_deserialization": "48d0767a7b0677cbad4a1b0352ea7e1ca0d5f307e4484231a0a9330507a03bcf",
+  "input_sha256": {
+    "preregistration": "a95c6f0b2a11177577cd03574d019475bc7d8c169b71f02ab8de778a99ed8093",
+    "calibration": "791d2cf03ba0f4f62c637f536df821ed6513e5d0cce816388aa4fa691e2b74a2",
+    "blind_manifest": "d82a775261d1a9323bdf07e2eb2d01ea912503b53b91fcf0111181eda430ab62",
+    "split_audit": "05e3c2045e79693c58b2c81ed36a47792a01cf8ac256aea11da185067b59209a",
+    "raw_manifest": "18c6aab7dd45c729d2e8363771185667038f9e1738687042ecc2d08bae8e0887"
+  },
+  "code_sha256": {
+    "stage_a_runner": "254b4ee174ccdc29410597dc30c39f42b28c516d733faa55371a9ac312571b77",
+    "step87b_openended_common.py": "4928933c79357bb9a79ab60b20b7cebc39c4d871bb8474054e4eadcac3ca8662",
+    "run_step80_main_t2a_v2_transfer.py": "4fc46dcee545b1190ad9e73102ac894898397e747234adfbd738d4823305824a",
+    "run_step54_matrix_free_realism_audit.py": "f6fedf37dcbbef82b68353526b7ecd5b0f2156fb85918574fda139db23df4f7d",
+    "run_step46_clone_robust_soft_weighting.py": "fffc9bf093978fd0b4340ef06ae1da8adf8bba6c1483aadf55f966ec28ff55cf",
+    "run_step50_natural_alias_audit.py": "a355dfe7e83e5348564f89248865d726af5f1c410dd24fd197bb8527d99261f0",
+    "run_step29_locked_phase_a.py": "8019d116e17bf669f876f5f20ed4ca90c2f0b276868e049005a8cdcc4a1f0839"
+  },
+  "access_rule": "The Stage-A runner may deserialize the labeled calibration package, blind manifest, and exactly one selected blind-parent file per task. It may not deserialize the sealed holdout file."
+}

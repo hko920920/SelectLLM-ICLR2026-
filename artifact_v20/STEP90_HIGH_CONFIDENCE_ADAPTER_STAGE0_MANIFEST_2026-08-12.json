@@ -1,0 +1,46 @@
+{
+  "manifest_id": "STEP90_HIGH_CONFIDENCE_ADAPTER_STAGE0_V1",
+  "date": "2026-08-12",
+  "dataset_revision": "bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c",
+  "split_salt": "step90-high-confidence-v1",
+  "protocol_sha256": "1b459457a222b070953e52079a83a1ceda0bb5d6a78fc0c8c07e23e36491354f",
+  "tasks": {
+    "mnli": {
+      "counts": {
+        "total": 9815,
+        "calibration": 4933,
+        "holdout": 4882
+      },
+      "model": "cross-encoder/nli-distilroberta-base",
+      "model_revision": "b14d131f9d32668a5e6a982729b57ff6ed5dfcbd",
+      "source_sha256": {
+        "oracle": "521e9ed6a8c7e1244fb34db5eba30975a3668ea2e7e45fc055d46c49b34c6d6d",
+        "predictions": "87ce5f3d24e49fe43cc9d9b4e35e272192bfd3b5233d4f85723c3f56d1d4432e"
+      },
+      "output_sha256": {
+        "STEP90_MNLI_CALIBRATION_PACKAGE_2026-08-12.json": "c3a96597992421df812d4b533cfedc0fd4380cc3ed22b38abbc87fa9aea0c080",
+        "STEP90_MNLI_HOLDOUT_INPUTS_2026-08-12.json": "f6a9c03e2afc01d2bddfbaebc732198bb78c5e3b7c983082c0a9a591e755dbd2",
+        "external_data\\step90_sealed\\STEP90_MNLI_SEALED_OUTCOMES_2026-08-12.npz": "41152974e52501c7c2f6f28b5947a42df47052c9d8dc83c1bdce2404c2c3b20c"
+      }
+    },
+    "qqp": {
+      "counts": {
+        "total": 40430,
+        "calibration": 20309,
+        "holdout": 20121
+      },
+      "model": "cross-encoder/quora-distilroberta-base",
+      "model_revision": "f62e7a4b20b97195c2868e53ec59126df5eac743",
+      "source_sha256": {
+        "oracle": "00c785801e71cff1d742ebb87a7652f0ddbda140f2e71504b1cf1cb597f97dc7",
+        "predictions": "8ed775319d7533424b863c85dc54baa10bde69867ab32c045fe6d90f1fb73c39"
+      },
+      "output_sha256": {
+        "STEP90_QQP_CALIBRATION_PACKAGE_2026-08-12.json": "0a5b869608ec6b9a2dbe382bb511879c65f21b444a19d56f9f4fe0e54001fc1e",
+        "STEP90_QQP_HOLDOUT_INPUTS_2026-08-12.json": "d161378ffe3644a6b9c4369a2f09c948498ce8389c62629fac050fcbeb017dcd",
+        "external_data\\step90_sealed\\STEP90_QQP_SEALED_OUTCOMES_2026-08-12.npz": "c8e86616ded01baf66da3e165df8c9a5f6fb586f7db67f8b3a1213fc7df8e48b"
+      }
+    }
+  },
+  "pre_outcome_statement": "No MNLI/QQP frozen-parent, adapter, selector-path, root, regret, or attack-effect outcome was computed before this lock."
+}

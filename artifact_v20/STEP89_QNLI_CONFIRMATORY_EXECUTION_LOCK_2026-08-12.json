@@ -1,0 +1,41 @@
+{
+  "lock_id": "STEP89_QNLI_EXECUTABLE_ADAPTER_CONFIRMATORY_LOCK_V1",
+  "locked_at": "2026-08-12 Asia/Seoul, before any holdout parent or adapter inference and before any holdout selection outcome",
+  "model": {
+    "name": "cross-encoder/qnli-distilroberta-base",
+    "revision": "7dd04ee0a6040c06fb381ad7edcb8585f4d937fd",
+    "model_safetensors_sha256": "8b0cfff5547faac6a89c58eca8e0d26b3c4df0022937d59accb417957747ce6c"
+  },
+  "locked_sha256": {
+    "STEP89_QNLI_EXECUTABLE_ADAPTER_STAGE0_PROTOCOL_2026-08-12.md": "319df624d966a40965bc51a68ef291444c49333a193812f6f4fe5d06e14ea5c5",
+    "STEP89_QNLI_STAGE0_SPLIT_MANIFEST_2026-08-12.json": "2d26116a3a832798feebb45e1c44df64dff5660f2b6c00def83ff8f4796af4a2",
+    "STEP89_QNLI_CALIBRATION_PACKAGE_2026-08-12.json": "c7198204aade4be425ff6c6925bfb0bdcc695b5f1528c1752b5ec3a85c061170",
+    "STEP89_QNLI_HOLDOUT_INPUTS_2026-08-12.json": "e96d76c590ba1f41262c4a19c40e75caa8dd71e9bccfde4552a7ba39842af024",
+    "external_data/step89_sealed/STEP89_QNLI_SEALED_HOLDOUT_OUTCOMES_2026-08-12.npz": "975afe2f177aab03e2014de5716f2c6a9ba6a6fbe6a9290a6c5ce7fd44c07aa2",
+    "STEP89_QNLI_CALIBRATION_PARENT_OUTPUTS_2026-08-12.npz": "d641ed5987e4f49b45d0ed8e90da5816a4e58ec9fa2257cfbeda3d7c4393f73e",
+    "STEP89_QNLI_STAGEA_SEARCH_LEDGER_2026-08-12.json": "0f3fbfddf0a58b3286ac7b5603ba5bd7b0851058ae1c1f5f05451ced426902d2",
+    "STEP89_QNLI_STAGEA_FROZEN_CONFIG_2026-08-12.json": "8bf2598eb8e2c7ceb3c55773817c2060256c40d5e5b457354726f62d6a02b582",
+    "STEP89_QNLI_EXECUTABLE_ADAPTER_CONFIRMATORY_PREREGISTRATION_2026-08-12.md": "d00e112f37a09b27b6af15a03a03bf018853ebb4b08f50df8b8f5ba9cbeced49",
+    "step89_stage0_prepare.py": "8f22a0b7fc59a981cfda90d7f055b663ddc0c98f14f619bb39f9f1db4f521f43",
+    "step89_stagea_develop.py": "51e524f13127baa1cf57adf2c1cc82c4794268d3b38473ed2317509941d06a7c",
+    "step89_stageb_confirmatory.py": "5b56e3f8b9ea6bbcbd0302286007cd69698a7d87ae1383e53466836b377ff0bb",
+    "step89_models/step89_adapter_0.safetensors": "4d8582f29c700fbe069ffa7576611bcafdbc8e25cdebbf65cfa81900cb8cc76c",
+    "step89_models/step89_adapter_1.safetensors": "63698f725aa237d1e4130d26510acb98f22062a29da389a8de72ebf989607bfa",
+    "step89_models/step89_adapter_2.safetensors": "72d17e48e50d6535c04b46f970c614ad2d89c0c1dd42ae5f8c6ef8e7f5982b10",
+    "step89_models/step89_adapter_3.safetensors": "918bceb6e73a760a5cc3cdbf653b313c3396626c3fb4badbeadf3d0a05319c05"
+  },
+  "frozen_primary_gate": {
+    "paired_runs": 1000,
+    "pool_size": 400,
+    "budget": 20,
+    "minimum_path_change_rate": 0.5,
+    "minimum_mean_terminal_regret_delta": 0.0015,
+    "bootstrap_lower_strictly_positive": true,
+    "one_sided_signflip_p_maximum": 0.05,
+    "fixed_query_effect_exactly_zero": true,
+    "coordinate_wise_hard_utility_equal": true,
+    "active_minus_fixed_terminal_minimum": 0.0015
+  },
+  "decision_if_all_pass": "GO_EXECUTABLE_ADAPTER_BRIDGE",
+  "decision_otherwise": "NO_CONFIRMATORY_EXECUTABLE_ADAPTER_BRIDGE"
+}

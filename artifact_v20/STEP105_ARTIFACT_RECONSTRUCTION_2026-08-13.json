@@ -1,0 +1,45 @@
+{
+  "schema": "step105.artifact_runner_independent_reconstruction.v1",
+  "date": "2026-08-13",
+  "decision": "PASS_STEP105_ARTIFACT_RECONSTRUCTION",
+  "checks": {
+    "locked_hashes": true,
+    "primary_array_hash": true,
+    "aliases_from_locked_scores": true,
+    "all_primary_arrays": true,
+    "inference_exact": true,
+    "gates_and_decision_exact": true
+  },
+  "failed_checks": [],
+  "recomputed_primary_decision": "NO_GO_RETAIN_STEP105_PROSPECTIVE_NEGATIVE",
+  "recomputed_failed_gates": [
+    "terminal_mean_at_least_half_point",
+    "active_minus_fixed_mean_at_least_half_point"
+  ],
+  "recomputed": {
+    "terminal_pp": 0.35273333333333357,
+    "terminal_ci_pp": [
+      0.30899833333333354,
+      0.3977333333333336
+    ],
+    "active_minus_fixed_pp": 0.35273333333333357,
+    "cumulative": 0.017924666666666682,
+    "path_change_rate": 0.999,
+    "quality_loss_counts": [
+      178,
+      209,
+      143,
+      213
+    ],
+    "allowed_loss_count": 380,
+    "parent_to_challenger_rate": 0.2653333333333333,
+    "challenger_to_parent_rate": 0.09366666666666666
+  },
+  "authority_sha256": {
+    "STEP105_PREOUTCOME_LOCK_2026-08-13.json": "497db50848a8509013c55463cfac63d11839dbbcf9708da78e0ea677a4cf1610",
+    "STEP105_PREOUTCOME_PREDICTIONS_2026-08-13.npz": "bc3dcd88cced111d3678dfb85250bd0ba9f47bc1c9fdcfb831450526789bb970",
+    "STEP105_PRIMARY_CONFIRMATORY_ARRAYS_2026-08-13.npz": "caafd0552132dcdb58b72d27151f4c385c85611551a6165afa7646bc0821c9c5",
+    "STEP105_PRIMARY_CONFIRMATORY_LEDGER_2026-08-13.json": "e47c83a2b386545a980accea2f755793910e276c86971c7e888967fe3237bd3f",
+    "validate_step105_artifact_reconstruction.py": "f4e9f28fb12f62b32bc47f65cc214eda3e6d6616dfa0d61028c889ad004e1c46"
+  }
+}

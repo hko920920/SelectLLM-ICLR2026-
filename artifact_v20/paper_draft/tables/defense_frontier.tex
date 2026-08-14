@@ -1,0 +1,16 @@
+\begin{table}[H]
+\centering
+\caption{Matched 10\% behavioral-cover audit. Clean $\Delta$ compares covered clean with uncovered clean; positive is worse. ``Extra rm.'' counts removals beyond exact quotienting.}
+\label{tab:defense}
+\scriptsize
+\setlength{\tabcolsep}{2.8pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrr@{}}
+\toprule
+Task & Undefended $\Delta$ CReg [95\% CI] & Cover residual & Clean $\Delta$ CReg & Extra rm. & Max span \\
+\midrule
+MedQA      & $+4.853\ [4.603,5.102]$ & $0$ & $+0.569$ & 1 & 0.8 pp \\
+OpenBookQA & $+1.006\ [0.942,1.069]$ & $0$ & $+1.030$ & 6 & 5.2 pp \\
+GSM8K      & \multicolumn{5}{l}{Prospectively ineligible; frozen parent not replaced} \\
+\bottomrule
+\end{tabular*}
+\end{table}

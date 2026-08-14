@@ -1,0 +1,23 @@
+{
+  "manifest_id": "STEP87A_STRUCTURAL_SOURCE_FAILURE_V1",
+  "date": "2026-08-12",
+  "preregistration_sha256": "9697ae0732bba30e609f6f9c2e2c5ef66e18985c3beda2ba873f82f96964f9d0",
+  "stage0_lock_sha256": "f93dd875af8942fdc8eeec2258d4388476fbc9819389bebbad6487046180e770",
+  "status": "STRUCTURAL_NO_GO_BEFORE_ANY_NEW_TASK_CONTENT_OR_OUTCOME_INSPECTION",
+  "failure": {
+    "first_frozen_scenario": "mmlu:subject=anatomy,method=multiple_choice_joint",
+    "first_operation": "Download the 31 frozen candidate display-prediction files.",
+    "observed": "All 31 object URLs returned HTTP 404. A GCS metadata listing showed that HELM-Lite v1.0.0 exposes only five MMLU subjects: abstract_algebra, college_chemistry, computer_security, econometrics, and us_foreign_policy.",
+    "reason": "The 18 frozen Step 87A MMLU subjects are not present in the preregistered public source/version."
+  },
+  "outcome_access_before_adjudication": {
+    "new_subject_prediction_files_downloaded": 0,
+    "new_subject_instance_files_downloaded": 0,
+    "new_subject_prompts_seen": false,
+    "new_subject_references_seen": false,
+    "new_subject_selector_outcomes_seen": false,
+    "attack_rows_built": 0
+  },
+  "adjudication": "Step 87A cannot be amended by swapping subjects or sources and cannot satisfy the terminal bridge. The frozen failure remains in the project record.",
+  "allowed_follow_up": "A separately identified protocol may be frozen using source-feasibility metadata only, before downloading new content or inspecting any new outcome. It must not be represented as Step 87A."
+}

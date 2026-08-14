@@ -1,0 +1,68 @@
+{
+  "validation_id": "STEP99_PRIMARY_INDEPENDENT_VALIDATION_V1",
+  "date": "2026-08-13",
+  "decision": "FAIL_STEP99_PRIMARY_INDEPENDENT_RECONSTRUCTION",
+  "checks": {
+    "lock_hash_matches_ledger": true,
+    "all_preoutcome_lock_hashes_still_match": true,
+    "primary_arrays_hash_matches": true,
+    "step98_no_go_retained": true,
+    "sealed_alignment": true,
+    "raw_input_root_and_alias_predictions_bitwise_reconstructed": true,
+    "preoutcome_aliases_reconstructed": true,
+    "quality_integer_gate_reconstructed": false,
+    "all_primary_arrays_bitwise_reconstructed": true,
+    "all_inference_reconstructed": true,
+    "all_primary_gates_reconstructed": false,
+    "success_label_literal": false
+  },
+  "failed_checks": [
+    "quality_integer_gate_reconstructed",
+    "all_primary_gates_reconstructed",
+    "success_label_literal"
+  ],
+  "recomputed_gates": {
+    "lock_and_all_bound_hashes_match": true,
+    "step98_no_go_and_independent_reconstruction_retained": true,
+    "four_distinct_large_adapters": true,
+    "endpoint_runtime_signature_allowed": true,
+    "preoutcome_predictions_bound_and_reconstructed": true,
+    "same_literal_similarity_for_acquisition_and_evidence": true,
+    "coordinate_wise_nonimproving": true,
+    "each_alias_quality_loss_at_most_one_point": false,
+    "path_change_at_least_half": true,
+    "parent_to_challenger_exceeds_reverse": true,
+    "fixed_query_exact_zero": true,
+    "terminal_mean_at_least_half_point": false,
+    "active_minus_fixed_terminal_mean_at_least_half_point": false,
+    "terminal_inference_positive": false,
+    "active_minus_fixed_terminal_inference_positive": false,
+    "cumulative_inference_positive": false
+  },
+  "recomputed": {
+    "terminal_pp": -0.0666666666666667,
+    "terminal_ci_pp": [
+      -0.11860000000000002,
+      -0.014533333333333365
+    ],
+    "active_minus_fixed_terminal_pp": -0.0666666666666667,
+    "cumulative": -0.007008000000000001,
+    "path_change_rate": 0.9863333333333333,
+    "quality_loss_counts": [
+      10,
+      10,
+      14,
+      11
+    ],
+    "allowed_loss_count": 12,
+    "parent_to_challenger_rate": 0.14933333333333335,
+    "challenger_to_parent_rate": 0.12733333333333333
+  },
+  "authority_sha256": {
+    "STEP99_PREOUTCOME_LOCK_2026-08-13.json": "7c6fa74d02617529002f4afeda78547ea3cad6395274cccaf38a84d9606ee5f3",
+    "STEP99_PREOUTCOME_PREDICTIONS_2026-08-13.npz": "9adbed0bb0004166c51d2b99d1c4d7f3e31bec3c7c259d988e591871b1b67fe3",
+    "STEP99_PRIMARY_CONFIRMATORY_ARRAYS_2026-08-13.npz": "82e73192e3d5e0719d42660c785eb11c9e2da24714407cd26678d75d3e9a0387",
+    "STEP99_PRIMARY_CONFIRMATORY_LEDGER_2026-08-13.json": "42d3c1a52425cd77d76c28cf6fc52924633aa27e47a7fb0b29b2fa8fced03821",
+    "step99_validate_primary_independent.py": "66db91b72bd3ea1242f1dc2b6485ae45e4acd4abcc4055a3a6b44bbd6f9ee219"
+  }
+}

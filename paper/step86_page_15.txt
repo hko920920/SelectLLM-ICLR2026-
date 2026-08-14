@@ -1,0 +1,79 @@
+      Under review as a conference paper at ICLR 2027
+
+
+
+
+756
+      At 5% distance, four aliases, and the primary budget, all five temperatures are positive in all three
+757   tasks. At each locked temperature, all three budgets are likewise positive, for 24/24 task–setting
+758   cells. OpenBookQA supplies the important non-monotone boundary: at its primary setting, four 5%
+759   aliases give +1.460 cumulative regret but eight give −.438. We report all cells because alias count
+760   and distance change a directional prior; they are not scalar corruption strengths.
+761
+      Every final pool is sampled without replacement and shared by its clean/refined pair. The paired
+762
+      bootstrap and sign-flip tests use 10,000 repetitions; Benjamini–Hochberg correction is applied within
+763   each prespecified family. Target development/final mean-effect rank correlations are .991/.995/.999
+764   for MedQA/GSM8K/OpenBookQA. The raw artifact stores the 500 paired cumulative and terminal
+765   arrays, query paths, selected roots, hashes, and eligibility reason for every cell.
+766
+767
+768   Peer-response-free realism confirmation. After the T2-M targets were frozen, a separately hash-
+769   locked audit rebuilt four 5%-distance aliases from only the parent’s outputs, public IDs/options, and
+770
+      references. It used no peer response or response-frequency statistic and generated pools only after con-
+      struction. Under the historical backend, fresh seeds 91000–91499 gave mean paired ∆CReg of 3.2657
+771
+      [3.0341, 3.4997], 3.7851 [3.6247, 3.9492], and .9552 [.8742, 1.0342] on MedQA, GSM8K, and Open-
+772
+      BookQA. Fixed-query paired effects were exactly zero. A sequential-reference variant stopped after
+773   258/1000, 697/1000, and 136/500 inspected labels; it harmed the first two tasks but improved Open-
+774   BookQA by .6805. The preregistration, raw 500-pair arrays, and isolated-constructor replay are stored
+775   in the Step 54 artifacts; the validator reports PASS STEP54 MATRIX FREE REALISM AUDIT.
+776
+777
+778   Canonical V2 implementation-stability transfer. An implementation audit found that evidence
+779   from a separately tested legacy matrix-aware wrapper could not certify the paper’s matrix-free headline
+780
+      condition. Before computing V2 outcomes for that exact condition, we therefore hash-locked its
+      unchanged aliases, data, pools, targets, budgets, and temperatures, plus canonical entry ordering
+781
+      and an exact 3 × 3 tie-policy cross. The V2 replay gives 3.2518 [3.0214, 3.4842], 3.7811 [3.6177,
+782
+      3.9433], and .8459 [.7650, .9260]. Fixed-query effects remain exactly zero, so sequential-excess
+783   effects equal the full paired penalties, with independently recomputed positive lower bounds of 3.0231,
+784   3.6209, and .7649. All 16 permutations of both registries produce zero bitwise mismatch over 48,000
+785   scenario–pool paths. Every one of the 27 tie cells changes all paths and has a positive cumulative
+786   interval; MedQA/GSM8K terminal means are positive under every tie policy, while OpenBookQA
+787   is not promoted as terminal harm. A runner-independent reconstruction replays aliases, acquisition
+788   paths, 10,000-repetition inference, BH correction, and adjudication in 2,882 checks, reporting
+789   PASS STEP80 INDEPENDENT VALIDATION and STRONG TRANSFER. Main-text values use
+790   this V2 backend; Step 54 values above remain the historical record.
+791
+792
+      Executable endpoint replay. A subsequent outcome-blind lock converted only the changed co-
+793   ordinates into immutable SHA-256-prompt/output maps. Runtime requests contain question text
+794   and ordered public options but no dataset ID, reference, correctness tag, peer response, pool seed, or
+795   selector state. Four endpoints per task reproduce all 12 Step 54 response hashes and all 13 selector-run
+796   fields exactly on the same 500 fresh pools. Manifests range from 2,272 to 5,088 bytes; appending a
+797   probe character to every supported changed prompt triggers zero overrides. This establishes feasi-
+798   bility under output-only research interfaces, not admission to a particular production registry. The
+799   independent validator reports PASS STEP55 EXECUTABLE ENDPOINT REALISM AUDIT.
+800
+801
+      Calibration-to-holdout, holdout-reference-free audit. A preregistered hash split produces labeled
+802
+      calibration halves of size 500/500/250 and blind holdouts of size 500/500/250 with zero ID overlap.
+803
+      Before holdout outcomes, five-fold calibration selected MiniLM/TF–IDF error learners and froze
+804   1%-distance alias rows; the blind builder received only prompts, public options, and parent outputs.
+805   All holdout aliases stay within one accuracy point and at most 1% oracle disagreement. Mean ∆CReg
+806   is +.2941 [.1079,.4791], +.1599 [.1059,.2141], and −.1124 [−.1421,−.0835] on MedQA, GSM8K,
+807   and OpenBookQA. Fixed-query effects are −.0306/0/0. GSM8K selected-support error precision is
+808   zero, so this is small-distance approximate control, not exact quality equivalence. The locked machine
+809   decision is PROMOTE LABEL FREE T1, where “label-free” is scoped only to holdout construction;
+      the validator reports PASS STEP56 CALIBRATION TO HOLDOUT AUDIT.
+
+
+                                                        15
+

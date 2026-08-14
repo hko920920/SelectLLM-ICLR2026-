@@ -1,0 +1,70 @@
+\section{Causal Intervention and Evaluation}
+\label{sec:protocol}
+
+\paragraph{Primary mechanism.}
+Select-LLM uses one similarity $s$ for both reference--output posterior evidence and output--output acquisition \citep{durmazkeser2026selectllm}. Our independent exact-answer specialization sets $s(a,b)=\mathbf 1[a=b]$ in both places:
+\[
+p_t(e)\propto\exp\!\left(\tau^{-1}\!\sum_{s<t}s(r_{i_s},a_e(x_{i_s}))\right),\qquad
+A_t(x)=\sum_y\left(\sum_{e:a_e(x)=y}p_t(e)\right)^2.
+\]
+The selector queries the unlabelled item minimizing $A_t$, observes its reference, and chooses the root with maximum accumulated exact-match evidence. This source-fidelity statement applies to the natural anchor and primary T2 experiment; transfer experiments that deliberately separate acquisition and evidence views are labeled as such. V2 canonicalizes entries by full-response SHA-256, root ID, and label hash, so submitted-list order cannot determine a paired result.
+
+We use frozen HELM-Lite v1.0.0 responses and reference scores for 31 models \citep{liang2023helm} on MedQA, GSM8K, and OpenBookQA \citep{jin2021medqa,cobbe2021gsm8k,mihaylov2018openbookqa}. Table~\ref{tab:protocol} gives the primary conditions.
+
+\begin{table}[H]
+\centering
+\caption{Frozen primary protocol. Each reported condition uses 500 paired pool draws.}
+\label{tab:protocol}
+\scriptsize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabularx}{\linewidth}{@{}l r r l c >{\raggedright\arraybackslash}X@{}}
+\toprule
+Task & $N$ & Pool & Budgets & $\tau$ & Development-locked parent \\
+\midrule
+MedQA & 1000 & 500 & 10/30/50 & 3 & GPT-4-1106-preview \\
+GSM8K & 1000 & 500 & 10/20/30 & 5 & GPT-4-0613 \\
+OpenBookQA & 500 & 400 & 10/20/30 & 5 & text-davinci-002 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Evidence ladder.}
+The experiments answer different questions and are not pooled as interchangeable attacks. Table~\ref{tab:evidence-ladder} states the role and information boundary of each layer.
+
+\begin{table}[H]
+\centering
+\caption{Evidence layers. ``Outcome-free'' means that the deployed alias receives no evaluation reference or item lookup.}
+\label{tab:evidence-ladder}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\linewidth}{@{}p{.15\linewidth}p{.27\linewidth}p{.22\linewidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Layer & Refinement & Outcome access & Scientific role \\
+\midrule
+Natural anchor & Existing exact version alias & None & Occurrence and representation non-invariance \\
+T2 causal test & Response-distinct, exact utility & Public/acquired references at construction & Isolate candidate-mass causality \\
+T1 transfer & Calibration-only abstention variants & No holdout references & Prospective cross-task bridge \\
+Learned endpoint & Raw-text error adapters & Train/development only; outcome sealed & Outcome-free executable same-$s$ bridge \\
+Cross-selector & Official released score view & Strong-judge row unchanged & Test a second acquisition family \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Natural and quality-equivalent refinements.}
+Before selector outcomes, we identify the unique pair whose complete response and utility rows match on all three tasks. The 30-entry quotient removes the later version; the natural roster restores it and maps both entries to one root. Pair discovery uses row equality, not selector outcomes, and a locked replay distinguishes changed order from changed query sets (Appendix~\ref{app:natural}).
+
+The main T2-A constructor adds four response-distinct aliases. A frozen hash chooses parent-wrong coordinates; each alias substitutes another wrong multiple-choice option or a nonzero numeric offset from the reference. Hence $u_{e'}=u_e$ coordinate-wise while response hashes differ. Construction reads the parent output, public item information, and references, but no peer response, pool, or trajectory. Targets are selected on disjoint development pools and replayed without retargeting on 500 fresh pools per task. Prompt-only runtime wrappers receive no item ID, reference, peer output, pool seed, or selector state (Appendix~\ref{app:llmprotocol}). T2 therefore identifies a causal channel under its stated reference-access tier; it is not evidence of hidden-label admission.
+
+\paragraph{Outcome-free transfer.}
+T1 freezes eight untouched HELM-Lite QA/translation scenarios before their holdout outcomes. Calibration-only TF--IDF error scores define four abstention wrappers that receive no holdout reference, utility, peer output, pool, or selector state. Because these tasks use exact-response grouping for acquisition but F1/BLEU for evidence, T1 is explicitly a decoupled-view audit rather than source-faithful Select-LLM (Appendix~\ref{app:step87b}).
+
+The learned audits remove that view mismatch: a raw-input adapter emits its parent's hard label or an out-of-label abstention token, and the same literal exact-match function supplies acquisition and reference evidence. Earlier terminal-null and stopped studies remain in Appendices~\ref{app:step93}--\ref{app:step96}. The main learned result uses a hash split of IMDB into 12,000 development and 13,000 one-time outcome rows. A complete development grid and a disjoint robustness rule select one condition; all label-free held-out predictions, model weights, thresholds, code, seeds, and outcome hash are bound before the outcome opens. This is development-informed held-out confirmation, not before-all-data preregistration (Appendix~\ref{app:step104}).
+
+A stricter Yelp audit freezes a public-download-based four-checkpoint roster, the inherited adapter/threshold recipe, one selector condition, and a no-replacement rule before loading the target data. It contains no target selector search: fixed train/calibration/safety partitions fit the adapters, and all predictions on the complete 38,000-row test are bound before the separately sealed outcome opens once. IMDB and Yelp test different registries within binary sentiment; Yelp is not broad task-family transfer (Appendix~\ref{app:step105}).
+
+\paragraph{Causal controls and inference.}
+For every seed, clean and refined runs share the pool, references, budget, temperature, and tie rule. We report paired cumulative and terminal root regret, ordered-path and query-set change, and final-root transitions. Three controls isolate interpretation: candidate-invariant random queries test whether active acquisition is nonvacuous; a fixed query matrix separates acquisition-mediated from static registry effects; and 16 registry permutations plus all nine exact query/root tie policies test implementation artifacts. Paired bootstrap intervals use 10,000 repetitions, sign-flip tests are paired, and prespecified families receive Benjamini--Hochberg correction. Complete temperature, budget, alias-count, and distance grids retain all eligible cells and all negative outcomes (Appendix~\ref{app:llmprotocol}).
+
+\paragraph{Defenses and second selector.}
+We compare exact quotienting, distance-matched behavioral covers, authenticated-root mass, and three clone-robust graph weights \citep{berriaud2026consensus}. Each defense is evaluated jointly on residual attack effect and clean cumulative/terminal cost; prediction-only similarity is never treated as proof of ownership (Appendix~\ref{app:defense}). We also retain an official CODA audit and a preregistered audit of all six official LLM Selector datasets. The latter preserves every strong-judge row, modifies only one parent's weak-judge views, and requires exact fixed-query equality and corrected terminal harm. It is a released score-matrix intervention, not raw-endpoint admission (Appendices~\ref{app:coda} and~\ref{app:step88}).
+\FloatBarrier

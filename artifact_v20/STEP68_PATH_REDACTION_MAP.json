@@ -1,0 +1,55 @@
+{
+  "schema": "step68.path_redaction_map.v1",
+  "scope": "six historical runners with one workstation-specific ROOT assignment",
+  "security_boundary": "historical hashes are returned only after portable bytes match portable_sha256",
+  "files": {
+    "run_step24_real_response_current_method_gate.py": {
+      "transformation": "replace_single_absolute_ROOT_assignment_with_file_relative_ROOT",
+      "changed_lines": 1,
+      "historical_sha256": "60f38dd5b4fdaa2c6dee86affcb71dfd4e54eea9b314329e5b572bea1b6d5049",
+      "portable_sha256": "cd35216de70b16e0a3716917ba175991f0c4b2711a5c27f22bcabb6be9e5b72b",
+      "canonicalized_sha256": "5bd53a55b79d5076e2ce2bef6eb17b33e1f8cd69457df185d8c7b208e9b6f96f",
+      "historical_line_number": 34
+    },
+    "run_step25_current_method_external_generality_gate.py": {
+      "transformation": "replace_single_absolute_ROOT_assignment_with_file_relative_ROOT",
+      "changed_lines": 1,
+      "historical_sha256": "827813911e5d86a8c7da894b660923f25374a743a3f3ee88a3ec905a2fb04cf6",
+      "portable_sha256": "72d2c7565de827c01a9cb271513a00b2447aa5a51409bbb086f27705f53fee0d",
+      "canonicalized_sha256": "ec7ec2ad491a17cccf4a28bb046e719f39af4b57b540e2bb40626d98f027cfa2",
+      "historical_line_number": 25
+    },
+    "run_step29_locked_phase_a.py": {
+      "transformation": "replace_single_absolute_ROOT_assignment_with_file_relative_ROOT",
+      "changed_lines": 1,
+      "historical_sha256": "8019d116e17bf669f876f5f20ed4ca90c2f0b276868e049005a8cdcc4a1f0839",
+      "portable_sha256": "ecf95ccc77f0da747484696ec2820f6db4aaf660a516dca0a3a48d507113f347",
+      "canonicalized_sha256": "577b6392d460ef79d2eeed89fbe3ac85c15870c07db379f19bf417873fa3efd6",
+      "historical_line_number": 28
+    },
+    "run_step31_phase_b2_grid.py": {
+      "transformation": "replace_single_absolute_ROOT_assignment_with_file_relative_ROOT",
+      "changed_lines": 1,
+      "historical_sha256": "8c28ec9a2fb4e91cbc5ea2b485abf270cda0a582c9e8809dcc6d3ff0cbf56587",
+      "portable_sha256": "1f8f77c7e73436a1a8125ec7d732d542d7babc8aeb4a44c1522a3432e2c9f3f2",
+      "canonicalized_sha256": "5fe881ea3f4f6bbea6fff6e41d3e4d80b6202f06a7caf13411e272e803984515",
+      "historical_line_number": 18
+    },
+    "run_step46_clone_robust_soft_weighting.py": {
+      "transformation": "replace_single_absolute_ROOT_assignment_with_file_relative_ROOT",
+      "changed_lines": 1,
+      "historical_sha256": "fffc9bf093978fd0b4340ef06ae1da8adf8bba6c1483aadf55f966ec28ff55cf",
+      "portable_sha256": "83f313549fd1d023bf348a9f141e5a8765eaa655a077aa2df24b3ccebf554626",
+      "canonicalized_sha256": "f7deef94851e3f8aeb2e7816759ec2ea172965c0c04c0e4738353afaf1703bc3",
+      "historical_line_number": 27
+    },
+    "run_step50_natural_alias_audit.py": {
+      "transformation": "replace_single_absolute_ROOT_assignment_with_file_relative_ROOT",
+      "changed_lines": 1,
+      "historical_sha256": "a355dfe7e83e5348564f89248865d726af5f1c410dd24fd197bb8527d99261f0",
+      "portable_sha256": "646d8c5813f32f0ef5e15b1ad734710a707a63299381c992d4f29aa8871ba5a2",
+      "canonicalized_sha256": "f603c94c4fc11544d8651c63dd935e01095d98652ce9ddfaffde50a07f402a2c",
+      "historical_line_number": 24
+    }
+  }
+}

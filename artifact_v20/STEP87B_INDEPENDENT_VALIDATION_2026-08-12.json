@@ -1,0 +1,269 @@
+{
+  "manifest_id": "STEP87B_INDEPENDENT_VALIDATION_V1",
+  "stage_b_lock_sha256": "0fa650a7c60429711f5a0b293802f23f96213ee3cf030b368250193e7011ce9c",
+  "attack_sha256": "ac44b311dff31cac2911319bf39fdc7aa9d6097fc932f90eeed07a1eda738ec2",
+  "sealed_sha256": "48d0767a7b0677cbad4a1b0352ea7e1ca0d5f307e4484231a0a9330507a03bcf",
+  "results_sha256": "fc953c876ef67e3b5a6b915434667e4051d6ece47973574f8d82ee3e917cf556",
+  "raw_sha256": "26422130d6b7d053c4b78fbc292e3deceb05db5eb72113c2b6e9175f2cb0ddad",
+  "independent_backend": "Separate canonicalization, acquisition loop, fixed-query loop, and statistical reconstruction; no import from the experimental runner or common module.",
+  "stage_b_lock_checks": {
+    "manifest": true,
+    "predates_outcomes": true,
+    "inputs": true,
+    "code": true
+  },
+  "tasks": {
+    "narrativeqa": {
+      "array_checks": {
+        "pools": true,
+        "fixed_queries": true,
+        "clean_active_queries": true,
+        "refined_active_queries": true,
+        "clean_active_root_path": true,
+        "refined_active_root_path": true,
+        "clean_fixed_root_path": true,
+        "refined_fixed_root_path": true,
+        "active_terminal_delta": true,
+        "fixed_terminal_delta": true,
+        "terminal_did": true,
+        "active_cumulative_delta": true,
+        "fixed_cumulative_delta": true,
+        "cumulative_did": true
+      },
+      "statistic_checks": {
+        "active_terminal_root_delta": true,
+        "fixed_terminal_root_delta": true,
+        "terminal_root_did": true,
+        "active_cumulative_root_delta": true,
+        "fixed_cumulative_root_delta": true,
+        "cumulative_root_did": true
+      },
+      "quality_match": true,
+      "pass": true,
+      "multiplicity_adjustment_match": true,
+      "gate_match": true
+    },
+    "naturalqa_closed": {
+      "array_checks": {
+        "pools": true,
+        "fixed_queries": true,
+        "clean_active_queries": true,
+        "refined_active_queries": true,
+        "clean_active_root_path": true,
+        "refined_active_root_path": true,
+        "clean_fixed_root_path": true,
+        "refined_fixed_root_path": true,
+        "active_terminal_delta": true,
+        "fixed_terminal_delta": true,
+        "terminal_did": true,
+        "active_cumulative_delta": true,
+        "fixed_cumulative_delta": true,
+        "cumulative_did": true
+      },
+      "statistic_checks": {
+        "active_terminal_root_delta": true,
+        "fixed_terminal_root_delta": true,
+        "terminal_root_did": true,
+        "active_cumulative_root_delta": true,
+        "fixed_cumulative_root_delta": true,
+        "cumulative_root_did": true
+      },
+      "quality_match": true,
+      "pass": true,
+      "multiplicity_adjustment_match": true,
+      "gate_match": true
+    },
+    "naturalqa_open": {
+      "array_checks": {
+        "pools": true,
+        "fixed_queries": true,
+        "clean_active_queries": true,
+        "refined_active_queries": true,
+        "clean_active_root_path": true,
+        "refined_active_root_path": true,
+        "clean_fixed_root_path": true,
+        "refined_fixed_root_path": true,
+        "active_terminal_delta": true,
+        "fixed_terminal_delta": true,
+        "terminal_did": true,
+        "active_cumulative_delta": true,
+        "fixed_cumulative_delta": true,
+        "cumulative_did": true
+      },
+      "statistic_checks": {
+        "active_terminal_root_delta": true,
+        "fixed_terminal_root_delta": true,
+        "terminal_root_did": true,
+        "active_cumulative_root_delta": true,
+        "fixed_cumulative_root_delta": true,
+        "cumulative_root_did": true
+      },
+      "quality_match": true,
+      "pass": true,
+      "multiplicity_adjustment_match": true,
+      "gate_match": true
+    },
+    "wmt_cs_en": {
+      "array_checks": {
+        "pools": true,
+        "fixed_queries": true,
+        "clean_active_queries": true,
+        "refined_active_queries": true,
+        "clean_active_root_path": true,
+        "refined_active_root_path": true,
+        "clean_fixed_root_path": true,
+        "refined_fixed_root_path": true,
+        "active_terminal_delta": true,
+        "fixed_terminal_delta": true,
+        "terminal_did": true,
+        "active_cumulative_delta": true,
+        "fixed_cumulative_delta": true,
+        "cumulative_did": true
+      },
+      "statistic_checks": {
+        "active_terminal_root_delta": true,
+        "fixed_terminal_root_delta": true,
+        "terminal_root_did": true,
+        "active_cumulative_root_delta": true,
+        "fixed_cumulative_root_delta": true,
+        "cumulative_root_did": true
+      },
+      "quality_match": true,
+      "pass": true,
+      "multiplicity_adjustment_match": true,
+      "gate_match": true
+    },
+    "wmt_de_en": {
+      "array_checks": {
+        "pools": true,
+        "fixed_queries": true,
+        "clean_active_queries": true,
+        "refined_active_queries": true,
+        "clean_active_root_path": true,
+        "refined_active_root_path": true,
+        "clean_fixed_root_path": true,
+        "refined_fixed_root_path": true,
+        "active_terminal_delta": true,
+        "fixed_terminal_delta": true,
+        "terminal_did": true,
+        "active_cumulative_delta": true,
+        "fixed_cumulative_delta": true,
+        "cumulative_did": true
+      },
+      "statistic_checks": {
+        "active_terminal_root_delta": true,
+        "fixed_terminal_root_delta": true,
+        "terminal_root_did": true,
+        "active_cumulative_root_delta": true,
+        "fixed_cumulative_root_delta": true,
+        "cumulative_root_did": true
+      },
+      "quality_match": true,
+      "pass": true,
+      "multiplicity_adjustment_match": true,
+      "gate_match": true
+    },
+    "wmt_fr_en": {
+      "array_checks": {
+        "pools": true,
+        "fixed_queries": true,
+        "clean_active_queries": true,
+        "refined_active_queries": true,
+        "clean_active_root_path": true,
+        "refined_active_root_path": true,
+        "clean_fixed_root_path": true,
+        "refined_fixed_root_path": true,
+        "active_terminal_delta": true,
+        "fixed_terminal_delta": true,
+        "terminal_did": true,
+        "active_cumulative_delta": true,
+        "fixed_cumulative_delta": true,
+        "cumulative_did": true
+      },
+      "statistic_checks": {
+        "active_terminal_root_delta": true,
+        "fixed_terminal_root_delta": true,
+        "terminal_root_did": true,
+        "active_cumulative_root_delta": true,
+        "fixed_cumulative_root_delta": true,
+        "cumulative_root_did": true
+      },
+      "quality_match": true,
+      "pass": true,
+      "multiplicity_adjustment_match": true,
+      "gate_match": true
+    },
+    "wmt_hi_en": {
+      "array_checks": {
+        "pools": true,
+        "fixed_queries": true,
+        "clean_active_queries": true,
+        "refined_active_queries": true,
+        "clean_active_root_path": true,
+        "refined_active_root_path": true,
+        "clean_fixed_root_path": true,
+        "refined_fixed_root_path": true,
+        "active_terminal_delta": true,
+        "fixed_terminal_delta": true,
+        "terminal_did": true,
+        "active_cumulative_delta": true,
+        "fixed_cumulative_delta": true,
+        "cumulative_did": true
+      },
+      "statistic_checks": {
+        "active_terminal_root_delta": true,
+        "fixed_terminal_root_delta": true,
+        "terminal_root_did": true,
+        "active_cumulative_root_delta": true,
+        "fixed_cumulative_root_delta": true,
+        "cumulative_root_did": true
+      },
+      "quality_match": true,
+      "pass": true,
+      "multiplicity_adjustment_match": true,
+      "gate_match": true
+    },
+    "wmt_ru_en": {
+      "array_checks": {
+        "pools": true,
+        "fixed_queries": true,
+        "clean_active_queries": true,
+        "refined_active_queries": true,
+        "clean_active_root_path": true,
+        "refined_active_root_path": true,
+        "clean_fixed_root_path": true,
+        "refined_fixed_root_path": true,
+        "active_terminal_delta": true,
+        "fixed_terminal_delta": true,
+        "terminal_did": true,
+        "active_cumulative_delta": true,
+        "fixed_cumulative_delta": true,
+        "cumulative_did": true
+      },
+      "statistic_checks": {
+        "active_terminal_root_delta": true,
+        "fixed_terminal_root_delta": true,
+        "terminal_root_did": true,
+        "active_cumulative_root_delta": true,
+        "fixed_cumulative_root_delta": true,
+        "cumulative_root_did": true
+      },
+      "quality_match": true,
+      "pass": true,
+      "multiplicity_adjustment_match": true,
+      "gate_match": true
+    }
+  },
+  "decision_match": true,
+  "independently_reconstructed_decision": {
+    "global_separation_and_completeness": true,
+    "passing_scenarios": [
+      "narrativeqa",
+      "wmt_fr_en",
+      "wmt_ru_en"
+    ],
+    "passing_count": 3,
+    "status": "PROMOTE_REFERENCE_FREE_TERMINAL_BRIDGE"
+  },
+  "status": "PASS_STEP87B_INDEPENDENT_RECONSTRUCTION"
+}

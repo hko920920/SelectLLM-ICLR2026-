@@ -1,0 +1,169 @@
+{
+  "config_id": "STEP95_MNLI_STAGEA_FROZEN_V1",
+  "date": "2026-08-13",
+  "decision": "NO_GO_DEVELOPMENT_GATE_STOP",
+  "authority_sha256": {
+    "STEP95_MNLI_FULL_ADAPTER_PREREGISTRATION_2026-08-13.md": "f1212135928d132a0bcd9c045e982ba22e06b596382dcb31c0fb5f04ce97bdf1",
+    "STEP95_PREREGISTRATION_AMENDMENT_A_2026-08-13.md": "551a6a1a18ce836577df77b40240c0cadcee0fa57ec386cdc2881613a8f12694"
+  },
+  "stage0_manifest_sha256": "c7ab140ba2a35a8ce7e6c56a225f130dd93fba040fe62c114a36e4d4c86b74da",
+  "stagea_ledger_sha256": "b6e9a801ce29a9de0c3f62bba7510ee43e9c7458290ebf3556cb2ffe43317d00",
+  "development_arrays_sha256": "3fe4d4f707a25f65511014005c60c5fca2fc333572275709a97d695f90716c57",
+  "selected_parent": {
+    "bank_index": 1,
+    "position": 0,
+    "key": "typeform_distilbert",
+    "repo_id": "typeform/distilbert-base-uncased-mnli",
+    "revision": "cfa538a0fddbbd978fefe8966c1aeff7ad409c90"
+  },
+  "roster_bank_indices": [
+    1,
+    7,
+    5,
+    6,
+    3,
+    4
+  ],
+  "roster_keys": [
+    "typeform_distilbert",
+    "crossencoder_deberta_small",
+    "crossencoder_distilroberta",
+    "moritz_minilm",
+    "mfac_bert_mini",
+    "mfac_bert_tiny"
+  ],
+  "adapter_paths": [
+    "step95_models/step95_typeform_distilbert_error_adapter_0.safetensors",
+    "step95_models/step95_typeform_distilbert_error_adapter_1.safetensors",
+    "step95_models/step95_typeform_distilbert_error_adapter_2.safetensors",
+    "step95_models/step95_typeform_distilbert_error_adapter_3.safetensors"
+  ],
+  "adapter_sha256": {
+    "step95_models/step95_typeform_distilbert_error_adapter_0.safetensors": "8c319fc597caef40012592a29713f4ee82b68bfa29a4f44934444a106f869ccc",
+    "step95_models/step95_typeform_distilbert_error_adapter_1.safetensors": "0fb2d78efb2bfd401799ed6c6c0c911371a0717510c237660ffc7f444f9299d7",
+    "step95_models/step95_typeform_distilbert_error_adapter_2.safetensors": "21a95e712c782f3cae87729f752dc1a75aec4544781385e2997875d2a88bf88f",
+    "step95_models/step95_typeform_distilbert_error_adapter_3.safetensors": "db523e23468b0ba7acd65e1eacf6b8de962dd55a5b348c58a8f0d6554ba969d2"
+  },
+  "selected_condition": {
+    "partition": "selector_verify",
+    "tau": 0.05,
+    "loss_cap": 0.01,
+    "trigger_cap": 0.05,
+    "thresholds": [
+      0.9592984616756439,
+      0.9520889520645142,
+      0.9587028622627258,
+      0.9531120955944061
+    ],
+    "alias_losses": [
+      0.008761904761904749,
+      0.008761904761904749,
+      0.007238095238095266,
+      0.008952380952380934
+    ],
+    "trigger_fractions": [
+      0.012,
+      0.01180952380952381,
+      0.010095238095238095,
+      0.01219047619047619
+    ],
+    "coordinate_wise_nonimproving": true,
+    "runs": 1500,
+    "mean_terminal_delta": 0.0004986666666666671,
+    "mean_active_minus_fixed_terminal_delta": 0.0004986666666666671,
+    "mean_cumulative_delta": 0.05055733333333333,
+    "mean_fixed_terminal_delta": 0.0,
+    "mean_fixed_cumulative_delta": 0.0,
+    "max_abs_fixed_terminal_delta": 0.0,
+    "max_abs_fixed_cumulative_delta": 0.0,
+    "fixed_root_history_exact": true,
+    "path_change_rate": 0.9933333333333333,
+    "query_set_change_rate": 0.992,
+    "final_root_change_rate": 0.21133333333333335,
+    "search_rank": 5,
+    "search_mean_terminal_delta": 0.00037500000000000033,
+    "search_mean_active_minus_fixed_terminal_delta": 0.00037500000000000033,
+    "search_mean_cumulative_delta": 0.040514999999999995,
+    "inference": {
+      "terminal": {
+        "mean": 0.0004986666666666671,
+        "median": 0.0,
+        "bootstrap_95": [
+          0.00026400000000000024,
+          0.0007306666666666673
+        ],
+        "one_sided_signflip_p": 1.999980000199998e-05,
+        "positive_fraction": 0.11733333333333333,
+        "negative_fraction": 0.07666666666666666,
+        "zero_fraction": 0.806
+      },
+      "active_minus_fixed_terminal": {
+        "mean": 0.0004986666666666671,
+        "median": 0.0,
+        "bootstrap_95": [
+          0.00026533333333333357,
+          0.000733333333333334
+        ],
+        "one_sided_signflip_p": 1.999980000199998e-05,
+        "positive_fraction": 0.11733333333333333,
+        "negative_fraction": 0.07666666666666666,
+        "zero_fraction": 0.806
+      },
+      "cumulative": {
+        "mean": 0.05055733333333333,
+        "median": 0.0040000000000000036,
+        "bootstrap_95": [
+          0.042609299999999996,
+          0.058890766666666663
+        ],
+        "one_sided_signflip_p": 9.99990000099999e-06,
+        "positive_fraction": 0.5073333333333333,
+        "negative_fraction": 0.254,
+        "zero_fraction": 0.23866666666666667
+      }
+    }
+  },
+  "development_gates": {
+    "all_four_distinct_adapters_at_least_ten_million_parameters": true,
+    "raw_input_endpoint_has_no_forbidden_runtime_input": true,
+    "same_literal_similarity": true,
+    "parent_best_on_search_and_verification": true,
+    "another_verification_root_at_least_half_point_worse": true,
+    "coordinate_wise_nonimproving_threshold_search_verify": true,
+    "alias_losses_at_most_one_point_threshold_search_verify": false,
+    "search_and_verification_path_change_at_least_half": true,
+    "search_and_verification_terminal_mean_at_least_half_point": false,
+    "search_and_verification_active_minus_fixed_mean_at_least_half_point": false,
+    "verification_terminal_lower_positive_and_p_at_most_point05": true,
+    "verification_active_lower_positive_and_p_at_most_point05": true,
+    "verification_cumulative_mean_and_lower_positive": true,
+    "verification_fixed_query_exact_zero": true
+  },
+  "test_input": {
+    "file": "step95_test_inputs/mnli_matched_test_inputs.json",
+    "sha256": "89e3403c7b8d37399bef5f09208c31b15475575cc9ac4f74ee17b732aabf4392",
+    "rows": 9815,
+    "contains_labels": false,
+    "contains_genre": false
+  },
+  "sealed_outcome": {
+    "file": "external_data/step95_sealed/mnli_matched_sealed_outcomes.npz",
+    "sha256": "6fd0d069a7e407e8e37f0ce748b5937073208511122f1b313666eaf268ffe4c0",
+    "rows": 9815
+  },
+  "construction_access": {
+    "test_reference": false,
+    "test_item_lookup": false,
+    "peer_outputs_in_adapter_training_or_runtime": false,
+    "runtime_fields": [
+      "premise",
+      "hypothesis"
+    ]
+  },
+  "code_sha256": {
+    "step93_common.py": "cbb4df4ccba18d386f710fbc2dd98fbf83ff266c237fffd523fc1b9dc5c89ccd",
+    "step95_common.py": "687f9899e7f8a7ea8d3a1c244ec85e3844f72ffde763d875daa1d14a38ea93c8",
+    "step95_executable_adapter_endpoint.py": "50e8c3e91915c2631362268e56bc3c78313443f688534506327a981d77029a67",
+    "step95_stagea_develop.py": "6c17df1b8eb206dd5c4da6f86604dcdcea12a5659ed3032285a633df6edb1b9f"
+  }
+}

@@ -1,0 +1,74 @@
+      Under review as a conference paper at ICLR 2027
+
+
+
+
+810
+      C    NATURAL E XACT-A LIAS AUDIT
+811
+812
+      The natural anchor is selected by the unique intersection of exact response-and-oracle pairs across
+813
+      MedQA, GSM8K, and OpenBookQA, before running the base-versus-refined selector comparison.
+814   The 30-entry stable-order quotient retains frozen index 9; the original 31-entry roster restores index
+815   10 and maps it to root 9. A primary task is path-material at path-change fraction at least .10 and
+816   one mean changed position; it is outcome-material at |∆CReg| ≥ .1, a zero-excluding interval,
+817   and three-task BH q < .05. Across 21 prespecified temperature/budget cells, all cells are path-
+818   material and 14 have family-corrected cumulative-regret differences, split into five harms and nine
+819   improvements. Candidate-invariant random acquisition gives exact query, root-path, cumulative-
+820   regret, and terminal-regret equality in every primary task. The complete Step 50 arrays are stored at
+821   SHA-256 14B77BD3...B0F8EA4.
+822   A subsequent descriptive replay distinguishes changed positions from unique labels. Mean base-only
+823   query counts are 4.358, 1.420, and .960; query sets differ in 94.0%, 87.4%, and 66.0% of runs. Mean
+824   first divergence occurs at steps 1.486, 3.698, and 4.690, while mean changed root-decision positions
+825   are 10.592, 2.902, and 2.012. The 5% replacement threshold is an analyst-chosen heuristic defined
+826   after aggregate Jaccards were known, not confirmatory evidence. Raw arrays and exact random con-
+827   trols are stored in STEP52 OPERATIONAL SIGNIFICANCE RESULTS 2026-08-09.json
+828
+      (SHA-256 BB70CEFD...E372FA).
+829
+830   D    CODA O FFICIAL -C ODE AUDIT
+831
+832   The official implementation is locked at commit 6c95b7f8. A prediction-only rule—fixed before
+833   labels—selects one parent from the lowest-consensus quartile by the increase in initial family
+834   PBest mass after adding four variants. The near variants use qj = (1 − ϵj )p + ϵj /C for ϵj ∈
+835   {.0005, .001, .0015, .002}, preserving every hard prediction and correctness value while changing
+836   probability tensors. Exact4 is the multiplicity control. CODA’s EIG configuration and a 30-label
+837   budget are fixed; only CoLA activates the public stochastic tie flag, for which all ten frozen seeds are
+838   paired.
+839
+840
+      Table 5: Locked official-code CODA near4 audit. All tasks change their ordered path; exact4 gives
+841
+      the same task-level effects. WNLI (†) was not used for target selection.
+842
+                         Pool    ∆ cumulative regret   First divergence   Query Jaccard   ∆ terminal regret
+843
+                         CoLA          +0.051965                     1           0.622        −0.001918
+844                      MRPC          +0.053921                     5           0.935                0
+845                      RTE           +0.841155                     2           0.818                0
+                         SST-2         −0.271789                     4           0.714        +0.002294
+846                      WNLI†         −0.014085                     1           1.000                0
+847
+848
+849   Near4 changes the ordered path on CoLA, MRPC, RTE, SST-2, and the prospectively unused
+850   WNLI pool. Cumulative-regret changes are +.051965, +.053921, +.841155, −.271789, −.014085,
+851   respectively. Exact4 gives the same task-level effects. WNLI has query-set Jaccard one and only
+852   reorders its acquisitions. Thus the audit supports cross-method path sensitivity, not response-distinct
+853   defense evasion or universal harm.
+854
+855   E    P ROSPECTIVE U NTARGETED -R EFINEMENT S TRESS T EST
+856
+857
+      After the targeted experiments were complete, we prospectively locked 14 previously unused tasks:
+858   seven official MODEL SELECTOR tasks and seven HELM MATH subjects. The audit crossed exact,
+859   near, and independent-diverse additions, producing 420 nonclean task–condition units with 32 paired
+860   runs each. All response-only scores and a 50% high-risk set were sealed before outcome access. Only
+861   35/420 effects crossed the preregistered materiality threshold: one beneficial MODEL SELECTOR
+862   effect and 34 Select-LLM effects, of which eight were harmful and 26 beneficial. Exact quotienting
+863   neutralized all exact additions, and authenticated lineage neutralized every registered exact and near
+      addition by construction.
+
+
+                                                               16
+

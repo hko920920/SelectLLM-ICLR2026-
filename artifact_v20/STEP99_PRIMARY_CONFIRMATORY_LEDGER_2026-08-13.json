@@ -1,0 +1,126 @@
+{
+  "ledger_id": "STEP99_ANLI_DEVELOPMENT_INFORMED_SEALED_PRIMARY_V1",
+  "date": "2026-08-13",
+  "decision": "NO_GO_RETAIN_STEP99_NEGATIVE",
+  "failed_gates": [
+    "each_alias_quality_loss_at_most_one_point",
+    "terminal_mean_at_least_half_point",
+    "active_minus_fixed_terminal_mean_at_least_half_point",
+    "terminal_inference_positive",
+    "active_minus_fixed_terminal_inference_positive",
+    "cumulative_inference_positive"
+  ],
+  "gates": {
+    "lock_and_all_bound_hashes_match": true,
+    "step98_no_go_and_independent_reconstruction_retained": true,
+    "four_distinct_large_adapters": true,
+    "endpoint_runtime_signature_allowed": true,
+    "preoutcome_predictions_bound_and_reconstructed": true,
+    "same_literal_similarity_for_acquisition_and_evidence": true,
+    "coordinate_wise_nonimproving": true,
+    "each_alias_quality_loss_at_most_one_point": false,
+    "path_change_at_least_half": true,
+    "parent_to_challenger_exceeds_reverse": true,
+    "fixed_query_exact_zero": true,
+    "terminal_mean_at_least_half_point": false,
+    "active_minus_fixed_terminal_mean_at_least_half_point": false,
+    "terminal_inference_positive": false,
+    "active_minus_fixed_terminal_inference_positive": false,
+    "cumulative_inference_positive": false
+  },
+  "provenance": {
+    "step98_original_decision_unchanged": "NO_GO_STEP98_DEVELOPMENT_STOP",
+    "step98_only_failed_auxiliary_gate": "clean_parent_terminal_rate_at_least_60pct",
+    "step99_protocol_written_before_sealed_outcome_open": true,
+    "development_informed_not_before_all_data_preregistered": true
+  },
+  "lock_file": "STEP99_PREOUTCOME_LOCK_2026-08-13.json",
+  "lock_sha256": "7c6fa74d02617529002f4afeda78547ea3cad6395274cccaf38a84d9606ee5f3",
+  "sealed_file": "external_data/step98_sealed/anli_r3_dev_sealed_outcomes.npz",
+  "sealed_sha256": "1349139f995a9535c5f8fad38309dbee884cc41d58914f9084b43812b0d8a106",
+  "sealed_outcome_opened_once_for_primary": true,
+  "rows": 1200,
+  "runs": 3000,
+  "quality": {
+    "loss_counts": [
+      10,
+      10,
+      14,
+      11
+    ],
+    "allowed_loss_count": 12,
+    "loss_fractions": [
+      0.008333333333333333,
+      0.008333333333333333,
+      0.011666666666666667,
+      0.009166666666666667
+    ],
+    "trigger_counts": [
+      31,
+      29,
+      51,
+      34
+    ],
+    "trigger_fractions": [
+      0.025833333333333333,
+      0.024166666666666666,
+      0.0425,
+      0.028333333333333332
+    ],
+    "coordinate_wise_nonimproving": true
+  },
+  "effects": {
+    "terminal": {
+      "mean": -0.000666666666666667,
+      "median": 0.0,
+      "bootstrap_95": [
+        -0.0011860000000000002,
+        -0.00014533333333333366
+      ],
+      "one_sided_signflip_p": 0.994290057099429,
+      "positive_fraction": 0.214,
+      "negative_fraction": 0.25133333333333335,
+      "zero_fraction": 0.5346666666666666
+    },
+    "active_minus_fixed_terminal": {
+      "mean": -0.000666666666666667,
+      "median": 0.0,
+      "bootstrap_95": [
+        -0.0011820000000000003,
+        -0.00014866666666666652
+      ],
+      "one_sided_signflip_p": 0.994290057099429,
+      "positive_fraction": 0.214,
+      "negative_fraction": 0.25133333333333335,
+      "zero_fraction": 0.5346666666666666
+    },
+    "cumulative": {
+      "mean": -0.007008000000000001,
+      "median": 0.0,
+      "bootstrap_95": [
+        -0.011406750000000004,
+        -0.002463250000000003
+      ],
+      "one_sided_signflip_p": 0.99890001099989,
+      "positive_fraction": 0.4186666666666667,
+      "negative_fraction": 0.46,
+      "zero_fraction": 0.12133333333333333
+    }
+  },
+  "mechanism": {
+    "path_change_rate": 0.9863333333333333,
+    "query_set_change_rate": 0.9863333333333333,
+    "final_root_change_rate": 0.486,
+    "clean_parent_terminal_rate": 0.33766666666666667,
+    "refined_parent_terminal_rate": 0.31566666666666665,
+    "parent_to_challenger_rate": 0.14933333333333335,
+    "challenger_to_parent_rate": 0.12733333333333333,
+    "max_abs_fixed_terminal_delta": 0.0,
+    "max_abs_fixed_cumulative_delta": 0.0,
+    "fixed_root_history_bitwise_equal": true
+  },
+  "arrays_file": "STEP99_PRIMARY_CONFIRMATORY_ARRAYS_2026-08-13.npz",
+  "arrays_sha256": "82e73192e3d5e0719d42660c785eb11c9e2da24714407cd26678d75d3e9a0387",
+  "preoutcome_prediction_sha256": "9adbed0bb0004166c51d2b99d1c4d7f3e31bec3c7c259d988e591871b1b67fe3",
+  "code_sha256": "59d95f1089099cd3a62c48e9148f136fc9f0ff50ad9ac94807461b4e83a652b9"
+}

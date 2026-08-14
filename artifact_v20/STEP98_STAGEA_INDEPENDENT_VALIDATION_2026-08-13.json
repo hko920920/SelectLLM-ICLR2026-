@@ -1,0 +1,46 @@
+{
+  "validation_id": "STEP98_STAGEA_INDEPENDENT_VALIDATION_V1",
+  "date": "2026-08-13",
+  "decision": "PASS_STEP98_STAGEA_RECONSTRUCTION_RETAIN_ORIGINAL_NO_GO",
+  "original_step98_decision_unchanged": "NO_GO_STEP98_DEVELOPMENT_STOP",
+  "checks": {
+    "stagea_declared_no_go": true,
+    "only_failed_gate_is_clean_parent_frequency": true,
+    "round_selection_reconstructed": true,
+    "ledger_and_array_hashes_bound": true,
+    "sealed_hash_bound_without_loading_outcome": true,
+    "partitions_disjoint_and_complete": true,
+    "root_and_score_shapes": true,
+    "adapter_files_match_locked_hashes": true,
+    "endpoint_signature_raw_input_only": true,
+    "quality_reconstructed": true,
+    "search_all_saved_vectors_bitwise": true,
+    "search_fixed_exact_zero": true,
+    "verify_all_saved_vectors_bitwise": true,
+    "verify_fixed_exact_zero": true,
+    "verification_inference_reconstructed": true,
+    "core_development_outcome_gates_all_pass": true,
+    "failed_auxiliary_gate_not_mathematically_required_for_harm": true
+  },
+  "failed_checks": [],
+  "recomputed": {
+    "search_terminal_pp": 3.7664999999999997,
+    "verify_terminal_pp": 3.195733333333332,
+    "verify_terminal_ci_pp": [
+      2.8570666666666664,
+      3.541873333333332
+    ],
+    "verify_active_ci_pp": [
+      2.8519566666666654,
+      3.530546666666665
+    ]
+  },
+  "authority_sha256": {
+    "STEP98_STAGEA_DEVELOPMENT_ARRAYS_2026-08-13.npz": "9426c5195b27b095bf9c08f607af35f35be58a14e96b4c907c4eeb969ef72c19",
+    "STEP98_STAGEA_COMPLETE_LEDGER_2026-08-13.json": "af52b01d0d6c3ecb66fa6be2fe0f4360b3306ff98ebdc881e69ef29df17d1f48",
+    "STEP98_STAGEA_FROZEN_CONFIG_2026-08-13.json": "913e01e76907da4b2179b4742cc5ad50272e51afb178c4aefb20bafb8ddbb618",
+    "STEP98_TRAIN_ONLY_ROUND_SELECTION_2026-08-13.json": "fd5ae8f142c902e1c3ced019c0f7b6d900a19f1919946e22207fe8b1ed0e30d4",
+    "step98_validate_stagea_independent.py": "a38dd5ded4d8fb934491c18b9f91c4d0a4254f0d2035c66e03a01b4734d1929f"
+  },
+  "sealed_outcome_loaded": false
+}

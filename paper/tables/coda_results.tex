@@ -1,0 +1,18 @@
+\begin{table}[H]
+\centering
+\caption{Locked official-code CODA near4 audit. All tasks change their ordered path; exact4 gives the same task-level effects. WNLI ($\dagger$) was not used for target selection.}
+\label{tab:coda}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Pool & $\Delta$ cumulative regret & First divergence & Query Jaccard & $\Delta$ terminal regret \\
+\midrule
+CoLA       & $+0.051965$ & 1 & 0.622 & $-0.001918$ \\
+MRPC       & $+0.053921$ & 5 & 0.935 & $0$ \\
+RTE        & $+0.841155$ & 2 & 0.818 & $0$ \\
+SST-2      & $-0.271789$ & 4 & 0.714 & $+0.002294$ \\
+WNLI$\dagger$ & $-0.014085$ & 1 & 1.000 & $0$ \\
+\bottomrule
+\end{tabular}
+\end{table}

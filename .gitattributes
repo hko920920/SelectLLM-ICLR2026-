@@ -1,0 +1,8 @@
+*.safetensors filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text
+*.npz -text
+*.pdf -text
+
+# Scientific artifacts are byte-bound. Never normalize their line endings.
+artifact_v20/** -text
+post_v20/** -text

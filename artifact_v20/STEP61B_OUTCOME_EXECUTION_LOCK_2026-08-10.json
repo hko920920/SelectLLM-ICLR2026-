@@ -1,0 +1,53 @@
+{
+  "manifest_id": "STEP61B_OUTCOME_EXECUTION_LOCK_V1",
+  "created_at_kst": "2026-08-10",
+  "purpose": "Freeze all Stage B scientific logic, outcome alignment, statistics, promotion gates, and upstream blind artifacts before opening any previously unseen per-instance outcome data.",
+  "bound_sha256": {
+    "protocol": "48166a731cd7e160cdb9c192dc6b8ed2eed0dfee46e06819082c1cde808cb205",
+    "scenario_manifest": "92ed8cac38b3bfd4519ee0934afc170d69017842803a36d06bd49209ee475349",
+    "stage_a_results": "92cc334bbfda298da1ae158135f7d77f3f2122e7d403a0790d39ecdc87dd1f7f",
+    "stage_a_risk": "6a73bd3c9e8bd01abd012b87e211f987d67358e92f2eaa400206337bf40a5702",
+    "stage_a_output_lock": "d3d75da2b6b908e16e24b007c5b4d2436ba795a040d214b2b2b5e8b7718e5459",
+    "stage_a_common": "2ed5a3edd1b92e613d3d6cb38d1baad07e65521bbdc9cf1bf60b2e8d04409c26",
+    "stage_a_runner": "e307032cab89f8fdf2f09aa40e50bcd19586114d3c894493318a70b0e8ce76f8",
+    "stage_b_runner": "aec662b295af253d992b5f0aa00ef1dc6d1deb15ac98b3d17296a294b054435a",
+    "integrity_deviation": "9f09192ae6fcdb686a05661f48a9ab21a8cb8eda882faff1163e2697d803a9c3"
+  },
+  "preoutcome_code_audit": {
+    "runner_sha256": "ee5e37ff00d6d1850ba13e0f5004cd905bb557b44cdd9e679e13baaa1559badb",
+    "report_sha256": "17fa341dd2cc6f5094301326a5421f3b5c41c4f6822e665ba891e78102f27b51",
+    "checks_passed": 28,
+    "checks_total": 28,
+    "verdict": "READY_TO_HASH_LOCK_STAGE_B"
+  },
+  "frozen_evaluation": {
+    "tasks": 14,
+    "nonclean_units": 420,
+    "selector_families": [
+      "model_selector",
+      "select_llm"
+    ],
+    "materiality_threshold_absolute_normalized_cumulative_regret": 0.01,
+    "task_block_permutations": 10000,
+    "task_bootstraps": 10000,
+    "baseline_scores": [
+      "count_distance",
+      "first_query_change_fraction",
+      "path_hamming",
+      "path_jaccard",
+      "static_mass_rank_displacement"
+    ]
+  },
+  "frozen_promotion_gates": {
+    "G1_magnitude": "ERFA Spearman correlation with absolute effect >= 0.60 and task-block permutation p < 0.01",
+    "G2_materiality": "ERFA materiality AUROC >= 0.75 and sealed-threshold sensitivity >= 0.65 and specificity >= 0.65",
+    "G3_adaptive_value": "task-bootstrap 95% lower confidence bound for ERFA AUROC minus the best baseline AUROC > 0",
+    "G4_cross_selector": "ERFA AUROC exceeds the best baseline AUROC separately in both selector families",
+    "G5_selective_fallback": "harmful exact/near excess regret reduced by >= 0.50 with active-mode coverage >= 0.50",
+    "G6_nonvacuity_control": "at least one third of diverse controls remain low risk and ERFA AUROC exceeds count-distance AUROC",
+    "all_six": "METHOD_PROMOTION_GO",
+    "G1_and_G2_only_or_more_but_not_all": "DIAGNOSTIC_ONLY_NO_GO",
+    "otherwise": "STOP_FRAGILITY_PIVOT"
+  },
+  "outcomes_permitted_after_verification": true
+}

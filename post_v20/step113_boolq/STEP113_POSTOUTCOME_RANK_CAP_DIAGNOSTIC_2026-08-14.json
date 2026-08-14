@@ -1,0 +1,108 @@
+{
+  "schema": "step113.postoutcome_rank_cap_diagnostic.v1",
+  "date": "2026-08-14",
+  "status": "POSTOUTCOME_DIAGNOSTIC_NOT_CONFIRMATORY_NOT_PROMOTABLE",
+  "motivation": "isolate fixed-threshold distribution shift from mechanism failure",
+  "source_primary_decision": "NO_GO_STEP113_PRIMARY_CONFIRMATION",
+  "source_preoutcome_predictions_sha256": "db482a2784f4f6d7c4357105368d5bb4b253a1bff089087a093ef2b622f4d52e",
+  "rank_rule": {
+    "per_alias_top_rows": 32,
+    "fraction": 0.009785932721712538,
+    "score_only": true,
+    "label_used_to_construct_alias": false,
+    "rule_defined_after_outcome": true
+  },
+  "trigger_counts": [
+    32,
+    32,
+    32,
+    32
+  ],
+  "quality": {
+    "parent_accuracy": 0.8798165137614679,
+    "alias_accuracy": [
+      0.8740061162079511,
+      0.8740061162079511,
+      0.8737003058103976,
+      0.8733944954128441
+    ],
+    "improvement_counts": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "loss_counts": [
+      19,
+      19,
+      20,
+      21
+    ],
+    "coordinate_wise_nonimproving": true,
+    "loss_within_one_point": true
+  },
+  "summary": {
+    "terminal_mean": 0.0076539999999999985,
+    "active_minus_fixed_terminal_mean": 0.0076539999999999985,
+    "cumulative_mean": 0.0007639999999999941,
+    "path_change_rate": 1.0,
+    "final_root_change_rate": 0.6323333333333333,
+    "clean_parent_terminal_rate": 0.5033333333333333,
+    "refined_parent_terminal_rate": 0.5683333333333334,
+    "parent_to_challenger_rate": 0.213,
+    "challenger_to_parent_rate": 0.278,
+    "max_abs_fixed_terminal_delta": 0.0,
+    "max_abs_fixed_cumulative_delta": 0.0,
+    "fixed_root_history_exact": true,
+    "terminal": {
+      "mean": 0.0076539999999999985,
+      "median": 0.0,
+      "bootstrap_95": [
+        0.004637299999999998,
+        0.010658699999999998
+      ],
+      "one_sided_signflip_p": 9.99990000099999e-06,
+      "positive_fraction": 0.31766666666666665,
+      "negative_fraction": 0.31333333333333335,
+      "zero_fraction": 0.369
+    },
+    "active_minus_fixed_terminal": {
+      "mean": 0.0076539999999999985,
+      "median": 0.0,
+      "bootstrap_95": [
+        0.004655099999999998,
+        0.010626683333333331
+      ],
+      "one_sided_signflip_p": 9.99990000099999e-06,
+      "positive_fraction": 0.31766666666666665,
+      "negative_fraction": 0.31333333333333335,
+      "zero_fraction": 0.369
+    },
+    "cumulative": {
+      "mean": 0.0007639999999999941,
+      "median": 0.0,
+      "bootstrap_95": [
+        -0.004390116666666674,
+        0.006024733333333327
+      ],
+      "one_sided_signflip_p": 0.3854661453385466,
+      "positive_fraction": 0.345,
+      "negative_fraction": 0.4266666666666667,
+      "zero_fraction": 0.22833333333333333
+    }
+  },
+  "gates_if_the_rule_had_been_prelocked": {
+    "aliases_response_distinct": true,
+    "coordinate_wise_nonimproving": true,
+    "quality_loss_within_one_point": true,
+    "path_change_at_least_half": true,
+    "directionality": false,
+    "fixed_query_exact_zero": true,
+    "terminal_mean_at_least_half_point": true,
+    "active_minus_fixed_mean_at_least_half_point": true,
+    "terminal_inference_positive": true,
+    "active_minus_fixed_inference_positive": true,
+    "cumulative_inference_positive": false
+  },
+  "interpretation_constraint": "may design a future sealed test; cannot rescue Step 113"
+}

@@ -1,0 +1,53 @@
+{
+  "config_id": "STEP89_QNLI_EXECUTABLE_ADAPTER_CONFIRMATORY_V1",
+  "dataset_revision": "bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c",
+  "model_name": "cross-encoder/qnli-distilroberta-base",
+  "model_revision": "7dd04ee0a6040c06fb381ad7edcb8585f4d937fd",
+  "positive_logit_maps_to_label": 0,
+  "selected": {
+    "roster_size": 12,
+    "pool_size": 400,
+    "budget": 20,
+    "tau": 0.25,
+    "bins": 8,
+    "scale_set": "owner_only_extreme",
+    "roster_indices": [
+      24,
+      58,
+      15,
+      87,
+      19,
+      63,
+      41,
+      77,
+      27,
+      42,
+      66,
+      71
+    ]
+  },
+  "adapter_log_scales": [
+    -2.0,
+    -1.5,
+    1.5,
+    2.0
+  ],
+  "adapter_sha256": {
+    "step89_adapter_0.safetensors": "4d8582f29c700fbe069ffa7576611bcafdbc8e25cdebbf65cfa81900cb8cc76c",
+    "step89_adapter_1.safetensors": "63698f725aa237d1e4130d26510acb98f22062a29da389a8de72ebf989607bfa",
+    "step89_adapter_2.safetensors": "72d17e48e50d6535c04b46f970c614ad2d89c0c1dd42ae5f8c6ef8e7f5982b10",
+    "step89_adapter_3.safetensors": "918bceb6e73a760a5cc3cdbf653b313c3396626c3fb4badbeadf3d0a05319c05"
+  },
+  "stagea_search_ledger_sha256": "0f3fbfddf0a58b3286ac7b5603ba5bd7b0851058ae1c1f5f05451ced426902d2",
+  "calibration_parent_accuracy": 0.9096989966555183,
+  "calibration_mean_terminal_delta": 0.002241666666666661,
+  "calibration_path_change_rate": 0.9866666666666667,
+  "construction_access": {
+    "train_or_calibration_labels": true,
+    "calibration_peer_matrix_for_condition_selection": true,
+    "holdout_labels": false,
+    "holdout_peer_matrix": false,
+    "holdout_parent_or_adapter_outputs": false,
+    "item_lookup_table": false
+  }
+}

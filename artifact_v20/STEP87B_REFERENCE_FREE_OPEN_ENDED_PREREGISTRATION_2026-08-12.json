@@ -1,0 +1,138 @@
+{
+  "manifest_id": "STEP87B_REFERENCE_FREE_OPEN_ENDED_TERMINAL_V1",
+  "frozen_local_date": "2026-08-12",
+  "status_before_execution": "PREREGISTERED_AFTER_STEP87A_SOURCE_FAILURE_AND_BEFORE_ANY_STEP87B_CONTENT_OR_OUTCOME_DOWNLOAD",
+  "purpose": "Test whether a calibration-frozen, reference-free registry refinement produces terminal root-level active-selection harm on fresh open-ended QA and translation tasks while changing at most one percent of a parent's bounded utility.",
+  "provenance_and_non_cherry_picking": {
+    "why_separate": "Step 87A failed structurally because its 18 frozen MMLU subjects do not exist in HELM-Lite v1.0.0. Step 87A remains a no-go and is not amended.",
+    "information_used_to_choose_step87b": "Only GCS object-prefix metadata, model/file availability, scenario names, and an exact local project-name search. No Step 87B prompt, prediction, per-instance statistic, reference, aggregate score, selector outcome, or attack outcome was downloaded or inspected.",
+    "freshness": "Exact scenario-name search returned no pre-Step-87B project artifact for all eight scenarios.",
+    "coverage_reason": "The eight untouched complete-roster scenarios exhaust the fresh non-LegalBench HELM-Lite v1.0.0 scenarios left after excluding all tasks previously analyzed by this project; they add open-ended reading comprehension, knowledge QA, and five translation language pairs.",
+    "forbidden_replacement": "No frozen scenario may be replaced after this file is locked, including after a schema failure or unfavorable result."
+  },
+  "public_source": {
+    "dataset": "HELM Lite benchmark outputs",
+    "version": "v1.0.0",
+    "base_url": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/runs/v1.0.0/",
+    "candidate_models": [
+      "01-ai_yi-34b",
+      "01-ai_yi-6b",
+      "AlephAlpha_luminous-base",
+      "AlephAlpha_luminous-extended",
+      "AlephAlpha_luminous-supreme",
+      "ai21_j2-grande",
+      "ai21_j2-jumbo",
+      "anthropic_claude-2.0",
+      "anthropic_claude-2.1",
+      "anthropic_claude-instant-1.2",
+      "anthropic_claude-instant-v1",
+      "anthropic_claude-v1.3",
+      "cohere_command-light",
+      "cohere_command",
+      "google_text-bison@001",
+      "google_text-unicorn@001",
+      "meta_llama-2-13b",
+      "meta_llama-2-70b",
+      "meta_llama-2-7b",
+      "meta_llama-65b",
+      "mistralai_mistral-7b-v0.1",
+      "mistralai_mixtral-8x7b-32kseqlen",
+      "openai_gpt-3.5-turbo-0613",
+      "openai_gpt-4-0613",
+      "openai_gpt-4-1106-preview",
+      "openai_text-davinci-002",
+      "openai_text-davinci-003",
+      "tiiuae_falcon-40b",
+      "tiiuae_falcon-7b",
+      "writer_palmyra-x-v2",
+      "writer_palmyra-x-v3"
+    ],
+    "response_canonicalization": "Use stripped mapped_output when non-null, otherwise stripped predicted_text; preserve the full Unicode string and prefix an actually empty result with EMPTY:.",
+    "utility_rule": {
+      "ordered_metric_keys": ["f1_score", "quasi_exact_match", "exact_match", "bleu_4", "bleu"],
+      "selection": "For each scenario, choose the first listed key present for every example of every frozen model. No observed attack effect enters metric selection.",
+      "range": "Every recorded per-instance utility must lie in [0,1].",
+      "alias_changed_coordinate_utility": "The wrapper emits a task- and alias-specific opaque abstention token. Its utility is fixed at zero only after an integrity check that the alphanumeric token is absent from every sealed reference; otherwise the whole scenario fails structurally rather than being repaired.",
+      "alias_unchanged_coordinate_utility": "Inherit the selected parent's recorded utility exactly."
+    }
+  },
+  "frozen_scenarios": {
+    "narrativeqa": "narrative_qa",
+    "naturalqa_closed": "natural_qa:mode=closedbook",
+    "naturalqa_open": "natural_qa:mode=openbook_longans",
+    "wmt_cs_en": "wmt_14:language_pair=cs-en",
+    "wmt_de_en": "wmt_14:language_pair=de-en",
+    "wmt_fr_en": "wmt_14:language_pair=fr-en",
+    "wmt_hi_en": "wmt_14:language_pair=hi-en",
+    "wmt_ru_en": "wmt_14:language_pair=ru-en"
+  },
+  "structural_eligibility": {
+    "required": [
+      "All 31 frozen models have the same unique instance IDs.",
+      "The scenario contains at least 200 examples so both halves contain at least 100.",
+      "One frozen ordered metric key is present for every model-example pair and all values lie in [0,1].",
+      "Every instance contains at least one reference string.",
+      "Every opaque abstention token is alphanumerically absent from every reference string."
+    ],
+    "failure_policy": "Mark that frozen scenario structurally failed, report it, and do not replace it. A global separation failure forces NO_TERMINAL_PROMOTION."
+  },
+  "split_and_separation": {
+    "rule": "For each scenario, sort examples by SHA-256 of compact JSON [manifest_id, split, task, public instance ID]. The first floor(N/2) form labeled calibration and the remainder form sealed holdout.",
+    "calibration": "May include all candidate responses, selected per-instance utilities, prompts, and references.",
+    "blind_parent_input": "One file per candidate and task containing only IDs, prompts, and that parent's output.",
+    "stage_a": "Selects all attack hyperparameters from calibration, then opens only the selected parent's blind holdout file. It may not read holdout references, peer outputs, utilities, pools, or selector state.",
+    "stage_b": "May open the sealed holdout package only after the frozen attack rows and execution lock are hashed."
+  },
+  "selector_protocol": {
+    "selector": "Equation-faithful, canonical-order Select-LLM V2 exact-response backend used by the manuscript's Step 80 transfer.",
+    "candidate_tie_rule": "Canonical response-vector hash followed by accountable root ID and label hash; selected root is the minimum canonical root ID among exact score ties.",
+    "query_tie_rule": "Minimum global query ID among exact acquisition minima.",
+    "temperature_grid": [1.0, 3.0, 5.0],
+    "budget_grid": [10, 20, 40],
+    "temperature_selection": "Separately for each budget, choose the temperature minimizing clean calibration mean cumulative root regret over 200 frozen pools; ties choose the smaller temperature.",
+    "pool_size": "min(250, max(max_budget+10, floor(0.8 * split_size)))",
+    "calibration_runs": 200,
+    "holdout_runs": 1000,
+    "calibration_seed_block": [88200, 88399],
+    "holdout_seed_block": [88400, 89399]
+  },
+  "attack_protocol": {
+    "aliases": 4,
+    "distance_fraction_grid": [0.005, 0.01],
+    "distance_realization": "max(1, floor(fraction * split_size)) changed coordinates per alias.",
+    "quality_bound": "Because utilities are bounded in [0,1] and only changed coordinates are assigned zero, each alias can lose at most its declared distance fraction in mean utility and can never improve through the intervention.",
+    "error_learner": "Five-fold out-of-fold TF-IDF bigram ridge regression predicts continuous calibration error 1-utility from prompt and parent output; refit on all calibration data for blind holdout scoring.",
+    "prediction_only_target_screen": "Before attacked calibration scoring, retain the five parent roots with greatest exact-clone first-query change fraction on calibration responses and pools; ties use model name.",
+    "support_policy_grid": ["disjoint_top", "overlap_top", "shared_top"],
+    "replacement": "At a selected coordinate, emit ZZZQXVSTEP87B plus task digest plus alias index. The builder derives it without references or peer responses.",
+    "calibration_selection": "Across the five screened parents, three support policies, two distances, and three budgets, maximize mean adaptive-minus-fixed terminal root-regret effect; ties maximize active terminal root harm, then adaptive-minus-fixed cumulative root harm, then choose smaller distance, budget, parent index, and policy name.",
+    "holdout_runtime_inputs": ["prompt", "parent_output"]
+  },
+  "statistics_and_controls": {
+    "paired_design": true,
+    "bootstrap_repetitions": 10000,
+    "sign_flip_repetitions": 10000,
+    "multiplicity_correction": "Benjamini-Hochberg across all eight frozen scenarios, separately for active terminal root harm and adaptive-minus-fixed terminal root harm.",
+    "fixed_query_control": "Clean and refined scenarios receive byte-identical registry-independent query matrices. Since every alias utility is coordinate-wise no greater than its retained parent and the original parent remains, fixed-query root selections are expected to be identical and are verified rather than assumed.",
+    "report_all_scenarios": true
+  },
+  "scenario_pass_gate": {
+    "quality": "Every alias has holdout mean utility gap in [-0.01,0] and exact declared response distance at most 0.01.",
+    "integrity": "Four distinct non-parent response hashes; no forbidden holdout input; opaque token absent from references; fixed-query matrices byte-identical.",
+    "active_terminal_root_harm": "Paired bootstrap 95% lower bound > 0 and one-sided sign-flip BH q < 0.05.",
+    "adaptive_terminal_excess": "Per-pool active terminal delta minus fixed-query terminal delta has paired bootstrap 95% lower bound > 0 and one-sided sign-flip BH q < 0.05.",
+    "fixed_query_boundary": "The fixed-query terminal effect is always reported; any nonzero effect prevents an exact-mediation claim even if the scenario otherwise passes."
+  },
+  "overall_decision": {
+    "PROMOTE_REFERENCE_FREE_TERMINAL_BRIDGE": "At least two of eight frozen scenarios pass every scenario gate and no global separation/integrity gate fails.",
+    "NARROW_TERMINAL_BRIDGE": "Exactly one scenario passes every scenario gate and no global separation/integrity gate fails.",
+    "NO_TERMINAL_PROMOTION": "No scenario passes or a global separation/integrity gate fails."
+  },
+  "forbidden_rescues": [
+    "No scenario, model roster, target-screen size, policy, distance, budget, temperature, seed, utility key order, statistic, or gate may change after the execution lock.",
+    "No holdout-better configuration may replace the calibration-selected configuration.",
+    "No structurally failed scenario may be replaced.",
+    "Cumulative harm alone cannot satisfy the terminal bridge.",
+    "Every unfavorable or null frozen scenario remains in the report and any paper discussion."
+  ]
+}

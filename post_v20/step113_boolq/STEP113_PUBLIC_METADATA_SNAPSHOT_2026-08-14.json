@@ -1,0 +1,72 @@
+{
+  "schema": "step113.public_metadata_snapshot.v1",
+  "captured_at": "2026-08-14T12:10:00+09:00",
+  "selection_uses_row_level_boolq_data": false,
+  "prior_project_token_audit": "NO_PRIOR_BOOLQ_STUDY_TOKEN",
+  "dataset": {
+    "id": "google/boolq",
+    "revision": "35b264d03638db9f4ce671b711558bf7ff0f80d5",
+    "train_rows": 9427,
+    "validation_rows": 3270,
+    "fields": ["question", "passage", "answer"],
+    "train_blob": {
+      "path": "data/train-00000-of-00001.parquet",
+      "bytes": 3685146,
+      "blob_id": "f152937cb6c6524fa73fec33160342c37c3f568b"
+    },
+    "validation_blob": {
+      "path": "data/validation-00000-of-00001.parquet",
+      "bytes": 1257630,
+      "blob_id": "3d58243757bfad1d0808c65cdb0b48f927c58a16"
+    },
+    "primary_source": "https://huggingface.co/datasets/google/boolq/tree/35b264d03638db9f4ce671b711558bf7ff0f80d5"
+  },
+  "registry": [
+    {
+      "role": "parent",
+      "key": "nfliu_deberta_v3_large",
+      "repo_id": "nfliu/deberta-v3-large_boolq",
+      "revision": "9df67c219a86b2611c177f288b8ccc82d7b97707",
+      "card_accuracy": 0.8835,
+      "id2label": {"0": "False", "1": "True"},
+      "weight_file": "model.safetensors",
+      "weight_bytes": 1740304440
+    },
+    {
+      "role": "challenger",
+      "key": "nfliu_roberta_large",
+      "repo_id": "nfliu/roberta-large_boolq",
+      "revision": "efc939f590968d9b5055127d4aeb8a930ffa0826",
+      "card_accuracy": 0.8569,
+      "id2label": {"0": "False", "1": "True"},
+      "weight_file": "pytorch_model.bin",
+      "weight_bytes": 1421582769
+    },
+    {
+      "role": "challenger",
+      "key": "nfliu_minilmv2_l6_h768",
+      "repo_id": "nfliu/MiniLMv2-L6-H768-distilled-from-RoBERTa-Large_boolq",
+      "revision": "f31b1a94395e97a0472054793e5236fd8b7b2416",
+      "card_accuracy": 0.7379,
+      "id2label": {"0": "False", "1": "True"},
+      "weight_file": "model.safetensors",
+      "weight_bytes": 328496480
+    },
+    {
+      "role": "challenger",
+      "key": "andi611_distilbert",
+      "repo_id": "andi611/distilbert-base-uncased-qa-boolq",
+      "revision": "168ef0953f2bf4083670a8519a14db558a6f043c",
+      "card_accuracy": 0.7315,
+      "id2label": {"0": "False", "1": "True"},
+      "weight_file": "pytorch_model.bin",
+      "weight_bytes": 267863191
+    }
+  ],
+  "selection_rule": {
+    "unique_public_parent": true,
+    "parent_runner_up_card_gap": 0.0266,
+    "minimum_required_gap": 0.02,
+    "replacement_after_lock": false
+  }
+}

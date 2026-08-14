@@ -1,0 +1,65 @@
+{
+  "schema": "step114.public_metadata_snapshot.v1",
+  "captured_at": "2026-08-14T12:25:00+09:00",
+  "prior_project_token_audit": "NO_PRIOR_AMAZON_POLARITY_STUDY_TOKEN",
+  "selection_uses_row_level_data": false,
+  "dataset": {
+    "id": "fancyzhx/amazon_polarity",
+    "revision": "9d9c45c18f8c3cf1b23a3c27917b60cbf28f3289",
+    "test_rows": 400000,
+    "fields": ["label", "title", "content"],
+    "test_blob": {
+      "path": "amazon_polarity/test-00000-of-00001.parquet",
+      "bytes": 117422360,
+      "blob_id": "900e9ae3cdabec67594d957d0e7fee2860bd8e80"
+    },
+    "primary_source": "https://huggingface.co/datasets/fancyzhx/amazon_polarity/tree/9d9c45c18f8c3cf1b23a3c27917b60cbf28f3289"
+  },
+  "registry": [
+    {
+      "role": "parent",
+      "key": "adamcodd_distilbert",
+      "repo_id": "AdamCodd/distilbert-base-uncased-finetuned-sentiment-amazon",
+      "revision": "af15ca2e0c7a2779f19dc242a7e87817393ab797",
+      "card_accuracy": 0.961,
+      "model_to_native": [0, 1],
+      "weight_bytes": 267854125
+    },
+    {
+      "role": "challenger",
+      "key": "etelis_albert",
+      "repo_id": "Etelis/amazonPolarity_ALBERT_5E",
+      "revision": "099a705d29cbaf47df683b10070cb87c0560fb8b",
+      "card_accuracy": 0.9533,
+      "model_to_native": [0, 1],
+      "weight_bytes": 46754181
+    },
+    {
+      "role": "challenger",
+      "key": "fabrice_bert",
+      "repo_id": "fabriceyhc/bert-base-uncased-amazon_polarity",
+      "revision": "36abc4b1e41b52cb0904d666ea522e9434bca998",
+      "card_accuracy": 0.9465,
+      "model_to_native": [0, 1],
+      "weight_bytes": 438024063
+    },
+    {
+      "role": "challenger",
+      "key": "quinton_distilbert",
+      "repo_id": "quintonpyx/distilbert-amazon-polarity",
+      "revision": "d8abbd64ad8206b7e680bcf6a8b0a7f2938321b3",
+      "card_accuracy": 0.94,
+      "model_to_native": [0, 1],
+      "weight_bytes": 267832560
+    }
+  ],
+  "selected_parent_public_gap": 0.0077,
+  "test_partition_counts": {
+    "error_head_train": 8000,
+    "safety": 4000,
+    "target_threshold": 4000,
+    "primary_outcome": 8000
+  },
+  "replacement_after_lock": false,
+  "family_stops_retained": [105, 106, 107, 109, 110, 111, 112, 113]
+}

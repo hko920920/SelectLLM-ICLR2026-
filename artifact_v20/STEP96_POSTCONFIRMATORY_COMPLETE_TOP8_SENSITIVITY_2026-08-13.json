@@ -1,0 +1,278 @@
+{
+  "audit_id": "STEP96_POSTCONFIRMATORY_COMPLETE_TOP8_SENSITIVITY_V1",
+  "date": "2026-08-13",
+  "status": "POSTCONFIRMATORY_EXPLORATORY_NOT_PRIMARY_CONFIRMATION",
+  "primary_decision_unchanged": "NO_GO_RETAIN_STEP96_NEGATIVE",
+  "primary_failed_gates_unchanged": [
+    "alias_integer_loss_counts_at_most_one_point"
+  ],
+  "scope": {
+    "all_predeclared_top8_conditions_included": true,
+    "nominal_rows": 8,
+    "unique_tau_threshold_conditions": 2,
+    "models_adapters_thresholds_and_test_predictions_all_fixed_before_test_open": true,
+    "analysis_authorized_only_after_primary_test_open": true,
+    "confirmatory_status": false
+  },
+  "bound_sha256": {
+    "stagea_ledger": "87c54d3299374fc7b6f396c28356b4569cf989c5acf840b894a37f14cc07ad54",
+    "preoutcome_predictions": "0062d2b431d837cf5a06c087205e4e9799e4caadc7b1e2252462cb2e71e92aa2",
+    "sealed_outcome": "0c475a4c0c635507303494b248e707903c6e873ee8a392be4e19faa6a3116766",
+    "primary_results": "41fb12b9797cc592b64a53cb2861b5c39c2e90454e62c6a9e8fd5f3eb60ae901",
+    "raw": "abe83b22c879e065114577af36bf93ee43d98cae855f52ebb8ef88affb9e1dad",
+    "audit_code": "6268e8626bdb30ca6e2c682e8de18b14039c08809c6d075179a47e27d62d76d0"
+  },
+  "unique_conditions": [
+    {
+      "canonical_key": "6817ce1f1baa6253c2ccd394a976795114ea8c33807960d49a89c769f2b5a8d4",
+      "representative_search_rank": 1,
+      "tau": 0.025,
+      "loss_cap": 0.01,
+      "trigger_caps_with_identical_thresholds": [
+        0.05,
+        0.1,
+        0.2,
+        0.3
+      ],
+      "thresholds": [
+        0.9727437496185303,
+        0.9742797613143921,
+        0.9758703410625458,
+        0.9771503210067749
+      ],
+      "loss_counts": [
+        93,
+        100,
+        88,
+        86
+      ],
+      "allowed_loss_count": 98,
+      "loss_fractions": [
+        0.009466612377850164,
+        0.01017915309446254,
+        0.008957654723127036,
+        0.008754071661237785
+      ],
+      "trigger_fractions": [
+        0.015879478827361564,
+        0.016286644951140065,
+        0.014047231270358305,
+        0.013843648208469055
+      ],
+      "path_change_rate": 0.9913333333333333,
+      "query_set_change_rate": 0.9913333333333333,
+      "final_root_change_rate": 0.16233333333333333,
+      "clean_parent_terminal_rate": 0.934,
+      "refined_parent_terminal_rate": 0.8503333333333334,
+      "parent_to_challenger_rate": 0.12066666666666667,
+      "challenger_to_parent_rate": 0.037,
+      "inference": {
+        "terminal": {
+          "mean": 0.01630533333333334,
+          "median": 0.0,
+          "bootstrap_95": [
+            0.013577900000000004,
+            0.019018733333333336
+          ],
+          "one_sided_signflip_p": 9.99990000099999e-06,
+          "positive_fraction": 0.12366666666666666,
+          "negative_fraction": 0.03866666666666667,
+          "zero_fraction": 0.8376666666666667,
+          "holm_q_across_unique_top8_conditions": 1.999980000199998e-05
+        },
+        "active_minus_fixed_terminal": {
+          "mean": 0.01630533333333334,
+          "median": 0.0,
+          "bootstrap_95": [
+            0.01353331666666667,
+            0.01911136666666667
+          ],
+          "one_sided_signflip_p": 9.99990000099999e-06,
+          "positive_fraction": 0.12366666666666666,
+          "negative_fraction": 0.03866666666666667,
+          "zero_fraction": 0.8376666666666667,
+          "holm_q_across_unique_top8_conditions": 1.999980000199998e-05
+        },
+        "cumulative": {
+          "mean": 0.3161253333333334,
+          "median": 0.0,
+          "bootstrap_95": [
+            0.2857124166666667,
+            0.34726130000000005
+          ],
+          "one_sided_signflip_p": 9.99990000099999e-06,
+          "positive_fraction": 0.4856666666666667,
+          "negative_fraction": 0.21366666666666667,
+          "zero_fraction": 0.3006666666666667
+        }
+      },
+      "gates_before_multiplicity": {
+        "parent_unique_best_by_2_5pp": true,
+        "aliases_coordinate_wise_nonimproving": true,
+        "quality_at_most_one_point": false,
+        "path_change_at_least_half": true,
+        "clean_parent_terminal_at_least_60pct": true,
+        "parent_to_challenger_exceeds_reverse": true,
+        "terminal_mean_at_least_half_point": true,
+        "terminal_inference": true,
+        "active_mean_at_least_half_point": true,
+        "active_inference": true,
+        "cumulative_positive": true,
+        "fixed_query_exact_zero": true
+      },
+      "all_gates_before_multiplicity": false,
+      "all_gates_with_holm": false
+    },
+    {
+      "canonical_key": "864a19e74b347917758e38b66add7998acfedf4e6713537e0ed523260ed11baf",
+      "representative_search_rank": 5,
+      "tau": 0.025,
+      "loss_cap": 0.005,
+      "trigger_caps_with_identical_thresholds": [
+        0.05,
+        0.1,
+        0.2,
+        0.3
+      ],
+      "thresholds": [
+        0.9807858169078827,
+        0.9831140637397766,
+        0.9805330634117126,
+        0.9838871359825134
+      ],
+      "loss_counts": [
+        31,
+        33,
+        47,
+        31
+      ],
+      "allowed_loss_count": 98,
+      "loss_fractions": [
+        0.0031555374592833877,
+        0.0033591205211726386,
+        0.0047842019543973945,
+        0.0031555374592833877
+      ],
+      "trigger_fractions": [
+        0.005293159609120521,
+        0.005598534201954397,
+        0.007328990228013029,
+        0.004885993485342019
+      ],
+      "path_change_rate": 0.9943333333333333,
+      "query_set_change_rate": 0.9943333333333333,
+      "final_root_change_rate": 0.13233333333333333,
+      "clean_parent_terminal_rate": 0.934,
+      "refined_parent_terminal_rate": 0.8863333333333333,
+      "parent_to_challenger_rate": 0.08766666666666667,
+      "challenger_to_parent_rate": 0.04,
+      "inference": {
+        "terminal": {
+          "mean": 0.009145333333333335,
+          "median": 0.0,
+          "bootstrap_95": [
+            0.006667966666666669,
+            0.011730083333333337
+          ],
+          "one_sided_signflip_p": 9.99990000099999e-06,
+          "positive_fraction": 0.09033333333333333,
+          "negative_fraction": 0.042,
+          "zero_fraction": 0.8676666666666667,
+          "holm_q_across_unique_top8_conditions": 1.999980000199998e-05
+        },
+        "active_minus_fixed_terminal": {
+          "mean": 0.009145333333333335,
+          "median": 0.0,
+          "bootstrap_95": [
+            0.006599983333333333,
+            0.011682683333333334
+          ],
+          "one_sided_signflip_p": 9.99990000099999e-06,
+          "positive_fraction": 0.09033333333333333,
+          "negative_fraction": 0.042,
+          "zero_fraction": 0.8676666666666667,
+          "holm_q_across_unique_top8_conditions": 1.999980000199998e-05
+        },
+        "cumulative": {
+          "mean": 0.22102200000000002,
+          "median": 0.0,
+          "bootstrap_95": [
+            0.19329345000000006,
+            0.2500548833333333
+          ],
+          "one_sided_signflip_p": 9.99990000099999e-06,
+          "positive_fraction": 0.4836666666666667,
+          "negative_fraction": 0.22833333333333333,
+          "zero_fraction": 0.288
+        }
+      },
+      "gates_before_multiplicity": {
+        "parent_unique_best_by_2_5pp": true,
+        "aliases_coordinate_wise_nonimproving": true,
+        "quality_at_most_one_point": true,
+        "path_change_at_least_half": true,
+        "clean_parent_terminal_at_least_60pct": true,
+        "parent_to_challenger_exceeds_reverse": true,
+        "terminal_mean_at_least_half_point": true,
+        "terminal_inference": true,
+        "active_mean_at_least_half_point": true,
+        "active_inference": true,
+        "cumulative_positive": true,
+        "fixed_query_exact_zero": true
+      },
+      "all_gates_before_multiplicity": true,
+      "all_gates_with_holm": true
+    }
+  ],
+  "nominal_top8_mapping": [
+    {
+      "search_rank": 1,
+      "loss_cap": 0.01,
+      "trigger_cap": 0.05,
+      "canonical_key": "6817ce1f1baa6253c2ccd394a976795114ea8c33807960d49a89c769f2b5a8d4"
+    },
+    {
+      "search_rank": 2,
+      "loss_cap": 0.01,
+      "trigger_cap": 0.1,
+      "canonical_key": "6817ce1f1baa6253c2ccd394a976795114ea8c33807960d49a89c769f2b5a8d4"
+    },
+    {
+      "search_rank": 3,
+      "loss_cap": 0.01,
+      "trigger_cap": 0.2,
+      "canonical_key": "6817ce1f1baa6253c2ccd394a976795114ea8c33807960d49a89c769f2b5a8d4"
+    },
+    {
+      "search_rank": 4,
+      "loss_cap": 0.01,
+      "trigger_cap": 0.3,
+      "canonical_key": "6817ce1f1baa6253c2ccd394a976795114ea8c33807960d49a89c769f2b5a8d4"
+    },
+    {
+      "search_rank": 5,
+      "loss_cap": 0.005,
+      "trigger_cap": 0.05,
+      "canonical_key": "864a19e74b347917758e38b66add7998acfedf4e6713537e0ed523260ed11baf"
+    },
+    {
+      "search_rank": 6,
+      "loss_cap": 0.005,
+      "trigger_cap": 0.1,
+      "canonical_key": "864a19e74b347917758e38b66add7998acfedf4e6713537e0ed523260ed11baf"
+    },
+    {
+      "search_rank": 7,
+      "loss_cap": 0.005,
+      "trigger_cap": 0.2,
+      "canonical_key": "864a19e74b347917758e38b66add7998acfedf4e6713537e0ed523260ed11baf"
+    },
+    {
+      "search_rank": 8,
+      "loss_cap": 0.005,
+      "trigger_cap": 0.3,
+      "canonical_key": "864a19e74b347917758e38b66add7998acfedf4e6713537e0ed523260ed11baf"
+    }
+  ],
+  "interpretation": "The locked primary remains NO-GO. This complete, multiplicity-controlled sensitivity reports whether other already-developed top-eight thresholds would satisfy the same scientific gates; it is not a replacement confirmatory selection."
+}

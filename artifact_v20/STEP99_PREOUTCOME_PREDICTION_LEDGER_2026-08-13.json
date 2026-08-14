@@ -1,0 +1,123 @@
+{
+  "ledger_id": "STEP99_PREOUTCOME_PREDICTIONS_V1",
+  "date": "2026-08-13",
+  "rows": 1200,
+  "protocol_sha256": "6fd00a4e8eed1e2a528da400b77a9a312cfe6dbcae6101f19dec693f6664b275",
+  "step98_config_sha256": "913e01e76907da4b2179b4742cc5ad50272e51afb178c4aefb20bafb8ddbb618",
+  "input_file": "step98_test_inputs/anli_r3_dev_inputs.json",
+  "input_sha256": "42815f52f0faba2910b40f19ec72593ce8932c1868d789565ece66a470f1faf0",
+  "sealed_file": "external_data/step98_sealed/anli_r3_dev_sealed_outcomes.npz",
+  "sealed_sha256_verified_without_loading_arrays": "1349139f995a9535c5f8fad38309dbee884cc41d58914f9084b43812b0d8a106",
+  "sealed_outcome_loaded": false,
+  "root_audits": [
+    {
+      "root_key": "crossencoder_deberta_small",
+      "repo_id": "cross-encoder/nli-deberta-v3-small",
+      "revision": "fa2804872c3b4bd748f38c0185cc85775361e735",
+      "model_type": "deberta-v2",
+      "raw_to_dataset": [
+        2,
+        0,
+        1
+      ],
+      "prediction_sha256": "28c2cbe7c83f36f95bbfa213b9abfe547e65ea33946c01c50546cacdd43848a9",
+      "samples": 1200,
+      "tokenizer_class": "DebertaV2Tokenizer"
+    },
+    {
+      "root_key": "moritz_minilm",
+      "repo_id": "MoritzLaurer/MiniLM-L6-mnli",
+      "revision": "6e0917f1a395b7a6c0f054a56b91c45d8e3af92f",
+      "model_type": "bert",
+      "raw_to_dataset": [
+        0,
+        1,
+        2
+      ],
+      "prediction_sha256": "c086a8844152fc4a554a35cda9149bbd0f378ab66acc37a30b9feb1c5d35c586",
+      "samples": 1200,
+      "tokenizer_class": "BertTokenizerFast"
+    },
+    {
+      "root_key": "mfac_bert_mini",
+      "repo_id": "M-FAC/bert-mini-finetuned-mnli",
+      "revision": "780061727f47254ff763de653920bb8b7e2fd5f2",
+      "model_type": "bert",
+      "raw_to_dataset": [
+        0,
+        1,
+        2
+      ],
+      "prediction_sha256": "e0ed6f2d46125bb8ac02ae3c254dbff97ad9ef3a6aee4aa750b7421b00d05e96",
+      "samples": 1200,
+      "tokenizer_class": "BertTokenizerFast"
+    },
+    {
+      "root_key": "mfac_bert_tiny",
+      "repo_id": "M-FAC/bert-tiny-finetuned-mnli",
+      "revision": "618f766f89b50853abc1bea92fd38e1973818f0b",
+      "model_type": "bert",
+      "raw_to_dataset": [
+        0,
+        1,
+        2
+      ],
+      "prediction_sha256": "2e1261b7887a7a5d9e0520528a9a1e3290dddbe334a8d091d7f51620a29bddb2",
+      "samples": 1200,
+      "tokenizer_class": "BertTokenizerFast"
+    }
+  ],
+  "adapter_audits": [
+    {
+      "alias": 0,
+      "path": "step98_models/step98_anli_r3_error_adapter_0.safetensors",
+      "sha256": "48632e15c328784222a34bdfb73fe01135e058ccf65872763ee163dc5a0af2e9",
+      "parameter_count": 141896450,
+      "error_score_sha256": "835171b5122326a482d61b8bd17cd2f6edd0552961fd254b37573610375b2945"
+    },
+    {
+      "alias": 1,
+      "path": "step98_models/step98_anli_r3_error_adapter_1.safetensors",
+      "sha256": "679dd686a83c4279f245049e39576e01a413df6a65183856cf52da327d25916a",
+      "parameter_count": 141896450,
+      "error_score_sha256": "5eb6f7f572a2ce3626575f5460d9c53403b8f33fbf891b201e02ce43bf96ae43"
+    },
+    {
+      "alias": 2,
+      "path": "step98_models/step98_anli_r3_error_adapter_2.safetensors",
+      "sha256": "770b903049c26fad4dfe18a6dcee8f250b2586af544f1352b58137fab226eb7a",
+      "parameter_count": 141896450,
+      "error_score_sha256": "b25c68c1952b4ed3f734dd9cdfe340b0cbb750daa4143b3de87420edcc65157c"
+    },
+    {
+      "alias": 3,
+      "path": "step98_models/step98_anli_r3_error_adapter_3.safetensors",
+      "sha256": "047e61e82139e735e8a11b5c3ca94f0672f77cd909a56a29d7a7e99a9cfabe77",
+      "parameter_count": 141896450,
+      "error_score_sha256": "21485dbb645a106d195561a39ef8bab598b0efdab9be378976d3390532e6d832"
+    }
+  ],
+  "thresholds": [
+    0.9255263805389404,
+    0.9232463538646698,
+    0.8986169695854187,
+    0.9152269959449768
+  ],
+  "prediction_file": "STEP99_PREOUTCOME_PREDICTIONS_2026-08-13.npz",
+  "prediction_sha256": "9adbed0bb0004166c51d2b99d1c4d7f3e31bec3c7c259d988e591871b1b67fe3",
+  "array_sha256": {
+    "source_indices": "42af82a13853cefdd4371f23a0f3cfae21aadbaba01f9bd9e1ed1bf04c698b4b",
+    "uid_sha256": "28439cd04102a50affa2cbe2b3dc792b7571fb358f764ee01d099495c683be70",
+    "root_predictions": "5d7119341fc0d63246c96fae9dac15c8053a480a9009037eb7b56fbaa40e3ba0",
+    "error_scores": "e4b0d44a0dd6c51ea0f13e74cfe6cb6e25c49602443a1d372bb560a899765576",
+    "alias_predictions": "fc1c0315ebdd0c30c53494c4b7bbdc47e2ea19620a0785cba4f3e1e4842a5893",
+    "triggers": "49cac713c31035b8ce149a8330ca377f0ab95d95aa00e0624d77f0d38ffde7d3"
+  },
+  "code_sha256": {
+    "step93_common.py": "cbb4df4ccba18d386f710fbc2dd98fbf83ff266c237fffd523fc1b9dc5c89ccd",
+    "step95_common.py": "687f9899e7f8a7ea8d3a1c244ec85e3844f72ffde763d875daa1d14a38ea93c8",
+    "step96_common.py": "994411e8e9fb776c4fc447be1ad18b9c657a7199348d505815c1ed67f07e7acd",
+    "step98_common.py": "11ad12d3c032a5d31242f5c5e61bf76a1d88aef42a62b4d5032aa4f62f73c4a3",
+    "step99_prepare_preoutcome_predictions.py": "1ae0d6dd8628b91863e2fb869cfa8a08d89564a020f2ae4a81953d9b303b7d86"
+  }
+}

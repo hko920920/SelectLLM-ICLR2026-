@@ -1,0 +1,25 @@
+{
+  "manifest_id": "STEP56_HOLDOUT_OUTCOME_EXECUTION_LOCK_V1",
+  "locked_local_date": "2026-08-09",
+  "status_at_lock": "BLIND_ATTACK_FROZEN_BEFORE_HOLDOUT_OUTCOME",
+  "holdout_outcomes_seen_before_lock": false,
+  "preregistration_sha256": "909626b48342171b82f91d6f61a51b2a1f2d3db0df1a2a75e4611d12e3842896",
+  "outcome_runner_sha256": "8d7d1f7a3153159fe25fe2f9904d9f99ee02f79c4fb38da0a2efb514430324f1",
+  "bound_sha256": {
+    "stagea_execution_lock": "36703a7bb673c07c5157ff91aba21490b0cb7af75f7c7999dd7d268f58cf2941",
+    "calibration_package": "b6c9b7a764fe73a98def1c6e347f4658d7e4ce9bbb6904de1c40d359a717f3b3",
+    "blind_holdout_input": "4aaff2434d0722ec848228d274d4bfe24e7a9360c3803b546529a158538bc9b7",
+    "split_audit": "d23de6ac3d8fc7e2696f21cf1d5c3b46add5d4b758858d8bcadc7493e79d37da",
+    "frozen_attack": "3cf06b698465637cd79b12b329d1d091f2b8e85a6170ac0c8de4039f3dbe9755",
+    "common_module": "4531256f63e274ce02ed5e2b54ce7ef1ecd872e409ac8c4e9f5baea01f3434dd",
+    "preparation_runner": "e9a8b2d44c5ed962528e734adcabfe04b729d7dacd7d84c1916ff9fa1961cfec",
+    "attack_builder": "d625d245a7d1ae846b30f8ce113d1e2f2756c69003cc628770ffc00dd22ef40c"
+  },
+  "selected_calibration_policies_frozen": {
+    "medqa": "minilm_C0.1 / 0.01 / hash_ranked_nonparent",
+    "gsm8k": "minilm_C10 / 0.01 / calibrated_lowest_probability numeric rule",
+    "openbookqa": "tfidf_C10 / 0.01 / calibrated_lowest_probability"
+  },
+  "holdout_seed_block": [92000, 92499],
+  "note": "All holdout alias rows and policy choices are bound here before the outcome runner opens the original holdout correctness and oracle arrays."
+}

@@ -1,0 +1,21 @@
+{
+  "manifest_id": "STEP54_MATRIX_FREE_REALISM_EXECUTION_LOCK_V1",
+  "locked_local_date": "2026-08-09",
+  "preregistration_sha256": "cf45cdd3e6b1425db2f2c17d4e4283bde95d58356a3fd1ade09c2ef6813e8ed9",
+  "runner_sha256": "f6fedf37dcbbef82b68353526b7ecd5b0f2156fb85918574fda139db23df4f7d",
+  "input_sha256": {
+    "step28_manifest": "a16f9a262f8d100899a443e96e3ae141ca266f7b5121cdf5e628fc1a67c201ca",
+    "step29_results": "9a075b143db6a8f11a42dbbbc313a9262a4547249fe81d39caa3f1c7a1540aaa",
+    "step30_target_lock": "98af2c94f8cd3f831ff83fd78fbf6c6755f0fda49460d4c16778b57be1974c7d",
+    "step31_preregistration": "a757631ef6f43ed90fd86c40f042a8ab9259e6008704fe460e04b8bc612b2af0"
+  },
+  "code_dependency_sha256": {
+    "run_step24_real_response_current_method_gate.py": "60f38dd5b4fdaa2c6dee86affcb71dfd4e54eea9b314329e5b572bea1b6d5049",
+    "run_step25_current_method_external_generality_gate.py": "827813911e5d86a8c7da894b660923f25374a743a3f3ee88a3ec905a2fb04cf6",
+    "run_step29_locked_phase_a.py": "8019d116e17bf669f876f5f20ed4ca90c2f0b276868e049005a8cdcc4a1f0839",
+    "run_step46_clone_robust_soft_weighting.py": "fffc9bf093978fd0b4340ef06ae1da8adf8bba6c1483aadf55f966ec28ff55cf",
+    "run_step50_natural_alias_audit.py": "a355dfe7e83e5348564f89248865d726af5f1c410dd24fd197bb8527d99261f0"
+  },
+  "fresh_seed_block": [91000, 91499],
+  "outcomes_seen_before_lock": false
+}

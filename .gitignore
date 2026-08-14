@@ -1,0 +1,37 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Local source datasets and public-model caches are reacquired from pins.
+/external_data/
+/.cache/
+/hf_cache/
+
+# Local build scratch.
+/_render*/
+/_step*_pdfcheck*/
+/paper/_validation_build/
+/paper/_step*_render/
+/paper/render_step*/
+/paper/_step*.png
+/paper/audit_page-*.png
+/paper/preview_page*.png
+/paper/section*_audit-*.png
+/paper/section*_fixed-*.png
+/paper/step*_page*.png
+/paper/closure_build.log
+/paper/main.log
+/paper/main.blg
+/paper/main.out
+*.aux
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+
+# Release binaries are uploaded separately, not committed twice.
+/release_assets/*
+!/release_assets/README.md

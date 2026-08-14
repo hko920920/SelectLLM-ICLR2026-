@@ -1,0 +1,15 @@
+{
+  "manifest_id": "STEP87_STAGE0_EXECUTION_LOCK_V1",
+  "locked_local_date": "2026-08-12",
+  "purpose": "Bind the prospective Step 87 protocol and preparation code before downloading or inspecting any of the 18 new subject blocks.",
+  "new_domain_contents_seen_before_lock": false,
+  "prior_project_search_zero_matches": true,
+  "preregistration_sha256": "9697ae0732bba30e609f6f9c2e2c5ef66e18985c3beda2ba873f82f96964f9d0",
+  "common_module_sha256": "4cb6beb397332c7d4ee1005ebc2382bbc73600bda2a9edf76cd712b557457473",
+  "preparation_runner_sha256": "8cd08dc0f7dfa63261bb5709c6216f01da3e4a16cf023b98fcf85071acb7ec5f",
+  "separation_commitment": {
+    "stage_a": "May use labeled calibration data and only the selected parent's blind holdout inputs.",
+    "stage_b": "May open sealed holdout outcomes only after the frozen attack and Stage-B lock have been hashed.",
+    "no_replacement": "No frozen task block, subject, candidate, policy, budget, seed, metric, or gate may be replaced after this lock."
+  }
+}

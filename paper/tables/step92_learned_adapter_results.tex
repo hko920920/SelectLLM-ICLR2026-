@@ -1,0 +1,14 @@
+\begin{table}[H]
+\centering
+\caption{Preregistered learned-adapter \emph{decoupled-view} audit on 1,000 sealed AG News pools. Confidence-coded responses drive acquisition; hard-label correctness drives posterior evidence and regret. Effects are refined-minus-clean terminal root regret in points; every fixed-query effect is zero.}
+\label{tab:step92-learned-adapter}
+\scriptsize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}l r c c c c c@{}}
+\toprule
+Task & Params/alias & Pairwise response $d$ & Path/root change & Terminal [95\% CI] & AMF [95\% CI] & Gate \\
+\midrule
+AG News & 50,817 & 24.1--26.3\% & 100.0/55.2\% & $+.547$ [$+.502,+.593$] & $+.547$ [$+.502,+.593$] & Pass \\
+\bottomrule
+\end{tabular}
+\end{table}

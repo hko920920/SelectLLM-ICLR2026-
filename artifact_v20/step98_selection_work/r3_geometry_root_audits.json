@@ -1,0 +1,58 @@
+[
+  {
+    "root_key": "crossencoder_deberta_small",
+    "repo_id": "cross-encoder/nli-deberta-v3-small",
+    "revision": "fa2804872c3b4bd748f38c0185cc85775361e735",
+    "model_type": "deberta-v2",
+    "raw_to_dataset": [
+      2,
+      0,
+      1
+    ],
+    "prediction_sha256": "25b2700ad15b7c5eb0d233b8c1f13f790ab32c81b6a597d22288a393bea6743e",
+    "samples": 1500,
+    "tokenizer_class": "DebertaV2Tokenizer"
+  },
+  {
+    "root_key": "moritz_minilm",
+    "repo_id": "MoritzLaurer/MiniLM-L6-mnli",
+    "revision": "6e0917f1a395b7a6c0f054a56b91c45d8e3af92f",
+    "model_type": "bert",
+    "raw_to_dataset": [
+      0,
+      1,
+      2
+    ],
+    "prediction_sha256": "5122c5cdb89c0c15d7d9d4df296ba0ad78310a15e9c109a199a95cff12daae44",
+    "samples": 1500,
+    "tokenizer_class": "BertTokenizerFast"
+  },
+  {
+    "root_key": "mfac_bert_mini",
+    "repo_id": "M-FAC/bert-mini-finetuned-mnli",
+    "revision": "780061727f47254ff763de653920bb8b7e2fd5f2",
+    "model_type": "bert",
+    "raw_to_dataset": [
+      0,
+      1,
+      2
+    ],
+    "prediction_sha256": "277bdee9e757847b434d8b863154e60a6516bdfdde0beb1b0a5b678eb863be9f",
+    "samples": 1500,
+    "tokenizer_class": "BertTokenizerFast"
+  },
+  {
+    "root_key": "mfac_bert_tiny",
+    "repo_id": "M-FAC/bert-tiny-finetuned-mnli",
+    "revision": "618f766f89b50853abc1bea92fd38e1973818f0b",
+    "model_type": "bert",
+    "raw_to_dataset": [
+      0,
+      1,
+      2
+    ],
+    "prediction_sha256": "2f473d9ff4f84044ec8fd1554c7d6c22da6e80d0571f4abc218b96ae741397db",
+    "samples": 1500,
+    "tokenizer_class": "BertTokenizerFast"
+  }
+]

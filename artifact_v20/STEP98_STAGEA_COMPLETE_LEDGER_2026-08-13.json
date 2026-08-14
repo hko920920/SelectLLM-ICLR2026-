@@ -1,0 +1,808 @@
+{
+  "ledger_id": "STEP98_STAGEA_COMPLETE_V1",
+  "date": "2026-08-13",
+  "decision": "NO_GO_STEP98_DEVELOPMENT_STOP",
+  "failed_gates": [
+    "clean_parent_terminal_rate_at_least_60pct"
+  ],
+  "gates": {
+    "train_only_round_selection_reconstructed": true,
+    "four_distinct_adapters_at_least_ten_million_parameters": true,
+    "raw_input_endpoint_has_no_forbidden_runtime_input": true,
+    "same_literal_similarity": true,
+    "parent_gap_at_least_2_5pp_on_search_and_verify": true,
+    "coordinate_wise_nonimproving_and_quality_at_most_one_point": true,
+    "search_and_verify_path_change_at_least_half": true,
+    "clean_parent_terminal_rate_at_least_60pct": false,
+    "parent_to_challenger_exceeds_reverse": true,
+    "search_and_verify_terminal_mean_at_least_half_point": true,
+    "search_and_verify_active_mean_at_least_half_point": true,
+    "verification_terminal_inference_positive": true,
+    "verification_active_inference_positive": true,
+    "verification_cumulative_positive": true,
+    "fixed_query_exact_zero": true
+  },
+  "selected_round": "r3",
+  "reconstructed_round": "r3",
+  "authority_sha256": {
+    "STEP98_ANLI_FRESH_PRIMARY_PREREGISTRATION_2026-08-13.md": "8a8ed383e512933999f0a114e03f17b3140caa0af6e5a96ee7b27aeb0d427255",
+    "STEP98_PREREGISTRATION_AMENDMENT_A_STAGE0_ELIGIBILITY_2026-08-13.md": "0b6a00c580687e0368ea638a87690eb749d97e07c33224071baa91a489688e4e",
+    "STEP98_STAGE0_TRAIN_ONLY_MANIFEST_2026-08-13.json": "0777f9c8ad845abbf23a52e7972b7f477d0fb8b301fbbdccfd59bfeea3007302",
+    "STEP98_ANLI_TRAIN_ONLY_ROWS_2026-08-13.json": "f5aba8e6a2030b3ed52c5374b48f6a80f7174dc6bfa1b3a9598372d8bcf130c4",
+    "STEP98_TRAIN_ONLY_ROUND_SELECTION_2026-08-13.json": "fd5ae8f142c902e1c3ced019c0f7b6d900a19f1919946e22207fe8b1ed0e30d4",
+    "STEP98_SELECTED_DEV_SEAL_MANIFEST_2026-08-13.json": "a2c89d5217513cdc118bcddb867ce05927f5de0d00a8befde892f2abb318bfa9"
+  },
+  "root_audits": [
+    {
+      "root_key": "crossencoder_deberta_small",
+      "repo_id": "cross-encoder/nli-deberta-v3-small",
+      "revision": "fa2804872c3b4bd748f38c0185cc85775361e735",
+      "model_type": "deberta-v2",
+      "raw_to_dataset": [
+        2,
+        0,
+        1
+      ],
+      "prediction_sha256": "072aefbe3cec01c8956768426575978825c960208eabdcc54f28c46226673f92",
+      "samples": 14400,
+      "tokenizer_class": "DebertaV2Tokenizer"
+    },
+    {
+      "root_key": "moritz_minilm",
+      "repo_id": "MoritzLaurer/MiniLM-L6-mnli",
+      "revision": "6e0917f1a395b7a6c0f054a56b91c45d8e3af92f",
+      "model_type": "bert",
+      "raw_to_dataset": [
+        0,
+        1,
+        2
+      ],
+      "prediction_sha256": "545a25e13594e583b42106afd26865558994c11655a1d393156c35513af01749",
+      "samples": 14400,
+      "tokenizer_class": "BertTokenizerFast"
+    },
+    {
+      "root_key": "mfac_bert_mini",
+      "repo_id": "M-FAC/bert-mini-finetuned-mnli",
+      "revision": "780061727f47254ff763de653920bb8b7e2fd5f2",
+      "model_type": "bert",
+      "raw_to_dataset": [
+        0,
+        1,
+        2
+      ],
+      "prediction_sha256": "9eff4b04eb4369f3650fa71c28803b15e915a516a6800e6d3747aee7efb3d40f",
+      "samples": 14400,
+      "tokenizer_class": "BertTokenizerFast"
+    },
+    {
+      "root_key": "mfac_bert_tiny",
+      "repo_id": "M-FAC/bert-tiny-finetuned-mnli",
+      "revision": "618f766f89b50853abc1bea92fd38e1973818f0b",
+      "model_type": "bert",
+      "raw_to_dataset": [
+        0,
+        1,
+        2
+      ],
+      "prediction_sha256": "27d747f8dcb3955471f48a242280be25ea8cd9015035995efcfb85ebb613a6ec",
+      "samples": 14400,
+      "tokenizer_class": "BertTokenizerFast"
+    }
+  ],
+  "root_geometry": {
+    "selector_search": {
+      "rows": 1800,
+      "root_accuracies": [
+        0.6816666666666666,
+        0.6422222222222222,
+        0.5694444444444444,
+        0.535
+      ],
+      "root_accuracy_by_key": {
+        "crossencoder_deberta_small": 0.6816666666666666,
+        "moritz_minilm": 0.6422222222222222,
+        "mfac_bert_mini": 0.5694444444444444,
+        "mfac_bert_tiny": 0.535
+      },
+      "parent_minus_best_challenger": 0.03944444444444439,
+      "parent_error_prevalence": 0.31833333333333336,
+      "max_challenger_correct_given_parent_wrong": 0.36300174520069806
+    },
+    "selector_verify": {
+      "rows": 3000,
+      "root_accuracies": [
+        0.6996666666666667,
+        0.6323333333333333,
+        0.596,
+        0.5383333333333333
+      ],
+      "root_accuracy_by_key": {
+        "crossencoder_deberta_small": 0.6996666666666667,
+        "moritz_minilm": 0.6323333333333333,
+        "mfac_bert_mini": 0.596,
+        "mfac_bert_tiny": 0.5383333333333333
+      },
+      "parent_minus_best_challenger": 0.06733333333333336,
+      "parent_error_prevalence": 0.30033333333333334,
+      "max_challenger_correct_given_parent_wrong": 0.36847946725860153
+    }
+  },
+  "adapter_audits": [
+    {
+      "alias": 0,
+      "path": "step98_models/step98_anli_r3_error_adapter_0.safetensors",
+      "training": {
+        "seed": 98100,
+        "train_rows": 5400,
+        "parent_error_prevalence": 0.3048148148148148,
+        "balanced_bootstrap_rows": 7508,
+        "positive_bootstrap_fraction": 0.5,
+        "epochs": 2,
+        "optimizer_steps": 470,
+        "warmup_steps": 47,
+        "mean_training_loss": 0.5336553402625905,
+        "trainable_parameter_count": 14767874,
+        "trainable_tensor_names": [
+          "deberta.encoder.layer.4.attention.self.query_proj.weight",
+          "deberta.encoder.layer.4.attention.self.query_proj.bias",
+          "deberta.encoder.layer.4.attention.self.key_proj.weight",
+          "deberta.encoder.layer.4.attention.self.key_proj.bias",
+          "deberta.encoder.layer.4.attention.self.value_proj.weight",
+          "deberta.encoder.layer.4.attention.self.value_proj.bias",
+          "deberta.encoder.layer.4.attention.output.dense.weight",
+          "deberta.encoder.layer.4.attention.output.dense.bias",
+          "deberta.encoder.layer.4.attention.output.LayerNorm.weight",
+          "deberta.encoder.layer.4.attention.output.LayerNorm.bias",
+          "deberta.encoder.layer.4.intermediate.dense.weight",
+          "deberta.encoder.layer.4.intermediate.dense.bias",
+          "deberta.encoder.layer.4.output.dense.weight",
+          "deberta.encoder.layer.4.output.dense.bias",
+          "deberta.encoder.layer.4.output.LayerNorm.weight",
+          "deberta.encoder.layer.4.output.LayerNorm.bias",
+          "deberta.encoder.layer.5.attention.self.query_proj.weight",
+          "deberta.encoder.layer.5.attention.self.query_proj.bias",
+          "deberta.encoder.layer.5.attention.self.key_proj.weight",
+          "deberta.encoder.layer.5.attention.self.key_proj.bias",
+          "deberta.encoder.layer.5.attention.self.value_proj.weight",
+          "deberta.encoder.layer.5.attention.self.value_proj.bias",
+          "deberta.encoder.layer.5.attention.output.dense.weight",
+          "deberta.encoder.layer.5.attention.output.dense.bias",
+          "deberta.encoder.layer.5.attention.output.LayerNorm.weight",
+          "deberta.encoder.layer.5.attention.output.LayerNorm.bias",
+          "deberta.encoder.layer.5.intermediate.dense.weight",
+          "deberta.encoder.layer.5.intermediate.dense.bias",
+          "deberta.encoder.layer.5.output.dense.weight",
+          "deberta.encoder.layer.5.output.dense.bias",
+          "deberta.encoder.layer.5.output.LayerNorm.weight",
+          "deberta.encoder.layer.5.output.LayerNorm.bias",
+          "pooler.dense.weight",
+          "pooler.dense.bias",
+          "classifier.weight",
+          "classifier.bias"
+        ]
+      },
+      "checkpoint": {
+        "sha256": "48632e15c328784222a34bdfb73fe01135e058ccf65872763ee163dc5a0af2e9",
+        "bytes": 59075824,
+        "tensor_names": [
+          "classifier.bias",
+          "classifier.weight",
+          "deberta.encoder.layer.4.attention.output.LayerNorm.bias",
+          "deberta.encoder.layer.4.attention.output.LayerNorm.weight",
+          "deberta.encoder.layer.4.attention.output.dense.bias",
+          "deberta.encoder.layer.4.attention.output.dense.weight",
+          "deberta.encoder.layer.4.attention.self.key_proj.bias",
+          "deberta.encoder.layer.4.attention.self.key_proj.weight",
+          "deberta.encoder.layer.4.attention.self.query_proj.bias",
+          "deberta.encoder.layer.4.attention.self.query_proj.weight",
+          "deberta.encoder.layer.4.attention.self.value_proj.bias",
+          "deberta.encoder.layer.4.attention.self.value_proj.weight",
+          "deberta.encoder.layer.4.intermediate.dense.bias",
+          "deberta.encoder.layer.4.intermediate.dense.weight",
+          "deberta.encoder.layer.4.output.LayerNorm.bias",
+          "deberta.encoder.layer.4.output.LayerNorm.weight",
+          "deberta.encoder.layer.4.output.dense.bias",
+          "deberta.encoder.layer.4.output.dense.weight",
+          "deberta.encoder.layer.5.attention.output.LayerNorm.bias",
+          "deberta.encoder.layer.5.attention.output.LayerNorm.weight",
+          "deberta.encoder.layer.5.attention.output.dense.bias",
+          "deberta.encoder.layer.5.attention.output.dense.weight",
+          "deberta.encoder.layer.5.attention.self.key_proj.bias",
+          "deberta.encoder.layer.5.attention.self.key_proj.weight",
+          "deberta.encoder.layer.5.attention.self.query_proj.bias",
+          "deberta.encoder.layer.5.attention.self.query_proj.weight",
+          "deberta.encoder.layer.5.attention.self.value_proj.bias",
+          "deberta.encoder.layer.5.attention.self.value_proj.weight",
+          "deberta.encoder.layer.5.intermediate.dense.bias",
+          "deberta.encoder.layer.5.intermediate.dense.weight",
+          "deberta.encoder.layer.5.output.LayerNorm.bias",
+          "deberta.encoder.layer.5.output.LayerNorm.weight",
+          "deberta.encoder.layer.5.output.dense.bias",
+          "deberta.encoder.layer.5.output.dense.weight",
+          "pooler.dense.bias",
+          "pooler.dense.weight"
+        ],
+        "parameter_count": 14767874,
+        "nonzero_count": 14767874,
+        "variance": 0.0028252501506358385
+      },
+      "score_file": "step98_stagea_work/step98_error_scores_0.npy",
+      "score_sha256": "bc396141abfc87c506b0f51f7d263b7321158c50b7beb8cdce371e7d3b430bf0"
+    },
+    {
+      "alias": 1,
+      "path": "step98_models/step98_anli_r3_error_adapter_1.safetensors",
+      "training": {
+        "seed": 98101,
+        "train_rows": 5400,
+        "parent_error_prevalence": 0.3048148148148148,
+        "balanced_bootstrap_rows": 7508,
+        "positive_bootstrap_fraction": 0.5,
+        "epochs": 2,
+        "optimizer_steps": 470,
+        "warmup_steps": 47,
+        "mean_training_loss": 0.5207920870778405,
+        "trainable_parameter_count": 14767874,
+        "trainable_tensor_names": [
+          "deberta.encoder.layer.4.attention.self.query_proj.weight",
+          "deberta.encoder.layer.4.attention.self.query_proj.bias",
+          "deberta.encoder.layer.4.attention.self.key_proj.weight",
+          "deberta.encoder.layer.4.attention.self.key_proj.bias",
+          "deberta.encoder.layer.4.attention.self.value_proj.weight",
+          "deberta.encoder.layer.4.attention.self.value_proj.bias",
+          "deberta.encoder.layer.4.attention.output.dense.weight",
+          "deberta.encoder.layer.4.attention.output.dense.bias",
+          "deberta.encoder.layer.4.attention.output.LayerNorm.weight",
+          "deberta.encoder.layer.4.attention.output.LayerNorm.bias",
+          "deberta.encoder.layer.4.intermediate.dense.weight",
+          "deberta.encoder.layer.4.intermediate.dense.bias",
+          "deberta.encoder.layer.4.output.dense.weight",
+          "deberta.encoder.layer.4.output.dense.bias",
+          "deberta.encoder.layer.4.output.LayerNorm.weight",
+          "deberta.encoder.layer.4.output.LayerNorm.bias",
+          "deberta.encoder.layer.5.attention.self.query_proj.weight",
+          "deberta.encoder.layer.5.attention.self.query_proj.bias",
+          "deberta.encoder.layer.5.attention.self.key_proj.weight",
+          "deberta.encoder.layer.5.attention.self.key_proj.bias",
+          "deberta.encoder.layer.5.attention.self.value_proj.weight",
+          "deberta.encoder.layer.5.attention.self.value_proj.bias",
+          "deberta.encoder.layer.5.attention.output.dense.weight",
+          "deberta.encoder.layer.5.attention.output.dense.bias",
+          "deberta.encoder.layer.5.attention.output.LayerNorm.weight",
+          "deberta.encoder.layer.5.attention.output.LayerNorm.bias",
+          "deberta.encoder.layer.5.intermediate.dense.weight",
+          "deberta.encoder.layer.5.intermediate.dense.bias",
+          "deberta.encoder.layer.5.output.dense.weight",
+          "deberta.encoder.layer.5.output.dense.bias",
+          "deberta.encoder.layer.5.output.LayerNorm.weight",
+          "deberta.encoder.layer.5.output.LayerNorm.bias",
+          "pooler.dense.weight",
+          "pooler.dense.bias",
+          "classifier.weight",
+          "classifier.bias"
+        ]
+      },
+      "checkpoint": {
+        "sha256": "679dd686a83c4279f245049e39576e01a413df6a65183856cf52da327d25916a",
+        "bytes": 59075824,
+        "tensor_names": [
+          "classifier.bias",
+          "classifier.weight",
+          "deberta.encoder.layer.4.attention.output.LayerNorm.bias",
+          "deberta.encoder.layer.4.attention.output.LayerNorm.weight",
+          "deberta.encoder.layer.4.attention.output.dense.bias",
+          "deberta.encoder.layer.4.attention.output.dense.weight",
+          "deberta.encoder.layer.4.attention.self.key_proj.bias",
+          "deberta.encoder.layer.4.attention.self.key_proj.weight",
+          "deberta.encoder.layer.4.attention.self.query_proj.bias",
+          "deberta.encoder.layer.4.attention.self.query_proj.weight",
+          "deberta.encoder.layer.4.attention.self.value_proj.bias",
+          "deberta.encoder.layer.4.attention.self.value_proj.weight",
+          "deberta.encoder.layer.4.intermediate.dense.bias",
+          "deberta.encoder.layer.4.intermediate.dense.weight",
+          "deberta.encoder.layer.4.output.LayerNorm.bias",
+          "deberta.encoder.layer.4.output.LayerNorm.weight",
+          "deberta.encoder.layer.4.output.dense.bias",
+          "deberta.encoder.layer.4.output.dense.weight",
+          "deberta.encoder.layer.5.attention.output.LayerNorm.bias",
+          "deberta.encoder.layer.5.attention.output.LayerNorm.weight",
+          "deberta.encoder.layer.5.attention.output.dense.bias",
+          "deberta.encoder.layer.5.attention.output.dense.weight",
+          "deberta.encoder.layer.5.attention.self.key_proj.bias",
+          "deberta.encoder.layer.5.attention.self.key_proj.weight",
+          "deberta.encoder.layer.5.attention.self.query_proj.bias",
+          "deberta.encoder.layer.5.attention.self.query_proj.weight",
+          "deberta.encoder.layer.5.attention.self.value_proj.bias",
+          "deberta.encoder.layer.5.attention.self.value_proj.weight",
+          "deberta.encoder.layer.5.intermediate.dense.bias",
+          "deberta.encoder.layer.5.intermediate.dense.weight",
+          "deberta.encoder.layer.5.output.LayerNorm.bias",
+          "deberta.encoder.layer.5.output.LayerNorm.weight",
+          "deberta.encoder.layer.5.output.dense.bias",
+          "deberta.encoder.layer.5.output.dense.weight",
+          "pooler.dense.bias",
+          "pooler.dense.weight"
+        ],
+        "parameter_count": 14767874,
+        "nonzero_count": 14767874,
+        "variance": 0.0028252601623535156
+      },
+      "score_file": "step98_stagea_work/step98_error_scores_1.npy",
+      "score_sha256": "457a729b5827adfffe068f40fb6467cc363faf8162d624eb9abd48beb040c991"
+    },
+    {
+      "alias": 2,
+      "path": "step98_models/step98_anli_r3_error_adapter_2.safetensors",
+      "training": {
+        "seed": 98102,
+        "train_rows": 5400,
+        "parent_error_prevalence": 0.3048148148148148,
+        "balanced_bootstrap_rows": 7508,
+        "positive_bootstrap_fraction": 0.5,
+        "epochs": 2,
+        "optimizer_steps": 470,
+        "warmup_steps": 47,
+        "mean_training_loss": 0.532705013859418,
+        "trainable_parameter_count": 14767874,
+        "trainable_tensor_names": [
+          "deberta.encoder.layer.4.attention.self.query_proj.weight",
+          "deberta.encoder.layer.4.attention.self.query_proj.bias",
+          "deberta.encoder.layer.4.attention.self.key_proj.weight",
+          "deberta.encoder.layer.4.attention.self.key_proj.bias",
+          "deberta.encoder.layer.4.attention.self.value_proj.weight",
+          "deberta.encoder.layer.4.attention.self.value_proj.bias",
+          "deberta.encoder.layer.4.attention.output.dense.weight",
+          "deberta.encoder.layer.4.attention.output.dense.bias",
+          "deberta.encoder.layer.4.attention.output.LayerNorm.weight",
+          "deberta.encoder.layer.4.attention.output.LayerNorm.bias",
+          "deberta.encoder.layer.4.intermediate.dense.weight",
+          "deberta.encoder.layer.4.intermediate.dense.bias",
+          "deberta.encoder.layer.4.output.dense.weight",
+          "deberta.encoder.layer.4.output.dense.bias",
+          "deberta.encoder.layer.4.output.LayerNorm.weight",
+          "deberta.encoder.layer.4.output.LayerNorm.bias",
+          "deberta.encoder.layer.5.attention.self.query_proj.weight",
+          "deberta.encoder.layer.5.attention.self.query_proj.bias",
+          "deberta.encoder.layer.5.attention.self.key_proj.weight",
+          "deberta.encoder.layer.5.attention.self.key_proj.bias",
+          "deberta.encoder.layer.5.attention.self.value_proj.weight",
+          "deberta.encoder.layer.5.attention.self.value_proj.bias",
+          "deberta.encoder.layer.5.attention.output.dense.weight",
+          "deberta.encoder.layer.5.attention.output.dense.bias",
+          "deberta.encoder.layer.5.attention.output.LayerNorm.weight",
+          "deberta.encoder.layer.5.attention.output.LayerNorm.bias",
+          "deberta.encoder.layer.5.intermediate.dense.weight",
+          "deberta.encoder.layer.5.intermediate.dense.bias",
+          "deberta.encoder.layer.5.output.dense.weight",
+          "deberta.encoder.layer.5.output.dense.bias",
+          "deberta.encoder.layer.5.output.LayerNorm.weight",
+          "deberta.encoder.layer.5.output.LayerNorm.bias",
+          "pooler.dense.weight",
+          "pooler.dense.bias",
+          "classifier.weight",
+          "classifier.bias"
+        ]
+      },
+      "checkpoint": {
+        "sha256": "770b903049c26fad4dfe18a6dcee8f250b2586af544f1352b58137fab226eb7a",
+        "bytes": 59075824,
+        "tensor_names": [
+          "classifier.bias",
+          "classifier.weight",
+          "deberta.encoder.layer.4.attention.output.LayerNorm.bias",
+          "deberta.encoder.layer.4.attention.output.LayerNorm.weight",
+          "deberta.encoder.layer.4.attention.output.dense.bias",
+          "deberta.encoder.layer.4.attention.output.dense.weight",
+          "deberta.encoder.layer.4.attention.self.key_proj.bias",
+          "deberta.encoder.layer.4.attention.self.key_proj.weight",
+          "deberta.encoder.layer.4.attention.self.query_proj.bias",
+          "deberta.encoder.layer.4.attention.self.query_proj.weight",
+          "deberta.encoder.layer.4.attention.self.value_proj.bias",
+          "deberta.encoder.layer.4.attention.self.value_proj.weight",
+          "deberta.encoder.layer.4.intermediate.dense.bias",
+          "deberta.encoder.layer.4.intermediate.dense.weight",
+          "deberta.encoder.layer.4.output.LayerNorm.bias",
+          "deberta.encoder.layer.4.output.LayerNorm.weight",
+          "deberta.encoder.layer.4.output.dense.bias",
+          "deberta.encoder.layer.4.output.dense.weight",
+          "deberta.encoder.layer.5.attention.output.LayerNorm.bias",
+          "deberta.encoder.layer.5.attention.output.LayerNorm.weight",
+          "deberta.encoder.layer.5.attention.output.dense.bias",
+          "deberta.encoder.layer.5.attention.output.dense.weight",
+          "deberta.encoder.layer.5.attention.self.key_proj.bias",
+          "deberta.encoder.layer.5.attention.self.key_proj.weight",
+          "deberta.encoder.layer.5.attention.self.query_proj.bias",
+          "deberta.encoder.layer.5.attention.self.query_proj.weight",
+          "deberta.encoder.layer.5.attention.self.value_proj.bias",
+          "deberta.encoder.layer.5.attention.self.value_proj.weight",
+          "deberta.encoder.layer.5.intermediate.dense.bias",
+          "deberta.encoder.layer.5.intermediate.dense.weight",
+          "deberta.encoder.layer.5.output.LayerNorm.bias",
+          "deberta.encoder.layer.5.output.LayerNorm.weight",
+          "deberta.encoder.layer.5.output.dense.bias",
+          "deberta.encoder.layer.5.output.dense.weight",
+          "pooler.dense.bias",
+          "pooler.dense.weight"
+        ],
+        "parameter_count": 14767874,
+        "nonzero_count": 14767874,
+        "variance": 0.002825308358296752
+      },
+      "score_file": "step98_stagea_work/step98_error_scores_2.npy",
+      "score_sha256": "fb2d72a505ca0e44f3f3d52303d3ed112ea33e616992a4cbe37a3dd33116b87d"
+    },
+    {
+      "alias": 3,
+      "path": "step98_models/step98_anli_r3_error_adapter_3.safetensors",
+      "training": {
+        "seed": 98103,
+        "train_rows": 5400,
+        "parent_error_prevalence": 0.3048148148148148,
+        "balanced_bootstrap_rows": 7508,
+        "positive_bootstrap_fraction": 0.5,
+        "epochs": 2,
+        "optimizer_steps": 470,
+        "warmup_steps": 47,
+        "mean_training_loss": 0.5266130861446372,
+        "trainable_parameter_count": 14767874,
+        "trainable_tensor_names": [
+          "deberta.encoder.layer.4.attention.self.query_proj.weight",
+          "deberta.encoder.layer.4.attention.self.query_proj.bias",
+          "deberta.encoder.layer.4.attention.self.key_proj.weight",
+          "deberta.encoder.layer.4.attention.self.key_proj.bias",
+          "deberta.encoder.layer.4.attention.self.value_proj.weight",
+          "deberta.encoder.layer.4.attention.self.value_proj.bias",
+          "deberta.encoder.layer.4.attention.output.dense.weight",
+          "deberta.encoder.layer.4.attention.output.dense.bias",
+          "deberta.encoder.layer.4.attention.output.LayerNorm.weight",
+          "deberta.encoder.layer.4.attention.output.LayerNorm.bias",
+          "deberta.encoder.layer.4.intermediate.dense.weight",
+          "deberta.encoder.layer.4.intermediate.dense.bias",
+          "deberta.encoder.layer.4.output.dense.weight",
+          "deberta.encoder.layer.4.output.dense.bias",
+          "deberta.encoder.layer.4.output.LayerNorm.weight",
+          "deberta.encoder.layer.4.output.LayerNorm.bias",
+          "deberta.encoder.layer.5.attention.self.query_proj.weight",
+          "deberta.encoder.layer.5.attention.self.query_proj.bias",
+          "deberta.encoder.layer.5.attention.self.key_proj.weight",
+          "deberta.encoder.layer.5.attention.self.key_proj.bias",
+          "deberta.encoder.layer.5.attention.self.value_proj.weight",
+          "deberta.encoder.layer.5.attention.self.value_proj.bias",
+          "deberta.encoder.layer.5.attention.output.dense.weight",
+          "deberta.encoder.layer.5.attention.output.dense.bias",
+          "deberta.encoder.layer.5.attention.output.LayerNorm.weight",
+          "deberta.encoder.layer.5.attention.output.LayerNorm.bias",
+          "deberta.encoder.layer.5.intermediate.dense.weight",
+          "deberta.encoder.layer.5.intermediate.dense.bias",
+          "deberta.encoder.layer.5.output.dense.weight",
+          "deberta.encoder.layer.5.output.dense.bias",
+          "deberta.encoder.layer.5.output.LayerNorm.weight",
+          "deberta.encoder.layer.5.output.LayerNorm.bias",
+          "pooler.dense.weight",
+          "pooler.dense.bias",
+          "classifier.weight",
+          "classifier.bias"
+        ]
+      },
+      "checkpoint": {
+        "sha256": "047e61e82139e735e8a11b5c3ca94f0672f77cd909a56a29d7a7e99a9cfabe77",
+        "bytes": 59075824,
+        "tensor_names": [
+          "classifier.bias",
+          "classifier.weight",
+          "deberta.encoder.layer.4.attention.output.LayerNorm.bias",
+          "deberta.encoder.layer.4.attention.output.LayerNorm.weight",
+          "deberta.encoder.layer.4.attention.output.dense.bias",
+          "deberta.encoder.layer.4.attention.output.dense.weight",
+          "deberta.encoder.layer.4.attention.self.key_proj.bias",
+          "deberta.encoder.layer.4.attention.self.key_proj.weight",
+          "deberta.encoder.layer.4.attention.self.query_proj.bias",
+          "deberta.encoder.layer.4.attention.self.query_proj.weight",
+          "deberta.encoder.layer.4.attention.self.value_proj.bias",
+          "deberta.encoder.layer.4.attention.self.value_proj.weight",
+          "deberta.encoder.layer.4.intermediate.dense.bias",
+          "deberta.encoder.layer.4.intermediate.dense.weight",
+          "deberta.encoder.layer.4.output.LayerNorm.bias",
+          "deberta.encoder.layer.4.output.LayerNorm.weight",
+          "deberta.encoder.layer.4.output.dense.bias",
+          "deberta.encoder.layer.4.output.dense.weight",
+          "deberta.encoder.layer.5.attention.output.LayerNorm.bias",
+          "deberta.encoder.layer.5.attention.output.LayerNorm.weight",
+          "deberta.encoder.layer.5.attention.output.dense.bias",
+          "deberta.encoder.layer.5.attention.output.dense.weight",
+          "deberta.encoder.layer.5.attention.self.key_proj.bias",
+          "deberta.encoder.layer.5.attention.self.key_proj.weight",
+          "deberta.encoder.layer.5.attention.self.query_proj.bias",
+          "deberta.encoder.layer.5.attention.self.query_proj.weight",
+          "deberta.encoder.layer.5.attention.self.value_proj.bias",
+          "deberta.encoder.layer.5.attention.self.value_proj.weight",
+          "deberta.encoder.layer.5.intermediate.dense.bias",
+          "deberta.encoder.layer.5.intermediate.dense.weight",
+          "deberta.encoder.layer.5.output.LayerNorm.bias",
+          "deberta.encoder.layer.5.output.LayerNorm.weight",
+          "deberta.encoder.layer.5.output.dense.bias",
+          "deberta.encoder.layer.5.output.dense.weight",
+          "pooler.dense.bias",
+          "pooler.dense.weight"
+        ],
+        "parameter_count": 14767874,
+        "nonzero_count": 14767874,
+        "variance": 0.002825284842401743
+      },
+      "score_file": "step98_stagea_work/step98_error_scores_3.npy",
+      "score_sha256": "6a15b320317f4c2fe7b5d341c5f78cd8fe58422e2096d312ecf4d2a0e59bc646"
+    }
+  ],
+  "thresholds": [
+    0.9255263805389404,
+    0.9232463538646698,
+    0.8986169695854187,
+    0.9152269959449768
+  ],
+  "threshold_audits": [
+    {
+      "alias": 0,
+      "calibration": {
+        "threshold": 0.892420768737793,
+        "trigger_count": 56,
+        "trigger_fraction": 0.04666666666666667,
+        "utility_loss_count": 6,
+        "utility_loss": 0.005
+      },
+      "safety_initial": {
+        "threshold": 0.9255263805389404,
+        "trigger_count": 24,
+        "trigger_fraction": 0.016,
+        "utility_loss_count": 3,
+        "utility_loss": 0.002
+      },
+      "final_threshold": 0.9255263805389404,
+      "safety_final_trigger_count": 24,
+      "safety_final_loss_count": 3,
+      "safety_final_loss_fraction": 0.002,
+      "safety_final_cp99_upper": 0.006681036045042642
+    },
+    {
+      "alias": 1,
+      "calibration": {
+        "threshold": 0.903486430644989,
+        "trigger_count": 46,
+        "trigger_fraction": 0.03833333333333333,
+        "utility_loss_count": 6,
+        "utility_loss": 0.005
+      },
+      "safety_initial": {
+        "threshold": 0.9232463538646698,
+        "trigger_count": 18,
+        "trigger_fraction": 0.012,
+        "utility_loss_count": 3,
+        "utility_loss": 0.002
+      },
+      "final_threshold": 0.9232463538646698,
+      "safety_final_trigger_count": 18,
+      "safety_final_loss_count": 3,
+      "safety_final_loss_fraction": 0.002,
+      "safety_final_cp99_upper": 0.006681036045042642
+    },
+    {
+      "alias": 2,
+      "calibration": {
+        "threshold": 0.8839394152164459,
+        "trigger_count": 48,
+        "trigger_fraction": 0.04,
+        "utility_loss_count": 6,
+        "utility_loss": 0.005
+      },
+      "safety_initial": {
+        "threshold": 0.8986169695854187,
+        "trigger_count": 28,
+        "trigger_fraction": 0.018666666666666668,
+        "utility_loss_count": 3,
+        "utility_loss": 0.002
+      },
+      "final_threshold": 0.8986169695854187,
+      "safety_final_trigger_count": 28,
+      "safety_final_loss_count": 3,
+      "safety_final_loss_fraction": 0.002,
+      "safety_final_cp99_upper": 0.006681036045042642
+    },
+    {
+      "alias": 3,
+      "calibration": {
+        "threshold": 0.8813101053237915,
+        "trigger_count": 73,
+        "trigger_fraction": 0.060833333333333336,
+        "utility_loss_count": 6,
+        "utility_loss": 0.005
+      },
+      "safety_initial": {
+        "threshold": 0.9152269959449768,
+        "trigger_count": 22,
+        "trigger_fraction": 0.014666666666666666,
+        "utility_loss_count": 3,
+        "utility_loss": 0.002
+      },
+      "final_threshold": 0.9152269959449768,
+      "safety_final_trigger_count": 22,
+      "safety_final_loss_count": 3,
+      "safety_final_loss_fraction": 0.002,
+      "safety_final_cp99_upper": 0.006681036045042642
+    }
+  ],
+  "quality": {
+    "threshold_calibration": {
+      "rows": 1200,
+      "loss_counts": [
+        3,
+        2,
+        2,
+        1
+      ],
+      "allowed_loss_count": 12,
+      "loss_fractions": [
+        0.0025,
+        0.0016666666666666668,
+        0.0016666666666666668,
+        0.0008333333333333334
+      ],
+      "trigger_fractions": [
+        0.018333333333333333,
+        0.020833333333333332,
+        0.021666666666666667,
+        0.020833333333333332
+      ],
+      "coordinate_wise_nonimproving": true
+    },
+    "threshold_safety": {
+      "rows": 1500,
+      "loss_counts": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "allowed_loss_count": 15,
+      "loss_fractions": [
+        0.002,
+        0.002,
+        0.002,
+        0.002
+      ],
+      "trigger_fractions": [
+        0.016,
+        0.012,
+        0.018666666666666668,
+        0.014666666666666666
+      ],
+      "coordinate_wise_nonimproving": true
+    },
+    "selector_search": {
+      "rows": 1800,
+      "loss_counts": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "allowed_loss_count": 18,
+      "loss_fractions": [
+        0.0005555555555555556,
+        0.0011111111111111111,
+        0.0016666666666666668,
+        0.0022222222222222222
+      ],
+      "trigger_fractions": [
+        0.016666666666666666,
+        0.015,
+        0.02,
+        0.017777777777777778
+      ],
+      "coordinate_wise_nonimproving": true
+    },
+    "selector_verify": {
+      "rows": 3000,
+      "loss_counts": [
+        12,
+        11,
+        12,
+        10
+      ],
+      "allowed_loss_count": 30,
+      "loss_fractions": [
+        0.004,
+        0.0036666666666666666,
+        0.004,
+        0.0033333333333333335
+      ],
+      "trigger_fractions": [
+        0.017333333333333333,
+        0.015,
+        0.023666666666666666,
+        0.017666666666666667
+      ],
+      "coordinate_wise_nonimproving": true
+    }
+  },
+  "selector_search": {
+    "runs": 800,
+    "mean_terminal_delta": 0.037665,
+    "mean_active_minus_fixed_terminal_delta": 0.037665,
+    "mean_cumulative_delta": 0.3730525,
+    "path_change_rate": 0.985,
+    "query_set_change_rate": 0.985,
+    "final_root_change_rate": 0.66375,
+    "clean_parent_terminal_rate": 0.53125,
+    "refined_parent_terminal_rate": 0.07625,
+    "parent_to_challenger_rate": 0.465,
+    "challenger_to_parent_rate": 0.01,
+    "max_abs_fixed_terminal_delta": 0.0,
+    "max_abs_fixed_cumulative_delta": 0.0,
+    "fixed_root_history_exact": true
+  },
+  "selector_verify": {
+    "runs": 1500,
+    "mean_terminal_delta": 0.031957333333333324,
+    "mean_active_minus_fixed_terminal_delta": 0.031957333333333324,
+    "mean_cumulative_delta": 0.354352,
+    "path_change_rate": 0.9953333333333333,
+    "query_set_change_rate": 0.9953333333333333,
+    "final_root_change_rate": 0.5706666666666667,
+    "clean_parent_terminal_rate": 0.63,
+    "refined_parent_terminal_rate": 0.31666666666666665,
+    "parent_to_challenger_rate": 0.38,
+    "challenger_to_parent_rate": 0.06666666666666667,
+    "max_abs_fixed_terminal_delta": 0.0,
+    "max_abs_fixed_cumulative_delta": 0.0,
+    "fixed_root_history_exact": true,
+    "inference": {
+      "terminal": {
+        "mean": 0.031957333333333324,
+        "median": 0.0,
+        "bootstrap_95": [
+          0.028570666666666664,
+          0.03541873333333332
+        ],
+        "one_sided_signflip_p": 9.99990000099999e-06,
+        "positive_fraction": 0.44533333333333336,
+        "negative_fraction": 0.12466666666666666,
+        "zero_fraction": 0.43
+      },
+      "active_minus_fixed_terminal": {
+        "mean": 0.031957333333333324,
+        "median": 0.0,
+        "bootstrap_95": [
+          0.028519566666666656,
+          0.03530546666666665
+        ],
+        "one_sided_signflip_p": 9.99990000099999e-06,
+        "positive_fraction": 0.44533333333333336,
+        "negative_fraction": 0.12466666666666666,
+        "zero_fraction": 0.43
+      },
+      "cumulative": {
+        "mean": 0.354352,
+        "median": 0.34799999999999975,
+        "bootstrap_95": [
+          0.3260989999999999,
+          0.3832027999999999
+        ],
+        "one_sided_signflip_p": 9.99990000099999e-06,
+        "positive_fraction": 0.7113333333333334,
+        "negative_fraction": 0.21533333333333332,
+        "zero_fraction": 0.07333333333333333
+      }
+    }
+  },
+  "endpoint_signature": "(premises: 'list[str]', hypotheses: 'list[str]', parent_predictions: 'np.ndarray', adapter_paths: 'list[str]', thresholds: 'list[float]') -> 'np.ndarray'",
+  "development_arrays_file": "STEP98_STAGEA_DEVELOPMENT_ARRAYS_2026-08-13.npz",
+  "code_sha256": {
+    "step93_common.py": "cbb4df4ccba18d386f710fbc2dd98fbf83ff266c237fffd523fc1b9dc5c89ccd",
+    "step95_common.py": "687f9899e7f8a7ea8d3a1c244ec85e3844f72ffde763d875daa1d14a38ea93c8",
+    "step96_common.py": "994411e8e9fb776c4fc447be1ad18b9c657a7199348d505815c1ed67f07e7acd",
+    "step98_common.py": "11ad12d3c032a5d31242f5c5e61bf76a1d88aef42a62b4d5032aa4f62f73c4a3",
+    "step98_executable_adapter_endpoint.py": "29786d42383c489bca9452b4f198ab2d7d1db5cbf5fe7cd0e13e3fd78e4b9024",
+    "step98_stagea_develop.py": "fde439cf485a601c930b053a82cce99c426b2c90f64516d7f1f79855a49289dc"
+  },
+  "sealed_outcome_opened": false
+}

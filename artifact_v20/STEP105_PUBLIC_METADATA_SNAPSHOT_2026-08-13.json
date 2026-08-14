@@ -1,0 +1,89 @@
+{
+  "schema": "step105.public_metadata_snapshot.v1",
+  "captured_date": "2026-08-13",
+  "outcome_blind": true,
+  "dataset_rows_loaded": false,
+  "model_weights_run": false,
+  "dataset": {
+    "repo_id": "fancyzhx/yelp_polarity",
+    "revision": "bbf1c97a1f0cf005e5aded43839fd814654a1557",
+    "config": "plain_text",
+    "train_rows_public_metadata": 560000,
+    "test_rows_public_metadata": 38000,
+    "classes": 2,
+    "fields": ["text", "label"]
+  },
+  "admission_rule": "Top four by frozen public download count among non-private native Transformers sequence-classification repositories tagged yelp_polarity, loadable without custom code, binary identity-mapped, and pinned to an immutable revision.",
+  "parent_rule": "The download-rank-one admitted endpoint is the parent; reported accuracy is recorded but not used for admission or parent selection.",
+  "roots": [
+    {
+      "order": 0,
+      "role": "parent",
+      "repo_id": "VictorSanh/roberta-base-finetuned-yelp-polarity",
+      "revision": "709b46dd24f08e9b310fd7630cd0728f6d52b570",
+      "downloads_at_snapshot": 1095,
+      "model_type": "roberta",
+      "architecture": "RobertaForSequenceClassification",
+      "reported_accuracy": 0.9808,
+      "reported_split": "test",
+      "config_label_mapping": "default binary identity",
+      "weight_files": ["model.safetensors", "pytorch_model.bin"]
+    },
+    {
+      "order": 1,
+      "role": "challenger",
+      "repo_id": "fabriceyhc/bert-base-uncased-yelp_polarity",
+      "revision": "5793d97b55d24e604d9157704e9d3a76735515c1",
+      "downloads_at_snapshot": 333,
+      "model_type": "bert",
+      "architecture": "BertForSequenceClassification",
+      "reported_accuracy": 0.9516052631578947,
+      "reported_split": "model-card evaluation",
+      "config_label_mapping": "default binary identity",
+      "weight_files": ["pytorch_model.bin"]
+    },
+    {
+      "order": 2,
+      "role": "challenger",
+      "repo_id": "randellcotta/distilbert-base-uncased-finetuned-yelp-polarity",
+      "revision": "a70e629510f730cdaa8407db4928705cfedb257c",
+      "downloads_at_snapshot": 80,
+      "model_type": "distilbert",
+      "architecture": "DistilBertForSequenceClassification",
+      "reported_accuracy": 0.9617414248021108,
+      "reported_split": "model-card evaluation",
+      "config_label_mapping": "default binary identity",
+      "weight_files": ["pytorch_model.bin"]
+    },
+    {
+      "order": 3,
+      "role": "challenger",
+      "repo_id": "JiaqiLee/robust-bert-yelp",
+      "revision": "a40e8daa515ff7cd09fed21c3d56f50ab7da8f25",
+      "downloads_at_snapshot": 42,
+      "model_type": "bert",
+      "architecture": "BertForSequenceClassification",
+      "reported_accuracy": 0.9532,
+      "reported_split": "test",
+      "config_label_mapping": {"negative": 0, "positive": 1},
+      "weight_files": ["pytorch_model.bin"]
+    }
+  ],
+  "excluded_classes": [
+    "adapter-only repositories",
+    "embedding-only repositories",
+    "zero-shot-only repositories",
+    "non-binary checkpoints",
+    "custom-code checkpoints",
+    "non-Transformers repositories"
+  ],
+  "selection_note": "Yelp Polarity was chosen before rows or predictions because it is an untouched cross-domain sentiment benchmark with a 38,000-row official test and at least four independently versioned admissible public endpoints. DBpedia14 lacked four comparable native tagged endpoints in the metadata audit; no DBpedia or Yelp row or prediction was loaded.",
+  "source_pages": [
+    "https://huggingface.co/datasets/fancyzhx/yelp_polarity",
+    "https://huggingface.co/models?dataset=dataset%3Ayelp_polarity",
+    "https://huggingface.co/VictorSanh/roberta-base-finetuned-yelp-polarity",
+    "https://huggingface.co/fabriceyhc/bert-base-uncased-yelp_polarity",
+    "https://huggingface.co/randellcotta/distilbert-base-uncased-finetuned-yelp-polarity",
+    "https://huggingface.co/JiaqiLee/robust-bert-yelp"
+  ]
+}

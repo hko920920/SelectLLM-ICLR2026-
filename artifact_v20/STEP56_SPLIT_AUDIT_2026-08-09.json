@@ -1,0 +1,37 @@
+{
+  "manifest_id": "STEP56_SPLIT_AUDIT_V1",
+  "preregistration_sha256": "909626b48342171b82f91d6f61a51b2a1f2d3db0df1a2a75e4611d12e3842896",
+  "raw_helm_file_manifest_sha256": "94abcb375d2fa390ae3b314d0eac74b8a21c13d95b341b18323742a7e5a14854",
+  "tasks": {
+    "medqa": {
+      "examples": 1000,
+      "calibration_count": 500,
+      "holdout_count": 500,
+      "calibration_index_digest": "73cedfbdf55e81d3e3a3082c181aa5ed5d03287bc1bab68ad81541c382066ca0",
+      "holdout_index_digest": "7947953b08ae3f1c99c7989239dd07d5ebf3d1df896ad4944169df7a22c2b4d2",
+      "calibration_id_digest": "c83ab805624dd4114501c47669a7c89cfd23a97dc39b2f886345345793ead3ef",
+      "holdout_id_digest": "8f37f07800beec0fcaf78bf6cdf71a280bf5b5a9c9c24079142ffac9e2a550aa",
+      "id_intersection_count": 0
+    },
+    "gsm8k": {
+      "examples": 1000,
+      "calibration_count": 500,
+      "holdout_count": 500,
+      "calibration_index_digest": "d6fef4dd4407fca9d8d9a0e8fe6172f8f72bfb8a190746ef2396c3257503bd12",
+      "holdout_index_digest": "8b63c193a923e8c673cc92ef64b81c0eda0375fa7f2f84a5131741621aee8ad7",
+      "calibration_id_digest": "0692239cb2150ad1091a00add31693d42bcd3c038d566f2b6c43ca232fabd706",
+      "holdout_id_digest": "d1d9896b26717d0fb69fb0ca56c75020eb6d2c879baac28fba8cf264007bf476",
+      "id_intersection_count": 0
+    },
+    "openbookqa": {
+      "examples": 500,
+      "calibration_count": 250,
+      "holdout_count": 250,
+      "calibration_index_digest": "4241b60b6dc7124b76982bc8d118b04a8ae13cdfcd08950ea151c8d4e70e2d7e",
+      "holdout_index_digest": "cff306ea5fcbcae91d4113a080a4fd6d68a2f52ba4d8efbdd0838a79703a9819",
+      "calibration_id_digest": "90223caef438909fde740da1d7b6d24e7564fc1de61fd5d1f57481bad977b6e0",
+      "holdout_id_digest": "d0c92cf80dcec0eebe0910bcc90930bdccbedb78d1024be2b767b62958e08ef6",
+      "id_intersection_count": 0
+    }
+  }
+}

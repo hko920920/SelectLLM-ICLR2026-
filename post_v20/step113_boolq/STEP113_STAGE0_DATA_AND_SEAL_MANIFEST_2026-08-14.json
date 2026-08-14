@@ -1,0 +1,27 @@
+{
+  "schema": "step113.stage0_data_and_seal.v1",
+  "date": "2026-08-14",
+  "status": "TRAIN_AVAILABLE_VALIDATION_INPUTS_SEPARATED_OUTCOMES_SEALED_UNOPENED",
+  "predata_lock_sha256": "b79319a463fc34cac1152dd7d41bcdadc438a4a323b5be946524f05cdb2252b0",
+  "train_file": "external_data/step113_public/boolq_train.parquet",
+  "train_sha256": "4f028e992c0bd4df30b9f056f4946b64f5c23028034ff0ed5ea467d8538cc623",
+  "train_bytes": 3685146,
+  "train_rows": 9427,
+  "validation_source_file": "external_data/step113_sealed/boolq_validation_source.parquet",
+  "validation_source_sha256": "52355d11524b4b874a9b9dcc278feb10f672d52c4f4eff9872e695ede59820f8",
+  "validation_source_bytes": 1257630,
+  "validation_input_file": "external_data/step113_sealed/boolq_validation_inputs.json",
+  "validation_input_sha256": "a0b8b65b0610d8d9817d69a3eb69ba0480532fedbee182e031727f70c2c4362b",
+  "sealed_outcome_file": "external_data/step113_sealed/boolq_validation_sealed_outcomes.npz",
+  "sealed_outcome_sha256": "699adb40bf56252baefb9a313c9f4fbe9950fb0961a5c295ab1bcf60e2b1d256",
+  "validation_rows": 3270,
+  "train_uid_sha256": "b4418b940286615f8ef0d843154b71a18ad72467f1a95306c4b5e4a30d8f4382",
+  "partition_indices_sha256": {
+    "error_head_train": "53d0203099f85f3b5fae83e2718e1eea9a407798371ebfd9b2cb0dd4a6e4a054",
+    "threshold_calibration": "32757cd42a6ff935f18195691fbe140cd7e33bb9f72fdb96661488b5f7318cda",
+    "safety": "d48d7e8ef22784e21178478660fc633b642b7627dea565836a9182f302d15b32"
+  },
+  "validation_labels_or_statistics_inspected": false,
+  "validation_model_inference_completed": false,
+  "sealed_outcome_opened": false
+}

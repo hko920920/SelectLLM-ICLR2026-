@@ -1,0 +1,156 @@
+{
+  "schema": "step113.primary_independent_validation.v1",
+  "date": "2026-08-14",
+  "decision": "PASS_STEP113_INDEPENDENT_VALIDATION",
+  "reported_primary_decision": "NO_GO_STEP113_PRIMARY_CONFIRMATION",
+  "bindings": {
+    "protocol": true,
+    "metadata": true,
+    "predata": true,
+    "stage0": true,
+    "development_go": true,
+    "prediction_ledger": true,
+    "predictions": true,
+    "sealed_outcome": true,
+    "primary_arrays": true,
+    "code:step113_common.py": true,
+    "code:step113_endpoint.py": true,
+    "code:step113_pipeline.py": true,
+    "code:step113_validate_independent.py": true,
+    "code:step93_common.py": true,
+    "head:step113_models/step113_boolq_error_head_0.safetensors": true,
+    "head:step113_models/step113_boolq_error_head_1.safetensors": true,
+    "head:step113_models/step113_boolq_error_head_2.safetensors": true,
+    "head:step113_models/step113_boolq_error_head_3.safetensors": true
+  },
+  "prediction_hashes": {
+    "uids": true,
+    "roots": true,
+    "parent_logits": true,
+    "parent_features": true,
+    "scores": true,
+    "aliases": true,
+    "triggers": true
+  },
+  "array_replay": {
+    "pools": true,
+    "clean_queries": true,
+    "refined_queries": true,
+    "clean_roots": true,
+    "refined_roots": true,
+    "fixed_roots": true,
+    "clean_terminal": true,
+    "refined_terminal": true,
+    "fixed_terminal": true,
+    "clean_cumulative": true,
+    "refined_cumulative": true,
+    "fixed_cumulative": true,
+    "terminal_delta": true,
+    "active_minus_fixed_terminal_delta": true,
+    "cumulative_delta": true,
+    "fixed_terminal_delta": true,
+    "fixed_cumulative_delta": true
+  },
+  "checks": {
+    "all_bindings": true,
+    "all_prediction_hashes": true,
+    "uid_alignment": true,
+    "aliases_reconstruct": true,
+    "triggers_reconstruct": true,
+    "development_was_go": true,
+    "prediction_state_was_preoutcome": true,
+    "quality_replay": true,
+    "summary_replay": true,
+    "gates_replay": true,
+    "decision_replay": true,
+    "all_primary_arrays_replay": true,
+    "single_outcome_binding_consistent": true,
+    "replacement_forbidden": true
+  },
+  "recomputed_quality": {
+    "parent_accuracy": 0.8798165137614679,
+    "alias_accuracy": [
+      0.8648318042813455,
+      0.8636085626911315,
+      0.862691131498471,
+      0.8648318042813455
+    ],
+    "improvement_counts": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "loss_counts": [
+      49,
+      53,
+      56,
+      49
+    ],
+    "coordinate_wise_nonimproving": true,
+    "loss_within_one_point": false
+  },
+  "recomputed_summary": {
+    "terminal_mean": 0.03961933333333333,
+    "active_minus_fixed_terminal_mean": 0.03961933333333333,
+    "cumulative_mean": 0.07306466666666667,
+    "path_change_rate": 0.9996666666666667,
+    "final_root_change_rate": 0.7123333333333334,
+    "clean_parent_terminal_rate": 0.5033333333333333,
+    "refined_parent_terminal_rate": 0.38233333333333336,
+    "parent_to_challenger_rate": 0.30733333333333335,
+    "challenger_to_parent_rate": 0.18633333333333332,
+    "max_abs_fixed_terminal_delta": 0.0,
+    "max_abs_fixed_cumulative_delta": 0.0,
+    "fixed_root_history_exact": true,
+    "terminal": {
+      "mean": 0.03961933333333333,
+      "median": 0.0,
+      "bootstrap_95": [
+        0.03648526666666667,
+        0.042745450000000004
+      ],
+      "one_sided_signflip_p": 9.99990000099999e-06,
+      "positive_fraction": 0.48633333333333334,
+      "negative_fraction": 0.22266666666666668,
+      "zero_fraction": 0.291
+    },
+    "active_minus_fixed_terminal": {
+      "mean": 0.03961933333333333,
+      "median": 0.0,
+      "bootstrap_95": [
+        0.036462650000000006,
+        0.04273269999999999
+      ],
+      "one_sided_signflip_p": 9.99990000099999e-06,
+      "positive_fraction": 0.48633333333333334,
+      "negative_fraction": 0.22266666666666668,
+      "zero_fraction": 0.291
+    },
+    "cumulative": {
+      "mean": 0.07306466666666667,
+      "median": 0.08000000000000007,
+      "bootstrap_95": [
+        0.06745723333333332,
+        0.0787147
+      ],
+      "one_sided_signflip_p": 9.99990000099999e-06,
+      "positive_fraction": 0.5773333333333334,
+      "negative_fraction": 0.25866666666666666,
+      "zero_fraction": 0.164
+    }
+  },
+  "recomputed_gates": {
+    "aliases_response_distinct": true,
+    "coordinate_wise_nonimproving": true,
+    "quality_loss_within_one_point": false,
+    "path_change_at_least_half": true,
+    "directionality": true,
+    "fixed_query_exact_zero": true,
+    "terminal_mean_at_least_half_point": true,
+    "active_minus_fixed_mean_at_least_half_point": true,
+    "terminal_inference_positive": true,
+    "active_minus_fixed_inference_positive": true,
+    "cumulative_inference_positive": true
+  }
+}

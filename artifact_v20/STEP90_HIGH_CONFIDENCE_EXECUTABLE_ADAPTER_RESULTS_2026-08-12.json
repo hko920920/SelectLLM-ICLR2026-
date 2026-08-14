@@ -1,0 +1,183 @@
+{
+  "result_id": "STEP90_HIGH_CONFIDENCE_EXECUTABLE_ADAPTER_CONFIRMATORY_V1",
+  "decision": "GO_STRONG_EXECUTABLE_ADAPTER_TRANSFER",
+  "passing_tasks": [
+    "mnli",
+    "qqp"
+  ],
+  "config_sha256": "3dfda0e5deb6db51bba510fcf074360f4a8764a95271c16f427bbec1b585ecb4",
+  "execution_lock_sha256": "b73730c970f6e8d78a59978fe1e379168ebed498ca4bbc1123c39b8bf3ff42b3",
+  "raw_sha256": "5ef206b57d2204c128e621f07c83f8a621d1e94ab6856cbddc05d8e3bbd44d6d",
+  "tasks": {
+    "mnli": {
+      "n_holdout": 4882,
+      "paired_runs": 1000,
+      "selected": {
+        "roster_size": 8,
+        "pool_size": 400,
+        "budget": 50,
+        "tau": 0.25,
+        "trigger_fraction": 0.3,
+        "threshold": 0.9867420665230863,
+        "roster_indices": [
+          37,
+          77,
+          49,
+          34,
+          73,
+          2,
+          57,
+          17
+        ]
+      },
+      "parent_holdout_accuracy": 0.8381810733306022,
+      "best_original_holdout_accuracy": 0.9078246620237608,
+      "realized_trigger_fraction": 0.2920934043424826,
+      "adapter_parent_accuracy_gaps": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "path_change_rate": 0.998,
+      "final_root_change_rate": 0.328,
+      "terminal_regret_delta": {
+        "mean": 0.007017500000000001,
+        "median": 0.0,
+        "bootstrap_95": [
+          0.005857500000000002,
+          0.0082275
+        ],
+        "one_sided_signflip_p": 9.99990000099999e-06,
+        "positive_fraction": 0.256,
+        "negative_fraction": 0.06,
+        "zero_fraction": 0.684
+      },
+      "cumulative_regret_delta": {
+        "mean": 0.22081000000000003,
+        "median": 0.03500000000000014,
+        "bootstrap_95": [
+          0.1894974375,
+          0.2531450625
+        ],
+        "one_sided_signflip_p": 9.99990000099999e-06,
+        "positive_fraction": 0.582,
+        "negative_fraction": 0.409,
+        "zero_fraction": 0.009
+      },
+      "active_minus_fixed_terminal": {
+        "mean": 0.007017500000000001,
+        "median": 0.0,
+        "bootstrap_95": [
+          0.005850000000000001,
+          0.008215000000000002
+        ],
+        "one_sided_signflip_p": 9.99990000099999e-06,
+        "positive_fraction": 0.256,
+        "negative_fraction": 0.06,
+        "zero_fraction": 0.684
+      },
+      "max_abs_fixed_terminal_delta": 0.0,
+      "max_abs_fixed_cumulative_delta": 0.0,
+      "holm_adjusted_p": 1.999980000199998e-05,
+      "gate": {
+        "coordinate_wise_hard_utility_equal": true,
+        "fixed_query_exact_zero": true,
+        "path_change_at_least_half": true,
+        "mean_terminal_delta_at_least_0_5pp": true,
+        "terminal_bootstrap_lower_above_zero": true,
+        "holm_adjusted_p_at_most_0_05": true,
+        "active_minus_fixed_at_least_0_5pp": true
+      },
+      "passed": true
+    },
+    "qqp": {
+      "n_holdout": 20121,
+      "paired_runs": 1000,
+      "selected": {
+        "roster_size": 8,
+        "pool_size": 400,
+        "budget": 50,
+        "tau": 1.0,
+        "trigger_fraction": 0.2,
+        "threshold": 0.9997407698405986,
+        "roster_indices": [
+          31,
+          35,
+          15,
+          20,
+          34,
+          10,
+          16,
+          5
+        ]
+      },
+      "parent_holdout_accuracy": 0.9198349982605238,
+      "best_original_holdout_accuracy": 0.9198349982605238,
+      "realized_trigger_fraction": 0.2001391580935341,
+      "adapter_parent_accuracy_gaps": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "path_change_rate": 1.0,
+      "final_root_change_rate": 0.823,
+      "terminal_regret_delta": {
+        "mean": 0.012695,
+        "median": 0.012499999999999956,
+        "bootstrap_95": [
+          0.012009937499999996,
+          0.013399999999999999
+        ],
+        "one_sided_signflip_p": 9.99990000099999e-06,
+        "positive_fraction": 0.78,
+        "negative_fraction": 0.028,
+        "zero_fraction": 0.192
+      },
+      "cumulative_regret_delta": {
+        "mean": 0.42470750000000007,
+        "median": 0.38125000000000037,
+        "bootstrap_95": [
+          0.4079824375000001,
+          0.44160506250000003
+        ],
+        "one_sided_signflip_p": 9.99990000099999e-06,
+        "positive_fraction": 0.983,
+        "negative_fraction": 0.017,
+        "zero_fraction": 0.0
+      },
+      "active_minus_fixed_terminal": {
+        "mean": 0.012695,
+        "median": 0.012499999999999956,
+        "bootstrap_95": [
+          0.012015000000000003,
+          0.01339
+        ],
+        "one_sided_signflip_p": 9.99990000099999e-06,
+        "positive_fraction": 0.78,
+        "negative_fraction": 0.028,
+        "zero_fraction": 0.192
+      },
+      "max_abs_fixed_terminal_delta": 0.0,
+      "max_abs_fixed_cumulative_delta": 0.0,
+      "holm_adjusted_p": 1.999980000199998e-05,
+      "gate": {
+        "coordinate_wise_hard_utility_equal": true,
+        "fixed_query_exact_zero": true,
+        "path_change_at_least_half": true,
+        "mean_terminal_delta_at_least_0_5pp": true,
+        "terminal_bootstrap_lower_above_zero": true,
+        "holm_adjusted_p_at_most_0_05": true,
+        "active_minus_fixed_at_least_0_5pp": true
+      },
+      "passed": true
+    }
+  },
+  "prior_negative_result_retained": {
+    "task": "qnli",
+    "decision": "NO_CONFIRMATORY_EXECUTABLE_ADAPTER_BRIDGE",
+    "terminal_delta": -0.00068
+  },
+  "claim_boundary": "High-confidence answer-preserving adapters on two public GLUE tasks; not independent full checkpoints, hidden-task compromise, live registry admission, or universal harm."
+}

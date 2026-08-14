@@ -1,0 +1,87 @@
+{
+  "config_id": "STEP90_HIGH_CONFIDENCE_EXECUTABLE_ADAPTER_CONFIRMATORY_V1",
+  "stage0_manifest_sha256": "4aa672d6657d1324636c74a29510c8a06a5ea804c6f5db0fd51d3272c9df87cb",
+  "tasks": {
+    "mnli": {
+      "model": "cross-encoder/nli-distilroberta-base",
+      "model_revision": "b14d131f9d32668a5e6a982729b57ff6ed5dfcbd",
+      "classes": 3,
+      "label_mapping_raw_to_glue": [
+        2,
+        0,
+        1
+      ],
+      "selected": {
+        "roster_size": 8,
+        "pool_size": 400,
+        "budget": 50,
+        "tau": 0.25,
+        "trigger_fraction": 0.3,
+        "threshold": 0.9867420665230863,
+        "roster_indices": [
+          37,
+          77,
+          49,
+          34,
+          73,
+          2,
+          57,
+          17
+        ]
+      },
+      "adapter_sha256": {
+        "step90_mnli_adapter_0.safetensors": "750f2e2d98d92cd440f4d11044f296ee9d057b6cd8345eb923a6776ded8b18a2",
+        "step90_mnli_adapter_1.safetensors": "c54105ec135b1d57257abb68543abbdf8855ded8a0123806546c105074926dc1",
+        "step90_mnli_adapter_2.safetensors": "56c7b637492d65bd097119eacf8ed39041e01196f27c889edfba4aef50012dc9",
+        "step90_mnli_adapter_3.safetensors": "0d12dc05eabf0f6d6cd88b98903e413508b7d2e31f93161dfa64dc7acb9935dd"
+      },
+      "ledger_sha256": "d3a0469871808369f0308c624ef896d374858a0e4bde1497ce77262eb3dd5e2d",
+      "calibration_parent_accuracy": 0.8347861341982566,
+      "calibration_terminal_delta": 0.01454166666666667,
+      "calibration_path_change_rate": 1.0
+    },
+    "qqp": {
+      "model": "cross-encoder/quora-distilroberta-base",
+      "model_revision": "f62e7a4b20b97195c2868e53ec59126df5eac743",
+      "classes": 2,
+      "label_mapping_raw_to_glue": [
+        0,
+        1
+      ],
+      "selected": {
+        "roster_size": 8,
+        "pool_size": 400,
+        "budget": 50,
+        "tau": 1.0,
+        "trigger_fraction": 0.2,
+        "threshold": 0.9997407698405986,
+        "roster_indices": [
+          31,
+          35,
+          15,
+          20,
+          34,
+          10,
+          16,
+          5
+        ]
+      },
+      "adapter_sha256": {
+        "step90_qqp_adapter_0.safetensors": "7e4cc6f70dd45490d49b004071ea2dd4c403d829d92531c47053dadb5a44d136",
+        "step90_qqp_adapter_1.safetensors": "92a7be6d812222757c7faa75191f35265bc594d6973cc54aa02dbcb10e53886b",
+        "step90_qqp_adapter_2.safetensors": "f50624038c24592115612cf39cb5a9f67c79f68c69c71eacef64459d872baaa7",
+        "step90_qqp_adapter_3.safetensors": "d7029f9701641f8833c5f28d9d6f26ebf3c2d6dc3d3f734f511acf328a919b4c"
+      },
+      "ledger_sha256": "4cece7800f2fcf4d1917e70b99861fe392c8d59ce8b27d8a9d18db77fa3e568f",
+      "calibration_parent_accuracy": 0.9227436112068541,
+      "calibration_terminal_delta": 0.01340833333333333,
+      "calibration_path_change_rate": 1.0
+    }
+  },
+  "construction_access": {
+    "calibration_labels_and_peer_rows_for_condition_selection": true,
+    "runtime_parent_confidence_only": true,
+    "holdout_labels_peer_rows_or_trajectories": false,
+    "item_lookup_table": false
+  }
+}

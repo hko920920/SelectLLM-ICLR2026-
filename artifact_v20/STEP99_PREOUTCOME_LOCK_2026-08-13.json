@@ -1,0 +1,103 @@
+{
+  "lock_id": "STEP99_PREOUTCOME_LOCK_V1",
+  "date": "2026-08-13",
+  "protocol_sha256": "6fd00a4e8eed1e2a528da400b77a9a312cfe6dbcae6101f19dec693f6664b275",
+  "authority_sha256": {
+    "STEP98_ANLI_FRESH_PRIMARY_PREREGISTRATION_2026-08-13.md": "8a8ed383e512933999f0a114e03f17b3140caa0af6e5a96ee7b27aeb0d427255",
+    "STEP98_PREREGISTRATION_AMENDMENT_A_STAGE0_ELIGIBILITY_2026-08-13.md": "0b6a00c580687e0368ea638a87690eb749d97e07c33224071baa91a489688e4e",
+    "STEP98_STAGE0_TRAIN_ONLY_MANIFEST_2026-08-13.json": "0777f9c8ad845abbf23a52e7972b7f477d0fb8b301fbbdccfd59bfeea3007302",
+    "STEP98_ANLI_TRAIN_ONLY_ROWS_2026-08-13.json": "f5aba8e6a2030b3ed52c5374b48f6a80f7174dc6bfa1b3a9598372d8bcf130c4",
+    "STEP98_TRAIN_ONLY_ROUND_SELECTION_2026-08-13.json": "fd5ae8f142c902e1c3ced019c0f7b6d900a19f1919946e22207fe8b1ed0e30d4",
+    "STEP98_SELECTED_DEV_SEAL_MANIFEST_2026-08-13.json": "a2c89d5217513cdc118bcddb867ce05927f5de0d00a8befde892f2abb318bfa9",
+    "STEP98_STAGEA_DEVELOPMENT_ARRAYS_2026-08-13.npz": "9426c5195b27b095bf9c08f607af35f35be58a14e96b4c907c4eeb969ef72c19",
+    "STEP98_STAGEA_COMPLETE_LEDGER_2026-08-13.json": "af52b01d0d6c3ecb66fa6be2fe0f4360b3306ff98ebdc881e69ef29df17d1f48",
+    "STEP98_STAGEA_FROZEN_CONFIG_2026-08-13.json": "913e01e76907da4b2179b4742cc5ad50272e51afb178c4aefb20bafb8ddbb618",
+    "STEP98_STAGEA_INDEPENDENT_VALIDATION_2026-08-13.json": "cb3258a89d82a26c3dc5a7954a01f9f3aee299ef341f2cd15c4866d00f4d4b50",
+    "STEP99_ANLI_DEVELOPMENT_INFORMED_SEALED_PRIMARY_PROTOCOL_2026-08-13.md": "6fd00a4e8eed1e2a528da400b77a9a312cfe6dbcae6101f19dec693f6664b275"
+  },
+  "code_sha256": {
+    "step93_common.py": "cbb4df4ccba18d386f710fbc2dd98fbf83ff266c237fffd523fc1b9dc5c89ccd",
+    "step95_common.py": "687f9899e7f8a7ea8d3a1c244ec85e3844f72ffde763d875daa1d14a38ea93c8",
+    "step96_common.py": "994411e8e9fb776c4fc447be1ad18b9c657a7199348d505815c1ed67f07e7acd",
+    "step98_common.py": "11ad12d3c032a5d31242f5c5e61bf76a1d88aef42a62b4d5032aa4f62f73c4a3",
+    "step98_executable_adapter_endpoint.py": "29786d42383c489bca9452b4f198ab2d7d1db5cbf5fe7cd0e13e3fd78e4b9024",
+    "step98_stagea_develop.py": "fde439cf485a601c930b053a82cce99c426b2c90f64516d7f1f79855a49289dc",
+    "step98_validate_stagea_independent.py": "a38dd5ded4d8fb934491c18b9f91c4d0a4254f0d2035c66e03a01b4734d1929f",
+    "step99_prepare_preoutcome_predictions.py": "1ae0d6dd8628b91863e2fb869cfa8a08d89564a020f2ae4a81953d9b303b7d86",
+    "step99_create_preoutcome_lock.py": "3aacb55e9e94a3c5f28cccc12720af702be77a357104d04e095d71757cebaad7",
+    "step99_confirm_sealed_primary.py": "59d95f1089099cd3a62c48e9148f136fc9f0ff50ad9ac94807461b4e83a652b9",
+    "step99_validate_primary_independent.py": "66db91b72bd3ea1242f1dc2b6485ae45e4acd4abcc4055a3a6b44bbd6f9ee219"
+  },
+  "model_sha256": {
+    "step98_models/step98_anli_r3_error_adapter_0.safetensors": "48632e15c328784222a34bdfb73fe01135e058ccf65872763ee163dc5a0af2e9",
+    "step98_models/step98_anli_r3_error_adapter_1.safetensors": "679dd686a83c4279f245049e39576e01a413df6a65183856cf52da327d25916a",
+    "step98_models/step98_anli_r3_error_adapter_2.safetensors": "770b903049c26fad4dfe18a6dcee8f250b2586af544f1352b58137fab226eb7a",
+    "step98_models/step98_anli_r3_error_adapter_3.safetensors": "047e61e82139e735e8a11b5c3ca94f0672f77cd909a56a29d7a7e99a9cfabe77"
+  },
+  "model_audit_sha256": {
+    "step98_models/step98_anli_r3_error_adapter_0.audit.json": "a288a67a67df8a0c062c11f8c6071e51f9789839a6122aa45282649d7f435577",
+    "step98_models/step98_anli_r3_error_adapter_1.audit.json": "754d3cd30d14a2f1e2dcd259e6013c46f7d2f01fdce0d6b39ab11c5f83b935bb",
+    "step98_models/step98_anli_r3_error_adapter_2.audit.json": "adbccf6638b76a356785ca332cc9fb2314c3523285d30799d7d2953f45508266",
+    "step98_models/step98_anli_r3_error_adapter_3.audit.json": "8d4869c477239abcf0a6316dfe253d19fcb11bfe58f531f45a35b28c6e097a40"
+  },
+  "preoutcome_sha256": {
+    "STEP99_PREOUTCOME_PREDICTIONS_2026-08-13.npz": "9adbed0bb0004166c51d2b99d1c4d7f3e31bec3c7c259d988e591871b1b67fe3",
+    "STEP99_PREOUTCOME_PREDICTION_LEDGER_2026-08-13.json": "f32824348e8a8e71c19dad3523a55ebce03b30afbffcc91fbed955c5d577cd8c"
+  },
+  "input_file": "step98_test_inputs/anli_r3_dev_inputs.json",
+  "input_sha256": "42815f52f0faba2910b40f19ec72593ce8932c1868d789565ece66a470f1faf0",
+  "sealed_file": "external_data/step98_sealed/anli_r3_dev_sealed_outcomes.npz",
+  "sealed_sha256": "1349139f995a9535c5f8fad38309dbee884cc41d58914f9084b43812b0d8a106",
+  "selected_round": "r3",
+  "adapter_paths": [
+    "step98_models/step98_anli_r3_error_adapter_0.safetensors",
+    "step98_models/step98_anli_r3_error_adapter_1.safetensors",
+    "step98_models/step98_anli_r3_error_adapter_2.safetensors",
+    "step98_models/step98_anli_r3_error_adapter_3.safetensors"
+  ],
+  "thresholds": [
+    0.9255263805389404,
+    0.9232463538646698,
+    0.8986169695854187,
+    0.9152269959449768
+  ],
+  "roster": [
+    "crossencoder_deberta_small",
+    "moritz_minilm",
+    "mfac_bert_mini",
+    "mfac_bert_tiny"
+  ],
+  "root_revisions": {
+    "crossencoder_deberta_small": "fa2804872c3b4bd748f38c0185cc85775361e735",
+    "moritz_minilm": "6e0917f1a395b7a6c0f054a56b91c45d8e3af92f",
+    "mfac_bert_mini": "780061727f47254ff763de653920bb8b7e2fd5f2",
+    "mfac_bert_tiny": "618f766f89b50853abc1bea92fd38e1973818f0b"
+  },
+  "pool_size": 500,
+  "budget": 10,
+  "tau": 0.025,
+  "test_seed_start": 985000,
+  "test_seed_stop_exclusive": 988000,
+  "test_seed_count": 3000,
+  "inference": {
+    "bootstrap_repetitions": 10000,
+    "signflip_repetitions": 100000,
+    "terminal_seeds": [
+      98900,
+      98901
+    ],
+    "active_minus_fixed_terminal_seeds": [
+      98901,
+      98902
+    ],
+    "cumulative_seeds": [
+      98902,
+      98903
+    ]
+  },
+  "step98_original_decision": "NO_GO_STEP98_DEVELOPMENT_STOP",
+  "step98_only_failed_gate": "clean_parent_terminal_rate_at_least_60pct",
+  "success_label": "GO_STEP99_ANLI_DEVELOPMENT_INFORMED_SEALED_PRIMARY",
+  "failure_label": "NO_GO_RETAIN_STEP99_NEGATIVE",
+  "sealed_outcome_opened": false
+}

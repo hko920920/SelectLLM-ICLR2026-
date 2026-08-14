@@ -1,0 +1,12 @@
+{
+  "schema": "step82.path_redaction_map.v1",
+  "inherited_step68_map_sha256": "e05a03737e5fbea3648b507ad8a12405a05b4afe3bc7042cea19313d2e11449c",
+  "new_rewrites": {
+    "run_step77_v2_stable_acquisition.py": {
+      "transformation": "replace_single_absolute_ROOT_assignment_with_file_relative_ROOT",
+      "changed_lines": 1,
+      "historical_sha256": "4f8059efc834c9983b5856217f5319672c0e6cd9c28e6ccd9adad8fadd3c7577",
+      "portable_sha256": "226b2e67decdcdf445cf0d2ba8caa64c9bac6cdb2ddce7fb33764735c50b9898"
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "manifest_id": "STEP97_SCITAIL_STAGE0_V1",
+  "date": "2026-08-13",
+  "authority_sha256": {
+    "STEP97_SCITAIL_CONSERVATIVE_TERMINAL_BRIDGE_PREREGISTRATION_2026-08-13.md": "bcc30540ad8633b1bd053a12cdc6699769ba3410297169c3d8bfca06f5ccbf4b"
+  },
+  "pre_outcome_statement": {
+    "protocol_existed_before_scitail_shard_download": true,
+    "dataset_card_schema_split_sizes_and_task_description_seen": true,
+    "no_scitail_row_label_prediction_or_effect_seen_before_lock": true
+  },
+  "dataset": {
+    "id": "allenai/scitail",
+    "config": "tsv_format",
+    "revision": "0cc4353235b289165dfde1c7c5d1be983f99ce44",
+    "raw_sha256": {
+      "train": "35ffcef823e42135a4fcee1b5ecb7c951e99f97b6f51c9363a23b537d41fb5d3",
+      "validation": "7342d7d9c3f0c90b904b5fcfa37b909ed77fc3f9f0c4b87618d7718469f55b56",
+      "test": "c2b4b8b5e258a30fe7d1f7861ad7154f1ebaf8f085f5e051db5e22352cf7ca96"
+    },
+    "valid_rows": {
+      "train": 23097,
+      "validation": 1304,
+      "test": 2126
+    }
+  },
+  "development": {
+    "file": "STEP97_SCITAIL_DEVELOPMENT_ROWS_2026-08-13.json",
+    "sha256": "668ce615b97b2884ef7ccca05d53a80ad3dcbc340d7db8a47255c174a7835c1e",
+    "selected_train_rows": 9500,
+    "validation_rows": 1304,
+    "stratum_audit": {
+      "0": {
+        "available": 8472,
+        "selected": 4750,
+        "partition_counts": {
+          "adapter_train": 2500,
+          "roster_gate": 500,
+          "threshold": 750,
+          "selector_search": 1000
+        }
+      },
+      "1": {
+        "available": 14625,
+        "selected": 4750,
+        "partition_counts": {
+          "adapter_train": 2500,
+          "roster_gate": 500,
+          "threshold": 750,
+          "selector_search": 1000
+        }
+      }
+    }
+  },
+  "test_input": {
+    "file": "step97_test_inputs/scitail_test_inputs.json",
+    "sha256": "1be0efdb4d0e6499c349894889114f600382e9a154edb0f5ec69473a6bdd01ce",
+    "rows": 2126,
+    "contains_labels": false
+  },
+  "sealed_outcome": {
+    "file": "external_data/step97_sealed/scitail_test_sealed_outcomes.npz",
+    "sha256": "42408ecad1c33ff5422d580b5c5cb3c5e2fbb0f36a094d212989f0fca8c0bb96",
+    "rows": 2126
+  },
+  "root_bank": [
+    {
+      "key": "crossencoder_deberta_small",
+      "repo_id": "cross-encoder/nli-deberta-v3-small",
+      "revision": "fa2804872c3b4bd748f38c0185cc85775361e735",
+      "raw_to_dataset": [
+        1,
+        0,
+        1
+      ],
+      "parent": true
+    },
+    {
+      "key": "moritz_minilm",
+      "repo_id": "MoritzLaurer/MiniLM-L6-mnli",
+      "revision": "6e0917f1a395b7a6c0f054a56b91c45d8e3af92f",
+      "raw_to_dataset": [
+        0,
+        1,
+        1
+      ],
+      "parent": false
+    },
+    {
+      "key": "mfac_bert_mini",
+      "repo_id": "M-FAC/bert-mini-finetuned-mnli",
+      "revision": "780061727f47254ff763de653920bb8b7e2fd5f2",
+      "raw_to_dataset": [
+        0,
+        1,
+        1
+      ],
+      "parent": false
+    },
+    {
+      "key": "mfac_bert_tiny",
+      "repo_id": "M-FAC/bert-tiny-finetuned-mnli",
+      "revision": "618f766f89b50853abc1bea92fd38e1973818f0b",
+      "raw_to_dataset": [
+        0,
+        1,
+        1
+      ],
+      "parent": false
+    }
+  ],
+  "source_code_sha256": {
+    "step97_common.py": "fd58fac1a5d184d4b851d0d4ff1fa21dd7021c7b6163dde1885b8dbaa5065969",
+    "step97_stage0_prepare.py": "a40c365b8ef278947bf1ceb530e79bf14dfb89190600ac5ed2b738c313c86cbb"
+  }
+}

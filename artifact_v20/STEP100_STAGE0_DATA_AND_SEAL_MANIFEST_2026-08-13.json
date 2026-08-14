@@ -1,0 +1,31 @@
+{
+  "manifest_id": "STEP100_STAGE0_DATA_AND_SEAL_V1",
+  "date": "2026-08-13",
+  "protocol_sha256": "e0d26472c1fae1e015b4226e5c39fca10396ff411bc1467f9c18ac5415be261b",
+  "dataset_id": "stanfordnlp/imdb",
+  "dataset_revision": "e6281661ce1c48d982bc483cf8a173c1bbeb5d31",
+  "source_split_requested": "test",
+  "development_rows": 12000,
+  "development_file": "STEP100_IMDB_DEVELOPMENT_ROWS_2026-08-13.json",
+  "development_sha256": "325fe59440d0444d968b2446c282dec08697d7e7c2a2c2fb1f726c6ae33f3c4e",
+  "partition_counts": {
+    "adapter_train": 6000,
+    "threshold_calibration": 1000,
+    "threshold_safety": 2000,
+    "selector_search": 1000,
+    "selector_verify": 2000
+  },
+  "heldout_rows": 13000,
+  "input_file": "step100_test_inputs/imdb_test_heldout_inputs.json",
+  "input_sha256": "6ac998dbe34e88c01fd940d551bb9b01deb63b15ad8855f5428835f96c480de9",
+  "input_contains_label_field": false,
+  "sealed_file": "external_data/step100_sealed/imdb_test_heldout_sealed_outcomes.npz",
+  "sealed_sha256": "1ee1c6005330792de2a375064efa47a51b616a8145f72a022946d0ded9a4b2db",
+  "sealed_outcome_opened_for_analysis": false,
+  "console_exposed_labels_or_class_specific_outcomes": false,
+  "code_sha256": {
+    "step93_common.py": "cbb4df4ccba18d386f710fbc2dd98fbf83ff266c237fffd523fc1b9dc5c89ccd",
+    "step100_common.py": "74c43111b3ca768930d7d205cd048466327c806310a91a94aa1fe11cd1e793e1",
+    "step100_stage0_prepare_and_seal.py": "743f65347dcbdb792f2536431d1a473c95a9fe3acb5fe7ea27eb2b0f2c371200"
+  }
+}

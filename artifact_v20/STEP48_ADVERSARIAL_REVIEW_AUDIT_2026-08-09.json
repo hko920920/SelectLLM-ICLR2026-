@@ -1,0 +1,300 @@
+{
+  "manifest_id": "STEP48_ADVERSARIAL_REVIEW_AUDIT_V1",
+  "created_local_date": "2026-08-09",
+  "paper_title": "Candidate Lists Are Priors: Registry-Refinement Attacks on Active Model Selection",
+  "audit_scope": "Manuscript-wide adversarial reviewer audit after Step 47, with an outcome-only reanalysis of the locked Step 46 defense results and a read-only search for natural registry structure in the frozen HELM-Lite panel.",
+  "official_iclr_sources": {
+    "reviewer_guide": "https://iclr.cc/Conferences/2027/ReviewerGuidelines",
+    "author_guide": "https://iclr.cc/Conferences/2027/AuthorGuidelines",
+    "review_questions_used": [
+      "Is the specific problem clearly identified?",
+      "Is the problem motivated by the literature?",
+      "Are the claims supported rigorously?",
+      "Does the work add significant new value?"
+    ]
+  },
+  "locked_inputs": {
+    "paper_pdf_sha256": "8CE04A492E3393FCE0AFFB751A948FF74C4014C18B8F6B39A40B7EF0E1384B1C",
+    "paper_pages": 12,
+    "main_text_ends_page": 9,
+    "figure1_sha256": "B63CF9E1E2502B64B040ABBBD2E79C73A5612A067B33659AC017141EF509F0CA",
+    "step46_results_sha256": "15B693F06F708E4583AAC52AB21DD85CDC8326C87683FF88938C128AB7B7B136",
+    "appendix_sha256": "F695EF023E09B2121FD714ADE5F85B532ABCABD813AE04CD99155773FA668A43",
+    "source_hashes": {
+      "00_abstract.tex": "98435A32A616C1E870BDB3643093A2C0CA8DA732738813575A93BBC0FAAEACBB",
+      "01_introduction.tex": "45D2B69CD9AB2496F302F13064A570429DAD24FBBAE250C7645DCF2593B80191",
+      "02_setting.tex": "E60FBFD7D59E894F8333DAEF76E7D99D7411DD52A736B0174599839E0F14F825",
+      "03_theory.tex": "FB1B11449D392368D8D744BE734FAFD840B2DF8F9C366CF9EE7CF1562DEEB9E2",
+      "04_protocol.tex": "FB0BBC16AF693D0CE4A0434995B3A54D814442538F18073C6AC49DAE11339F77",
+      "05_results.tex": "8A8B2EAD3856AFCE363B8333E70CA3F32FDA809FC322A32853B62597F8B374E6",
+      "06_related_work.tex": "3B5C19FE208BEEEAD2CAB27AD6180C53F6A187D03E91FCDFD63E9CB4A8D667F5",
+      "07_limitations.tex": "BF6A443E461172651F26E44F6F50463E01F8DF8B060E3FD566AF192E70B02DE0"
+    }
+  },
+  "current_submission_assessment": {
+    "decision": "NARROW_GO_NOT_SUBMISSION_READY",
+    "likely_outcome_if_submitted_now": "WEAK_REJECT_TO_REJECT",
+    "topic_status": "The research question survives. The current evidence package does not yet close the strongest realism, theory-to-intervention, and defense-framing objections.",
+    "acceptance_path": "Keep the candidate-evidence-frame problem, narrow the operational scope to registries whose declared claim counts an accountable system once, replace the path-restoration defense headline with an outcome/clean-utility frontier, add a natural-registry refinement test, and complete the proof and artifact appendix.",
+    "do_not_restart_topic_search": true
+  },
+  "contribution_audit": [
+    {
+      "id": "C1_EVIDENCE_FRAME",
+      "claimed_contribution": "Candidate-registry refinement and candidate evidence-frame ambiguity separate submitted entries from accountable roots.",
+      "strongest_reject_objection": "The accountable root is author-defined. If every API endpoint or checkpoint is a legitimate deployable candidate, adding entries is ordinary roster expansion rather than an integrity violation; the framing may then look like a repackaging of clone, dilution, or Sybil effects.",
+      "current_support": [
+        "The manuscript explicitly distinguishes entry identifiers, response behaviors, and accountable roots.",
+        "The closest-work table concedes prior multiplicity, clone-weighting, Sybil, and lineage results and isolates the adaptive-label transcript as the remaining object.",
+        "The problem is sequential: represented candidate mass selects the next ground-truth label and therefore changes reusable evidence, not only a terminal rank."
+      ],
+      "residual_gap": "No empirical case currently starts from a concrete registry contract or a naturally occurring duplicate and shows that a representation-only change violates that contract.",
+      "severity": "HIGH",
+      "closure_class": "REQUIRED_TARGETED_EXPERIMENT_AND_SCOPE_PROSE",
+      "required_actions": [
+        "State explicitly that endpoint-level claims have no refinement violation when each endpoint is intentionally counted independently.",
+        "Define the paper's applicable contract as one in which aliases or repeated versions of one accountable system are intended to share mass.",
+        "Run the frozen natural-alias experiment identified in this audit before considering a broad provider-level grouping study."
+      ],
+      "claim_disposition": "KEEP_BUT_NARROW"
+    },
+    {
+      "id": "C2_THEORY",
+      "claimed_contribution": "A tight budget-linear lower bound for frame-blind sequential selection and a constant-registry full-path amplification theorem for Select-LLM.",
+      "strongest_reject_objection": "The first theorem uses an exponential, deliberately constructed frame family; the second uses exact aliases that hashing removes. Neither theorem directly covers the response-distinct T2 construction that carries the empirical headline.",
+      "current_support": [
+        "The executable verifier passes every locked entropy, minimax, temperature-uniform, and regret check.",
+        "The manuscript already limits Theorem 1 to information necessity and Theorem 2 to a concrete amplification mechanism.",
+        "Theorem 2 shows that only four added entries can redirect every query, so the adaptive effect is not an artifact of an exponentially large practical registry."
+      ],
+      "residual_gap": "The appendix promises complete proofs but currently contains placeholders, and there is no formal response-distinct or perturbation-stable bridge to T2.",
+      "severity": "HIGH",
+      "closure_class": "MANDATORY_APPENDIX_PLUS_THEORY_FEASIBILITY_CHECK",
+      "required_actions": [
+        "Insert complete proofs and verifier outputs in the appendix.",
+        "Test whether Theorem 2 has a strict-margin, response-distinct quality-equivalent extension; add it only if the statement is exact and nontrivial.",
+        "If that extension fails, retain the current theorem but remove any wording that implies it proves T2."
+      ],
+      "claim_disposition": "KEEP_WITH_EXPLICIT_BOUNDARY"
+    },
+    {
+      "id": "C3_EMPIRICAL",
+      "claimed_contribution": "Locked quality-equivalent interventions over public LLM responses, followed by an official-code CODA audit.",
+      "strongest_reject_objection": "T2 aliases are synthetic response-table wrappers built with public references and the full competitor response matrix, not runnable checkpoints or ordinary API variants. Development and confirmation draws reuse the same fixed public examples, and CODA establishes multiplicity path sensitivity but not response-distinct defense evasion.",
+      "current_support": [
+        "All 92 eligible parent interventions preserve the entire correctness vector while changing response hashes.",
+        "Target choice is locked on separate development pool seeds before 500 paired confirmation pools.",
+        "The complete 660-cell grid, all negative cells, random-query control, terminal outcomes, and official CODA boundary are retained.",
+        "The results demonstrate a mechanism, bidirectionality, and anytime cost rather than claiming monotone or universal harm."
+      ],
+      "residual_gap": "The evidence establishes controlled vulnerability of frozen prediction registries, but not yet a naturally occurring registry refinement or a matrix-free deployable attack.",
+      "severity": "CRITICAL_FOR_ACCEPTANCE",
+      "closure_class": "REQUIRED_TARGETED_EXPERIMENT",
+      "required_actions": [
+        "Run a paired natural-alias refinement using the exact duplicate already present in the frozen HELM registry.",
+        "Report T1's cross-task failure as a boundary instead of leaving the label-free tier defined but empirically invisible.",
+        "Use 'held-out pool realizations from the same fixed benchmark' everywhere; do not imply new items, models, or cohorts.",
+        "Only if the natural test is null, consider a competitor-matrix-free response-distinct constructor or a disjoint-item split."
+      ],
+      "claim_disposition": "KEEP_IF_NATURAL_TEST_IS_INFORMATIVE"
+    },
+    {
+      "id": "C4_DEFENSE_FRONTIER",
+      "claimed_contribution": "Exact quotienting, matched hard covers, and clone-robust soft weights expose the prediction-only defense frontier.",
+      "strongest_reject_objection": "Exact acquisition-path restoration is not a standard utility objective. A defense can change a path and still improve or preserve selection quality, so the joint path/regret and two-sided clean gates make effective mitigation look like failure and count clean improvements as non-preservation.",
+      "current_support": [
+        "The manuscript honestly reports that a matched 5 percent hard cover cheaply suppresses the primary attack.",
+        "All 105 soft-weight cells and all 63 clean cells were stored without outcome filtering.",
+        "The current Results section already says the tested rules expose a trade-off rather than a universal impossibility."
+      ],
+      "residual_gap": "The abstract and fourth contribution still headline the joint path-restoration gate, which is not the strongest defensible evaluation target.",
+      "severity": "HIGH_BUT_FIXABLE_WITH_LOCKED_DATA",
+      "closure_class": "REANALYSIS_AND_MANUSCRIPT_CORRECTION",
+      "required_actions": [
+        "Make attack CReg suppression and clean CReg/terminal utility the primary defense axes.",
+        "Treat transcript restoration as a secondary evidence-integrity diagnostic, not a necessary condition for useful defense.",
+        "Report fixed-configuration cross-task transfer: every tested configuration worsens at least one eligible attack cell and harms clean CReg on two tasks.",
+        "Replace '0/105 succeeds' rhetoric with the measured mitigation-versus-clean-utility frontier."
+      ],
+      "claim_disposition": "REFRAME_NOT_REMOVE"
+    }
+  ],
+  "defense_outcome_only_reanalysis": {
+    "source": "STEP46_CLONE_ROBUST_SOFT_WEIGHTING_RESULTS_2026-08-08.json",
+    "attack_cells": 105,
+    "clean_cells": 63,
+    "attack_cells_lower_absolute_cumulative_regret_than_undefended": 74,
+    "attack_cells_higher_absolute_cumulative_regret_than_undefended": 31,
+    "attack_cells_at_most_50_percent_residual": 24,
+    "attack_cells_at_most_25_percent_residual": 11,
+    "attack_cells_at_most_10_percent_residual": 4,
+    "attack_cells_with_path_change_fraction_one": 105,
+    "fixed_configurations": 21,
+    "fixed_configurations_with_mean_residual_below_one": 20,
+    "fixed_configurations_nonworsening_in_every_attack_cell": 0,
+    "fixed_configurations_nonworsening_on_all_three_clean_tasks": 0,
+    "clean_significant_improvement_cells": 21,
+    "clean_significant_harm_cells": 42,
+    "clean_intervals_containing_zero": 0,
+    "taskwise_clean_sign_pattern_for_every_configuration": {
+      "gsm8k": "IMPROVEMENT",
+      "medqa": "HARM",
+      "openbookqa": "HARM"
+    },
+    "best_mean_attack_configuration": {
+      "config_id": "mcca|alpha=0.132",
+      "mean_absolute_residual_ratio": 0.5837317476310953,
+      "maximum_absolute_residual_ratio": 1.1576190044880605,
+      "attack_cells_improved": 4,
+      "attack_cells_worsened": 1,
+      "cell_ratios": {
+        "gsm8k|0.05": 1.1576190044880605,
+        "medqa|0.05": 0.5261223274487581,
+        "medqa|0.1": 0.8773337927418942,
+        "openbookqa|0.05": 0.31930108152907255,
+        "openbookqa|0.1": 0.03828253194769032
+      },
+      "clean_cumulative_regret_changes": {
+        "gsm8k": -0.180468,
+        "medqa": 0.386096,
+        "openbookqa": 1.272935
+      },
+      "mean_one_sided_clean_harm": 0.5530103333333333
+    },
+    "low_clean_harm_tradeoff_configuration": {
+      "config_id": "class_uniform|alpha=0.05",
+      "note": "MCCA and MCCP are numerically tied at this radius.",
+      "mean_absolute_residual_ratio": 0.8236501172041291,
+      "maximum_absolute_residual_ratio": 1.0611237347384284,
+      "clean_cumulative_regret_changes": {
+        "gsm8k": -0.180468,
+        "medqa": 0.350668,
+        "openbookqa": 0.238175
+      },
+      "mean_one_sided_clean_harm": 0.196281
+    },
+    "correct_interpretation": "Soft weighting often mitigates outcome harm, but no fixed tested rule and radius transfers safely across all tasks: every configuration worsens at least one attack cell and significantly harms clean cumulative regret on MedQA and OpenBookQA. Path divergence is universal in this audit but should remain a secondary transcript-integrity result."
+  },
+  "natural_registry_evidence": {
+    "frozen_models": 31,
+    "provider_groups": 11,
+    "multi_entry_provider_groups": 11,
+    "cross_task_exact_alias_pair": [
+      "anthropic_claude-instant-1.2",
+      "anthropic_claude-instant-v1"
+    ],
+    "pair_observations": {
+      "medqa": {
+        "examples": 1000,
+        "response_mismatches": 0,
+        "oracle_vector_mismatches": 0,
+        "quality": 0.548
+      },
+      "gsm8k": {
+        "examples": 1000,
+        "response_mismatches": 0,
+        "oracle_vector_mismatches": 0,
+        "quality": 0.721
+      },
+      "openbookqa": {
+        "examples": 500,
+        "response_mismatches": 0,
+        "oracle_vector_mismatches": 0,
+        "quality": 0.844
+      }
+    },
+    "next_test": "Treat the 30-entry registry with one version removed as the collapsed base and the frozen 31-entry registry as a naturally refined roster. Pair pools, budgets, temperature, and tie-breaking; report path, CReg, terminal regret, and root-collapsed selected output without selecting the pair by outcome.",
+    "why_this_precedes_provider_grouping": "It is a literal natural registry alias with exact cross-task prediction and quality equality, whereas provider grouping would impose a more contestable semantic root over materially different models.",
+    "status": "AVAILABLE_FOR_PREREGISTERED_TARGETED_EXPERIMENT_NOT_YET_A_RESULT"
+  },
+  "readiness_blockers": [
+    {
+      "id": "B1_FULL_PROOFS",
+      "severity": "P0",
+      "evidence": "The appendix says the final appendix will include the complete proofs; the promised proofs are absent.",
+      "closure": "Write complete proofs and include the executable verification summary."
+    },
+    {
+      "id": "B2_APPENDIX_RESULTS",
+      "severity": "P0",
+      "evidence": "The 660-cell LLM grid, full CODA trajectories, and artifact map are still represented by reserved-section prose.",
+      "closure": "Populate result tables, negative cells, seed definitions, provenance, commands, and hash-to-claim map."
+    },
+    {
+      "id": "B3_DEFENSE_CLAIM",
+      "severity": "P0",
+      "evidence": "The abstract and contribution four use the joint path-restoration gate as the defense headline.",
+      "closure": "Perform the locked outcome/clean-utility reanalysis and correct the manuscript."
+    },
+    {
+      "id": "B4_REALISM",
+      "severity": "P1",
+      "evidence": "The main T2 constructor uses references and the full frozen response matrix.",
+      "closure": "Run the natural alias test and disclose T1's negative cross-task boundary."
+    },
+    {
+      "id": "B5_GENERALIZATION_WORDING",
+      "severity": "P1",
+      "evidence": "Development and confirmation pools are different draws from the same benchmark examples, not new examples, models, or cohorts.",
+      "closure": "Use the exact phrase 'held-out pool realizations from the same fixed public benchmark' in headline text."
+    },
+    {
+      "id": "B6_THEORY_T2_BRIDGE",
+      "severity": "P1",
+      "evidence": "Theorem 2 covers exact aliases; T2 is response-distinct.",
+      "closure": "Add a strict-margin response-distinct extension if valid, otherwise preserve the explicit proof boundary."
+    },
+    {
+      "id": "B7_CURRENTNESS",
+      "severity": "P2",
+      "evidence": "The primary public panel is HELM-Lite v1.0.0 and contains older model versions.",
+      "closure": "Frame it as a frozen public prediction-registry audit and add a newer public registry only if it supplies candidate-level responses, references, and a feasible sequential protocol."
+    }
+  ],
+  "priority_queue": [
+    {
+      "step": 49,
+      "action": "Recompute and write the outcome-only defense Pareto audit, then correct abstract, contribution four, protocol gates, Results, and limitations using only locked Step 46 data.",
+      "type": "LOCKED_REANALYSIS_AND_MANUSCRIPT_EDIT",
+      "go_no_go": "Mandatory regardless of later experiments."
+    },
+    {
+      "step": 50,
+      "action": "Preregister and run the natural cross-task exact-alias refinement on the frozen HELM registry.",
+      "type": "TARGETED_EXISTING_DATA_EXPERIMENT",
+      "go_no_go": "If it changes trajectories or outcome on at least one task, use it as the practical anchor; if fully null, report it and decide between a matrix-free constructor and narrower mechanism-only framing."
+    },
+    {
+      "step": 51,
+      "action": "Complete the proof appendix and test a response-distinct strict-margin extension of Theorem 2.",
+      "type": "THEORY_AND_APPENDIX",
+      "go_no_go": "Full proofs are mandatory; the extension is conditional on exact validity."
+    },
+    {
+      "step": 52,
+      "action": "Populate the complete results, CODA, defense, and artifact appendices and run a manuscript-wide claim-to-source validator.",
+      "type": "SUBMISSION_READINESS",
+      "go_no_go": "Mandatory before external review."
+    },
+    {
+      "step": 53,
+      "action": "Only if the natural-alias result is null or too small, preregister one realism repair: a competitor-matrix-free constructor or disjoint-item transfer test.",
+      "type": "CONDITIONAL_EXPERIMENT",
+      "go_no_go": "Do not run automatically."
+    }
+  ],
+  "excluded_expansion": [
+    "Broad new baseline leaderboard",
+    "LLM inference or training from scratch",
+    "Provider-level identity as the primary root without a declared contract",
+    "Cryptographic lineage implementation in this paper",
+    "A claim that all active selectors or all refinements are harmful",
+    "A claim that path identity is necessary for utility"
+  ],
+  "historical_validator_note": "validate_step45_related_work.py is a snapshot validator whose exact-string expectation predates the Step 47 wording update. Its present failure is validator staleness, not a scientific or citation failure; a final current-state validator must supersede it.",
+  "figure_lock": {
+    "path": "paper_draft/figures/figure1_registry_refinement.tex",
+    "sha256": "B63CF9E1E2502B64B040ABBBD2E79C73A5612A067B33659AC017141EF509F0CA",
+    "modified_in_step48": false
+  }
+}

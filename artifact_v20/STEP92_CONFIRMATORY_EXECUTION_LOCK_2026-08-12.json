@@ -1,0 +1,49 @@
+{
+  "lock_id": "STEP92_LEARNED_CONTEXTUAL_ADAPTER_CONFIRMATORY_LOCK_V1",
+  "date": "2026-08-12",
+  "locked_sha256": {
+    "STEP92_LEARNED_CONTEXTUAL_ADAPTER_PREREGISTRATION_2026-08-12.md": "47c63712082f5b119b7495195f6134bdfa9dae1947931aae93d6cc13cca7451c",
+    "STEP92_STAGE0_MANIFEST_2026-08-12.json": "9a6bc9d60a1e339fc94eddf62c0fea16ae611ec64515f0e95695bb8bd8208147",
+    "STEP92_STAGEA_FROZEN_CONFIG_2026-08-12.json": "2c2d51aa81c4a99d942c0a129fed99785149315adfc20092ec62b869e442e9f1",
+    "STEP92_STAGEA_COMPLETE_SEARCH_LEDGER_2026-08-12.json": "562fbc63ab223c2cff5cbebcb013a1eb9745398d45b98e50f213b33f56f0d525",
+    "STEP92_STAGEA_CALIBRATION_OUTPUTS_2026-08-12.npz": "813a9f6e4fcf1af1afb6f81c18c73b7eab4ff9d21acdb2b8d3b79aa612c59a32",
+    "STEP92_AGNEWS_HOLDOUT_INPUTS_2026-08-12.json": "6503f930f8e0ec2d2148fc1d89706d12e88cf2d003b2b8403ec5799f52570a95",
+    "external_data/step92_sealed/STEP92_AGNEWS_SEALED_OUTCOMES_2026-08-12.npz": "3d2b1d8d1b1b3fb411005058b491786140b2dcbe4f2288ad837a2ec81d238c16",
+    "step92_stagea_train_and_develop.py": "2b066b6f1d4ce4285d19b7a415fcea91cbb71e7fa54d87a2480f75c499d60021",
+    "step92_stageb_confirmatory.py": "d3bb35ed8db2cb214618048bbf82e627544a0fbe43bf2915ddcfca7245d510d8",
+    "step92_common.py": "d4e01d3ec02250996f2febcf2e23da55134333b23a1bb615987bd6b41098d7f8",
+    "step92_models/step92_clean_root_00.safetensors": "e32c803e270c10748e3ab201a69a05c6beb8d07fb244f7ddcdd1e451d9831a5d",
+    "step92_models/step92_clean_root_01.safetensors": "481256b4f745a2ff72f97de92aea41905a041fd06c4877d3009418585a41a60a",
+    "step92_models/step92_clean_root_02.safetensors": "bc1179687be22bb5a3bba9ba85de1785b8e43e8353cdfe22f88ea545be8d6432",
+    "step92_models/step92_clean_root_03.safetensors": "b9b080a91864e0a2967e503f7bc9a4b320ff7b19befa6b67daf104583f2fb547",
+    "step92_models/step92_clean_root_04.safetensors": "f9400ec06b27a528b8bfa2422984d3cb7670b448f7921c46d1dae17358e6b525",
+    "step92_models/step92_clean_root_05.safetensors": "6306824958bab81dcf3d5c879223b0f136830e102862df66b275356665d7f9cc",
+    "step92_models/step92_clean_root_06.safetensors": "b016fe937244db1b0e43c2d2018e7b6c3a156f95380f0a0e5f453267637d3fd4",
+    "step92_models/step92_clean_root_07.safetensors": "0eec953fdbf3a3ab3c791bbf2d6fbe212e5b9761daa8fb7b72b8b512f33bcde7",
+    "step92_models/step92_clean_root_08.safetensors": "88109c92b24a525e9fde19966533b3a581a0d23ebb228f946b479fb7a9a5cef0",
+    "step92_models/step92_clean_root_09.safetensors": "f76fd3288e4ab178ba8df1d2caa5d45b1f6bc902dcf887063e0196a931d61231",
+    "step92_models/step92_clean_root_10.safetensors": "b05657916b531dc5a23e10eaa41255b66f8df851fca60192a236939c72b1a8c0",
+    "step92_models/step92_clean_root_11.safetensors": "317ca2d2d3a859ba2edff82c0ee680a8d842cfad6a29719248f12de831d54d3d",
+    "step92_models/step92_parent_08_learned_adapter_0.safetensors": "29fbc038d39093c69e1e75811bf14f579fcf69f73169764d8f55e7f3a7ad98fb",
+    "step92_models/step92_parent_08_learned_adapter_1.safetensors": "ec46f442071830e0b4ccb13d9879bf0c52e4b856fc8eb891fa4afb93b3bb79ad",
+    "step92_models/step92_parent_08_learned_adapter_2.safetensors": "9892f0bd36ac9d1a940c2207bac989922d81c979f5ff449664ce254086a748c4",
+    "step92_models/step92_parent_08_learned_adapter_3.safetensors": "7a161beb3e1c1961fd749117d55a1f09ee47405c81a90451f111dbce97c3a93e"
+  },
+  "base_model": {
+    "id": "distilbert/distilbert-base-uncased",
+    "revision": "12040accade4e8a0f71eabdb258fecc2e7e948be",
+    "model_safetensors_sha256": "5e3f1108e3cb34ee048634875d8482665b65ac713291a7e32396fb18f6ff0063"
+  },
+  "runtime_versions": {
+    "torch": "2.6.0+cu124",
+    "transformers": "4.56.2",
+    "datasets": "5.0.1",
+    "numpy": "1.26.4",
+    "scipy": "1.16.1",
+    "safetensors": "0.8.0"
+  },
+  "stagea_forbidden_token_hits": [],
+  "confirmatory_outputs_absent_at_lock": true,
+  "test_outcome_access_before_lock": false,
+  "item_or_prompt_lookup": false
+}

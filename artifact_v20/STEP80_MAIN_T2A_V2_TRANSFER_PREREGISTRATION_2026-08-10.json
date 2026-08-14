@@ -1,0 +1,165 @@
+{
+  "manifest_id": "STEP80_MAIN_T2A_V2_TRANSFER_V1",
+  "created_local_date": "2026-08-10",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_TRANSFER_OUTCOMES",
+  "purpose": "Close the exact-primary-condition scope gap between the Step 79 V2 legacy-wrapper audit and the paper's Step 54 matrix-free public-reference headline condition.",
+  "epistemic_status": {
+    "already_observed": [
+      "Step 54 old-backend matrix-free public-reference effects were +3.2657, +3.7851, and +0.9552 cumulative deployed regret on MedQA, GSM8K, and OpenBookQA.",
+      "Step 54 fixed-query query matrices were identical and its reported primary effects were exactly null under the historical backend.",
+      "Step 79 V2 clean-active value and legacy-wrapper refinement gates passed on seed block 50000--50499.",
+      "Step 79 closed all candidate-permutation failures on its audited legacy scenarios and passed its complete 3-by-3 tie grid.",
+      "The current abstract and primary results table use Step 54 matrix-free numbers, not Step 79 legacy-wrapper numbers."
+    ],
+    "not_yet_observed": [
+      "The Step 54 primary matrix-free scenario under V2 canonical acquisition on seeds 91000--91499.",
+      "Clean-active versus clean-random value on the exact Step 54 main seed block.",
+      "Exact candidate-permutation invariance of the main matrix-free refined registry.",
+      "The main matrix-free effect under all nine V2 query/root tie-policy cells.",
+      "The sequential excess over any fixed-query root-selection effect under V2."
+    ]
+  },
+  "locked_inputs": {
+    "step54_preregistration": {
+      "file": "STEP54_MATRIX_FREE_REALISM_PREREGISTRATION_2026-08-09.json",
+      "sha256": "cf45cdd3e6b1425db2f2c17d4e4283bde95d58356a3fd1ade09c2ef6813e8ed9"
+    },
+    "step54_execution_lock": {
+      "file": "STEP54_MATRIX_FREE_REALISM_EXECUTION_LOCK_2026-08-09.json",
+      "sha256": "2d213d8090b35a4cd14edc6292ddc3d73e934e288c14a24743daabf5b32d5bb3"
+    },
+    "step54_results": {
+      "file": "STEP54_MATRIX_FREE_REALISM_RESULTS_2026-08-09.json",
+      "sha256": "4ab5428c368991f8c9696edda63660ac76b1d516bb7c78d52eeb553ad56a41dd"
+    },
+    "step54_runner": {
+      "file": "run_step54_matrix_free_realism_audit.py",
+      "sha256": "f6fedf37dcbbef82b68353526b7ecd5b0f2156fb85918574fda139db23df4f7d"
+    },
+    "step72_strategy": {
+      "file": "STEP72_HUMAN_REVIEW_DERIVED_SUBMISSION_STRATEGY_2026-08-10.md",
+      "sha256": "e6d7b4eef6791360a78805164cdef63432e3b1e658c1f9423f6e5151e449e790"
+    },
+    "step79_results": {
+      "file": "STEP79_V2_STABLE_ACQUISITION_RESULTS_2026-08-10.json",
+      "sha256": "05613952a1ec75fb183bab3d0fee4851bbf5ec09019164bafc63f650f8d2acaf"
+    },
+    "step79_raw": {
+      "file": "STEP79_V2_STABLE_ACQUISITION_RAW_2026-08-10.npz",
+      "sha256": "66d43c3733f873e8b15618161cadbd4817377fe60e72945eba4c68aa7ec7b063"
+    },
+    "step79_validation": {
+      "file": "STEP79_V2_STABLE_ACQUISITION_VALIDATION_2026-08-10.json",
+      "sha256": "271ea31bdca94993cc93b9ee17f4432cf7486753955274e505d9ac681aa9ed59"
+    },
+    "v2_runner": {
+      "file": "run_step77_v2_stable_acquisition.py",
+      "sha256": "4f8059efc834c9983b5856217f5319672c0e6cd9c28e6ccd9adad8fadd3c7577"
+    },
+    "v2_validator": {
+      "file": "validate_step77_v2_stable_acquisition.py",
+      "sha256": "f59b2a0963b3404e697843b909f2156021cbd5bca1ff0f08f178ca05945a6754"
+    },
+    "v2_execution_lock": {
+      "file": "STEP78_V2_EXECUTION_LOCK_2026-08-10.json",
+      "sha256": "5cef28125bface590f4e59cc5ba76115b41bfa573f96e06598c4bb5e7eca2717"
+    }
+  },
+  "frozen_tasks": {
+    "medqa": {
+      "target": "openai_gpt-4-1106-preview",
+      "target_index": 24,
+      "examples": 1000,
+      "pool_size": 500,
+      "budget": 50,
+      "temperature": 3.0,
+      "distance_queries": 50
+    },
+    "gsm8k": {
+      "target": "openai_gpt-4-0613",
+      "target_index": 23,
+      "examples": 1000,
+      "pool_size": 500,
+      "budget": 30,
+      "temperature": 5.0,
+      "distance_queries": 50
+    },
+    "openbookqa": {
+      "target": "openai_text-davinci-002",
+      "target_index": 25,
+      "examples": 500,
+      "pool_size": 400,
+      "budget": 30,
+      "temperature": 5.0,
+      "distance_queries": 25
+    }
+  },
+  "frozen_scenario": {
+    "clean_entries": 31,
+    "refined_entries": 35,
+    "aliases": 4,
+    "variant": "matrix_free_public_reference_5pct",
+    "per_example_quality_equal": true,
+    "peer_response_rows_read": 0,
+    "construction_before_pool_generation": true,
+    "pool_seed_start": 91000,
+    "pool_seed_stop_inclusive": 91499,
+    "runs_per_task": 500
+  },
+  "v2_semantics": {
+    "canonical_entry_order": "full response-vector SHA256, root ID, label SHA256, label fallback",
+    "posterior_denominator": "math.fsum over canonical entry order",
+    "response_groups": "exact string groups with content-addressed identities",
+    "group_reduction": "numeric sort followed by fixed float64 squared-sum reduction",
+    "tie_equality": "exact float64 only; no tolerance, rounding, epsilon, or jitter",
+    "primary_query_policy": "minimum_global_query_id_among_exact_minima",
+    "primary_root_policy": "minimum_canonical_root_id",
+    "query_tie_policies": [
+      "minimum_global_query_id_among_exact_minima",
+      "maximum_global_query_id_among_exact_minima",
+      "sha256_seeded_choice_among_exact_minima"
+    ],
+    "root_tie_policies": [
+      "minimum_canonical_root_id",
+      "maximum_canonical_root_id",
+      "sha256_seeded_root_choice"
+    ]
+  },
+  "random_and_fixed_controls": {
+    "clean_random": "For paired pool seed s, sample without replacement using Python random.Random(s + 99173).",
+    "fixed_query": "Reuse Step 54 fixed_random_queries with seed 191000 + task_index*1000 + run_index for clean and refined registries."
+  },
+  "permutation_audit": {
+    "count": 16,
+    "seed_start": 803000,
+    "seed_stop_inclusive": 803015,
+    "scope": "clean and matrix-free refined registries, all three tasks, all 500 pools",
+    "required": "zero query, selected-root, root-regret, selected-acquisition-value, and canonical-digest mismatches"
+  },
+  "statistics": {
+    "bootstrap_repetitions": 10000,
+    "signflip_repetitions": 10000,
+    "bootstrap_seed_base": 804000,
+    "signflip_seed_base": 805000,
+    "multiplicity": "Benjamini-Hochberg across the three tasks within each contrast family"
+  },
+  "adjudication": {
+    "STRONG_TRANSFER": "Construction integrity, active-value, all-task main harm, all-task sequential-excess harm, exact permutation invariance, all-cell cumulative tie robustness, and MedQA/GSM8K terminal support all pass.",
+    "CUMULATIVE_TRANSFER": "Every STRONG_TRANSFER item except terminal support passes; narrow terminal wording while retaining trajectory/cumulative claims.",
+    "AUDIT_ONLY_TRANSFER": "Integrity/permutation pass and every task has positive mean cumulative harm, but active-value, sequential-excess, or all-cell confidence requirements fail; switch to audit framing.",
+    "BLOCKED": "Any frozen binding fails, any task loses cumulative direction, or candidate permutation remains non-invariant; prohibit manuscript promotion."
+  },
+  "forbidden_changes": [
+    "No task, target, seed block, pool, budget, temperature, alias count, distance, support salt, answer generator, or constructor change.",
+    "No use of the legacy matrix-aware wrapper as evidence for main matrix-free transfer.",
+    "No tolerance, jitter, rounding, approximate tie, or candidate insertion-order rule.",
+    "No outcome-selected permutation or hash seed.",
+    "No replacement of a failed task or policy cell.",
+    "No manuscript number replacement before independent validation."
+  ],
+  "outputs_reserved": [
+    "STEP80_MAIN_T2A_V2_TRANSFER_RESULTS_2026-08-10.json",
+    "STEP80_MAIN_T2A_V2_TRANSFER_RAW_2026-08-10.npz",
+    "STEP80_MAIN_T2A_V2_TRANSFER_VALIDATION_2026-08-10.json"
+  ]
+}

@@ -1,0 +1,235 @@
+{
+  "config_id": "STEP96_SNLI_STAGEA_FROZEN_V1",
+  "date": "2026-08-13",
+  "decision": "GO_TO_STEP96_ONE_TIME_CONFIRMATORY_LOCK",
+  "authority_sha256": {
+    "STEP96_SNLI_DIRECTIONAL_TERMINAL_BRIDGE_PREREGISTRATION_2026-08-13.md": "1f7656eb26d5a2b61d9b2e130238f27026f149f4eb8a55392390ce78c3b6ff95",
+    "STEP96_PREREGISTRATION_AMENDMENT_A_INTEGER_GATE_2026-08-13.md": "a4fa300ce8a27978e2120d0639f973f22f84a6b49e910f9ae1e4eaf717676bfa"
+  },
+  "stage0_manifest_sha256": "1b10291d49e2ac7f814b4222c0972102cfbe6b484876caebc5651b3ee44aa9d5",
+  "stagea_ledger_sha256": "87c54d3299374fc7b6f396c28356b4569cf989c5acf840b894a37f14cc07ad54",
+  "development_arrays_sha256": "c441704fd672b9b442cbd3fbb567b268f0cc7c395d547f791b7ac851a8cefd35",
+  "adapter_paths": [
+    "step96_models/step96_deberta_error_adapter_0.safetensors",
+    "step96_models/step96_deberta_error_adapter_1.safetensors",
+    "step96_models/step96_deberta_error_adapter_2.safetensors",
+    "step96_models/step96_deberta_error_adapter_3.safetensors"
+  ],
+  "adapter_sha256": {
+    "step96_models/step96_deberta_error_adapter_0.safetensors": "5e32e2ea300c27e4a6231a2a4330bbe0cb5e76aa2cdc69abe2c9fc18c542ad93",
+    "step96_models/step96_deberta_error_adapter_1.safetensors": "dd30932e611185f89f2bf43695f71b183e14200c9fbcbec5baa7b23db8041e2c",
+    "step96_models/step96_deberta_error_adapter_2.safetensors": "3ef6b74c8515ca010699f8532fc20cdf07e078ddf0dc4ca4fe9497a2ee7a122b",
+    "step96_models/step96_deberta_error_adapter_3.safetensors": "cffdee32b74bd62776309bb65c7bbc6ba9f6199d5608b45c03d6815a10c72fd9"
+  },
+  "selected_condition": {
+    "partition": "selector_verify",
+    "tau": 0.025,
+    "loss_cap": 0.01,
+    "trigger_cap": 0.05,
+    "thresholds": [
+      0.9727437496185303,
+      0.9742797613143921,
+      0.9758703410625458,
+      0.9771503210067749
+    ],
+    "alias_losses": [
+      0.008738061369640282,
+      0.00802682381629749,
+      0.007315586262954588,
+      0.00690916480390158
+    ],
+    "trigger_fractions": [
+      0.01442796179638285,
+      0.01442796179638285,
+      0.011583011583011582,
+      0.011176590123958545
+    ],
+    "coordinate_wise_nonimproving": true,
+    "runs": 1500,
+    "mean_terminal_delta": 0.022308,
+    "mean_active_minus_fixed_terminal_delta": 0.022308,
+    "mean_cumulative_delta": 0.4199226666666668,
+    "mean_fixed_terminal_delta": 0.0,
+    "mean_fixed_cumulative_delta": 0.0,
+    "max_abs_fixed_terminal_delta": 0.0,
+    "max_abs_fixed_cumulative_delta": 0.0,
+    "fixed_root_history_exact": true,
+    "path_change_rate": 0.9873333333333333,
+    "query_set_change_rate": 0.9873333333333333,
+    "final_root_change_rate": 0.17933333333333334,
+    "clean_parent_terminal_rate": 0.946,
+    "refined_parent_terminal_rate": 0.8273333333333334,
+    "parent_to_challenger_rate": 0.148,
+    "challenger_to_parent_rate": 0.029333333333333333,
+    "directional_transition_net": 0.11866666666666666,
+    "search_rank": 1,
+    "search_mean_terminal_delta": 0.013255,
+    "search_mean_active_minus_fixed_terminal_delta": 0.013255,
+    "search_mean_cumulative_delta": 0.49310999999999994,
+    "search_clean_parent_terminal_rate": 0.98,
+    "search_parent_to_challenger_rate": 0.0725,
+    "search_challenger_to_parent_rate": 0.0175,
+    "inference": {
+      "terminal": {
+        "mean": 0.022308,
+        "median": 0.0,
+        "bootstrap_95": [
+          0.01836393333333334,
+          0.026288233333333334
+        ],
+        "one_sided_signflip_p": 9.99990000099999e-06,
+        "positive_fraction": 0.14933333333333335,
+        "negative_fraction": 0.03,
+        "zero_fraction": 0.8206666666666667
+      },
+      "active_minus_fixed_terminal": {
+        "mean": 0.022308,
+        "median": 0.0,
+        "bootstrap_95": [
+          0.018471933333333336,
+          0.02624806666666667
+        ],
+        "one_sided_signflip_p": 9.99990000099999e-06,
+        "positive_fraction": 0.14933333333333335,
+        "negative_fraction": 0.03,
+        "zero_fraction": 0.8206666666666667
+      },
+      "cumulative": {
+        "mean": 0.4199226666666668,
+        "median": 0.09400000000000003,
+        "bootstrap_95": [
+          0.37588333333333335,
+          0.46506986666666666
+        ],
+        "one_sided_signflip_p": 9.99990000099999e-06,
+        "positive_fraction": 0.5053333333333333,
+        "negative_fraction": 0.17733333333333334,
+        "zero_fraction": 0.31733333333333336
+      }
+    },
+    "terminal_root_counts": {
+      "clean": [
+        1419,
+        62,
+        15,
+        4
+      ],
+      "refined": [
+        1241,
+        195,
+        50,
+        14
+      ]
+    }
+  },
+  "development_gates": {
+    "parent_unique_best_by_2_5pp_on_roster_gate": true,
+    "parent_error_prevalence_at_least_3pct": true,
+    "challenger_correct_on_at_least_15pct_parent_errors": true,
+    "all_four_distinct_adapters_at_least_ten_million_parameters": true,
+    "raw_input_endpoint_has_no_forbidden_runtime_input": true,
+    "same_literal_similarity": true,
+    "parent_unique_best_by_2_5pp_on_roster_search_validation": true,
+    "coordinate_wise_nonimproving_threshold_search_validation": true,
+    "alias_losses_at_most_one_point_threshold_search_validation": true,
+    "search_and_validation_path_change_at_least_half": true,
+    "clean_parent_terminal_rate_at_least_60pct": true,
+    "parent_to_challenger_exceeds_reverse": true,
+    "search_and_validation_terminal_mean_at_least_half_point": true,
+    "search_and_validation_active_minus_fixed_mean_at_least_half_point": true,
+    "validation_terminal_lower_positive_and_p_at_most_point05": true,
+    "validation_active_lower_positive_and_p_at_most_point05": true,
+    "validation_cumulative_mean_and_lower_positive": true,
+    "validation_fixed_query_exact_zero": true
+  },
+  "test_input": {
+    "file": "step96_test_inputs/snli_test_inputs.json",
+    "sha256": "ea94e47f79986cb4041cd1f0521cad672f7364d13d81b68d52a13cbcb63ef4ae",
+    "rows": 9824,
+    "contains_labels": false
+  },
+  "sealed_outcome": {
+    "file": "external_data/step96_sealed/snli_test_sealed_outcomes.npz",
+    "sha256": "0c475a4c0c635507303494b248e707903c6e873ee8a392be4e19faa6a3116766",
+    "rows": 9824
+  },
+  "construction_access": {
+    "test_reference": false,
+    "test_item_lookup": false,
+    "peer_outputs_in_adapter_training_or_runtime": false,
+    "runtime_fields": [
+      "premise",
+      "hypothesis"
+    ]
+  },
+  "code_sha256": {
+    "step93_common.py": "cbb4df4ccba18d386f710fbc2dd98fbf83ff266c237fffd523fc1b9dc5c89ccd",
+    "step95_common.py": "687f9899e7f8a7ea8d3a1c244ec85e3844f72ffde763d875daa1d14a38ea93c8",
+    "step96_common.py": "994411e8e9fb776c4fc447be1ad18b9c657a7199348d505815c1ed67f07e7acd",
+    "step96_executable_adapter_endpoint.py": "1205f8247fccd6ccc1d5a4cccf46dfac18adf5005d56ff0e89be711f0c5442b1",
+    "step96_stagea_develop.py": "7ee12ce6cdee4731b4a39dc02b33e47a93103ce96493f610b5d44e6ebdf7f819",
+    "repair_step96_integer_quality_gate.py": "00a04ab86224cfe6270177f87eb89bbecbe11472e7907483c7c47475010cb9d7"
+  },
+  "integer_quality_gate_repair": {
+    "amendment": "STEP96_PREREGISTRATION_AMENDMENT_A_INTEGER_GATE_2026-08-13.md",
+    "amendment_sha256": "a4fa300ce8a27978e2120d0639f973f22f84a6b49e910f9ae1e4eaf717676bfa",
+    "original_ledger_sha256": "197e3f4fc42e4d799c0cd3be4b6ab99776fd1856781d71cf0a6c78fa387c9c88",
+    "original_config_sha256": "fe24fea870ed52014e3081e6b0630447e239df897cca4c80731dc3eef694958e",
+    "counts": {
+      "threshold": {
+        "rows": 4500,
+        "loss_counts": [
+          45,
+          45,
+          45,
+          45
+        ],
+        "allowed_count": 45,
+        "fractions": [
+          0.01,
+          0.01,
+          0.01,
+          0.01
+        ],
+        "pass": true
+      },
+      "selector_search": {
+        "rows": 6000,
+        "loss_counts": [
+          57,
+          53,
+          42,
+          54
+        ],
+        "allowed_count": 60,
+        "fractions": [
+          0.0095,
+          0.008833333333333334,
+          0.007,
+          0.009
+        ],
+        "pass": true
+      },
+      "selector_verify": {
+        "rows": 9842,
+        "loss_counts": [
+          86,
+          79,
+          72,
+          68
+        ],
+        "allowed_count": 98,
+        "fractions": [
+          0.008738061369640317,
+          0.0080268238162975,
+          0.007315586262954684,
+          0.006909164803901646
+        ],
+        "pass": true
+      }
+    },
+    "selected_condition_unchanged": true,
+    "effect_values_recomputed": false,
+    "test_opened_before_repair": false
+  }
+}

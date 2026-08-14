@@ -1,0 +1,1732 @@
+      Under review as a conference paper at ICLR 2027
+
+
+
+
+000
+001
+      C ANDIDATE L ISTS A RE P RIORS :
+002   E VIDENCE -F RAME D EPENDENCE IN ACTIVE M ODEL
+003
+004   S ELECTION
+005
+006
+       Anonymous authors
+007
+       Paper under double-blind review
+008
+009
+010
+011                                                                  A BSTRACT
+012
+013                 Active model selection uses candidate outputs to decide which costly examples to
+014                 label, so the supplied list silently defines a prior over the experiment. We show that
+015
+                    this representation is not invariant. In frozen responses from 31 models, restoring
+                    one natural exact version alias changes all 1,500 paired acquisition paths despite
+016
+                    adding no behavior; registry-independent querying is unchanged. We formalize the
+017
+                    missing candidate evidence frame and prove a tight annotation-budget-linear lower
+018                 bound for selectors that see responses but not which entries deserve independent
+019                 mass. Our main causal intervention adds four response-distinct wrappers using
+020                 public references. Each exactly preserves its parent’s correctness, yet cumulative
+021                 regret rises by 3.25/3.78/.85 on MedQA/GSM8K/OpenBookQA and terminal regret
+022                 by 2.91/10.56 points on the first two. Fixed-query effects are zero; 16 candidate
+023                 permutations and all nine exact tie policies preserve the result. A reference-free test
+024                 passes corrected terminal and active-minus-fixed gates on 3/8 untouched holdouts.
+025                 On previously unused AG News, four independently optimized 50,817-parameter
+026
+                    contextual adapters preserve all parent hard answers without test-reference or item
+                    lookup, yet raise sealed terminal regret by .547 [.502, .593] points; active-minus-
+027
+                    fixed matches and fixed-query effects are zero. An official pairwise-judge selector
+028
+                    passes on 2/6 datasets. Exact quotienting misses non-identical aliases, prediction-
+029                 only defenses trade suppression against clean selection, and untargeted additions
+030                 are mostly benign. Together these results establish evidence-frame dependence and
+031                 a targeted evaluation-integrity attack surface, not universal instability or production
+032                 compromise; active evaluation should make candidate mass auditable.
+033
+034
+035   1       I NTRODUCTION
+036
+037                             Clean registry                                                Quality-preserving refinement
+038   entries      A       B        C      D
+                                                       4 entries
+                                                                                entries   A    A1      A2     A3      A4       B      C       D
+                                                       4 roots
+039                                                                                            one accountable root
+040                per-entry mass                 query transcript
+                   = 1/4 per root                 x2 → x 5 → x 9                          per-entry mass                   different transcript
+041                                                                                       A-family = 5/8                    x1 → x 4 → x 8
+042
+043                       lower cumulative regret                                         higher cumulative regret can result
+044                     candidate quality vectors unchanged                                     same roots and per-example utility
+
+045
+046       Predictions expose submitted response rows, but not the accountable map ρ : E → R or which entries deserve independent evidential mass.
+
+047
+048   Figure 1: The candidate list is an empirical prior. Adding entries from one accountable root can
+049   change active queries even when the added entries introduce no new per-example quality vector. The
+050   observable responses do not authenticate the root map. This schematic illustrates the mechanism;
+051   Tables 3 and 7 report measured effects.
+052
+053   Expert labels are costly, so DiffUse, MODEL SELECTOR, CODA, LLM Selector, and Select-
+      LLM use candidate outputs, weak judges, or consensus to prioritize labels for model comparison
+
+
+                                                                            1
+      Under review as a conference paper at ICLR 2027
+
+
+
+
+054
+      (Ashury Tahan et al., 2024; Okanovic et al., 2025; Kay et al., 2025; Durmazkeser et al., 2025; 2026).
+055   In the candidate-indexed Bayesian and consensus mechanisms we audit, however, every listed entry
+056   receives separate probability or consensus mass. They state no invariance requirement for two lists
+057   encoding the same behavioral alternatives.
+058
+      This is not only synthetic.              In our frozen roster, claude-instant-1.2 and
+059
+      claude-instant-v1 have identical responses and scores on all 2,500 task items. Restoring the
+060
+      latter to its 30-entry quotient raises the behavior’s mass from 1/30 to 2/31 and changes all 1,500
+061   Select-LLM paths; random querying remains equal. Unique-label substitution is only 8.7/4.7/3.2% of
+062   budget, so this establishes transcript dependence rather than broad natural harm.
+063
+064
+      The missing object is the candidate evidence frame: a map from listed submitted entries to accountable
+      candidate roots, plus a mass rule. Even with every response, an evaluator may lack the ownership or
+065
+      lineage evidence for this map. Treating entries as the population then makes registry representation
+066
+      an unreported experimental prior.
+067
+068   We next test exploitability after literal copies are removed. T2 uses public or independently acquired
+069   references to add response-distinct entries that preserve correctness coordinate-wise while fixing all
+070
+      existing candidates, root qualities, labels, pools, and code. It is a causal stress test, not hidden-label
+      admission. T1 instead learns on calibration and receives no holdout reference or peer output; eight
+071
+      untouched QA/translation scenarios provide the prospective realism bridge. Figure 1 illustrates T2.
+072
+073   Sequential clone sensitivity is prior: active agent evaluation tests perturbed clones and UNREAL
+074   quotients redundant committees; private variants also affect static leaderboards (Lanctot et al., 2026;
+075   Nguyen et al., 2025; Singh et al., 2025; Hays et al., 2026). We therefore claim neither the first
+076
+      sequential clone effect nor the first multiplicity attack. Our object is a latent same-root refinement
+      in shared-label model selection: entry mass changes which reusable references are acquired and
+077
+      the resulting root-level regret. Static ranks can be recomputed after quotienting, but an acquisition
+078
+      transcript cannot recover labels never requested. Hashes remove exact copies; similarity cannot
+079   establish ownership. Our question complements efficient-evaluation reliability audits (Yauney et al.,
+080   2026): which candidates constitute the evidential population?
+081
+082
+      We prove a tight budget-linear loss and construct four aliases that redirect every query. Exact-quality
+      public-reference interventions raise cumulative regret on three tasks and terminal regret by 2.91/10.56
+083
+      points on MedQA/GSM8K; candidate order and nine exact tie policies preserve the result. Three of
+084
+      eight prospective reference-free scenarios pass terminal and adaptive-minus-fixed gates. Preregistered
+085   on previously unused AG News, four independently trained 50,817-parameter adapters preserve every
+086   hard answer without test-reference or item lookup yet raise sealed terminal regret by .547 points.
+087   Earlier configuration-only MNLI/QQP successes and a QNLI improvement remain reported. An
+088   official LLM Selector audit passes corrected terminal gates on two of six datasets; CODA and all
+089   negative cells bound the claim to selectable, not generic, degradation.
+090
+      Our contributions are:
+091
+092
+            1. We define registry refinement and evidence-frame ambiguity, then show that a natural exact
+093            alias rewrites every paired path across three tasks without adding behavior.
+094
+095         2. Executable, correctness-preserving refinements cause fresh-pool harm. A reference-free
+096            extension passes 3/8 untouched holdouts; genuinely learned raw-input adapters pass a sealed
+097            new-task AG News test; and a pairwise-judge selector passes 2/6 datasets. Fixed-query
+098            effects are zero throughout.
+099
+            3. We prove a tight budget-linear lower bound and construct four aliases that redirect all B
+100
+               queries and cause Ω(B) cumulative regret.
+101
+102         4. Exact quotienting misses the main aliases; covers and clone-robust weights trade suppression
+103            against clean selection. Untargeted additions are mostly benign.
+104
+105   We do not claim that every active selector is vulnerable, that a natural alias is adversarial, that every
+106   refinement is harmful, or that similarity reveals ownership. The resulting reliability requirement is
+107   narrower: an active evaluation should either bind submitted entries to a declared candidate evidence
+      frame or qualify conclusions that depend on unaudited entry multiplicity.
+
+
+                                                          2
+      Under review as a conference paper at ICLR 2027
+
+
+
+
+108
+      2      S ETTING , T HREAT M ODEL , AND C LOSEST B OUNDARIES
+109
+110
+      Active selection. Let X = {x1 , . . . , xN } be an unlabeled evaluation pool and E = {e1 , . . . , eH }
+111   the submitted candidate entries. Entry e exposes response vector ae = (ae (x1 ), . . . , ae (xN )) and
+112   has oracle utility vector ue , binary per-example correctness in our experiments. An active policy π
+113   sequentially acquires B references. After step t, its transcript contains the queried indices, acquired
+114   references, and selected entries; using an oracle root map, we evaluate the corresponding root-level
+115   choices rb1 , . . . , rbt .
+116   Definition 1 (Candidate evidence frame). A frame Φ = (R, ρ, w) maps submitted entries to ac-
+117   countable candidate roots through ρ : E → R and assigns root mass wr . A root is the unit that the
+118   evaluation claim intends to count once; it need not be observable or cryptographically authenticated.
+119   Two frames are response-compatible when they expose the same entry identifiers and response vectors.
+120   Definition 2 (Registry refinement). A refinement of root r adds entries mapped to r without modifying
+121   existing entries. It is exact when an added response vector copies its parent and quality-equivalent
+122   when its oracle utility vector equals the parent’s coordinate-wise, even if their responses differ.
+123   Root-level refinement integrity requires a declared within-root rule under which such representation
+124   changes do not silently redefine the evaluation claim.
+125
+      For example, a uniform per-entry mechanism induces the empirical measure µE = |E|−1 e∈E δae .
+                                                                                                  P
+126   Adding k entries changes one root’s represented mass without adding a root; candidate-consensus
+127   mechanisms can change analogously because consensus is computed over listed entries. A policy is
+128   frame-blind when it observes responses and acquired references but not authenticated ρ or w.
+129
+      Table 1 compares active evaluation and selection (Lanctot et al., 2026; Liang et al., 2020; Nguyen
+130
+      et al., 2025; Okanovic et al., 2025; Kay et al., 2025; Durmazkeser et al., 2025; 2026), arena candidacy
+131
+      (Singh et al., 2025; Huang et al., 2026; Hays et al., 2026), clone weighting (George, 2010; Procaccia
+132   et al., 2025; Berriaud & Wattenhofer, 2026a), false-name work (Douceur, 2002; Burnat & Davidson,
+133   2026), and lineage (Shang et al., 2026).
+134
+135
+136   Table 1: Closest-work obligation boundary. These lines solve important pieces, but not the effect of
+137   an unaudited candidate unit on a complete adaptive selection transcript.
+138   Line                   Unit or evidence                         Path?    Unmet obligation here
+139   Sequential selection   Perturbed clones, pattern quotients,      Yes     Shared labels, latent roots,
+140                          exact mergers, or supplied IDs                    exact-utility refinement, mediation
+141   Arena candidacy        Provider/model clones                  Final rank Task-label acquisition transcript
+142
+      Dilution/clone         Fixed neighborhood or metric              No      Root evidence and adaptive transcript
+      weights
+143   False-name/Sybil       Authority, resource, or evidence       Not here Active candidate-selection
+144                          cluster                                         consequence
+145   Model lineage          Ancestry evidence                        No     Candidate mass and within-root rule
+146
+147
+148   We do not claim the first exact-duplicate preprocessor, sequential clone effect, registry effect, multi-
+149   plicity attack, clone-proof weight, evidence-backed quotient, or lineage system. Our object is the
+150
+      shared-label sequential boundary: what predictions justify about response-distinct candidate units,
+      how latent same-root multiplicity alters acquired reusable labels, and what root-level decision cost
+151
+      follows. Lineage is useful missing input, not a selection policy supplied here.
+152
+153
+      Natural refinement versus attack. Our natural anchor compares the original frozen roster with
+154   the exact-response quotient that removes its later-index version alias. It attributes neither common
+155   control outside the evaluation frame nor adversarial intent to the provider. It asks only whether a
+156   behaviorally redundant listed entry changes the active experiment. The adversarial tiers below are
+157   separate interventions that test whether an actor controlling one root can exploit the same entry-mass
+158   channel.
+159
+160   Offline threat tiers. The attacker controls one root and registers before acquisition. T0 adds exact
+161   copies as a mechanism and defense control. T1 learns on disjoint calibration references, then uses
+      only holdout prompts, options, and parent outputs; quality is measured and approximately bounded,
+
+
+                                                             3
+      Under review as a conference paper at ICLR 2027
+
+
+
+
+162
+      not assumed equivalent. T2, the main causal intervention, uses public or independently acquired
+163   references and changes only parent-wrong responses, exactly preserving correctness. Thus T2 fixes
+164   quality but assumes such reference access; T1 removes holdout-reference access and tests transfer.
+165   Across tiers, the attacker cannot modify existing entries, references, selector code, pool, budget,
+166   temperature, seeds, or tie-breaking, or adapt after acquisition begins.
+167
+      Let ℓ(r) be root r’s full-pool loss and r∗ the best root. We report ordered-path divergence, terminal
+168
+               rB ) − ℓ(r∗ ), and the anytime quantity
+      regret ℓ(b
+169
+170                                                   B
+                                                      X
+                                                           rt ) − ℓ(r∗ ) .
+                                                                       
+171                                       CRegB =        ℓ(b
+172                                                   t=1
+173
+      Cumulative regret models repeated interim use; pairing it with terminal regret prevents a transient
+174
+      path effect from being misreported as a worse final choice.
+175
+176
+177   3    F RAME I DENTIFIABILITY AND S EQUENTIAL A MPLIFICATION
+178
+179   We ask whether labels can compensate for a missing frame in any response-only policy, and whether
+180   a constant refinement can redirect a current selector. The first result establishes information necessity;
+181   the second gives concrete amplification.
+182
+183   Response-compatible worlds. Let O(E) = {(e, ae ) : e ∈ E} be the public response view. Frames
+184   exposing the same O(E) and label transcript are indistinguishable to a frame-blind policy: labels
+185   reveal useful behavior, not whether entries are independent roots. A fresh hidden-frame choice at
+186   every step makes this ambiguity accumulate.
+187                                    π
+      For the construction below, let VΦ,B be the expected information, in bits, acquired by policy π about
+188                                                   ∗
+      B latent binary candidate coordinates, and let VΦ,B be the optimum for a policy that knows Φ. Define
+189
+      Ihi = 0.540852 and Ilo = 0.459148 bits.
+190
+191   Theorem 1 (Tight cost of a missing evidence frame). For every integer budget B ≥ 1, there is
+192   one fixed public response registry, a pool with two binary queries per coordinate, and 2B response-
+193
+      compatible frames such that every possibly randomized frame-blind policy has, on some fixed
+      compatible frame,
+194
+195                              ∗        π      B
+                              VΦ,B   − VΦ,B   ≥ (Ihi − Ilo ) = 0.040852B bits.
+196                                              2
+197   The bound is tight. The corresponding tight minimax excess coordinate-wise Hamming risk is B/24.
+198
+199
+      Proof intuition. One latent frame bit per coordinate selects which of two query polarities yields
+200
+      Ihi instead of Ilo . Under uniform compatible frames, an untouched bit is independent of prior
+201   observations, so a frame-blind policy chooses the informative polarity with probability at most
+202   one half. Revisiting cannot improve its minimax value. Averaging yields a fixed hard frame;
+203   independent randomization attains equality. Appendix B gives the construction and 1/24 Hamming-
+204   risk calculation.
+205
+      The construction grows exponentially with B, proving necessity rather than practical registry size. A
+206
+      constant change can nevertheless be amplified by a concrete selector.
+207
+208   Theorem 2 (Constant-registry full-path amplification). For every odd B ≥ 3 and finite Select-LLM
+209
+      temperature τ > 0, there is a pool with five canonical response behaviors and 2B items such that
+      adding four exact aliases produces nine submitted entries, redirects all B acquisitions to a disjoint
+210
+      query block, and changes cumulative regret from zero to at least
+211
+212                                              B2 − 1
+213                                                     = Ω(B),
+                                                  4B
+214
+215   while the terminal regret is (B − 1)/(2B). The two best canonical behaviors and all existing
+      responses are unchanged.
+
+
+                                                            4
+      Under review as a conference paper at ICLR 2027
+
+
+
+
+216
+      Proof intuition. The clean registry always prefers a good query block. Four aliases move another
+217   behavior’s mass above one half along an alternating-label path, making every bad query preferable
+218   and reinforcing the condition after each selection. Counting odd steps gives both regret bounds;
+219   Appendix B verifies them for every finite τ .
+220
+      This is mechanism-specific, not universal harm, and exact hashing blocks the literal construction.
+221
+      Section 4 therefore tests response-distinct, quality-equivalent variants.
+222
+223   Proposition 1 (Selector-agnostic root factorization). Suppose ρ is authenticated, each root has
+224
+      fixed mass wr , and at every step a selector’s state, action kernel, and decision depend on entries
+      only through root summaries Sr . If Sr is invariant to an allowed within-root refinement, then the
+225
+      distribution of the complete query transcript and root decisions is invariant to that refinement.
+226
+227   Transcript induction proves the claim (Appendix B). It covers uncertainty, diversity, and mutual-
+228   information rules only when they actually factor through authenticated, refinement-invariant root
+229   summaries; a method label alone gives no protection. Exact quotienting handles unique response
+230   patterns, not response-distinct variants. Predictions also cannot authenticate ρ, so deployment still
+231   requires a declared canonical entry or fixed within-root mixture.
+232
+233
+      4      L OCKED I NTERVENTION AND E VALUATION P ROTOCOL
+234
+235
+      Primary selector and response matrices. We audit an independent, equation-faithful implementa-
+236
+      tion of Select-LLM (Durmazkeser et al., 2026), not the authors’ artifact. With a uniform prior over
+237   submitted entries, its posterior and exact-response acquisition score are
+238
+                                                                                       2
+239
+                                                    !
+                                        X                            X        X
+240                pt (e) ∝ exp τ −1       ue (xis ) ,     At (x) =              pt (e) .
+241                                           s<t                          y   e:ae (x)=y
+242
+243
+      At each step it queries the unlabelled item minimizing At , observes its reference, and selects a
+      root with maximum accumulated utility. To make the implementation independent of submitted-list
+244
+      order, V2 canonicalizes entries by full-response SHA-256, root ID, and label hash; sums posterior
+245
+      normalization in that order; sorts response-group masses before the fixed float64 reduction; resolves
+246   exact query ties by minimum global query ID; and resolves exact deployment ties by minimum root
+247   ID. A locked robustness cross replaces both minima by maximum-ID and manifest-seeded SHA-256
+248   choices, giving all nine query/root tie-policy cells. Thus only the registry differs between paired clean
+249   and refined runs.
+250
+      We use raw responses and recorded reference-based scores for 31 models from HELM-Lite v1.0.0
+251
+      (Liang et al., 2023) on MedQA (Jin et al., 2021), GSM8K (Cobbe et al., 2021), and OpenBookQA
+252   (Mihaylov et al., 2018). Table 2 records the complete primary mapping.
+253
+254
+255          Table 2: Frozen primary LLM protocol. Each final condition uses 500 paired pool draws.
+256   Task           N   Pool   Budgets   τ    Development-locked parent
+257   MedQA      1000    500 10/30/50     3    GPT-4-1106-preview
+258   GSM8K      1000    500 10/20/30     5    GPT-4-0613
+      OpenBookQA  500    400 10/20/30     5    text-davinci-002
+259
+260
+261   Natural exact-alias anchor. Before base-versus-refined outcomes, we select the unique pair whose
+262   full response and utility rows match in every task: frozen indices 9 and 10. The stable-order 30-entry
+263   base removes index 10; the original roster restores it and maps it to root 9. Primary settings and 500
+264   paired pools follow Table 2; five-temperature and three-budget slices give 21 cells. Pair discovery
+265   used row equality but not selector outcomes, making this a result-blind internal lock rather than an
+266   external prospective preregistration. A locked replay separates ordered displacement from unique-set
+267   substitution; Appendix D gives its descriptive rules.
+268
+269   Quality-equivalent refinement. Our realism confirmation uses an answer-space-native T2-A
+      constructor. For each of four aliases, a frozen hash orders positions where parent e is wrong and
+
+
+                                                                    5
+      Under review as a conference paper at ICLR 2027
+
+
+
+
+270
+      selects d = max{1, round(ηN )}. On multiple-choice tasks it emits another public option that is
+271   neither e’s answer nor the reference; on GSM8K it emits a deterministic nonzero numeric offset from
+272   the reference. Thus every alias has a distinct response hash while satisfying ue′ = ue coordinate-wise.
+273   Offline construction reads e’s outputs, public IDs/options, and references—no peer response, pool
+274   seed, or trajectory—before pool draws. A locked replay then serves prompt-only wrappers with no
+275   runtime ID, reference, peer response, pool seed, or selector state.
+276
+      Targets were locked earlier by a matrix-based T2-M stress constructor over every eligible parent on
+277   development pools 3500–3999. Its target distribution, robustness, and defenses use seeds 50000–
+278   50499. Without retargeting, T2-A uses fresh seeds 91000–91499. These are new pool realizations of
+279   the same public benchmarks, not disjoint tasks or clinical cohorts.
+280
+281   Prospective reference-free T1. Before downloading content or outcomes, we froze the eight
+282   untouched, structurally complete non-LegalBench scenarios left in HELM-Lite after excluding prior
+283   tasks: NarrativeQA, two NaturalQA modes, and five WMT14 language pairs. A hash split exposes
+284   half to calibration and seals half. Calibration alone chooses a parent, support policy, distance in
+285   {.5, 1}%, budget, and clean-selected temperature. The builder then opens only each selected parent’s
+286   holdout prompts and outputs, using a calibration-trained TF–IDF ridge error score to place four
+287   deterministic abstention wrappers; it reads no holdout reference, utility, peer output, pool, or selector
+288
+      state. Bounded utilities make every alias non-improving and at most one point worse. On 1,000
+      paired holdout pools per scenario, a gate requires positive bootstrap lower bounds and eight-task BH
+289
+      q < .05 for both terminal harm and active-minus-fixed terminal harm. Every scenario and null is
+290
+      retained; Appendix A gives the frozen selection and the earlier within-task transfer audit.
+291
+292
+      Learned raw-input adapter transfer. Before any AG News row or outcome was read, a separate
+293
+      protocol fixed its revision, a frozen DistilBERT encoder, SHA-256 partitions of 120,000 training
+294   items, and sealed all 7,600 test labels. Twelve 100,484-parameter bottleneck classifiers form the clean
+295   registry. For each of five eligible parents, four 50,817-parameter contextual temperature adapters are
+296   independently trained. Each reads raw text, frozen hidden state, and parent logits; positive temperature
+297   preserves the hard label algebraically, while a calibration-frozen confidence field makes responses
+298   distinct. No test reference, item map, peer output, pool, or selector state is available. Stage A retains
+299   all 300 parent/temperature/bin/trigger conditions and verifies the top 12 on 300 calibration pools
+300   before freezing one. The 1,000-pool sealed test requires at least .5 terminal and active-minus-fixed
+301   harm, a positive interval, significant sign flip, 50% path change, and exact fixed-query equality.
+302
+      Earlier configuration-only QNLI/MNLI/QQP wrappers remain a negative/two-positive precursor, not
+      learned-checkpoint evidence (Appendices G–H).
+303
+304
+305
+      Targeted-intervention pairing, robustness, and inference. Each seed samples a pool without re-
+      placement; its clean and refined runs share the pool, references, budget, temperature, and tie-breaking.
+306
+      Temperatures were selected without references on disjoint seeds 40000–40499 by maximizing mean
+307
+      proxy identification probability over steps 1:B on the frozen grid {0.1, 0.2, . . . , 1, 2, 3, 4, 5}, with
+308   smaller-τ tie-breaking. The robustness audit crosses five temperatures {0.1, 0.5, 1, 3, 5}, four alias
+309   counts {1, 2, 4, 8}, four distances {0.1%, 1%, 5%, 10%}, and three budgets per task. It retains all
+310   660 eligible cells; an infeasible distance is marked ineligible without changing the parent.
+311
+      The primary endpoint is paired change in cumulative fixed-universe deployed-output regret (Sec-
+312
+      tion 2); terminal regret, ordered-path divergence, changed positions, query-set Jaccard, and harm-
+313
+      ful/improved/tied pool fractions are secondary. We use 10,000-repetition paired bootstrap intervals
+314   and paired two-sided sign-flip tests, with Benjamini–Hochberg correction within each prespecified
+315   family. Uniform random querying tests whether active acquisition adds clean value. A second control
+316   fixes the same query matrix in both registries and decomposes static root selection from sequential
+317   excess harm. Sixteen frozen permutations of each clean/refined registry require bitwise equality of
+318   query, root, regret, and acquisition-value paths after canonicalization. All negative cells remain in the
+319   reported grid.
+320
+321   Matched defense audit. The exact quotient groups identical full response vectors. For radius
+322   ρ, the behavioral cover connects entries whose full-vector disagreement is at most ρ, takes con-
+323   nected components, and retains the smallest-index representative. We set ρ to the alias’s realized
+      distance—never a larger unmatched radius—and jointly report residual attack effect, clean cumulative
+
+
+                                                          6
+      Under review as a conference paper at ICLR 2027
+
+
+
+
+324
+      and terminal cost, models removed beyond exact quotienting, natural same-provider merges, and
+325   maximum within-component quality span. Authenticated lineage that assigns fixed parent-level mass
+326   is an oracle-information comparator, not a proposed response-only defense.
+327
+328
+      We also preregister three general-metric clone-robust graph weights from Berriaud & Wattenhofer
+      (2026b): class-uniform, maximal-clique equal-allocation (MCCA), and maximal-clique participation
+329
+      (MCCP). Under normalized response Hamming distance, exact integration over a uniform radius
+330
+      density and seven frozen α values supplies the prior for both acquisition and deployment, yielding
+331   63 clean and 105 attack cells. The original “suppressed” gate requires at most 10% residual regret
+332   and path change; “clean-preserving” requires |∆CReg| ≤ 0.1 and both intervals to contain zero. We
+333   retain those integrity gates, but also report a post-hoc descriptive fixed-configuration audit of outcome
+334   residual and clean cumulative/terminal cost; path identity is not treated as necessary for equal utility.
+335
+336
+      Official cross-selector audits. We retain an official CODA path-sensitivity audit on five GLUE
+337
+      tasks (Appendix E). Separately, before outcomes, we froze all six official LLM Selector datasets
+338   (Durmazkeser et al., 2025) and each source-order-first parent. Four entries copy its complete strong-
+339   judge row but hash-cycle 20% of only its own weak-judge tensor; no other candidate, strong label,
+340   pool, or trajectory is read. We reproduce the official ten-judge entropy rule for 30 labels and 1,000
+341   paired pools per dataset. Promotion requires exact utility and fixed-query equality, material terminal
+342   harm with corrected inference, and two passing datasets. This is a score-matrix decision-view
+343   intervention, not a raw-response endpoint (Appendix F).
+344
+345
+346
+      5     R ESULTS
+347
+348   5.1     A NATURAL EXACT ALIAS REWRITES THE ACTIVE EXPERIMENT
+349
+350   The two frozen version entries are the unique cross-task exact response-and-utility pair: zero mis-
+351
+      matches over 2,500 items and equal task qualities .548/.721/.844. Restoring the later entry to its
+      30-entry quotient adds no behavior or quality vector and is not attributed to adversarial intent, yet
+352
+      changes at least one query in all 500/500 runs per task. Mean changed positions and query-set
+353
+      Jaccards are 40.744/.844, 21.752/.911, and 16.010/.940 (Table 3, Panel A). With candidate-invariant
+354   random queries, query matrices, root histories, and regret remain exactly equal. The active effect
+355   follows from raising one behavior’s entry mass from 1/30 to 2/31.
+356
+357
+358   Table 3: Natural and targeted refinements on 500 paired pools per task. Panel A restores one naturally
+359   occurring exact version alias to its 30-entry quotient. Panel B reports the canonical V2 replay of
+360   fresh-pool, 5%-distance T2-A effects constructed without peer responses. Every run changes path;
+361   CReg is summed through B and positive is worse.
+362    A. Natural exact alias: occurrence and representation non-invariance
+363   Task                  Changed positions                       Query Jaccard               ∆ CReg [95% CI]       Unique repl.
+
+364   MedQA                       40.744/50                               .8437     −0.5002 [−0.6152, −0.3883]      4.358 (8.72%)
+      GSM8K                       21.752/30                               .9111        +0.0593 [0.0275, 0.0921]     1.420 (4.73%)
+365   OpenBookQA                  16.010/30                               .9395      −0.0276 [−0.0634, 0.0083]      0.960 (3.20%)
+366    B. Target-locked, peer-response-free T2-A: targeted exploitability
+      Task                                  B                   ∆ CReg [95% CI]            ∆ terminal pp [95% CI]    Harmed pools
+367
+368   MedQA                               50        +3.2518 [3.0214, 3.4842]             +2.906 [2.316, 3.543]             92.0%
+      GSM8K                               30        +3.7811 [3.6177, 3.9433]            +10.559 [9.908, 11.234]            99.2%
+369   OpenBookQA                          30        +0.8459 [0.7650, 0.9260]            +0.006 [−0.016, 0.031]             78.8%
+370
+371
+372   Ordered displacement overstates acquired-evidence replacement.                Query sets change in
+373   94.0/87.4/66.0% of runs, but only 4.358/1.420/.960 unique labels on average (8.72/4.73/3.20%
+374   of budget); only MedQA exceeds our disclosed descriptive 5% heuristic. Natural CReg improves by
+375   .5002, worsens by .0593, and is inconclusive, respectively, while all primary terminal intervals contain
+376   zero. All 21 cells remain path-material and 14 CReg effects survive correction (five harms, nine
+377   improvements). We therefore claim cross-task transcript instability and task-local label substitution,
+      not broad annotation-cost or reliable natural harm.
+
+
+                                                                         7
+      Under review as a conference paper at ICLR 2027
+
+
+
+
+378
+      5.2   TARGETED RESPONSE - DISTINCT REFINEMENTS CAUSE FRESH - POOL HARM
+379
+380   The intervention changes representation, not recorded quality. Without retargeting, every T2-A
+381   alias has a distinct non-parent response hash yet exactly preserves its parent’s correctness on every
+382   example. Original entries, references, and the best original root are unchanged. The constructor reads
+383   zero peer-response rows. Prompt-only replay is exact for all 12 alias rows and 1,500 runs (2.3–5.1
+384   KB manifests; zero overrides after a one-character mutation). Nevertheless, all 500 fresh paired
+385   trajectories change on every task. Fixing one random-query matrix for both registries makes query
+386
+      histories and regret exactly equal, so the entire paired penalty is sequential excess rather than pool
+      resampling or registry-only deployment choice.
+387
+388   T2-A increases cumulative deployed-output regret on all three fresh confirmation sets (Table 3, Panel
+389   B); all intervals exclude zero and BH-adjusted sign-flip q-values equal 9.999 × 10−5 . The final
+390   selected root changes on 74.4% of MedQA pools and 80.6% of GSM8K pools, yielding terminal
+391   losses of 2.91 and 10.56 percentage points. OpenBookQA’s terminal interval contains zero despite
+392
+      +0.846 cumulative regret, supporting an anytime rather than final-model failure.
+393
+394
+      The effect is not a candidate-order or favorable-tie artifact. Across 16 frozen permutations of
+      both registries, all 48,000 scenario–pool replays have zero query, selected-root, regret, acquisition-
+395
+      value, or canonical-digest mismatch. All 27 cells in the 3 × 3 exact query/root tie grid change every
+396
+      path and have positive cumulative-regret intervals: mean effects range from 2.089–3.252 on MedQA,
+397   3.781–3.884 on GSM8K, and .415–1.340 on OpenBookQA. Every query policy has positive terminal
+398   harm under all three root policies on MedQA and GSM8K; OpenBookQA remains a cumulative-
+399   only result. Clean V2 active selection beats random querying in cumulative regret on GSM8K and
+400   OpenBookQA; on MedQA its cumulative difference is inconclusive, but exact-identification AUC
+401   improves by .129 [.090,.167]. Thus the attack is measured on a nonvacuous active selector without
+402   relying on insertion order.
+403
+404   Reference-free terminal harm transfers prospectively to three of eight untouched scenarios.
+405   After calibration locked every configuration, four distinct aliases per scenario were built from holdout
+406
+      prompts and parent outputs alone and stayed non-improving within one utility point. Every fixed-
+      query effect is exactly zero. NarrativeQA terminal regret rises by 3.021 points [2.766,3.282], and
+407
+      WMT14 fr–en and ru–en rise by .139 [.102,.177] and .250 [.154,.350] BLEU-4 points; both active
+408
+      and active-minus-fixed eight-task BH q ≤ .00027. Their paths change in 100.0/75.1/97.4% and
+409   final roots in 45.6/10.6/46.1% of 1,000 paired pools. The other five frozen scenarios are retained:
+410   NaturalQA closed/open and WMT de–en improve, while cs–en and hi–en intervals cross zero. The
+411   preregistered decision is therefore 3/8 PROMOTE REFERENCE FREE TERMINAL BRIDGE, not a
+412   universal transfer claim (Appendix A).
+413
+414   A learned raw-input adapter crosses the new-task bridge. On sealed AG News, four distinct-
+415   hash contextual adapters have 50,817 learned parameters; their pairwise response Hamming distances
+416   are 24.1–26.3%, while all 30,400 adapter–item hard answers and utilities equal the parent. Across
+417   1,000 pools, every path and 99.3% of query sets change; terminal roots change in 55.2%. Terminal
+418   regret rises by .547 [.502, .593] points (p = 1.0×10−5 ); active-minus-fixed is identical and fixed-
+419
+      query effects are zero. An independent implementation replays 2,000 active and 2,000 fixed paths
+      plus raw-input outputs. Post-confirmatory group-order and 10−12 tie audits move the mean only
+420
+      from .546 to .548 points and retain the gate. Configuration-only MNLI/QQP successes and the QNLI
+421
+      improvement remain in Appendix G; Appendix H gives the learned result.
+422
+423
+      Selection is reproducible but the effect is bidirectional. In the T2-M stress audit, parents chosen
+424   only on development pools rank first by harm on final pools; development–final target-effect Spearman
+425   correlations are 0.991, 0.995, and 0.999. Yet its complete target audit rejects universal harm. Positive
+426   versus negative point effects are 15/16 on MedQA, 13/18 on GSM8K, and 12/18 on OpenBookQA;
+427   the corresponding medians are −0.006, −0.046, and −0.176. Hence the result is a development-
+428   selectable directional intervention, not an average claim about arbitrary refinement.
+429
+430   The targeted effect is robust, not monotone. For T2-M at 5% distance and four aliases, all 15/15
+431   task–temperature cells and 9/9 task–budget cells have positive BH-corrected intervals. Across the
+      complete 660-cell grid, MedQA has 240/240 positive cells and GSM8K 180/180 eligible positive
+
+
+                                                         8
+      Under review as a conference paper at ICLR 2027
+
+
+
+
+432
+      cells. OpenBookQA has 171 positive and 69 negative cells (167 and 60, respectively, BH-significant):
+433   at its primary budget and temperature, four 5% aliases give +1.460 cumulative regret whereas eight
+434   give −0.438. T2-A at 1% is likewise positive on MedQA/GSM8K but improves OpenBookQA by
+435   .545. Alias count and distance are therefore not scalar corruption strengths; registry mass can steer
+436   the trajectory in either direction.
+437
+438   5.3   P REDICTION - ONLY DEFENSES MITIGATE OUTCOMES BUT DO NOT TRANSFER CLEANLY
+439
+440   Exact quotienting removes the natural pair and T0 copies but retains response-distinct
+441   aliases. A matched 5% cover suppresses T2-M at clean CReg cost 0.000/0.000/ − 0.169 on
+442   MedQA/GSM8K/OpenBookQA. At 10%, GSM8K is ineligible; OpenBookQA merges six natural en-
+443
+      tries spanning 5.2 accuracy points and pays 3.975 terminal points, while MedQA pays only cumulative
+      cost. Authenticated lineage has zero clean change but uses external information (Appendix J).
+444
+445   Soft weights reduce absolute CReg in 74/105 cells, but none is non-worsening across all attacks.
+446   Best-mean MCCA (α = .132) leaves .584 residual, worsens GSM8K by 15.8%, and changes clean
+447   CReg by −0.180/ + 0.386/ + 1.273; 45/63 terminal intervals contain zero. Every attacked transcript
+448   differs: a task-dependent frontier, not universal impossibility.
+449
+450   5.4   C ROSS - SELECTOR EFFECTS INCLUDE TERMINAL HARM
+451
+      The official LLM Selector audit changes every path, preserves strong-judge utility, and has zero fixed-
+452
+      query effects. AlpacaEval/Bingo pass: terminal regret rises by .321 [.194, .453]/.498 [.374, .623]
+453   points (six-task BH q = 3.0 × 10−5 ), with 23.2/32.4% final-root change. Arena-Hard improves,
+454   Flickr30k misses correction, and MEDIQA/MT-Bench are terminal-null. These are weak-view aliases
+455   (Appendix F); CODA has mixed cumulative and negligible terminal effects (Appendix E). Thus harm
+456   crosses a second family without becoming universal.
+457
+458   Negative findings bound the conclusion. Natural, OpenBookQA, and CODA cells improve. Only
+459   8/420 untargeted additions are materially harmful versus 27 beneficial, and a fragility score fails five
+460   of six gates (Appendix I). We claim targeted, not average, harm.
+461
+462   6     R ELATED W ORK
+463
+464   Closest sequentially, Lanctot et al. (2026) acquire agent-specific scores and test perturbed, separately
+465   ranked clones; UNREAL quotients redundant committees and PUTSC merges exact candidates
+466   (Nguyen et al., 2025; Liang et al., 2020). We do not claim the first sequential clone effect. Ours
+467   instead combines a shared reference-label unit, same-root exact utility, and fixed-query mediation to
+468   root regret (Table 1); correlation-aware selection fixes an ensemble (Turkmen et al., 2026).
+469   Static registry attacks change ranks, models, matches, or descriptions, not future labels (Hays
+470   et al., 2026; Suri et al., 2025; Singh et al., 2025; Huang et al., 2026). Dilution priors, clone
+471   weights, quotients, and lineage constrain static influence or identify roots (George, 2010; Berriaud
+472   & Wattenhofer, 2026b; Procaccia et al., 2025; Burnat & Davidson, 2026; Shang et al., 2026); ours
+473   changes which reusable labels are acquired, which post-hoc quotienting cannot recover.
+474
+475
+      7     L IMITATIONS , I MPLICATIONS , AND C ONCLUSION
+476
+477
+      The natural anchor is one pair; T2-A uses public references, T1 passes 3/8, LLM Selector 2/6, and
+478   untargeted additions are mostly benign. AG News uses genuinely learned contextual calibration
+479   adapters on one task under an already audited selector but shares its encoder/parent; these are not
+480   independently fine-tuned full checkpoints or registry admission. Earlier wrappers are configuration-
+481   only and QNLI improves. We establish targeted evidence-frame failures—not production compromise,
+482   clinical harm, intent, or the first sequential clone effect.
+483
+484   Deployment boundary and conclusion. Candidate lists are experimental priors. Because sim-
+485   ilarity cannot authenticate ownership, registries should bind roots and fix root mass/aggregation
+      (Proposition 1), or report evidence-frame and multiplicity sensitivity.
+
+
+                                                         9
+      Under review as a conference paper at ICLR 2027
+
+
+
+
+486
+      AI U SE S TATEMENT
+487
+488
+      Generative AI tools assisted topic and gap discovery, conceptual framing and hypothesis refinement,
+489   literature discovery and organization, methodology and experiment-design critique, code drafting
+490   and experiment orchestration, formulation and checking of formal statements and proof drafts, result
+491   analysis and interpretation, adversarial manuscript review, artifact documentation, and language
+492   editing. AI outputs were not treated as sources of evidence or as autonomous authorship. The authors
+493   manually checked citations against primary sources, executed and validated the code and locked
+494   outputs, inspected the proof obligations, reviewed all AI-assisted text, and take responsibility for the
+495   complete submission.
+496
+497   E THICS S TATEMENT
+498
+499   The work audits public benchmark responses and does not use clinical records or interact with
+500   deployed patients. We disclose attack prerequisites and negative results to avoid overstating private-
+501   label or clinical risk. The intended use is to improve the integrity of evaluation registries and active
+502   selection protocols.
+503
+504   R EPRODUCIBILITY S TATEMENT
+505
+506   The anonymous artifact records the natural-alias lock, preregistered targets, paired seeds, complete
+507   robustness and defense grids, official-selector provenance, and machine-readable outputs. Its manifest
+508   binds the Step 80 exact-quality result, Step 87’s reference-free protocol and 8,000 paired arrays,
+509   Step 88’s outcome-blind protocol and 6,000 paired arrays, Steps 89–90’s configuration-wrapper
+510   audits, and Step 92’s learned-adapter protocol, weights, sealed result, and numeric-tie audit. Offline
+511   mode verifies every bundled byte and anonymity. Full mode reruns the prior validators and paper
+512   build, reconstructs Step 80 in 2,882 checks, all Step 87 paths/statistics/gates, 85,934 Step 88 invariants
+513
+      with 300 literal official-path replays, 4,000 active plus 2,000 fixed-query Step 90 trajectories, and
+      Step 92’s 2,000 active plus 2,000 fixed-query trajectories in 4,170 checks with 256 raw-input endpoint
+514
+      replays. Public source packages, base weights, and third-party repositories are not embedded.
+515
+516
+517   R EFERENCES
+518   Shir Ashury Tahan, Ariel Gera, Benjamin Sznajder, Leshem Choshen, Liat Ein-Dor, and Eyal
+519     Shnarch. Label-efficient model selection for text generation. In Proceedings of the 62nd Annual
+520     Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pp. 8384–8402.
+521     Association for Computational Linguistics, 2024. doi: 10.18653/v1/2024.acl-long.456. URL
+522     https://aclanthology.org/2024.acl-long.456/.
+523
+      Damien Berriaud and Roger Wattenhofer. Clone-robust weights in metric spaces: Handling redun-
+524
+        dancy bias in benchmark aggregation. In Proceedings of the 25th International Conference on
+525
+       Autonomous Agents and Multiagent Systems, pp. 2270–2278, 2026a. doi: 10.65109/MJWJ6521.
+526
+527   Damien Berriaud and Roger Wattenhofer. Breaking the illusion of artificial consensus: Clone-
+528     robust weighting for arbitrary metric spaces. arXiv preprint arXiv:2602.24024, 2026b. URL
+529     https://arxiv.org/abs/2602.24024.
+530   Florian A. D. Burnat and Brittany I. Davidson. Quotient semivalues for false-name-resistant data
+531     attribution. arXiv preprint arXiv:2605.07663, 2026. URL https://arxiv.org/abs/2605.
+532     07663.
+533
+534
+      Karl Cobbe, Vineet Kosaraju, Mohammad Bavarian, Mark Chen, Heewoo Jun, Lukasz Kaiser,
+        Matthias Plappert, Jerry Tworek, Jacob Hilton, Rei Nakano, Christopher Hesse, and John Schulman.
+535
+        Training verifiers to solve math word problems. arXiv preprint arXiv:2110.14168, 2021. URL
+536
+        https://arxiv.org/abs/2110.14168.
+537
+538   John R. Douceur. The sybil attack. In Proceedings of the First International Workshop on
+539     Peer-to-Peer Systems, 2002. URL https://www.microsoft.com/en-us/research/
+        publication/the-sybil-attack/.
+
+
+                                                         10
+      Under review as a conference paper at ICLR 2027
+
+
+
+
+540
+      Yavuz Durmazkeser, Patrik Okanovic, Andreas Kirsch, Torsten Hoefler, and Nezihe Merve G”urel.
+541     Active model selection for large language models. arXiv preprint arXiv:2510.09418, 2025. URL
+542     https://arxiv.org/abs/2510.09418.
+543
+544   Yavuz Durmazkeser, Patrik Okanovic, Andreas Kirsch, Torsten Hoefler, and Nezihe Merve Gürel.
+545     Large language model selection with limited annotations. arXiv preprint arXiv:2605.24981, 2026.
+546     URL https://arxiv.org/abs/2605.24981.
+547
+548
+      Edward I. George. Dilution priors: Compensating for model space redundancy. In Borrowing Strength:
+        Theory Powering Applications—A Festschrift for Lawrence D. Brown, volume 6 of IMS Collections,
+549
+        pp. 158–165. Institute of Mathematical Statistics, 2010. doi: 10.1214/10-IMSCOLL611.
+550
+551   Chris Hays, Rachel Li, Bailey Flanigan, and Manish Raghavan. Strategic candidacy in generative AI
+552     arenas. In Proceedings of the 43rd International Conference on Machine Learning, volume 306 of
+553     Proceedings of Machine Learning Research, 2026. URL https://arxiv.org/abs/2603.
+554     26891.
+555
+556   Jenny Y. Huang, Yunyi Shen, Dennis Wei, and Tamara Broderick. Dropping just a handful of
+557
+        preferences can change top large language model rankings. In The Fourteenth International
+        Conference on Learning Representations, 2026. URL https://openreview.net/forum?
+558
+        id=jNiEMDsRgc.
+559
+560   Di Jin, Eileen Pan, Nassim Oufattole, Wei-Hung Weng, Hanyi Fang, and Peter Szolovits. What
+561     disease does this patient have? a large-scale open domain question answering dataset from medical
+562     exams. Applied Sciences, 11(14):6421, 2021. doi: 10.3390/app11146421.
+563
+564   Justin Kay, Grant Van Horn, Subhransu Maji, Daniel Sheldon, and Sara Beery. Consensus-driven
+565     active model selection. In Proceedings of the IEEE/CVF International Conference on Computer
+566     Vision, 2025. URL https://openaccess.thecvf.com/content/ICCV2025/html/
+567
+        Kay_Consensus-Driven_Active_Model_Selection_ICCV_2025_paper.html.
+        Highlight.
+568
+569   Marc Lanctot, Kate Larson, Ian Gemp, and Michael Kaisers. Active evaluation of general agents:
+570    Problem definition and comparison of baseline algorithms. In Proceedings of the 25th International
+571    Conference on Autonomous Agents and Multiagent Systems, 2026. URL https://arxiv.org/
+572    abs/2601.07651.
+573
+574   Percy Liang, Rishi Bommasani, Tony Lee, et al. Holistic evaluation of language models. Trans-
+575     actions on Machine Learning Research, 2023. URL https://openreview.net/forum?
+576
+        id=iO4LZibEqW.
+577
+      Shen Liang, Yanchun Zhang, and Jiangang Ma. Active model selection for positive unlabeled
+578
+        time series classification. In 2020 IEEE 36th International Conference on Data Engineering, pp.
+579     361–372. IEEE, 2020. doi: 10.1109/ICDE48307.2020.00038. URL https://doi.org/10.
+580     1109/ICDE48307.2020.00038.
+581
+582   Todor Mihaylov, Peter Clark, Tushar Khot, and Ashish Sabharwal. Can a suit of armor conduct
+583     electricity? a new dataset for open book question answering. In Proceedings of the 2018 Conference
+584     on Empirical Methods in Natural Language Processing, pp. 2381–2391, 2018. doi: 10.18653/v1/
+585     D18-1260. URL https://aclanthology.org/D18-1260/.
+586
+      Simon Nguyen, Kentaro Hoffman, and Tyler McCormick. Unique rashomon sets for robust active
+587
+        learning. arXiv preprint arXiv:2503.06770, 2025. URL https://arxiv.org/abs/2503.
+588     06770.
+589
+590   Patrik Okanovic, Andreas Kirsch, Jannes Kasper, Torsten Hoefler, Andreas Krause, and Nezihe Merve
+591     Gürel. All models are wrong, some are useful: Model selection with limited labels. In Proceedings
+592     of the 28th International Conference on Artificial Intelligence and Statistics, volume 258 of
+593     Proceedings of Machine Learning Research, pp. 2035–2043. PMLR, 2025. URL https://
+        proceedings.mlr.press/v258/okanovic25a.html.
+
+
+                                                      11
+      Under review as a conference paper at ICLR 2027
+
+
+
+
+594
+      Ariel D. Procaccia, Benjamin Schiffer, and Shirley Zhang. Clone-robust AI alignment. In Proceedings
+595     of the 42nd International Conference on Machine Learning, volume 267 of Proceedings of Machine
+596     Learning Research, pp. 49903–49926. PMLR, 2025. URL https://proceedings.mlr.
+597     press/v267/procaccia25a.html.
+598
+599   Zhuoyi Shang, Jiasen Li, Pengzhen Chen, Yanwei Liu, Xiaoyan Gu, and Weiping Wang. At-
+600
+        testing model lineage by consisted knowledge evolution with fine-tuning trajectory. In 35th
+        USENIX Security Symposium (USENIX Security 26), 2026. URL https://www.usenix.
+601
+        org/conference/usenixsecurity26/presentation/shang.
+602
+603   Shivalika Singh, Yiyang Nan, Alex Wang, Daniel D’Souza, Sayash Kapoor, Ahmet Üstün, Sanmi
+604     Koyejo, Yuntian Deng, Shayne Longpre, Noah A. Smith, Beyza Ermis, Marzieh Fadaee,
+605     and Sara Hooker. The leaderboard illusion. In Advances in Neural Information Processing
+606     Systems, volume 38, 2025. URL https://papers.nips.cc/paper_files/paper/
+607     2025/hash/70a93f260a51123b3c0e33ecd1b4de97-Abstract-Datasets_
+608
+        and_Benchmarks_Track.html. Datasets and Benchmarks Track.
+609   Anshuman Suri, Harsh Chaudhari, Yuefeng Peng, Ali Naseh, Amir Houmansadr, and Alina
+610     Oprea. Exploiting leaderboards for large-scale distribution of malicious models. arXiv preprint
+611     arXiv:2507.08983, 2025. URL https://arxiv.org/abs/2507.08983.
+612
+613   Yigit Turkmen, Baturalp Buyukates, and Melih Bastopcu. Don’t always pick the highest-
+614
+        performing model: An information theoretic view of LLM ensemble selection. arXiv preprint
+        arXiv:2602.08003, 2026. URL https://arxiv.org/abs/2602.08003.
+615
+616   Gregory Yauney, Shahzaib Saqib Warraich, and Swabha Swayamdipta. How reliable is language
+617     model micro-benchmarking? In The Fourteenth International Conference on Learning Representa-
+618     tions, 2026. URL https://arxiv.org/abs/2510.08730. Oral.
+619
+620
+621   A    P ROSPECTIVE R EFERENCE -F REE T ERMINAL AUDIT
+622
+623   Outcome-blind task freeze. An initial preregistration named 18 fresh MMLU subjects, but all 31
+624   model-prefix requests for its first frozen subject returned HTTP 404 before any response or outcome
+625
+      was observed; HELM-Lite v1.0.0 contains only the five MMLU subjects already used elsewhere
+      in the project. We retained that structural failure rather than replacing a result. A metadata-only
+626
+      enumeration then identified eight previously untouched scenarios with the complete 31-model roster.
+627
+      Before downloading their content or outcomes, a separate protocol froze NarrativeQA, NaturalQA
+628   closed/open, and WMT14 cs/de/fr/hi/ru–en. These exhaust the untouched, structurally complete
+629   non-LegalBench HELM-Lite scenarios left after excluding prior tasks; no frozen scenario could be
+630   dropped or replaced.
+631
+      Each task was split by a manifest-keyed SHA-256 ordering: NarrativeQA contributes 235 calibration
+632
+      and 235 sealed-holdout items, and every other scenario contributes 500 and 500. The first metric
+633
+      present for every model–item pair under the frozen order F1, quasi-exact match, exact match, BLEU-
+634   4, BLEU was selected without attack outcomes; this yields F1 for the three QA scenarios and BLEU-4
+635   for translation. Utilities lie in [0, 1].
+636
+637   Attack freeze and gate. Five-fold out-of-fold TF–IDF bigram ridge prediction estimates the
+638   selected parent’s continuous error from prompt and parent output. A prediction-only exact-clone
+639   screen retains five parents. Calibration then selects among three support-overlap rules, distances
+640   .5/1%, budgets 10/20/40, and clean-selected temperatures 1/3/5 by maximizing active-minus-fixed
+641   terminal harm over 200 paired pools. Only after that choice does the builder open the selected
+642   parent’s blind holdout prompts and outputs. It changes the top predicted-error coordinates to four
+643   alias-specific opaque abstention strings; no holdout reference, utility, peer output, pool, trajectory, or
+644
+      selector state is read. Unchanged utilities are inherited and changed utilities are zero, so every alias is
+      coordinate-wise non-improving and loses at most its declared distance. The tokens are subsequently
+645
+      checked against all sealed references and have zero collision.
+646
+647   Stage B runs exactly 1,000 paired pools (seeds 88400–89399) per frozen scenario. A scenario
+      passes only if (i) all aliases remain within one percentage point, (ii) both active terminal harm and
+
+
+                                                          12
+      Under review as a conference paper at ICLR 2027
+
+
+
+
+648
+      active-minus-fixed terminal harm have paired-bootstrap 95% lower bounds above zero, and (iii) their
+649   separately eight-task BH-adjusted one-sided sign-flip q-values are below .05. Fixed-query terminal
+650   effects are reported separately; any nonzero value forbids exact mediation. At least two passing
+651   scenarios were required for promotion.
+652
+653
+654   Table 4: Prospective reference-free terminal audit on eight previously untouched HELM-Lite scenar-
+655   ios. Values are utility percentage points; q ⋆ is the larger of the two eight-task BH-adjusted one-sided
+656   sign-flip q-values for active terminal harm and active-minus-fixed terminal harm. Clean and refined
+657
+      fixed-query effects are exactly zero in every row. All rows were frozen and retained.
+              Scenario (metric)       d   B   Quality gap     ∆ terminal [95% CI]   q ⋆ Path/root change Gate
+658
+              NarrativeQA (F1)       1% 10        −.851   +3.021 [2.766, 3.282] .00027   100.0/45.6%     Pass
+659
+              NaturalQA closed (F1) .5% 10         .000 −1.213 [−1.443, −.985] 1.000      97.6/55.5%     No
+660           NaturalQA open (F1)   1% 10         −.842  −.317 [−.552, −.075] 1.000       99.6/35.6%     No
+              WMT14 cs–en (BLEU-4) 1% 10          −.109    +.080 [−.033, .192]    .161    99.1/39.5%     No
+661
+              WMT14 de–en (BLEU-4) 1% 10          −.275  −.087 [−.169, −.002] 1.000       94.2/35.9%     No
+662           WMT14 fr–en (BLEU-4) 1% 40          −.064    +.139 [+.102, .177] .00027     75.1/10.6%     Pass
+              WMT14 hi–en (BLEU-4) 1% 20           .000    +.001 [−.033, .035]    .757   100.0/15.4%      No
+663
+              WMT14 ru–en (BLEU-4) 1% 10           .000    +.250 [+.154, .350] .00027     97.4/46.1%     Pass
+664
+665
+666   Three scenarios pass: NarrativeQA, WMT14 fr–en, and WMT14 ru–en. Their worst alias quality
+667   gaps are −.851, −.064, and .000 percentage points, respectively; thus the Russian pair is exact-
+668   utility-equivalent on the sealed holdout. All eight fixed-query root histories and regret arrays are
+669   byte-identical, making the active and active-minus-fixed point effects equal. The five nonpass-
+670   ing scenarios are not hidden: two confidence intervals cross zero, while NaturalQA closed/open
+671   and WMT14 de–en significantly improve the selected terminal utility. The machine decision is
+672   PROMOTE REFERENCE FREE TERMINAL BRIDGE; it supports a selectable, reference-free attack
+673
+      on new task families, not monotone transfer.
+674   The Stage-A attack was frozen before deserializing the sealed outcomes. The Stage-B lock binds
+675   the preregistration, attack rows, sealed package, runner, independent validator, and six runtime
+676   dependencies. A separate implementation reconstructs canonicalization, active and fixed acquisition
+677   loops, every raw path/regret array, 10,000-repetition intervals and sign-flip tests, BH adjustment,
+678   quality/integrity gates, and the final 3/8 decision. All eight task checks, all four lock checks, and the
+679
+      decision check pass under PASS STEP87B INDEPENDENT RECONSTRUCTION. The immutable
+      results and raw-array SHA-256 values begin FC953C87 and 26422130; the independent-validation
+680
+      hash begins 1EF6C0F7.
+681
+682
+683   B     F ULL P ROOFS AND F ORMAL V ERIFICATION
+684
+685   B.1   P RODUCT- FRAME CONSTRUCTION
+686
+687   Fix budget B and let each canonical behavior be a vector z ∈ {A, B}B . The public registry contains
+688
+      2B exact submitted copies of every z, for 4B submitted IDs in total. A latent frame is indexed by
+      ω ∈ {A, B}B . Define
+689
+                                          mω (z) = |{t : zt = ωt }| .
+690
+691   Frame Φω partitions the 2B public copies of z into rω (z) = 2mω (z) accountable roots, each containing
+692   2B−mω (z) aliases. These are integer partitions of the same public leaves. Every frame contains
+693                                             X
+694                                                 2mω (z) = 3B
+                                                      z
+695
+696   roots. A uniform root prior therefore induces
+697
+                                                                B 
+698                                                  2mω (z)   Y    2/3, zt = ωt ,
+                                  Pr(F = z) =          B
+                                                             =
+699                               ω                   3        t=1
+                                                                    1/3, zt ̸= ωt .
+700
+701   The candidate coordinates are independent, with Pr(Ft = ωt ) = 2/3, although the submitted IDs
+      and responses are identical in all 2B frames.
+
+
+                                                            13
+      Under review as a conference paper at ICLR 2027
+
+
+
+
+702
+      For each coordinate t, the fixed pool contains two binary queries qt,+ and qt,− . With c = 1/4, their
+703   channels are
+704
+                     qt,+ : Pr(Y = 1 | Ft = A) = 1,            Pr(Y = 1 | Ft = B) = c,
+705
+                     qt,− : Pr(Y = 1 | Ft = A) = 1 − c, Pr(Y = 1 | Ft = B) = 0.
+706
+707   Outcomes are conditionally independent across coordinates given F . If Pr(Ft = A) = 2/3, direct
+708   substitution in I(Ft ; Y ) = H(Y ) − H(Y | Ft ) gives
+709                   I(Ft ; Yt,+ ) = 0.540852 =: Ihi ,          I(Ft ; Yt,− ) = 0.459148 =: Ilo ;
+710
+      the values reverse when the prior is 1/3.
+711
+712
+713
+      B.2    P ROOF OF T HEOREM 1
+714
+      Place a uniform distribution over the 2B frames. Until coordinate t is queried, ωt is independent
+715   of every observation from the other coordinates. Thus any frame-blind policy chooses the correct
+716   polarity on a fresh coordinate with average probability at most 1/2, and obtains at most
+717                                                 1
+718                                                 2 (Ihi + Ilo ) = 0.5
+719   bits on its first query to that coordinate.
+720
+      It remains to show that adaptivity and repeated queries do not improve this average bound. The prior
+721   entropy of one coordinate is h(2/3) = 0.918296 bits. Even after the lower-information first query,
+722   its remaining entropy is at most
+723
+724
+                                          h(2/3) − Ilo = 0.459148 < 0.5.
+725   Consequently, even a hypothetical follow-up that revealed all remaining uncertainty is worse than the
+726   average value of querying a fresh coordinate. A frame-aware policy also moves to a fresh coordinate
+727   because h(2/3) − Ihi = 0.377444 < Ihi . An exchange argument therefore transforms either optimal
+728   policy into one that queries each coordinate exactly once without reducing value.
+729   The frame-aware value is BIhi , whereas the average frame-blind value is at most B/2. Hence the
+730   average regret over frames is at least
+731
+                                                          B
+732                                        B(Ihi − 1/2) =   (Ihi − Ilo ),
+                                                          2
+733
+734
+      so at least one fixed frame attains the claimed lower bound. A policy that visits each coordinate
+      once and independently randomizes its polarity obtains exactly (Ihi + Ilo )/2 on every frame, proving
+735
+      tightness.
+736
+737   For Hamming loss, the posterior Bayes error is 1/12 after the correct-polarity channel and 1/6 after
+738   the wrong-polarity channel. Fair randomization gives 1/8. An untouched coordinate has error 1/3,
+739   so a fresh query reduces error by 5/24; all error remaining after a first query is at most 1/6 < 5/24.
+740
+      The same exchange argument applies, and the minimax excess is
+741                                           B(1/8 − 1/12) = B/24.
+742
+743   B.3    P ROOF OF T HEOREM 2
+744
+745   Let B ≥ 3 be odd. The five canonical candidates are A, B, C, D, E, and the pool has B good and B
+746   bad binary items. On every good item their responses are (0, 0, 1, 1, 1) and the reference is 0. On bad
+747
+      item t their responses are (0, 0, 1, 0, 0), with reference 1 for odd t and 0 for even t. The refinement
+      adds four exact copies of C.
+748
+749   For Select-LLM’s exact-match acquisition, write
+750
+                                               S(x) = x2 + (1 − x)2 ,
+751
+752   where x is posterior mass predicting one. After s clean good labels, A and B have likelihood weight
+753   a = es/τ and C, D, E have weight one. With d = 2a + 3, an unqueried good item has one-mass 3/d,
+754
+      while a bad item has one-mass 1/d. Since
+755                                                              4(d − 4)
+                                        S(1/d) − S(3/d) =                 > 0,
+                                                                    d2
+
+                                                            14
+      Under review as a conference paper at ICLR 2027
+
+
+
+
+756
+      every remaining good item has strictly lower acquisition score. The clean selector exhausts the good
+757   block, and A, B remain selected.
+758
+759   In the refined registry, behavior C has five of nine entries. Along the bad path, its aggregate posterior
+760
+      mass is x = 5/9 after every even number of bad labels and
+761
+762                                                         5e1/τ
+                                                     x=
+763                                                       5e1/τ + 4
+764
+765
+      after every odd number, so 1/2 < x < 1 for every finite τ > 0. A bad item has one-mass x. A good
+      item groups C with D, E and has one-mass (1 + x)/2. The bad item is strictly closer to one half
+766
+      because x − 1/2 < x/2 whenever x < 1, and hence has lower S. Induction shows that the refined
+767
+      selector exhausts the disjoint bad block.
+768
+769   Across the complete 2B-item pool, A and B outperform C by
+770
+771
+                                                             B−1
+                                                     ∆B =        .
+772                                                           2B
+773
+      After each odd bad label, C has one more observed correct response than every non-C candidate,
+774
+      so the selected behavior must be C. There are (B + 1)/2 such steps. Even granting favorable
+775   tie-breaking on every even step, cumulative regret is at least
+776
+777                                              B+1      B2 − 1
+778                                                  ∆B =        .
+                                                  2        4B
+779
+780   The final step is odd, giving terminal regret ∆B .
+781
+782
+783
+      B.4    P ROOF OF P ROPOSITION 1
+784
+      Consider any allowed refinement and couple the clean and refined runs using the same policy
+785
+      randomization and reference randomness. Initially, fixed root masses and refinement-invariant
+786
+      summaries give identical root-level states. Assume the transcripts agree through step t − 1. The
+787   selector’s state is then the same by factorization, hence so is its conditional action kernel. Under the
+788   coupling it selects the same query and observes the same reference; refinement invariance produces
+789   the same updated root summaries and root decision. Induction gives identical complete transcripts
+790   and decisions almost surely, hence equal distributions. The argument applies to any acquisition
+791   objective—including uncertainty, diversity, or mutual information—only if its implemented state and
+792   action kernel satisfy the stated factorization.
+793
+794
+      B.5    E XECUTABLE VERIFICATION
+795
+796
+      The standard-library checker verifies the channel information values and Bayes errors; every integer
+797   root partition for B = 1, . . . , 6; all deterministic polarity vectors against all frames for B = 1, . . . , 8;
+798   and the amplification instance for B ∈ {3, 5, 11, 51} and τ ∈ {.1, .5, 1, 3, 10}. All assertions pass.
+799   At B = 51, every tested temperature gives clean cumulative regret zero, refined cumulative regret
+800   12.745098, terminal regret .490196, and 51/51 acquisitions redirected to the disjoint block.
+801
+802
+803   C     C OMPLETE LLM P ROTOCOL AND R ESULTS
+804
+805   T2-M target selection used development pools 3500–3999 and was complete over every eligible parent;
+806   primary outcomes used paired pools 50000–50499 only after the parent lock. The complete robustness
+807   cross is temperature {.1, .5, 1, 3, 5}, alias count {1, 2, 4, 8}, response distance {.1%, 1%, 5%, 10%},
+808   and the three task-specific budgets in Table 2. This yields 240 MedQA, 180 GSM8K, and 240
+809   OpenBookQA cells. GSM8K’s locked parent is correct on too many items to construct quality-
+      identical 10% aliases, so all 60 such cells are marked ineligible rather than retargeted.
+
+
+                                                            15
+      Under review as a conference paper at ICLR 2027
+
+
+
+
+810
+811   Table 5: Complete T2-M grid; every eligible cell is retained. Positive and negative indicate the sign
+812   of mean paired cumulative-regret change.
+813                    Task             Eligible   Positive   Negative   BH-significant +/−
+814                    MedQA                240        240          0                 240/0
+815                    GSM8K                180        180          0                 180/0
+816                    OpenBookQA           240        171         69                167/60
+817
+818
+819   At 5% distance, four aliases, and the primary budget, all five temperatures are positive in all three
+820   tasks. At each locked temperature, all three budgets are likewise positive, for 24/24 task–setting
+821
+      cells. OpenBookQA supplies the important non-monotone boundary: at its primary setting, four 5%
+      aliases give +1.460 cumulative regret but eight give −.438. We report all cells because alias count
+822
+      and distance change a directional prior; they are not scalar corruption strengths.
+823
+824   Every final pool is sampled without replacement and shared by its clean/refined pair. The paired
+825   bootstrap and sign-flip tests use 10,000 repetitions; Benjamini–Hochberg correction is applied within
+826   each prespecified family. Target development/final mean-effect rank correlations are .991/.995/.999
+827
+      for MedQA/GSM8K/OpenBookQA. The raw artifact stores the 500 paired cumulative and terminal
+      arrays, query paths, selected roots, hashes, and eligibility reason for every cell.
+828
+829
+      Peer-response-free realism confirmation. After the T2-M targets were frozen, a separately hash-
+830
+      locked audit rebuilt four 5%-distance aliases from only the parent’s outputs, public IDs/options, and
+831   references. It used no peer response or response-frequency statistic and generated pools only after con-
+832   struction. Under the historical backend, fresh seeds 91000–91499 gave mean paired ∆CReg of 3.2657
+833   [3.0341, 3.4997], 3.7851 [3.6247, 3.9492], and .9552 [.8742, 1.0342] on MedQA, GSM8K, and Open-
+834   BookQA. Fixed-query paired effects were exactly zero. A sequential-reference variant stopped after
+835   258/1000, 697/1000, and 136/500 inspected labels; it harmed the first two tasks but improved Open-
+836   BookQA by .6805. The preregistration, raw 500-pair arrays, and isolated-constructor replay are stored
+837   in the Step 54 artifacts; the validator reports PASS STEP54 MATRIX FREE REALISM AUDIT.
+838
+839   Canonical V2 implementation-stability transfer. An implementation audit found that evidence
+840   from a separately tested legacy matrix-aware wrapper could not certify the paper’s matrix-free headline
+841
+      condition. Before computing V2 outcomes for that exact condition, we therefore hash-locked its
+      unchanged aliases, data, pools, targets, budgets, and temperatures, plus canonical entry ordering
+842
+      and an exact 3 × 3 tie-policy cross. The V2 replay gives 3.2518 [3.0214, 3.4842], 3.7811 [3.6177,
+843
+      3.9433], and .8459 [.7650, .9260]. Fixed-query effects remain exactly zero, so sequential-excess
+844   effects equal the full paired penalties, with independently recomputed positive lower bounds of 3.0231,
+845   3.6209, and .7649. All 16 permutations of both registries produce zero bitwise mismatch over 48,000
+846   scenario–pool paths. Every one of the 27 tie cells changes all paths and has a positive cumulative
+847   interval; MedQA/GSM8K terminal means are positive under every tie policy, while OpenBookQA
+848   is not promoted as terminal harm. A runner-independent reconstruction replays aliases, acquisition
+849   paths, 10,000-repetition inference, BH correction, and adjudication in 2,882 checks, reporting
+850   PASS STEP80 INDEPENDENT VALIDATION and STRONG TRANSFER. Main-text values use
+851   this V2 backend; Step 54 values above remain the historical record.
+852
+853
+      Executable endpoint replay. A subsequent outcome-blind lock converted only the changed co-
+      ordinates into immutable SHA-256-prompt/output maps. Runtime requests contain question text
+854
+      and ordered public options but no dataset ID, reference, correctness tag, peer response, pool seed, or
+855
+      selector state. Four endpoints per task reproduce all 12 Step 54 response hashes and all 13 selector-run
+856   fields exactly on the same 500 fresh pools. Manifests range from 2,272 to 5,088 bytes; appending a
+857   probe character to every supported changed prompt triggers zero overrides. This establishes feasi-
+858   bility under output-only research interfaces, not admission to a particular production registry. The
+859   independent validator reports PASS STEP55 EXECUTABLE ENDPOINT REALISM AUDIT.
+860
+861   Calibration-to-holdout, holdout-reference-free audit. A preregistered hash split produces labeled
+862   calibration halves of size 500/500/250 and blind holdouts of size 500/500/250 with zero ID overlap.
+863   Before holdout outcomes, five-fold calibration selected MiniLM/TF–IDF error learners and froze
+      1%-distance alias rows; the blind builder received only prompts, public options, and parent outputs.
+
+
+                                                         16
+      Under review as a conference paper at ICLR 2027
+
+
+
+
+864
+      All holdout aliases stay within one accuracy point and at most 1% oracle disagreement. Mean ∆CReg
+865   is +.2941 [.1079,.4791], +.1599 [.1059,.2141], and −.1124 [−.1421,−.0835] on MedQA, GSM8K,
+866   and OpenBookQA. Fixed-query effects are −.0306/0/0. GSM8K selected-support error precision is
+867   zero, so this is small-distance approximate control, not exact quality equivalence. The locked machine
+868   decision is PROMOTE LABEL FREE T1, where “label-free” is scoped only to holdout construction;
+869   the validator reports PASS STEP56 CALIBRATION TO HOLDOUT AUDIT.
+870
+871
+872   D    NATURAL E XACT-A LIAS AUDIT
+873
+874
+875   The natural anchor is selected by the unique intersection of exact response-and-oracle pairs across
+876   MedQA, GSM8K, and OpenBookQA, before running the base-versus-refined selector comparison.
+877
+      The 30-entry stable-order quotient retains frozen index 9; the original 31-entry roster restores index
+      10 and maps it to root 9. A primary task is path-material at path-change fraction at least .10 and
+878
+      one mean changed position; it is outcome-material at |∆CReg| ≥ .1, a zero-excluding interval,
+879
+      and three-task BH q < .05. Across 21 prespecified temperature/budget cells, all cells are path-
+880   material and 14 have family-corrected cumulative-regret differences, split into five harms and nine
+881   improvements. Candidate-invariant random acquisition gives exact query, root-path, cumulative-
+882   regret, and terminal-regret equality in every primary task. The complete Step 50 arrays are stored at
+883   SHA-256 14B77BD3...B0F8EA4.
+884
+      A subsequent descriptive replay distinguishes changed positions from unique labels. Mean base-only
+885
+      query counts are 4.358, 1.420, and .960; query sets differ in 94.0%, 87.4%, and 66.0% of runs. Mean
+886   first divergence occurs at steps 1.486, 3.698, and 4.690, while mean changed root-decision positions
+887   are 10.592, 2.902, and 2.012. The 5% replacement threshold is an analyst-chosen heuristic defined
+888   after aggregate Jaccards were known, not confirmatory evidence. Raw arrays and exact random con-
+889   trols are stored in STEP52 OPERATIONAL SIGNIFICANCE RESULTS 2026-08-09.json
+890   (SHA-256 BB70CEFD...E372FA).
+891
+892
+893   E    CODA O FFICIAL -C ODE AUDIT
+894
+895
+896   The official implementation is locked at commit 6c95b7f8. A prediction-only rule—fixed before
+897   labels—selects one parent from the lowest-consensus quartile by the increase in initial family
+898
+      PBest mass after adding four variants. The near variants use qj = (1 − ϵj )p + ϵj /C for ϵj ∈
+      {.0005, .001, .0015, .002}, preserving every hard prediction and correctness value while changing
+899
+      probability tensors. Exact4 is the multiplicity control. CODA’s EIG configuration and a 30-label
+900
+      budget are fixed; only CoLA activates the public stochastic tie flag, for which all ten frozen seeds are
+901   paired.
+902
+903
+904
+905   Table 6: Locked official-code CODA near4 audit. All tasks change their ordered path; exact4 gives
+906   the same task-level effects. WNLI (†) was not used for target selection.
+907                      Pool    ∆ cumulative regret   First divergence   Query Jaccard   ∆ terminal regret
+
+908                      CoLA          +0.051965                     1           0.622        −0.001918
+                         MRPC          +0.053921                     5           0.935                0
+909                      RTE           +0.841155                     2           0.818                0
+910                      SST-2         −0.271789                     4           0.714        +0.002294
+                         WNLI†         −0.014085                     1           1.000                0
+911
+912
+913
+914   Near4 changes the ordered path on CoLA, MRPC, RTE, SST-2, and the prospectively unused
+915   WNLI pool. Cumulative-regret changes are +.051965, +.053921, +.841155, −.271789, −.014085,
+916   respectively. Exact4 gives the same task-level effects. WNLI has query-set Jaccard one and only
+917   reorders its acquisitions. Thus the audit supports cross-method path sensitivity, not response-distinct
+      defense evasion or universal harm.
+
+
+                                                               17
+      Under review as a conference paper at ICLR 2027
+
+
+
+
+918
+      F    P REREGISTERED LLM S ELECTOR AUDIT
+919
+920
+      Outcome-blind freeze and intervention. The official LLM Selector repository is locked at commit
+921   15faa47. Before any judge or weak-judge value was printed, one protocol bound both source-file
+922   hashes for all six upstream datasets, included every dataset, and selected the first non-null source-order
+923   model as parent. There is no target search. Four aliases inherit the parent’s complete strong-judge
+924   outcome row coordinate-wise. Each begins with only the parent’s own ten-weak-judge tensor, then
+925   a public SHA-256 rule cycles a frozen 20% of ternary coordinates; it reads no other candidate,
+926   strong-judge outcome, pool, acquisition path, or selector state. Realized alias–parent weak-view
+927   distances range from 17.25% to 22.25%, while every strong-utility distance is exactly zero. This
+928   is a controlled pairwise decision-view refinement over released score matrices, not an executable
+929
+      response wrapper or production-registry submission.
+930   The audit reproduces the official uniform-entry posterior and mean ten-judge expected-entropy
+931   acquisition at (ϵ1 , ϵ2 ) = (.2, .4). For each dataset and seeds 0–999, clean and four-alias registries
+932   share a pool of size min(400, N ), budget 30, and deterministic original-root tie rule. Primary terminal
+933   regret compares the selected original root with the best original root on that pool. The six-part gate
+934   requires coordinate-wise utility identity, exactly zero fixed-query terminal and cumulative effects,
+935
+      path-change rate at least .5, mean terminal harm at least .25 percentage points, positive paired-
+      bootstrap lower bound, and six-task BH-adjusted one-sided sign-flip q ≤ .05. Two passing datasets
+936
+      were frozen as the promotion threshold; all nulls and improvements remain.
+937
+938
+939   Table 7: Preregistered official LLM Selector audit (1,000 paired pools per dataset). Terminal effects
+940   are refined-minus-clean root regret in percentage points. All alias strong-judge rows equal the parent
+941   coordinate-wise and every fixed-query effect is zero. A dagger marks the two datasets passing the
+942   frozen six-part gate.
+943                    Dataset        ∆ terminal [95% CI]   BH q   Path ̸=   Set ̸= Root ̸= ∆CReg
+944                    AlpacaEval†     .321 [.194, .453] .000030 100.0% 99.5%      23.2%   −.245
+945                    Arena-Hard −.370 [−.531, −.213]     1.000 100.0% 99.1%       6.7%   −.379
+                       Bingo†          .498 [.374, .623] .000030 100.0% 98.2%      32.4%    .117
+946                    Flickr30k     .183 [−.003, .368] .05298 100.0% 100.0%       66.7%   −.029
+947                    MEDIQA          .000 [.000, .000]   1.000 100.0% 100.0%       .0%    .027
+                       MT-Bench        .000 [.000, .000]   1.000 100.0% 100.0%       .0%    .719
+948
+949
+950   AlpacaEval and Bingo pass, producing the preregistered decision GO STRONG CROSS SELECTOR.
+951   The result is directional rather than generic: Arena-Hard significantly improves; Flickr30k’s positive
+952   point effect misses both the magnitude and corrected-significance gates; MEDIQA and MT-Bench
+953   have terminal effect exactly zero, although their interim cumulative effects are positive. All 6,000
+954   ordered paths change, but query-set and terminal-root changes differ by task. AlpacaEval is especially
+955   informative about endpoint choice: terminal regret worsens while cumulative regret improves, so
+956   neither metric substitutes for the other.
+957   An independent file that imports no runner verifies all input hashes, reconstructs aliases and every
+958   stored pool/statistic, and checks 85,934 invariants. It additionally replays 300 result-independent
+959   trajectories from scratch using the literal official entropy equation; all paths, roots, and regrets match.
+960   The receipt reports PASS STEP88 INDEPENDENT VALIDATION; the preregistration, result, and
+961   receipt hashes begin B6303706, 24C3FCDA, and the receipt-bound validator hash 4EEE854C.
+962
+963
+      G    C ONFIGURATION -O NLY R AW-I NPUT W RAPPER T RANSFER
+964
+965
+      Outcome separation and endpoint. Step 89 fixed QNLI’s model revision, deterministic calibra-
+966   tion/holdout split, complete development grid, one condition, and materiality gate before opening
+967   2,772 sealed outcomes. Four small safetensors files store scalar calibration/configuration values
+968   rather than learned neural weights; a CLI accepts only a raw question/sentence pair and emits the
+969   parsed hard label with an adapter-specific confidence view. Its 1,000-pool result is negative and
+970   remains binding. Step 90 then froze two untouched tasks before any parent prediction: MNLI splits
+971   4,933/4,882 and QQP 20,309/20,121 calibration/holdout items. Per task, all 135 combinations of
+      three roster sizes, three budgets, three temperatures, and five high-confidence trigger fractions were
+
+
+                                                            18
+       Under review as a conference paper at ICLR 2027
+
+
+
+
+972
+       retained; the top 12 pilot conditions were rerun on 300 calibration pools before one configuration
+973    was hashed. Runtime wrappers read only raw text and pinned-parent logits, contain no item map,
+974    and exactly preserve hard answers. They establish raw-input execution but are configuration-only
+975    response variants, not learned adapters or full checkpoints.
+976
+977
+978    Table 8: Sealed executable calibration-adapter audits (1,000 paired pools each). Terminal effects
+979    are refined-minus-clean root regret in percentage points. Hard answers and utilities equal the parent
+980    coordinate-wise; every fixed-query effect is zero. MNLI/QQP q-values use Holm correction. QNLI
+981    is the retained earlier single-task negative result and reports its raw p.
+982                  Task                 Trigger           ∆ terminal [95% CI]          q/p Path/final-root change Gate
+983                  QNLI all confidence views   −.068 [−.149, .014]      .948                       96.9/41.7%      No
+984                  MNLI top 30% confidence     +.702 [+.586, .823] 2.0×10−5                        99.8/32.8%     Pass
+                     QQP  top 20% confidence +1.270 [+1.201, +1.340] 2.0×10−5                       100.0/82.3%     Pass
+985
+986
+987
+988
+       MNLI and QQP both pass the preregistered eight-part gate: at least .5 terminal point, positive
+       paired-bootstrap lower endpoint, two-task Holm q ≤ .05, at least 50% path change, coordinate-wise
+989
+       answer/utility equality, exact fixed-query equality, and matching active-minus-fixed harm. QNLI
+990
+       demonstrates the direction is not guaranteed. A validator importing no runner reconstructs all 4,000
+991    active and 2,000 fixed-query trajectories, both bootstrap/sign-flip analyses, Holm correction, and
+992    12,077 invariants; its receipt is PASS STEP90 INDEPENDENT VALIDATION. The raw result and
+993    validation receipt are hash-bound. This precursor does not satisfy the learned-checkpoint condition
+994    addressed next.
+995
+996
+997    H    P REREGISTERED L EARNED -A DAPTER B RIDGE
+998
+999    New task, outcome separation, and learned parameters. Before downloading an AG News row,
+1000   Step 92 fixed dataset revision eb185aad, base-encoder revision 12040acc, the full training recipe,
+1001   split salt, finite attack grid, 1,000 test seeds, estimands, and nine-part pass gate. SHA-256 assigns
+1002   the 120,000 public training examples to 83,993 root-model, 24,039 adapter-training, and 11,968
+1003   attack-calibration items. The complete 7,600-item test split is input-only outside a separately named
+1004
+       sealed-label file. A source audit found no earlier AG News result in the project; SST-2 was rejected
+       before new outcomes because it appeared in prior CODA work.
+1005
+1006   Twelve bottleneck classification adapters (100,484 learned parameters each) share a frozen Dis-
+1007   tilBERT encoder and form the clean registry. Each trains without artificial label corruption on a
+1008   preregistered 2–100% fraction of the root-model partition. For each of five eligible parents, four
+1009   contextual temperature adapters are independently optimized with four seeds and bootstraps on
+1010
+       the disjoint adapter partition. Every saved attack file contains six nonconstant tensors and 50,817
+       nonzero learned parameters; the four selected files have distinct SHA-256 values. The learned positive
+1011
+       temperature rescales parent logits, so the hard label is invariant on every input by construction. A
+1012
+       confidence field above a frozen threshold makes the submitted response views distinct. Runtime
+1013   reads raw text, frozen hidden state, and parent logits—never an item ID, test label, lookup table, peer
+1014   output, pool, or selector state.
+1015
+1016
+       Stage A retains all 300 parent/τ /bin/trigger configurations on the attack-calibration partition and
+       reruns the top 12 on 300 pools. It freezes parent 8, τ = .25, eight bins, a 30% trigger target, budget
+1017
+       50, and the full 12-root roster. Calibration terminal harm is .609 points with 100% path change. Only
+1018
+       then does Stage B open the test labels once.
+1019
+1020
+1021
+       Table 9: Preregistered learned-adapter confirmation on 1,000 sealed AG News pools. Effects are
+1022   refined-minus-clean terminal root regret in percentage points. AMF is active-minus-fixed; every
+1023   fixed-query terminal and cumulative value is zero.
+1024       Task      Params/alias    Pairwise response d   Path/root change     Terminal [95% CI]         AMF [95% CI]        Gate
+1025
+           AG News          50,817      24.1–26.3%          100.0/55.2%       +.547 [+.502, +.593]     +.547 [+.502, +.593]   Pass
+
+
+
+                                                                       19
+       Under review as a conference paper at ICLR 2027
+
+
+
+
+1026
+       On the complete holdout, realized trigger rates are 30.2–31.5%, pairwise alias-response Hamming
+1027   distances are 24.1–26.3%, and all 30,400 adapter–item hard answers equal the parent. Ordered
+1028   paths change in 100% of pools, query sets in 99.3%, and terminal roots in 55.2%. Terminal
+1029   harm is +.54675 points with paired-bootstrap interval [+.50225, +.59250] and one-sided sign-
+1030   flip p = 9.9999 × 10−6 ; active-minus-fixed has the same mean and a positive interval. Fixed-
+1031   query root histories and terminal/cumulative effects are byte-identical. The locked decision is
+1032   GO SCORE CHANGING LEARNED ADAPTER BRIDGE.
+1033   A validator importing no experimental runner replays all 2,000 active and 2,000 fixed-query
+1034   trajectories, reconstructs the statistics and gate in 4,170 checks, and runs 256 raw-input end-
+1035   point samples through all 12 clean checkpoints and four learned adapters. Its receipt is
+1036   PASS STEP92 INDEPENDENT VALIDATION. An initially detected 5.6 × 10−17 acquisition-tie
+1037   difference motivated a disclosed post-confirmatory audit: sorted, first-appearance, reverse-code, and
+1038   10−12 tolerance policies change many individual paths but all retain 100% clean–refined path change,
+1039   exact fixed-query equality, and terminal harm .54575–.54800 points with lower endpoints at least
+1040   .50125. This robustness audit does not replace the preregistered primary result.
+1041   The result closes the specified learned-parameter, new-task, no-test-lookup bridge. It still shares
+1042   a frozen encoder and parent, uses one new task under Select-LLM, and does not demonstrate
+1043   independent full-model fine-tuning, live registry admission, secret-task compromise, or deployment
+1044   prevalence.
+1045
+1046
+1047
+1048   I      P ROSPECTIVE U NTARGETED -R EFINEMENT S TRESS T EST
+1049
+1050
+1051   After the targeted experiments were complete, we prospectively locked 14 previously unused tasks:
+1052   seven official MODEL SELECTOR tasks and seven HELM MATH subjects. The audit crossed exact,
+1053   near, and independent-diverse additions, producing 420 nonclean task–condition units with 32 paired
+1054   runs each. All response-only scores and a 50% high-risk set were sealed before outcome access. Only
+1055   35/420 effects crossed the preregistered materiality threshold: one beneficial MODEL SELECTOR
+1056
+       effect and 34 Select-LLM effects, of which eight were harmful and 26 beneficial. Exact quotienting
+       neutralized all exact additions, and authenticated lineage neutralized every registered exact and near
+1057
+       addition by construction.
+1058
+1059   The attempted ex-ante registry-fragility audit did not transfer. Its magnitude Spearman correlation was
+1060   .185 with task-block permutation p = .416; AUROC was .719, below a static mass-displacement base-
+1061   line at .788; and it failed the magnitude, materiality, adaptive-value, cross-selector, and fallback gates.
+1062
+       Only the non-vacuity gate passed. The locked decision is therefore STOP FRAGILITY PIVOT.
+       These results rule out a generic “more entries are harmful” interpretation and any claim that our
+1063
+       response-only score predicts attacks. They do not test the separately locked targeted T2-A constructor,
+1064
+       whose support is deliberately chosen rather than random. The full protocol, 420 effects, six gates,
+1065   and 98-check independent validation are stored in the Step 61 artifacts.
+1066
+1067
+1068
+1069
+       J      D EFENSE AND M UTATION AUDIT
+1070
+1071
+1072
+1073
+1074
+1075   Table 10: Matched 10% behavioral-cover audit. Clean ∆ compares covered clean with uncovered
+1076   clean; positive is worse. “Extra rm.” counts removals beyond exact quotienting.
+1077   Task             Undefended ∆ CReg [95% CI]               Cover residual    Clean ∆ CReg   Extra rm.   Max span
+1078   MedQA                 +4.853 [4.603, 5.102]                             0        +0.569           1      0.8 pp
+       OpenBookQA            +1.006 [0.942, 1.069]                             0        +1.030           6      5.2 pp
+1079
+       GSM8K            Prospectively ineligible; frozen parent not replaced
+
+
+
+                                                                      20
+       Under review as a conference paper at ICLR 2027
+
+
+
+
+1080
+1081   Table 11: Representative post-hoc fixed settings. R is absolute residual CReg divided by the
+1082   undefended effect over five attacks; Clean G/M/O is ∆CReg (positive is worse). All 21 settings
+1083   appear in the appendix.
+1084   Rule, α                    Mean R       Max R      R<1                  Clean G           Clean M      Clean O
+
+1085   All three, .050              .824        1.061          3/5             −0.180            +0.351       +0.238
+       MCCA, .100                   .765        1.121          3/5             −0.180            +0.275       +1.018
+1086   MCCP, .100                   .721        1.125          4/5             −0.180            +0.275       +1.112
+1087   class-unif., .132            .656        1.185          4/5             −0.180            +0.386       +1.110
+       MCCA, .132                   .584        1.158          4/5             −0.180            +0.386       +1.273
+1088
+1089
+1090
+1091
+1092   The exact quotient groups identical full response rows and exactly neutralizes the natural pair
+1093   and T0 copies. A radius-ρ matched cover joins candidates within normalized response Ham-
+1094   ming distance ρ and retains the smallest-index representative of each connected component. At
+1095   5%, it neutralizes the corresponding attack with incremental clean CReg 0/0/ − .169 across
+1096   MedQA/GSM8K/OpenBookQA. At 10%, it also neutralizes the attack, but clean CReg increases
+1097
+       by .569 on MedQA and 1.030 on OpenBookQA; the latter merges six natural models spanning 5.2
+       accuracy points and costs 3.975 terminal points. Authenticated lineage returns exact equality by
+1098
+       retaining fixed root mass, but is explicitly an oracle-information comparator.
+1099
+1100   The       soft-weight       audit       crosses      class-uniform,     MCCA,      and        MCCP
+1101   with     α         ∈        {.01, .05, .10, .132, .15, .184, .213}.       Its   63     clean     and
+1102   105      eligible     attack      cells     are     stored      without  outcome     filtering     in
+1103
+       STEP46 CLONE ROBUST SOFT WEIGHTING RESULTS 2026-08-08.json                                (SHA-256
+       15B693F0...B7B136). The original joint regret/path gate remains 0/105 and all residual
+1104
+       path-change fractions equal one. The outcome-first reanalysis instead finds 74 mitigated and 31
+1105
+       worsened attack cells; 24 reach at most 50% residual, 11 at most 25%, and four at most 10%. No
+1106   fixed setting is non-worsening on all five task–distance attacks. All 21 settings improve clean
+1107   GSM8K CReg but worsen clean MedQA and OpenBookQA CReg; terminal intervals contain zero in
+1108   45/63 cells, with ten significant harms and eight improvements. Table 12 reports every fixed setting.
+1109   Independent validators reconstruct graph breakpoints, priors, paths, effects, and mutation failures
+1110   rather than trusting recorded decisions.
+1111
+1112
+1113
+1114   Table 12: Complete fixed-configuration soft-weight audit. Mean and maximum R summarize absolute
+1115   residual CReg ratios over five eligible attack cells; “mit.” counts R < 1. Clean columns report
+1116   ∆CReg on GSM8K/MedQA/OpenBookQA. Final is the largest absolute clean terminal shift across
+1117   the three tasks, in percentage points.
+1118   Rule                  α       Mean R    Max R    Mit.         Clean G         Clean M        Clean O   Final pp
+1119   class-unif.         .010         .814    1.061   3/5          −.180               +.351       +.338       .023
+1120   class-unif.         .050         .824    1.061   3/5          −.180               +.351       +.238       .023
+       class-unif.         .100         .830    1.153   3/5          −.180               +.275       +.973       .020
+1121   class-unif.         .132         .656    1.185   4/5          −.180               +.386      +1.110       .203
+1122   class-unif.         .150         .644    1.400   4/5          −.314               +.555      +1.108       .181
+       class-unif.         .184         .744    1.307   4/5          −.211               +.609      +1.455       .037
+1123   class-unif.         .213         .730    1.550   4/5          −.160               +.638      +1.290       .037
+1124   MCCA                .010         .814    1.061   3/5          −.180               +.351       +.338       .023
+1125   MCCA                .050         .824    1.061   3/5          −.180               +.351       +.238       .023
+       MCCA                .100         .765    1.121   3/5          −.180               +.275      +1.018       .022
+1126   MCCA                .132         .584    1.158   4/5          −.180               +.386      +1.273       .024
+1127   MCCA                .150         .637    1.295   4/5          −.314               +.555      +1.172       .037
+       MCCA                .184         .597    1.259   4/5          −.211               +.609      +2.010       .037
+1128   MCCA                .213         .714    1.497   4/5          −.160               +.638      +2.483       .037
+1129
+       MCCP                .010         .814    1.061   3/5          −.180               +.351       +.338       .023
+1130   MCCP                .050         .824    1.061   3/5          −.180               +.351       +.238       .023
+       MCCP                .100         .721    1.125   4/5          −.180               +.275      +1.112       .175
+1131
+       MCCP                .132         .734    1.162   4/5          −.180               +.386      +1.897       .181
+1132   MCCP                .150         .785    1.390   4/5          −.314               +.555      +1.823       .169
+       MCCP                .184         .874    1.304   3/5          −.211               +.609      +2.933       .037
+1133
+       MCCP                .213        1.064    1.584   3/5          −.160               +.638      +3.724       .037
+
+
+
+                                                         21
+       Under review as a conference paper at ICLR 2027
+
+
+
+
+1134
+       K    A RTIFACT M AP
+1135
+1136
+       The artifact root maps every main-text number to an immutable result and an independent validator.
+1137   The primary families are Step 27 (formal checker), Steps 30–31 (complete T2-M grid and covers), Step
+1138   35 (official CODA), Steps 46–49 (soft weights), Steps 50–52 (natural pair), Steps 54–55 (peer-free
+1139   executable T2-A), Step 56 (within-task T1), Step 61 (prospective untargeted stress), Step 80 (canonical
+1140   V2 transfer), Step 87 (prospective fresh-task T1), Step 88 (official LLM Selector terminal audit), Steps
+1141   89–90 (sealed configuration-only response wrappers), and Step 92 (sealed learned adapters on AG
+1142   News). Each contains a protocol or preregistration, execution lock, raw result, and validation output.
+1143   The anonymous manifest binds the revised paper plus Step 87’s three-stage outcome separation, Step
+1144   88’s six-dataset arrays, Step 90’s two positive and one retained negative wrapper audits, and Step 92’s
+1145
+       learned weights, complete calibration ledger, raw arrays, independent reconstruction, and disclosed
+       numeric-tie audit. Offline validation checks every bundled byte and anonymity. Full validation
+1146
+       reruns inherited closure and independently reconstructs promoted prospective audits. Public source
+1147
+       packages, base weights, and third-party repositories are not embedded; this is validation closure, not
+1148   regeneration of exploratory history.
+1149
+1150
+1151
+1152
+1153
+1154
+1155
+1156
+1157
+1158
+1159
+1160
+1161
+1162
+1163
+1164
+1165
+1166
+1167
+1168
+1169
+1170
+1171
+1172
+1173
+1174
+1175
+1176
+1177
+1178
+1179
+1180
+1181
+1182
+1183
+1184
+1185
+1186
+1187
+
+
+
+                                                         22
+

@@ -1,0 +1,18 @@
+\begin{table}[H]
+\centering
+\caption{Representative post-hoc fixed settings. $R$ is absolute residual CReg divided by the undefended effect over five attacks; Clean G/M/O is $\Delta$CReg (positive is worse). All 21 settings appear in the appendix.}
+\label{tab:soft-weight}
+\scriptsize
+\setlength{\tabcolsep}{2.4pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrr@{}}
+\toprule
+Rule, $\alpha$ & Mean $R$ & Max $R$ & $R<1$ & Clean G & Clean M & Clean O \\
+\midrule
+All three, .050  & .824 & 1.061 & 3/5 & $-0.180$ & $+0.351$ & $+0.238$ \\
+MCCA, .100       & .765 & 1.121 & 3/5 & $-0.180$ & $+0.275$ & $+1.018$ \\
+MCCP, .100       & .721 & 1.125 & 4/5 & $-0.180$ & $+0.275$ & $+1.112$ \\
+class-unif., .132& .656 & 1.185 & 4/5 & $-0.180$ & $+0.386$ & $+1.110$ \\
+MCCA, .132       & .584 & 1.158 & 4/5 & $-0.180$ & $+0.386$ & $+1.273$ \\
+\bottomrule
+\end{tabular*}
+\end{table}

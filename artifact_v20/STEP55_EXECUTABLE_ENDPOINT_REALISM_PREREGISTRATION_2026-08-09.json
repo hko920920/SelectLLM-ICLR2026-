@@ -1,0 +1,124 @@
+{
+  "manifest_id": "STEP55_EXECUTABLE_ENDPOINT_REALISM_V1",
+  "frozen_local_date": "2026-08-09",
+  "status_before_execution": "PREREGISTERED_NO_ENDPOINT_OUTCOME_SEEN",
+  "paper_working_title": "Candidate Lists Are Priors: Registry-Refinement Attacks on Active Model Selection",
+  "purpose": "Test the remaining operational objection that Step 54 aliases exist only as post-hoc array edits and cannot be realized through the output-only candidate interfaces used by active model-selection research.",
+  "frozen_question": "Can the exact Step 54 T2-A aliases and selector effects be reproduced by executable prompt-only endpoints that receive no dataset ID, reference, peer response, pool seed, or selector state at runtime?",
+  "scope_boundary": {
+    "in_scope": "Feasibility in output-only or precomputed-prediction research evaluators and API-only candidate abstractions.",
+    "not_established": "A live production marketplace that lets an untrusted provider register arbitrary duplicate endpoints without curator review.",
+    "forbidden_interpretation": "Passing this audit does not show that the aliases are independently trained checkpoints, naturally occurring models, or accepted by a specific production registry."
+  },
+  "locked_inputs": {
+    "step54_results": {
+      "file": "STEP54_MATRIX_FREE_REALISM_RESULTS_2026-08-09.json",
+      "sha256": "4ab5428c368991f8c9696edda63660ac76b1d516bb7c78d52eeb553ad56a41dd"
+    },
+    "step54_preregistration": {
+      "file": "STEP54_MATRIX_FREE_REALISM_PREREGISTRATION_2026-08-09.json",
+      "sha256": "cf45cdd3e6b1425db2f2c17d4e4283bde95d58356a3fd1ade09c2ef6813e8ed9"
+    },
+    "medqa_instances": {
+      "file": "external_data/helm_lite_medqa_v1_0_0_raw/openai_gpt-4-0613__instances.json",
+      "sha256": "3b80d9db281936cf24054b8272161a1a583be3b7883ffa19cdab4653e0bd62b2"
+    },
+    "gsm8k_instances": {
+      "file": "external_data/helm_lite_step25_raw/gsm8k__openai_gpt-4-0613__instances.json",
+      "sha256": "050e1d1f860f83ae0e00f1f9e4328593034e39170fdef3fb86f7dd3ee771fa76"
+    },
+    "openbookqa_instances": {
+      "file": "external_data/helm_lite_step25_raw/openbookqa__openai_gpt-4-0613__instances.json",
+      "sha256": "fa6dd7e8c7ac9c335fc6af5bdc3efe7552845d47ed091b4473a95629553656eb"
+    }
+  },
+  "official_interface_evidence_frozen_before_endpoint_execution": {
+    "select_llm_2026": {
+      "primary_source": "https://arxiv.org/abs/2605.24981",
+      "observed_claim": "The method uses generated responses, needs no parameters, logits, internal states, or weights, supports black-box/API-only LLMs, and runs experiments on precomputed outputs and response similarities.",
+      "evidence_lines": [4, 41, 263, 643]
+    },
+    "model_selector": {
+      "repository": "https://github.com/RobustML-Lab/model-selector",
+      "commit": "6aa57e5750153bccb04c9e96946b726d14f5d3f1",
+      "remote_head_matched_on_2026-08-09": true,
+      "interface_file": "external/model-selector/src/models/interface_inferable.py",
+      "interface_sha256": "2aed0dbe55aa1adcee50ebe6f68872b66119df57a9b6666b846423d555e2611e",
+      "adapter_file": "external/model-selector/src/models/npy_data_model.py",
+      "adapter_sha256": "62b90f37a4e84e3f1d4e4da2e5e6246b42f9c41ce0315f3005c4e035aee6c54d",
+      "observed_contract": "A candidate need only implement make_prediction(x); the bundled adapter returns a stored prediction entry."
+    },
+    "coda": {
+      "primary_source": "https://openaccess.thecvf.com/content/ICCV2025/html/Kay_Consensus-Driven_Active_Model_Selection_ICCV_2025_paper.html",
+      "repository": "https://github.com/justinkay/coda",
+      "commit": "6c95b7f86514fe2c803f03f78b5dc683f8cb821d",
+      "remote_head_matched_on_2026-08-09": true,
+      "dataset_file": "external/coda/coda/datasets.py",
+      "dataset_sha256": "98970eebddef5675b16ece8683dd4833616d6ec48d771819ae72c41601c77a87",
+      "observed_contract": "The model-selection dataset is an H by N by C tensor of candidate prediction scores; labels are optional at load time."
+    },
+    "older_llm_selector_artifact": {
+      "repository": "https://github.com/RobustML-Lab/llm-selector",
+      "commit": "15faa47dab102d7a92124b13c1838b55524fc2bf",
+      "remote_head_matched_on_2026-08-09": true,
+      "main_file": "external/llm-selector/main.py",
+      "main_sha256": "2fe36d90e21631ecc7793acbbd95c227381c280626a4df8716569e12a41e37c0",
+      "observed_contract": "The released 2025 artifact loads model-by-query judge arrays keyed by model names; it is evidence for an output-table interface but is not represented as the exact code for the revised May 2026 Select-LLM paper."
+    }
+  },
+  "prompt_only_endpoint_protocol": {
+    "runtime_input": {
+      "fields": ["input_text", "ordered_public_options"],
+      "explicitly_absent": ["instance_id", "reference_answer", "correct_tag", "split", "peer_responses", "pool_seed", "selector_state"]
+    },
+    "canonicalization": "Unicode NFC; normalize CRLF to LF; strip only outer whitespace; serialize input_text and ordered_public_options as sorted compact UTF-8 JSON; SHA-256 the resulting bytes.",
+    "multiple_choice_prompt": "Input question text plus all ordered option texts, with correctness tags removed.",
+    "gsm8k_prompt": "Input question text with an empty option list.",
+    "parent_endpoint": "A replay backend keyed only by the canonical prompt hash returns the frozen parent's own output; unknown prompts return a fixed unseen-prompt sentinel.",
+    "wrapper_endpoint": "Call the parent endpoint, compute the prompt hash, and replace the output only if that hash appears in the alias's immutable override dictionary.",
+    "offline_builder": "Reconstruct the locked Step 54 public-reference aliases; convert only changed coordinates to prompt-hash/output entries; serialize no IDs, labels, correctness bits, peer outputs, or selector data into the endpoint manifest.",
+    "runtime_trace": "For each call log only whether an override fired; no reference or selector feedback is available."
+  },
+  "locked_tests": {
+    "T1_prompt_integrity": [
+      "All instance IDs align exactly with the Step 54 data order before IDs are discarded.",
+      "Canonical prompt hashes are unique within every task.",
+      "Multiple-choice envelopes contain the same public ordered option texts used by the task; no correctness tags enter runtime envelopes."
+    ],
+    "T2_endpoint_equivalence": [
+      "Running each endpoint over every prompt yields the exact Step 54 alias response hash.",
+      "Every endpoint changes exactly d responses and preserves the parent's full oracle vector.",
+      "The endpoint-generated response arrays reproduce the Step 54 5-percent path and regret effects exactly on seeds 91000--91499."
+    ],
+    "T3_runtime_restriction": [
+      "Runtime endpoint signatures expose prompt envelopes only.",
+      "Serialized manifests contain only version, alias, task, and prompt-hash/output overrides.",
+      "Each alias manifest is at most 32768 UTF-8 bytes.",
+      "Appending a probe character to every supported input changes the hash and fires zero overrides."
+    ],
+    "T4_interface_evidence": [
+      "The three local official repository commits match their remote HEADs as checked before preregistration.",
+      "At least two independent official active-selection implementations accept predictions/output arrays or a make_prediction-only abstraction without a lineage or weight-attestation field on the core input path.",
+      "The revised Select-LLM primary source explicitly supports output-only black-box/API-only candidates."
+    ]
+  },
+  "predeclared_gates": {
+    "G0_prompt_corpus_integrity": "Pass only if every T1 condition holds on all tasks.",
+    "G1_exact_endpoint_replay": "Pass only if all twelve endpoint rows and all three selector-effect records exactly match Step 54.",
+    "G2_runtime_capability_and_size": "Pass only if all T3 conditions hold on all tasks and aliases.",
+    "G3_research_interface_support": "Pass only if all T4 conditions hold.",
+    "G4_scope_honesty": "Always report production untrusted-registration evidence separately; absence cannot be converted into production deployment evidence.",
+    "overall": {
+      "STRONG_INTERFACE_PASS_WITH_SCOPE_LIMIT": "G0 through G3 pass; executable/output-interface feasibility is established, while production registry admission remains unproven.",
+      "NARROWED_INTERFACE_PASS": "G0 through G2 pass but fewer than two independent official implementation contracts are verified.",
+      "NO_GO_ENDPOINT_REALISM": "Any of G0 through G2 fails."
+    }
+  },
+  "forbidden_rescues": [
+    "No prompt key may use an instance ID, oracle tag, pool membership, or query trajectory.",
+    "No endpoint may access another candidate's response at build time or runtime.",
+    "No alternate canonicalization, target, alias support, output generator, distance, or seed block may replace a failed result.",
+    "No exact replay may be described as evidence of natural occurrence or independently trained models.",
+    "No research-code interface may be described as a deployed public registry without separate primary evidence."
+  ]
+}

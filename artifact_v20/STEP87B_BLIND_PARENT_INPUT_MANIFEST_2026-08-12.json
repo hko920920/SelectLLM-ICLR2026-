@@ -1,0 +1,1279 @@
+{
+  "manifest_id": "STEP87B_BLIND_PARENT_INPUT_MANIFEST_V1",
+  "preregistration_sha256": "a95c6f0b2a11177577cd03574d019475bc7d8c169b71f02ab8de778a99ed8093",
+  "forbidden_fields_absent": true,
+  "tasks": {
+    "narrativeqa": {
+      "models": {
+        "01-ai_yi-34b": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/01-ai_yi-34b.json",
+          "sha256": "82e3a38e33e0b371d59234f5b014e73890bc4e0226aaf329ef104d0f9691c8cc",
+          "bytes": 846175
+        },
+        "01-ai_yi-6b": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/01-ai_yi-6b.json",
+          "sha256": "6250af8ece7f6dbe2c3d8ae8a4fdd37491b23438b5cefd8b22bb3541fb09632c",
+          "bytes": 846226
+        },
+        "AlephAlpha_luminous-base": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/AlephAlpha_luminous-base.json",
+          "sha256": "7f7dacdcbeb932f15a3fbeaf69a5f94db37c590a7077171fcbf540cae2a73fb3",
+          "bytes": 845857
+        },
+        "AlephAlpha_luminous-extended": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/AlephAlpha_luminous-extended.json",
+          "sha256": "5fa44b0fa4bd89ec60c46391614aa2e4d29044757833d765a3b8ebf90352593e",
+          "bytes": 846561
+        },
+        "AlephAlpha_luminous-supreme": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/AlephAlpha_luminous-supreme.json",
+          "sha256": "b35963f448b67030cd11f15fbd1e72600f4ee9996d4d1439214569a03763d43c",
+          "bytes": 846154
+        },
+        "ai21_j2-grande": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/ai21_j2-grande.json",
+          "sha256": "4813c7ea67d207194cc5e22e76d4b851f7ca2e7df44bc41abef24289e8dbffe2",
+          "bytes": 846190
+        },
+        "ai21_j2-jumbo": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/ai21_j2-jumbo.json",
+          "sha256": "14522087c6a83073fad2317ef9d77a11bab7e322c1b98a18c206c69ca4b9de61",
+          "bytes": 848227
+        },
+        "anthropic_claude-2.0": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/anthropic_claude-2.0.json",
+          "sha256": "8548a971191cd79aa89f400c7142f222cdd8ed391cd257c73bfd9262a4bd7e41",
+          "bytes": 850592
+        },
+        "anthropic_claude-2.1": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/anthropic_claude-2.1.json",
+          "sha256": "045c0e8b59a9d98f7f0023558ebc6ee8cebe961c0e64a33e00afa8a763b0a0df",
+          "bytes": 851638
+        },
+        "anthropic_claude-instant-1.2": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/anthropic_claude-instant-1.2.json",
+          "sha256": "e41d1e056cce1cfa179e3a0ea9ed596a89d4e06a872cf31a15dd3a4f6ed7c318",
+          "bytes": 856898
+        },
+        "anthropic_claude-instant-v1": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/anthropic_claude-instant-v1.json",
+          "sha256": "5d93a5cca59ab03826524079cfe9690fa0243aff14249d323b5b4e934aeb8145",
+          "bytes": 856898
+        },
+        "anthropic_claude-v1.3": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/anthropic_claude-v1.3.json",
+          "sha256": "71b8044cafa3fc698d37535d1d5e4829a83a6e9b01b7bf0a9534e2547d8a8bdf",
+          "bytes": 848859
+        },
+        "cohere_command-light": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/cohere_command-light.json",
+          "sha256": "9f2c658371a82a7f56d34fa0b39c414f290b1ac5462f72f3c96d2ed04695ae5b",
+          "bytes": 851218
+        },
+        "cohere_command": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/cohere_command.json",
+          "sha256": "f64148909e188201f8b33dfebe63f81db39e7324c2effd0a328ac2c20579847b",
+          "bytes": 848271
+        },
+        "google_text-bison@001": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/google_text-bison@001.json",
+          "sha256": "ee30bf80ac15497a8d7b291aedced586f8f6a26b7d70739b66bc8e026578284e",
+          "bytes": 847306
+        },
+        "google_text-unicorn@001": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/google_text-unicorn@001.json",
+          "sha256": "24eed014dd75214c2e6253fa7833dcd8feb4da63ae0bd5c285e721bbaef87f2b",
+          "bytes": 855447
+        },
+        "meta_llama-2-13b": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/meta_llama-2-13b.json",
+          "sha256": "bb0bac751d294104d85d333601838de9b66fef5f4050c5c5c795ad518339e02d",
+          "bytes": 845985
+        },
+        "meta_llama-2-70b": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/meta_llama-2-70b.json",
+          "sha256": "93c67255a9006e00833e579b3e1c6bddf9e5d1dcb0f54b56ad62479c93da8343",
+          "bytes": 845429
+        },
+        "meta_llama-2-7b": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/meta_llama-2-7b.json",
+          "sha256": "8948ea4e0286497ca217b0f5055e7b5244c024f5ff94bf58b4ca0e95faea225f",
+          "bytes": 846574
+        },
+        "meta_llama-65b": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/meta_llama-65b.json",
+          "sha256": "5100351c8d4e2d6b63b119a12b498d4c4e950e909ad78f91e94684522a5a233c",
+          "bytes": 845139
+        },
+        "mistralai_mistral-7b-v0.1": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/mistralai_mistral-7b-v0.1.json",
+          "sha256": "bcadd9b309af0e548c4f1423b08a4829f68ad07fe6ccc2b66aba14ed7da57a2e",
+          "bytes": 847004
+        },
+        "mistralai_mixtral-8x7b-32kseqlen": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/mistralai_mixtral-8x7b-32kseqlen.json",
+          "sha256": "55d977244d965bcd04112a25d768dd98f8fe2c7548bbc2efa6c240dbedb9d943",
+          "bytes": 846101
+        },
+        "openai_gpt-3.5-turbo-0613": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/openai_gpt-3.5-turbo-0613.json",
+          "sha256": "0a4e2142d623850d2a624ee3f79f6451399fafa74acfea8f4e96cea050f51210",
+          "bytes": 851128
+        },
+        "openai_gpt-4-0613": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/openai_gpt-4-0613.json",
+          "sha256": "5041d5d9fc647652b686e213241d28b0bdade2a111d322c5c8f1f016a9131b89",
+          "bytes": 848957
+        },
+        "openai_gpt-4-1106-preview": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/openai_gpt-4-1106-preview.json",
+          "sha256": "ead1551549b86bb4f1977641b2cf50e13f967087ac16c3617888817fbfb73ef9",
+          "bytes": 850192
+        },
+        "openai_text-davinci-002": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/openai_text-davinci-002.json",
+          "sha256": "53d1b363df742b9b561ab195f2bb72727fd8d54dd21681a34f87b0f69bfd752d",
+          "bytes": 848411
+        },
+        "openai_text-davinci-003": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/openai_text-davinci-003.json",
+          "sha256": "9a79853983e25a76401bcdae3a9ff6911f67629ba6267c0b79fbc501e908ecc7",
+          "bytes": 850155
+        },
+        "tiiuae_falcon-40b": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/tiiuae_falcon-40b.json",
+          "sha256": "87664f175f9e38a46e84aa93856be00303ce4a3c3e4409bd1adf45b6e3906b8f",
+          "bytes": 850469
+        },
+        "tiiuae_falcon-7b": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/tiiuae_falcon-7b.json",
+          "sha256": "bd42e2542e118f23cd9b1c096050098660dcfe1bbc141eba3a2ccbc5f5f23160",
+          "bytes": 846106
+        },
+        "writer_palmyra-x-v2": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/writer_palmyra-x-v2.json",
+          "sha256": "f278b8df332f8808edda9f8da2aabf33c8fb394ba66e938b52d359f02712426e",
+          "bytes": 848983
+        },
+        "writer_palmyra-x-v3": {
+          "path": "external_data/step87b_blind_parent_inputs/narrativeqa/writer_palmyra-x-v3.json",
+          "sha256": "154b244e7149bfbd52308ec1881d1146907c255395f4099b5c05a8507b1f0f3d",
+          "bytes": 851708
+        }
+      }
+    },
+    "naturalqa_closed": {
+      "models": {
+        "01-ai_yi-34b": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/01-ai_yi-34b.json",
+          "sha256": "defab6b4ad71f7723da39ef7ff1b61ec988dbaa6697e6615adac7cf7f35c8d96",
+          "bytes": 47653
+        },
+        "01-ai_yi-6b": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/01-ai_yi-6b.json",
+          "sha256": "e9c78103ed9e0c11499218c891c356190ba79542de28eb6593335f36ba1611b7",
+          "bytes": 48798
+        },
+        "AlephAlpha_luminous-base": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/AlephAlpha_luminous-base.json",
+          "sha256": "6b8712cc6bc5ab451734785e849832281c4d179722fd3fb2be149bba233ff1ae",
+          "bytes": 55321
+        },
+        "AlephAlpha_luminous-extended": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/AlephAlpha_luminous-extended.json",
+          "sha256": "2394d7f5754a3c6ec2ced6dd027f33c96e010e04230f6aaa0d12b24cbfa9bec7",
+          "bytes": 51649
+        },
+        "AlephAlpha_luminous-supreme": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/AlephAlpha_luminous-supreme.json",
+          "sha256": "3db1680c51b7ca2df6e209ad0edc7f0618dbbeffaf066080b9da90f242a0dcf6",
+          "bytes": 50969
+        },
+        "ai21_j2-grande": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/ai21_j2-grande.json",
+          "sha256": "f94a84c35c0538ec403853562c7264ed6962526d3b4f0710c6ff04081380a626",
+          "bytes": 51047
+        },
+        "ai21_j2-jumbo": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/ai21_j2-jumbo.json",
+          "sha256": "024e7c348dcef65383483375642b9e1c667c5c1f92406deb7c7537811b2f2088",
+          "bytes": 52166
+        },
+        "anthropic_claude-2.0": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/anthropic_claude-2.0.json",
+          "sha256": "05d4666aae4a3db38ca939c7bba15a7c792bc181f5eb3d2a83dcf791f48ae66c",
+          "bytes": 57907
+        },
+        "anthropic_claude-2.1": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/anthropic_claude-2.1.json",
+          "sha256": "0815810121741208517b3bc021996b000e8520898c1adfe0c04994708b09e5aa",
+          "bytes": 68225
+        },
+        "anthropic_claude-instant-1.2": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/anthropic_claude-instant-1.2.json",
+          "sha256": "e8372ae79af6e201ab2aaf072dde3e90a86058714c104ac238c0d61535cb5c20",
+          "bytes": 52080
+        },
+        "anthropic_claude-instant-v1": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/anthropic_claude-instant-v1.json",
+          "sha256": "15dd6f0441e82942f5278c7137a5dcc74fece550a00e87cef3e07ba5a9a69b62",
+          "bytes": 52080
+        },
+        "anthropic_claude-v1.3": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/anthropic_claude-v1.3.json",
+          "sha256": "21af335317c9397f871a4dcff09d5c820b3910cd962584f187b67f5e5b3c6949",
+          "bytes": 49157
+        },
+        "cohere_command-light": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/cohere_command-light.json",
+          "sha256": "62cdda565e95b1a96e105c34bf1bbb2a7946f0368d1083bb90b8b7cefac5be97",
+          "bytes": 83925
+        },
+        "cohere_command": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/cohere_command.json",
+          "sha256": "2edab6361bdc38aa6e8bcd3438a6cc74da970435244e125f34d82fdc6b42e11e",
+          "bytes": 53451
+        },
+        "google_text-bison@001": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/google_text-bison@001.json",
+          "sha256": "1b2b7e9c64c3ea22a9a8718faf9b471e56bfd411ec743ee16ca43c345ba22cd7",
+          "bytes": 51459
+        },
+        "google_text-unicorn@001": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/google_text-unicorn@001.json",
+          "sha256": "185216c5278000045abc65db6469030d55ea42304996a158644045af358a2580",
+          "bytes": 61313
+        },
+        "meta_llama-2-13b": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/meta_llama-2-13b.json",
+          "sha256": "1eee77fd4c32e2ef3ce741009f3edd30266d0030e403bdcfc990e0b268874e2e",
+          "bytes": 49388
+        },
+        "meta_llama-2-70b": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/meta_llama-2-70b.json",
+          "sha256": "734c5cf302dde1a0a92d95be45ec2d5d376f7adb2254a3a55a0e5d3e4b5290ca",
+          "bytes": 50173
+        },
+        "meta_llama-2-7b": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/meta_llama-2-7b.json",
+          "sha256": "4cee7a90bd94e7154f67c7626008695c1daaa5afb5542b0dae9179aa88caf45d",
+          "bytes": 49587
+        },
+        "meta_llama-65b": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/meta_llama-65b.json",
+          "sha256": "6c78547ea42a8e80ab36bc9a04108613df007349fde7d5fb6ba5d804b56f838b",
+          "bytes": 48640
+        },
+        "mistralai_mistral-7b-v0.1": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/mistralai_mistral-7b-v0.1.json",
+          "sha256": "b03e1eb97e2152917100e5ae84b1fd530bfcde7fdd0ed81ae3bfe50c4eb89d51",
+          "bytes": 49859
+        },
+        "mistralai_mixtral-8x7b-32kseqlen": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/mistralai_mixtral-8x7b-32kseqlen.json",
+          "sha256": "e84cb5e661fa1c2e0437b5e8794cf58871589318d273b5e14d08b65bc2fa8c12",
+          "bytes": 51304
+        },
+        "openai_gpt-3.5-turbo-0613": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/openai_gpt-3.5-turbo-0613.json",
+          "sha256": "b27430f900447efde114d67f3e23cf03cea208a257a7079d54821ba70b0dcb01",
+          "bytes": 52161
+        },
+        "openai_gpt-4-0613": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/openai_gpt-4-0613.json",
+          "sha256": "be649da2625599f435521004913d8ab6cd0db4c0a484d928e778200ceff4ba36",
+          "bytes": 49453
+        },
+        "openai_gpt-4-1106-preview": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/openai_gpt-4-1106-preview.json",
+          "sha256": "08d5dbfe882af5e3db0bbd1df49da79503ef5a301aaf5b17f6cbecd64dc75f46",
+          "bytes": 77411
+        },
+        "openai_text-davinci-002": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/openai_text-davinci-002.json",
+          "sha256": "fd07ed365e0102f34e7495fbeedff8d35492eb79c20ef06f33325603060d555f",
+          "bytes": 50046
+        },
+        "openai_text-davinci-003": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/openai_text-davinci-003.json",
+          "sha256": "3d46fba0b17845c418f66e0dd403bcd5ba32c376b2272bc6d3f7d6237ab2e500",
+          "bytes": 56854
+        },
+        "tiiuae_falcon-40b": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/tiiuae_falcon-40b.json",
+          "sha256": "2e9b5a576365acfae15aec36826c56bfdd37fafa630cc88c09ff4ea1c3e7e5bc",
+          "bytes": 52912
+        },
+        "tiiuae_falcon-7b": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/tiiuae_falcon-7b.json",
+          "sha256": "b0ce35448a16fef5a572761c10517b605a255fd696f86924fedfbaa6d2e8e354",
+          "bytes": 51259
+        },
+        "writer_palmyra-x-v2": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/writer_palmyra-x-v2.json",
+          "sha256": "e1ee51fc6eb6c2d7d2d1ec0458c99bb1721a4274e047c78731cba6d8819e8519",
+          "bytes": 55471
+        },
+        "writer_palmyra-x-v3": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_closed/writer_palmyra-x-v3.json",
+          "sha256": "5b54ec4e73b2cd9b04319743a8b893d300f0326e1570c77aac6a5a97def68295",
+          "bytes": 86581
+        }
+      }
+    },
+    "naturalqa_open": {
+      "models": {
+        "01-ai_yi-34b": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/01-ai_yi-34b.json",
+          "sha256": "540fbcdc937018cf7d7225e157c04cc14528828c18a5486cc8ac466cfe6aacd3",
+          "bytes": 779401
+        },
+        "01-ai_yi-6b": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/01-ai_yi-6b.json",
+          "sha256": "0ed1b67bfbe780aadd83c81072b34530330ec7a36284cbe78cc6c0afe84f7b2b",
+          "bytes": 780049
+        },
+        "AlephAlpha_luminous-base": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/AlephAlpha_luminous-base.json",
+          "sha256": "23e46befe13175e2e3c81d4652b679ce15cbf380e931dfeb211c4e7eefa43f0a",
+          "bytes": 786089
+        },
+        "AlephAlpha_luminous-extended": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/AlephAlpha_luminous-extended.json",
+          "sha256": "1abb9d85567ae1db076e1bcd1f25f45d5feab2343cdbc0765cf1d93f6716e92f",
+          "bytes": 787556
+        },
+        "AlephAlpha_luminous-supreme": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/AlephAlpha_luminous-supreme.json",
+          "sha256": "07e977fc7bfc3624079d7e2e402c8883717e77861f96af240618a18422d5e7d7",
+          "bytes": 780275
+        },
+        "ai21_j2-grande": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/ai21_j2-grande.json",
+          "sha256": "37bd566082887e84b3e7e4bfa7b0d4ef0937deb4325c76aa99171d076b21e5ef",
+          "bytes": 775828
+        },
+        "ai21_j2-jumbo": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/ai21_j2-jumbo.json",
+          "sha256": "9199227d3e5c0025a1c3d9774f4d74411a611b49b38ba6348e854700b18dbf37",
+          "bytes": 773508
+        },
+        "anthropic_claude-2.0": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/anthropic_claude-2.0.json",
+          "sha256": "f1ce6c89ccb0bbcb1aecd10e875acb6991d3914c4a4f84969324968667bd1ab4",
+          "bytes": 781049
+        },
+        "anthropic_claude-2.1": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/anthropic_claude-2.1.json",
+          "sha256": "4733621f85edf069fc15a45336fa1acb81ef9013fa541b2193514b48aa3a5148",
+          "bytes": 810820
+        },
+        "anthropic_claude-instant-1.2": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/anthropic_claude-instant-1.2.json",
+          "sha256": "2c0b4ade5add73642077c56297480d9c10f1a93754acaa59f1968dbfdbfadc51",
+          "bytes": 781485
+        },
+        "anthropic_claude-instant-v1": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/anthropic_claude-instant-v1.json",
+          "sha256": "9f1bd2cd00bb5f6bf82c8047b974a33d7b7466fdc8479b7e7da9cb1c3b20f5f2",
+          "bytes": 781485
+        },
+        "anthropic_claude-v1.3": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/anthropic_claude-v1.3.json",
+          "sha256": "66a73950e89fbf99d49e74d1fc0eb9fddfb03f0e26667e891b270d2be8215060",
+          "bytes": 774342
+        },
+        "cohere_command-light": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/cohere_command-light.json",
+          "sha256": "46ed90e1ff616529e506a3a624b8a6d3f9766cd379a1ddc6af41755cda1e824b",
+          "bytes": 789223
+        },
+        "cohere_command": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/cohere_command.json",
+          "sha256": "21a38658e582ffdea0a8cf4e455aadb2d442323312f31fd8edc2c303999af78c",
+          "bytes": 784466
+        },
+        "google_text-bison@001": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/google_text-bison@001.json",
+          "sha256": "7c42a53678d19d0b20e1ff091d759650d5d035f882a6889100ab622aed2d007f",
+          "bytes": 780343
+        },
+        "google_text-unicorn@001": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/google_text-unicorn@001.json",
+          "sha256": "6f0e0b6d7126d3cc4ae28a227ffad21d2c69540aca4b9c57e6f830aad6d910ef",
+          "bytes": 791153
+        },
+        "meta_llama-2-13b": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/meta_llama-2-13b.json",
+          "sha256": "2e39ecc51ec5d7a48ad29a9086a5803ad2a0c434a90786dc85d08967ad8fecb7",
+          "bytes": 777290
+        },
+        "meta_llama-2-70b": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/meta_llama-2-70b.json",
+          "sha256": "386e7526328466555c12717e686f350b3b4f0cf15bbf12d4d656e3d32b329f5d",
+          "bytes": 773368
+        },
+        "meta_llama-2-7b": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/meta_llama-2-7b.json",
+          "sha256": "7cbe1be39b5396e464f5331e11e73e0a73c67cbc2b29dfe599c4cc3a63bbf008",
+          "bytes": 775826
+        },
+        "meta_llama-65b": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/meta_llama-65b.json",
+          "sha256": "34d511773f771d2feae03f265867d2e9ad29d48bdaf2a4711d89f63a7be65833",
+          "bytes": 775270
+        },
+        "mistralai_mistral-7b-v0.1": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/mistralai_mistral-7b-v0.1.json",
+          "sha256": "5f4381d9d8e0c0e1d462711c65079b851d96844b2f4716c7d2fe1c4e0d9ce67b",
+          "bytes": 775117
+        },
+        "mistralai_mixtral-8x7b-32kseqlen": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/mistralai_mixtral-8x7b-32kseqlen.json",
+          "sha256": "b81b721587320f9ee8aa3f9c01c2bb8338a0df3a074ac1b000a492a1528fb016",
+          "bytes": 774236
+        },
+        "openai_gpt-3.5-turbo-0613": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/openai_gpt-3.5-turbo-0613.json",
+          "sha256": "3b7a3a1b1cb369e055994005b4cbd1a63a3a6d80b10e6450bb93db7052d6e6ef",
+          "bytes": 783920
+        },
+        "openai_gpt-4-0613": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/openai_gpt-4-0613.json",
+          "sha256": "bb45275f6c9d5fe8ee1f1e3fd2e1eaa4c5eb09c8ec3d1ed63bc26d25a63c1e4a",
+          "bytes": 781077
+        },
+        "openai_gpt-4-1106-preview": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/openai_gpt-4-1106-preview.json",
+          "sha256": "2365642d05755560a8eab7b2c9fe19299b04c936a6005e3c9723c65dcbb05aaa",
+          "bytes": 783727
+        },
+        "openai_text-davinci-002": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/openai_text-davinci-002.json",
+          "sha256": "a56db7ed7da31645948baf3677dc104e91ab4e65d691ed5156eedfad77ffba3b",
+          "bytes": 776904
+        },
+        "openai_text-davinci-003": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/openai_text-davinci-003.json",
+          "sha256": "f35b9fb13e6d19f1f50d2e0056dc8e0640a831f955739ae74ddd0361b9be303a",
+          "bytes": 778280
+        },
+        "tiiuae_falcon-40b": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/tiiuae_falcon-40b.json",
+          "sha256": "fee6b145f02c91de19f730db92e21d455afed237b25b97323a853a5dcc384232",
+          "bytes": 778721
+        },
+        "tiiuae_falcon-7b": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/tiiuae_falcon-7b.json",
+          "sha256": "46478cd9de63286a383d440345ed0c912fc0f5e7f5318ac7ce3f15460698761e",
+          "bytes": 775926
+        },
+        "writer_palmyra-x-v2": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/writer_palmyra-x-v2.json",
+          "sha256": "fb46f19ef022f226ca786381c3125d10ab3305202fba560eaf0f4ecdf019adff",
+          "bytes": 782895
+        },
+        "writer_palmyra-x-v3": {
+          "path": "external_data/step87b_blind_parent_inputs/naturalqa_open/writer_palmyra-x-v3.json",
+          "sha256": "218dd1c0c0cfa0c87875b06b58f7ff5bcdaa02d34f90b1c9319218a9498b3f9a",
+          "bytes": 793580
+        }
+      }
+    },
+    "wmt_cs_en": {
+      "models": {
+        "01-ai_yi-34b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/01-ai_yi-34b.json",
+          "sha256": "447a350627210922e27f777756f057bef8dba5a43b0b30cd4e637603b89e9b51",
+          "bytes": 139675
+        },
+        "01-ai_yi-6b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/01-ai_yi-6b.json",
+          "sha256": "df7d02249a268a68286ab0c275933afe654499dcd1f67f7c343a22f4f7eb19c8",
+          "bytes": 138570
+        },
+        "AlephAlpha_luminous-base": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/AlephAlpha_luminous-base.json",
+          "sha256": "58591a159690a644fb362dabff7f12b79f547cadea5ef84f3abca24bdf627354",
+          "bytes": 142905
+        },
+        "AlephAlpha_luminous-extended": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/AlephAlpha_luminous-extended.json",
+          "sha256": "36eda69c92fd02f1cb60bca3182aa1a9f97ea5b610ae52ce3230932e903f7ad6",
+          "bytes": 141991
+        },
+        "AlephAlpha_luminous-supreme": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/AlephAlpha_luminous-supreme.json",
+          "sha256": "a7f839869fc05d4a5e88a543fa75a7313a474ad6a9c7f0bef288d319de95dbe1",
+          "bytes": 141541
+        },
+        "ai21_j2-grande": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/ai21_j2-grande.json",
+          "sha256": "a09ab0b86e307a8a235543a4b61fed62a1a6710e22395d01ab6ad5af28a782f7",
+          "bytes": 144105
+        },
+        "ai21_j2-jumbo": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/ai21_j2-jumbo.json",
+          "sha256": "7f3211a875d978752507d087b5fd1ac87c4bcb8b048af5d25069fbd1ae1d969a",
+          "bytes": 147381
+        },
+        "anthropic_claude-2.0": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/anthropic_claude-2.0.json",
+          "sha256": "242d469e478f8852bcf7ca0c7a527b951961260c3c988b34c5acc54ae6b67950",
+          "bytes": 142498
+        },
+        "anthropic_claude-2.1": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/anthropic_claude-2.1.json",
+          "sha256": "5153b0a8a43130f1df24d94ec5493934c5d5df7bd8b602098f11020b63df773c",
+          "bytes": 142805
+        },
+        "anthropic_claude-instant-1.2": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/anthropic_claude-instant-1.2.json",
+          "sha256": "c357b0653570cee48c3f52975eb5f95a9be9a71a0219988fa306829798880555",
+          "bytes": 143508
+        },
+        "anthropic_claude-instant-v1": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/anthropic_claude-instant-v1.json",
+          "sha256": "0241a0b703ae50bcef744d8475bc2736d80c75e8c52d4a9a3a7e2e17f1574659",
+          "bytes": 143508
+        },
+        "anthropic_claude-v1.3": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/anthropic_claude-v1.3.json",
+          "sha256": "64fce2f91f268f08586e933fe812e71487a730a997ce2c821076f6b8e32aafe8",
+          "bytes": 142259
+        },
+        "cohere_command-light": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/cohere_command-light.json",
+          "sha256": "0358c4f810a3c88fe232969f747cec8f11082a5530586d0794925bacee56953d",
+          "bytes": 164080
+        },
+        "cohere_command": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/cohere_command.json",
+          "sha256": "da811262ed6dd137a058e178a44b6b31be519f07f985bc8c6d2c3c297e7d8c1a",
+          "bytes": 146080
+        },
+        "google_text-bison@001": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/google_text-bison@001.json",
+          "sha256": "070d5ccc0711e372d8837ab3b245f254f70250a32df84d0dccc27afdc31eacc6",
+          "bytes": 140446
+        },
+        "google_text-unicorn@001": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/google_text-unicorn@001.json",
+          "sha256": "e8ddaaef02b72edd747d2142f353f6f4a4aa4e2729339d8bd317b0a0cfee4b01",
+          "bytes": 141358
+        },
+        "meta_llama-2-13b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/meta_llama-2-13b.json",
+          "sha256": "63046ee6a3da6dde0369f8aa2dcc9feb7896e767afe5add9bd381da135ad257e",
+          "bytes": 142054
+        },
+        "meta_llama-2-70b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/meta_llama-2-70b.json",
+          "sha256": "41c81153ddfcd86a8e35235c262c9dfd8787a4dc4011be614286d27221c252d4",
+          "bytes": 141909
+        },
+        "meta_llama-2-7b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/meta_llama-2-7b.json",
+          "sha256": "36e76dd59cdc39160f980d80c431b9012108386b52f15f5557b0aab9a471ba0b",
+          "bytes": 141483
+        },
+        "meta_llama-65b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/meta_llama-65b.json",
+          "sha256": "7971bcf5fe2eac92f6acbb4536f0fd96200a721ceb3cda7d248307ad9c5dba2f",
+          "bytes": 142362
+        },
+        "mistralai_mistral-7b-v0.1": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/mistralai_mistral-7b-v0.1.json",
+          "sha256": "bda50beb226bfc6cf2f7a4bf60500cee70e7a30e32a71f524743fc65b835342c",
+          "bytes": 142687
+        },
+        "mistralai_mixtral-8x7b-32kseqlen": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/mistralai_mixtral-8x7b-32kseqlen.json",
+          "sha256": "0ae893628e5862fc160561220c12d7a71a1550ed8f4dea9780abede43200d063",
+          "bytes": 142383
+        },
+        "openai_gpt-3.5-turbo-0613": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/openai_gpt-3.5-turbo-0613.json",
+          "sha256": "13e693abbf35b2d00aaa5a8e3d0dcb6ba3a042329b83c5643fb60e2b8e5922e0",
+          "bytes": 143375
+        },
+        "openai_gpt-4-0613": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/openai_gpt-4-0613.json",
+          "sha256": "cedc7f9d8fe633039b02fe48ded006201c5aaa0e99ce1b4cadeba73070009be5",
+          "bytes": 142932
+        },
+        "openai_gpt-4-1106-preview": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/openai_gpt-4-1106-preview.json",
+          "sha256": "2cdf135d6e25b217df3e8a48d4958c250bdd5f537c00cd71aeed6d7ee2b53aac",
+          "bytes": 144183
+        },
+        "openai_text-davinci-002": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/openai_text-davinci-002.json",
+          "sha256": "435416f2e12a2918a2e335575fcdbd1ecefb816b001a503960efd80af6b49d51",
+          "bytes": 141892
+        },
+        "openai_text-davinci-003": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/openai_text-davinci-003.json",
+          "sha256": "19d0fba9e7d8b71f8876f32401e307ffe97c8924d214f62b485dafac2b1b6c10",
+          "bytes": 142095
+        },
+        "tiiuae_falcon-40b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/tiiuae_falcon-40b.json",
+          "sha256": "52443b209cf515826f2a042c32b77ab6d9b5aad853c09778dea10334e04f1274",
+          "bytes": 141993
+        },
+        "tiiuae_falcon-7b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/tiiuae_falcon-7b.json",
+          "sha256": "ae7879c94778a2b7805be860f96299f96d6d312597b6a0c827c816dfe97eef83",
+          "bytes": 139092
+        },
+        "writer_palmyra-x-v2": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/writer_palmyra-x-v2.json",
+          "sha256": "ba0685ba60a99df9d20d9597c2e2fae8ed2f337508e7ba5349b31e1b935a3c8b",
+          "bytes": 141674
+        },
+        "writer_palmyra-x-v3": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_cs_en/writer_palmyra-x-v3.json",
+          "sha256": "977043696dfccc92577e809cedc7f27340e6e1ea605b6f4ec9eac175a7a601f7",
+          "bytes": 141594
+        }
+      }
+    },
+    "wmt_de_en": {
+      "models": {
+        "01-ai_yi-34b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/01-ai_yi-34b.json",
+          "sha256": "8c6fe6a4cfb4fd24dd44395255cd623d0d9fa7512fe22b0f7acd4d4800b79492",
+          "bytes": 140086
+        },
+        "01-ai_yi-6b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/01-ai_yi-6b.json",
+          "sha256": "bf20907a0d1f6c8ad70c551c1f298c32a6574c2bd78ea323881397f4c3129d50",
+          "bytes": 138722
+        },
+        "AlephAlpha_luminous-base": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/AlephAlpha_luminous-base.json",
+          "sha256": "39afff675575d6c4598e9769152de79ae960acdc39fa2ee3c5e8fb6138823862",
+          "bytes": 139619
+        },
+        "AlephAlpha_luminous-extended": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/AlephAlpha_luminous-extended.json",
+          "sha256": "fb08e7bd0e032f7ca4b840ce69241325db0d629419303fd7149ee6906b107f40",
+          "bytes": 140348
+        },
+        "AlephAlpha_luminous-supreme": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/AlephAlpha_luminous-supreme.json",
+          "sha256": "45fef576fb8186ac0247eb5a9b6e9efcd5467a6ccb80f38567a7f8854c6fb928",
+          "bytes": 140615
+        },
+        "ai21_j2-grande": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/ai21_j2-grande.json",
+          "sha256": "692fe1d5cb03a6093160fbf08bc065db053c9a6652a78d681d6e9f26982c41a6",
+          "bytes": 141254
+        },
+        "ai21_j2-jumbo": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/ai21_j2-jumbo.json",
+          "sha256": "0c32f110237d349d54bdec1006e1fcc3e0d6d1380e248fb96aa1de02a7ee388e",
+          "bytes": 173033
+        },
+        "anthropic_claude-2.0": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/anthropic_claude-2.0.json",
+          "sha256": "96459dd8138a9bb74f5043c994f8ba74a87a195ca85d89d838cbfb63a7816675",
+          "bytes": 141663
+        },
+        "anthropic_claude-2.1": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/anthropic_claude-2.1.json",
+          "sha256": "afeee495114ea5d0adbc3e2518d17330c3cbb7f24caef82e26757336c34bf665",
+          "bytes": 142412
+        },
+        "anthropic_claude-instant-1.2": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/anthropic_claude-instant-1.2.json",
+          "sha256": "65685ef02690cc0d6c7bc1667a97c823429c8f756bde305ad4937e557fec17fa",
+          "bytes": 141960
+        },
+        "anthropic_claude-instant-v1": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/anthropic_claude-instant-v1.json",
+          "sha256": "5787f3098fb4a169fce78a50283c9fc9036d77a2e2fec870c48f5ae6b5559f8c",
+          "bytes": 141960
+        },
+        "anthropic_claude-v1.3": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/anthropic_claude-v1.3.json",
+          "sha256": "e7adc2bf05c0b57037932b5fc8b64bd29c6aeacd7faf5682c6d2fc9ff6096941",
+          "bytes": 141005
+        },
+        "cohere_command-light": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/cohere_command-light.json",
+          "sha256": "0e2dedab57b3e11045db9d7512a1d8ed64f9c0212cc9dc2a8641d566c3c6da8e",
+          "bytes": 181255
+        },
+        "cohere_command": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/cohere_command.json",
+          "sha256": "086d20ab5d8082f8f8fc6e51fa9e5449a99395ef2e7f3b54f8d3a1b69d7fdfdf",
+          "bytes": 186524
+        },
+        "google_text-bison@001": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/google_text-bison@001.json",
+          "sha256": "282b3446c5d2cd3516b7d2d9021982bf2791d6e24765557582b7fade80b39076",
+          "bytes": 139289
+        },
+        "google_text-unicorn@001": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/google_text-unicorn@001.json",
+          "sha256": "332785856a556e736cd28a5585b4e41bda8a077bdeeff56a27ff50803576ef33",
+          "bytes": 140046
+        },
+        "meta_llama-2-13b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/meta_llama-2-13b.json",
+          "sha256": "eadfe83250be1d01fdeb3e8b642e43a832dc41e47a1b7ec9cc7f117774ee2a77",
+          "bytes": 140315
+        },
+        "meta_llama-2-70b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/meta_llama-2-70b.json",
+          "sha256": "0b2b1db6ed681a1fdd9d845e44ee1447f3fe83c553c190d0b4566bdeac6c2b36",
+          "bytes": 140069
+        },
+        "meta_llama-2-7b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/meta_llama-2-7b.json",
+          "sha256": "6a5981800a3419a1d0801bdcf5f981c4a76b76ff212199cdd92271d614410f23",
+          "bytes": 140417
+        },
+        "meta_llama-65b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/meta_llama-65b.json",
+          "sha256": "9a50ab5d209589ced7dd23a71c96c49bedc798cca12108339bdb9c96307b3bbf",
+          "bytes": 140560
+        },
+        "mistralai_mistral-7b-v0.1": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/mistralai_mistral-7b-v0.1.json",
+          "sha256": "ae3f5f88f25a61e7eedd91f95e4bc618cc4a83d8ac4a8cc47a3724f281983ca6",
+          "bytes": 140637
+        },
+        "mistralai_mixtral-8x7b-32kseqlen": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/mistralai_mixtral-8x7b-32kseqlen.json",
+          "sha256": "0ca35e3b86c62daa10dc09e716b140d2e50663af8538597dfddba0014d6e69ec",
+          "bytes": 140656
+        },
+        "openai_gpt-3.5-turbo-0613": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/openai_gpt-3.5-turbo-0613.json",
+          "sha256": "53113d9aeae0bd887f350a6770667acc0f173d3f53a3beb1af6c3180b2f3825f",
+          "bytes": 144670
+        },
+        "openai_gpt-4-0613": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/openai_gpt-4-0613.json",
+          "sha256": "358b30b4a28454b5d828defdae9b81ffe70283f6a040f8318d9234f4c97aeae9",
+          "bytes": 141399
+        },
+        "openai_gpt-4-1106-preview": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/openai_gpt-4-1106-preview.json",
+          "sha256": "7c21ac2e8621a6eb7fec38ec713d764b66c1774c14c653ded399e3f216bb165b",
+          "bytes": 156369
+        },
+        "openai_text-davinci-002": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/openai_text-davinci-002.json",
+          "sha256": "618bb8152be48ed69ba75a6c80b012cdcb6dfac83926a0f47ed118a556415ca8",
+          "bytes": 140823
+        },
+        "openai_text-davinci-003": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/openai_text-davinci-003.json",
+          "sha256": "750ff08d1aedcce2e11039268b43832dfb564e61f7bb415ed83434473eecd3dd",
+          "bytes": 140984
+        },
+        "tiiuae_falcon-40b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/tiiuae_falcon-40b.json",
+          "sha256": "6a8c5bdd8b0c35b1f026832402099c78070c0c756c9415aa85e2c5951a6c9fb8",
+          "bytes": 139847
+        },
+        "tiiuae_falcon-7b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/tiiuae_falcon-7b.json",
+          "sha256": "ccde2c97d009dca1c0cb720de4e938d98e4eb3d77b7d6e2db24afbce452a31e8",
+          "bytes": 164178
+        },
+        "writer_palmyra-x-v2": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/writer_palmyra-x-v2.json",
+          "sha256": "f350235ac949af990a22d04638087474afcc8e8899949705cc3a234dc8d30581",
+          "bytes": 140487
+        },
+        "writer_palmyra-x-v3": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_de_en/writer_palmyra-x-v3.json",
+          "sha256": "6c24420b7e6d7b424a021ba237d56df461b7c41c1223b0c495b29fcaa0e05248",
+          "bytes": 140397
+        }
+      }
+    },
+    "wmt_fr_en": {
+      "models": {
+        "01-ai_yi-34b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/01-ai_yi-34b.json",
+          "sha256": "c5421dc6c50cdc4a4d42b496e357afb1bee4a634545e6aabd22eabe6cd2417f5",
+          "bytes": 146379
+        },
+        "01-ai_yi-6b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/01-ai_yi-6b.json",
+          "sha256": "06c3894dd473c3945ea7ddd6601288b9e1a06f52b521ea9f56a35f43cb8a8737",
+          "bytes": 146849
+        },
+        "AlephAlpha_luminous-base": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/AlephAlpha_luminous-base.json",
+          "sha256": "5c4c88c25c8e9249084a674947c14ca55310d538c26600c78c2bfaef2d48ec70",
+          "bytes": 147610
+        },
+        "AlephAlpha_luminous-extended": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/AlephAlpha_luminous-extended.json",
+          "sha256": "5904e28dcae76c3f9a1693b6d5efc897df688772bec4ee7018da636a5285d017",
+          "bytes": 148443
+        },
+        "AlephAlpha_luminous-supreme": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/AlephAlpha_luminous-supreme.json",
+          "sha256": "c2556eadb7038cb27de496ebd42ffee74c5f1ceec66f513a05675e3a640bd32c",
+          "bytes": 148207
+        },
+        "ai21_j2-grande": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/ai21_j2-grande.json",
+          "sha256": "a5b0c66cd95b51e4e0bd75a5237d20dea65c988b8e06294539539fd43368eaaf",
+          "bytes": 148471
+        },
+        "ai21_j2-jumbo": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/ai21_j2-jumbo.json",
+          "sha256": "a64dae93ecc3fcaac466545335732b4a26dc2d3150a6b19b45dd6b0eae502224",
+          "bytes": 176058
+        },
+        "anthropic_claude-2.0": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/anthropic_claude-2.0.json",
+          "sha256": "a1a6bcf814541f25f144f28d88a4d7ba1ae863b389482c556f5d11c9404dd1ba",
+          "bytes": 148305
+        },
+        "anthropic_claude-2.1": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/anthropic_claude-2.1.json",
+          "sha256": "3ee66d6d346e45effd1c2c4b95619e2f2812ccf6a4f1e5a9ad1b63c7799fada1",
+          "bytes": 146594
+        },
+        "anthropic_claude-instant-1.2": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/anthropic_claude-instant-1.2.json",
+          "sha256": "84c1587d4ee9180ef90eaa0e7ad34303515222a76c60a08e4304cb796d07f43a",
+          "bytes": 148618
+        },
+        "anthropic_claude-instant-v1": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/anthropic_claude-instant-v1.json",
+          "sha256": "91557767a3af7aab7e14a20b7de990a583dc840fb39ca631990370f8e2390769",
+          "bytes": 148618
+        },
+        "anthropic_claude-v1.3": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/anthropic_claude-v1.3.json",
+          "sha256": "6d8125f532aac7ca66f4b109e9942fd192e2b3115fc19ed9778304f00c4352bf",
+          "bytes": 147983
+        },
+        "cohere_command-light": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/cohere_command-light.json",
+          "sha256": "8c9dbae02b9413ec763629aa652a3902a94e3afc23b3518cd611e4e3f12a5f61",
+          "bytes": 157865
+        },
+        "cohere_command": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/cohere_command.json",
+          "sha256": "eb55236fa85e02b65b35db69e161a96dc241884ec8b040cad93a36e6cf985086",
+          "bytes": 149272
+        },
+        "google_text-bison@001": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/google_text-bison@001.json",
+          "sha256": "814ea2496e51f5df39913a4a929ce9ce6b35c7a80a8b20bfc31fae6a27645563",
+          "bytes": 146364
+        },
+        "google_text-unicorn@001": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/google_text-unicorn@001.json",
+          "sha256": "cd00efcd0ed9fbfe7dff59cc3682634eb8f5d77d682683bcf41e5098509c3e00",
+          "bytes": 146932
+        },
+        "meta_llama-2-13b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/meta_llama-2-13b.json",
+          "sha256": "da4af4fa25326ff4227518494dcb0960d81e49e0201373385f7a50148d911912",
+          "bytes": 148277
+        },
+        "meta_llama-2-70b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/meta_llama-2-70b.json",
+          "sha256": "1a3dfda1e4d36e31614e6eff4ccef0860ab993622074b3602e6efef5ed4bcb48",
+          "bytes": 147606
+        },
+        "meta_llama-2-7b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/meta_llama-2-7b.json",
+          "sha256": "46a83b19271e592a929e8302cb922a196c33f9032991492665437d8163cce4c0",
+          "bytes": 148241
+        },
+        "meta_llama-65b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/meta_llama-65b.json",
+          "sha256": "5db856ea5afe88610b8a7bd03d996baae2ddd148330335b11deb7d697d80e209",
+          "bytes": 147790
+        },
+        "mistralai_mistral-7b-v0.1": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/mistralai_mistral-7b-v0.1.json",
+          "sha256": "129e759772d51bd7d19094b9c017026dbd5742a6dcebaf44627fd568f6df7b63",
+          "bytes": 147551
+        },
+        "mistralai_mixtral-8x7b-32kseqlen": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/mistralai_mixtral-8x7b-32kseqlen.json",
+          "sha256": "86e546a4367501593d8aa142eba97aac24ebebdb96d8ab648abab069443b12f4",
+          "bytes": 147602
+        },
+        "openai_gpt-3.5-turbo-0613": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/openai_gpt-3.5-turbo-0613.json",
+          "sha256": "167fc15dc22af280213e0c72781684a48ce95e163448fb042f91b796a22b56b9",
+          "bytes": 148949
+        },
+        "openai_gpt-4-0613": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/openai_gpt-4-0613.json",
+          "sha256": "62d8dbf0aa0c85e03df6db4ef699d08cbd4773a8c393c25a90833fa6f434fc46",
+          "bytes": 148704
+        },
+        "openai_gpt-4-1106-preview": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/openai_gpt-4-1106-preview.json",
+          "sha256": "65cac96ec657a5549263d6b491b539aba271461403bf2e459d52a1bf18d97974",
+          "bytes": 148717
+        },
+        "openai_text-davinci-002": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/openai_text-davinci-002.json",
+          "sha256": "9b17bc74c346689ab84b346e6af67eed3ed44203ce292c4009f4647495fad66d",
+          "bytes": 147279
+        },
+        "openai_text-davinci-003": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/openai_text-davinci-003.json",
+          "sha256": "06375c64b0a7630d12fd14eb1f988bbca9ff83d822e7c25f2737746abad95c16",
+          "bytes": 147647
+        },
+        "tiiuae_falcon-40b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/tiiuae_falcon-40b.json",
+          "sha256": "e1f3be57e907253e82040594b0ddc643fd369222e2ebf7033053dce21599a23e",
+          "bytes": 147495
+        },
+        "tiiuae_falcon-7b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/tiiuae_falcon-7b.json",
+          "sha256": "57037c240cf90b646af0404f6779a14f6490619ddcc06862f2cda90e17cc6781",
+          "bytes": 149544
+        },
+        "writer_palmyra-x-v2": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/writer_palmyra-x-v2.json",
+          "sha256": "c2fbd78fc28c213324bc3cf5238083f2d36b579549117e541dc9bbce8bd031e5",
+          "bytes": 146983
+        },
+        "writer_palmyra-x-v3": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_fr_en/writer_palmyra-x-v3.json",
+          "sha256": "c34bcc0fed22fdceedfc5124b106f8c7df028a9696ce15a13c025e97e28bc8a9",
+          "bytes": 146830
+        }
+      }
+    },
+    "wmt_hi_en": {
+      "models": {
+        "01-ai_yi-34b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/01-ai_yi-34b.json",
+          "sha256": "936a36c108fb4d549f6d849fb88c5177188a978d219df9ff88fd75d807267dfb",
+          "bytes": 226020
+        },
+        "01-ai_yi-6b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/01-ai_yi-6b.json",
+          "sha256": "4a33813bb34748cdfbb42350db458e506c7b37891f6bea6c18d7f902641a1117",
+          "bytes": 227898
+        },
+        "AlephAlpha_luminous-base": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/AlephAlpha_luminous-base.json",
+          "sha256": "126ae5dee1c6e8c7a51b1bdfed0af6332b8a42b115c1269a334cf5d35f9f2524",
+          "bytes": 273526
+        },
+        "AlephAlpha_luminous-extended": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/AlephAlpha_luminous-extended.json",
+          "sha256": "169d5b9fb11a837c224125fb0141b65fb657c5331849d6964cd1df6b8952d1ce",
+          "bytes": 255042
+        },
+        "AlephAlpha_luminous-supreme": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/AlephAlpha_luminous-supreme.json",
+          "sha256": "7e66c273433c747fab1e3a278c8963d043ae0d52286ec8a43b530b446f2015be",
+          "bytes": 249690
+        },
+        "ai21_j2-grande": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/ai21_j2-grande.json",
+          "sha256": "b8466e7d4f5ff6f9dfe5b68fe6b10dad123487e48fcd363606ce99912e1f2d10",
+          "bytes": 232356
+        },
+        "ai21_j2-jumbo": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/ai21_j2-jumbo.json",
+          "sha256": "b32a590dbaca8e0e7f63c1b561f93c10c1bd0ca3a0d45ab20e378eaa19ac2007",
+          "bytes": 230439
+        },
+        "anthropic_claude-2.0": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/anthropic_claude-2.0.json",
+          "sha256": "89562165997893b541870493fadef594faac5349aaee419ee612023016f0ed50",
+          "bytes": 228331
+        },
+        "anthropic_claude-2.1": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/anthropic_claude-2.1.json",
+          "sha256": "54f03bc90da2b6163410908d0569afa561f2896f90377e1328e449c91a20650d",
+          "bytes": 227517
+        },
+        "anthropic_claude-instant-1.2": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/anthropic_claude-instant-1.2.json",
+          "sha256": "c3f68991eac0b85401d1fbae3be6282d0779df90af62a78a640fc7a987596bd3",
+          "bytes": 229300
+        },
+        "anthropic_claude-instant-v1": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/anthropic_claude-instant-v1.json",
+          "sha256": "2e5043c1413c23f85b77b4a7faa8d43956902acd4c44cda5f67e1e849e82fa97",
+          "bytes": 229300
+        },
+        "anthropic_claude-v1.3": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/anthropic_claude-v1.3.json",
+          "sha256": "299e0dced8a1d4d4cb0dbeff6f6e99de78131a21efff2fb893ddbf38c63a2de6",
+          "bytes": 228712
+        },
+        "cohere_command-light": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/cohere_command-light.json",
+          "sha256": "ca776816fce36fbdbd2cadd3e8964120aa79209ab204b392f2083217d7cf7e78",
+          "bytes": 269221
+        },
+        "cohere_command": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/cohere_command.json",
+          "sha256": "ab4622edc72e2886a0e06debfb7912a1fb72d928dd51ccd8707ed97143cbf7ec",
+          "bytes": 246164
+        },
+        "google_text-bison@001": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/google_text-bison@001.json",
+          "sha256": "3673c13d6ec6d502ef49d443a76085188ed37cb309954066cd4dac8350a29714",
+          "bytes": 224870
+        },
+        "google_text-unicorn@001": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/google_text-unicorn@001.json",
+          "sha256": "fff1f8eca155c41af2b9cf6eb48d16cac0f10f1eba3f117d40a8dd7eee62248a",
+          "bytes": 226067
+        },
+        "meta_llama-2-13b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/meta_llama-2-13b.json",
+          "sha256": "805d42c6899979f9d265e7408975e2e44df053af835ba1e792254892eb1a19f5",
+          "bytes": 227074
+        },
+        "meta_llama-2-70b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/meta_llama-2-70b.json",
+          "sha256": "63f406553d72cf1beb5ef4340fb141333f5844267a7355ad64904c50000655e6",
+          "bytes": 226946
+        },
+        "meta_llama-2-7b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/meta_llama-2-7b.json",
+          "sha256": "2c5abdbb7c62dbd5966953dcf086b245794a109c1b54b6034c6d4bedf87c0355",
+          "bytes": 227900
+        },
+        "meta_llama-65b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/meta_llama-65b.json",
+          "sha256": "3b4b532eb0a854bdfa4a8e7e3d9e33ae96670dd96503cbc58737832b489089e2",
+          "bytes": 226015
+        },
+        "mistralai_mistral-7b-v0.1": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/mistralai_mistral-7b-v0.1.json",
+          "sha256": "6a7fa5998a78b76d1f80c17bab206968108cf631f0ae8066b3d8650b6f585706",
+          "bytes": 226877
+        },
+        "mistralai_mixtral-8x7b-32kseqlen": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/mistralai_mixtral-8x7b-32kseqlen.json",
+          "sha256": "6bb8ed29a23885c4343ec62d0edb9dceeccfc2665ed60447edd68013da4e748a",
+          "bytes": 226472
+        },
+        "openai_gpt-3.5-turbo-0613": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/openai_gpt-3.5-turbo-0613.json",
+          "sha256": "8cd031adee62f3f277cb0c821cbdf5787346a1ae300d9a289a3644e2727697ba",
+          "bytes": 220138
+        },
+        "openai_gpt-4-0613": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/openai_gpt-4-0613.json",
+          "sha256": "c169da0e6b1fdac1c9095c4025bdbd6529002ad443d7db5f028bc46ff22bfda8",
+          "bytes": 228802
+        },
+        "openai_gpt-4-1106-preview": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/openai_gpt-4-1106-preview.json",
+          "sha256": "ca961d5ed8005f18fde77f4d8aebacb472b73f4cf271c041e4d9c527a40217fb",
+          "bytes": 233439
+        },
+        "openai_text-davinci-002": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/openai_text-davinci-002.json",
+          "sha256": "294413183e34df3ff48c28f58058efa2dd81b3c332f516da6eba94c09ddd0bec",
+          "bytes": 226097
+        },
+        "openai_text-davinci-003": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/openai_text-davinci-003.json",
+          "sha256": "2052c62a57179851dc8edc8cd35ad2b6c946dcb23fccbd0b994aea1b22c1af6e",
+          "bytes": 228708
+        },
+        "tiiuae_falcon-40b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/tiiuae_falcon-40b.json",
+          "sha256": "de9c9e3dacfa5957d3cf4a432161eda97343de14f882415bde24f7dfb115a23f",
+          "bytes": 235379
+        },
+        "tiiuae_falcon-7b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/tiiuae_falcon-7b.json",
+          "sha256": "fed9e35fff25a6a6cc9d8f0248c429f1361c1cda2dfb1b03a592de39044cafdd",
+          "bytes": 295369
+        },
+        "writer_palmyra-x-v2": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/writer_palmyra-x-v2.json",
+          "sha256": "ce9832f06e0b981b826b9153f8bac99f3f016053afc925fccb0ab1c0e8543999",
+          "bytes": 225983
+        },
+        "writer_palmyra-x-v3": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_hi_en/writer_palmyra-x-v3.json",
+          "sha256": "e23ee73d79b3e374fbdf12b0e66ecf20ca15009f65d0d9b59202bef155617ca9",
+          "bytes": 226408
+        }
+      }
+    },
+    "wmt_ru_en": {
+      "models": {
+        "01-ai_yi-34b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/01-ai_yi-34b.json",
+          "sha256": "3d51cb97e6fac7166b422cd784dc60dd0dbb4c748dcd7eccd2037f28756d151e",
+          "bytes": 182073
+        },
+        "01-ai_yi-6b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/01-ai_yi-6b.json",
+          "sha256": "975d2609cfb2b6d82e521ab789ca4a985f85695b93b1241febe9b5918c3caed1",
+          "bytes": 179158
+        },
+        "AlephAlpha_luminous-base": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/AlephAlpha_luminous-base.json",
+          "sha256": "912db6ecfca1cc24427439659ee184094fb9c02873e6f146bd566d2673a7137d",
+          "bytes": 185203
+        },
+        "AlephAlpha_luminous-extended": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/AlephAlpha_luminous-extended.json",
+          "sha256": "92d018976faa9450d13b99e8f563c2094058d306011a7ca2d4447a6c482bf198",
+          "bytes": 190640
+        },
+        "AlephAlpha_luminous-supreme": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/AlephAlpha_luminous-supreme.json",
+          "sha256": "c4d8ec2437ab6ca663a6af6501c0d200c6155dbf0732f7507ebbe92f8d383f67",
+          "bytes": 186603
+        },
+        "ai21_j2-grande": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/ai21_j2-grande.json",
+          "sha256": "7bf24b0480bfe555ddcf1ab1de028ccc0eff90c4c02394e5ee0a4592f727ea16",
+          "bytes": 182960
+        },
+        "ai21_j2-jumbo": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/ai21_j2-jumbo.json",
+          "sha256": "cee3a2ce52a1e3c7f8e448dbe95c965b6e31120ccf29391f32230f21cbe3f31f",
+          "bytes": 185046
+        },
+        "anthropic_claude-2.0": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/anthropic_claude-2.0.json",
+          "sha256": "e655aaeae8b773a2497d40734cd8eca6e96dfc15488d0bd4cca61e80791e1a29",
+          "bytes": 184713
+        },
+        "anthropic_claude-2.1": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/anthropic_claude-2.1.json",
+          "sha256": "6625d15872a48d00b5593deee6e728ca7affa3e079b25495239da592966f4307",
+          "bytes": 183812
+        },
+        "anthropic_claude-instant-1.2": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/anthropic_claude-instant-1.2.json",
+          "sha256": "29da47925f25b81738f0ad01adefc809fff2d398172daea3fe966b4f560a357a",
+          "bytes": 184490
+        },
+        "anthropic_claude-instant-v1": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/anthropic_claude-instant-v1.json",
+          "sha256": "1544d92793deb9d1f585c6049b3455bf5c37c792bcfa2583a93a7f110f603543",
+          "bytes": 184490
+        },
+        "anthropic_claude-v1.3": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/anthropic_claude-v1.3.json",
+          "sha256": "cd6b02ad70669d1924a37a9f693799348c7d7c8c97ddb3aaa26bd467c353bbaf",
+          "bytes": 184996
+        },
+        "cohere_command-light": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/cohere_command-light.json",
+          "sha256": "cda6ea2f3944f67d3fc4d5e19c55da66ed4880cb2b287e5b49227c0056d93521",
+          "bytes": 231309
+        },
+        "cohere_command": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/cohere_command.json",
+          "sha256": "64a6f4f3b7c08d7584373229597fcee9143dfa4990ad019091057c902e258321",
+          "bytes": 187620
+        },
+        "google_text-bison@001": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/google_text-bison@001.json",
+          "sha256": "d69179bfe312b283342bb41762253a1baf888c2c8ddae121a1072cec95e7b4f9",
+          "bytes": 181401
+        },
+        "google_text-unicorn@001": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/google_text-unicorn@001.json",
+          "sha256": "e343b64e49ab077b2c4f942c971ec2f41e303c46ede7b564442845ad1478cebc",
+          "bytes": 183515
+        },
+        "meta_llama-2-13b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/meta_llama-2-13b.json",
+          "sha256": "45c755f50f5faf57f725de4e1958da4189f484b71cb171862b49ff28957f94d8",
+          "bytes": 184190
+        },
+        "meta_llama-2-70b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/meta_llama-2-70b.json",
+          "sha256": "b47aec55508fb5122e0fbcdd1ded70458f856132c95236fa87999148ba190f45",
+          "bytes": 182930
+        },
+        "meta_llama-2-7b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/meta_llama-2-7b.json",
+          "sha256": "f39c0292c30fdc22d61ee05864dbfb0d7ec218fb47e22b34a94ba8ae672ee5ed",
+          "bytes": 183078
+        },
+        "meta_llama-65b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/meta_llama-65b.json",
+          "sha256": "00a3b2eaa4c5ff0edcf7b47f5ebc6b87a8efa34ffbeba4024e4839dd4041402e",
+          "bytes": 184128
+        },
+        "mistralai_mistral-7b-v0.1": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/mistralai_mistral-7b-v0.1.json",
+          "sha256": "0c4b57b58ccd2cd951663812c11f1d121bb3e8005a0246ce0ffed8c5654cbfb6",
+          "bytes": 183127
+        },
+        "mistralai_mixtral-8x7b-32kseqlen": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/mistralai_mixtral-8x7b-32kseqlen.json",
+          "sha256": "accba248fea64b9d45e0cc0d2ec79c612c42ae41235e9aa018e3d23ec10b0ba1",
+          "bytes": 183856
+        },
+        "openai_gpt-3.5-turbo-0613": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/openai_gpt-3.5-turbo-0613.json",
+          "sha256": "41f62eac548e3ad5606613b928e8f604de10433f29372b5a2df757b343df4c38",
+          "bytes": 184388
+        },
+        "openai_gpt-4-0613": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/openai_gpt-4-0613.json",
+          "sha256": "b499926f1d42b38896a220d7cd2d5ddc567bdec85ae5e4916c68ef8929dd2bf1",
+          "bytes": 184875
+        },
+        "openai_gpt-4-1106-preview": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/openai_gpt-4-1106-preview.json",
+          "sha256": "ff29f4827746079424bb52c28b715a1282cf81be84c5839804789536dcce4b16",
+          "bytes": 186704
+        },
+        "openai_text-davinci-002": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/openai_text-davinci-002.json",
+          "sha256": "ed3cc684b72bb35b309a61d65598e435d86e0a072ced7885ea8f7ffdf7ec345b",
+          "bytes": 182974
+        },
+        "openai_text-davinci-003": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/openai_text-davinci-003.json",
+          "sha256": "db8c31809d6aaa6171cd3536610df7328715a40d78799b974f00a9aa0c8052c2",
+          "bytes": 184266
+        },
+        "tiiuae_falcon-40b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/tiiuae_falcon-40b.json",
+          "sha256": "43a7b92ab8e50fe679d6b2509fb06d3e7da06edc77fc3802e979864896e0b09b",
+          "bytes": 183289
+        },
+        "tiiuae_falcon-7b": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/tiiuae_falcon-7b.json",
+          "sha256": "15cf5defd77c1ee1959ed133f784dba43e24c4caf341f4ffd9f6e35390683928",
+          "bytes": 184320
+        },
+        "writer_palmyra-x-v2": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/writer_palmyra-x-v2.json",
+          "sha256": "30e9544b7df9dab94a3fc3040ddd0e0ff5f8522807d51433c802b8ceb073d302",
+          "bytes": 183864
+        },
+        "writer_palmyra-x-v3": {
+          "path": "external_data/step87b_blind_parent_inputs/wmt_ru_en/writer_palmyra-x-v3.json",
+          "sha256": "af73bbd7445f5ae3bc8cfbe76dd8d86db38f96f24badc09477f9e9e70c9c5474",
+          "bytes": 183767
+        }
+      }
+    }
+  }
+}

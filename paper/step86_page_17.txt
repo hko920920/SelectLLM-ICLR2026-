@@ -1,0 +1,79 @@
+      Under review as a conference paper at ICLR 2027
+
+
+
+
+864
+      The attempted ex-ante registry-fragility audit did not transfer. Its magnitude Spearman correlation was
+865   .185 with task-block permutation p = .416; AUROC was .719, below a static mass-displacement base-
+866   line at .788; and it failed the magnitude, materiality, adaptive-value, cross-selector, and fallback gates.
+867   Only the non-vacuity gate passed. The locked decision is therefore STOP FRAGILITY PIVOT.
+868   These results rule out a generic “more entries are harmful” interpretation and any claim that our
+869   response-only score predicts attacks. They do not test the separately locked targeted T2-A constructor,
+870   whose support is deliberately chosen rather than random. The full protocol, 420 effects, six gates,
+871   and 98-check independent validation are stored in the Step 61 artifacts.
+872
+873
+874
+      F      D EFENSE AND M UTATION AUDIT
+875
+876
+877
+878
+879   Table 6: Matched 10% behavioral-cover audit. Clean ∆ compares covered clean with uncovered
+880   clean; positive is worse. “Extra rm.” counts removals beyond exact quotienting.
+881   Task                Undefended ∆ CReg [95% CI]               Cover residual      Clean ∆ CReg    Extra rm.    Max span
+882   MedQA                    +4.853 [4.603, 5.102]                               0        +0.569              1     0.8 pp
+883   OpenBookQA               +1.006 [0.942, 1.069]                               0        +1.030              6     5.2 pp
+      GSM8K               Prospectively ineligible; frozen parent not replaced
+884
+885
+886
+887
+888
+889
+      Table 7: Representative post-hoc fixed settings. R is absolute residual CReg divided by the unde-
+890   fended effect over five attacks; Clean G/M/O is ∆CReg (positive is worse). All 21 settings appear in
+891   the appendix.
+892   Rule, α                 Mean R                Max R                R<1            Clean G       Clean M        Clean O
+893
+      All three, .050              .824               1.061                  3/5        −0.180        +0.351        +0.238
+894   MCCA, .100                   .765               1.121                  3/5        −0.180        +0.275        +1.018
+      MCCP, .100                   .721               1.125                  4/5        −0.180        +0.275        +1.112
+895
+      class-unif., .132            .656               1.185                  4/5        −0.180        +0.386        +1.110
+896   MCCA, .132                   .584               1.158                  4/5        −0.180        +0.386        +1.273
+897
+898
+899
+900   The exact quotient groups identical full response rows and exactly neutralizes the natural pair
+901   and T0 copies. A radius-ρ matched cover joins candidates within normalized response Ham-
+902   ming distance ρ and retains the smallest-index representative of each connected component. At
+903
+      5%, it neutralizes the corresponding attack with incremental clean CReg 0/0/ − .169 across
+      MedQA/GSM8K/OpenBookQA. At 10%, it also neutralizes the attack, but clean CReg increases
+904
+      by .569 on MedQA and 1.030 on OpenBookQA; the latter merges six natural models spanning 5.2
+905
+      accuracy points and costs 3.975 terminal points. Authenticated lineage returns exact equality by
+906   retaining fixed root mass, but is explicitly an oracle-information comparator.
+907
+908   The       soft-weight       audit       crosses      class-uniform,     MCCA,      and       MCCP
+909
+      with     α         ∈        {.01, .05, .10, .132, .15, .184, .213}.       Its   63    clean     and
+      105      eligible     attack      cells     are     stored      without  outcome    filtering     in
+910
+      STEP46 CLONE ROBUST SOFT WEIGHTING RESULTS 2026-08-08.json                               (SHA-256
+911
+      15B693F0...B7B136). The original joint regret/path gate remains 0/105 and all residual
+912   path-change fractions equal one. The outcome-first reanalysis instead finds 74 mitigated and 31
+913   worsened attack cells; 24 reach at most 50% residual, 11 at most 25%, and four at most 10%. No
+914   fixed setting is non-worsening on all five task–distance attacks. All 21 settings improve clean
+915   GSM8K CReg but worsen clean MedQA and OpenBookQA CReg; terminal intervals contain zero in
+916   45/63 cells, with ten significant harms and eight improvements. Table 8 reports every fixed setting.
+917   Independent validators reconstruct graph breakpoints, priors, paths, effects, and mutation failures
+      rather than trusting recorded decisions.
+
+
+                                                                        17
+

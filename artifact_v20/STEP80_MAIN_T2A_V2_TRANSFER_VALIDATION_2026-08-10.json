@@ -1,0 +1,17 @@
+{
+  "manifest_id": "STEP80_MAIN_T2A_V2_TRANSFER_VALIDATION_V1",
+  "status": "PASS_STEP80_INDEPENDENT_VALIDATION",
+  "result_sha256": "92642f263da5252624427a35574a7ddb55985caedbbb63144e5bf7f3cedf0a6d",
+  "raw_sha256": "2a1d9f8fe9efb236e4d19071aa4937fe8aec7a7d03f5f91302f2c0dfaaefecd9",
+  "execution_lock_sha256": "340c039378b77cdb8b814ab6f3f72f1d1240e34766421a07a83ca8660e90c251",
+  "runner_sha256": "4fc46dcee545b1190ad9e73102ac894898397e747234adfbd738d4823305824a",
+  "validator_sha256": "e0c1d4d54fb405a2d0d8de89bb5b7a4a54b6955781b95e8301eeec8322b9a1a2",
+  "runner_imported": false,
+  "independent_alias_reconstruction": true,
+  "independent_acquisition_recomputation": true,
+  "independent_statistics_recomputation": true,
+  "independent_adjudication": true,
+  "checks_completed": 2882,
+  "validated_classification": "STRONG_TRANSFER",
+  "final_status": "INDEPENDENTLY_VALIDATED"
+}

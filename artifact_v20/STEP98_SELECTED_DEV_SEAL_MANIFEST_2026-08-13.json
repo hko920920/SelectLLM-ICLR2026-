@@ -1,0 +1,20 @@
+{
+  "manifest_id": "STEP98_SELECTED_DEV_SEAL_V1",
+  "date": "2026-08-13",
+  "selected_round": "r3",
+  "selected_split": "dev_r3",
+  "selection_sha256": "fd5ae8f142c902e1c3ced019c0f7b6d900a19f1919946e22207fe8b1ed0e30d4",
+  "protocol_sha256": "8a8ed383e512933999f0a114e03f17b3140caa0af6e5a96ee7b27aeb0d427255",
+  "rows": 1200,
+  "input_file": "step98_test_inputs/anli_r3_dev_inputs.json",
+  "input_sha256": "42815f52f0faba2910b40f19ec72593ce8932c1868d789565ece66a470f1faf0",
+  "input_contains_label_field": false,
+  "sealed_file": "external_data/step98_sealed/anli_r3_dev_sealed_outcomes.npz",
+  "sealed_sha256": "1349139f995a9535c5f8fad38309dbee884cc41d58914f9084b43812b0d8a106",
+  "sealed_outcome_opened_for_analysis": false,
+  "console_exposed_labels_or_label_counts": false,
+  "code_sha256": {
+    "step98_common.py": "11ad12d3c032a5d31242f5c5e61bf76a1d88aef42a62b4d5032aa4f62f73c4a3",
+    "step98_stage0_seal_selected_dev.py": "1cf0261b511e54a05944d94f3e8bf1ee01e136b24734a34762b6d2ed645282ae"
+  }
+}

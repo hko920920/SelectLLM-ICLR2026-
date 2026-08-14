@@ -1,0 +1,62 @@
+{
+  "manifest_id": "STEP30_PHASE_B1_V1",
+  "created_local_date": "2026-08-06",
+  "parent_manifest": "STEP28_FINAL_MATRIX_V1_1",
+  "parent_manifest_sha256": "a16f9a262f8d100899a443e96e3ae141ca266f7b5121cdf5e628fc1a67c201ca",
+  "phase_a_result_sha256": "9a075b143db6a8f11a42dbbbc313a9262a4547249fe81d39caa3f1c7a1540aaa",
+  "purpose": "Test the complete eligible-parent distribution under the already locked primary configuration before running the larger Phase B robustness grid.",
+  "status_before_execution": "The Phase A universal-harm headline is withdrawn. No all-parent T2 result on final seeds has been inspected.",
+  "fixed_conditions": {
+    "tasks": ["medqa", "gsm8k", "openbookqa"],
+    "attack_tier": "T2_reference_aware_offline_refinement",
+    "per_example_quality_relation": "Every alias must have exactly the parent's frozen per-example oracle vector.",
+    "wrapper_distance_fraction": 0.05,
+    "alias_count": 4,
+    "budget_policy": "Use each task's locked primary budget.",
+    "temperature_policy": "Use the task-specific proxy-selected temperature already recorded in Phase A; no retuning.",
+    "pool_policy": "Use the same deterministic pool generator and pool size as Phase A.",
+    "target_population": "Every parent for which the frozen wrapper constructor has at least the required number of parent-wrong positions with an observed alternative wrong response."
+  },
+  "selection_partition": {
+    "seeds_start": 3500,
+    "seeds_stop_inclusive": 3999,
+    "count": 500,
+    "role": "Development-only target selection; no confidence claim.",
+    "selection_rule": "Within each task, select the eligible parent with the largest mean paired delta in cumulative fixed-universe deployed-output regret. Exact ties choose the smaller frozen model index."
+  },
+  "confirmation_partition": {
+    "seeds_start": 50000,
+    "seeds_stop_inclusive": 50499,
+    "count": 500,
+    "disclosure": "These seeds were used in Phase A for one pre-fixed top-quality parent, but complete all-parent T2 effects have not been computed or inspected. Development selection cannot use any Phase A outcome.",
+    "reporting": "Report every eligible parent, including negative and beneficial effects."
+  },
+  "statistics": {
+    "primary_endpoint": "Paired delta in cumulative fixed-universe deployed-output regret.",
+    "confidence_interval": "10000-repetition paired nonparametric bootstrap 95 percent interval.",
+    "test": "10000-repetition paired two-sided sign-flip test.",
+    "multiplicity": [
+      "Benjamini-Hochberg within each task across the complete eligible-parent audit.",
+      "Benjamini-Hochberg across the three independently development-selected confirmation targets."
+    ],
+    "distributional_reporting": [
+      "minimum, quartiles, median, maximum of final-seed target-level mean effects",
+      "fractions with positive, negative, and zero point estimates",
+      "counts with positive or negative bootstrap intervals",
+      "counts significant after within-task BH correction",
+      "complete target table"
+    ]
+  },
+  "binding_gate": {
+    "B1_harmful_tail_confirmation": "PASS only if the development-selected target has a positive final-seed mean, a strictly positive bootstrap lower bound, and BH-adjusted p below 0.05 in all three tasks.",
+    "if_pass": "Proceed to Phase B2 matched-distance temperature/distance/alias robustness and defense frontier. This is not yet a paper GO.",
+    "if_fail": "Final topic NO-GO. Do not select a replacement target on final seeds and do not use the larger robustness grid to rescue the harmful-attack claim.",
+    "forbidden_rescues": [
+      "Replacing the development-selected parent with the most harmful final-seed parent.",
+      "Changing a task's primary temperature after observing B1.",
+      "Dropping OpenBookQA or another negative task.",
+      "Claiming path redirection alone establishes harmful manipulation.",
+      "Comparing a 5 percent attack with defense cost at a larger unmatched radius."
+    ]
+  }
+}

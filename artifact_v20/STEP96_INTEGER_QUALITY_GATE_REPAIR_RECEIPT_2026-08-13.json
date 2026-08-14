@@ -1,0 +1,70 @@
+{
+  "receipt_id": "STEP96_INTEGER_QUALITY_GATE_REPAIR_V1",
+  "date": "2026-08-13",
+  "decision": "GO_TO_STEP96_ONE_TIME_CONFIRMATORY_LOCK",
+  "original_ledger_sha256": "197e3f4fc42e4d799c0cd3be4b6ab99776fd1856781d71cf0a6c78fa387c9c88",
+  "original_config_sha256": "fe24fea870ed52014e3081e6b0630447e239df897cca4c80731dc3eef694958e",
+  "backup_ledger_sha256": "197e3f4fc42e4d799c0cd3be4b6ab99776fd1856781d71cf0a6c78fa387c9c88",
+  "backup_config_sha256": "fe24fea870ed52014e3081e6b0630447e239df897cca4c80731dc3eef694958e",
+  "repaired_ledger_sha256": "87c54d3299374fc7b6f396c28356b4569cf989c5acf840b894a37f14cc07ad54",
+  "repaired_config_sha256": "33ac40d6a590b414c83464acc2289ca590d8e034f4219abddbfec9e3258d1fc5",
+  "arrays_sha256": "c441704fd672b9b442cbd3fbb567b268f0cc7c395d547f791b7ac851a8cefd35",
+  "amendment_sha256": "a4fa300ce8a27978e2120d0639f973f22f84a6b49e910f9ae1e4eaf717676bfa",
+  "patched_stagea_sha256": "7ee12ce6cdee4731b4a39dc02b33e47a93103ce96493f610b5d44e6ebdf7f819",
+  "repair_code_sha256": "00a04ab86224cfe6270177f87eb89bbecbe11472e7907483c7c47475010cb9d7",
+  "counts": {
+    "threshold": {
+      "rows": 4500,
+      "loss_counts": [
+        45,
+        45,
+        45,
+        45
+      ],
+      "allowed_count": 45,
+      "fractions": [
+        0.01,
+        0.01,
+        0.01,
+        0.01
+      ],
+      "pass": true
+    },
+    "selector_search": {
+      "rows": 6000,
+      "loss_counts": [
+        57,
+        53,
+        42,
+        54
+      ],
+      "allowed_count": 60,
+      "fractions": [
+        0.0095,
+        0.008833333333333334,
+        0.007,
+        0.009
+      ],
+      "pass": true
+    },
+    "selector_verify": {
+      "rows": 9842,
+      "loss_counts": [
+        86,
+        79,
+        72,
+        68
+      ],
+      "allowed_count": 98,
+      "fractions": [
+        0.008738061369640317,
+        0.0080268238162975,
+        0.007315586262954684,
+        0.006909164803901646
+      ],
+      "pass": true
+    }
+  },
+  "selected_condition_unchanged": true,
+  "test_opened_before_repair": false
+}

@@ -1,0 +1,224 @@
+{
+  "lock_id": "STEP96_SNLI_CONFIRMATORY_LOCK_V1",
+  "date": "2026-08-13",
+  "development_decision": "GO_TO_STEP96_ONE_TIME_CONFIRMATORY_LOCK",
+  "authority_sha256": {
+    "STEP96_SNLI_DIRECTIONAL_TERMINAL_BRIDGE_PREREGISTRATION_2026-08-13.md": "1f7656eb26d5a2b61d9b2e130238f27026f149f4eb8a55392390ce78c3b6ff95",
+    "STEP96_PREREGISTRATION_AMENDMENT_A_INTEGER_GATE_2026-08-13.md": "a4fa300ce8a27978e2120d0639f973f22f84a6b49e910f9ae1e4eaf717676bfa",
+    "STEP96_PREREGISTRATION_AMENDMENT_B_CONFIRMATORY_SEEDS_2026-08-13.md": "796d6af1ae1f026c9379a241a33007b18af543995ae760a6222a46448b46294e",
+    "STEP96_STAGE0_MANIFEST_2026-08-13.json": "1b10291d49e2ac7f814b4222c0972102cfbe6b484876caebc5651b3ee44aa9d5",
+    "STEP96_SNLI_DEVELOPMENT_ROWS_2026-08-13.json": "1466a94078630eb1c238e86fadb0b790284d0f2a82ed4bf66a867f9abdf93052",
+    "STEP96_STAGEA_DEVELOPMENT_ARRAYS_2026-08-13.npz": "c441704fd672b9b442cbd3fbb567b268f0cc7c395d547f791b7ac851a8cefd35",
+    "STEP96_STAGEA_COMPLETE_LEDGER_2026-08-13.json": "87c54d3299374fc7b6f396c28356b4569cf989c5acf840b894a37f14cc07ad54",
+    "STEP96_STAGEA_FROZEN_CONFIG_2026-08-13.json": "33ac40d6a590b414c83464acc2289ca590d8e034f4219abddbfec9e3258d1fc5",
+    "STEP96_INTEGER_QUALITY_GATE_REPAIR_RECEIPT_2026-08-13.json": "19fffb1068bf981e1466cbfa0cb4094c6205bd9119f60ef0617c1e9bf5033913"
+  },
+  "code_sha256": {
+    "step93_common.py": "cbb4df4ccba18d386f710fbc2dd98fbf83ff266c237fffd523fc1b9dc5c89ccd",
+    "step95_common.py": "687f9899e7f8a7ea8d3a1c244ec85e3844f72ffde763d875daa1d14a38ea93c8",
+    "step96_common.py": "994411e8e9fb776c4fc447be1ad18b9c657a7199348d505815c1ed67f07e7acd",
+    "step96_executable_adapter_endpoint.py": "1205f8247fccd6ccc1d5a4cccf46dfac18adf5005d56ff0e89be711f0c5442b1",
+    "step96_stagea_develop.py": "7ee12ce6cdee4731b4a39dc02b33e47a93103ce96493f610b5d44e6ebdf7f819",
+    "repair_step96_integer_quality_gate.py": "00a04ab86224cfe6270177f87eb89bbecbe11472e7907483c7c47475010cb9d7",
+    "lock_step96_confirmatory.py": "5e3855299206d778e794ffd5d37ebbe9031ca31e77139a80e1cf504bdc80dcf1",
+    "step96_stageb_prepare_predictions.py": "984f658f97a5a2aab21e6b3590409ba36e07922daf6ac405858f875dcbca0ef1",
+    "step96_stageb_confirmatory.py": "3060ebf99f31787e9e033674b6b6d98a58eac8c3507f1df7dbb101350a1fbd55"
+  },
+  "adapter_sha256": {
+    "step96_models/step96_deberta_error_adapter_0.safetensors": "5e32e2ea300c27e4a6231a2a4330bbe0cb5e76aa2cdc69abe2c9fc18c542ad93",
+    "step96_models/step96_deberta_error_adapter_1.safetensors": "dd30932e611185f89f2bf43695f71b183e14200c9fbcbec5baa7b23db8041e2c",
+    "step96_models/step96_deberta_error_adapter_2.safetensors": "3ef6b74c8515ca010699f8532fc20cdf07e078ddf0dc4ca4fe9497a2ee7a122b",
+    "step96_models/step96_deberta_error_adapter_3.safetensors": "cffdee32b74bd62776309bb65c7bbc6ba9f6199d5608b45c03d6815a10c72fd9"
+  },
+  "public_roots": [
+    {
+      "key": "crossencoder_deberta_small",
+      "repo_id": "cross-encoder/nli-deberta-v3-small",
+      "revision": "fa2804872c3b4bd748f38c0185cc85775361e735",
+      "raw_to_dataset": [
+        2,
+        0,
+        1
+      ],
+      "parent": true
+    },
+    {
+      "key": "moritz_minilm",
+      "repo_id": "MoritzLaurer/MiniLM-L6-mnli",
+      "revision": "6e0917f1a395b7a6c0f054a56b91c45d8e3af92f",
+      "raw_to_dataset": [
+        0,
+        1,
+        2
+      ],
+      "parent": false
+    },
+    {
+      "key": "mfac_bert_mini",
+      "repo_id": "M-FAC/bert-mini-finetuned-mnli",
+      "revision": "780061727f47254ff763de653920bb8b7e2fd5f2",
+      "raw_to_dataset": [
+        0,
+        1,
+        2
+      ],
+      "parent": false
+    },
+    {
+      "key": "mfac_bert_tiny",
+      "repo_id": "M-FAC/bert-tiny-finetuned-mnli",
+      "revision": "618f766f89b50853abc1bea92fd38e1973818f0b",
+      "raw_to_dataset": [
+        0,
+        1,
+        2
+      ],
+      "parent": false
+    }
+  ],
+  "selected_condition": {
+    "partition": "selector_verify",
+    "tau": 0.025,
+    "loss_cap": 0.01,
+    "trigger_cap": 0.05,
+    "thresholds": [
+      0.9727437496185303,
+      0.9742797613143921,
+      0.9758703410625458,
+      0.9771503210067749
+    ],
+    "alias_losses": [
+      0.008738061369640282,
+      0.00802682381629749,
+      0.007315586262954588,
+      0.00690916480390158
+    ],
+    "trigger_fractions": [
+      0.01442796179638285,
+      0.01442796179638285,
+      0.011583011583011582,
+      0.011176590123958545
+    ],
+    "coordinate_wise_nonimproving": true,
+    "runs": 1500,
+    "mean_terminal_delta": 0.022308,
+    "mean_active_minus_fixed_terminal_delta": 0.022308,
+    "mean_cumulative_delta": 0.4199226666666668,
+    "mean_fixed_terminal_delta": 0.0,
+    "mean_fixed_cumulative_delta": 0.0,
+    "max_abs_fixed_terminal_delta": 0.0,
+    "max_abs_fixed_cumulative_delta": 0.0,
+    "fixed_root_history_exact": true,
+    "path_change_rate": 0.9873333333333333,
+    "query_set_change_rate": 0.9873333333333333,
+    "final_root_change_rate": 0.17933333333333334,
+    "clean_parent_terminal_rate": 0.946,
+    "refined_parent_terminal_rate": 0.8273333333333334,
+    "parent_to_challenger_rate": 0.148,
+    "challenger_to_parent_rate": 0.029333333333333333,
+    "directional_transition_net": 0.11866666666666666,
+    "search_rank": 1,
+    "search_mean_terminal_delta": 0.013255,
+    "search_mean_active_minus_fixed_terminal_delta": 0.013255,
+    "search_mean_cumulative_delta": 0.49310999999999994,
+    "search_clean_parent_terminal_rate": 0.98,
+    "search_parent_to_challenger_rate": 0.0725,
+    "search_challenger_to_parent_rate": 0.0175,
+    "inference": {
+      "terminal": {
+        "mean": 0.022308,
+        "median": 0.0,
+        "bootstrap_95": [
+          0.01836393333333334,
+          0.026288233333333334
+        ],
+        "one_sided_signflip_p": 9.99990000099999e-06,
+        "positive_fraction": 0.14933333333333335,
+        "negative_fraction": 0.03,
+        "zero_fraction": 0.8206666666666667
+      },
+      "active_minus_fixed_terminal": {
+        "mean": 0.022308,
+        "median": 0.0,
+        "bootstrap_95": [
+          0.018471933333333336,
+          0.02624806666666667
+        ],
+        "one_sided_signflip_p": 9.99990000099999e-06,
+        "positive_fraction": 0.14933333333333335,
+        "negative_fraction": 0.03,
+        "zero_fraction": 0.8206666666666667
+      },
+      "cumulative": {
+        "mean": 0.4199226666666668,
+        "median": 0.09400000000000003,
+        "bootstrap_95": [
+          0.37588333333333335,
+          0.46506986666666666
+        ],
+        "one_sided_signflip_p": 9.99990000099999e-06,
+        "positive_fraction": 0.5053333333333333,
+        "negative_fraction": 0.17733333333333334,
+        "zero_fraction": 0.31733333333333336
+      }
+    },
+    "terminal_root_counts": {
+      "clean": [
+        1419,
+        62,
+        15,
+        4
+      ],
+      "refined": [
+        1241,
+        195,
+        50,
+        14
+      ]
+    }
+  },
+  "selected_condition_canonical_sha256": "871feddcad259e16e1d265b0260257be3119de50851f0b0a5f64d439fe2872e4",
+  "test_input": {
+    "file": "step96_test_inputs/snli_test_inputs.json",
+    "sha256": "ea94e47f79986cb4041cd1f0521cad672f7364d13d81b68d52a13cbcb63ef4ae",
+    "rows": 9824,
+    "contains_labels": false
+  },
+  "sealed_outcome": {
+    "file": "external_data/step96_sealed/snli_test_sealed_outcomes.npz",
+    "sha256": "0c475a4c0c635507303494b248e707903c6e873ee8a392be4e19faa6a3116766",
+    "rows": 9824
+  },
+  "test_trajectory_seeds": {
+    "start": 966000,
+    "stop_exclusive": 969000,
+    "runs": 3000
+  },
+  "inference_seeds": {
+    "terminal": {
+      "bootstrap": 96910,
+      "signflip": 96911
+    },
+    "active_minus_fixed_terminal": {
+      "bootstrap": 96911,
+      "signflip": 96912
+    },
+    "cumulative": {
+      "bootstrap": 96912,
+      "signflip": 96913
+    }
+  },
+  "bootstrap_repetitions": 10000,
+  "signflip_repetitions": 100000,
+  "quality_gate": "integer_loss_count <= floor(0.01*n + 1e-12)",
+  "confirmatory_success_label": "GO_SOURCE_FAITHFUL_DIRECTIONAL_TERMINAL_BRIDGE",
+  "confirmatory_failure_label": "NO_GO_RETAIN_STEP96_NEGATIVE",
+  "sealed_outcome_opened_at_lock": false,
+  "confirmatory_outputs_absent_at_lock": [
+    "STEP96_CONFIRMATORY_PREOUTCOME_PREDICTIONS_2026-08-13.npz",
+    "STEP96_CONFIRMATORY_PREOUTCOME_LEDGER_2026-08-13.json",
+    "STEP96_CONFIRMATORY_RAW_2026-08-13.npz",
+    "STEP96_CONFIRMATORY_RESULTS_2026-08-13.json",
+    "STEP96_CONFIRMATORY_INDEPENDENT_VALIDATION_2026-08-13.json"
+  ]
+}

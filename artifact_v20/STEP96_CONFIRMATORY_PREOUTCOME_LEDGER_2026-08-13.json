@@ -1,0 +1,96 @@
+{
+  "ledger_id": "STEP96_CONFIRMATORY_PREOUTCOME_PREDICTIONS_V1",
+  "date": "2026-08-13",
+  "lock_sha256": "f14c942950d169e5a8a5df87e56f17bfbb3010b575469dde42ddbf00e93f916f",
+  "test_input_sha256": "ea94e47f79986cb4041cd1f0521cad672f7364d13d81b68d52a13cbcb63ef4ae",
+  "rows": 9824,
+  "root_audits": [
+    {
+      "root_key": "crossencoder_deberta_small",
+      "repo_id": "cross-encoder/nli-deberta-v3-small",
+      "revision": "fa2804872c3b4bd748f38c0185cc85775361e735",
+      "model_type": "deberta-v2",
+      "raw_to_dataset": [
+        2,
+        0,
+        1
+      ],
+      "prediction_sha256": "ed276edfe01f6dac131129a5ac6d411864315e495c08a43c286a94ae052e980e",
+      "samples": 9824,
+      "tokenizer_class": "DebertaV2Tokenizer"
+    },
+    {
+      "root_key": "moritz_minilm",
+      "repo_id": "MoritzLaurer/MiniLM-L6-mnli",
+      "revision": "6e0917f1a395b7a6c0f054a56b91c45d8e3af92f",
+      "model_type": "bert",
+      "raw_to_dataset": [
+        0,
+        1,
+        2
+      ],
+      "prediction_sha256": "2ac3b97324db0a9b1c8936ca1bd374acef853ed4adc4e7aae09c439aa6ef6087",
+      "samples": 9824,
+      "tokenizer_class": "BertTokenizerFast"
+    },
+    {
+      "root_key": "mfac_bert_mini",
+      "repo_id": "M-FAC/bert-mini-finetuned-mnli",
+      "revision": "780061727f47254ff763de653920bb8b7e2fd5f2",
+      "model_type": "bert",
+      "raw_to_dataset": [
+        0,
+        1,
+        2
+      ],
+      "prediction_sha256": "5b1aff6a60fc4de6b8ebac3cba29d9be84a318fd5a163c7a7a35f7a97cfa3617",
+      "samples": 9824,
+      "tokenizer_class": "BertTokenizerFast"
+    },
+    {
+      "root_key": "mfac_bert_tiny",
+      "repo_id": "M-FAC/bert-tiny-finetuned-mnli",
+      "revision": "618f766f89b50853abc1bea92fd38e1973818f0b",
+      "model_type": "bert",
+      "raw_to_dataset": [
+        0,
+        1,
+        2
+      ],
+      "prediction_sha256": "c8427844ecbdebcbac1728972ae77669e723f77b8810b2953ada9af5f1357387",
+      "samples": 9824,
+      "tokenizer_class": "BertTokenizerFast"
+    }
+  ],
+  "adapter_audits": [
+    {
+      "alias": 0,
+      "path": "step96_models/step96_deberta_error_adapter_0.safetensors",
+      "sha256": "5e32e2ea300c27e4a6231a2a4330bbe0cb5e76aa2cdc69abe2c9fc18c542ad93",
+      "score_sha256": "187a38ca5767566c1411780e968267ee646fdd798f5a71ab1a105145992afebe"
+    },
+    {
+      "alias": 1,
+      "path": "step96_models/step96_deberta_error_adapter_1.safetensors",
+      "sha256": "dd30932e611185f89f2bf43695f71b183e14200c9fbcbec5baa7b23db8041e2c",
+      "score_sha256": "8c4729d7651ac1c37572029047ae57a44d41672831d31ec09719d9871eb95fef"
+    },
+    {
+      "alias": 2,
+      "path": "step96_models/step96_deberta_error_adapter_2.safetensors",
+      "sha256": "3ef6b74c8515ca010699f8532fc20cdf07e078ddf0dc4ca4fe9497a2ee7a122b",
+      "score_sha256": "42758a2f6759aef1ee08a9052c7b00213e8c67d93359dab85ea9fd00ece738db"
+    },
+    {
+      "alias": 3,
+      "path": "step96_models/step96_deberta_error_adapter_3.safetensors",
+      "sha256": "cffdee32b74bd62776309bb65c7bbc6ba9f6199d5608b45c03d6815a10c72fd9",
+      "score_sha256": "84a8f3479f45d27464b45065f1a45cc03e5a359e8d9950759e5541b8ba3eaea9"
+    }
+  ],
+  "output_file": "STEP96_CONFIRMATORY_PREOUTCOME_PREDICTIONS_2026-08-13.npz",
+  "output_sha256": "0062d2b431d837cf5a06c087205e4e9799e4caadc7b1e2252462cb2e71e92aa2",
+  "contains_reference_labels": false,
+  "sealed_outcome_opened": false,
+  "code_sha256": "984f658f97a5a2aab21e6b3590409ba36e07922daf6ac405858f875dcbca0ef1"
+}

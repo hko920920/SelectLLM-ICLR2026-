@@ -1,0 +1,19 @@
+\begin{table}[H]
+\centering
+\caption{Preregistered official LLM Selector audit (1,000 paired pools per dataset). Terminal effects are refined-minus-clean root regret in percentage points. All alias strong-judge rows equal the parent coordinate-wise and every fixed-query effect is zero. A dagger marks the two datasets passing the frozen six-part gate.}
+\label{tab:step88}
+\scriptsize
+\setlength{\tabcolsep}{3.2pt}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+Dataset & $\Delta$ terminal [95\% CI] & BH $q$ & Path $\neq$ & Set $\neq$ & Root $\neq$ & $\Delta$CReg \\
+\midrule
+AlpacaEval$^\dagger$ & $.321$ [$ .194,.453$] & $.000030$ & $100.0\%$ & $99.5\%$ & $23.2\%$ & $-.245$ \\
+Arena-Hard & $-.370$ [$-.531,-.213$] & $1.000$ & $100.0\%$ & $99.1\%$ & $6.7\%$ & $-.379$ \\
+Bingo$^\dagger$ & $.498$ [$ .374,.623$] & $.000030$ & $100.0\%$ & $98.2\%$ & $32.4\%$ & $.117$ \\
+Flickr30k & $.183$ [$-.003,.368$] & $.05298$ & $100.0\%$ & $100.0\%$ & $66.7\%$ & $-.029$ \\
+MEDIQA & $.000$ [$ .000,.000$] & $1.000$ & $100.0\%$ & $100.0\%$ & $.0\%$ & $.027$ \\
+MT-Bench & $.000$ [$ .000,.000$] & $1.000$ & $100.0\%$ & $100.0\%$ & $.0\%$ & $.719$ \\
+\bottomrule
+\end{tabular}
+\end{table}
