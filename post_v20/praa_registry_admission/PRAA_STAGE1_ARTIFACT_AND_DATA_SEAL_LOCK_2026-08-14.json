@@ -1,0 +1,187 @@
+{
+  "schema": "praa.stage1.artifact_and_data_seal_lock.v1",
+  "date": "2026-08-14",
+  "decision": "PASS_PRAA_STAGE1_ARTIFACT_AND_DATA_SEAL",
+  "workflow": {
+    "run_id": 31775680237,
+    "run_number": 2,
+    "head_sha": "8001cd11d0ff75e858698c4bee4dc80439e4f4f6",
+    "public_artifact": {
+      "id": 9209815865,
+      "name": "praa-stage1-public-artifact-and-inputs",
+      "sha256": "e4a4ca0e61a6ffba59f9ccb5604e9befbcb168f344cf9bc917a3aa1ab9b81a1e"
+    },
+    "sealed_label_artifact": {
+      "id": 9209816298,
+      "name": "praa-stage1-sealed-labels",
+      "sha256": "ae4be6bb3d6701123f6558d135d006aeeaa7af2f0e376405659e26ec12b54c57"
+    }
+  },
+  "receipt_sha256": "cf73a7c145565c165f718a059acbca28b36abebd8b906d3ede213ba0c95e666b",
+  "stage0_lock_sha256": "9b0398a0ef1cce070abb20c75cf037dbee4a3ec17e0e4234427106b2d9adb377",
+  "stage0_report_sha256": "7db16a2458326d25fb858405437d3c81fd8e1c8618dffc1995158c87d5ecd9b0",
+  "information_boundary": {
+    "dataset_rows_accessed": true,
+    "labels_accessed_only_to_create_separate_seal": true,
+    "model_tensors_loaded": false,
+    "model_inference_executed": false,
+    "model_predictions_accessed": false,
+    "candidate_quality_computed": false,
+    "parent_selected": false,
+    "selector_executed": false,
+    "primary_outcome_opened": false,
+    "deployment_outcome_opened": false
+  },
+  "package_summary": {
+    "public_files": 12,
+    "public_bytes": 35413065,
+    "public_inventory_sha256": "f500190cf92be482ac8fa0353c6ceaea2490872bc9408dcd1014120fcf46521b",
+    "sealed_files": 11,
+    "sealed_bytes": 9395000,
+    "sealed_inventory_sha256": "0b4df0f2d30005231dd572326a4518c6d15a51020a7523b38bf8fea2560282b"
+  },
+  "tasks": {
+    "emotion": {
+      "dataset": "dair-ai/emotion",
+      "revision": "cab853a1dbdf4c42c2b3ef2173804746df8825fe",
+      "configuration": "split",
+      "snapshot_files": 19,
+      "snapshot_bytes": 28186659,
+      "snapshot_inventory_sha256": "bf82fa751aa0cb054087b2f4cc3cb75908ff20fcb9f199d78466d2ba9392e334",
+      "label_names": ["sadness", "joy", "love", "anger", "fear", "surprise"],
+      "partitions": {
+        "error_head_train": {
+          "rows": 12000,
+          "uid_sha256": "e6bff1230d40f49f5471b9a218cd428700bb64d03482c55812196876c8438508",
+          "input_sha256": "2dc209019663c51db5249e3e0c03df82007465dd5a071454924043daecd493d3",
+          "sealed_label_sha256": "8433e21f2bab5352557a24158538170c704c414235a0f8cb7ff3d8d3cc8eca33"
+        },
+        "safety": {
+          "rows": 4000,
+          "uid_sha256": "50eda8dc3c0c2cbc0d5c1cf44e68e77d0baa96fa8b018beb1dee3317b3575cd0",
+          "input_sha256": "faeaeb364ba47be806bde551f2f365b8b28463e7e9fe5bfdb13bd0c171c1860a",
+          "sealed_label_sha256": "e2fbcf13defe650d8b510165f74a0bca881f37425553a390e64ea6805e1986a2"
+        },
+        "target_threshold": {
+          "rows": 2000,
+          "uid_sha256": "a9a3f318f97257579270e95df866718ceb52dba8c8c0998aa59faacd4c927f7f",
+          "input_sha256": "a5a162b98711179e9e88860cffa0acd242ef62077e64a2aff3296648b57b9db9",
+          "sealed_label_sha256": "602afb1d3c59dd9bc22e613e1319760110f32804e074dd2c43f31ab69ad049ed"
+        },
+        "primary_outcome": {
+          "rows": 1500,
+          "uid_sha256": "43cd1c81140649bc9c1a089fd02cb4ec1b110d4b8aa84675bd955caea9505f12",
+          "input_sha256": "1982a1f00daaf2073df9ea54f35e9336e9cda1664ec17b2fa6e8ea257eaecedd",
+          "sealed_label_sha256": "5a0d39660a8ddbc789a697c50308a738a6031129b725d44cfdcf7b9d79f06699"
+        },
+        "deployment": {
+          "rows": 500,
+          "uid_sha256": "9a0a5bb4cf4a2cc221bbac591f76e8641392213ad5192bb56c16be82e822989d",
+          "input_sha256": "7e796963424e7429d4d1fcc5eb154e953742cba5f6b102301d02680a73c0ff29",
+          "sealed_label_sha256": "94b46b8470f334cc401aa8297f66af8487d1c428a950f17da1ac3342ac9511d1"
+        }
+      }
+    },
+    "language_identification": {
+      "dataset": "papluca/language-identification",
+      "revision": "aa56583bf2bc52b0565770607d6fc3faebecf9e2",
+      "configuration": null,
+      "snapshot_files": 16,
+      "snapshot_bytes": 15349749,
+      "snapshot_inventory_sha256": "2c5c277d4a0354ff659cf4097b35c106f9b28dac0581fc341054ef43e2a620e8",
+      "label_names": ["ar", "bg", "de", "el", "en", "es", "fr", "hi", "it", "ja", "nl", "pl", "pt", "ru", "sw", "th", "tr", "ur", "vi", "zh"],
+      "partitions": {
+        "error_head_train": {
+          "rows": 50000,
+          "uid_sha256": "99b7e60b24107c27f26548312cfe8f41709740ba9133076c3ccecb4b1a51f0e1",
+          "input_sha256": "4956909e655b2bd008bb77cf2154f96970e884579e0d5015290dc23560873c22",
+          "sealed_label_sha256": "0c32864e26e6e792c18a42eb8736cc6bdccd5538f4bcf1889e38bd8cf5500766"
+        },
+        "safety": {
+          "rows": 10000,
+          "uid_sha256": "0fc55b9c21985180f3cf7b538900bfab954ab304a4403cb1d703ba7e9c919d07",
+          "input_sha256": "83749644104ccf5176669fb47bb24e44f959447e84ff53607944f120d6c6b078",
+          "sealed_label_sha256": "fd3c0d5d654064a14ffd75605a5f086eb79a89b4d37c973d22c2b6a5c4e97c55"
+        },
+        "development_reserve": {
+          "rows": 10000,
+          "uid_sha256": "58d99aeecd133986371260dff31aa237e1447e034a83e25499561b6c10a21514",
+          "input_sha256": "3800ab35dd173330e13ead168a12c9f288186512ec68b2634ed2c268e5e14501",
+          "sealed_label_sha256": "10b0b85335365dab3d83b23e97b75c5c96f017e8435cf457173952a3724de7eb"
+        },
+        "target_threshold": {
+          "rows": 10000,
+          "uid_sha256": "24cf0e43928eb4a7c962dda55f267ae273270eb891859de3fa581815f78bfba1",
+          "input_sha256": "e74c5b54f9a50883075392a16cc798d7823055ec781f89259341cb7f7c807624",
+          "sealed_label_sha256": "6abb1177292080497b887484a5b28b766c7d2641a59a94f40d80af209b1a9c0b"
+        },
+        "primary_outcome": {
+          "rows": 8000,
+          "uid_sha256": "12c6b0a422b58978d04d29537f9ab0c43fd8394780ba5bed237dd11cb1fe88e5",
+          "input_sha256": "25de0c0077b34f03e345d218049c96b4e45cdc86cfe90bded1892e5b66bf7434",
+          "sealed_label_sha256": "5b9314cb0487ed1ec4c3f03d52d9dcf16b957cedf326d9e1130a1e4ef9021af9"
+        },
+        "deployment": {
+          "rows": 2000,
+          "uid_sha256": "7a060d793eaf7fe61d30ce977dfbbd00300469e7c2d01457114bd94d5f3b6d60",
+          "input_sha256": "4783a7377081439c62d5ce756ebd9085b2a8c0b64462b37a02e2c242e6d04d4a",
+          "sealed_label_sha256": "90818793ff281bd2d3bc6ee38225b2fad9857fd33ebeed2de98c46e1e341ff55"
+        }
+      }
+    }
+  },
+  "runtime_artifacts": {
+    "emotion-roberta-dk409": {
+      "source": "dk409/emotion-roberta",
+      "revision": "66fcef009eac311aab4387b49b408bd9a4c6b1a3",
+      "weight": {"path": "model.safetensors", "bytes": 498625104, "sha256": "71254cc48a4ac80612a6117060a934152b28926b803cd8c35b01abe8b13b59c7"},
+      "config_sha256": "0c4fc232abdfb147e15630393911caa672a59517a9cc3fc36543898eeb3b90b9",
+      "tokenizer_json_sha256": "2bb1a22cfbe25b8e5a232b7fc4d7fc5073923b45724a5f813b00811bb6620f66"
+    },
+    "emotion-bert-nateraw": {
+      "source": "nateraw/bert-base-uncased-emotion",
+      "revision": "064d252021b51d95cd0547c89c6489100da0dc4c",
+      "weight": {"path": "pytorch_model.bin", "bytes": 438036745, "sha256": "7f656183c3df65dba3b1f3023cd069f1e9b185787891d2c2fea60d8634f058d3"},
+      "config_sha256": "f8e2602800541970fb8212102b275f873b9cf0118f0861d09a8c97119f877c53",
+      "vocab_sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    "emotion-distilbert-bhadresh": {
+      "source": "bhadresh-savani/distilbert-base-uncased-emotion",
+      "revision": "ce6f4ffcde7642ca2cac02381a16da38e5498ff7",
+      "weight": {"path": "model.safetensors", "bytes": 267844872, "sha256": "a2e46512c3fe95064cc92cd00d7c52a96be25ac6d753ee736e93438f8aa6a09e"},
+      "config_sha256": "94ada6edc7896513a548ec57f28f8ef941ca9a07b32685d407169d654549732d",
+      "vocab_sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    "emotion-albert-bhadresh": {
+      "source": "bhadresh-savani/albert-base-v2-emotion",
+      "revision": "4812613b3c07c549e13f09bb266dbf0e59f48de7",
+      "weight": {"path": "pytorch_model.bin", "bytes": 46769003, "sha256": "73b6468798f9155ca1710fe47331a04d7dbb6452d5a9f134327fffc154f1516e"},
+      "config_sha256": "780120a644eda2766d26cb18123231127275bbe5f07c9d8ea503dbbc70afb69e",
+      "tokenizer_json_sha256": "5cd0f2ade933cb2f45afaa5050b1d9471b62823453d588c5dca0a943400bc94e"
+    },
+    "lid-xlmroberta-papluca": {
+      "source": "papluca/xlm-roberta-base-language-detection",
+      "revision": "9865598389ca9d95637462f743f683b51d75b87b",
+      "weight": {"path": "model.safetensors", "bytes": 1112264584, "sha256": "a835d6e8ed50ef6b3c180db87446a83ee5ac437e981c932c8e1e239aacbe08b7"},
+      "config_sha256": "c853c935230721240f2fc06acb72fb086cecea3cec99b62d843ac4678b7daba9",
+      "sentencepiece_sha256": "cfc8146abe2a0488e9e2a0c56de7952f7c11ab059eca145a0a727afce0db2865",
+      "tokenizer_json_sha256": "2a0d7366dd7780ea36cc42431dd74cd79289b783ab01acd33013fcc96865a8e9"
+    },
+    "lid-fasttext-facebook": {
+      "source": "facebook/fasttext-language-identification",
+      "revision": "3af127d4124fc58b75666f3594bb5143b9757e78",
+      "weight": {"path": "model.bin", "bytes": 1176355829, "sha256": "8ded5749a2ad79ae9ab7c9190c7c8b97ff20d54ad8b9527ffa50107238fc7f6a"}
+    },
+    "lid-fasttext-glotlid": {
+      "source": "cis-lmu/glotlid",
+      "revision": "85cd6716494360367b75f642b5bc78667605d0b4",
+      "weight": {"path": "model_v3.bin", "bytes": 1687094687, "sha256": "a818b6bd42a628ab47d3dfc1578c7ea615c45381f3494c42535e31e8c4cafc9e"}
+    },
+    "lid-langid-package": {
+      "source": "langid",
+      "version": "1.1.6",
+      "distribution": {"path": "langid-1.1.6.tar.gz", "bytes": 1925978, "sha256": "044bcae1912dab85c33d8e98f2811b8f4ff1213e5e9a9e9510137b84da2cb293"}
+    }
+  },
+  "next_authorized_stage": "Clean endpoint inference on development/safety/input-only blocks may begin only under a new protocol that binds runtime wrappers, deterministic preprocessing, parent selection, feature extraction, and continued primary/deployment outcome sealing."
+}
