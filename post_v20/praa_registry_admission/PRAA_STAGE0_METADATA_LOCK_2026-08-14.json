@@ -1,0 +1,152 @@
+{
+  "schema": "praa.stage0.metadata_lock.v1",
+  "date": "2026-08-14",
+  "decision": "PASS_PRAA_STAGE0_METADATA",
+  "protocol": "PRAA_STAGE0_METADATA_PROTOCOL_2026-08-14.md",
+  "screen_code": "screen_public_metadata.py",
+  "workflow": {
+    "run_id": 31775008752,
+    "run_number": 1,
+    "head_sha": "1af74d42f8efdbaf8a7190e9257cf8d87f2b0a85",
+    "artifact_id": 9209539217,
+    "artifact_sha256": "2393d97e1f01c2fd1d06a54e11bc2fde3eeb5b755c2f07ea603730a1d952fd2c",
+    "report_sha256": "7db16a2458326d25fb858405437d3c81fd8e1c8618dffc1995158c87d5ecd9b0"
+  },
+  "information_boundary": {
+    "dataset_rows_accessed": false,
+    "labels_accessed": false,
+    "model_weights_downloaded": false,
+    "model_outputs_accessed": false,
+    "selector_outcomes_accessed": false
+  },
+  "tasks": {
+    "emotion": {
+      "role": "primary",
+      "task_family": "six_class_emotion_classification",
+      "dataset": {
+        "repo_id": "dair-ai/emotion",
+        "revision": "cab853a1dbdf4c42c2b3ef2173804746df8825fe",
+        "metadata_sha256": "685c098b5c52dd0fab1c26a5841f1e2ae92dbe6f7db2965358a59b6260576240",
+        "documented_splits": {
+          "train": 16000,
+          "validation": 2000,
+          "test": 2000
+        },
+        "labels": [
+          "sadness",
+          "joy",
+          "love",
+          "anger",
+          "fear",
+          "surprise"
+        ]
+      },
+      "retained_roster": [
+        {
+          "root_id": "emotion-roberta-dk409",
+          "provider": "dk409",
+          "family": "roberta",
+          "repo_id": "dk409/emotion-roberta",
+          "revision": "66fcef009eac311aab4387b49b408bd9a4c6b1a3"
+        },
+        {
+          "root_id": "emotion-bert-nateraw",
+          "provider": "nateraw",
+          "family": "bert",
+          "repo_id": "nateraw/bert-base-uncased-emotion",
+          "revision": "064d252021b51d95cd0547c89c6489100da0dc4c"
+        },
+        {
+          "root_id": "emotion-distilbert-bhadresh",
+          "provider": "bhadresh-savani",
+          "family": "distilbert",
+          "repo_id": "bhadresh-savani/distilbert-base-uncased-emotion",
+          "revision": "ce6f4ffcde7642ca2cac02381a16da38e5498ff7"
+        },
+        {
+          "root_id": "emotion-albert-bhadresh",
+          "provider": "bhadresh-savani",
+          "family": "albert",
+          "repo_id": "bhadresh-savani/albert-base-v2-emotion",
+          "revision": "4812613b3c07c549e13f09bb266dbf0e59f48de7"
+        }
+      ],
+      "metadata_exclusion": {
+        "repo_id": "ragunath-ravi/deberta-v3-emotion-classifier",
+        "reason": "HTTP 401 at public metadata endpoint before any row or weight access"
+      }
+    },
+    "language_identification": {
+      "role": "replication",
+      "task_family": "balanced_20_class_language_identification",
+      "dataset": {
+        "repo_id": "papluca/language-identification",
+        "revision": "aa56583bf2bc52b0565770607d6fc3faebecf9e2",
+        "metadata_sha256": "65f6fc23626866ad871985bf024cba867f7c0bc76c599fb478834be01ceeeb2b",
+        "documented_splits": {
+          "train": 70000,
+          "validation": 10000,
+          "test": 10000
+        },
+        "labels": [
+          "ar",
+          "bg",
+          "de",
+          "el",
+          "en",
+          "es",
+          "fr",
+          "hi",
+          "it",
+          "ja",
+          "nl",
+          "pl",
+          "pt",
+          "ru",
+          "sw",
+          "th",
+          "tr",
+          "ur",
+          "vi",
+          "zh"
+        ]
+      },
+      "retained_roster": [
+        {
+          "root_id": "lid-xlmroberta-papluca",
+          "provider": "papluca",
+          "family": "xlm-roberta",
+          "repo_id": "papluca/xlm-roberta-base-language-detection",
+          "revision": "9865598389ca9d95637462f743f683b51d75b87b"
+        },
+        {
+          "root_id": "lid-fasttext-facebook",
+          "provider": "facebook",
+          "family": "fasttext_nllb_lid",
+          "repo_id": "facebook/fasttext-language-identification",
+          "revision": "3af127d4124fc58b75666f3594bb5143b9757e78"
+        },
+        {
+          "root_id": "lid-fasttext-glotlid",
+          "provider": "cis-lmu",
+          "family": "fasttext_glotlid",
+          "repo_id": "cis-lmu/glotlid",
+          "revision": "85cd6716494360367b75f642b5bc78667605d0b4"
+        },
+        {
+          "root_id": "lid-langid-package",
+          "provider": "langid-project",
+          "family": "multinomial_naive_bayes_langid",
+          "package": "langid",
+          "version": "1.1.6"
+        }
+      ],
+      "metadata_exclusion": {
+        "repo_id": "HPLT/OpenLID-v3",
+        "reason": "backup inventory did not expose a recognized loadable artifact under the Stage-0 parser"
+      }
+    }
+  },
+  "replacement_policy": "No task replacement is authorized. Endpoint replacement is closed because four endpoints per frozen task passed metadata eligibility.",
+  "next_authorized_stage": "Stage 1 may materialize exact public data and endpoint artifacts, validate hashes and label mappings, and create outcome-separated input/seal packages. It may not inspect selector effects or open primary outcomes."
+}
