@@ -1,0 +1,46 @@
+name: PRAA inspect prior same-s implementation
+
+on:
+  push:
+    branches:
+      - research/praa-admission-audit
+    paths:
+      - ".github/workflows/praa-inspect-prior-code.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          lfs: false
+
+      - name: Extract source files and function index
+        run: |
+          mkdir -p prior_source
+          cp artifact_v20/step93_common.py prior_source/
+          cp post_v20/step113_boolq/step113_common.py prior_source/
+          cp post_v20/step113_boolq/step113_pipeline.py prior_source/
+          {
+            echo '### artifact_v20/step93_common.py'
+            grep -n '^def ' artifact_v20/step93_common.py || true
+            echo
+            echo '### post_v20/step113_boolq/step113_common.py'
+            grep -n '^def ' post_v20/step113_boolq/step113_common.py || true
+            echo
+            echo '### post_v20/step113_boolq/step113_pipeline.py'
+            grep -n '^def ' post_v20/step113_boolq/step113_pipeline.py || true
+          } > prior_source/function_index.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: praa-prior-same-s-source
+          path: prior_source/
+          if-no-files-found: error
+          retention-days: 7
