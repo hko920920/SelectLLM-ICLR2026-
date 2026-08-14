@@ -1,0 +1,3 @@
+PRAA-E frozen sealed-remainder execution trigger
+Date: 2026-08-14 Asia/Seoul
+Protocol and thresholds remain unchanged.
