@@ -1,0 +1,89 @@
+name: PRAA Stage 1 artifact and data seal
+
+on:
+  push:
+    branches:
+      - research/praa-admission-audit
+    paths:
+      - ".github/workflows/praa-stage1-artifact-seal.yml"
+      - "post_v20/praa_registry_admission/PRAA_STAGE0_METADATA_LOCK_2026-08-14.json"
+      - "post_v20/praa_registry_admission/PRAA_STAGE1_ARTIFACT_AND_DATA_SEAL_PROTOCOL_2026-08-14.md"
+      - "post_v20/praa_registry_admission/materialize_stage1.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: praa-stage1-artifact-seal
+  cancel-in-progress: false
+
+jobs:
+  seal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      HF_HOME: ${{ runner.temp }}/praa-huggingface
+      HF_HUB_DISABLE_TELEMETRY: "1"
+      TOKENIZERS_PARALLELISM: "false"
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - name: Checkout frozen branch without Git LFS materialization
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          lfs: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Stage-1 data and metadata dependencies
+        run: |
+          python -m pip install --disable-pip-version-check \
+            numpy==1.26.4 \
+            datasets==5.0.1 \
+            pyarrow==25.0.0 \
+            huggingface-hub==0.34.5 \
+            requests==2.32.5
+
+      - name: Report initial runner capacity
+        run: |
+          python --version
+          df -h
+
+      - name: Execute exact artifact materialization and deterministic data seal
+        id: stage1
+        shell: bash
+        run: |
+          set +e
+          output="post_v20/praa_registry_admission/stage1_run"
+          mkdir -p "${output}/public" "${output}/sealed"
+          python post_v20/praa_registry_admission/materialize_stage1.py \
+            --output-root "${output}" \
+            2>&1 | tee "${output}/public/execution.log"
+          status=${PIPESTATUS[0]}
+          printf '%s\n' "${status}" > "${output}/public/exit_status.txt"
+          df -h | tee "${output}/public/final_disk_usage.txt"
+          exit "${status}"
+
+      - name: Upload public receipt and input-only packages
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: praa-stage1-public-artifact-and-inputs
+          path: post_v20/praa_registry_admission/stage1_run/public/
+          if-no-files-found: error
+          retention-days: 90
+          compression-level: 6
+
+      - name: Upload separately sealed label packages
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: praa-stage1-sealed-labels
+          path: post_v20/praa_registry_admission/stage1_run/sealed/
+          if-no-files-found: warn
+          retention-days: 90
+          compression-level: 6
