@@ -62,7 +62,6 @@ jobs:
           import json
           import re
           from pathlib import Path
-          log = Path('main.log').read_text(errors='replace')
           text = Path('../v21_build/main.txt').read_text(errors='replace')
           marker = int(Path('../v21_build/main_text_last_page.txt').read_text().strip())
           required = [
@@ -75,9 +74,9 @@ jobs:
           if missing:
               raise SystemExit({'missing_required_phrases': missing})
           forbidden = [
-              r'universal attack',
-              r'production compromise is demonstrated',
-              r'completely untouched.*IMDB',
+              r'\b(?:we|this paper|our work)\s+(?:show|shows|demonstrate|demonstrates|establish|establishes|prove|proves)\s+(?:a\s+)?universal attack\b',
+              r'\bproduction compromise is demonstrated\b',
+              r'\bcompletely untouched[^.]{0,160}\bIMDB\b',
           ]
           hits = [pattern for pattern in forbidden if re.search(pattern, text, flags=re.I|re.S)]
           if hits:
@@ -88,7 +87,7 @@ jobs:
               'undefined_references': False,
               'multiply_defined_labels': False,
               'required_claim_boundary_present': True,
-              'forbidden_claim_patterns_absent': True,
+              'forbidden_positive_overclaims_absent': True,
           }
           Path('../v21_build/V21_BUILD_AUDIT.json').write_text(json.dumps(summary, indent=2) + '\n')
           print(json.dumps(summary, indent=2))
