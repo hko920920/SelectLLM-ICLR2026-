@@ -1,0 +1,7 @@
+{
+  "schema": "selectllm.v21.build.trigger.v1",
+  "date_kst": "2026-08-16",
+  "attempt": 1,
+  "required_main_text_pages_max": 9,
+  "experiments_frozen": true
+}
