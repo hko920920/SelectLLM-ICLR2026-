@@ -1,0 +1,46 @@
+{
+  "schema": "srsa.cifar.stage4_continuation_authorization.v1",
+  "date_kst": "2026-08-16",
+  "decision": "AUTHORIZE_SRSA_STAGE4_CONTINUATION_AFTER_PRE_LABEL_PATH_FAILURE",
+  "source_run_id": 31888204323,
+  "source_head_sha": "23dedb414875be0f9531d1bef0634ed546ffafdd",
+  "failed_job_id": 95021097113,
+  "failure_stage": "preoutcome_path_verification_before_sealed_label_download",
+  "failure": "The source run uploaded Stage 3 files under stage3_out/, while the Stage 4 verification step looked one directory too high. The sealed-label download and selector outcome steps were skipped.",
+  "source_artifacts": {
+    "stage0_lock": {"id": 9247846727, "digest": "sha256:dc0a418bc446f13dff1b5cd2466bdfd25360a4a608ccba70f85eeab2100d3912"},
+    "stage1_lock": {"id": 9247869888, "digest": "sha256:1336c544f97d42ec733e5cbf1f7e8bc8bff26df8d53328f3fa45c7ed9e47e006"},
+    "stage1_sealed_labels": {"id": 9247869689, "digest": "sha256:5cc96e9f3ed7d2fa05da36889da637d5927076d4041cd70f3641f814f6a09f38"},
+    "stage2_lock": {"id": 9247886479, "digest": "sha256:89e8dabb7fb92ad62f199b29550f29b9bd0a284585731f03409ca8ed7a8253b6"},
+    "stage3_preoutcome": {"id": 9247893953, "digest": "sha256:8dce0a1b198840b1bece5745611866145e80d259be2c961a483823fbb8deb7d4"}
+  },
+  "verified_artifact_layout": {
+    "stage3_lock": "stage3_out/SRSA_STAGE3_PREOUTCOME_LOCK.json",
+    "stage3_cifar100": "stage3_out/cifar100/preoutcome.npz",
+    "stage3_cifar10": "stage3_out/cifar10/preoutcome.npz",
+    "sealed_cifar100": "cifar100/labels.npz",
+    "sealed_cifar10": "cifar10/labels.npz",
+    "endpoint_files": ["receipt.json", "predictions.npz", "execution.log"]
+  },
+  "information_boundary": {
+    "source_run_stage3_decision": "PASS_SRSA_STAGE3_PREOUTCOME",
+    "sealed_label_download_step_in_source_run_executed": false,
+    "sealed_label_values_accessed": false,
+    "selector_executed": false,
+    "primary_or_deployment_outcome_opened": false,
+    "external_archive_metadata_inspected_for_path_validation": true,
+    "external_label_file_extracted_or_read": false
+  },
+  "authorized_change": "Correct only the Stage 3 artifact root from stage3_preoutcome/ to stage3_preoutcome/stage3_out/ and execute Stage 4 from the exact source-run artifacts and frozen scientific commit.",
+  "scientific_settings_changed": false,
+  "unchanged": [
+    "primary and replication tasks",
+    "data partitions",
+    "model roster and checkpoints",
+    "structured wrapper and 5 percent canary rate",
+    "pool size, budget, temperature and seeds",
+    "selector and feedback semantics",
+    "estimands, familywise inference and materiality gates",
+    "no-third-task and replication-non-substitution rules"
+  ]
+}
