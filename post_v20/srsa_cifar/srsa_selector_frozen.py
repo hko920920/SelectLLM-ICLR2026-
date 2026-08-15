@@ -11,6 +11,8 @@ posterior, acquisition objective, feedback, or root decision semantics.
 from __future__ import annotations
 
 from dataclasses import dataclass
+import hashlib
+from pathlib import Path
 from typing import Sequence
 
 import numpy as np
@@ -27,6 +29,30 @@ from srsa_core import (
     reference_feedback,
     response_keys,
 )
+
+EXPECTED_ACQUISITION_GIT_BLOB_SHA1 = "82ff83d18dd4aff6d688be852654618dcdf5ec8f"
+
+
+def _git_blob_sha1(path: Path) -> str:
+    payload = path.read_bytes()
+    header = f"blob {len(payload)}\0".encode("ascii")
+    return hashlib.sha1(header + payload).hexdigest()
+
+
+def _verify_acquisition_helper() -> None:
+    path = Path(__file__).resolve().with_name("srsa_acquisition.py")
+    observed = _git_blob_sha1(path)
+    if observed != EXPECTED_ACQUISITION_GIT_BLOB_SHA1:
+        raise RuntimeError(
+            {
+                "binding": "srsa_acquisition.py",
+                "expected_git_blob_sha1": EXPECTED_ACQUISITION_GIT_BLOB_SHA1,
+                "observed_git_blob_sha1": observed,
+            }
+        )
+
+
+_verify_acquisition_helper()
 
 
 @dataclass(frozen=True)
