@@ -1,0 +1,53 @@
+{
+  "schema": "srsa.cifar.final_one_shot_authorization.v1",
+  "date": "2026-08-15",
+  "decision": "AUTHORIZE_SRSA_CIFAR_FINAL_ONE_SHOT",
+  "branch": "research/srsa-final-clean",
+  "source_commit": "be5bbdd7e438c8eae9f2a22a3c18ff668f759c70",
+  "workflow_path": ".github/workflows/srsa-one-shot.yml",
+  "workflow_sha256": "afbff4322b060496663000551b530cbda63729ecd7dd0bf3abda8609fc8e0bdd",
+  "workflow_git_blob_sha": "24524eea65c7c7735b17a7424981cda182aa3a10",
+  "stage0_binding_sha256": "77b845cbfe3f999730685f63609f3cf4c345d73bd73074516ea216caea485ead",
+  "original_stage0_receipt_sha256": "739d9ae1f2666b6e1525f9ef7792041dcee8629d2b63cc992bb16797919e5936",
+  "prior_technical_failures": [
+    {
+      "run_id": 31883803117,
+      "boundary": "Stage 0 cross-run artifact import before artifact materialization",
+      "dataset_rows_decoded": false,
+      "labels_accessed": false,
+      "model_inference_executed": false,
+      "selector_executed": false
+    },
+    {
+      "run_id": 31884062926,
+      "boundary": "Repair workflow push rejected because an Action cannot update a workflow file without workflow-write permission",
+      "dataset_rows_decoded": false,
+      "labels_accessed": false,
+      "model_inference_executed": false,
+      "selector_executed": false
+    }
+  ],
+  "clean_execution_properties": {
+    "one_workflow": true,
+    "one_actions_run": true,
+    "cross_run_artifact_import": false,
+    "actions_side_git_commit_or_push": false,
+    "workflow_self_modification": false,
+    "repository_write_permission": false,
+    "same_run_artifacts_only": true,
+    "stage4_single_label_opening": true
+  },
+  "scientific_settings_changed": false,
+  "no_third_task": true,
+  "replication_cannot_rescue_primary": true,
+  "post_authorization_changes_prohibited": [
+    "task or task role",
+    "dataset partition",
+    "model roster or checkpoint",
+    "wrapper definition or variant rate",
+    "pool size, budget, temperature, or seed range",
+    "estimand, materiality gate, or inference rule",
+    "fixed-query or root-aware control",
+    "closure and no-third-task rules"
+  ]
+}
