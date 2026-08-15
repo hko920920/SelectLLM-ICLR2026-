@@ -1,7 +1,7 @@
 \section{Frame Identifiability and Sequential Amplification}
 \label{sec:theory}
 
-We ask whether labels can compensate for a missing frame in any response-only policy, and whether a constant refinement can redirect a current selector. The first result establishes information necessity; the second gives concrete amplification.
+We ask whether labels can compensate for a missing frame in any response-only policy, whether a constant refinement can redirect a current selector, and how approximate root-level invariance controls the resulting transcript.
 
 \paragraph{Response-compatible worlds.}
 Let $O(E)=\{(e,a_e):e\in E\}$ be the public response view. Frames exposing the same $O(E)$ and label transcript are indistinguishable to a frame-blind policy: labels reveal useful behavior, not whether entries are independent roots. A fresh hidden-frame choice at every step makes this ambiguity accumulate.
@@ -44,3 +44,21 @@ Suppose $\rho$ is authenticated, each root has fixed mass $w_r$, and at every st
 \end{proposition}
 
 Transcript induction proves the claim (Appendix~\ref{app:proofs}). It covers uncertainty, diversity, and mutual-information rules only when they actually factor through authenticated, refinement-invariant root summaries; a method label alone gives no protection. Exact quotienting handles unique response patterns, not response-distinct variants. Predictions also cannot authenticate $\rho$, so deployment still requires a declared canonical entry or fixed within-root mixture.
+
+\begin{proposition}[Approximate transcript stability]
+\label{prop:approximate-stability}
+Consider two $B$-step root-level experiments with the same initial state and conditional next-state kernels $P_t(\cdot\mid h)$ and $Q_t(\cdot\mid h)$ on a common history space. If
+\[
+\sup_h \operatorname{TV}\!\left(P_t(\cdot\mid h),Q_t(\cdot\mid h)\right)\leq\varepsilon_t
+\quad\text{for }t=1,\ldots,B,
+\]
+then their complete transcript laws satisfy
+\[
+\operatorname{TV}\!\left(\mathcal L(T_B),\mathcal L(T'_B)\right)
+\leq 1-\prod_{t=1}^B(1-\varepsilon_t)
+\leq \min\!\left\{1,\sum_{t=1}^B\varepsilon_t\right\}.
+\]
+Consequently, for any transcript cost whose range has width at most $M$, the absolute difference in expected cost is at most $M\min\{1,\sum_t\varepsilon_t\}$.
+\end{proposition}
+
+A sequential maximal coupling proves the result (Appendix~\ref{app:v21-stability}). Proposition~\ref{prop:factorization} is the exact case $\varepsilon_t=0$. The bound also clarifies why small per-step representation errors can accumulate with annotation budget, while large path divergence need not imply large terminal cost: the latter additionally depends on the geometry of the competing roots.
