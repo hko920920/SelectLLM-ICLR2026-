@@ -1,120 +1,123 @@
-name: SRSA CIFAR prospective one-shot execution
+name: SRSA CIFAR final one-shot
 
 on:
   push:
     branches:
-      - research/srsa-cifar-audit
+      - research/srsa-final-clean
     paths:
-      - "post_v20/srsa_cifar/SRSA_ONE_SHOT_AUTHORIZE_2026-08-15.json"
-  workflow_dispatch:
+      - "post_v20/srsa_cifar/SRSA_FINAL_ONE_SHOT_AUTHORIZE_2026-08-15.json"
 
 permissions:
-  contents: write
+  contents: read
   actions: read
 
 concurrency:
-  group: srsa-cifar-prospective-one-shot
+  group: srsa-cifar-final-one-shot
   cancel-in-progress: false
 
 env:
-  BRANCH: research/srsa-cifar-audit
   PYTHONUNBUFFERED: "1"
 
 jobs:
-  stage0-lock:
+  preflight:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     outputs:
-      decision: ${{ steps.lock.outputs.decision }}
-      lock_commit: ${{ steps.commit.outputs.lock_commit }}
-    env:
-      GH_TOKEN: ${{ github.token }}
+      decision: ${{ steps.preflight.outputs.decision }}
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: research/srsa-cifar-audit
-          fetch-depth: 0
+          fetch-depth: 1
           lfs: false
-
-      - name: Guard one-shot closure
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install deterministic preflight dependencies
+        run: |
+          python -m pip install --disable-pip-version-check \
+            numpy==1.26.4 pytest==8.3.5 PyYAML==6.0.2
+      - id: preflight
+        name: Validate the only authorized execution path
         run: |
           set -euo pipefail
+          test -f post_v20/srsa_cifar/SRSA_FINAL_ONE_SHOT_AUTHORIZE_2026-08-15.json
+          test -f post_v20/srsa_cifar/SRSA_STAGE0_FROZEN_RECEIPT_2026-08-14.json
           test ! -e post_v20/srsa_cifar/SRSA_STAGE4_RESULT_2026-08-15.json
-          test -f post_v20/srsa_cifar/SRSA_ONE_SHOT_AUTHORIZE_2026-08-15.json
-
-      - name: Import the exact successful Stage 0 receipt
-        run: |
-          set -euo pipefail
-          gh run download 31792763410 \
-            --repo "${GITHUB_REPOSITORY}" \
-            --name srsa-stage0-public-metadata-receipt \
-            --dir prior_stage0
-          test -f prior_stage0/SRSA_STAGE0_PUBLIC_METADATA_RECEIPT.json
+          python -m compileall -q post_v20/srsa_cifar
           python - <<'PY'
-          import hashlib
-          import json
-          import os
+          import hashlib, json
           from pathlib import Path
-
-          source = Path('prior_stage0/SRSA_STAGE0_PUBLIC_METADATA_RECEIPT.json')
-          value = json.loads(source.read_text(encoding='utf-8'))
-          assert value['decision'] == 'PASS_SRSA_STAGE0_PUBLIC_METADATA'
-          boundary = value['information_boundary']
+          import yaml
+          config_path = Path('post_v20/srsa_cifar/SRSA_CONFIG_2026-08-14.json')
+          receipt_path = Path('post_v20/srsa_cifar/SRSA_STAGE0_FROZEN_RECEIPT_2026-08-14.json')
+          auth_path = Path('post_v20/srsa_cifar/SRSA_FINAL_ONE_SHOT_AUTHORIZE_2026-08-15.json')
+          workflow_path = Path('.github/workflows/srsa-one-shot.yml')
+          config = json.loads(config_path.read_text())
+          receipt = json.loads(receipt_path.read_text())
+          auth = json.loads(auth_path.read_text())
+          workflow = yaml.safe_load(workflow_path.read_text())
+          assert config['status'] == 'PREREGISTERED_BEFORE_CIFAR_EXECUTION'
+          assert config['tasks']['cifar100']['role'] == 'primary'
+          assert config['tasks']['cifar10']['role'] == 'replication_non_substitutable'
+          assert config['closure']['no_third_task'] is True
+          assert receipt['decision'] == 'PASS_SRSA_STAGE0_PUBLIC_METADATA'
+          assert hashlib.sha256(config_path.read_bytes()).hexdigest() == receipt['config_sha256']
+          assert hashlib.sha256(receipt_path.read_bytes()).hexdigest() == '739d9ae1f2666b6e1525f9ef7792041dcee8629d2b63cc992bb16797919e5936'
+          boundary = receipt['information_boundary']
           assert boundary['dataset_rows_decoded'] is False
           assert boundary['labels_accessed'] is False
           assert boundary['cifar_predictions_accessed'] is False
           assert boundary['selector_executed'] is False
           assert boundary['primary_or_deployment_outcome_opened'] is False
-          value['authoritative_execution'] = {
-              'run_id': 31792763410,
-              'head_sha': '10e3b28a639db648cc9c66afa1c8dd8913778447',
-              'artifact_id': 9217245752,
-              'artifact_name': 'srsa-stage0-public-metadata-receipt',
-              'artifact_archive_digest': 'sha256:cc1215e8172002085a607819cc6787b5dfc6ab669261a8e13d3b0703921866a0',
-              'authorization_sha': os.environ['GITHUB_SHA'],
-              'scientific_settings_changed': False,
+          assert len(receipt['models']) == 8
+          assert set(receipt['datasets']) == {'cifar100', 'cifar10'}
+          assert auth['decision'] == 'AUTHORIZE_SRSA_CIFAR_FINAL_ONE_SHOT'
+          assert auth['source_commit'] == 'be5bbdd7e438c8eae9f2a22a3c18ff668f759c70'
+          assert hashlib.sha256(workflow_path.read_bytes()).hexdigest() == auth['workflow_sha256']
+          assert auth['scientific_settings_changed'] is False
+          assert isinstance(workflow, dict) and set(workflow['jobs']) == {
+              'preflight', 'stage0-lock', 'stage1-seal', 'stage2-endpoint',
+              'stage2-close', 'stage3-preoutcome', 'stage4-outcome'
           }
-          payload = json.dumps(value, sort_keys=True, separators=(',', ':'))
-          value['lock_sha256'] = hashlib.sha256(payload.encode('utf-8')).hexdigest()
-          target = Path('SRSA_STAGE0_FINAL_LOCK_2026-08-14.json')
-          target.write_text(json.dumps(value, indent=2) + '\n', encoding='utf-8')
           PY
+          pytest -q test_srsa_core.py test_srsa_selector_fast.py \
+            test_srsa_selector_frozen.py test_srsa_stage4_math.py
+          echo "decision=PASS_SRSA_FINAL_PREFLIGHT" >> "${GITHUB_OUTPUT}"
 
+  stage0-lock:
+    needs: preflight
+    if: needs.preflight.outputs.decision == 'PASS_SRSA_FINAL_PREFLIGHT'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      decision: ${{ steps.lock.outputs.decision }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          lfs: false
       - id: lock
-        name: Assert Stage 0 lock
+        name: Materialize the frozen public-metadata lock
         run: |
           set -euo pipefail
+          mkdir -p stage0_lock
+          cp post_v20/srsa_cifar/SRSA_STAGE0_FROZEN_RECEIPT_2026-08-14.json \
+            stage0_lock/SRSA_STAGE0_FINAL_LOCK_2026-08-14.json
           python - <<'PY'
-          import json
+          import hashlib, json
           from pathlib import Path
-          value = json.loads(Path('SRSA_STAGE0_FINAL_LOCK_2026-08-14.json').read_text(encoding='utf-8'))
+          path = Path('stage0_lock/SRSA_STAGE0_FINAL_LOCK_2026-08-14.json')
+          value = json.loads(path.read_text())
+          assert hashlib.sha256(path.read_bytes()).hexdigest() == '739d9ae1f2666b6e1525f9ef7792041dcee8629d2b63cc992bb16797919e5936'
           assert value['decision'] == 'PASS_SRSA_STAGE0_PUBLIC_METADATA'
-          assert len(value['models']) == 8
-          assert set(value['datasets']) == {'cifar100', 'cifar10'}
           PY
           echo "decision=PASS_SRSA_STAGE0_PUBLIC_METADATA" >> "${GITHUB_OUTPUT}"
-
       - uses: actions/upload-artifact@v4
         with:
-          name: srsa-stage0-final-lock
-          path: SRSA_STAGE0_FINAL_LOCK_2026-08-14.json
+          name: srsa-final-stage0-lock
+          path: stage0_lock/SRSA_STAGE0_FINAL_LOCK_2026-08-14.json
           if-no-files-found: error
           retention-days: 90
-
-      - id: commit
-        name: Persist Stage 0 final lock
-        run: |
-          set -euo pipefail
-          target=post_v20/srsa_cifar/SRSA_STAGE0_FINAL_LOCK_2026-08-14.json
-          cp SRSA_STAGE0_FINAL_LOCK_2026-08-14.json "${target}"
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add "${target}"
-          if ! git diff --cached --quiet; then
-            git commit -m "Bind successful SRSA Stage 0 receipt"
-            git push origin HEAD:${BRANCH}
-          fi
-          echo "lock_commit=$(git rev-parse HEAD)" >> "${GITHUB_OUTPUT}"
 
   stage1-seal:
     needs: stage0-lock
@@ -123,48 +126,34 @@ jobs:
     timeout-minutes: 75
     outputs:
       decision: ${{ steps.lock.outputs.decision }}
-      lock_commit: ${{ steps.commit.outputs.lock_commit }}
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: research/srsa-cifar-audit
-          fetch-depth: 0
+          fetch-depth: 1
           lfs: false
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
-      - name: Install pinned Stage 1 runtime
-        run: python -m pip install --disable-pip-version-check numpy==1.26.4
-
+      - run: python -m pip install --disable-pip-version-check numpy==1.26.4
       - uses: actions/download-artifact@v4
         with:
-          name: srsa-stage0-final-lock
+          name: srsa-final-stage0-lock
           path: locks/stage0
-
-      - name: Create public partitions and a physically separate label seal
+      - name: Create public inputs and the physically separate label seal
         run: |
           set -euo pipefail
           python post_v20/srsa_cifar/srsa_stage1_data_seal.py \
             --config post_v20/srsa_cifar/SRSA_CONFIG_2026-08-14.json \
             --stage0-lock locks/stage0/SRSA_STAGE0_FINAL_LOCK_2026-08-14.json \
-            --output srsa_stage1 \
-            2>&1 | tee srsa-stage1.log
-
+            --output srsa_stage1 2>&1 | tee srsa-stage1.log
       - id: lock
-        name: Close Stage 1 without outcome access
+        name: Validate the Stage 1 information boundary
         run: |
           set -euo pipefail
           python - <<'PY'
-          import hashlib
-          import json
-          import os
+          import json, numpy as np
           from pathlib import Path
-          import numpy as np
-
-          receipt_path = Path('srsa_stage1/SRSA_STAGE1_DATA_SEAL_RECEIPT.json')
-          value = json.loads(receipt_path.read_text(encoding='utf-8'))
+          value = json.loads(Path('srsa_stage1/SRSA_STAGE1_DATA_SEAL_RECEIPT.json').read_text())
           assert value['decision'] == 'PASS_SRSA_STAGE1_DATA_SEAL'
           boundary = value['information_boundary']
           assert boundary['labels_written_to_public_artifact'] is False
@@ -176,75 +165,34 @@ jobs:
           for task in ('cifar100', 'cifar10'):
               with np.load(f'srsa_stage1/public/{task}/inputs.npz', allow_pickle=False) as arrays:
                   assert 'labels' not in arrays.files
-                  assert set(arrays.files) == {
-                      'images', 'uids', 'image_sha256', 'partition_sha256',
-                      'archive_positions', 'partition_codes'
-                  }
               with np.load(f'srsa_stage1/sealed/{task}/labels.npz', allow_pickle=False) as arrays:
                   assert set(arrays.files) == {'uids', 'partition_codes', 'labels'}
-          value['authoritative_execution'] = {
-              'workflow_run_id': int(os.environ['GITHUB_RUN_ID']),
-              'authorization_sha': os.environ['GITHUB_SHA'],
-              'stage0_lock_file_sha256': hashlib.sha256(
-                  Path('locks/stage0/SRSA_STAGE0_FINAL_LOCK_2026-08-14.json').read_bytes()
-              ).hexdigest(),
-              'public_artifact_name': 'srsa-stage1-public-inputs',
-              'sealed_artifact_name': 'srsa-stage1-sealed-labels',
-              'scientific_settings_changed': False,
-          }
-          payload = json.dumps(value, sort_keys=True, separators=(',', ':'))
-          value['lock_sha256'] = hashlib.sha256(payload.encode('utf-8')).hexdigest()
-          Path('SRSA_STAGE1_FINAL_LOCK_2026-08-15.json').write_text(
-              json.dumps(value, indent=2) + '\n', encoding='utf-8'
-          )
           PY
           echo "decision=PASS_SRSA_STAGE1_DATA_SEAL" >> "${GITHUB_OUTPUT}"
-
       - uses: actions/upload-artifact@v4
         with:
-          name: srsa-stage1-public-inputs
+          name: srsa-final-stage1-public-inputs
           path: srsa_stage1/public/
           if-no-files-found: error
           retention-days: 90
-
       - uses: actions/upload-artifact@v4
         with:
-          name: srsa-stage1-sealed-labels
+          name: srsa-final-stage1-sealed-labels
           path: srsa_stage1/sealed/
           if-no-files-found: error
           retention-days: 90
-
       - uses: actions/upload-artifact@v4
         with:
-          name: srsa-stage1-final-lock
-          path: SRSA_STAGE1_FINAL_LOCK_2026-08-15.json
+          name: srsa-final-stage1-lock
+          path: srsa_stage1/SRSA_STAGE1_DATA_SEAL_RECEIPT.json
           if-no-files-found: error
           retention-days: 90
-
       - uses: actions/upload-artifact@v4
         with:
-          name: srsa-stage1-data-seal-receipt
-          path: |
-            srsa_stage1/SRSA_STAGE1_DATA_SEAL_RECEIPT.json
-            srsa-stage1.log
+          name: srsa-final-stage1-log
+          path: srsa-stage1.log
           if-no-files-found: error
           retention-days: 90
-
-      - id: commit
-        name: Persist Stage 1 final lock
-        run: |
-          set -euo pipefail
-          target=post_v20/srsa_cifar/SRSA_STAGE1_FINAL_LOCK_2026-08-15.json
-          cp SRSA_STAGE1_FINAL_LOCK_2026-08-15.json "${target}"
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git pull --ff-only origin "${BRANCH}"
-          git add "${target}"
-          if ! git diff --cached --quiet; then
-            git commit -m "Seal SRSA Stage 1 public and private inputs"
-            git push origin HEAD:${BRANCH}
-          fi
-          echo "lock_commit=$(git rev-parse HEAD)" >> "${GITHUB_OUTPUT}"
 
   stage2-endpoint:
     needs: stage1-seal
@@ -253,22 +201,14 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - task: cifar100
-            model: cifar100_resnet20
-          - task: cifar100
-            model: cifar100_vgg11_bn
-          - task: cifar100
-            model: cifar100_mobilenetv2_x0_5
-          - task: cifar100
-            model: cifar100_shufflenetv2_x0_5
-          - task: cifar10
-            model: cifar10_resnet20
-          - task: cifar10
-            model: cifar10_vgg11_bn
-          - task: cifar10
-            model: cifar10_mobilenetv2_x0_5
-          - task: cifar10
-            model: cifar10_shufflenetv2_x0_5
+          - {task: cifar100, model: cifar100_resnet20}
+          - {task: cifar100, model: cifar100_vgg11_bn}
+          - {task: cifar100, model: cifar100_mobilenetv2_x0_5}
+          - {task: cifar100, model: cifar100_shufflenetv2_x0_5}
+          - {task: cifar10, model: cifar10_resnet20}
+          - {task: cifar10, model: cifar10_vgg11_bn}
+          - {task: cifar10, model: cifar10_mobilenetv2_x0_5}
+          - {task: cifar10, model: cifar10_shufflenetv2_x0_5}
     runs-on: ubuntu-latest
     timeout-minutes: 180
     env:
@@ -277,46 +217,33 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: research/srsa-cifar-audit
           fetch-depth: 1
           lfs: false
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
       - name: Install pinned CPU endpoint runtime
         run: |
-          python -m pip install --disable-pip-version-check \
-            torch==2.6.0 \
+          python -m pip install --disable-pip-version-check torch==2.6.0 \
             --index-url https://download.pytorch.org/whl/cpu
           python -m pip install --disable-pip-version-check numpy==1.26.4
-
       - uses: actions/download-artifact@v4
         with:
-          name: srsa-stage0-final-lock
+          name: srsa-final-stage0-lock
           path: locks/stage0
-
       - uses: actions/download-artifact@v4
         with:
-          name: srsa-stage1-final-lock
+          name: srsa-final-stage1-lock
           path: locks/stage1
-
       - uses: actions/download-artifact@v4
         with:
-          name: srsa-stage1-public-inputs
+          name: srsa-final-stage1-public-inputs
           path: stage1_public
-
-      - name: Assert the endpoint job has public inputs only
+      - name: Assert this job received no label seal
         run: |
           set -euo pipefail
-          test ! -e stage1_public/sealed
-          if find stage1_public -type f -iname '*label*' | grep -q .; then
-            echo 'Stage 2 unexpectedly received a label-named file' >&2
-            exit 1
-          fi
-
-      - name: Fetch exact public model source commit
+          if find stage1_public -type f -iname '*label*' | grep -q .; then exit 1; fi
+      - name: Fetch the exact public model source commit
         run: |
           set -euo pipefail
           git init /tmp/pytorch-cifar-models
@@ -324,25 +251,20 @@ jobs:
           git -C /tmp/pytorch-cifar-models fetch --depth=1 origin 786c16252c0fc58ee9adac063f8337cc4a7a497a
           git -C /tmp/pytorch-cifar-models checkout --detach FETCH_HEAD
           test "$(git -C /tmp/pytorch-cifar-models rev-parse HEAD)" = "786c16252c0fc58ee9adac063f8337cc4a7a497a"
-
       - name: Execute one clean endpoint without labels
         run: |
           set -euo pipefail
           python post_v20/srsa_cifar/srsa_stage2_endpoint.py \
-            --task "${{ matrix.task }}" \
-            --model-name "${{ matrix.model }}" \
+            --task "${{ matrix.task }}" --model-name "${{ matrix.model }}" \
             --config post_v20/srsa_cifar/SRSA_CONFIG_2026-08-14.json \
             --stage0-lock locks/stage0/SRSA_STAGE0_FINAL_LOCK_2026-08-14.json \
-            --stage1-lock locks/stage1/SRSA_STAGE1_FINAL_LOCK_2026-08-15.json \
-            --stage1-public-root stage1_public \
-            --model-repo /tmp/pytorch-cifar-models \
-            --output endpoint_out \
-            2>&1 | tee "srsa-stage2-${{ matrix.model }}.log"
+            --stage1-lock locks/stage1/SRSA_STAGE1_DATA_SEAL_RECEIPT.json \
+            --stage1-public-root stage1_public --model-repo /tmp/pytorch-cifar-models \
+            --output endpoint_out 2>&1 | tee "srsa-stage2-${{ matrix.model }}.log"
           mkdir -p endpoint_artifact
           cp endpoint_out/receipt.json endpoint_artifact/receipt.json
           cp endpoint_out/predictions.npz endpoint_artifact/predictions.npz
           cp "srsa-stage2-${{ matrix.model }}.log" endpoint_artifact/execution.log
-
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.model }}
@@ -351,42 +273,33 @@ jobs:
           retention-days: 90
 
   stage2-close:
-    needs: stage2-endpoint
+    needs: [stage0-lock, stage1-seal, stage2-endpoint]
     runs-on: ubuntu-latest
     timeout-minutes: 25
     outputs:
       decision: ${{ steps.close.outputs.decision }}
-      lock_commit: ${{ steps.commit.outputs.lock_commit }}
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: research/srsa-cifar-audit
-          fetch-depth: 0
+          fetch-depth: 1
           lfs: false
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
-      - name: Install pinned closure runtime
-        run: python -m pip install --disable-pip-version-check numpy==1.26.4
-
+      - run: python -m pip install --disable-pip-version-check numpy==1.26.4
       - uses: actions/download-artifact@v4
         with:
-          name: srsa-stage0-final-lock
+          name: srsa-final-stage0-lock
           path: locks/stage0
-
       - uses: actions/download-artifact@v4
         with:
-          name: srsa-stage1-final-lock
+          name: srsa-final-stage1-lock
           path: locks/stage1
-
       - uses: actions/download-artifact@v4
         with:
           pattern: cifar*
           path: stage2_endpoints
           merge-multiple: false
-
       - id: close
         name: Close the label-free endpoint family
         run: |
@@ -394,73 +307,33 @@ jobs:
           python post_v20/srsa_cifar/srsa_stage2_close.py \
             --config post_v20/srsa_cifar/SRSA_CONFIG_2026-08-14.json \
             --stage0-lock locks/stage0/SRSA_STAGE0_FINAL_LOCK_2026-08-14.json \
-            --stage1-lock locks/stage1/SRSA_STAGE1_FINAL_LOCK_2026-08-15.json \
-            --endpoints-root stage2_endpoints \
-            --output stage2_closure \
+            --stage1-lock locks/stage1/SRSA_STAGE1_DATA_SEAL_RECEIPT.json \
+            --endpoints-root stage2_endpoints --output stage2_closure \
             2>&1 | tee srsa-stage2-closure.log
           python - <<'PY'
-          import hashlib
           import json
-          import os
           from pathlib import Path
-
-          path = Path('stage2_closure/SRSA_STAGE2_CLEAN_ENDPOINT_LEDGER.json')
-          value = json.loads(path.read_text(encoding='utf-8'))
-          assert value['decision'] in {
-              'PASS_SRSA_STAGE2_CLEAN_ENDPOINTS',
-              'STOP_SRSA_STAGE2_CLEAN_ENDPOINTS',
-          }
+          value = json.loads(Path('stage2_closure/SRSA_STAGE2_CLEAN_ENDPOINT_LEDGER.json').read_text())
+          assert value['decision'] in {'PASS_SRSA_STAGE2_CLEAN_ENDPOINTS', 'STOP_SRSA_STAGE2_CLEAN_ENDPOINTS'}
           boundary = value['information_boundary']
           assert boundary['sealed_labels_accessed'] is False
           assert boundary['labels_accessed'] is False
           assert boundary['selector_executed'] is False
-          assert boundary['primary_or_deployment_outcome_opened'] is False
-          value['authoritative_execution'] = {
-              'workflow_run_id': int(os.environ['GITHUB_RUN_ID']),
-              'authorization_sha': os.environ['GITHUB_SHA'],
-              'endpoint_artifact_names': list(value['tasks']['cifar100']['root_order']) + list(value['tasks']['cifar10']['root_order']),
-              'scientific_settings_changed': False,
-          }
-          payload = json.dumps(value, sort_keys=True, separators=(',', ':'))
-          value['lock_sha256'] = hashlib.sha256(payload.encode('utf-8')).hexdigest()
-          Path('SRSA_STAGE2_FINAL_LOCK_2026-08-15.json').write_text(
-              json.dumps(value, indent=2) + '\n', encoding='utf-8'
-          )
-          Path('stage2-decision.txt').write_text(value['decision'] + '\n', encoding='utf-8')
+          Path('stage2-decision.txt').write_text(value['decision'] + '\n')
           PY
           echo "decision=$(cat stage2-decision.txt)" >> "${GITHUB_OUTPUT}"
-
       - uses: actions/upload-artifact@v4
         with:
-          name: srsa-stage2-final-lock
-          path: SRSA_STAGE2_FINAL_LOCK_2026-08-15.json
+          name: srsa-final-stage2-lock
+          path: stage2_closure/SRSA_STAGE2_CLEAN_ENDPOINT_LEDGER.json
           if-no-files-found: error
           retention-days: 90
-
       - uses: actions/upload-artifact@v4
         with:
-          name: srsa-stage2-clean-endpoint-ledger
-          path: |
-            stage2_closure/SRSA_STAGE2_CLEAN_ENDPOINT_LEDGER.json
-            srsa-stage2-closure.log
+          name: srsa-final-stage2-log
+          path: srsa-stage2-closure.log
           if-no-files-found: error
           retention-days: 90
-
-      - id: commit
-        name: Persist Stage 2 final lock
-        run: |
-          set -euo pipefail
-          target=post_v20/srsa_cifar/SRSA_STAGE2_FINAL_LOCK_2026-08-15.json
-          cp SRSA_STAGE2_FINAL_LOCK_2026-08-15.json "${target}"
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git pull --ff-only origin "${BRANCH}"
-          git add "${target}"
-          if ! git diff --cached --quiet; then
-            git commit -m "Close SRSA Stage 2 clean endpoint family"
-            git push origin HEAD:${BRANCH}
-          fi
-          echo "lock_commit=$(git rev-parse HEAD)" >> "${GITHUB_OUTPUT}"
 
   stage3-preoutcome:
     needs: stage2-close
@@ -469,56 +342,40 @@ jobs:
     timeout-minutes: 40
     outputs:
       decision: ${{ steps.preoutcome.outputs.decision }}
-      lock_commit: ${{ steps.commit.outputs.lock_commit }}
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: research/srsa-cifar-audit
-          fetch-depth: 0
+          fetch-depth: 1
           lfs: false
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
-      - name: Install pinned pre-outcome runtime
-        run: python -m pip install --disable-pip-version-check numpy==1.26.4
-
+      - run: python -m pip install --disable-pip-version-check numpy==1.26.4
       - uses: actions/download-artifact@v4
         with:
-          name: srsa-stage0-final-lock
+          name: srsa-final-stage0-lock
           path: locks/stage0
-
       - uses: actions/download-artifact@v4
         with:
-          name: srsa-stage1-final-lock
+          name: srsa-final-stage1-lock
           path: locks/stage1
-
       - uses: actions/download-artifact@v4
         with:
-          name: srsa-stage2-final-lock
+          name: srsa-final-stage2-lock
           path: locks/stage2
-
       - uses: actions/download-artifact@v4
         with:
-          name: srsa-stage1-public-inputs
+          name: srsa-final-stage1-public-inputs
           path: stage1_public
-
       - uses: actions/download-artifact@v4
         with:
           pattern: cifar*
           path: stage2_endpoints
           merge-multiple: false
-
-      - name: Assert Stage 3 has no label seal
+      - name: Assert Stage 3 received no label seal
         run: |
           set -euo pipefail
-          test ! -e stage1_sealed
-          if find . -maxdepth 3 -type f -name 'labels.npz' | grep -q .; then
-            echo 'Stage 3 unexpectedly received sealed labels' >&2
-            exit 1
-          fi
-
+          if find . -maxdepth 4 -type f -name 'labels.npz' | grep -q .; then exit 1; fi
       - id: preoutcome
         name: Freeze wrappers, pools, bindings, and Stage 4 code
         run: |
@@ -526,33 +383,25 @@ jobs:
           python post_v20/srsa_cifar/srsa_stage3_preoutcome.py \
             --config post_v20/srsa_cifar/SRSA_CONFIG_2026-08-14.json \
             --stage0-lock locks/stage0/SRSA_STAGE0_FINAL_LOCK_2026-08-14.json \
-            --stage1-lock locks/stage1/SRSA_STAGE1_FINAL_LOCK_2026-08-15.json \
-            --stage2-lock locks/stage2/SRSA_STAGE2_FINAL_LOCK_2026-08-15.json \
-            --stage1-public-root stage1_public \
-            --endpoints-root stage2_endpoints \
-            --output stage3_out \
-            2>&1 | tee srsa-stage3-preoutcome.log
+            --stage1-lock locks/stage1/SRSA_STAGE1_DATA_SEAL_RECEIPT.json \
+            --stage2-lock locks/stage2/SRSA_STAGE2_CLEAN_ENDPOINT_LEDGER.json \
+            --stage1-public-root stage1_public --endpoints-root stage2_endpoints \
+            --output stage3_out 2>&1 | tee srsa-stage3-preoutcome.log
           python - <<'PY'
           import json
           from pathlib import Path
-          value = json.loads(Path('stage3_out/SRSA_STAGE3_PREOUTCOME_LOCK.json').read_text(encoding='utf-8'))
-          assert value['decision'] in {
-              'PASS_SRSA_STAGE3_PREOUTCOME',
-              'STOP_SRSA_STAGE3_PREOUTCOME',
-          }
+          value = json.loads(Path('stage3_out/SRSA_STAGE3_PREOUTCOME_LOCK.json').read_text())
+          assert value['decision'] in {'PASS_SRSA_STAGE3_PREOUTCOME', 'STOP_SRSA_STAGE3_PREOUTCOME'}
           boundary = value['information_boundary']
           assert boundary['sealed_label_artifact_downloaded'] is False
-          assert boundary['sealed_labels_accessed'] is False
           assert boundary['labels_accessed'] is False
           assert boundary['selector_executed'] is False
-          assert boundary['primary_or_deployment_outcome_opened'] is False
-          Path('stage3-decision.txt').write_text(value['decision'] + '\n', encoding='utf-8')
+          Path('stage3-decision.txt').write_text(value['decision'] + '\n')
           PY
           echo "decision=$(cat stage3-decision.txt)" >> "${GITHUB_OUTPUT}"
-
       - uses: actions/upload-artifact@v4
         with:
-          name: srsa-stage3-preoutcome
+          name: srsa-final-stage3-preoutcome
           path: |
             stage3_out/SRSA_STAGE3_PREOUTCOME_LOCK.json
             stage3_out/cifar100/preoutcome.npz
@@ -560,22 +409,6 @@ jobs:
             srsa-stage3-preoutcome.log
           if-no-files-found: error
           retention-days: 90
-
-      - id: commit
-        name: Commit the pre-outcome lock before any label download
-        run: |
-          set -euo pipefail
-          target=post_v20/srsa_cifar/SRSA_STAGE3_PREOUTCOME_LOCK_2026-08-15.json
-          cp stage3_out/SRSA_STAGE3_PREOUTCOME_LOCK.json "${target}"
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git pull --ff-only origin "${BRANCH}"
-          git add "${target}"
-          if ! git diff --cached --quiet; then
-            git commit -m "Freeze SRSA Stage 3 pre-outcome lock"
-            git push origin HEAD:${BRANCH}
-          fi
-          echo "lock_commit=$(git rev-parse HEAD)" >> "${GITHUB_OUTPUT}"
 
   stage4-outcome:
     needs: stage3-preoutcome
@@ -587,115 +420,84 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: research/srsa-cifar-audit
-          fetch-depth: 0
+          fetch-depth: 1
           lfs: false
-
-      - name: Guard the committed pre-outcome boundary
-        env:
-          EXPECTED_LOCK_COMMIT: ${{ needs.stage3-preoutcome.outputs.lock_commit }}
+      - name: Guard the immutable source commit
         run: |
           set -euo pipefail
           test ! -e post_v20/srsa_cifar/SRSA_STAGE4_RESULT_2026-08-15.json
-          test "$(git rev-parse HEAD)" = "${EXPECTED_LOCK_COMMIT}"
-          test -f post_v20/srsa_cifar/SRSA_STAGE3_PREOUTCOME_LOCK_2026-08-15.json
-
+          test "$(git rev-parse HEAD)" = "${GITHUB_SHA}"
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
-      - name: Install pinned outcome runtime
-        run: python -m pip install --disable-pip-version-check numpy==1.26.4
-
+      - run: python -m pip install --disable-pip-version-check numpy==1.26.4
       - uses: actions/download-artifact@v4
         with:
-          name: srsa-stage0-final-lock
+          name: srsa-final-stage0-lock
           path: locks/stage0
-
       - uses: actions/download-artifact@v4
         with:
-          name: srsa-stage1-final-lock
+          name: srsa-final-stage1-lock
           path: locks/stage1
-
       - uses: actions/download-artifact@v4
         with:
-          name: srsa-stage2-final-lock
+          name: srsa-final-stage2-lock
           path: locks/stage2
-
       - uses: actions/download-artifact@v4
         with:
-          name: srsa-stage3-preoutcome
+          name: srsa-final-stage3-preoutcome
           path: stage3_preoutcome
-
       - uses: actions/download-artifact@v4
         with:
           pattern: cifar*
           path: stage2_endpoints
           merge-multiple: false
-
-      - name: Verify the pre-outcome lock before opening labels
-        env:
-          EXPECTED_LOCK_COMMIT: ${{ needs.stage3-preoutcome.outputs.lock_commit }}
+      - name: Verify the pre-outcome artifact before opening labels
         run: |
           set -euo pipefail
-          test "$(git rev-parse HEAD)" = "${EXPECTED_LOCK_COMMIT}"
-          test -f stage3_preoutcome/SRSA_STAGE3_PREOUTCOME_LOCK.json
-          test -f stage3_preoutcome/cifar100/preoutcome.npz
-          test -f stage3_preoutcome/cifar10/preoutcome.npz
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          value = json.loads(Path('stage3_preoutcome/SRSA_STAGE3_PREOUTCOME_LOCK.json').read_text())
+          assert value['decision'] == 'PASS_SRSA_STAGE3_PREOUTCOME'
+          assert Path('stage3_preoutcome/cifar100/preoutcome.npz').is_file()
+          assert Path('stage3_preoutcome/cifar10/preoutcome.npz').is_file()
+          PY
           test ! -e stage1_sealed
-
-      - name: Download the sealed labels in the single authorized job
+      - name: Download sealed labels in the single authorized job
         uses: actions/download-artifact@v4
         with:
-          name: srsa-stage1-sealed-labels
+          name: srsa-final-stage1-sealed-labels
           path: stage1_sealed
-
       - id: outcome
         name: Open labels once and execute every frozen condition
-        env:
-          STAGE3_LOCK_COMMIT: ${{ needs.stage3-preoutcome.outputs.lock_commit }}
         run: |
           set -euo pipefail
           python post_v20/srsa_cifar/srsa_stage4_outcome.py \
             --config post_v20/srsa_cifar/SRSA_CONFIG_2026-08-14.json \
             --stage0-lock locks/stage0/SRSA_STAGE0_FINAL_LOCK_2026-08-14.json \
-            --stage1-lock locks/stage1/SRSA_STAGE1_FINAL_LOCK_2026-08-15.json \
-            --stage2-lock locks/stage2/SRSA_STAGE2_FINAL_LOCK_2026-08-15.json \
+            --stage1-lock locks/stage1/SRSA_STAGE1_DATA_SEAL_RECEIPT.json \
+            --stage2-lock locks/stage2/SRSA_STAGE2_CLEAN_ENDPOINT_LEDGER.json \
             --stage3-lock stage3_preoutcome/SRSA_STAGE3_PREOUTCOME_LOCK.json \
-            --stage1-sealed-root stage1_sealed \
-            --endpoints-root stage2_endpoints \
-            --preoutcome-root stage3_preoutcome \
-            --stage3-commit "${STAGE3_LOCK_COMMIT}" \
-            --output stage4_out \
-            2>&1 | tee srsa-stage4-outcome.log
+            --stage1-sealed-root stage1_sealed --endpoints-root stage2_endpoints \
+            --preoutcome-root stage3_preoutcome --stage3-commit "${GITHUB_SHA}" \
+            --output stage4_out 2>&1 | tee srsa-stage4-outcome.log
           python - <<'PY'
           import json
           from pathlib import Path
-          value = json.loads(Path('stage4_out/SRSA_STAGE4_RESULT.json').read_text(encoding='utf-8'))
+          value = json.loads(Path('stage4_out/SRSA_STAGE4_RESULT.json').read_text())
           assert value['decision'] in {'GO_SRSA_PRIMARY', 'NO_GO_SRSA_PRIMARY'}
           assert value['information_boundary']['label_opening_jobs'] == 1
           assert value['information_boundary']['all_four_roots_executed_and_reported'] is True
-          Path('stage4-decision.txt').write_text(value['decision'] + '\n', encoding='utf-8')
+          Path('stage4-decision.txt').write_text(value['decision'] + '\n')
           PY
           echo "decision=$(cat stage4-decision.txt)" >> "${GITHUB_OUTPUT}"
-
       - uses: actions/upload-artifact@v4
         with:
-          name: srsa-stage4-result
+          name: srsa-final-stage4-result
           path: |
             stage4_out/SRSA_STAGE4_RESULT.json
             stage4_out/SRSA_STAGE4_PAIRED_RUNS.npz
             srsa-stage4-outcome.log
           if-no-files-found: error
           retention-days: 90
-
-      - name: Persist the literal scientific decision
-        run: |
-          set -euo pipefail
-          target=post_v20/srsa_cifar/SRSA_STAGE4_RESULT_2026-08-15.json
-          cp stage4_out/SRSA_STAGE4_RESULT.json "${target}"
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add "${target}"
-          git commit -m "Record literal SRSA CIFAR one-shot decision"
-          git push origin HEAD:${BRANCH}
