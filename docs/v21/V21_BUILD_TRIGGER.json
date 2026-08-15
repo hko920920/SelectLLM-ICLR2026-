@@ -1,8 +1,9 @@
 {
   "schema": "selectllm.v21.build.trigger.v1",
   "date_kst": "2026-08-16",
-  "attempt": 4,
+  "attempt": 5,
   "required_main_text_pages_max": 9,
-  "audit_fix": "overclaim detector now distinguishes explicit non-claims from positive universal claims",
+  "layout_fix": "removed forced page break before Results after visual PDF inspection",
+  "overclaim_audit_fixed": true,
   "experiments_frozen": true
 }
