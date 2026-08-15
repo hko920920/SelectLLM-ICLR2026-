@@ -1,0 +1,244 @@
+name: PRAA-E direct verified package execution
+
+on:
+  push:
+    branches: [research/praa-admission-audit]
+    paths:
+      - "post_v20/praa_registry_admission/PRAA_E_SEALED_REMAINDER_PACKAGE_2026-08-15.zip"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: praa-e-sealed-remainder
+  cancel-in-progress: false
+
+env:
+  STAGE1_RUN: "31775680237"
+  STAGE3_RUN: "31778682042"
+
+jobs:
+  metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract exact frozen PRAA-E package
+        run: |
+          echo "ca31de6c6d8778be516e01aa19f831410a3175d827a73da5482db3c8ec27c6c7  post_v20/praa_registry_admission/PRAA_E_SEALED_REMAINDER_PACKAGE_2026-08-15.zip" | sha256sum -c -
+          unzip -oq "post_v20/praa_registry_admission/PRAA_E_SEALED_REMAINDER_PACKAGE_2026-08-15.zip" -d .
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Verify authorization and compile frozen code
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('post_v20/praa_registry_admission/PRAA_E_CONTINUATION_AUTHORIZATION_2026-08-14.json')
+          d=json.loads(p.read_text())
+          assert d['decision']=='PASS_PRAA_E_SEALED_REMAINDER_CONTINUATION_AUTHORIZATION'
+          assert d['original_praa_family']['decision']=='STOP_PRAA_STAGE3_ERROR_HEAD_AND_THRESHOLD'
+          assert d['prespecified_primary']['task']=='emotion'
+          assert d['information_boundary_at_authorization']['remaining_primary_or_deployment_labels_accessed'] is False
+          PY
+          python - <<'PY'
+          import hashlib, json, subprocess
+          from pathlib import Path
+          root=Path('.')
+          manifest_path=root/'post_v20/praa_registry_admission/PRAA_E_CODE_BINDING_MANIFEST_2026-08-14.json'
+          manifest=json.loads(manifest_path.read_text(encoding='utf-8'))
+          assert manifest['decision']=='PASS_PRAA_E_CODE_BINDING'
+          for rel, expected in manifest['new_file_sha256'].items():
+              observed=hashlib.sha256((root/rel).read_bytes()).hexdigest()
+              if observed != expected:
+                  raise SystemExit({'file':rel,'expected':expected,'observed':observed})
+          for rel, expected in manifest['inherited_git_blob'].items():
+              observed=subprocess.check_output(['git','hash-object',str(root/rel)],text=True).strip()
+              if observed != expected:
+                  raise SystemExit({'file':rel,'expected_git_blob':expected,'observed':observed})
+          PY
+          python -m compileall -q post_v20/praa_registry_admission
+          python -m pip install --disable-pip-version-check numpy==1.26.4 scipy==1.16.1
+          python post_v20/praa_registry_admission/test_praa_e_synthetic.py
+
+  clean:
+    needs: metadata
+    strategy:
+      fail-fast: false
+      matrix:
+        root_id: [emotion-roberta-dk409, emotion-bert-nateraw, emotion-distilbert-bhadresh, emotion-albert-bhadresh]
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      HF_HOME: /tmp/praa-e-clean-hf
+      HF_HUB_DISABLE_TELEMETRY: "1"
+      TOKENIZERS_PARALLELISM: "false"
+      OMP_NUM_THREADS: "4"
+      MKL_NUM_THREADS: "4"
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract exact frozen PRAA-E package
+        run: |
+          echo "ca31de6c6d8778be516e01aa19f831410a3175d827a73da5482db3c8ec27c6c7  post_v20/praa_registry_admission/PRAA_E_SEALED_REMAINDER_PACKAGE_2026-08-15.zip" | sha256sum -c -
+          unzip -oq "post_v20/praa_registry_admission/PRAA_E_SEALED_REMAINDER_PACKAGE_2026-08-15.zip" -d .
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - uses: actions/download-artifact@v4
+        with:
+          name: praa-stage1-public-artifact-and-inputs
+          path: stage1_public
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ env.STAGE1_RUN }}
+      - name: Install endpoint runtime
+        run: |
+          python -m pip install --disable-pip-version-check torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --disable-pip-version-check numpy==1.26.4 transformers==4.56.2 tokenizers==0.22.2 safetensors==0.8.0 sentencepiece==0.2.0 huggingface-hub==0.34.5
+      - name: Execute clean endpoint without labels
+        run: |
+          mkdir -p stage4_clean
+          python post_v20/praa_registry_admission/stage4_clean_endpoint.py --root-id "${{ matrix.root_id }}" --stage1-public-root stage1_public --output-root stage4_clean
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: praa-e-clean-${{ matrix.root_id }}
+          path: stage4_clean/
+          retention-days: 90
+
+  derived:
+    needs: [metadata, clean]
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      HF_HOME: /tmp/praa-e-derived-hf
+      HF_HUB_DISABLE_TELEMETRY: "1"
+      TOKENIZERS_PARALLELISM: "false"
+      OMP_NUM_THREADS: "4"
+      MKL_NUM_THREADS: "4"
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract exact frozen PRAA-E package
+        run: |
+          echo "ca31de6c6d8778be516e01aa19f831410a3175d827a73da5482db3c8ec27c6c7  post_v20/praa_registry_admission/PRAA_E_SEALED_REMAINDER_PACKAGE_2026-08-15.zip" | sha256sum -c -
+          unzip -oq "post_v20/praa_registry_admission/PRAA_E_SEALED_REMAINDER_PACKAGE_2026-08-15.zip" -d .
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - uses: actions/download-artifact@v4
+        with:
+          name: praa-stage1-public-artifact-and-inputs
+          path: stage1_public
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ env.STAGE1_RUN }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: praa-stage3-emotion
+          path: stage3_artifacts
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ env.STAGE3_RUN }}
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: praa-e-clean-*
+          path: stage4_clean
+          merge-multiple: true
+      - name: Install derived runtime
+        run: |
+          python -m pip install --disable-pip-version-check torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --disable-pip-version-check numpy==1.26.4 transformers==4.56.2 tokenizers==0.22.2 safetensors==0.8.0 sentencepiece==0.2.0 huggingface-hub==0.34.5
+      - name: Execute frozen derived endpoints without labels
+        run: |
+          mkdir -p stage4_derived
+          python post_v20/praa_registry_admission/stage4_alias_endpoint.py --task emotion --stage1-public-root stage1_public --stage3-root stage3_artifacts --clean-outputs-root stage4_clean --output-root stage4_derived
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: praa-e-derived-emotion
+          path: stage4_derived/
+          retention-days: 90
+
+  preoutcome:
+    needs: [metadata, clean, derived]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract exact frozen PRAA-E package
+        run: |
+          echo "ca31de6c6d8778be516e01aa19f831410a3175d827a73da5482db3c8ec27c6c7  post_v20/praa_registry_admission/PRAA_E_SEALED_REMAINDER_PACKAGE_2026-08-15.zip" | sha256sum -c -
+          unzip -oq "post_v20/praa_registry_admission/PRAA_E_SEALED_REMAINDER_PACKAGE_2026-08-15.zip" -d .
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - uses: actions/download-artifact@v4
+        with:
+          name: praa-stage1-public-artifact-and-inputs
+          path: stage1_public
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ env.STAGE1_RUN }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: praa-stage3-emotion
+          path: stage3_artifacts
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ env.STAGE3_RUN }}
+      - uses: actions/download-artifact@v4
+        with: {pattern: "praa-e-clean-*", path: stage4_clean, merge-multiple: true}
+      - uses: actions/download-artifact@v4
+        with: {name: praa-e-derived-emotion, path: stage4_derived}
+      - run: python -m pip install --disable-pip-version-check numpy==1.26.4 jsonschema==4.25.1
+      - name: Build sealed-remainder pre-outcome lock
+        run: |
+          mkdir -p preoutcome
+          python post_v20/praa_registry_admission/praa_e_stage4_finalize.py --stage1-public-root stage1_public --clean-outputs-root stage4_clean --derived-outputs-root stage4_derived --stage3-root stage3_artifacts --output-dir preoutcome
+      - name: Independently validate pre-outcome boundary
+        run: python post_v20/praa_registry_admission/praa_e_validate.py --mode preoutcome --input-dir preoutcome --output preoutcome/PRAA_E_STAGE4_INDEPENDENT_VALIDATION.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: praa-e-preoutcome, path: preoutcome/, retention-days: 90}
+
+  outcome:
+    needs: preoutcome
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract exact frozen PRAA-E package
+        run: |
+          echo "ca31de6c6d8778be516e01aa19f831410a3175d827a73da5482db3c8ec27c6c7  post_v20/praa_registry_admission/PRAA_E_SEALED_REMAINDER_PACKAGE_2026-08-15.zip" | sha256sum -c -
+          unzip -oq "post_v20/praa_registry_admission/PRAA_E_SEALED_REMAINDER_PACKAGE_2026-08-15.zip" -d .
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - uses: actions/download-artifact@v4
+        with:
+          name: praa-stage1-public-artifact-and-inputs
+          path: stage1_public
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ env.STAGE1_RUN }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: praa-stage1-sealed-labels
+          path: sealed_labels
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ env.STAGE1_RUN }}
+      - uses: actions/download-artifact@v4
+        with: {pattern: "praa-e-clean-*", path: stage4_clean, merge-multiple: true}
+      - uses: actions/download-artifact@v4
+        with: {name: praa-e-derived-emotion, path: stage4_derived}
+      - uses: actions/download-artifact@v4
+        with: {name: praa-e-preoutcome, path: preoutcome}
+      - run: python -m pip install --disable-pip-version-check numpy==1.26.4 scipy==1.16.1
+      - name: Execute frozen primary and deployment analysis
+        run: |
+          test "$(python -c "import json;print(json.load(open('preoutcome/PRAA_E_STAGE4_INDEPENDENT_VALIDATION.json'))['decision'])")" = PASS_PRAA_E_STAGE4_INDEPENDENT_VALIDATION
+          mkdir -p outcome
+          python post_v20/praa_registry_admission/praa_e_outcome.py --stage1-public-root stage1_public --sealed-label-root sealed_labels --stage4-clean-root stage4_clean --stage4-derived-root stage4_derived --stage4-closure preoutcome/PRAA_E_STAGE4_SEALED_REMAINDER_PREOUTCOME_CLOSURE.json --output-dir outcome
+      - name: Validate literal decision and causal controls
+        run: python post_v20/praa_registry_admission/praa_e_validate.py --mode outcome --input-dir outcome --output outcome/PRAA_E_OUTCOME_INDEPENDENT_VALIDATION.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: praa-e-outcome, path: outcome/, retention-days: 90}

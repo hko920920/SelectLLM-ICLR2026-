@@ -1,0 +1,15 @@
+{
+  "schema": "praa-e.transport_technical_amendment.v1",
+  "date": "2026-08-15",
+  "classification": "TRANSPORT_ONLY_NO_SCIENTIFIC_CHANGE",
+  "prior_failed_runs": [31808898320, 31809151345],
+  "preserved_history_branch": "recovery/praa-e-transport-failures-20260815",
+  "clean_base_commit": "81033edcc1a3be30235da49a7d9dd1842941321c",
+  "change": "Replace manually split base64 transport with one byte-exact ZIP Git blob verified by SHA-256 before extraction in every job.",
+  "package_sha256": "ca31de6c6d8778be516e01aa19f831410a3175d827a73da5482db3c8ec27c6c7",
+  "scientific_code_changed": false,
+  "task_or_model_changed": false,
+  "threshold_or_gate_changed": false,
+  "seed_or_estimand_changed": false,
+  "label_boundary_changed": false
+}
