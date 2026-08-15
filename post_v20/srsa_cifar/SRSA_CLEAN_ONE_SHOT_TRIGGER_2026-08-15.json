@@ -1,0 +1,28 @@
+{
+  "schema": "srsa.cifar.clean_one_shot_trigger.v1",
+  "date": "2026-08-15",
+  "decision": "EXECUTE_SIMPLIFIED_SRSA_CIFAR_ONE_SHOT",
+  "branch": "research/srsa-cifar-audit",
+  "workflow_path": ".github/workflows/srsa-one-shot.yml",
+  "workflow_commit": "6d9005ce3f43364846cfbe4737fb4482c94487fc",
+  "workflow_content_sha256": "74a0153981ef2683a98074494ab8862a2284b8e7be2c40a06b514411aeb845af",
+  "preexecution_static_validation": {
+    "run_id": 31888157431,
+    "decision": "success",
+    "all_preoutcome_mechanics_and_statistical_tests_passed": true
+  },
+  "execution": {
+    "primary_task": "cifar100",
+    "replication_task": "cifar10",
+    "replication_non_substitutable": true,
+    "all_four_roots": true,
+    "single_stage4_label_opening": true,
+    "no_third_task": true
+  },
+  "information_boundary": {
+    "cifar_labels_opened_before_trigger": false,
+    "selector_outcome_executed_before_trigger": false,
+    "stage4_result_exists_before_trigger": false
+  },
+  "scientific_settings_changed": false
+}
