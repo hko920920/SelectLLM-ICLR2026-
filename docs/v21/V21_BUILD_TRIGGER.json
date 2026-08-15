@@ -1,8 +1,8 @@
 {
   "schema": "selectllm.v21.build.trigger.v1",
   "date_kst": "2026-08-16",
-  "attempt": 2,
+  "attempt": 3,
   "required_main_text_pages_max": 9,
-  "compression": "moved closest-work table and approximate-stability statement to appendix; compressed protocol evidence layers",
+  "compression": "main text now 9 pages; removed the final stale table reference",
   "experiments_frozen": true
 }
