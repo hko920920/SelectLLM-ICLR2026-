@@ -1,0 +1,222 @@
+name: SRSA CIFAR Stage 4 continuation after pre-label path fix
+
+on:
+  push:
+    branches:
+      - research/srsa-cifar-audit
+    paths:
+      - "post_v20/srsa_cifar/SRSA_STAGE4_CONTINUATION_AUTHORIZE_2026-08-16.json"
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: srsa-cifar-stage4-continuation
+  cancel-in-progress: false
+
+env:
+  SOURCE_RUN_ID: "31888204323"
+  FROZEN_HEAD_SHA: "23dedb414875be0f9531d1bef0634ed546ffafdd"
+  PYTHONUNBUFFERED: "1"
+
+jobs:
+  stage4-continuation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/srsa-cifar-audit
+          fetch-depth: 0
+          lfs: false
+
+      - name: Validate outcome-blind continuation authorization
+        run: |
+          set -euo pipefail
+          test -f post_v20/srsa_cifar/SRSA_STAGE4_CONTINUATION_AUTHORIZE_2026-08-16.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          value = json.loads(Path(
+              'post_v20/srsa_cifar/SRSA_STAGE4_CONTINUATION_AUTHORIZE_2026-08-16.json'
+          ).read_text(encoding='utf-8'))
+          assert value['decision'] == 'AUTHORIZE_SRSA_STAGE4_CONTINUATION_AFTER_PRE_LABEL_PATH_FAILURE'
+          assert value['source_run_id'] == 31888204323
+          assert value['source_head_sha'] == '23dedb414875be0f9531d1bef0634ed546ffafdd'
+          assert value['failure_stage'] == 'preoutcome_path_verification_before_sealed_label_download'
+          boundary = value['information_boundary']
+          assert boundary['sealed_label_values_accessed'] is False
+          assert boundary['selector_executed'] is False
+          assert boundary['primary_or_deployment_outcome_opened'] is False
+          assert value['scientific_settings_changed'] is False
+          PY
+
+      - name: Checkout the exact frozen scientific commit
+        run: |
+          set -euo pipefail
+          git checkout --detach "${FROZEN_HEAD_SHA}"
+          test "$(git rev-parse HEAD)" = "${FROZEN_HEAD_SHA}"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install pinned outcome runtime
+        run: python -m pip install --disable-pip-version-check numpy==1.26.4
+
+      - name: Download the exact Stage 0 lock from the source run
+        uses: actions/download-artifact@v4
+        with:
+          name: srsa-stage0-final-lock
+          path: locks/stage0
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ env.SOURCE_RUN_ID }}
+
+      - name: Download the exact Stage 1 lock from the source run
+        uses: actions/download-artifact@v4
+        with:
+          name: srsa-stage1-final-lock
+          path: locks/stage1
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ env.SOURCE_RUN_ID }}
+
+      - name: Download the exact Stage 2 lock from the source run
+        uses: actions/download-artifact@v4
+        with:
+          name: srsa-stage2-final-lock
+          path: locks/stage2
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ env.SOURCE_RUN_ID }}
+
+      - name: Download the exact Stage 3 pre-outcome artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: srsa-stage3-preoutcome
+          path: stage3_preoutcome
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ env.SOURCE_RUN_ID }}
+
+      - name: Download all eight exact endpoint artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: cifar*
+          path: stage2_endpoints
+          merge-multiple: false
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ env.SOURCE_RUN_ID }}
+
+      - name: Verify every pre-outcome binding before label download
+        run: |
+          set -euo pipefail
+          test ! -e stage1_sealed
+          test -f locks/stage0/SRSA_STAGE0_FINAL_LOCK_2026-08-15.json
+          test -f locks/stage1/SRSA_STAGE1_FINAL_LOCK_2026-08-15.json
+          test -f locks/stage2/SRSA_STAGE2_FINAL_LOCK_2026-08-15.json
+          test -f stage3_preoutcome/stage3_out/SRSA_STAGE3_PREOUTCOME_LOCK.json
+          test -f stage3_preoutcome/stage3_out/cifar100/preoutcome.npz
+          test -f stage3_preoutcome/stage3_out/cifar10/preoutcome.npz
+          python - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+
+          def sha256(path: str) -> str:
+              return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+          stage3_path = Path('stage3_preoutcome/stage3_out/SRSA_STAGE3_PREOUTCOME_LOCK.json')
+          stage3 = json.loads(stage3_path.read_text(encoding='utf-8'))
+          assert stage3['decision'] == 'PASS_SRSA_STAGE3_PREOUTCOME'
+          boundary = stage3['information_boundary']
+          assert boundary['sealed_label_artifact_downloaded'] is False
+          assert boundary['sealed_labels_accessed'] is False
+          assert boundary['labels_accessed'] is False
+          assert boundary['selector_executed'] is False
+          assert boundary['primary_or_deployment_outcome_opened'] is False
+
+          expected_code = stage3['code']
+          observed_code = {
+              'core_sha256': sha256('post_v20/srsa_cifar/srsa_core.py'),
+              'frozen_selector_sha256': sha256('post_v20/srsa_cifar/srsa_selector_frozen.py'),
+              'stage4_sha256': sha256('post_v20/srsa_cifar/srsa_stage4_outcome.py'),
+          }
+          for key, observed in observed_code.items():
+              assert observed == expected_code[key], (key, observed, expected_code[key])
+
+          for task in ('cifar100', 'cifar10'):
+              for model in stage3['tasks'][task]['root_order']:
+                  directory = Path('stage2_endpoints') / model
+                  assert (directory / 'receipt.json').is_file(), directory
+                  assert (directory / 'predictions.npz').is_file(), directory
+
+          record = {
+              'decision': 'PASS_SRSA_STAGE4_CONTINUATION_PREFLIGHT',
+              'source_run_id': 31888204323,
+              'source_head_sha': '23dedb414875be0f9531d1bef0634ed546ffafdd',
+              'stage3_lock_sha256': sha256(str(stage3_path)),
+              'sealed_label_artifact_downloaded': False,
+              'sealed_label_values_accessed': False,
+              'scientific_settings_changed': False,
+          }
+          Path('SRSA_STAGE4_CONTINUATION_PREFLIGHT.json').write_text(
+              json.dumps(record, indent=2) + '\n', encoding='utf-8'
+          )
+          PY
+
+      - name: Download sealed labels only after the complete preflight PASS
+        uses: actions/download-artifact@v4
+        with:
+          name: srsa-stage1-sealed-labels
+          path: stage1_sealed
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ env.SOURCE_RUN_ID }}
+
+      - id: outcome
+        name: Open labels once and execute every frozen condition
+        run: |
+          set -euo pipefail
+          test -f stage1_sealed/cifar100/labels.npz
+          test -f stage1_sealed/cifar10/labels.npz
+          python post_v20/srsa_cifar/srsa_stage4_outcome.py \
+            --config post_v20/srsa_cifar/SRSA_CONFIG_2026-08-14.json \
+            --stage0-lock locks/stage0/SRSA_STAGE0_FINAL_LOCK_2026-08-15.json \
+            --stage1-lock locks/stage1/SRSA_STAGE1_FINAL_LOCK_2026-08-15.json \
+            --stage2-lock locks/stage2/SRSA_STAGE2_FINAL_LOCK_2026-08-15.json \
+            --stage3-lock stage3_preoutcome/stage3_out/SRSA_STAGE3_PREOUTCOME_LOCK.json \
+            --stage1-sealed-root stage1_sealed \
+            --endpoints-root stage2_endpoints \
+            --preoutcome-root stage3_preoutcome/stage3_out \
+            --stage3-commit "${FROZEN_HEAD_SHA}" \
+            --output stage4_out \
+            2>&1 | tee srsa-stage4-continuation.log
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          value = json.loads(Path(
+              'stage4_out/SRSA_STAGE4_RESULT.json'
+          ).read_text(encoding='utf-8'))
+          assert value['decision'] in {'GO_SRSA_PRIMARY', 'NO_GO_SRSA_PRIMARY'}
+          assert value['stage3_preoutcome_commit'] == '23dedb414875be0f9531d1bef0634ed546ffafdd'
+          assert value['information_boundary']['label_opening_jobs'] == 1
+          assert value['information_boundary']['all_four_roots_executed_and_reported'] is True
+          Path('stage4-decision.txt').write_text(value['decision'] + '\n', encoding='utf-8')
+          PY
+          echo "decision=$(cat stage4-decision.txt)" >> "${GITHUB_OUTPUT}"
+
+      - name: Upload the literal Stage 4 result
+        uses: actions/upload-artifact@v4
+        with:
+          name: srsa-stage4-result
+          path: |
+            SRSA_STAGE4_CONTINUATION_PREFLIGHT.json
+            stage4_out/SRSA_STAGE4_RESULT.json
+            stage4_out/SRSA_STAGE4_PAIRED_RUNS.npz
+            srsa-stage4-continuation.log
+          if-no-files-found: error
+          retention-days: 90
