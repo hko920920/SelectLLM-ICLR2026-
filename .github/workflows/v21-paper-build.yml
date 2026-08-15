@@ -1,0 +1,102 @@
+name: V21 paper build and submission audit
+
+on:
+  push:
+    branches: [paper/v21-calibrated]
+    paths:
+      - "docs/v21/V21_BUILD_TRIGGER.json"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 1
+      - name: Install LaTeX and PDF audit tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            latexmk \
+            texlive-latex-base \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-bibtex-extra \
+            poppler-utils
+      - name: Build V21 from a clean directory
+        working-directory: paper
+        run: |
+          set -euo pipefail
+          rm -f main.aux main.bbl main.blg main.fdb_latexmk main.fls main.log main.out main.toc main.pdf
+          latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+      - name: Audit page boundary, references, and PDF text
+        working-directory: paper
+        run: |
+          set -euo pipefail
+          mkdir -p ../v21_build
+          cp main.pdf main.log main.aux main.bbl ../v21_build/
+          pdfinfo main.pdf > ../v21_build/pdfinfo.txt
+          pdftotext -layout main.pdf ../v21_build/main.txt
+          marker=$(grep -o 'V21_MAIN_TEXT_LAST_PAGE=[0-9][0-9]*' main.log | tail -1 | cut -d= -f2)
+          test -n "$marker"
+          printf '%s\n' "$marker" > ../v21_build/main_text_last_page.txt
+          if [ "$marker" -gt 9 ]; then
+            echo "Main text exceeds 9 pages: $marker" >&2
+            exit 1
+          fi
+          if grep -E 'LaTeX Warning: (Reference|Citation).*undefined|There were undefined references' main.log; then
+            echo 'Undefined reference or citation found' >&2
+            exit 1
+          fi
+          if grep -E 'multiply defined|Label .* multiply defined' main.log; then
+            echo 'Multiply-defined label found' >&2
+            exit 1
+          fi
+          python - <<'PY'
+          import json
+          import re
+          from pathlib import Path
+          log = Path('main.log').read_text(errors='replace')
+          text = Path('../v21_build/main.txt').read_text(errors='replace')
+          marker = int(Path('../v21_build/main_text_last_page.txt').read_text().strip())
+          required = [
+              'candidate evidence frame',
+              'fixed-query',
+              'development-informed held-out confirmation',
+              'practically large harm',
+          ]
+          missing = [phrase for phrase in required if phrase.lower() not in text.lower()]
+          if missing:
+              raise SystemExit({'missing_required_phrases': missing})
+          forbidden = [
+              r'universal attack',
+              r'production compromise is demonstrated',
+              r'completely untouched.*IMDB',
+          ]
+          hits = [pattern for pattern in forbidden if re.search(pattern, text, flags=re.I|re.S)]
+          if hits:
+              raise SystemExit({'forbidden_claim_patterns': hits})
+          summary = {
+              'decision': 'PASS_V21_CLEAN_BUILD',
+              'main_text_last_page': marker,
+              'undefined_references': False,
+              'multiply_defined_labels': False,
+              'required_claim_boundary_present': True,
+              'forbidden_claim_patterns_absent': True,
+          }
+          Path('../v21_build/V21_BUILD_AUDIT.json').write_text(json.dumps(summary, indent=2) + '\n')
+          print(json.dumps(summary, indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v21-paper-build
+          path: v21_build/
+          if-no-files-found: error
+          retention-days: 30
