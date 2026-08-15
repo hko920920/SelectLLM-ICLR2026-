@@ -18,11 +18,14 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - name: Install HTTP client
+        run: python -m pip install --disable-pip-version-check requests==2.32.5
       - name: Fetch public submission threads by exact title
         run: |
           python - <<'PY'
-          import json, urllib.parse, urllib.request
+          import json, urllib.parse
           from pathlib import Path
+          import requests
 
           titles = [
             "Clone-Robust AI Alignment",
@@ -33,31 +36,49 @@ jobs:
             "Strategic Candidacy in Generative AI Arenas",
             "Active Evaluation of General Agents: Problem Definition and Comparison of Baseline Algorithms",
           ]
+          bases = ["https://api2.openreview.net/notes", "https://api.openreview.net/notes"]
           out = Path("openreview_audit")
           out.mkdir()
           index = {"records": {}, "failures": {}}
-
-          def get(url):
-            req = urllib.request.Request(url, headers={"User-Agent": "SelectLLM-V21-audit"})
-            with urllib.request.urlopen(req, timeout=60) as r:
-              return json.loads(r.read().decode())
+          session = requests.Session()
+          session.headers.update({
+            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/151 Safari/537.36",
+            "Accept": "application/json,text/plain,*/*",
+            "Referer": "https://openreview.net/",
+            "Origin": "https://openreview.net",
+          })
 
           def val(x):
             return x.get("value") if isinstance(x, dict) and "value" in x else x
 
+          def retrieve(params):
+            errors = []
+            for base in bases:
+              try:
+                response = session.get(base, params=params, timeout=60)
+                if response.status_code != 200:
+                  errors.append(f"{base}: HTTP {response.status_code}: {response.text[:160]}")
+                  continue
+                payload = response.json()
+                if isinstance(payload, dict) and "notes" in payload:
+                  return base, payload["notes"]
+                errors.append(f"{base}: missing notes key")
+              except Exception as exc:
+                errors.append(f"{base}: {type(exc).__name__}: {exc}")
+            raise RuntimeError(" | ".join(errors))
+
           for title in titles:
             try:
-              query = urllib.parse.urlencode({"content.title": title, "limit": 1000})
-              payload = get("https://api2.openreview.net/notes?" + query)
-              matches = [n for n in payload.get("notes", []) if str(val(n.get("content", {}).get("title", ""))).strip() == title]
+              base, notes = retrieve({"content.title": title, "limit": 1000})
+              matches = [n for n in notes if str(val(n.get("content", {}).get("title", ""))).strip() == title]
               if not matches:
-                raise RuntimeError("no exact title match")
+                raise RuntimeError(f"no exact title match from {base}; returned={len(notes)}")
               submission = sorted(matches, key=lambda n: int(n.get("pdate") or n.get("cdate") or 0), reverse=True)[0]
               forum = submission["id"]
-              notes = get("https://api2.openreview.net/notes?" + urllib.parse.urlencode({"forum": forum, "limit": 1000})).get("notes", [])
+              forum_base, forum_notes = retrieve({"forum": forum, "limit": 1000})
               slug = "".join(c.lower() if c.isalnum() else "-" for c in title).strip("-")[:100]
-              (out / f"{slug}.json").write_text(json.dumps({"submission": submission, "notes": notes}, indent=2, ensure_ascii=False) + "\n")
-              index["records"][title] = {"forum": forum, "notes": len(notes), "file": f"{slug}.json"}
+              (out / f"{slug}.json").write_text(json.dumps({"submission": submission, "notes": forum_notes}, indent=2, ensure_ascii=False) + "\n")
+              index["records"][title] = {"lookup_api": base, "forum_api": forum_base, "forum": forum, "notes": len(forum_notes), "file": f"{slug}.json"}
             except Exception as e:
               index["failures"][title] = f"{type(e).__name__}: {e}"
           (out / "index.json").write_text(json.dumps(index, indent=2, ensure_ascii=False) + "\n")
