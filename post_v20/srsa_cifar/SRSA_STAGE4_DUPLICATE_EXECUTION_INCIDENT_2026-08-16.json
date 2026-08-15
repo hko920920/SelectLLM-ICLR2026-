@@ -1,0 +1,50 @@
+{
+  "schema": "srsa.cifar.stage4_duplicate_execution_incident.v1",
+  "date_kst": "2026-08-16",
+  "classification": "DUPLICATE_POST_OUTCOME_EXECUTION_DUE_TO_CONCURRENT_ORCHESTRATION",
+  "authoritative_first_execution": {
+    "run_id": 31895293285,
+    "job_id": 95037579202,
+    "head_sha": "0c5a9e878dae2ff2caed2fc6066eeb4111829c27",
+    "artifact_id": 9249629903,
+    "artifact_name": "srsa-stage4-result-technical-retry",
+    "artifact_digest": "sha256:458eb623eb08090a44f24783d9a475c289095808561ceea92770811ea0ed5492",
+    "decision": "NO_GO_SRSA_PRIMARY"
+  },
+  "unplanned_duplicate_execution": {
+    "run_id": 31896042798,
+    "job_id": 95039399217,
+    "head_sha": "25924a0f8c45ff7e722f12ab36fbd1f3b785ad07",
+    "artifact_id": 9249820403,
+    "artifact_name": "srsa-stage4-result",
+    "artifact_digest": "sha256:66860bdf1b05b6d237971193b995fe299acf67407443d52ab52fb7ce1389ab48",
+    "decision": "NO_GO_SRSA_PRIMARY"
+  },
+  "comparison": {
+    "result_json_file_sha256_first": "62b186dc075d8c18aec121b66cf22621c5b7b934bd8c3d093e9678bd7bfa3db9",
+    "result_json_file_sha256_duplicate": "62b186dc075d8c18aec121b66cf22621c5b7b934bd8c3d093e9678bd7bfa3db9",
+    "result_canonical_sha256_first": "879ad921090645464dc32ad39fc5154fa2c12cf8a6d363e1c5deff2eb92344be",
+    "result_canonical_sha256_duplicate": "879ad921090645464dc32ad39fc5154fa2c12cf8a6d363e1c5deff2eb92344be",
+    "paired_runs_sha256_first": "bfea462f0025dec3f276e4655caf9b0ad81049bd50f9c3701b45c01d4a12422a",
+    "paired_runs_sha256_duplicate": "bfea462f0025dec3f276e4655caf9b0ad81049bd50f9c3701b45c01d4a12422a",
+    "result_json_semantically_equal": true,
+    "paired_runs_bitwise_equal": true
+  },
+  "global_information_boundary": {
+    "first_valid_label_opening_jobs": 1,
+    "later_duplicate_label_opening_jobs": 1,
+    "total_label_opening_jobs_after_incident": 2,
+    "task_model_wrapper_seed_selector_or_gate_changed_between_runs": false,
+    "result_used_for_primary_inference": "authoritative_first_execution_only",
+    "duplicate_used_for_task_or_parameter_selection": false,
+    "third_task_introduced": false
+  },
+  "impact": "The strict global single-opening provenance claim must be withdrawn and replaced with: the first authorized Stage 4 opening is authoritative; an unplanned later exact rerun reproduced the result and paired-run arrays bitwise. The scientific NO-GO decision and all effect estimates are unchanged.",
+  "required_reporting": [
+    "Disclose both run IDs.",
+    "Use run 31895293285 and artifact 9249629903 as the authoritative outcome.",
+    "Describe run 31896042798 only as an unplanned exact reproducibility duplicate.",
+    "Do not claim that labels were globally opened by only one job across all executions.",
+    "Do not rerun Stage 4 again."
+  ]
+}
