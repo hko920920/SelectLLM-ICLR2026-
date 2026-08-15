@@ -1,0 +1,53 @@
+{
+  "schema": "praa-e.execution_closure.v1",
+  "date": "2026-08-15",
+  "decision": "STOP_PRAA_E_PREOUTCOME_INHERITED_FULL_BLOCK_TRIGGER_GATE",
+  "original_praa_family_decision": "STOP_PRAA_STAGE3_ERROR_HEAD_AND_THRESHOLD",
+  "run": {
+    "run_id": 31874202961,
+    "head_sha": "56ef525efdf8a4b372c56ed7549d8b48f647ce57",
+    "job_id": 94987357463,
+    "workflow_ui_conclusion": "success",
+    "workflow_ui_conclusion_is_scientifically_false": true,
+    "reason": "The outer bash-to-tee pipeline did not propagate the executor's nonzero scientific-stop exit code."
+  },
+  "artifact": {
+    "artifact_id": 9244403825,
+    "name": "praa-e-single-run-execution",
+    "github_digest": "sha256:f9f88ea95b17f98ead3731c69778cdc306654f22d267879844e8091db035550c",
+    "run_log_sha256": "e652b6af7fa0e2e7788ce472ec2bd2e46aa5512ae838a3375755c60469a1534a",
+    "state_sha256": "541ffa875bd3d2672c0bd9837a9bb5c432b98b39fb623eff086d07689f3107f5"
+  },
+  "verified_execution": {
+    "exact_package_transport": "PASS",
+    "authorization_and_code_binding": "PASS",
+    "synthetic_test": "PASS_PRAA_E_SYNTHETIC",
+    "clean_endpoint_execution": "PASS_ALL_FOUR_EMOTION_ROOTS",
+    "derived_endpoint_decision": "STOP_PRAA_STAGE4_DERIVED_ENDPOINTS",
+    "failed_gates": [
+      "deployment.trigger_at_most_one_percent"
+    ],
+    "full_block_trigger_counts": {
+      "primary_outcome": [10, 6, 14, 8],
+      "deployment": [1, 5, 6, 6]
+    },
+    "full_block_maximum_trigger_count": {
+      "primary_outcome": 15,
+      "deployment": 5
+    }
+  },
+  "information_boundary": {
+    "labels_received": false,
+    "primary_labels_opened": false,
+    "deployment_labels_opened": false,
+    "selector_executed": false,
+    "regret_computed": false,
+    "deployment_metric_computed": false
+  },
+  "literal_interpretation": "Two frozen derived endpoints triggered on 6 of 500 deployment rows, exceeding the inherited full-block maximum of 5 by one row. The PRAA-E protocol requires inherited full-block checks before sealed-remainder finalization, so this is a literal pre-outcome STOP. No primary or deployment outcome was computed.",
+  "prohibited_followup": [
+    "Do not change thresholds, endpoints, task, exposed UIDs, seeds, materiality, or gates to rescue PRAA-E.",
+    "Do not describe the green GitHub workflow badge as a scientific PASS.",
+    "Do not open PRAA-E sealed labels under this stopped protocol."
+  ]
+}
