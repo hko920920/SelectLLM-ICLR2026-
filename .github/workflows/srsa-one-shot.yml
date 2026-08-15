@@ -45,7 +45,7 @@ jobs:
           test ! -e post_v20/srsa_cifar/SRSA_STAGE4_RESULT_2026-08-15.json
           python -m compileall -q post_v20/srsa_cifar
           python - <<'PY'
-          import hashlib, json
+          import hashlib, json, subprocess
           from pathlib import Path
           import yaml
           config_path = Path('post_v20/srsa_cifar/SRSA_CONFIG_2026-08-14.json')
@@ -73,15 +73,21 @@ jobs:
           assert set(receipt['datasets']) == {'cifar100', 'cifar10'}
           assert auth['decision'] == 'AUTHORIZE_SRSA_CIFAR_FINAL_ONE_SHOT'
           assert auth['source_commit'] == 'be5bbdd7e438c8eae9f2a22a3c18ff668f759c70'
-          assert hashlib.sha256(workflow_path.read_bytes()).hexdigest() == auth['workflow_sha256']
+          observed_blob = subprocess.check_output(
+              ['git', 'hash-object', str(workflow_path)], text=True
+          ).strip()
+          assert observed_blob == auth['workflow_git_blob_sha']
           assert auth['scientific_settings_changed'] is False
           assert isinstance(workflow, dict) and set(workflow['jobs']) == {
               'preflight', 'stage0-lock', 'stage1-seal', 'stage2-endpoint',
               'stage2-close', 'stage3-preoutcome', 'stage4-outcome'
           }
           PY
-          pytest -q test_srsa_core.py test_srsa_selector_fast.py \
-            test_srsa_selector_frozen.py test_srsa_stage4_math.py
+          (
+            cd post_v20/srsa_cifar
+            pytest -q test_srsa_core.py test_srsa_selector_fast.py \
+              test_srsa_selector_frozen.py test_srsa_stage4_math.py
+          )
           echo "decision=PASS_SRSA_FINAL_PREFLIGHT" >> "${GITHUB_OUTPUT}"
 
   stage0-lock:
