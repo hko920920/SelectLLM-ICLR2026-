@@ -15,6 +15,11 @@ from typing import Sequence
 
 import numpy as np
 
+from srsa_acquisition import (
+    partition_table_from_equality,
+    stable_acquisition_from_equality,
+    stable_acquisition_from_table,
+)
 from srsa_core import (
     Registry,
     SRSAError,
@@ -44,21 +49,10 @@ def acquisition_from_equality(
     equality: np.ndarray,
     posterior: np.ndarray,
 ) -> np.ndarray:
-    equality = np.asarray(equality, dtype=bool)
-    posterior = np.asarray(posterior, dtype=np.float64)
-    if equality.ndim != 3 or equality.shape[1:] != (
-        len(posterior),
-        len(posterior),
-    ):
-        raise SRSAError((equality.shape, posterior.shape))
-    return np.einsum(
-        "i,rij,j->r",
-        posterior,
-        equality,
-        posterior,
-        optimize=True,
-        dtype=np.float64,
-    )
+    try:
+        return stable_acquisition_from_equality(equality, posterior)
+    except RuntimeError as error:
+        raise SRSAError(str(error)) from error
 
 
 def choose_query_frozen(
@@ -216,6 +210,10 @@ def run_active_frozen(
 
     feedback = reference_feedback(registry.labels, registry.tags, references_array)
     equality = response_equality_tensor(registry)
+    try:
+        partition_table = partition_table_from_equality(equality)
+    except RuntimeError as error:
+        raise SRSAError(str(error)) from error
     _, root_regrets = complete_root_regret(clean.labels, references_array)
     root_count = clean.labels.shape[1]
     uid_ranks = _uid_ranks(uids)
@@ -226,7 +224,7 @@ def run_active_frozen(
         1.0 / registry.labels.shape[1],
         dtype=np.float64,
     )
-    acquisition0 = acquisition_from_equality(equality, posterior0)
+    acquisition0 = stable_acquisition_from_table(partition_table, posterior0)
     position0 = _choose_positions_batched(
         acquisition0[pools_array],
         pools_array,
@@ -249,8 +247,8 @@ def run_active_frozen(
     )
     for pattern_index, pattern in enumerate(feedback_patterns):
         posterior = _softmax(pattern, temperature)
-        pattern_acquisition[pattern_index] = acquisition_from_equality(
-            equality,
+        pattern_acquisition[pattern_index] = stable_acquisition_from_table(
+            partition_table,
             posterior,
         )
         pattern_root_mass[pattern_index] = _root_mass(
