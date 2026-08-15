@@ -1,0 +1,25 @@
+{
+  "schema": "srsa.cifar.stage0_import_repair_authorization.v1",
+  "date": "2026-08-15",
+  "decision": "AUTHORIZE_OUTCOME_BLIND_TECHNICAL_REPAIR",
+  "failed_run_id": 31883803117,
+  "failed_job_id": 95009984533,
+  "failure": "The GitHub CLI artifact-download command exited before materializing the already existing Stage 0 receipt artifact.",
+  "artifact": {
+    "run_id": 31792763410,
+    "artifact_id": 9217245752,
+    "name": "srsa-stage0-public-metadata-receipt",
+    "digest": "sha256:cc1215e8172002085a607819cc6787b5dfc6ab669261a8e13d3b0703921866a0",
+    "expired": false
+  },
+  "information_boundary": {
+    "artifact_materialized": false,
+    "dataset_rows_decoded": false,
+    "labels_accessed": false,
+    "model_inference_executed": false,
+    "selector_executed": false,
+    "outcome_opened": false
+  },
+  "only_authorized_change": "Use actions/download-artifact@v4 instead of gh run download for the same frozen artifact.",
+  "scientific_settings_changed": false
+}
