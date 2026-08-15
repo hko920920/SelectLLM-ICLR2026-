@@ -1,0 +1,76 @@
+{
+  "schema": "srsa.cifar.clean_execution_technical_amendment.v1",
+  "date": "2026-08-15",
+  "decision": "AUTHORIZE_SIMPLIFIED_OUTCOME_BLIND_ONE_SHOT",
+  "branch": "research/srsa-cifar-audit",
+  "prior_failed_runs": [
+    {
+      "run_id": 31883803117,
+      "stage": "stage0-lock",
+      "failure": "GitHub CLI artifact import exited before materializing the existing Stage 0 receipt.",
+      "information_boundary": {
+        "dataset_rows_decoded": false,
+        "labels_accessed": false,
+        "model_inference_on_cifar": false,
+        "selector_executed": false,
+        "outcome_opened": false
+      }
+    },
+    {
+      "run_id": 31884062926,
+      "stage": "repair workflow push",
+      "failure": "GITHUB_TOKEN was not permitted to modify .github/workflows/srsa-one-shot.yml.",
+      "information_boundary": {
+        "dataset_rows_decoded": false,
+        "labels_accessed": false,
+        "model_inference_on_cifar": false,
+        "selector_executed": false,
+        "outcome_opened": false
+      }
+    }
+  ],
+  "simplification": {
+    "remove_cross_run_stage0_artifact_import": true,
+    "remove_workflow_self_modification": true,
+    "remove_action_git_commits_and_pushes": true,
+    "single_same_run_stage_chain": [
+      "stage0 public metadata lock",
+      "stage1 public/sealed partition",
+      "eight label-free clean endpoints",
+      "stage2 family closure",
+      "stage3 pre-outcome lock",
+      "single stage4 label opening"
+    ],
+    "authoritative_results": "GitHub Actions artifacts from the clean one-shot run"
+  },
+  "stage0_policy": {
+    "rerun_exact_frozen_public_metadata_probe": true,
+    "dataset_archive_extraction_allowed": false,
+    "dataset_row_decode_allowed": false,
+    "label_access_allowed": false,
+    "cifar_prediction_allowed": false,
+    "zero_input_model_probe_allowed": true
+  },
+  "unchanged_scientific_settings": [
+    "CIFAR-100 primary task",
+    "CIFAR-10 non-substitutable replication",
+    "four fixed roots per task",
+    "checkpoint URLs and hashes",
+    "structured wrapper and 5 percent canary rate",
+    "pool size 500",
+    "budget 2",
+    "temperature 0.05",
+    "3000 paired runs per task",
+    "bootstrap and sign-flip repetitions",
+    "all primary gates",
+    "fixed-query and root-aware controls",
+    "no-third-task closure"
+  ],
+  "information_boundary_at_authorization": {
+    "cifar_primary_labels_opened": false,
+    "cifar_replication_labels_opened": false,
+    "selector_outcome_executed": false,
+    "stage4_result_exists": false
+  },
+  "scientific_settings_changed": false
+}
