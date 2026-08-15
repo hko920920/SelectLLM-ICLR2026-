@@ -5,6 +5,7 @@ on:
     branches:
       - research/srsa-cifar-audit
     paths:
+      - ".github/workflows/srsa-stage0-import-repair.yml"
       - "post_v20/srsa_cifar/SRSA_STAGE0_IMPORT_REPAIR_AUTHORIZE_2026-08-15.json"
 
 permissions:
@@ -37,32 +38,29 @@ jobs:
 
           workflow_path = Path('.github/workflows/srsa-one-shot.yml')
           text = workflow_path.read_text(encoding='utf-8')
-          old = '''      - name: Import the exact successful Stage 0 receipt
-        run: |
-          set -euo pipefail
-          gh run download 31792763410 \\
-            --repo "${GITHUB_REPOSITORY}" \\
-            --name srsa-stage0-public-metadata-receipt \\
-            --dir prior_stage0
-          test -f prior_stage0/SRSA_STAGE0_PUBLIC_METADATA_RECEIPT.json
-'''
-          new = '''      - name: Download the exact successful Stage 0 receipt
-        uses: actions/download-artifact@v4
-        with:
-          name: srsa-stage0-public-metadata-receipt
-          path: prior_stage0
-          github-token: ${{ github.token }}
-          repository: ${{ github.repository }}
-          run-id: 31792763410
-
-      - name: Import the exact successful Stage 0 receipt
-        run: |
-          set -euo pipefail
-          test -f prior_stage0/SRSA_STAGE0_PUBLIC_METADATA_RECEIPT.json
-'''
-          if old not in text:
-              raise SystemExit('expected Stage 0 import block not found exactly')
-          text = text.replace(old, new, 1)
+          start_marker = "      - name: Import the exact successful Stage 0 receipt\n"
+          python_marker = "          python - <<'PY'\n"
+          start = text.index(start_marker)
+          python_start = text.index(python_marker, start)
+          token_expression = "$" + "{{ github.token }}"
+          repository_expression = "$" + "{{ github.repository }}"
+          replacement_lines = [
+              "      - name: Download the exact successful Stage 0 receipt",
+              "        uses: actions/download-artifact@v4",
+              "        with:",
+              "          name: srsa-stage0-public-metadata-receipt",
+              "          path: prior_stage0",
+              f"          github-token: {token_expression}",
+              f"          repository: {repository_expression}",
+              "          run-id: 31792763410",
+              "",
+              "      - name: Import the exact successful Stage 0 receipt",
+              "        run: |",
+              "          set -euo pipefail",
+              "          test -f prior_stage0/SRSA_STAGE0_PUBLIC_METADATA_RECEIPT.json",
+          ]
+          replacement = "\n".join(replacement_lines) + "\n"
+          text = text[:start] + replacement + text[python_start:]
           workflow_path.write_text(text, encoding='utf-8')
 
           auth_path = Path('post_v20/srsa_cifar/SRSA_ONE_SHOT_AUTHORIZE_2026-08-15.json')
@@ -75,7 +73,7 @@ jobs:
               'artifact_confirmed_present_and_unexpired': True,
               'artifact_id': 9217245752,
               'artifact_digest': 'sha256:cc1215e8172002085a607819cc6787b5dfc6ab669261a8e13d3b0703921866a0',
-              'repair': 'Replace gh run download with actions/download-artifact@v4 using the same frozen run, artifact, repository, and token.',
+              'repair': 'Replace gh run download with actions/download-artifact@v4 using the same frozen run and artifact.',
               'any_dataset_row_decoded': False,
               'any_label_accessed': False,
               'any_model_inference_executed': False,
