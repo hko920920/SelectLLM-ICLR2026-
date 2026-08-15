@@ -1,64 +1,40 @@
 \section{Frame Identifiability and Sequential Amplification}
 \label{sec:theory}
 
-We ask whether labels can compensate for a missing frame in any response-only policy, whether a constant refinement can redirect a current selector, and how approximate root-level invariance controls the resulting transcript.
+We ask whether labels can compensate for a missing frame in any response-only policy and whether a constant refinement can redirect a current selector.
 
 \paragraph{Response-compatible worlds.}
-Let $O(E)=\{(e,a_e):e\in E\}$ be the public response view. Frames exposing the same $O(E)$ and label transcript are indistinguishable to a frame-blind policy: labels reveal useful behavior, not whether entries are independent roots. A fresh hidden-frame choice at every step makes this ambiguity accumulate.
+Let $O(E)=\{(e,a_e):e\in E\}$ be the public response view. Frames exposing the same $O(E)$ and label transcript are indistinguishable to a frame-blind policy: labels reveal behavior, not whether entries are independent roots. A fresh hidden-frame choice at every step makes this ambiguity accumulate.
 
-For the construction below, let $V^\pi_{\Phi,B}$ be the expected information, in bits, acquired by policy $\pi$ about $B$ latent binary candidate coordinates, and let $V^*_{\Phi,B}$ be the optimum for a policy that knows $\Phi$. Define $I_{\mathrm{hi}}=0.540852$ and $I_{\mathrm{lo}}=0.459148$ bits.
+Let $V^\pi_{\Phi,B}$ be the expected information acquired by policy $\pi$ about $B$ latent binary candidate coordinates, and $V^*_{\Phi,B}$ the optimum with known $\Phi$. Define $I_{\mathrm{hi}}=0.540852$ and $I_{\mathrm{lo}}=0.459148$ bits.
 
 \begin{theorem}[Tight cost of a missing evidence frame]
 \label{thm:sequential}
-For every integer budget $B\geq1$, there is one fixed public response registry, a pool with two binary queries per coordinate, and $2^B$ response-compatible frames such that every possibly randomized frame-blind policy has, on some fixed compatible frame,
+For every integer $B\geq1$, there is one fixed public response registry, a pool with two binary queries per coordinate, and $2^B$ response-compatible frames such that every randomized frame-blind policy has, on some compatible frame,
 \[
 V^*_{\Phi,B}-V^\pi_{\Phi,B}
 \geq \frac{B}{2}(I_{\mathrm{hi}}-I_{\mathrm{lo}})
 =0.040852B\ \text{bits}.
 \]
-The bound is tight. The corresponding tight minimax excess coordinate-wise Hamming risk is $B/24$.
+The bound is tight; the corresponding tight minimax excess coordinate-wise Hamming risk is $B/24$.
 \end{theorem}
 
-\paragraph{Proof intuition.}
-One latent frame bit per coordinate selects which of two query polarities yields $I_{\mathrm{hi}}$ instead of $I_{\mathrm{lo}}$. Under uniform compatible frames, an untouched bit is independent of prior observations, so a frame-blind policy chooses the informative polarity with probability at most one half. Revisiting cannot improve its minimax value. Averaging yields a fixed hard frame; independent randomization attains equality. Appendix~\ref{app:proofs} gives the construction and $1/24$ Hamming-risk calculation.
-
-The construction grows exponentially with $B$, proving necessity rather than practical registry size. A constant change can nevertheless be amplified by a concrete selector.
+One latent frame bit per coordinate determines which query polarity yields $I_{\mathrm{hi}}$. Before that coordinate is queried, the bit is independent of prior observations, so a frame-blind policy chooses the informative polarity with probability at most one half. Revisiting cannot improve the minimax value. Averaging gives a fixed hard frame and independent randomization attains equality (Appendix~\ref{app:proofs}). The exponential construction proves necessity, not typical registry size.
 
 \begin{theorem}[Constant-registry full-path amplification]
 \label{thm:amplification}
-For every odd $B\geq3$ and finite Select-LLM temperature $\tau>0$, there is a pool with five canonical response behaviors and $2B$ items such that adding four exact aliases produces nine submitted entries, redirects all $B$ acquisitions to a disjoint query block, and changes cumulative regret from zero to at least
+For every odd $B\geq3$ and finite Select-LLM temperature $\tau>0$, there is a pool with five canonical behaviors and $2B$ items such that adding four exact aliases produces nine entries, redirects all $B$ acquisitions to a disjoint block, and raises cumulative regret from zero to at least
 \[
 \frac{B^2-1}{4B}=\Omega(B),
 \]
-while the terminal regret is $(B-1)/(2B)$. The two best canonical behaviors and all existing responses are unchanged.
+with terminal regret $(B-1)/(2B)$. The two best canonical behaviors and all existing responses are unchanged.
 \end{theorem}
 
-\paragraph{Proof intuition.}
-The clean registry always prefers a good query block. Four aliases move another behavior's mass above one half along an alternating-label path, making every bad query preferable and reinforcing the condition after each selection. Counting odd steps gives both regret bounds; Appendix~\ref{app:proofs} verifies them for every finite $\tau$.
-
-This is mechanism-specific, not universal harm, and exact hashing blocks the literal construction. Section~\ref{sec:protocol} therefore tests response-distinct, quality-equivalent variants.
+Four aliases move one behavior's mass above one half along an alternating-label path, making every bad query preferable and reinforcing the condition after each selection. Counting odd steps gives both regret bounds (Appendix~\ref{app:proofs}). This is mechanism-specific, and exact hashing blocks the literal construction; Section~\ref{sec:protocol} therefore tests response-distinct variants.
 
 \begin{proposition}[Selector-agnostic root factorization]
 \label{prop:factorization}
-Suppose $\rho$ is authenticated, each root has fixed mass $w_r$, and at every step a selector's state, action kernel, and decision depend on entries only through root summaries $S_r$. If $S_r$ is invariant to an allowed within-root refinement, then the distribution of the complete query transcript and root decisions is invariant to that refinement.
+Suppose $\rho$ is authenticated, each root has fixed mass $w_r$, and a selector's state, action kernel, and decision depend on entries only through root summaries $S_r$. If $S_r$ is invariant to an allowed within-root refinement, then the complete query transcript and root decisions are invariant in distribution.
 \end{proposition}
 
-Transcript induction proves the claim (Appendix~\ref{app:proofs}). It covers uncertainty, diversity, and mutual-information rules only when they actually factor through authenticated, refinement-invariant root summaries; a method label alone gives no protection. Exact quotienting handles unique response patterns, not response-distinct variants. Predictions also cannot authenticate $\rho$, so deployment still requires a declared canonical entry or fixed within-root mixture.
-
-\begin{proposition}[Approximate transcript stability]
-\label{prop:approximate-stability}
-Consider two $B$-step root-level experiments with the same initial state and conditional next-state kernels $P_t(\cdot\mid h)$ and $Q_t(\cdot\mid h)$ on a common history space. If
-\[
-\sup_h \operatorname{TV}\!\left(P_t(\cdot\mid h),Q_t(\cdot\mid h)\right)\leq\varepsilon_t
-\quad\text{for }t=1,\ldots,B,
-\]
-then their complete transcript laws satisfy
-\[
-\operatorname{TV}\!\left(\mathcal L(T_B),\mathcal L(T'_B)\right)
-\leq 1-\prod_{t=1}^B(1-\varepsilon_t)
-\leq \min\!\left\{1,\sum_{t=1}^B\varepsilon_t\right\}.
-\]
-Consequently, for any transcript cost whose range has width at most $M$, the absolute difference in expected cost is at most $M\min\{1,\sum_t\varepsilon_t\}$.
-\end{proposition}
-
-A sequential maximal coupling proves the result (Appendix~\ref{app:v21-stability}). Proposition~\ref{prop:factorization} is the exact case $\varepsilon_t=0$. The bound also clarifies why small per-step representation errors can accumulate with annotation budget, while large path divergence need not imply large terminal cost: the latter additionally depends on the geometry of the competing roots.
+Transcript induction proves the claim (Appendix~\ref{app:proofs}). It covers uncertainty, diversity, and mutual-information rules only when their implemented state actually factorizes this way. Exact quotienting handles literal response copies, not response-distinct variants, and predictions cannot authenticate $\rho$. Appendix~\ref{app:v21-stability} gives the approximate counterpart: if the root-level next-step kernels differ by at most $\varepsilon_t$ in total variation, complete transcript distance is at most $1-\prod_t(1-\varepsilon_t)\leq\sum_t\varepsilon_t$, with the same factor controlling any bounded selection cost.
