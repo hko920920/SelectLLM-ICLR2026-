@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Vectorized SRSA selector execution for the final paired outcome stage."""
+"""Vectorized SRSA selector execution for development parity checks."""
 
 from __future__ import annotations
 
@@ -8,6 +8,7 @@ from typing import Sequence
 
 import numpy as np
 
+from srsa_acquisition import stable_acquisition_from_equality
 from srsa_core import (
     Registry,
     SRSAError,
@@ -38,21 +39,10 @@ def acquisition_from_equality(
     equality: np.ndarray,
     posterior: np.ndarray,
 ) -> np.ndarray:
-    equality = np.asarray(equality, dtype=bool)
-    posterior = np.asarray(posterior, dtype=np.float64)
-    if equality.ndim != 3 or equality.shape[1:] != (
-        len(posterior),
-        len(posterior),
-    ):
-        raise SRSAError((equality.shape, posterior.shape))
-    return np.einsum(
-        "i,rij,j->r",
-        posterior,
-        equality,
-        posterior,
-        optimize=True,
-        dtype=np.float64,
-    )
+    try:
+        return stable_acquisition_from_equality(equality, posterior)
+    except RuntimeError as error:
+        raise SRSAError(str(error)) from error
 
 
 def run_active_fast(
