@@ -1,0 +1,6 @@
+{
+  "schema": "selectllm.v21.openreview_audit.trigger.v1",
+  "date_kst": "2026-08-16",
+  "purpose": "Fetch public submissions, official reviews, author responses, and decisions for the fixed closest-work set.",
+  "paper_experiments_frozen": true
+}
