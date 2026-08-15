@@ -4,6 +4,7 @@ import numpy as np
 
 import srsa_core as core
 import srsa_selector_frozen as frozen
+from srsa_acquisition import stable_acquisition_from_keys
 from test_srsa_core import synthetic_fixture
 
 
@@ -60,7 +61,7 @@ def reference_active(
                 weights=posterior,
                 minlength=clean.labels.shape[1],
             )
-            acquisition = core.acquisition_values(keys[pool], posterior)
+            acquisition = stable_acquisition_from_keys(keys[pool], posterior)
             position = frozen.choose_query_frozen(
                 acquisition,
                 active,
