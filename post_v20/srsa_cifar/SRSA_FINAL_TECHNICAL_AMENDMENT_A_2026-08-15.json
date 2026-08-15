@@ -1,0 +1,36 @@
+{
+  "schema": "srsa.cifar.final_technical_amendment.v1",
+  "date": "2026-08-15",
+  "amendment": "A",
+  "decision": "AUTHORIZE_EXACT_RERUN_AFTER_PRE_DATA_PREFLIGHT_PATH_FAILURE",
+  "failed_run": {
+    "run_id": 31885601221,
+    "job_id": 95014339660,
+    "authorization_commit": "f3b713111084a5e1cd534f0fe8b36d002862c07c",
+    "failure": "The preflight invoked the four SRSA test files from the repository root although the files are stored under post_v20/srsa_cifar/.",
+    "failed_command": "pytest -q test_srsa_core.py test_srsa_selector_fast.py test_srsa_selector_frozen.py test_srsa_stage4_math.py"
+  },
+  "information_boundary": {
+    "preflight_hash_and_configuration_checks_passed": true,
+    "stage0_job_started": false,
+    "dataset_archive_downloaded_by_final_run": false,
+    "dataset_rows_decoded": false,
+    "labels_accessed": false,
+    "model_checkpoint_downloaded_by_final_run": false,
+    "model_inference_executed": false,
+    "selector_executed": false,
+    "outcome_opened": false
+  },
+  "only_change": "Run the same four frozen tests from their actual directory post_v20/srsa_cifar and bind the amended workflow by its Git blob SHA.",
+  "unchanged": [
+    "task and task role",
+    "dataset and partition",
+    "model roster and checkpoints",
+    "wrapper definition and deterministic variant rate",
+    "pool size, budget, temperature, and seed range",
+    "estimands, materiality gates, and inference",
+    "fixed-query and authenticated root-aware controls",
+    "no-third-task and replication-non-substitution rules"
+  ],
+  "scientific_settings_changed": false
+}
