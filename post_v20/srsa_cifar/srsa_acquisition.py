@@ -6,11 +6,12 @@ equivalence classes. Algebraically identical response partitions must receive
 bitwise identical acquisition values so that the frozen UID tie rule is not
 bypassed by BLAS or summation-order noise. This module canonicalizes every
 partition by membership bitmasks, uses ``math.fsum`` within and across groups,
-and reuses one value for every row with the same canonical partition.
+and evaluates each unique partition once per posterior.
 """
 
 from __future__ import annotations
 
+from dataclasses import dataclass
 import math
 
 import numpy as np
@@ -18,6 +19,14 @@ import numpy as np
 
 class StableAcquisitionError(RuntimeError):
     pass
+
+
+@dataclass(frozen=True)
+class PartitionTable:
+    entries: int
+    rows: int
+    unique_signatures: tuple[tuple[int, ...], ...]
+    inverse: np.ndarray
 
 
 def _validate_posterior(posterior: np.ndarray, entries: int) -> np.ndarray:
@@ -80,32 +89,62 @@ def canonical_partition_signatures(equality: np.ndarray) -> list[tuple[int, ...]
     return signatures
 
 
+def partition_table_from_equality(equality: np.ndarray) -> PartitionTable:
+    relation = np.asarray(equality, dtype=bool)
+    if relation.ndim != 3 or relation.shape[1] != relation.shape[2]:
+        raise StableAcquisitionError(relation.shape)
+    signatures = canonical_partition_signatures(relation)
+    unique_signatures = tuple(sorted(set(signatures)))
+    mapping = {
+        signature: index for index, signature in enumerate(unique_signatures)
+    }
+    inverse = np.asarray(
+        [mapping[signature] for signature in signatures],
+        dtype=np.int32,
+    )
+    inverse.setflags(write=False)
+    return PartitionTable(
+        entries=relation.shape[1],
+        rows=relation.shape[0],
+        unique_signatures=unique_signatures,
+        inverse=inverse,
+    )
+
+
+def stable_acquisition_from_table(
+    table: PartitionTable,
+    posterior: np.ndarray,
+) -> np.ndarray:
+    """Evaluate one cached partition table under one posterior."""
+
+    posterior_value = _validate_posterior(posterior, table.entries)
+    unique_values = np.empty(len(table.unique_signatures), dtype=np.float64)
+    for index, signature in enumerate(table.unique_signatures):
+        squared_masses: list[float] = []
+        for mask in signature:
+            mass = math.fsum(
+                float(posterior_value[entry])
+                for entry in range(table.entries)
+                if mask & (1 << entry)
+            )
+            squared_masses.append(mass * mass)
+        unique_values[index] = math.fsum(sorted(squared_masses))
+    values = unique_values[table.inverse]
+    if values.shape != (table.rows,):
+        raise StableAcquisitionError((values.shape, table.rows))
+    return values
+
+
 def stable_acquisition_from_equality(
     equality: np.ndarray,
     posterior: np.ndarray,
 ) -> np.ndarray:
     """Evaluate sum-of-squared group mass with canonical stable arithmetic."""
 
-    relation = np.asarray(equality, dtype=bool)
-    if relation.ndim != 3 or relation.shape[1] != relation.shape[2]:
-        raise StableAcquisitionError(relation.shape)
-    posterior_value = _validate_posterior(posterior, relation.shape[1])
-    signatures = canonical_partition_signatures(relation)
-    cache: dict[tuple[int, ...], float] = {}
-    values = np.empty(len(signatures), dtype=np.float64)
-    for row, signature in enumerate(signatures):
-        if signature not in cache:
-            squared_masses: list[float] = []
-            for mask in signature:
-                mass = math.fsum(
-                    float(posterior_value[entry])
-                    for entry in range(len(posterior_value))
-                    if mask & (1 << entry)
-                )
-                squared_masses.append(mass * mass)
-            cache[signature] = math.fsum(sorted(squared_masses))
-        values[row] = cache[signature]
-    return values
+    return stable_acquisition_from_table(
+        partition_table_from_equality(equality),
+        posterior,
+    )
 
 
 def stable_acquisition_from_keys(
