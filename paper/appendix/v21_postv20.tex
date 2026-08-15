@@ -49,23 +49,22 @@ For every root, active-minus-fixed equals the active terminal effect numerically
 
 The authoritative Stage-4 outcome was inadvertently executed a second time by a concurrently prepared continuation after the first valid run had already finished. The result JSON and complete paired-run arrays are bitwise identical across the two runs. The first run remains the only confirmatory analysis; the duplicate is retained as an execution incident and is not used for inference or claim strengthening. Consequently, we do not claim that the seal was globally opened in only one job across all infrastructure attempts.
 
-\section{Proof of Approximate Transcript Stability}
+\section{Approximate Transcript Stability}
 \label{app:v21-stability}
 
-We prove Proposition~\ref{prop:approximate-stability}. Couple the two experiments sequentially. They begin with the same empty history. Conditional on the coupled histories remaining equal through step $t-1$, apply a maximal coupling to $P_t(\cdot\mid h)$ and $Q_t(\cdot\mid h)$. The probability that the next states disagree is at most $\varepsilon_t$. Therefore the probability that the complete histories remain equal through all $B$ steps is at least
+\begin{proposition}[Approximate transcript stability]
+\label{prop:approximate-stability}
+Consider two $B$-step root-level experiments with the same initial state and conditional next-state kernels $P_t(\cdot\mid h)$ and $Q_t(\cdot\mid h)$. If
 \[
-\prod_{t=1}^B(1-\varepsilon_t).
+\sup_h \operatorname{TV}\!\left(P_t(\cdot\mid h),Q_t(\cdot\mid h)\right)\leq\varepsilon_t,
 \]
-The coupling characterization of total variation gives
+then
 \[
 \operatorname{TV}\!\left(\mathcal L(T_B),\mathcal L(T'_B)\right)
-\leq 1-\prod_{t=1}^B(1-\varepsilon_t).
+\leq 1-\prod_{t=1}^B(1-\varepsilon_t)
+\leq \min\!\left\{1,\sum_{t=1}^B\varepsilon_t\right\}.
 \]
-The union bound, equivalently $1-\prod_t(1-\varepsilon_t)\leq\sum_t\varepsilon_t$, yields the second inequality, capped by one.
+For any transcript cost whose range has width at most $M$, the absolute difference in expected cost is at most $M\min\{1,\sum_t\varepsilon_t\}$.
+\end{proposition}
 
-If $C$ has range contained in an interval of width $M$, translate and rescale it to a function $f\in[0,1]$. The variational characterization of total variation then gives
-\[
-\left|\mathbb E C(T_B)-\mathbb E C(T'_B)\right|
-\leq M\,\operatorname{TV}\!\left(\mathcal L(T_B),\mathcal L(T'_B)\right),
-\]
-which proves the cost bound. No independence between steps is assumed; the condition is uniform over the common history at which the coupled processes have not yet diverged.
+Couple the experiments sequentially. Conditional on equal histories through step $t-1$, apply a maximal coupling to the two next-state kernels. Their next states disagree with probability at most $\varepsilon_t$, so the complete histories remain equal with probability at least $\prod_t(1-\varepsilon_t)$. The coupling characterization of total variation gives the first inequality; the union bound gives the second. Translating and rescaling a width-$M$ cost to $[0,1]$ and applying the variational characterization gives the expectation bound. No independence between steps is assumed.
