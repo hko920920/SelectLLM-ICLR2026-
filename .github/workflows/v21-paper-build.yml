@@ -43,13 +43,16 @@ jobs:
           cp main.pdf main.log main.aux main.bbl ../v21_build/
           pdfinfo main.pdf > ../v21_build/pdfinfo.txt
           pdftotext -layout main.pdf ../v21_build/main.txt
-          marker=$(grep -o 'V21_MAIN_TEXT_LAST_PAGE=[0-9][0-9]*' main.log | tail -1 | cut -d= -f2)
-          test -n "$marker"
+          refs_start=$(grep -o 'V21_REFERENCES_START_PAGE=[0-9][0-9]*' main.log | tail -1 | cut -d= -f2)
+          test -n "$refs_start"
+          marker=$((refs_start - 1))
           printf '%s\n' "$marker" > ../v21_build/main_text_last_page.txt
+          printf '%s\n' "$refs_start" > ../v21_build/references_start_page.txt
           if [ "$marker" -gt 9 ]; then
             echo "Main text exceeds 9 pages: $marker" >&2
             exit 1
           fi
+          pdftotext -f "$refs_start" -l "$refs_start" main.pdf - | grep -qi 'References'
           if grep -E 'LaTeX Warning: (Reference|Citation).*undefined|There were undefined references' main.log; then
             echo 'Undefined reference or citation found' >&2
             exit 1
@@ -64,11 +67,13 @@ jobs:
           from pathlib import Path
           text = Path('../v21_build/main.txt').read_text(errors='replace')
           marker = int(Path('../v21_build/main_text_last_page.txt').read_text().strip())
+          refs_start = int(Path('../v21_build/references_start_page.txt').read_text().strip())
           required = [
               'candidate evidence frame',
               'fixed-query',
               'development-informed held-out confirmation',
               'practically large harm',
+              'prospective accounting',
           ]
           missing = [phrase for phrase in required if phrase.lower() not in text.lower()]
           if missing:
@@ -84,6 +89,8 @@ jobs:
           summary = {
               'decision': 'PASS_V21_CLEAN_BUILD',
               'main_text_last_page': marker,
+              'references_start_page': refs_start,
+              'page_boundary_measured_after_shipout': True,
               'undefined_references': False,
               'multiply_defined_labels': False,
               'required_claim_boundary_present': True,
