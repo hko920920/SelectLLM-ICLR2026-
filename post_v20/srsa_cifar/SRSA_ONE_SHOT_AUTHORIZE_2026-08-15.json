@@ -1,0 +1,26 @@
+{
+  "schema": "srsa.cifar.one_shot_authorization.v1",
+  "date": "2026-08-15",
+  "decision": "AUTHORIZE_SRSA_CIFAR_PROSPECTIVE_ONE_SHOT",
+  "branch": "research/srsa-cifar-audit",
+  "authorized_preoutcome_head": "be5bbdd7e438c8eae9f2a22a3c18ff668f759c70",
+  "family_id": "SRSA_CIFAR_V1",
+  "primary_task": "cifar100",
+  "replication_task": "cifar10",
+  "replication_is_non_substitutable": true,
+  "no_third_task": true,
+  "frozen_config_path": "post_v20/srsa_cifar/SRSA_CONFIG_2026-08-14.json",
+  "frozen_config_git_blob_sha": "a2238824e92482d76af9ba7dff99cb001b43e310",
+  "workflow_path": ".github/workflows/srsa-one-shot.yml",
+  "prior_stage0_run_id": 31792763410,
+  "preoutcome_static_validation_run_id": 31881134116,
+  "preoutcome_static_validation_decision": "success",
+  "information_boundary_at_authorization": {
+    "cifar_primary_outcome_opened": false,
+    "cifar_deployment_outcome_opened": false,
+    "stage4_result_exists": false,
+    "selector_outcome_executed": false
+  },
+  "scientific_settings_changed_at_authorization": false,
+  "authorized_action": "Execute the existing frozen Stage 0 lock, Stage 1 seal, eight label-free clean endpoints, Stage 2 closure, Stage 3 pre-outcome lock, and exactly one Stage 4 outcome opening. Preserve the literal GO, NO_GO, STOP, or INVALID decision without task, model, wrapper, canary rate, seed, selector, estimand, materiality, inference, or gate changes."
+}
