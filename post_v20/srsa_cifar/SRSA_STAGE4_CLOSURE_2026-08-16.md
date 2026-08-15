@@ -2,7 +2,7 @@
 
 **Decision:** `NO_GO_SRSA_PRIMARY`
 
-The cleaned same-run pipeline passed Stage 0, Stage 1, all eight real endpoint executions, Stage 2 closure, Stage 3 pre-outcome locking, and the corrected Stage 4 preflight. Sealed labels were then opened once and all frozen conditions were executed.
+The cleaned pipeline passed Stage 0, Stage 1, all eight real endpoint executions, Stage 2 closure, Stage 3 pre-outcome locking, and the corrected Stage 4 preflight. The first authorized path-only technical retry then opened the sealed labels and executed every frozen condition. A later unplanned duplicate execution reproduced the complete result and paired-run arrays bitwise; it is not used for inference or claim strengthening.
 
 ## Primary result
 
@@ -42,9 +42,14 @@ The protocol forbids a third task and forbids changing the wrapper rate, seed, s
 ## Authoritative provenance
 
 - Stage 0–3 source run: `31888204323`
-- Stage 4 continuation run: `31896042798`
+- **Authoritative first Stage 4 run:** `31895293285`
+- Authoritative artifact ID: `9249629903`
+- Authoritative artifact digest: `sha256:458eb623eb08090a44f24783d9a475c289095808561ceea92770811ea0ed5492`
 - Frozen scientific commit: `23dedb414875be0f9531d1bef0634ed546ffafdd`
-- Result artifact ID: `9249820403`
-- Artifact digest: `sha256:66860bdf1b05b6d237971193b995fe299acf67407443d52ab52fb7ce1389ab48`
 - Result canonical SHA-256: `879ad921090645464dc32ad39fc5154fa2c12cf8a6d363e1c5deff2eb92344be`
+- Result JSON file SHA-256: `62b186dc075d8c18aec121b66cf22621c5b7b934bd8c3d093e9678bd7bfa3db9`
 - Paired-run file SHA-256: `bfea462f0025dec3f276e4655caf9b0ad81049bd50f9c3701b45c01d4a12422a`
+
+## Duplicate-execution disclosure
+
+Run `31896042798` was an unplanned later duplicate caused by concurrent orchestration. Its result JSON and paired-run file are bitwise identical to the authoritative first run. It is retained only as a reproducibility duplicate. Globally, labels were opened by two jobs across the two executions; therefore a global single-opening claim must not be made. No further Stage 4 run is permitted.
