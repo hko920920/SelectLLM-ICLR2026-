@@ -1,0 +1,50 @@
+{
+  "schema": "srsa.cifar.stage4_technical_retry_authorization.v1",
+  "date": "2026-08-16",
+  "decision": "AUTHORIZE_EXACT_STAGE4_TECHNICAL_RETRY",
+  "source_run_id": 31888204323,
+  "source_head_sha": "23dedb414875be0f9531d1bef0634ed546ffafdd",
+  "failed_stage4_job_id": 95021097113,
+  "failure_classification": "PRE_OUTCOME_ARTIFACT_SUBDIRECTORY_PATH_MISMATCH",
+  "failure_detail": "The Stage 3 artifact was uploaded with the stage3_out/ directory prefix. The failed Stage 4 job checked stage3_preoutcome/SRSA_STAGE3_PREOUTCOME_LOCK.json instead of stage3_preoutcome/stage3_out/SRSA_STAGE3_PREOUTCOME_LOCK.json.",
+  "verified_source_state": {
+    "stage0": "PASS_SRSA_STAGE0_PUBLIC_METADATA",
+    "stage1": "PASS_SRSA_STAGE1_DATA_SEAL",
+    "all_eight_stage2_endpoints": "PASS",
+    "stage2_family": "PASS_SRSA_STAGE2_CLEAN_ENDPOINTS",
+    "stage3": "PASS_SRSA_STAGE3_PREOUTCOME",
+    "stage3_failed_gates": [],
+    "stage3_artifact_id": 9247893953,
+    "stage3_artifact_digest": "sha256:8dce0a1b198840b1bece5745611866145e80d259be2c961a483823fbb8deb7d4"
+  },
+  "information_boundary_after_failed_stage4_job": {
+    "preoutcome_artifacts_downloaded": true,
+    "sealed_label_artifact_downloaded": false,
+    "sealed_labels_accessed": false,
+    "labels_accessed": false,
+    "selector_executed": false,
+    "primary_outcome_opened": false,
+    "deployment_outcome_opened": false
+  },
+  "only_authorized_change": "Correct the Stage 3 artifact extraction path and execute Stage 4 from the exact immutable Stage 0-3 and endpoint artifacts of source run 31888204323.",
+  "unchanged": [
+    "primary task",
+    "replication task",
+    "data partitions",
+    "model roster",
+    "checkpoint bytes",
+    "structured wrapper",
+    "canary rate",
+    "selector",
+    "pool size",
+    "budget",
+    "temperature",
+    "seed range",
+    "estimands",
+    "materiality gates",
+    "bootstrap and sign-flip inference",
+    "multiplicity correction",
+    "no-third-task closure rule"
+  ],
+  "scientific_settings_changed": false
+}
