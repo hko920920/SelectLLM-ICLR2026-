@@ -1,0 +1,71 @@
+\section{Post-V20 Prospective Boundary Audits}
+\label{app:v21-postv20}
+
+The V20 manuscript ends with the held-out IMDB primary and the prospective Yelp near-miss. Subsequent studies were run to test the stronger condition of material, untouched-task, operationally admitted transfer. Their literal outcomes are retained; no failed gate is relaxed and no later task replaces an earlier primary.
+
+\begin{table}[H]
+\centering
+\caption{Post-V20 attempt register. ``Outcome opened'' refers only to the designated primary/deployment labels for that family.}
+\label{tab:v21-postv20-attempts}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\linewidth}{@{}p{.13\linewidth}p{.17\linewidth}p{.18\linewidth}p{.18\linewidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Family & Task/registry & Literal status & Outcome access & Decision-relevant reason \\
+\midrule
+Step 113 & BoolQ & \texttt{NO\_GO} & Opened under lock & Terminal effect $+3.962$ pp, but all four aliases exceed the frozen one-point quality cap \\
+Step 114 & Amazon Polarity & \texttt{STOP} & Never opened & Alias quality passes; designated parent ties a challenger under the frozen roster gate \\
+PRAA & Emotion + Language ID & \texttt{STOP} & Safety only & Emotion passes Stage 3; Language-ID thresholds fail trigger-rate and quality-transfer gates \\
+PRAA-E & Emotion continuation & \texttt{STOP} & Never opened & Two deployment heads trigger on 6/500 rows, one above the inherited full-block maximum \\
+SRSA-CIFAR & CIFAR-100 primary + CIFAR-10 replication & \texttt{NO\_GO\_SRSA\_PRIMARY} & Opened after Stage-3 PASS & Exact semantic utility and causal controls pass; terminal effects remain below $+.5$ pp \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Zero-utility-confound CIFAR audit}
+
+SRSA-CIFAR replaces learned abstention aliases with structured response refinements whose semantic class equals the parent on every row. The task suite, eight public checkpoints, four attacked roots per task, 5\% deterministic variant rate, pool size, budget, temperature, 3,000 paired seeds, fixed-query control, root-aware policy, inference, and $.5$-point materiality gates were frozen before outcome access. CIFAR-100 was the only decision-changing primary; CIFAR-10 could not replace it, and no third task was permitted.
+
+The clean pipeline passed public metadata binding, physical input/label separation, all eight label-free endpoint executions, endpoint-family closure, and a pre-outcome lock. The first Stage-4 job stopped before label download because the downloaded artifact retained one extra directory prefix. A path-only technical continuation used the exact frozen code and source artifacts. Only after the complete preflight passed did it download the sealed labels and execute every frozen condition.
+
+\begin{table}[H]
+\centering
+\caption{SRSA-CIFAR primary result. Harm is refined minus clean root regret in percentage points.}
+\label{tab:v21-srsa-cifar}
+\small
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Attacked CIFAR-100 root & Path change & Terminal harm & Simultaneous LCB & Holm $p$ \\
+\midrule
+ResNet20 & 95.00\% & $+.071$ & $+.011$ & $.00960$ \\
+VGG11-BN & 95.87\% & $+.181$ & $+.120$ & $4.0\times10^{-5}$ \\
+MobileNetV2-$0.5$ & 98.47\% & $-.144$ & $-.206$ & $1$ \\
+ShuffleNetV2-$0.5$ & 95.77\% & $+.134$ & $+.072$ & $4.0\times10^{-5}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For every root, active-minus-fixed equals the active terminal effect numerically, fixed-query terminal and cumulative effects are exactly zero, and authenticated root-aware histories are bitwise identical to clean histories. Nevertheless, no root reaches the frozen $+.5$-point terminal and active-minus-fixed materiality thresholds. CIFAR-10 is also negative under its non-substitutable role; its maximum terminal harm is $+.282$ points. The result therefore supports cross-modality transcript dependence and the root-aware remedy, while rejecting a practically material prospective success in this registry.
+
+The authoritative Stage-4 outcome was inadvertently executed a second time by a concurrently prepared continuation after the first valid run had already finished. The result JSON and complete paired-run arrays are bitwise identical across the two runs. The first run remains the only confirmatory analysis; the duplicate is retained as an execution incident and is not used for inference or claim strengthening. Consequently, we do not claim that the seal was globally opened in only one job across all infrastructure attempts.
+
+\section{Proof of Approximate Transcript Stability}
+\label{app:v21-stability}
+
+We prove Proposition~\ref{prop:approximate-stability}. Couple the two experiments sequentially. They begin with the same empty history. Conditional on the coupled histories remaining equal through step $t-1$, apply a maximal coupling to $P_t(\cdot\mid h)$ and $Q_t(\cdot\mid h)$. The probability that the next states disagree is at most $\varepsilon_t$. Therefore the probability that the complete histories remain equal through all $B$ steps is at least
+\[
+\prod_{t=1}^B(1-\varepsilon_t).
+\]
+The coupling characterization of total variation gives
+\[
+\operatorname{TV}\!\left(\mathcal L(T_B),\mathcal L(T'_B)\right)
+\leq 1-\prod_{t=1}^B(1-\varepsilon_t).
+\]
+The union bound, equivalently $1-\prod_t(1-\varepsilon_t)\leq\sum_t\varepsilon_t$, yields the second inequality, capped by one.
+
+If $C$ has range contained in an interval of width $M$, translate and rescale it to a function $f\in[0,1]$. The variational characterization of total variation then gives
+\[
+\left|\mathbb E C(T_B)-\mathbb E C(T'_B)\right|
+\leq M\,\operatorname{TV}\!\left(\mathcal L(T_B),\mathcal L(T'_B)\right),
+\]
+which proves the cost bound. No independence between steps is assumed; the condition is uniform over the common history at which the coupled processes have not yet diverged.
