@@ -1,0 +1,96 @@
+{
+  "schema": "srsa.cifar.stage4_result_summary.v1",
+  "date": "2026-08-16",
+  "literal_decision": "NO_GO_SRSA_PRIMARY",
+  "source": {
+    "source_run_id": 31888204323,
+    "source_head_sha": "23dedb414875be0f9531d1bef0634ed546ffafdd",
+    "stage4_technical_retry_run_id": 31895293285,
+    "stage4_job_id": 95037579202,
+    "artifact_id": 9249629903,
+    "artifact_name": "srsa-stage4-result-technical-retry",
+    "artifact_digest": "sha256:458eb623eb08090a44f24783d9a475c289095808561ceea92770811ea0ed5492",
+    "result_declared_sha256": "879ad921090645464dc32ad39fc5154fa2c12cf8a6d363e1c5deff2eb92344be",
+    "result_file_sha256": "62b186dc075d8c18aec121b66cf22621c5b7b934bd8c3d093e9678bd7bfa3db9",
+    "paired_runs_file_sha256": "bfea462f0025dec3f276e4655caf9b0ad81049bd50f9c3701b45c01d4a12422a"
+  },
+  "execution": {
+    "stage0": "PASS_SRSA_STAGE0_PUBLIC_METADATA",
+    "stage1": "PASS_SRSA_STAGE1_DATA_SEAL",
+    "stage2_endpoints_passed": 8,
+    "stage2_family": "PASS_SRSA_STAGE2_CLEAN_ENDPOINTS",
+    "stage3": "PASS_SRSA_STAGE3_PREOUTCOME",
+    "stage4_job_conclusion": "success",
+    "sealed_labels_opened_once": true,
+    "all_four_roots_executed_on_both_tasks": true,
+    "third_task_introduced": false
+  },
+  "cifar100_primary": {
+    "decision": "NO_GO_SRSA_PRIMARY",
+    "passing_roots": [],
+    "adversarial_root": "cifar100_vgg11_bn",
+    "maximum_terminal_harm_mean": 0.0018058333333333312,
+    "maximum_terminal_harm_percentage_points": 0.18058333333333312,
+    "required_terminal_harm_mean": 0.005,
+    "roots": {
+      "cifar100_resnet20": {
+        "path_change_rate": 0.95,
+        "terminal_harm_percentage_points": 0.07122222222222171,
+        "active_minus_fixed_percentage_points": 0.07122222222222171,
+        "fixed_query_effect_exactly_zero": true,
+        "root_aware_effect_exactly_zero": true,
+        "failed_gates": [
+          "terminal_harm_at_least_half_point",
+          "active_minus_fixed_at_least_half_point"
+        ]
+      },
+      "cifar100_vgg11_bn": {
+        "path_change_rate": 0.9586666666666667,
+        "terminal_harm_percentage_points": 0.18058333333333312,
+        "active_minus_fixed_percentage_points": 0.18058333333333312,
+        "terminal_bonferroni_lower": 0.0012042680555555535,
+        "holm_adjusted_one_sided_p": 0.00003999960000399996,
+        "cumulative_harm_percentage_points": 0.470238888888889,
+        "fixed_query_effect_exactly_zero": true,
+        "root_aware_effect_exactly_zero": true,
+        "failed_gates": [
+          "terminal_harm_at_least_half_point",
+          "active_minus_fixed_at_least_half_point"
+        ]
+      },
+      "cifar100_mobilenetv2_x0_5": {
+        "path_change_rate": 0.9846666666666667,
+        "terminal_harm_percentage_points": -0.14384444444444472,
+        "active_minus_fixed_percentage_points": -0.14384444444444472,
+        "fixed_query_effect_exactly_zero": true,
+        "root_aware_effect_exactly_zero": true,
+        "failed_gates": [
+          "terminal_harm_at_least_half_point",
+          "active_minus_fixed_at_least_half_point",
+          "terminal_simultaneous_lower_above_zero",
+          "holm_adjusted_signflip_at_most_005",
+          "cumulative_mean_above_zero",
+          "cumulative_simultaneous_lower_above_zero"
+        ]
+      },
+      "cifar100_shufflenetv2_x0_5": {
+        "path_change_rate": 0.9576666666666667,
+        "terminal_harm_percentage_points": 0.1341555555555555,
+        "active_minus_fixed_percentage_points": 0.1341555555555555,
+        "fixed_query_effect_exactly_zero": true,
+        "root_aware_effect_exactly_zero": true,
+        "failed_gates": [
+          "terminal_harm_at_least_half_point",
+          "active_minus_fixed_at_least_half_point"
+        ]
+      }
+    }
+  },
+  "cifar10_replication": {
+    "decision": "NEGATIVE_SRSA_REPLICATION",
+    "passing_roots": [],
+    "maximum_terminal_harm_percentage_points": 0.2823611111111133,
+    "replication_cannot_rescue_primary": true
+  },
+  "interpretation": "The structured refinements changed acquisition paths for roughly 95-98 percent of paired runs and preserved exact fixed-query and authenticated-root controls. Several effects were positive and statistically separated from zero, but no frozen CIFAR-100 root reached the preregistered +0.5 percentage-point terminal and active-minus-fixed materiality gates. The prospective primary is therefore a literal NO-GO."
+}
