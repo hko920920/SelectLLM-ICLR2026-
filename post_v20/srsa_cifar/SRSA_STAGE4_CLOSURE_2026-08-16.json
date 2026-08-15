@@ -1,21 +1,36 @@
 {
-  "schema": "srsa.cifar.stage4_closure.v1",
+  "schema": "srsa.cifar.stage4_closure.v2",
   "date_kst": "2026-08-16",
   "decision": "NO_GO_SRSA_PRIMARY",
   "source_run": {
     "stage0_to_stage3_run_id": 31888204323,
-    "stage4_continuation_run_id": 31896042798,
-    "frozen_scientific_head": "23dedb414875be0f9531d1bef0634ed546ffafdd",
-    "authorization_head": "25924a0f8c45ff7e722f12ab36fbd1f3b785ad07"
+    "authoritative_first_stage4_run_id": 31895293285,
+    "authoritative_first_stage4_job_id": 95037579202,
+    "authoritative_first_stage4_head": "0c5a9e878dae2ff2caed2fc6066eeb4111829c27",
+    "unplanned_duplicate_stage4_run_id": 31896042798,
+    "unplanned_duplicate_stage4_job_id": 95039399217,
+    "unplanned_duplicate_stage4_head": "25924a0f8c45ff7e722f12ab36fbd1f3b785ad07",
+    "frozen_scientific_head": "23dedb414875be0f9531d1bef0634ed546ffafdd"
   },
-  "artifact": {
+  "authoritative_artifact": {
+    "id": 9249629903,
+    "name": "srsa-stage4-result-technical-retry",
+    "archive_digest": "sha256:458eb623eb08090a44f24783d9a475c289095808561ceea92770811ea0ed5492",
+    "result_file_sha256": "62b186dc075d8c18aec121b66cf22621c5b7b934bd8c3d093e9678bd7bfa3db9",
+    "result_canonical_sha256": "879ad921090645464dc32ad39fc5154fa2c12cf8a6d363e1c5deff2eb92344be",
+    "paired_runs_sha256": "bfea462f0025dec3f276e4655caf9b0ad81049bd50f9c3701b45c01d4a12422a",
+    "paired_runs_bytes": 555161
+  },
+  "duplicate_artifact": {
     "id": 9249820403,
     "name": "srsa-stage4-result",
     "archive_digest": "sha256:66860bdf1b05b6d237971193b995fe299acf67407443d52ab52fb7ce1389ab48",
     "result_file_sha256": "62b186dc075d8c18aec121b66cf22621c5b7b934bd8c3d093e9678bd7bfa3db9",
     "result_canonical_sha256": "879ad921090645464dc32ad39fc5154fa2c12cf8a6d363e1c5deff2eb92344be",
     "paired_runs_sha256": "bfea462f0025dec3f276e4655caf9b0ad81049bd50f9c3701b45c01d4a12422a",
-    "paired_runs_bytes": 555161
+    "result_json_semantically_equal_to_authoritative": true,
+    "paired_runs_bitwise_equal_to_authoritative": true,
+    "used_for_inference_or_claim_strengthening": false
   },
   "primary": {
     "task": "cifar100",
@@ -105,20 +120,25 @@
     "terminal_harm_min": 0.005,
     "active_minus_fixed_terminal_harm_min": 0.005
   },
-  "information_boundary": {
-    "stage3_lock_verified_before_label_read": true,
-    "sealed_labels_opened": true,
-    "label_opening_jobs": 1,
+  "global_information_boundary": {
+    "stage3_lock_verified_before_first_label_read": true,
+    "authoritative_first_label_opening_jobs": 1,
+    "later_duplicate_label_opening_jobs": 1,
+    "total_label_opening_jobs_after_incident": 2,
     "primary_outcome_opened": true,
     "deployment_outcome_opened": true,
     "all_four_roots_executed_and_reported": true,
-    "third_task_introduced": false
+    "third_task_introduced": false,
+    "settings_changed_between_executions": false
   },
   "closure": {
+    "authoritative_outcome_run": 31895293285,
+    "duplicate_run_is_reproducibility_only": true,
     "replication_cannot_rescue_primary": true,
     "no_third_task": true,
     "threshold_seed_selector_or_materiality_retuning_prohibited": true,
-    "prospective_task_search_terminated": true
+    "prospective_task_search_terminated": true,
+    "further_stage4_execution_prohibited": true
   },
-  "interpretation": "The mechanism transferred strongly in path change, mediation controls, statistical direction, and exact root-aware invariance, but no frozen root attack reached the prespecified +0.5 percentage-point terminal and active-minus-fixed materiality gates. The literal decision is NO_GO."
+  "interpretation": "The mechanism transferred strongly in path change, mediation controls, statistical direction, and exact root-aware invariance, but no frozen root attack reached the prespecified +0.5 percentage-point terminal and active-minus-fixed materiality gates. The first valid execution is authoritative. A later unplanned exact duplicate reproduced the result bitwise and does not change the literal NO-GO decision."
 }
