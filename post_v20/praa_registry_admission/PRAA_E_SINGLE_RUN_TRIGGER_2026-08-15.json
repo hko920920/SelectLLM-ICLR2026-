@@ -1,0 +1,14 @@
+{
+  "schema": "praa-e.single_run_trigger.v1",
+  "date": "2026-08-15",
+  "decision": "RUN_EXACT_CHUNK_VERIFIED_PRAA_E",
+  "clean_base_commit": "81033edcc1a3be30235da49a7d9dd1842941321c",
+  "package_base64_bytes": 34336,
+  "package_base64_sha256": "4c1975b7c5ed034ccc7c2f49109e8c90ff0625adbdb1b57d9bff423ba2a6adec",
+  "decoded_package_sha256": "ca31de6c6d8778be516e01aa19f831410a3175d827a73da5482db3c8ec27c6c7",
+  "runner_base64_bytes": 9228,
+  "runner_base64_sha256": "5fbdb4c27e678d2d3a32fc0f7ef0d9c3c688b794a9f1be7ae22e239d339b82dc",
+  "decoded_runner_sha256": "23a47d414feb7a58317be2a539cd214b76e8fc140462c12e313366ea8da68420",
+  "scientific_settings_changed": false,
+  "labels_accessed_before_preoutcome_pass": false
+}

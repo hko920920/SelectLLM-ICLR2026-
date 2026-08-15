@@ -1,0 +1,21 @@
+{
+  "schema": "praa-e.transport_technical_amendment.v2",
+  "date": "2026-08-15",
+  "classification": "TRANSPORT_ONLY_NO_SCIENTIFIC_CHANGE",
+  "failed_transport_runs": [31808898320, 31809151345, 31873139035],
+  "preserved_history_branches": [
+    "recovery/praa-e-transport-failures-20260815",
+    "recovery/praa-e-lfs-zip-failure-20260815"
+  ],
+  "root_causes": [
+    "shallow checkout omitted the frozen base commit needed for ancestry verification",
+    "manual base64 transport produced a nonmatching reconstructed ZIP",
+    "repository Git LFS rules transformed a directly committed .zip path into a checkout pointer mismatch"
+  ],
+  "replacement": "Store the exact package and executor as ordinary-text base64 chunks, verify every aggregate byte count and SHA-256, decode only on the runner, and verify the decoded package and executor before any artifact, model, or label access.",
+  "scientific_code_changed": false,
+  "task_or_model_changed": false,
+  "threshold_or_gate_changed": false,
+  "seed_or_estimand_changed": false,
+  "label_boundary_changed": false
+}

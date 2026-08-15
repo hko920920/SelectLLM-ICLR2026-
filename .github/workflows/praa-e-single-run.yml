@@ -1,0 +1,44 @@
+name: PRAA-E exact single-run execution
+
+on:
+  push:
+    branches: [research/praa-admission-audit]
+    paths:
+      - "post_v20/praa_registry_admission/PRAA_E_SINGLE_RUN_TRIGGER_2026-08-15.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: praa-e-sealed-remainder
+  cancel-in-progress: false
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Reconstruct and run verified PRAA-E executor
+        run: |
+          mkdir -p praa_e_execution
+          cat post_v20/praa_registry_admission/praa_e_single_runner.b64.part* > /tmp/praa_e_single_runner.b64
+          test "$(wc -c < /tmp/praa_e_single_runner.b64)" = "9228"
+          echo "5fbdb4c27e678d2d3a32fc0f7ef0d9c3c688b794a9f1be7ae22e239d339b82dc  /tmp/praa_e_single_runner.b64" | sha256sum -c -
+          base64 --decode /tmp/praa_e_single_runner.b64 > /tmp/praa_e_single_runner.sh
+          echo "23a47d414feb7a58317be2a539cd214b76e8fc140462c12e313366ea8da68420  /tmp/praa_e_single_runner.sh" | sha256sum -c -
+          bash /tmp/praa_e_single_runner.sh 2>&1 | tee praa_e_execution/run.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: praa-e-single-run-execution
+          path: praa_e_execution/
+          if-no-files-found: error
+          retention-days: 90
