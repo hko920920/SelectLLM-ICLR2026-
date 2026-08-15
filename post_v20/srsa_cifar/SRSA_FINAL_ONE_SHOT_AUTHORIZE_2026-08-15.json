@@ -5,8 +5,7 @@
   "branch": "research/srsa-final-clean",
   "source_commit": "be5bbdd7e438c8eae9f2a22a3c18ff668f759c70",
   "workflow_path": ".github/workflows/srsa-one-shot.yml",
-  "workflow_sha256": "afbff4322b060496663000551b530cbda63729ecd7dd0bf3abda8609fc8e0bdd",
-  "workflow_git_blob_sha": "24524eea65c7c7735b17a7424981cda182aa3a10",
+  "workflow_git_blob_sha": "9dd0d069ecaec4253e79651f050198ae33e176aa",
   "stage0_binding_sha256": "77b845cbfe3f999730685f63609f3cf4c345d73bd73074516ea216caea485ead",
   "original_stage0_receipt_sha256": "739d9ae1f2666b6e1525f9ef7792041dcee8629d2b63cc992bb16797919e5936",
   "prior_technical_failures": [
@@ -25,11 +24,30 @@
       "labels_accessed": false,
       "model_inference_executed": false,
       "selector_executed": false
+    },
+    {
+      "run_id": 31885601221,
+      "job_id": 95014339660,
+      "boundary": "Final-branch preflight test-path failure before Stage 0",
+      "failure": "The four frozen tests were invoked from the repository root instead of post_v20/srsa_cifar/.",
+      "dataset_archive_downloaded_by_final_run": false,
+      "dataset_rows_decoded": false,
+      "labels_accessed": false,
+      "model_checkpoint_downloaded_by_final_run": false,
+      "model_inference_executed": false,
+      "selector_executed": false,
+      "outcome_opened": false
     }
   ],
+  "technical_retry": {
+    "attempt": 2,
+    "amendment": "post_v20/srsa_cifar/SRSA_FINAL_TECHNICAL_AMENDMENT_A_2026-08-15.json",
+    "only_change": "Run the same four frozen tests from post_v20/srsa_cifar and bind the workflow by Git blob SHA.",
+    "scientific_settings_changed": false
+  },
   "clean_execution_properties": {
-    "one_workflow": true,
-    "one_actions_run": true,
+    "one_active_workflow": true,
+    "single_final_run_after_pre_data_technical_retry": true,
     "cross_run_artifact_import": false,
     "actions_side_git_commit_or_push": false,
     "workflow_self_modification": false,
