@@ -1,0 +1,71 @@
+name: V21 public OpenReview audit
+
+on:
+  push:
+    branches: [paper/v21-calibrated]
+    paths:
+      - "docs/v21/OPENREVIEW_AUDIT_TRIGGER.json"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Fetch public submission threads by exact title
+        run: |
+          python - <<'PY'
+          import json, urllib.parse, urllib.request
+          from pathlib import Path
+
+          titles = [
+            "Clone-Robust AI Alignment",
+            "Dropping Just a Handful of Preferences Can Change Top Large Language Model Rankings",
+            "How Reliable is Language Model Micro-Benchmarking?",
+            "The Leaderboard Illusion",
+            "All Models Are Wrong, Some Are Useful: Model Selection with Limited Labels",
+            "Strategic Candidacy in Generative AI Arenas",
+            "Active Evaluation of General Agents: Problem Definition and Comparison of Baseline Algorithms",
+          ]
+          out = Path("openreview_audit")
+          out.mkdir()
+          index = {"records": {}, "failures": {}}
+
+          def get(url):
+            req = urllib.request.Request(url, headers={"User-Agent": "SelectLLM-V21-audit"})
+            with urllib.request.urlopen(req, timeout=60) as r:
+              return json.loads(r.read().decode())
+
+          def val(x):
+            return x.get("value") if isinstance(x, dict) and "value" in x else x
+
+          for title in titles:
+            try:
+              query = urllib.parse.urlencode({"content.title": title, "limit": 1000})
+              payload = get("https://api2.openreview.net/notes?" + query)
+              matches = [n for n in payload.get("notes", []) if str(val(n.get("content", {}).get("title", ""))).strip() == title]
+              if not matches:
+                raise RuntimeError("no exact title match")
+              submission = sorted(matches, key=lambda n: int(n.get("pdate") or n.get("cdate") or 0), reverse=True)[0]
+              forum = submission["id"]
+              notes = get("https://api2.openreview.net/notes?" + urllib.parse.urlencode({"forum": forum, "limit": 1000})).get("notes", [])
+              slug = "".join(c.lower() if c.isalnum() else "-" for c in title).strip("-")[:100]
+              (out / f"{slug}.json").write_text(json.dumps({"submission": submission, "notes": notes}, indent=2, ensure_ascii=False) + "\n")
+              index["records"][title] = {"forum": forum, "notes": len(notes), "file": f"{slug}.json"}
+            except Exception as e:
+              index["failures"][title] = f"{type(e).__name__}: {e}"
+          (out / "index.json").write_text(json.dumps(index, indent=2, ensure_ascii=False) + "\n")
+          print(json.dumps(index, indent=2, ensure_ascii=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v21-openreview-audit
+          path: openreview_audit/
+          if-no-files-found: error
+          retention-days: 30
