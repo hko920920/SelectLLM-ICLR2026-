@@ -1,8 +1,9 @@
 {
   "schema": "selectllm.v21.build.trigger.v1",
   "date_kst": "2026-08-16",
-  "attempt": 6,
+  "attempt": 7,
   "required_main_text_pages_max": 9,
-  "main_text_addition": "compact prospective accounting paragraph; no new experiment or promoted result",
+  "layout_fix": "compressed prospective accounting so conclusion fits before references",
+  "page_audit_fix": "main length is now references-start-page minus one after page shipout",
   "experiments_frozen": true
 }
