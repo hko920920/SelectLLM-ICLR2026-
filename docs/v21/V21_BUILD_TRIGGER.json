@@ -1,8 +1,8 @@
 {
   "schema": "selectllm.v21.build.trigger.v1",
   "date_kst": "2026-08-16",
-  "attempt": 3,
+  "attempt": 4,
   "required_main_text_pages_max": 9,
-  "compression": "main text now 9 pages; removed the final stale table reference",
+  "audit_fix": "overclaim detector now distinguishes explicit non-claims from positive universal claims",
   "experiments_frozen": true
 }
