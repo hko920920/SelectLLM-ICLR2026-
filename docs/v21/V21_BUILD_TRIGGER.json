@@ -1,9 +1,8 @@
 {
   "schema": "selectllm.v21.build.trigger.v1",
   "date_kst": "2026-08-16",
-  "attempt": 5,
+  "attempt": 6,
   "required_main_text_pages_max": 9,
-  "layout_fix": "removed forced page break before Results after visual PDF inspection",
-  "overclaim_audit_fixed": true,
+  "main_text_addition": "compact prospective accounting paragraph; no new experiment or promoted result",
   "experiments_frozen": true
 }
