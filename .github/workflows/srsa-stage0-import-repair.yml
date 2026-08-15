@@ -1,0 +1,139 @@
+name: SRSA outcome-blind Stage 0 import repair
+
+on:
+  push:
+    branches:
+      - research/srsa-cifar-audit
+    paths:
+      - "post_v20/srsa_cifar/SRSA_STAGE0_IMPORT_REPAIR_AUTHORIZE_2026-08-15.json"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: srsa-stage0-import-repair
+  cancel-in-progress: false
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/srsa-cifar-audit
+          fetch-depth: 0
+          lfs: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Replace brittle gh artifact import without changing science
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          workflow_path = Path('.github/workflows/srsa-one-shot.yml')
+          text = workflow_path.read_text(encoding='utf-8')
+          old = '''      - name: Import the exact successful Stage 0 receipt
+        run: |
+          set -euo pipefail
+          gh run download 31792763410 \\
+            --repo "${GITHUB_REPOSITORY}" \\
+            --name srsa-stage0-public-metadata-receipt \\
+            --dir prior_stage0
+          test -f prior_stage0/SRSA_STAGE0_PUBLIC_METADATA_RECEIPT.json
+'''
+          new = '''      - name: Download the exact successful Stage 0 receipt
+        uses: actions/download-artifact@v4
+        with:
+          name: srsa-stage0-public-metadata-receipt
+          path: prior_stage0
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: 31792763410
+
+      - name: Import the exact successful Stage 0 receipt
+        run: |
+          set -euo pipefail
+          test -f prior_stage0/SRSA_STAGE0_PUBLIC_METADATA_RECEIPT.json
+'''
+          if old not in text:
+              raise SystemExit('expected Stage 0 import block not found exactly')
+          text = text.replace(old, new, 1)
+          workflow_path.write_text(text, encoding='utf-8')
+
+          auth_path = Path('post_v20/srsa_cifar/SRSA_ONE_SHOT_AUTHORIZE_2026-08-15.json')
+          auth = json.loads(auth_path.read_text(encoding='utf-8'))
+          auth['technical_retry'] = {
+              'attempt': 2,
+              'prior_failed_run_id': 31883803117,
+              'prior_failed_job_id': 95009984533,
+              'failure_stage': 'Stage 0 artifact transport before artifact materialization',
+              'artifact_confirmed_present_and_unexpired': True,
+              'artifact_id': 9217245752,
+              'artifact_digest': 'sha256:cc1215e8172002085a607819cc6787b5dfc6ab669261a8e13d3b0703921866a0',
+              'repair': 'Replace gh run download with actions/download-artifact@v4 using the same frozen run, artifact, repository, and token.',
+              'any_dataset_row_decoded': False,
+              'any_label_accessed': False,
+              'any_model_inference_executed': False,
+              'any_selector_outcome_executed': False,
+              'scientific_settings_changed': False
+          }
+          auth_path.write_text(json.dumps(auth, indent=2) + '\n', encoding='utf-8')
+
+          amendment = {
+              'schema': 'srsa.cifar.technical_amendment.v1',
+              'date': '2026-08-15',
+              'amendment': 'A',
+              'decision': 'AUTHORIZE_EXACT_TECHNICAL_RERUN_AFTER_PRE_DATA_ARTIFACT_IMPORT_FAILURE',
+              'failed_run_id': 31883803117,
+              'failed_job_id': 95009984533,
+              'information_boundary': {
+                  'stage0_artifact_materialized': False,
+                  'dataset_rows_decoded': False,
+                  'labels_accessed': False,
+                  'model_inference_executed': False,
+                  'selector_executed': False,
+                  'outcome_opened': False
+              },
+              'only_change': 'Artifact transport implementation: GitHub CLI download to official actions/download-artifact action.',
+              'unchanged': [
+                  'task', 'data', 'models', 'checkpoints', 'wrapper', 'canary rate',
+                  'selector', 'pool size', 'budget', 'temperature', 'seeds',
+                  'estimands', 'materiality gates', 'inference', 'closure rules'
+              ]
+          }
+          Path('post_v20/srsa_cifar/SRSA_ONE_SHOT_TECHNICAL_AMENDMENT_A_2026-08-15.json').write_text(
+              json.dumps(amendment, indent=2) + '\n', encoding='utf-8'
+          )
+          PY
+
+      - name: Validate repaired YAML and authorization
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check PyYAML==6.0.2
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import yaml
+          workflow = yaml.safe_load(Path('.github/workflows/srsa-one-shot.yml').read_text(encoding='utf-8'))
+          assert isinstance(workflow, dict) and 'jobs' in workflow
+          auth = json.loads(Path('post_v20/srsa_cifar/SRSA_ONE_SHOT_AUTHORIZE_2026-08-15.json').read_text(encoding='utf-8'))
+          assert auth['technical_retry']['attempt'] == 2
+          assert auth['technical_retry']['scientific_settings_changed'] is False
+          PY
+
+      - name: Commit the exact repair and retrigger the one-shot
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add \
+            .github/workflows/srsa-one-shot.yml \
+            post_v20/srsa_cifar/SRSA_ONE_SHOT_AUTHORIZE_2026-08-15.json \
+            post_v20/srsa_cifar/SRSA_ONE_SHOT_TECHNICAL_AMENDMENT_A_2026-08-15.json
+          git commit -m "Repair SRSA Stage 0 artifact import before data access"
+          git push origin HEAD:research/srsa-cifar-audit
