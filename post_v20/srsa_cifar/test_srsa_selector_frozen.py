@@ -84,11 +84,20 @@ def reference_active(
     return queries, roots, terminal, cumulative, posterior_roots
 
 
-def test_vectorized_budget_two_matches_literal_reference():
+def assert_vectorized_matches_literal(
+    *,
+    attack_root: int,
+    seed_start: int,
+) -> None:
     predictions, references, image_keys, root_ids, root_digests = synthetic_fixture(500)
     clean = core.clean_registry(predictions, root_ids)
-    refined = core.structured_refinement(clean, image_keys, 2, root_ids)
-    seeds = tuple(range(9010, 9070))
+    refined = core.structured_refinement(
+        clean,
+        image_keys,
+        attack_root,
+        root_ids,
+    )
+    seeds = tuple(range(seed_start, seed_start + 60))
     pools = core.sample_pools(len(references), seeds, 200)
     expected = reference_active(
         refined,
@@ -109,13 +118,21 @@ def test_vectorized_budget_two_matches_literal_reference():
         root_digests,
         budget=2,
         temperature=0.05,
-        attack_root=2,
+        attack_root=attack_root,
     )
     assert np.array_equal(observed.queries, expected[0])
     assert np.array_equal(observed.roots, expected[1])
     assert np.array_equal(observed.terminal, expected[2])
     assert np.array_equal(observed.cumulative, expected[3])
     assert np.array_equal(observed.posterior_roots, expected[4])
+
+
+def test_vectorized_budget_two_matches_literal_reference():
+    assert_vectorized_matches_literal(attack_root=2, seed_start=9010)
+
+
+def test_vectorized_budget_two_matches_prior_numeric_tie_case():
+    assert_vectorized_matches_literal(attack_root=1, seed_start=8100)
 
 
 def test_fixed_query_structured_effect_is_exactly_zero():
