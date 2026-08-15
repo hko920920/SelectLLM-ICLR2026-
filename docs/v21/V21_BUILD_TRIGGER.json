@@ -1,9 +1,8 @@
 {
   "schema": "selectllm.v21.build.trigger.v1",
   "date_kst": "2026-08-16",
-  "attempt": 7,
+  "attempt": 8,
   "required_main_text_pages_max": 9,
-  "layout_fix": "compressed prospective accounting so conclusion fits before references",
-  "page_audit_fix": "main length is now references-start-page minus one after page shipout",
+  "finalization": "V21 reproducibility statement now includes the post-V20 delta; shipped-page audit retained",
   "experiments_frozen": true
 }
