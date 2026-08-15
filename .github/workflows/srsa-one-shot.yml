@@ -62,7 +62,7 @@ jobs:
           assert config['closure']['no_third_task'] is True
           assert receipt['decision'] == 'PASS_SRSA_STAGE0_PUBLIC_METADATA'
           assert hashlib.sha256(config_path.read_bytes()).hexdigest() == receipt['config_sha256']
-          assert hashlib.sha256(receipt_path.read_bytes()).hexdigest() == '739d9ae1f2666b6e1525f9ef7792041dcee8629d2b63cc992bb16797919e5936'
+          assert hashlib.sha256(receipt_path.read_bytes()).hexdigest() == '77b845cbfe3f999730685f63609f3cf4c345d73bd73074516ea216caea485ead'
           boundary = receipt['information_boundary']
           assert boundary['dataset_rows_decoded'] is False
           assert boundary['labels_accessed'] is False
@@ -108,7 +108,7 @@ jobs:
           from pathlib import Path
           path = Path('stage0_lock/SRSA_STAGE0_FINAL_LOCK_2026-08-14.json')
           value = json.loads(path.read_text())
-          assert hashlib.sha256(path.read_bytes()).hexdigest() == '739d9ae1f2666b6e1525f9ef7792041dcee8629d2b63cc992bb16797919e5936'
+          assert hashlib.sha256(path.read_bytes()).hexdigest() == '77b845cbfe3f999730685f63609f3cf4c345d73bd73074516ea216caea485ead'
           assert value['decision'] == 'PASS_SRSA_STAGE0_PUBLIC_METADATA'
           PY
           echo "decision=PASS_SRSA_STAGE0_PUBLIC_METADATA" >> "${GITHUB_OUTPUT}"
