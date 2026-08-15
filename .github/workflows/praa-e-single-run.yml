@@ -1,11 +1,12 @@
-name: PRAA-E exact single-run execution
+name: PRAA-E exact single-run execution (CLOSED)
 
+# PRAA-E reached a literal pre-outcome STOP in run 31874202961.
+# This workflow remains only as an immutable execution record and must not be rerun.
 on:
   push:
     branches: [research/praa-admission-audit]
     paths:
       - "post_v20/praa_registry_admission/PRAA_E_SINGLE_RUN_TRIGGER_2026-08-15.json"
-  workflow_dispatch:
 
 permissions:
   contents: read
@@ -28,6 +29,7 @@ jobs:
         with: {python-version: "3.11"}
       - name: Reconstruct and run verified PRAA-E executor
         run: |
+          set -o pipefail
           mkdir -p praa_e_execution
           cat post_v20/praa_registry_admission/praa_e_single_runner.b64.part* > /tmp/praa_e_single_runner.b64
           test "$(wc -c < /tmp/praa_e_single_runner.b64)" = "9228"
